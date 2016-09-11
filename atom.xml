@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-09-11T12:54:42.000Z</updated>
+  <updated>2016-09-11T13:09:23.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL笔记：安装与配置（MacOS）</title>
+    <link href="https://lix90.github.io/2016/09/11/mysql-config/"/>
+    <id>https://lix90.github.io/2016/09/11/mysql-config/</id>
+    <published>2016-09-11T12:59:58.000Z</published>
+    <updated>2016-09-11T13:09:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
+<h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><ol>
+<li>mysql-*.pkg：MySql的主要程序包</li>
+<li>MySQL_StartupItem.pkg：MySql的启动项</li>
+<li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
+</ol>
+<h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
+<p>数据库访问密码的设置</p>
+<blockquote>
+<p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
+</blockquote>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/macro-cheng/archive/2011/10/25/mysql-001.html" target="_blank" rel="external">MAC下安装与配置MySQL</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;下载-MySQL&quot;&gt;&lt;a href=&quot;#下载-MySQL&quot; class=&quot;headerlink&quot; title=&quot;下载 MySQL&quot;&gt;&lt;/a&gt;下载 MySQL&lt;/h1&gt;&lt;p&gt;从&lt;a href=&quot;http://www.mysql.com/downloads/&quot; tar
+    
+    </summary>
+    
+      <category term="MySQL" scheme="https://lix90.github.io/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://lix90.github.io/tags/MySQL/"/>
+    
+      <category term="数据库" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="关系型数据库" scheme="https://lix90.github.io/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库系统笔记：数据冗余</title>
