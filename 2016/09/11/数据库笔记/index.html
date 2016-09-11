@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Xiang Li"><meta name="description" content="数据冗余什么是数据冗余？数据冗余是指同一个数据在系统中多次重复出现。数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便保持数据的一致性。Q:数据冗余会造成什么影响和后果？"><meta name="keywords" content="数据库系统,数据冗余"><title>数据库系统笔记：数据冗余 · I'm Lix!</title><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://lix90.github.io/2016/09/11/数据库笔记/"><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><link rel="stylesheet" href="/css/style.css"><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-83416766-1', 'auto');
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">I'm Lix!</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives" target="_self">Archives</a></li><li class="nav-link"><a href="/resume" target="_self">Resume</a></li><li class="nav-link"><a href="/about" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">数据库系统笔记：数据冗余</h1><span class="post-time">Sep 11, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Contents</h3><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据冗余"><span class="toc-text">数据冗余</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是数据冗余？"><span class="toc-text">什么是数据冗余？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据冗余的类型"><span class="toc-text">数据冗余的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么时候增加数据冗余？"><span class="toc-text">什么时候增加数据冗余？</span></a></li></ol></li></ol></div><div class="post-content"><h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
+<p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
+<p>Q: 数据冗余会造成什么影响和后果？</p>
+<a id="more"></a>
+<h2 id="数据冗余的类型"><a href="#数据冗余的类型" class="headerlink" title="数据冗余的类型"></a>数据冗余的类型</h2><ul>
+<li>空间冗余</li>
+<li>时间冗余</li>
+<li>结构冗余</li>
+<li>知识冗余</li>
+<li>视觉冗余</li>
+<li>信息熵冗余</li>
+</ul>
+<p>Q：数据冗余与文件压缩有什么样的关系？</p>
+<h2 id="什么时候增加数据冗余？"><a href="#什么时候增加数据冗余？" class="headerlink" title="什么时候增加数据冗余？"></a>什么时候增加数据冗余？</h2><p>虽然一般情况下，应尽量减少数据冗余，保证数据的一致性，但在某些情况下，也需要适当增加数据冗余度。数据冗余或者信息冗余是生产、生活所必然存在的行为，没有好与坏的总体倾向。</p>
+<ul>
+<li>重复存储或传输数据以<strong>防止数据丢失</strong>；</li>
+<li>对数据进行冗余性的编码来防止数据的丢失、错误，并提供<strong>对错误数据进行反变换</strong>得到原始数据的功能；</li>
+<li>为方便处理和使同一信息在不同地点有<strong>不同的表现形式</strong>；</li>
+<li>为了提高数据的<strong>检索速度</strong>。</li>
+</ul>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>wiki.mbalib.com/wiki/数据冗余</li>
+</ul>
+</div></article><div class="tags"><a href="/tags/数据库系统/">数据库系统</a><a href="/tags/数据冗余/">数据冗余</a></div><div class="paginator"><a href="/2016/08/30/hello-world/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'https://lix90.github.io/2016/09/11/数据库笔记/';
+    this.page.identifier = '2016/09/11/数据库笔记/';
+    this.page.title = '数据库系统笔记：数据冗余';
+};
+(function() {
+var d = document, s = d.createElement('script');
+
+s.src = '//lix90.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();</script></section><footer><div class="copyright"><p class="power">Powered by <a href="https://hexo.io/">Hexo</a> and Theme by <a href="https://github.com/ahonn/hexo-theme-even"> Even</a></p><p class="since">&copy;2016<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">Xiang Li</span></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div><script src="/js/zepto.min.js"></script><script src="/js/theme.js"></script></body></html>

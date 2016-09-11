@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lix90.github.io/2016/09/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2016-09-11T12:54:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/categories/index.html</loc>
+    
+    <lastmod>2016-09-11T12:41:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/tags/index.html</loc>
+    
+    <lastmod>2016-09-11T12:37:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lix90.github.io/resume/index.html</loc>
     
-    <lastmod>2016-09-09T01:03:13.000Z</lastmod>
+    <lastmod>2016-09-09T06:24:45.000Z</lastmod>
     
   </url>
   
@@ -19,13 +40,6 @@
     <loc>https://lix90.github.io/2016/08/30/hello-world/</loc>
     
     <lastmod>2016-08-30T08:24:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/tags/index.html</loc>
-    
-    <lastmod>2016-08-29T03:18:31.000Z</lastmod>
     
   </url>
   
