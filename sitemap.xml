@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lix90.github.io/about/index.html</loc>
+    
+    <lastmod>2016-09-13T06:50:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/resume/index.html</loc>
+    
+    <lastmod>2016-09-13T06:37:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lix90.github.io/2016/09/11/mysql-config/</loc>
     
     <lastmod>2016-09-11T13:09:23.000Z</lastmod>
@@ -26,20 +40,6 @@
     <loc>https://lix90.github.io/tags/index.html</loc>
     
     <lastmod>2016-09-11T12:37:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/resume/index.html</loc>
-    
-    <lastmod>2016-09-09T06:24:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/about/index.html</loc>
-    
-    <lastmod>2016-09-06T13:04:21.000Z</lastmod>
     
   </url>
   
