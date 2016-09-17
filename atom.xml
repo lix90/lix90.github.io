@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-09-17T12:50:22.000Z</updated>
+  <updated>2016-09-17T12:57:59.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何学习一门新的编程语言？</title>
+    <title>零基础如何学习一门新的编程语言？</title>
     <link href="https://lix90.github.io/2016/09/17/learn-a-new-lang/"/>
     <id>https://lix90.github.io/2016/09/17/learn-a-new-lang/</id>
     <published>2016-09-17T06:48:43.000Z</published>
-    <updated>2016-09-17T12:50:22.000Z</updated>
+    <updated>2016-09-17T12:57:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文从自身角度出发，总结作为零基础的菜鸟如何学习一门新的编程语言和新技术的经验。</p>
 <a id="more"></a>
@@ -44,7 +44,8 @@
 <li>Chrome/Firefox: 请用帐号登录浏览器，已便于同步书签；若希望跨浏览器同步书签，请使用搜索引擎检索“跨浏览器同步书签”</li>
 <li><a href="https://shadowsocks.com/client.html" target="_blank" rel="external">shadowsocks</a>，请从网上获取免费或者付费帐号，不会使用请检索“如何使用shadowsocks科学上网”</li>
 </ul>
-<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><p>要想舒服的学习程序语言，那么就要配置舒服的语言环境。就好像，学外语一样，得有一个很好的语言环境，学习起来才自然。配置语言环境从以下三个方面。</p>
+<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><p>要想舒服的学习程序语言，那么就要配置舒服的语言环境。就好像，学外语一样，得有一个很好的语言环境，学习起来才自然。初学者一定不要忽视编程环境的重要性，一定要让自己舒舒服服地写代码，编程的过程才不是枯燥乏味的，惹人烦的。所以，一定要扎扎实实把环境给配置好了，再开始系统地学。如果在进行配置上有困难，那就请教其他懂行的人，或者再多花一些时间。</p>
+<p>配置语言环境从以下三个方面进行。</p>
 <ul>
 <li>操作系统<ul>
 <li>Ubuntu</li>
