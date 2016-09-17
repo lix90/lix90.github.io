@@ -196,9 +196,11 @@
     <link href="https://lix90.github.io/2016/09/13/mysql-config/"/>
     <id>https://lix90.github.io/2016/09/13/mysql-config/</id>
     <published>2016-09-13T12:59:16.000Z</published>
-    <updated>2016-09-13T12:59:28.000Z</updated>
+    <updated>2016-09-17T03:42:11.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
+    <content type="html"><![CDATA[<p>MySQL 的安装与配置折腾记录。</p>
+<a id="more"></a>
+<h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
 <h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>在网上教程发现提到这三个文件</p>
 <ol>
 <li>mysql-*.pkg：MySql的主要程序包</li>
@@ -206,7 +208,7 @@
 <li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
 </ol>
 <p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<a id="more"></a>
+<!--more-->
 <h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
 <p>数据库访问密码的设置</p>
 <blockquote>
@@ -251,14 +253,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;下载-MySQL&quot;&gt;&lt;a href=&quot;#下载-MySQL&quot; class=&quot;headerlink&quot; title=&quot;下载 MySQL&quot;&gt;&lt;/a&gt;下载 MySQL&lt;/h1&gt;&lt;p&gt;从&lt;a href=&quot;http://www.mysql.com/downloads/&quot;&gt;官方网站&lt;/a&gt;下载 &lt;code&gt;MySQL Community Server&lt;/code&gt;。&lt;/p&gt;
-&lt;h1 id=&quot;安装-MySQL&quot;&gt;&lt;a href=&quot;#安装-MySQL&quot; class=&quot;headerlink&quot; title=&quot;安装 MySQL&quot;&gt;&lt;/a&gt;安装 MySQL&lt;/h1&gt;&lt;p&gt;在网上教程发现提到这三个文件&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;mysql-*.pkg：MySql的主要程序包&lt;/li&gt;
-&lt;li&gt;MySQL_StartupItem.pkg：MySql的启动项&lt;/li&gt;
-&lt;li&gt;MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;但是打开 dmg 文件，仅仅发现一个 mysql-&lt;version&gt;.pkg 文件&lt;/p&gt;
+      &lt;p&gt;MySQL 的安装与配置折腾记录。&lt;/p&gt;
     
     </summary>
     
