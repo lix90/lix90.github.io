@@ -196,7 +196,7 @@
     <link href="https://lix90.github.io/2016/09/13/mysql-config/"/>
     <id>https://lix90.github.io/2016/09/13/mysql-config/</id>
     <published>2016-09-13T12:59:16.000Z</published>
-    <updated>2016-09-17T03:42:11.000Z</updated>
+    <updated>2016-09-17T03:42:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>MySQL 的安装与配置折腾记录。</p>
 <a id="more"></a>
@@ -208,7 +208,6 @@
 <li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
 </ol>
 <p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<!--more-->
 <h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
 <p>数据库访问密码的设置</p>
 <blockquote>
