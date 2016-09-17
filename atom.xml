@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-09-17T12:19:58.000Z</updated>
+  <updated>2016-09-17T12:50:22.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://lix90.github.io/2016/09/17/learn-a-new-lang/"/>
     <id>https://lix90.github.io/2016/09/17/learn-a-new-lang/</id>
     <published>2016-09-17T06:48:43.000Z</published>
-    <updated>2016-09-17T12:19:58.000Z</updated>
+    <updated>2016-09-17T12:50:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文从自身角度出发，总结作为零基础的菜鸟如何学习一门新的编程语言和新技术的经验。</p>
 <a id="more"></a>
@@ -91,7 +91,7 @@
 <hr>
 <h1 id="如何学习"><a href="#如何学习" class="headerlink" title="如何学习"></a>如何学习</h1><h2 id="第一步：弄明白如何查询和获取帮助文档-Getting-Help"><a href="#第一步：弄明白如何查询和获取帮助文档-Getting-Help" class="headerlink" title="第一步：弄明白如何查询和获取帮助文档 Getting Help"></a>第一步：弄明白如何查询和获取帮助文档 Getting Help</h2><ul>
 <li>R: <code>?function</code> <code>help(function)</code> <code>help.search()</code> <code>apropos()</code></li>
-<li>Python: <code>?</code> <code>??</code> <code>help()</code> <code>dir()</code> <code>\__doc__</code></li>
+<li>Python: <code>?</code> <code>??</code> <code>help()</code> <code>dir()</code> <code>__doc__</code></li>
 <li>Matlab: <code>help</code> <code>doc</code> <code>lookfor</code></li>
 </ul>
 <h2 id="第二步：熟悉基本语法和编码规范-Grammar-amp-Style"><a href="#第二步：熟悉基本语法和编码规范-Grammar-amp-Style" class="headerlink" title="第二步：熟悉基本语法和编码规范 Grammar &amp; Style"></a>第二步：熟悉基本语法和编码规范 Grammar &amp; Style</h2><h2 id="第三步：从整体上了解某种语言特点以及优缺点-Pros-amp-Cons"><a href="#第三步：从整体上了解某种语言特点以及优缺点-Pros-amp-Cons" class="headerlink" title="第三步：从整体上了解某种语言特点以及优缺点 Pros &amp; Cons"></a>第三步：从整体上了解某种语言特点以及优缺点 Pros &amp; Cons</h2><h2 id="第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation"><a href="#第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation" class="headerlink" title="第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation"></a>第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation</h2><h2 id="第五步：阅读书籍和源码-Books-amp-Source-code"><a href="#第五步：阅读书籍和源码-Books-amp-Source-code" class="headerlink" title="第五步：阅读书籍和源码 Books &amp; Source code"></a>第五步：阅读书籍和源码 Books &amp; Source code</h2><hr>
@@ -126,10 +126,8 @@
     
     </summary>
     
-      <category term="个人心得" scheme="https://lix90.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97/"/>
+      <category term="个人日志" scheme="https://lix90.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
     
-    
-      <category term="心得" scheme="https://lix90.github.io/tags/%E5%BF%83%E5%BE%97/"/>
     
       <category term="学习方法" scheme="https://lix90.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
     
