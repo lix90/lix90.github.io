@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-09-17T12:03:36.000Z</updated>
+  <updated>2016-09-17T12:19:58.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://lix90.github.io/2016/09/17/learn-a-new-lang/"/>
     <id>https://lix90.github.io/2016/09/17/learn-a-new-lang/</id>
     <published>2016-09-17T06:48:43.000Z</published>
-    <updated>2016-09-17T12:03:36.000Z</updated>
+    <updated>2016-09-17T12:19:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文从自身角度出发，总结作为零基础的菜鸟如何学习一门新的编程语言和新技术的经验。</p>
 <a id="more"></a>
@@ -39,15 +39,18 @@
 <li><code>Linux</code> <code>Shell</code> <code>Git</code></li>
 </ul>
 <hr>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="1-科学上网"><a href="#1-科学上网" class="headerlink" title="1. 科学上网"></a>1. 科学上网</h2><ul>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="1-科学上网"><a href="#1-科学上网" class="headerlink" title="1. 科学上网"></a>1. 科学上网</h2><p><a href="https://zh.wikipedia.org/zh/防火长城" target="_blank" rel="external">GFW</a> 阻断了国人许多获取信息和知识的渠道。所以，要想借助互联网进行学习，首要解决的问题就是突破 GFW 的限制。</p>
+<ul>
 <li>Chrome/Firefox: 请用帐号登录浏览器，已便于同步书签；若希望跨浏览器同步书签，请使用搜索引擎检索“跨浏览器同步书签”</li>
 <li><a href="https://shadowsocks.com/client.html" target="_blank" rel="external">shadowsocks</a>，请从网上获取免费或者付费帐号，不会使用请检索“如何使用shadowsocks科学上网”</li>
 </ul>
-<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><ul>
+<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><p>要想舒服的学习程序语言，那么就要配置舒服的语言环境。就好像，学外语一样，得有一个很好的语言环境，学习起来才自然。配置语言环境从以下三个方面。</p>
+<ul>
 <li>操作系统<ul>
 <li>Ubuntu</li>
 <li>MacOS</li>
 <li>Windows 下虚拟机运行 Ubuntu</li>
+<li>（Windows 下进行配置本人没有尝试过）</li>
 </ul>
 </li>
 <li>编辑器<ul>
@@ -74,15 +77,15 @@
 <li>Bing</li>
 <li>Baidu</li>
 </ul>
-<h2 id="3-练习项目-Toy-Projects"><a href="#3-练习项目-Toy-Projects" class="headerlink" title="3. 练习项目 Toy Projects"></a>3. 练习项目 Toy Projects</h2><ul>
-<li>个人研究项目</li>
-<li>网上公开项目（去 Google 检索或者直接去 Github 搜）</li>
-</ul>
-<h2 id="4-社区-Community"><a href="#4-社区-Community" class="headerlink" title="4. 社区 Community"></a>4. 社区 Community</h2><ul>
+<h2 id="3-社区-Community"><a href="#3-社区-Community" class="headerlink" title="3. 社区 Community"></a>3. 社区 Community</h2><ul>
 <li>综合：<a href="https://github.com/" target="_blank" rel="external">Github</a>, <a href="http://stackoverflow.com/" target="_blank" rel="external">StackOverflow</a></li>
 <li>R: <a href="http://cos.name/" target="_blank" rel="external">统计之都</a>, <a href="https://www.r-bloggers.com/" target="_blank" rel="external">R-bloggers</a>, <a href="https://github.com/qinwf/awesome-R" target="_blank" rel="external">Awesome-R</a></li>
 <li>Python: <a href="http://python-china.org/" target="_blank" rel="external">Python China</a>, <a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">Awesome-Python</a></li>
 <li>MATLAB: <a href="http://www.mathworks.com/matlabcentral/fileexchange/" target="_blank" rel="external">File Exchange</a>, <a href="http://cn.mathworks.com/matlabcentral/answers/index" target="_blank" rel="external">MATLAB Answers</a> <a href="https://github.com/mikecroucher/awesome-MATLAB" target="_blank" rel="external">Awesome-MATLAB</a></li>
+</ul>
+<h2 id="4-练习项目-Toy-Projects"><a href="#4-练习项目-Toy-Projects" class="headerlink" title="4. 练习项目 Toy Projects"></a>4. 练习项目 Toy Projects</h2><ul>
+<li>个人研究项目</li>
+<li>网上公开项目（去 Google 检索或者直接去 Github 搜）</li>
 </ul>
 <h2 id="5-书籍-Books"><a href="#5-书籍-Books" class="headerlink" title="5. 书籍 Books"></a>5. 书籍 Books</h2><p>准备两三本书来系统地了解一门编程语言。</p>
 <hr>
