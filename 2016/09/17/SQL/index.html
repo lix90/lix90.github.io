@@ -11,7 +11,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-83416766-1', 'auto');
-ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">I'm Lix!</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives" target="_self">Archives</a></li><li class="nav-link"><a href="/resume" target="_self">Resume</a></li><li class="nav-link"><a href="/about" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">数据库系统笔记：SQL 语言入门</h1><span class="post-time">Sep 17, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Contents</h3><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-历史"><span class="toc-text">SQL 历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-特点"><span class="toc-text">SQL 特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-基本概念"><span class="toc-text">SQL 基本概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据定义"><span class="toc-text">数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模式的定义与删除"><span class="toc-text">模式的定义与删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义模式"><span class="toc-text">1. 定义模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-删除模式"><span class="toc-text">2. 删除模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本表的定义、删除与修改"><span class="toc-text">基本表的定义、删除与修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义基本表"><span class="toc-text">1. 定义基本表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据类型"><span class="toc-text">2. 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-模式与表"><span class="toc-text">3. 模式与表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-修改基本表"><span class="toc-text">4. 修改基本表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-删除基本表"><span class="toc-text">5. 删除基本表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的建立与删除"><span class="toc-text">索引的建立与删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-建立索引"><span class="toc-text">1. 建立索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-修改索引"><span class="toc-text">2. 修改索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-删除索引"><span class="toc-text">3. 删除索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据字典"><span class="toc-text">数据字典</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据查询"><span class="toc-text">数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单表查询"><span class="toc-text">单表查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接查询"><span class="toc-text">连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套查询"><span class="toc-text">嵌套查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合查询"><span class="toc-text">集合查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于派生表的查询"><span class="toc-text">基于派生表的查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SELECT-语句的一般格式"><span class="toc-text">SELECT 语句的一般格式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据更新"><span class="toc-text">数据更新</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插入数据"><span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改数据"><span class="toc-text">修改数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除数据"><span class="toc-text">删除数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#空值的处理"><span class="toc-text">空值的处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视图"><span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义视图"><span class="toc-text">定义视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询视图"><span class="toc-text">查询视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新视图"><span class="toc-text">更新视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图的作用"><span class="toc-text">视图的作用</span></a></li></ol></li></ol></div><div class="post-content"><p>《数据库系统概论》第三章笔记。</p>
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">I'm Lix!</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives" target="_self">Archives</a></li><li class="nav-link"><a href="/resume" target="_self">Resume</a></li><li class="nav-link"><a href="/about" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">数据库系统笔记：SQL 语言入门</h1><span class="post-time">Sep 17, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Contents</h3><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-历史"><span class="toc-text">SQL 历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-特点"><span class="toc-text">SQL 特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-基本概念"><span class="toc-text">SQL 基本概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据定义"><span class="toc-text">数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模式的定义与删除"><span class="toc-text">模式的定义与删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义模式"><span class="toc-text">1. 定义模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-删除模式"><span class="toc-text">2. 删除模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本表的定义、删除与修改"><span class="toc-text">基本表的定义、删除与修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义基本表"><span class="toc-text">1. 定义基本表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据类型"><span class="toc-text">2. 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-模式与表"><span class="toc-text">3. 模式与表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-修改基本表"><span class="toc-text">4. 修改基本表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-删除基本表"><span class="toc-text">5. 删除基本表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的建立与删除"><span class="toc-text">索引的建立与删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-建立索引"><span class="toc-text">1. 建立索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-修改索引"><span class="toc-text">2. 修改索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-删除索引"><span class="toc-text">3. 删除索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据字典"><span class="toc-text">数据字典</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据查询"><span class="toc-text">数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单表查询"><span class="toc-text">单表查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接查询"><span class="toc-text">连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套查询"><span class="toc-text">嵌套查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合查询"><span class="toc-text">集合查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于派生表的查询"><span class="toc-text">基于派生表的查询</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据更新"><span class="toc-text">数据更新</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插入数据"><span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改数据"><span class="toc-text">修改数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除数据"><span class="toc-text">删除数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#空值的处理"><span class="toc-text">空值的处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视图"><span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义视图"><span class="toc-text">定义视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询视图"><span class="toc-text">查询视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新视图"><span class="toc-text">更新视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图的作用"><span class="toc-text">视图的作用</span></a></li></ol></li></ol></div><div class="post-content"><p>《数据库系统概论》第三章笔记。</p>
 <a id="more"></a>
 <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="SQL-历史"><a href="#SQL-历史" class="headerlink" title="SQL 历史"></a>SQL 历史</h2><ul>
 <li>1974 年，Boyce 和 Chamberlin 提出，Sequel</li>
@@ -160,7 +160,74 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <p>数据字典时关系数据库管理系统内部的一组系统表，它记录了数据库中所有的定义信息，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典表中的相应信息。在进行查询优化和查询处理时，数据字典中的信息是其重要依据。</p>
 </blockquote>
 <hr>
-<h1 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h1><h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h2 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h2><h2 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h2><h2 id="基于派生表的查询"><a href="#基于派生表的查询" class="headerlink" title="基于派生表的查询"></a>基于派生表的查询</h2><h2 id="SELECT-语句的一般格式"><a href="#SELECT-语句的一般格式" class="headerlink" title="SELECT 语句的一般格式"></a>SELECT 语句的一般格式</h2><hr>
+<h1 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> [ALL|<span class="keyword">DISTINCT</span>] &lt;目标列表达式&gt; [,&lt;目标列表达式&gt;]...</div><div class="line"><span class="keyword">FROM</span> &lt;表名或视图名&gt; [,&lt;表名或视图名&gt;]|(&lt;<span class="keyword">SELECT</span> 语句&gt;)[<span class="keyword">AS</span>]&lt;别名&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">HAVING</span> &lt;条件表达式&gt;]]</div><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;列名<span class="number">2</span>&gt; [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>]];</div></pre></td></tr></table></figure>
+<h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><ol>
+<li>选择表中若干列</li>
+<li>选择表中若干元组</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">查询条件</th>
+<th style="text-align:left">谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>!&gt;</code>, <code>!&lt;</code>; <code>NOT+上述比较运算符</code></td>
+</tr>
+<tr>
+<td style="text-align:left">确定范围</td>
+<td style="text-align:left"><code>BETWEEN AND</code>, <code>NOT BETWEEN AND</code></td>
+</tr>
+<tr>
+<td style="text-align:left">确定集合</td>
+<td style="text-align:left"><code>IN</code>, <code>NOT IN</code></td>
+</tr>
+<tr>
+<td style="text-align:left">字符匹配</td>
+<td style="text-align:left"><code>LIKE</code>, <code>NOT LIKE</code></td>
+</tr>
+<tr>
+<td style="text-align:left">空值</td>
+<td style="text-align:left"><code>IS NULL</code>, <code>IS NOT NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">多重条件（逻辑运算）</td>
+<td style="text-align:left"><code>AND</code>, <code>OR</code>, <code>NOT</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>OBDER BY</code> 子句</li>
+<li>聚集函数</li>
+<li><code>GROUP BY</code> 子句</li>
+</ol>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><p>连接查询：查询同时涉及两个以上的表。</p>
+<ol>
+<li>等值与非等值连接的查询</li>
+<li>自身连接</li>
+<li>外连接</li>
+<li>多表连接</li>
+</ol>
+<h2 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h2><blockquote>
+<p>在 SQL 语言中，一个 <code>SELECT-FROM-WHERE</code> 语句称为一个查询块。将一个查询块嵌套再另一个查询块的 <code>WHERE</code> 子句或 <code>HAVING</code> 短语的条件中的查询称为嵌套查询。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> Sname <span class="comment">/*外层查询或父查询*/</span></div><div class="line"><span class="keyword">FROM</span> Student</div><div class="line"><span class="keyword">WHERE</span> Sno <span class="keyword">IN</span></div><div class="line">    (<span class="keyword">SELECT</span> Sno <span class="comment">/*内层查询或子查询*/</span></div><div class="line">    <span class="keyword">FROM</span> SC</div><div class="line">    <span class="keyword">WHERE</span> Cno=<span class="string">'2'</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>带有 <code>IN</code> 谓词的子查询</li>
+<li>带有比较运算符的子查询</li>
+<li>带有 <code>ANY (SOME)</code> 或 <code>ALL</code> 谓词的子查询</li>
+<li>带有 <code>EXISTS</code> 谓词的子查询</li>
+</ol>
+<h2 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h2><blockquote>
+<p>集合操作主要包括并操作 <code>UNION</code>、交操作 <code>INTERSECT</code> 和差操作 <code>EXCEPT</code>。参加集合操作的各查询结果的<strong>列数</strong>必须相同；对应项的<strong>数据类型</strong>也必须相同。</p>
+</blockquote>
+<h2 id="基于派生表的查询"><a href="#基于派生表的查询" class="headerlink" title="基于派生表的查询"></a>基于派生表的查询</h2><blockquote>
+<p>子查询不仅可以出现在 <code>WHERE</code> 子句中，还可以出现再 <code>FROM</code> 子句中，这时子查询生成的临时派生表称为主查询的查询对象。</p>
+</blockquote>
+<hr>
 <h1 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><hr>
 <h1 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h1><hr>
 <h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><h2 id="定义视图"><a href="#定义视图" class="headerlink" title="定义视图"></a>定义视图</h2><h2 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h2><h2 id="更新视图"><a href="#更新视图" class="headerlink" title="更新视图"></a>更新视图</h2><h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h2></div></article><div class="tags"><a href="/tags/数据库系统/">数据库系统</a><a href="/tags/SQL/">SQL</a></div><div class="paginator"><a href="/2016/09/17/learn-a-new-lang/" class="prev"><i class="iconfont icon-left"></i><span> Prev</span></a><a href="/2016/09/13/mysql-config/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">var disqus_config = function () {

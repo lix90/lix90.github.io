@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lix90.github.io/2016/09/17/SQL/</loc>
+    
+    <lastmod>2016-09-19T01:48:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lix90.github.io/2016/09/17/learn-a-new-lang/</loc>
     
     <lastmod>2016-09-18T02:19:11.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://lix90.github.io/2016/09/13/mysql-config/</loc>
     
     <lastmod>2016-09-17T03:42:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/17/SQL/</loc>
-    
-    <lastmod>2016-09-17T03:39:21.000Z</lastmod>
     
   </url>
   
