@@ -416,7 +416,7 @@
     <link href="https://lix90.github.io/2016/09/13/mysql-config/"/>
     <id>https://lix90.github.io/2016/09/13/mysql-config/</id>
     <published>2016-09-13T12:59:16.000Z</published>
-    <updated>2016-09-17T03:42:30.000Z</updated>
+    <updated>2016-09-20T00:44:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>MySQL 的安装与配置折腾记录。</p>
 <a id="more"></a>
@@ -455,7 +455,12 @@
 <p>然后再重新安装 MySQL。</p>
 <p>这次长记性保存了临时密码。</p>
 <p>接下来重新配置 MySQL。</p>
-<p>最后吸取了教训，<strong>一定不要完全按照网上的教程来安装配置应用程序，尽量根据官网文档</strong>。</p>
+<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
+<blockquote>
+<p>Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</p>
+</blockquote>
+<p>通过新修改的密码登录 MySQL：<code>mysql -u root -p</code>，提示输入密码，终于成功登录。</p>
+<p>吸取教训，<strong>一定不要完全按照网上的教程来安装配置应用程序，尽量根据官网文档</strong>。</p>
 <hr>
 <p>参考资料：</p>
 <ul>
@@ -467,6 +472,8 @@
 <li><a href="http://stackoverflow.com/questions/1436425/how-do-you-uninstall-mysql-from-mac-os-x" target="_blank" rel="external">How do you uninstall MySQL from Mac OS X?</a></li>
 <li><a href="https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html" target="_blank" rel="external">Installing MySQL on OS X Using Native Packages</a></li>
 <li><a href="http://community.jaspersoft.com/wiki/uninstall-mysql-mac-os-x" target="_blank" rel="external">Uninstall MySql on a Mac OS X</a></li>
+<li><a href="https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords" target="_blank" rel="external">Setting, Changing And Resetting MySQL Root Passwords</a></li>
+<li><a href="http://stackoverflow.com/questions/33387879/mysql-password-expired-cant-connect" target="_blank" rel="external">Mysql password expired. Can’t connect</a></li>
 </ul>
 ]]></content>
     
