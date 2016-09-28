@@ -53,9 +53,9 @@
       <category term="PHP" scheme="https://lix90.github.io/categories/PHP/"/>
     
     
-      <category term="PHP" scheme="https://lix90.github.io/tags/PHP/"/>
-    
       <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="PHP" scheme="https://lix90.github.io/tags/PHP/"/>
     
   </entry>
   
@@ -569,13 +569,13 @@
       <category term="MySQL" scheme="https://lix90.github.io/categories/MySQL/"/>
     
     
-      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
-    
       <category term="MySQL" scheme="https://lix90.github.io/tags/MySQL/"/>
     
       <category term="数据库" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="关系型数据库" scheme="https://lix90.github.io/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
