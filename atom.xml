@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-09-26T01:39:14.000Z</updated>
+  <updated>2016-10-07T10:33:20.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,113 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近一年学习计划</title>
+    <link href="https://lix90.github.io/2016/10/07/plan/"/>
+    <id>https://lix90.github.io/2016/10/07/plan/</id>
+    <published>2016-10-07T10:30:51.000Z</published>
+    <updated>2016-10-07T10:33:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>个人学习计划。</p>
+<a id="more"></a>
+<p>关注互联网行业和程序员这门职业已有很长一段时间，了解到了各种各样的不知所云的“概念”或者“头衔”。其中“全栈开发者”或者“全栈工程师”中的“全栈”这个词一直困扰着我。最近又听了几个 IT 播客节目，也是讨论“全栈工程师”。外行的我终于明白，原来“全栈”就是“全能”的意思，所谓的全栈工程师就是“全能战士”咯。形容为全能战士颇有一番调侃意味，也有一些无奈。特别是对于一个打算进入 IT 届“搬砖”的非 IT 专业学生，这个头衔或者是潮流让我有些无所适从。特别是前端开发技术层出不穷，一年一个样，有多少程序员能成为真正意义上的“全栈”呢？</p>
+<p>从国内社区了解到的全栈与国外主流观点有何差异呢？我怀着好奇心，去油管搜了“full stack developer”。看过几个视频之后，被一个标题吸引–“full stack anxiety”。这个视频的报告者（Joel Califa, Digital Ocean 的产品设计团队负责人）以十分幽默的方式，讲述了目前前端开发者的困境，以自身作为一名设计师兼前端开发者的身份和技术学习实践，提出了如何应对“全栈焦虑症”这一现象。</p>
+<p>他提出了几点建议：</p>
+<ol>
+<li>Ask yourself “What kind of work do I want to do in the future?”（问自己“未来想做什么样的工作？”）</li>
+<li>Create some structure.（按照自己的偏好做一个技能的列表）</li>
+<li>Take the decision out of the moment.（根据 if/then 策略来选择该学什么内容）</li>
+<li>Stop chasing trends.（停止追赶潮流，有限学习可迁移的技能，越不容易过时，越重要）</li>
+<li>Prioritize happiness.（快乐才是最重要的）</li>
+</ol>
+<p>根据以上几点建议，我根据自身情况，作了一番思考：</p>
+<ol>
+<li>我想做什么样的工作？</li>
+</ol>
+<p>答：我的职业理想与领域无关，而与工作方式和工作价值有关。无论是程序员还是设计师，抑或是之前的科学家，我追求的是创造性的能够创造实实在在的价值的工作，而不仅限于养家糊口（虽然这是最低目标，但始终需要追求一种自我实现吧）。我想转行成为一名程序员，也想身兼设计师的身份，因为写代码和做设计都是可以创造“作品”，改善生活的一个途径。两者在我看来是最终实现的心理上的满足是一样的。所以我会更愿意做创造出产品和作品的工作。我认为程序员和设计师社区是多元和创新的，注重效率，看中效果的。这正是我所期待的。另外，数据科学的前景和挑战性足够吸引我去选择它，同时数据科学刚好需要编程和设计能力，因为数据科学的“后端”和“前端”正式需要这两个能力来结合起来。</p>
+<ol>
+<li>技能列表</li>
+</ol>
+<p>开发语言：</p>
+<ul>
+<li>Web开发前端技术：HTML/CSS/JavaScript，各种前端JS框架？Ruby on Rails？</li>
+<li>Web开发后端技术：Node.js？Ruby？Python？PHP？</li>
+<li>需要学 C/C++ 吗？需要学 Java 吗？</li>
+</ul>
+<p>开发工具：</p>
+<ul>
+<li>编辑器：Emacs</li>
+<li>IDE：要不要用 IDE 做开发环境呢？还是继续折腾 Emacs？</li>
+<li>操作系统：MacOS 和 Linux 都要掌握？</li>
+<li>Shell 脚本</li>
+<li>Git 版本控制</li>
+<li>Chrome 开发工具</li>
+<li>包管理器：npm？gem？composer？</li>
+</ul>
+<p>数据科学：</p>
+<ul>
+<li>机器学习算法原理</li>
+<li>数据挖掘原理</li>
+<li>数据可视化原理</li>
+<li>R：数据操纵，数据分析，数据挖掘，数据可视化，网络分析，自然语言分析，…</li>
+<li>Python：scikit-learn，pandas，numpy，ipython，matlibplot，…</li>
+<li>数据库：SQL？NoSQL？</li>
+</ul>
+<p>设计：</p>
+<ul>
+<li>平面设计原理</li>
+<li>交互设计</li>
+<li>用户体验设计</li>
+<li>用户界面设计（UI）</li>
+<li>Sketch</li>
+</ul>
+<p>计算机科学：</p>
+<ul>
+<li>操作系统</li>
+<li>计算机网络</li>
+<li>数据结构与算法</li>
+<li>设计模式</li>
+</ul>
+<ol>
+<li>精简学习列表</li>
+</ol>
+<p>列举了以上许多技能，有一些还未列举出来，要学的内容实在太多。必须选择几个短期学的，长期学的，后续要学的。</p>
+<p>短期学习：</p>
+<ul>
+<li>机器学习：通过 R 与 Python 进行实际操作学习</li>
+<li>数据可视化：通过 R、Python、D3.js 进行学习，并相应补充一些基础知识</li>
+<li>数据库系统：通过 MySQL 进行学习，有时间再了解 MongoDB</li>
+<li>前端三项基本开发语言：通过 cookbook 练习</li>
+</ul>
+<p>长期学习：</p>
+<ul>
+<li>Emacs，Git，Shell</li>
+<li>数据结构与算法，计算机网络</li>
+<li>R，Python，Javascript</li>
+</ul>
+<p>为了成为一名合格的数据科学从业者，理论和实践均不能忽视。数据挖掘工程师相关工作首先得有机器学习算法和数据库系统基础。R 和 Python 作为两门最主流的数据分析的语言，也是必须掌握的。关系型数据库和非关系型数据库都需要一定的了解。个人对数据可视化比较感兴趣，也是以后期待能够精通的领域。前端开发先粗略得了解，对交互式数据可视化是有帮助的。</p>
+<ol>
+<li>不回避新技术，但目前初级阶段，先打好基础</li>
+</ol>
+<p>各种前端库，前端工具，云计算，容器技术，等等关注关注就好，时机成熟在学一学吧。作为对各种新东西都怀有无限好奇心的我，要抑制住求知欲，的确有些难度。没办法，有时候这种好奇心会成为最大的分心刺激，阻碍个人发展。</p>
+<ol>
+<li>关注个人兴趣和职业发展前景，每天通过学习和代码实践创造一点小成就感</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;个人学习计划。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="个人" scheme="https://lix90.github.io/categories/%E4%B8%AA%E4%BA%BA/"/>
+    
+    
+      <category term="计划" scheme="https://lix90.github.io/tags/%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP 安装与配置</title>
@@ -53,9 +160,9 @@
       <category term="PHP" scheme="https://lix90.github.io/categories/PHP/"/>
     
     
-      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
-    
       <category term="PHP" scheme="https://lix90.github.io/tags/PHP/"/>
+    
+      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
@@ -569,13 +676,13 @@
       <category term="MySQL" scheme="https://lix90.github.io/categories/MySQL/"/>
     
     
+      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
+    
       <category term="MySQL" scheme="https://lix90.github.io/tags/MySQL/"/>
     
       <category term="数据库" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="关系型数据库" scheme="https://lix90.github.io/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="配置" scheme="https://lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
@@ -627,34 +734,6 @@
       <category term="数据库系统" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/"/>
     
       <category term="数据冗余" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%86%97%E4%BD%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://lix90.github.io/2016/08/30/hello-world/"/>
-    <id>https://lix90.github.io/2016/08/30/hello-world/</id>
-    <published>2016-08-30T08:23:54.000Z</published>
-    <updated>2016-08-30T08:24:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   
