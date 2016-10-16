@@ -348,7 +348,7 @@
     <link href="https://lix90.github.io/2016/09/17/SQL/"/>
     <id>https://lix90.github.io/2016/09/17/SQL/</id>
     <published>2016-09-17T01:46:39.000Z</published>
-    <updated>2016-09-19T01:48:17.000Z</updated>
+    <updated>2016-10-14T11:10:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>《数据库系统概论》第三章笔记。</p>
 <a id="more"></a>
@@ -567,9 +567,35 @@
 <p>子查询不仅可以出现在 <code>WHERE</code> 子句中，还可以出现再 <code>FROM</code> 子句中，这时子查询生成的临时派生表称为主查询的查询对象。</p>
 </blockquote>
 <hr>
-<h1 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><hr>
-<h1 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h1><hr>
-<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><h2 id="定义视图"><a href="#定义视图" class="headerlink" title="定义视图"></a>定义视图</h2><h2 id="查询视图"><a href="#查询视图" class="headerlink" title="查询视图"></a>查询视图</h2><h2 id="更新视图"><a href="#更新视图" class="headerlink" title="更新视图"></a>更新视图</h2><h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h2>]]></content>
+<h1 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><ol>
+<li>插入元组</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line"><span class="keyword">VALUES</span> (&lt;常量 <span class="number">1</span>&gt; [,&lt;常量 <span class="number">2</span>&gt;]); <span class="comment">-- 字符串常量使用单引号括起来</span></div></pre></td></tr></table></figure>
+<ol>
+<li>插入子查询结果</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line">子查询;</div></pre></td></tr></table></figure>
+<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> &lt;<span class="keyword">TABLE</span>&gt;</div><div class="line"><span class="keyword">SET</span> &lt;<span class="keyword">column</span>&gt;=&lt;expression&gt; [,&lt;<span class="keyword">column</span>&gt;=&lt;expression&gt;]</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span></div><div class="line"><span class="keyword">FROM</span> &lt;<span class="keyword">table</span>&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h1><p>空值：不知道或者不存在或者无意义的值。</p>
+<p>以下条件取空值：</p>
+<ul>
+<li>该属性应该有一个值，但目前不知道；</li>
+<li>该属性不应该有值；</li>
+<li>由于某种原因不便于填写。</li>
+</ul>
+<p>空值的判断：<code>IS NULL</code> <code>IS NOT NULL</code>。</p>
+<hr>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p><code>CREATE VIEW</code><br><code>ALTER VIEW</code><br><code>DROP VIEW</code><br><code>SHOW VIEW</code></p>
+<h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h2><ul>
+<li>简化用户操作</li>
+<li>使用户以多种角度看待同一数据</li>
+<li>对重构数据库提供了一定程度的逻辑独立性</li>
+<li>对机密数据提供安全保护</li>
+<li>适当利用视图可以更清晰地表达查询</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
