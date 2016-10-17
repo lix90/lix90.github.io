@@ -24,14 +24,14 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <li>网页元素审查器（Web Inspecter）</li>
 </ul>
 <h1 id="添加-DOM-元素"><a href="#添加-DOM-元素" class="headerlink" title="添加 DOM 元素"></a>添加 DOM 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
-<p><code>D3.select()</code> 选择方法使用 CSS3 选择题来抓取 DOM 元素。当元素被选中，操作器（operators）能够获取或设置属性、样式、文本内容等。</p>
+<p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
 <p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
 <h1 id="添加-SVG-元素"><a href="#添加-SVG-元素" class="headerlink" title="添加 SVG 元素"></a>添加 SVG 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
-<p><code>d3.style()</code> 样式操作器对元素的样式进行操作。</p>
-<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与操作器和方法顺序有关。</p>
+<p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
+<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
 <h1 id="捆绑数据到-DOM-元素中"><a href="#捆绑数据到-DOM-元素中" class="headerlink" title="捆绑数据到 DOM 元素中"></a>捆绑数据到 DOM 元素中</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
 <p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
-<p><code>.enter()</code> 方法从数据操作器中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
+<p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
 <p><code>.append()</code> 在占位符上添加 DOM 元素。</p>
 <p><code>.text()</code> 文本方法添加文本到对于 DOM 元素上。</p>
 <p>其中，数据被保存在 <code>__data__</code> 属性中。</p>

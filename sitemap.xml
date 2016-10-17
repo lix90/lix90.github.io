@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lix90.github.io/2016/09/17/sql/</loc>
+    
+    <lastmod>2016-10-17T08:34:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/22/decision-tree/</loc>
+    
+    <lastmod>2016-10-17T08:34:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/13/mysql-config/</loc>
+    
+    <lastmod>2016-10-17T08:33:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/11/data-redundency/</loc>
+    
+    <lastmod>2016-10-17T08:33:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lix90.github.io/2016/10/17/d3js-intro/</loc>
     
-    <lastmod>2016-10-17T08:23:08.000Z</lastmod>
+    <lastmod>2016-10-17T08:29:16.000Z</lastmod>
     
   </url>
   
@@ -12,13 +40,6 @@
     <loc>https://lix90.github.io/about/index.html</loc>
     
     <lastmod>2016-10-16T09:58:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/17/SQL/</loc>
-    
-    <lastmod>2016-10-14T11:10:12.000Z</lastmod>
     
   </url>
   
@@ -37,21 +58,7 @@
   </url>
   
   <url>
-    <loc>https://lix90.github.io/2016/09/22/ml%E5%86%B3%E7%AD%96%E6%A0%91/</loc>
-    
-    <lastmod>2016-09-22T11:13:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/13/mysql-config/</loc>
-    
-    <lastmod>2016-09-20T00:44:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/17/learn-a-new-lang/</loc>
+    <loc>https://lix90.github.io/2016/09/17/learn-new-lang/</loc>
     
     <lastmod>2016-09-18T02:19:11.000Z</lastmod>
     
@@ -61,13 +68,6 @@
     <loc>https://lix90.github.io/resume/index.html</loc>
     
     <lastmod>2016-09-14T06:46:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2016-09-11T12:54:42.000Z</lastmod>
     
   </url>
   

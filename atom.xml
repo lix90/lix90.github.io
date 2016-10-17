@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-10-17T08:23:08.000Z</updated>
+  <updated>2016-10-17T08:29:16.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://lix90.github.io/2016/10/17/d3js-intro/"/>
     <id>https://lix90.github.io/2016/10/17/d3js-intro/</id>
     <published>2016-10-17T08:23:07.000Z</published>
-    <updated>2016-10-17T08:23:08.000Z</updated>
+    <updated>2016-10-17T08:29:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p>
 <a id="more"></a>
@@ -35,14 +35,14 @@
 <li>网页元素审查器（Web Inspecter）</li>
 </ul>
 <h1 id="添加-DOM-元素"><a href="#添加-DOM-元素" class="headerlink" title="添加 DOM 元素"></a>添加 DOM 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
-<p><code>D3.select()</code> 选择方法使用 CSS3 选择题来抓取 DOM 元素。当元素被选中，操作器（operators）能够获取或设置属性、样式、文本内容等。</p>
+<p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
 <p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
 <h1 id="添加-SVG-元素"><a href="#添加-SVG-元素" class="headerlink" title="添加 SVG 元素"></a>添加 SVG 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
-<p><code>d3.style()</code> 样式操作器对元素的样式进行操作。</p>
-<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与操作器和方法顺序有关。</p>
+<p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
+<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
 <h1 id="捆绑数据到-DOM-元素中"><a href="#捆绑数据到-DOM-元素中" class="headerlink" title="捆绑数据到 DOM 元素中"></a>捆绑数据到 DOM 元素中</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
 <p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
-<p><code>.enter()</code> 方法从数据操作器中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
+<p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
 <p><code>.append()</code> 在占位符上添加 DOM 元素。</p>
 <p><code>.text()</code> 文本方法添加文本到对于 DOM 元素上。</p>
 <p>其中，数据被保存在 <code>__data__</code> 属性中。</p>
@@ -303,11 +303,11 @@
   </entry>
   
   <entry>
-    <title>从零学机器学习：决策树</title>
-    <link href="https://lix90.github.io/2016/09/22/ml%E5%86%B3%E7%AD%96%E6%A0%91/"/>
-    <id>https://lix90.github.io/2016/09/22/ml决策树/</id>
+    <title>从零学机器学习之决策树</title>
+    <link href="https://lix90.github.io/2016/09/22/decision-tree/"/>
+    <id>https://lix90.github.io/2016/09/22/decision-tree/</id>
     <published>2016-09-22T02:10:09.000Z</published>
-    <updated>2016-09-22T11:13:20.000Z</updated>
+    <updated>2016-10-17T08:34:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。<br><a id="more"></a></p>
 <p>决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。</p>
@@ -343,8 +343,8 @@
   
   <entry>
     <title>零基础如何学习一门新的编程语言？</title>
-    <link href="https://lix90.github.io/2016/09/17/learn-a-new-lang/"/>
-    <id>https://lix90.github.io/2016/09/17/learn-a-new-lang/</id>
+    <link href="https://lix90.github.io/2016/09/17/learn-new-lang/"/>
+    <id>https://lix90.github.io/2016/09/17/learn-new-lang/</id>
     <published>2016-09-17T06:48:43.000Z</published>
     <updated>2016-09-18T02:19:11.000Z</updated>
     
@@ -495,11 +495,11 @@
   </entry>
   
   <entry>
-    <title>数据库系统笔记：SQL 语言入门</title>
-    <link href="https://lix90.github.io/2016/09/17/SQL/"/>
-    <id>https://lix90.github.io/2016/09/17/SQL/</id>
+    <title>SQL 语言入门笔记</title>
+    <link href="https://lix90.github.io/2016/09/17/sql/"/>
+    <id>https://lix90.github.io/2016/09/17/sql/</id>
     <published>2016-09-17T01:46:39.000Z</published>
-    <updated>2016-10-14T11:10:12.000Z</updated>
+    <updated>2016-10-17T08:34:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>《数据库系统概论》第三章笔记。</p>
 <a id="more"></a>
@@ -764,11 +764,11 @@
   </entry>
   
   <entry>
-    <title>MySQL笔记：安装与配置（MacOS）</title>
+    <title>MySQL安装与配置（MacOS）</title>
     <link href="https://lix90.github.io/2016/09/13/mysql-config/"/>
     <id>https://lix90.github.io/2016/09/13/mysql-config/</id>
     <published>2016-09-13T12:59:16.000Z</published>
-    <updated>2016-09-20T00:44:17.000Z</updated>
+    <updated>2016-10-17T08:33:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>MySQL 的安装与配置折腾记录。</p>
 <a id="more"></a>
@@ -849,11 +849,11 @@
   </entry>
   
   <entry>
-    <title>数据库系统笔记：数据冗余</title>
-    <link href="https://lix90.github.io/2016/09/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"/>
-    <id>https://lix90.github.io/2016/09/11/数据库笔记/</id>
+    <title>数据冗余</title>
+    <link href="https://lix90.github.io/2016/09/11/data-redundency/"/>
+    <id>https://lix90.github.io/2016/09/11/data-redundency/</id>
     <published>2016-09-11T11:54:11.000Z</published>
-    <updated>2016-09-11T12:54:42.000Z</updated>
+    <updated>2016-10-17T08:33:47.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
 <p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
