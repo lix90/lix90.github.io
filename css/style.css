@@ -710,7 +710,7 @@ Footer
 
 .site-header {
   width: 100%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid #dcdcdc;
   z-index: 30;
   position: fixed;
@@ -786,8 +786,8 @@ Footer
   width: 100%; }
 
 .post {
-  padding-top: 70px;
-  padding-bottom: 70px; }
+  padding-top: 30px;
+  padding-bottom: 30px; }
   .post .nav-links a {
     text-decoration: none;
     color: #3a3a3a;
