@@ -1,264 +1,605 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Xiang Li"><meta name="description"><title>I'm Lix!</title><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://lix90.github.io/"><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><link rel="stylesheet" href="/css/style.css"><script type="text/javascript">var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-ga('create', 'UA-83416766-1', 'auto');
-ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">I'm Lix!</a><ul class="nav"><li class="nav-link"><a href="/" class="active">Home</a></li><li class="nav-link"><a href="/archives" target="_self">Archives</a></li><li class="nav-link"><a href="/about" target="_self">About</a></li></ul></header><section id="container"><ul class="home"><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/10/27/daily/" class="post-link">每日总结 2016-10-27</a></h2><span class="post-time">Oct 27, 2016</span><div class="post-content"><h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><p>可包含任意数据类型，并通过索引来访问每个元素。<br>Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
-<p><code>length</code> 获取长度<br><code>indexOf()</code> 搜索指定元素的位置<br><code>slice</code> 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始参数包括开始索引，不包括结束索引。<br><code>push</code> 向 Array 的末尾添加若干元素<br><code>pop</code> 删除 Array 的最后一个元素<br><code>unshift</code> 往 Array 头部添加若干元素<br><code>shift</code> 删除 Array 的第一个元素<br><code>sort</code> 对 Array 进行排序，并且修改 Array 的元素位置，默认排序标准为 <code>string Unicode code points</code>。<br><code>reverse</code> 反转 Array<br><code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br><code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br><code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
-<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><p>jQuery 可以做许多事情：</p>
-<ul>
-<li>selectors 选择器 <code>$(&#39;*&#39;).css(&#39;property&#39;, &#39;values&#39;);</code></li>
-<li>animations 创建动画 <code>$(&#39;selector&#39;).animate(...);</code></li>
-<li>filters 过滤机制:<ul>
-<li>index filters; <code>$(&#39;selector:eq(2)&#39;.css(...));</code></li>
-<li>relationship filters; <code>$(&#39;selector:parent&#39;.css(...));</code></li>
-<li>attribute filters; <code>$(&#39;tag[name^=&quot;foo&quot;]&#39;).css(...);</code></li>
-</ul>
-</li>
-<li>image swap 图片的操作 <code>$(&#39;img&#39;).attr(&#39;src&#39;, &#39;...&#39;);</code></li>
-<li>methods 方法<ul>
-<li>attr methods; <code>.attr(&#39;attribute&#39;, &#39;...&#39;);</code></li>
-<li>class methods; <code>.hasClass()</code> <code>.addClass()</code></li>
-<li>content methods; <code>.text()</code></li>
-</ul>
-</li>
-<li>DOM traversal DOM 遍历</li>
-<li>event binding 事件绑定 <code>.bind(&#39;event&#39;, ...)</code></li>
-</ul>
-<p>@ 2016-10-20 15:36:55</p>
-<h2 id="Optimizing-the-DOM"><a href="#Optimizing-the-DOM" class="headerlink" title="Optimizing the DOM"></a>Optimizing the DOM</h2><ol>
-<li>minify 最小化</li>
-<li>compress 压缩</li>
-<li>cache 缓存</li>
-</ol>
-<h3 id="onblocking-css"><a href="#onblocking-css" class="headerlink" title="onblocking css"></a>onblocking css</h3><p>将不同媒体的样式分离为单独的样式表，然后根据媒体类型进行加载。</p>
-<h3 id="Optimization-JS"><a href="#Optimization-JS" class="headerlink" title="Optimization JS"></a>Optimization JS</h3><p>JS 阻碍网页的解析</p>
-<h3 id="Async-JS"><a href="#Async-JS" class="headerlink" title="Async JS"></a>Async JS</h3><ol>
-<li>Does not block DOM construction</li>
-<li>Does not block on CSSOM</li>
-</ol>
-<p>@ 2016-10-19 10:57:59</p>
-<p>Q: What is <strong>callback</strong>?</p>
-<hr>
-<h1 id="Vuejs"><a href="#Vuejs" class="headerlink" title="Vuejs"></a>Vuejs</h1><p>Vuejs 有哪些优点？</p>
-<ul>
-<li>Reactive</li>
-<li>Component based</li>
-<li>Modular</li>
-<li>Simple to use animations right out of the box</li>
-<li>Easy to learn</li>
-</ul>
-<hr>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="zoom-属性"><a href="#zoom-属性" class="headerlink" title="zoom 属性"></a>zoom 属性</h2><p><code>zoom: auto | &lt;number&gt; | &lt;percentage&gt;;</code></p>
-<blockquote>
-<p>The zoom property in CSS allows you to scale your content. It is non-standard, and was originally implemented only in Internet Explorer. Although several other browsers now support zoom, it isn’t recommended for production sites.</p>
-</blockquote>
-<p>用于内容的缩放。zoom 是一个老版 IE 属性，在实际的使用中，不建议使用。如果要缩放内容，可以使用 <code>CSS transforms</code>，也可以使用 filters，如果需要老版的 IE 支持。</p>
-<p>兼容 IE6、IE7、IE8 浏览器，经常会遇到一些问题，可以使用 <code>zoom:1</code> 来解决，有如下作用：</p>
-<ul>
-<li>触发 IE 浏览器的 haslayout</li>
-<li>解决 IE 下的浮动，margin 重叠等问题。</li>
-</ul>
-<p>zoom 的作用：</p>
-<ul>
-<li>检查页面的标签是否闭合</li>
-<li>样式排除法</li>
-<li>模块确认法</li>
-<li>检查是否清除浮动</li>
-<li>检查 IE 下是否触发 haslayout</li>
-<li>边框背景调试法</li>
-</ul>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.jb51.net/css/40285.html" target="_blank" rel="external">CSS中不为人知Zoom属性的使用介绍(IE私有属性)</a></li>
-<li><a href="https://css-tricks.com/almanac/properties/z/zoom/" target="_blank" rel="external">CSS-tricks: zoom</a></li>
-<li><a href="http://www.useragentman.com/IETransformsTranslator/" target="_blank" rel="external">IE’s CSS3 Transforms Translator</a></li>
-</ul>
-<h2 id="BFC-块级格式化上下文"><a href="#BFC-块级格式化上下文" class="headerlink" title="BFC 块级格式化上下文"></a>BFC 块级格式化上下文</h2><p>BFC 决定盒子的布局及浮动元素相互影响的一个因素。</p>
-<p>下列情况可以创建一个块格式化上下文：</p>
-<ul>
-<li>根元素或其它包含它的元素（超级块级元素）</li>
-<li>浮动（元素 float 不为 none）</li>
-<li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
-<li>行内块 inline-blocks（元素的 display: ineline-block;）</li>
-<li>表格单元格（元素的 display: table-cell, HTML 表格单元格默认属性）</li>
-<li>表格标题（元素的 display: table-caption, HTML表格标题默认属性）</li>
-<li>overflow 的值不为 visible 的元素</li>
-<li>弹性盒子 flexboxes（元素的 display: flex 或 inline-block）</li>
-</ul>
-<p>块格式化上下文包括了创建该上下文的元素的所有子元素，但不包括创建了新的块格式化上下文的子元素。<br>块格式化上下文对定位与清除浮动很重要。定位和清除浮动的样式规则只适用于处于同一块格式化上下文内的元素。浮动不会影响其它块格式化上下文中元素的布局，并且清除浮动只能清除 同一块格式化上下文中 在它前面的元素的浮动。</p>
-<p>参考资料：</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">块级格式化上下文</a></p>
-<h2 id="如何通过-CSS-动画提升用户体验？"><a href="#如何通过-CSS-动画提升用户体验？" class="headerlink" title="如何通过 CSS 动画提升用户体验？"></a>如何通过 CSS 动画提升用户体验？</h2><p>什么时候使用动画？</p>
-<ul>
-<li>指明方向 orientation: where am i now</li>
-<li>提示功能的变化 functional change: what does this element to now</li>
-<li>提示新的元素 new element: what should i look at</li>
-<li>强调 highlight: what is important here</li>
-<li>视觉反馈 visual feedback: is the layout understanding what I am asking it to do</li>
-<li>提示系统状态 system status: is this working? how long will it take</li>
-</ul>
-<hr>
-<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="HTML-语义化"><a href="#HTML-语义化" class="headerlink" title="HTML 语义化"></a>HTML 语义化</h2><p>语义化：让机器读懂内容。</p>
-<p>Web 规模扩大 —&gt; 机器处理内容 —&gt; 机器读懂内容？—&gt; 语义化</p>
-<blockquote>
-<p>内容的语义表达能力和 AI 的智能程度决定了机器分析处理 Web 内容能力的高低。</p>
-<p><strong>内容与样式分离</strong>：将内容本身的语义合理地表述出来，再为不同的用户代理设计不同的样式描述。这样我们在提供内容的时候，首先要做的就是将内容本身进行合理的描述，暂时不用考虑它的最终呈现会是什么样子。</p>
-<p>所谓语义本身就是对符号的一种共识，被认可的程度越高、范围越广，人们就越可以依赖它实现各种各样的功能。</p>
-<p>大部分的语义网的表示规范都基于XML，因为它是一种完备的通用描述语言。</p>
-<p>所谓 web 语义化，从广义上来说，不仅要使机器（搜索引擎等）易于理解，也要使人易于理解。</p>
-<p>语义网的目标就是为了使得网络上的信息更加容易被机器理解和查找，从而提升人类使用网络获取信息的体验。</p>
-<p>语义化是指根据内容的结构化（内容语义化），选择合适的标签（代码语义化），便于开发者阅读和写出更优雅的代码的同时，让浏览器的爬虫和机器很好的解析。</p>
-</blockquote>
-<p>Why?</p>
-<blockquote>
-<ul>
-<li>有利于 SEO，有助于爬虫抓取更多的有效信息，爬虫是依赖于标签来确定上下文和各个关键字的权重。</li>
-<li>语义化的 HTML 在没有 CSS 的情况下也能呈现较好的内容结构与代码结构</li>
-<li>方便其他设备的解析</li>
-<li>便于团队开发和维护</li>
-</ul>
-</blockquote>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://segmentfault.com/a/1190000005626375" target="_blank" rel="external">HTML语义化</a></li>
-<li><a href="https://www.zhihu.com/question/20455165" target="_blank" rel="external">如何理解 Web 语义化？</a></li>
-<li><a href="http://chenhaizhou.github.io/2015/12/09/html-sense.html" target="_blank" rel="external">谈谈对HTML语义化的理解</a></li>
-</ul>
-<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="GET-与-POST"><a href="#GET-与-POST" class="headerlink" title="GET 与 POST"></a>GET 与 POST</h2><p>HTTP 协议中的两种发送请求的方法。</p>
-<p>HTTP 是基于 TCP/IP 的关于数据如何在万维网中如何通信的协议。</p>
-<blockquote>
-<p>HTTP 的底层是 TCP/IP。所以 GET 和 POST 的底层也是 TCP/IP，也就是说，GET/POST 都是TCP链接。GET 和 POST 能做的事情是一样一样的。你要给 GET 加上 request body，给 POST 带上 url 参数，技术上是完全行的通的。<br>HTTP 只是个行为准则，而 TCP 才是 GET 和 POST 怎么实现的基本。<br>GET 和 POST 本质上就是 TCP 链接，并无差别。但是由于 HTTP 的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。<br>GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数据包；POST 产生两个 TCP 数据包。<br>对于 GET 方式的请求，浏览器会把 http header 和 data 一并发送出去，服务器响应 200（返回数据）；而对于 POST，浏览器先发送 header，服务器响应 100 continue，浏览器再发送 data，服务器响应 200 ok（返回数据）。</p>
-</blockquote>
-<hr>
-<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><p>将启动 Emacs 后默认的 <code>*scratch* buffer</code> 的 major mode 改为 markdown-mode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(setq initial-major-mode &apos;markdown-mode)</div><div class="line">(setq initial-scratch-message &quot;\</div><div class="line"># This buffer is for notes you don&apos;t want to save, and for Markdown.)</div></pre></td></tr></table></figure>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/" target="_blank" rel="external">Configure the Scratch Buffer’s Mode</a></li>
-</ul>
-<h2 id="lisp-and-elisp-小记"><a href="#lisp-and-elisp-小记" class="headerlink" title="lisp and elisp 小记"></a>lisp and elisp 小记</h2><p><code>when</code>: <code>(when COND BODY ...)</code> 当 COND 为真，eval BODY；按顺序 eval BODY 中的项，返回最后一项的值。<br><code>and</code>: <code>(and CONDITIONS ...)</code> 当 CONDITIONS 全部为 non-nil 时返回最后一个 arg 的值；如果一个为 nil，后面的都不用 eval，直接返回 nil。<br><code>listp</code>: <code>(listp OBJECT)</code> 当 OBJECT 为 list 返回 t，否则返回 nil。<br><code>cons</code>: <code>(cons CAR CDR)</code> 创建新的 cons。<br><code>not</code>: <code>(not OBJECT)</code> 如果 OBJECT 为 nil 范围 t，否则返回 nil。<br><code>car</code>: <code>(car LIST)</code> 返回 LIST 中的第一个值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br><code>cdr</code>: <code>(cdr LIST)</code> 返回 LIST 中除第一个值之外剩余的值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br><code>cadr</code>: <code>(cadr X)</code> 返回 X 的 cdr 的 car，即范围 X 的第二个元素。<br><code>nth</code>: <code>(nth N LIST)</code> 范围 LIST 中第 N 个元素。<br><code>progn</code>: <code>(progn BODY ...)</code> 按顺序 eval BODY，返回最后一项的值。<br><code>if</code>: <code>(if COND THEN ELSE)</code> 如果 COND 为 non-nil，执行 THEN，否则执行 ELSE；返回 THEN 的值，或者 ELSE 的最后一项的值；THEN 只能有一个表达式，但是 ELSE 可以有零到多个表达式；如果 COND 为 nil，且没有 ELSE，整个 IF 语句返回的值为 nil。<br><code>cond</code>: <code>(cond CLAUSES...)</code> 当一个 clause 执行完再执行下一个 clause. clause 的表达式为 <code>(CONDITION BODY...)</code>. CONDITION eval 的值为 non-nil，那么 eval BODY 表达式中的项目，并且返回最后一个项目的值。如果 clause 表达式仅仅只有一个元素，如 <code>(CONDITION)</code>，如果 CONDITION 为 non-nil，那么返回 CONDITION 的值。如果没有 clause 执行成功，那么 cond 返回 nil。<br><code>eq</code>: <code>(eq OBJ1 OBJ2)</code> 如果两个 args 为相同的 Lisp 对象，那么返回 t。<br><code>defvar</code>: <code>(defvar SYMBOL &amp;optional INITVALUE DOCSTRING)</code> 定义 SYMBOL 为一个变量，然后返回 SYMBOL 的值。</p>
-<p><strong>Q: The differences between Macros and Functions?</strong></p>
-<hr>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p><code>/</code> 与 <code>//</code> 的差别</p>
-<p>在 python2 中，当除数和被除数有一个为浮点型，/ 为一般的除法，如果除数和被除数均为整数型，/ 为整除。而 // 在任何情况下都是整除。而在 python3 中，/ 为浮点除法，// 为整除除法。</p>
-</div></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/10/26/daily/" class="post-link">每日总结 2016-10-26</a></h2><span class="post-time">Oct 26, 2016</span><div class="post-content"><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="解决-Git-push-冲突"><a href="#解决-Git-push-冲突" class="headerlink" title="解决 Git push 冲突"></a>解决 Git push 冲突</h2><p>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</p>
-<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>Basic premise of learning</p>
-<blockquote>
-<p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
-</blockquote>
-<p>几种学习类型：</p>
-<ul>
-<li>Supervised learning: we get (input, correct output)</li>
-<li>Unsupervised learning: instead of (input, correct output), we get (input, ?)</li>
-<li>Reinforcement learning: instead of (input, correct output), we get (input, <em>some</em> output, <strong>grade for this output</strong>)</li>
-</ul>
-<p>什么是机器学习？</p>
-<blockquote>
-<p>Algorithms for inferring unknowns from knowns.<br>算法，推论，未知，已知</p>
-</blockquote>
-<h3 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h3><ul>
-<li>识别垃圾邮件</li>
-<li>识别手写字</li>
-<li>谷歌街道</li>
-<li>语音识别</li>
-<li>Netflix 推荐系统</li>
-<li>Navigation 导航</li>
-<li>气候模型：解释和预测</li>
-</ul>
-<h3 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h3><ul>
-<li>人类能力不可及：火星探测</li>
-<li>人类无法解释的问题：语音识别</li>
-<li>解决方案随着时间而变化：温度控制</li>
-<li>解决方案需要对个案进行调整</li>
-<li>问题大小超出了人类的合理能力范围</li>
-</ul>
-<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><ul>
-<li>分类问题</li>
-<li>回归问题</li>
-</ul>
-<p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>从二元分类到多元分类</p>
-<h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><ul>
-<li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
-<li>密度估计（Density estimation）</li>
-<li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
-</ul>
-<p>没有训练集也没有奖励与惩罚</p>
-<h3 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h3><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
-<ul>
-<li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
-<li>目标：奖励最大化</li>
-</ul>
-<hr>
-<h2 id="学习的成分"><a href="#学习的成分" class="headerlink" title="学习的成分"></a>学习的成分</h2><ul>
-<li>未知的目标函数 f: x —&gt; y；</li>
-<li>X 的分布 P；</li>
-<li>训练集 D；</li>
-<li>学习算法 A；</li>
-<li>假设集 H。</li>
-</ul>
-<h2 id="机器学习的本质"><a href="#机器学习的本质" class="headerlink" title="机器学习的本质"></a>机器学习的本质</h2><ul>
-<li>A pattern exists; 有规律存在（学习的对象）</li>
-<li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
-<li>We have data on it. 有足够的数据（学习的基础）</li>
-</ul>
-<hr>
-<p>Hoeffding’s inequality</p>
-<p>PAC: probability approximately correct</p>
-<p>通过概率论的方法来表示对未知的学习。</p>
-<p>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。</p>
-<p><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。</p>
-<p>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。</p>
-<p><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。</p>
-<p>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
-<hr>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><p>关于 Margin：</p>
-<blockquote>
-<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
-</blockquote>
-<p>垂直 margin 合并的好处：</p>
-<ul>
-<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
-<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
-<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
-</ul>
-<h2 id="CSS-浮动"><a href="#CSS-浮动" class="headerlink" title="CSS 浮动"></a>CSS 浮动</h2><ul>
-<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
-<li>不出现外边距合并</li>
-<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
-<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
-<li>一般来说浮动元素会成为块级盒</li>
-</ul>
-<blockquote>
-<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
-</blockquote>
-<h2 id="常见清除浮动的办法"><a href="#常见清除浮动的办法" class="headerlink" title="常见清除浮动的办法"></a>常见清除浮动的办法</h2><ol>
-<li>clear 属性</li>
-<li>空 DIV 法：不如何“结构与表现分离原则”</li>
-<li>Overflow 法：可能有副作用</li>
-<li>Clearfix 法</li>
-</ol>
-<blockquote>
-<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
-</blockquote>
-<h2 id="CSS3-提供了几种新的处理布局的方法"><a href="#CSS3-提供了几种新的处理布局的方法" class="headerlink" title="CSS3 提供了几种新的处理布局的方法"></a>CSS3 提供了几种新的处理布局的方法</h2><ol>
-<li>Flexbox 弹性盒子</li>
-<li>Multi-column layout 多栏布局</li>
-<li>Grid layout 格子布局</li>
-</ol>
-<h1 id="Good-stuff"><a href="#Good-stuff" class="headerlink" title="Good stuff"></a>Good stuff</h1><ul>
-<li>Helvetica 纪录片：字体设计</li>
-<li>Code Rush 纪录片：代码奔腾 Firefox 的诞生</li>
-<li>Just for Fun 书籍：Linus 讲述 Linux 如何发明</li>
-</ul>
-</div></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/10/17/d3js-intro/" class="post-link">D3.js 入门学习记录</a></h2><span class="post-time">Oct 17, 2016</span><div class="post-content"><p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p></div><a href="/2016/10/17/d3js-intro/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/10/07/plan/" class="post-link">近一年学习计划</a></h2><span class="post-time">Oct 7, 2016</span><div class="post-content"><p>个人学习计划。</p></div><a href="/2016/10/07/plan/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/09/25/php-config/" class="post-link">PHP 安装与配置</a></h2><span class="post-time">Sep 25, 2016</span><div class="post-content"><p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p></div><a href="/2016/09/25/php-config/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/09/22/decision-tree/" class="post-link">从零学机器学习之决策树</a></h2><span class="post-time">Sep 22, 2016</span><div class="post-content"><p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。<br></div><a href="/2016/09/22/decision-tree/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/09/17/learn-new-lang/" class="post-link">零基础如何学习一门新的编程语言？</a></h2><span class="post-time">Sep 17, 2016</span><div class="post-content"><p>本文从自身角度出发，总结作为零基础的菜鸟如何学习一门新的编程语言和新技术的经验。</p></div><a href="/2016/09/17/learn-new-lang/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/09/17/sql/" class="post-link">SQL 语言入门笔记</a></h2><span class="post-time">Sep 17, 2016</span><div class="post-content"><p>《数据库系统概论》第三章笔记。</p></div><a href="/2016/09/17/sql/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/09/13/mysql-config/" class="post-link">MySQL安装与配置（MacOS）</a></h2><span class="post-time">Sep 13, 2016</span><div class="post-content"><p>MySQL 的安装与配置折腾记录。</p></div><a href="/2016/09/13/mysql-config/" class="read-more">Read more..</a></article></li><li class="post-item"><article class="post"><h2 class="post-title"><a href="/2016/09/11/data-redundency/" class="post-link">数据冗余</a></h2><span class="post-time">Sep 11, 2016</span><div class="post-content"><h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="Xiang Li">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="I&#39;m Lix!"/>
+  
+  <!--Open Graph Description-->
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="I&#39;m Lix!"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="website" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Title -->
+  
+  <title>I&#39;m Lix! - Personal thoughts &amp; notes</title>
+
+
+  <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
+
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!----------------------------
+  https://github.com/GallenHu/hexo-theme-Daily
+
+ _____            _   _
+|  __ \          (_) | |
+| |  | |   __ _   _  | |  _   _
+| |  | |  / _` | | | | | | | | |
+| |__| | | (_| | | | | | | |_| |
+|_____/   \__,_| |_| |_|  \__, |
+                          __/ |
+                         |___/
+
+    --------------------------->
+
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a href="/" rel="home">
+        
+        <img src="https://hexo.io/logo.svg" alt="I'm Lix!" height="60">
+        
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
+                
+                  home
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives">
+                
+                  archive
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/about">
+                
+                  about
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/atom.xml">
+                
+                  rss
+                
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="site-content home">
+  <main class="content-area">
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/10/27/daily/" rel="bookmark">
+        每日总结 2016-10-27  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2016-10-27
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/CSS/" rel="tag">
+        CSS
+      </a>
+      
+      <a href="/tags/Python/" rel="tag">
+        Python
+      </a>
+      
+      <a href="/tags/HTTP/" rel="tag">
+        HTTP
+      </a>
+      
+      <a href="/tags/Javascript/" rel="tag">
+        Javascript
+      </a>
+      
+      <a href="/tags/jQuery/" rel="tag">
+        jQuery
+      </a>
+      
+      <a href="/tags/VueJS/" rel="tag">
+        VueJS
+      </a>
+      
+      <a href="/tags/DOM/" rel="tag">
+        DOM
+      </a>
+      
+      <a href="/tags/Emacs/" rel="tag">
+        Emacs
+      </a>
+      
+      <a href="/tags/elisp/" rel="tag">
+        elisp
+      </a>
+      
+      <a href="/tags/HTML/" rel="tag">
+        HTML
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/10/26/daily/" rel="bookmark">
+        每日总结 2016-10-26  
+      </a>
+    </h1>
+    
+    
+    <p class="posted-on">
+    2016-10-26
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/CSS/" rel="tag">
+        CSS
+      </a>
+      
+      <a href="/tags/机器学习/" rel="tag">
+        机器学习
+      </a>
+      
+      <a href="/tags/Git/" rel="tag">
+        Git
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/10/17/d3js-intro/" rel="bookmark">
+        D3.js 入门学习记录  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-10-17
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/D3js/" rel="tag">
+        D3js
+      </a>
+      
+      <a href="/tags/数据可视化/" rel="tag">
+        数据可视化
+      </a>
+      
+      <a href="/tags/SVG/" rel="tag">
+        SVG
+      </a>
+      
+      <a href="/tags/JavaScript/" rel="tag">
+        JavaScript
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/10/07/plan/" rel="bookmark">
+        近一年学习计划  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>个人学习计划。</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-10-07
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/计划/" rel="tag">
+        计划
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/09/25/php-config/" rel="bookmark">
+        PHP 安装与配置  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-09-25
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/配置/" rel="tag">
+        配置
+      </a>
+      
+      <a href="/tags/PHP/" rel="tag">
+        PHP
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/09/22/decision-tree/" rel="bookmark">
+        从零学机器学习之决策树  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。<br>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-09-22
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/机器学习/" rel="tag">
+        机器学习
+      </a>
+      
+      <a href="/tags/决策树/" rel="tag">
+        决策树
+      </a>
+      
+      <a href="/tags/分类算法/" rel="tag">
+        分类算法
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/09/17/learn-new-lang/" rel="bookmark">
+        零基础如何学习一门新的编程语言？  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>本文从自身角度出发，总结作为零基础的菜鸟如何学习一门新的编程语言和新技术的经验。</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-09-17
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/学习方法/" rel="tag">
+        学习方法
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/09/17/sql/" rel="bookmark">
+        SQL 语言入门笔记  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>《数据库系统概论》第三章笔记。</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-09-17
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/数据库系统/" rel="tag">
+        数据库系统
+      </a>
+      
+      <a href="/tags/SQL/" rel="tag">
+        SQL
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+      
+        <div class="even">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/09/13/mysql-config/" rel="bookmark">
+        MySQL安装与配置（MacOS）  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p>MySQL 的安装与配置折腾记录。</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-09-13
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/MySQL/" rel="tag">
+        MySQL
+      </a>
+      
+      <a href="/tags/数据库/" rel="tag">
+        数据库
+      </a>
+      
+      <a href="/tags/关系型数据库/" rel="tag">
+        关系型数据库
+      </a>
+      
+      <a href="/tags/配置/" rel="tag">
+        配置
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div> 
+      
+    
+      
+        <div class="odd">
+          <div class="container">
+  <article class="post">
+    
+    <h1 class="entry-title">
+      <a href="/2016/09/11/data-redundency/" rel="bookmark">
+        数据冗余  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
 <p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
-<p>Q: 数据冗余会造成什么影响和后果？</p></div><a href="/2016/09/11/data-redundency/" class="read-more">Read more..</a></article></li></ul><div class="paginator"></div></section><footer><div class="social"><a href="mailto:xiangli90@outlook.com" class="iconfont icon-email"> </a><a href="https://twitter.com/alexiangli" class="iconfont icon-twitter"> </a><a href="https://github.com/lix90" class="iconfont icon-github"> </a><a href="https://zhihu.com/people/lix90" class="iconfont icon-zhihu"> </a><a href="/atom.xml" class="iconfont icon-rss"> </a></div><div class="copyright"><p class="power">Powered by <a href="https://hexo.io/">Hexo</a> and Theme by <a href="https://github.com/ahonn/hexo-theme-even"> Even</a></p><p class="since">&copy;2016<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">Xiang Li</span></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div><script src="/js/zepto.min.js"></script><script src="/js/theme.js"></script></body></html>
+<p>Q: 数据冗余会造成什么影响和后果？</p>
+      </p>
+    </div>
+    
+    
+    <p class="posted-on">
+    2016-09-11
+    </p>
+    <div class="tags-links">
+      
+      <a href="/tags/数据库系统/" rel="tag">
+        数据库系统
+      </a>
+      
+      <a href="/tags/数据冗余/" rel="tag">
+        数据冗余
+      </a>
+      
+    </div>
+  </article>
+</div>
+        </div>
+      
+    
+
+    
+
+  </main>
+</div>
+
+  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+  <div class="row inside-wrapper">
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">关于本站</h1>
+        <div class="custom-widget-content">
+          
+          一些菜鸟笔记，原创不多
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">Contact</h1>
+        <div class="widget-text">
+          
+            
+              <a href="https://github.com/lix90" class="icon icon-github" target="_blank">github</a>
+            
+              <a href="mailto:xiangli90@outlook.com" class="icon icon-mail" target="_blank">mail</a>
+            
+              <a href="https://twitter.com/alexiangli" class="icon icon-twitter" target="_blank">twitter</a>
+            
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">Search</h1>
+        <div class="widget-text">
+          <form onSubmit="return appDaily.submitSearch('')">
+            <p>
+              <input type="text" placeholder="search..." id="homeSearchInput">
+            </p>
+            <!-- <input type="submit" value="GO"> -->
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>I'm Lix! &copy; 2016</span>
+    
+      <span class="split">|</span><span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+    
+  </p>
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="/js/app.js"></script>
+
+
+
+</body>
+
+</html>

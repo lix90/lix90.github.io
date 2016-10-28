@@ -174,9 +174,9 @@
     
       <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
     
-      <category term="HTTP" scheme="https://lix90.github.io/tags/HTTP/"/>
-    
       <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
+    
+      <category term="HTTP" scheme="https://lix90.github.io/tags/HTTP/"/>
     
       <category term="Javascript" scheme="https://lix90.github.io/tags/Javascript/"/>
     
@@ -323,9 +323,9 @@
     
       <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
     
-      <category term="Git" scheme="https://lix90.github.io/tags/Git/"/>
-    
       <category term="机器学习" scheme="https://lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Git" scheme="https://lix90.github.io/tags/Git/"/>
     
   </entry>
   
