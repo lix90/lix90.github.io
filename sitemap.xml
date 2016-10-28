@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lix90.github.io/tags/index.html</loc>
+    
+    <lastmod>2016-10-28T05:49:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lix90.github.io/about/index.html</loc>
     
     <lastmod>2016-10-28T02:06:11.000Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://lix90.github.io/categories/index.html</loc>
     
     <lastmod>2016-09-11T12:41:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/tags/index.html</loc>
-    
-    <lastmod>2016-09-11T12:37:15.000Z</lastmod>
     
   </url>
   
