@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lix90.github.io/about/index.html</loc>
+    
+    <lastmod>2016-10-28T02:06:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/10/17/d3js-intro/</loc>
+    
+    <lastmod>2016-10-28T02:05:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/25/php-config/</loc>
+    
+    <lastmod>2016-10-28T02:03:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/22/decision-tree/</loc>
+    
+    <lastmod>2016-10-28T02:03:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/17/sql/</loc>
+    
+    <lastmod>2016-10-28T02:03:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/17/learn-new-lang/</loc>
+    
+    <lastmod>2016-10-28T02:03:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/13/mysql-config/</loc>
+    
+    <lastmod>2016-10-28T02:03:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lix90.github.io/2016/09/11/data-redundency/</loc>
+    
+    <lastmod>2016-10-28T02:02:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lix90.github.io/2016/10/27/daily/</loc>
     
     <lastmod>2016-10-27T15:16:44.000Z</lastmod>
@@ -12,69 +68,6 @@
     <loc>https://lix90.github.io/2016/10/26/daily/</loc>
     
     <lastmod>2016-10-27T15:15:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/about/index.html</loc>
-    
-    <lastmod>2016-10-25T05:42:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/17/sql/</loc>
-    
-    <lastmod>2016-10-17T08:34:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/22/decision-tree/</loc>
-    
-    <lastmod>2016-10-17T08:34:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/13/mysql-config/</loc>
-    
-    <lastmod>2016-10-17T08:33:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/11/data-redundency/</loc>
-    
-    <lastmod>2016-10-17T08:33:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/10/17/d3js-intro/</loc>
-    
-    <lastmod>2016-10-17T08:29:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/10/07/plan/</loc>
-    
-    <lastmod>2016-10-07T10:35:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/25/php-config/</loc>
-    
-    <lastmod>2016-09-26T01:39:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lix90.github.io/2016/09/17/learn-new-lang/</loc>
-    
-    <lastmod>2016-09-18T02:19:11.000Z</lastmod>
     
   </url>
   
