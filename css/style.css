@@ -1122,6 +1122,8 @@ pre {
   .container {
     padding-left: 40px;
     padding-right: 40px; }
+  .toc-container {
+    display: none; }
   .site-content {
     min-height: auto; }
     .site-content .content-area {
