@@ -1078,6 +1078,25 @@ pre {
     min-height: auto; }
     .site-content .content-area {
       padding-top: 0; }
+  div.content-area {
+    padding-top: 0; }
+  .entry-content {
+    line-height: 1.7; }
+    .entry-content h1,
+    .entry-content h2,
+    .entry-content h3 {
+      text-align: center; }
+    .entry-content h1 {
+      font-size: 1.5em;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em; }
+    .entry-content h2 {
+      font-size: 1.2em;
+      margin-top: 0.5em; }
+    .entry-content h1:before,
+    .entry-content h2:before,
+    .entry-content h3:before {
+      content: ""; }
   .site-header {
     position: relative; }
     .site-header .navbar {
