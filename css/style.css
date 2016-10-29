@@ -641,9 +641,8 @@ Footer
   position: relative;
   background: #fff;
   border-top: 1px solid #dcdcdc;
-  border-bottom: 1px solid #dcdcdc;
   padding-top: 50px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   text-align: center; }
 
 .widget-title {
@@ -694,7 +693,15 @@ Footer
   .icon.icon-twitter {
     background-image: url("../images/twitter.svg"); }
   .icon:hover {
-    opacity: 0.7; }
+    animation: 1s ease-in-out infinite scale_social; }
+
+@keyframes scale_social {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.2); }
+  100% {
+    transform: scale(1); } }
 
 .site-info {
   text-align: center;
@@ -776,8 +783,8 @@ Footer
   left: 0;
   content: "";
   width: 0%;
-  height: 1px;
-  background: #7e7e7e;
+  height: 2px;
+  background: #be2216;
   display: block;
   -webkit-transition: width 0.25s ease;
   transition: width 0.25s ease; }
@@ -810,30 +817,66 @@ Footer
 
 .entry-content {
   font-family: -apple-system, BlinkMacSystemFont,"Helvetica Neue","PingFang-SC-Regular","STHeiti", "Helvetica","Arial","Verdana","sans-serif","Microsoft YaHei";
-  line-height: 1.7;
+  line-height: 2;
   word-wrap: break-word; }
   .entry-content ol,
   .entry-content ul {
-    margin: 0 0 1.5em 3em; }
+    margin: 0 0 1.5em 1.5em; }
   .entry-content ul {
     list-style: disc; }
+  .entry-content h1,
+  .entry-content h2,
+  .entry-content h3 {
+    position: relative; }
+  .entry-content h1:before {
+    content: "# ";
+    position: absolute;
+    left: -20px; }
+  .entry-content h2:before {
+    content: "## ";
+    position: absolute;
+    left: -35px; }
+  .entry-content h3:before {
+    content: "### ";
+    position: absolute;
+    left: -45px; }
   .entry-content blockquote {
-    color: #aaa;
+    color: #111;
+    font-style: italic;
+    font-size: 0.8em;
     margin: 1em 0;
-    padding: 0 0 0 30px;
-    border-left: 4px solid #aaa; }
+    padding-left: 20px;
+    border-left: 3px solid rgba(190, 22, 34, 0.5); }
+    .entry-content blockquote p {
+      margin-top: 8px; }
   .entry-content p img {
     display: block;
     margin: 0 auto; }
   .entry-content a:link {
-    color: #3769c9; }
+    position: relative;
+    color: #be1622; }
   .entry-content a:visited {
-    color: #3769c9; }
+    color: #be1622; }
   .entry-content a:active,
   .entry-content a:focus,
   .entry-content a:hover {
-    color: #3769c9;
+    color: #be1622;
     opacity: 0.8; }
+
+.entry-content a:link:after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #be1622;
+  display: block;
+  opacity: 0.8;
+  transition: width .25s ease; }
+
+.entry-content a:link:hover:after {
+  width: 100%; }
 
 /*
  * From https://github.com/pinggod/hexo-theme-apollo/blob/master/source/scss/_partial/post.scss
