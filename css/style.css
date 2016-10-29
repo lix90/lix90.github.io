@@ -1074,6 +1074,9 @@ pre {
 @media screen and (max-width: 767px) {
   .logo a img {
     height: 36px; }
+  .container {
+    padding-left: 40px;
+    padding-right: 40px; }
   .site-content {
     min-height: auto; }
     .site-content .content-area {
@@ -1097,8 +1100,14 @@ pre {
     .entry-content h2:before,
     .entry-content h3:before {
       content: ""; }
+  .entry-title a {
+    line-height: 1.5em; }
+  .tags-links {
+    line-height: 1.5em; }
   .site-header {
-    position: relative; }
+    position: relative;
+    padding-left: 40px;
+    padding-right: 40px; }
     .site-header .navbar {
       display: none;
       float: none;
@@ -1120,13 +1129,15 @@ pre {
       display: block; }
   .post .nav-links {
     display: none; }
-  .footer-widgets .row .col-1-1,
-  .footer-widgets .row .col-1-2,
-  .footer-widgets .row .col-1-3,
-  .footer-widgets .row .col-1-4 {
-    float: none;
-    width: auto;
-    margin-bottom: 50px; }
+  .footer-widgets {
+    padding-bottom: 0; }
+    .footer-widgets .row .col-1-1,
+    .footer-widgets .row .col-1-2,
+    .footer-widgets .row .col-1-3,
+    .footer-widgets .row .col-1-4 {
+      float: none;
+      width: auto;
+      margin-bottom: 50px; }
   .archive ul.list {
     padding-left: 20px; } }
 
