@@ -143,12 +143,12 @@
                   HTTP
                 </a>
               
-                <a href="/tags/Python/" rel="tag">
-                  Python
-                </a>
-              
                 <a href="/tags/CSS/" rel="tag">
                   CSS
+                </a>
+              
+                <a href="/tags/Python/" rel="tag">
+                  Python
                 </a>
               
                 <a href="/tags/Javascript/" rel="tag">
@@ -183,6 +183,10 @@
           </div>
         </div>
         <!-- Post Main Content -->
+        <div class="toc-container" id="sidebar">
+          <h3 class="toc-heading">Contents</h3>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Javascript"><span class="post-toc-text">Javascript</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组-Array"><span class="post-toc-text">数组 Array</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jQuery"><span class="post-toc-text">jQuery</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Optimizing-the-DOM"><span class="post-toc-text">Optimizing the DOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#onblocking-css"><span class="post-toc-text">onblocking css</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Optimization-JS"><span class="post-toc-text">Optimization JS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Async-JS"><span class="post-toc-text">Async JS</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vuejs"><span class="post-toc-text">Vuejs</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CSS"><span class="post-toc-text">CSS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zoom-属性"><span class="post-toc-text">zoom 属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BFC-块级格式化上下文"><span class="post-toc-text">BFC 块级格式化上下文</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何通过-CSS-动画提升用户体验？"><span class="post-toc-text">如何通过 CSS 动画提升用户体验？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTML"><span class="post-toc-text">HTML</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML-语义化"><span class="post-toc-text">HTML 语义化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP"><span class="post-toc-text">HTTP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GET-与-POST"><span class="post-toc-text">GET 与 POST</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Emacs"><span class="post-toc-text">Emacs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lisp-and-elisp-小记"><span class="post-toc-text">lisp and elisp 小记</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python"><span class="post-toc-text">Python</span></a></li></ol>
+        </div>
         <div class="entry-content">
           <h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><p>可包含任意数据类型，并通过索引来访问每个元素。<br>Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
 <p><code>length</code> 获取长度<br><code>indexOf()</code> 搜索指定元素的位置<br><code>slice</code> 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始参数包括开始索引，不包括结束索引。<br><code>push</code> 向 Array 的末尾添加若干元素<br><code>pop</code> 删除 Array 的最后一个元素<br><code>unshift</code> 往 Array 头部添加若干元素<br><code>shift</code> 删除 Array 的第一个元素<br><code>sort</code> 对 Array 进行排序，并且修改 Array 的元素位置，默认排序标准为 <code>string Unicode code points</code>。<br><code>reverse</code> 反转 Array<br><code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br><code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br><code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
@@ -327,10 +331,6 @@
         </div>
       </article>
     </div>
-    <!-- Comments -->
-    <div class="container">
-      
-    </div>
     <!-- Pre or Next -->
     <div class="nav-links">
       
@@ -338,6 +338,10 @@
         <div class="nav-next">
           <a href="/2016/10/26/daily/" rel="prev">Newer Posts <span class="meta-arraw meta-arraw-right"></span></a>
         </div>
+      
+    </div>
+    <!-- Comments -->
+    <div class="container">
       
     </div>
 

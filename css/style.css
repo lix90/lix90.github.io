@@ -795,25 +795,57 @@ Footer
 .post {
   padding-top: 30px;
   padding-bottom: 30px; }
-  .post .nav-links a {
-    text-decoration: none;
-    color: #3a3a3a;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-family: -apple-system, BlinkMacSystemFont,"Helvetica Neue","PingFang-SC-Regular","STHeiti", "Helvetica","Arial","Verdana","sans-serif","Microsoft YaHei";
-    font-size: 0.750em; }
-  .post .nav-links .meta-arraw {
-    opacity: 0.8; }
-  .post .nav-links .nav-previous {
-    position: fixed;
-    bottom: 64px;
-    left: 50px;
-    z-index: 29; }
-  .post .nav-links .nav-next {
-    position: fixed;
-    bottom: 64px;
-    right: 50px;
-    z-index: 29; }
+  .post .nav-links {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 40px;
+    margin-top: 40px; }
+    .post .nav-links a {
+      text-decoration: none;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-family: -apple-system, BlinkMacSystemFont,"Helvetica Neue","PingFang-SC-Regular","STHeiti", "Helvetica","Arial","Verdana","sans-serif","Microsoft YaHei";
+      font-size: .75em; }
+    .post .nav-links .meta-arraw {
+      opacity: 0.8; }
+    .post .nav-links .nav-previous {
+      float: left; }
+    .post .nav-links .nav-next {
+      float: right; }
+
+.toc-container {
+  position: absolute;
+  margin-left: 650px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 200px;
+  height: auto;
+  background: #f8f8f8;
+  border-radius: 10px;
+  color: #111;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125); }
+  .toc-container .toc-heading {
+    margin-top: 0;
+    margin-bottom: 10px; }
+
+.post-toc {
+  font-family: -apple-system, BlinkMacSystemFont,"Helvetica Neue","PingFang-SC-Regular","STHeiti", "Helvetica","Arial","Verdana","sans-serif","Microsoft YaHei";
+  list-style: none; }
+  .post-toc ol,
+  .post-toc ul {
+    list-style: square; }
+  .post-toc .post-toc-text {
+    line-height: 1.7; }
+  .post-toc .post-toc-level-1 {
+    margin-bottom: 5px; }
+  .post-toc .post-toc-level-2 {
+    font-size: 0.8em; }
 
 .entry-content {
   font-family: -apple-system, BlinkMacSystemFont,"Helvetica Neue","PingFang-SC-Regular","STHeiti", "Helvetica","Arial","Verdana","sans-serif","Microsoft YaHei";
@@ -845,10 +877,16 @@ Footer
     font-style: italic;
     font-size: 0.8em;
     margin: 1em 0;
-    padding-left: 20px;
-    border-left: 3px solid rgba(190, 22, 34, 0.5); }
-    .entry-content blockquote p {
-      margin-top: 8px; }
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1.5em;
+    padding-right: 1em;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-left-color: rgba(190, 22, 34, 0.8);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125); }
   .entry-content p img {
     display: block;
     margin: 0 auto; }
@@ -884,16 +922,15 @@ Footer
 code,
 pre {
   font-size: 0.8em;
-  background-color: #f8f8f8;
   font-family: 'Roboto Mono', Monaco, courier, monospace; }
 
 code {
   padding: 0.2em 0.4em;
   background-color: #efefef;
-  border-radius: 3px; }
+  border-radius: 4px; }
 
 pre .line {
-  min-height: 1em; }
+  min-height: 1.2em; }
 
 .highlight {
   position: relative;
@@ -901,8 +938,11 @@ pre .line {
   border-radius: 2px;
   line-height: 1.1em;
   background-color: #f8f8f8;
-  border: 1px solid #eeeeee;
-  overflow-x: auto; }
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: rgba(190, 22, 34, 0.8);
+  overflow-x: auto;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125); }
   .highlight table, .highlight tr, .highlight td {
     width: 100%;
     border-collapse: collapse;
@@ -911,7 +951,12 @@ pre .line {
   .highlight .gutter {
     display: none; }
   .highlight .code pre {
-    padding: 1.2em 1.4em;
+    font-size: 0.7em;
+    background-color: #f8f8f8;
+    padding-left: 1.6em;
+    padding-right: 1.5em;
+    padding-top: 1.3em;
+    padding-bottom: 1.3em;
     line-height: 1.5em;
     margin: 0; }
 
