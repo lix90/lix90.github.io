@@ -20,7 +20,7 @@ $(function() {
   // Post follow sidebar
   (function() {
     var $sidebar    = $("#sidebar"),
-        $tags       = $('.nav-links'),
+        $tags       = $(".nav-links"),
         $headerlink = $(".headerlink"),
         $toclink    = $(".post-toc-link");
 
