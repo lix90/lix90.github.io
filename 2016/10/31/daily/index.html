@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="Xiang Li">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="每日总结 2016-10-31"/>
+  
+  <!--Open Graph Description-->
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="Lix!"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Title -->
+  
+  <title>每日总结 2016-10-31 - Lix!</title>
+
+
+  <link rel="shortcut icon" href="/images/logo.png">
+
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!----------------------------
+  https://github.com/GallenHu/hexo-theme-Daily
+
+ _____            _   _
+|  __ \          (_) | |
+| |  | |   __ _   _  | |  _   _
+| |  | |  / _` | | | | | | | | |
+| |__| | | (_| | | | | | | |_| |
+|_____/   \__,_| |_| |_|  \__, |
+                          __/ |
+                         |___/
+
+    --------------------------->
+
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a class="logo" href="/" rel="home">
+        
+        
+          <img src="/images/lix-logo.svg" alt="Lix!" height="60">
+        
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
+                
+                  Home
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives">
+                
+                  Archive
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/about">
+                
+                  About
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="/atom.xml">
+                
+                  RSS
+                
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            每日总结 2016-10-31
+            
+          </h1>
+          <p class="posted-on">
+          2016-10-31
+          </p>
+          <div class="tags-links">
+            
+              
+                <a href="/tags/Emacs/" rel="tag">
+                  Emacs
+                </a>
+              
+                <a href="/tags/Python/" rel="tag">
+                  Python
+                </a>
+              
+                <a href="/tags/Flexbox/" rel="tag">
+                  Flexbox
+                </a>
+              
+                <a href="/tags/Browsersync/" rel="tag">
+                  Browsersync
+                </a>
+              
+            
+          </div>
+        </div>
+        <!-- Post Main Content -->
+        <div class="toc-container" id="sidebar">
+          <h3 class="toc-heading">Contents</h3>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python"><span class="post-toc-text">Python</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#with-语句"><span class="post-toc-text">with 语句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#open-函数"><span class="post-toc-text">open 函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#csv-模块"><span class="post-toc-text">csv 模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#datetime-模块"><span class="post-toc-text">datetime 模块</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Emacs"><span class="post-toc-text">Emacs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#谷歌翻译插件-google-translate"><span class="post-toc-text">谷歌翻译插件 google-translate</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#杂项"><span class="post-toc-text">杂项</span></a></li></ol>
+        </div>
+        <div class="entry-content">
+          <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="with-语句"><a href="#with-语句" class="headerlink" title="with 语句"></a>with 语句</h2><p><code>with expression as target:</code></p>
+<h2 id="open-函数"><a href="#open-函数" class="headerlink" title="open 函数"></a>open 函数</h2><p><code>open(name[, mode[, buffering]])</code></p>
+<p>打开文件，并返回 <code>file</code> 类型的对象。如果无法打开，将抛出 <code>IOError</code> 错误。</p>
+<ul>
+<li><code>name</code> 参数为文件名；</li>
+<li><code>mode</code> 为字符串，指定文件如何打开<ul>
+<li><code>r</code> 读取（默认）</li>
+<li><code>w</code> 写入，如果文件存在，则删掉文件</li>
+<li><code>a</code> 添加到文件末尾</li>
+<li><code>b</code> 二进制</li>
+<li><code>r+</code> <code>w+</code> <code>a+</code> 更新打开的文件</li>
+</ul>
+</li>
+<li><code>buffering</code> 缓存大小<ul>
+<li>0，不进行缓存</li>
+<li>1，按行缓存</li>
+<li>其他正值表示按相应的大小（bytes）进行缓存</li>
+<li>负值意味着使用系统默认的缓存方式</li>
+</ul>
+</li>
+</ul>
+<p>具有相似功能的模块：</p>
+<ul>
+<li><code>fileinput</code> 提供辅助类和函数来快速对标准输入或文件列表进行迭代。</li>
+<li><code>os</code> 提供一些与操作系统有关功能：进程参数、创建文件对象、文件描述符操作、文件和路径操作、进程管理等</li>
+<li><code>os.path</code> 对路径名进行操作</li>
+<li><code>tempfile</code> 创建临时文件和路径</li>
+<li><code>shutil</code> high-level 文件和路径的操作</li>
+</ul>
+<h2 id="csv-模块"><a href="#csv-模块" class="headerlink" title="csv 模块"></a>csv 模块</h2><p>csv 文件的读写（2.3版不支持 Unicode 的输入）。</p>
+<ul>
+<li><code>csv.reader(csvfile, dialect=&#39;excel&#39;, **fmtparams)</code> 返回 reader 对象，按行迭代</li>
+<li><code>csv.writer(csvfile, dialect=&#39;excel&#39;, **fmtparams)</code> 返回 writer 对象</li>
+<li><code>csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect=&#39;excel&#39;, *args, **kwds)</code> 返回与 reader 类似的对象，但是将信息读取为词典形式</li>
+<li><code>csv.DictWriter(csvfile, fieldnames, restval=&#39;&#39;, extrasaction=&#39;raise&#39;, dialect=&#39;excel&#39;, *args, **kwds)</code> 返回与 writer 类似的对象，但是将词典数据写入到行</li>
+</ul>
+<h2 id="datetime-模块"><a href="#datetime-模块" class="headerlink" title="datetime 模块"></a>datetime 模块</h2><p>提供基本的用于操作日期和时间的类和函数。</p>
+<p>在此有两类日期和时间对象：</p>
+<ul>
+<li>aware object: 包含丰富的信息，如时区，夏时令，可以用于和其他 aware 对象进行定位。</li>
+<li><p>naive object: naive object 缺少 aware object 所包含的那些信息，仅仅包含时间。</p>
+</li>
+<li><p><code>date</code> 对象</p>
+</li>
+<li><code>datetime</code> 对象</li>
+<li><code>time</code> 对象</li>
+<li><code>tzinfo</code> 对象</li>
+</ul>
+<p>其他与时间和日期有关的模块</p>
+<ul>
+<li><code>time</code> 模块：提供了许多时间相关的函数，可以访问和转换时间对象。<ul>
+<li><code>time.strftime</code> 将元组或 <code>struct_time</code> 按照时间格式转换为字符串。</li>
+</ul>
+</li>
+<li><code>calendar</code> 模块</li>
+<li><code>locale</code> 模块</li>
+</ul>
+<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="谷歌翻译插件-google-translate"><a href="#谷歌翻译插件-google-translate" class="headerlink" title="谷歌翻译插件 google-translate"></a>谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2><p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p><a href="https://github.com/hallvors/postcss-flexboxfixer" target="_blank" rel="external">flexboxfixer</a>: flexbox 兼容处理</p>
+<p><a href="http://www.browsersync.cn/" target="_blank" rel="external">Browsersync</a></p>
+<blockquote>
+<p>Browsersync 能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。更重要的是 Browsersync 可以同时在 PC、平板、手机等设备下进项调试。</p>
+</blockquote>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    <div class="nav-links">
+      
+      
+        <div class="nav-next">
+          <a href="/2016/10/30/daily/" rel="prev">下一页 <span class="meta-arraw meta-arraw-right"></span></a>
+        </div>
+      
+    </div>
+    <!-- Comments -->
+    <div class="container">
+      
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+  <div class="row inside-wrapper">
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">关于本站</h1>
+        <div class="custom-widget-content">
+          
+          一些菜鸟笔记，原创不多
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">与我联系</h1>
+        <div class="widget-text">
+          
+            
+              <a href="https://github.com/lix90" class="icon icon-github" target="_blank">github</a>
+            
+              <a href="mailto:xiangli90@outlook.com" class="icon icon-mail" target="_blank">mail</a>
+            
+              <a href="https://twitter.com/alexiangli" class="icon icon-twitter" target="_blank">twitter</a>
+            
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">站内搜索</h1>
+        <div class="widget-text">
+          <form onSubmit="return appDaily.submitSearch('')">
+            <p>
+              <input type="text" placeholder="search..." id="homeSearchInput">
+            </p>
+            <!-- <input type="submit" value="GO"> -->
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>Lix! &copy; 2016</span>
+    
+      <span class="split">|</span><span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+    
+  </p>
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

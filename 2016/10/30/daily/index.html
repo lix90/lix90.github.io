@@ -161,7 +161,7 @@
         <!-- Post Main Content -->
         <div class="toc-container" id="sidebar">
           <h3 class="toc-heading">Contents</h3>
-          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搞不懂的-callback"><span class="post-toc-text">搞不懂的 callback</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SCSS-amp-SASS"><span class="post-toc-text">SCSS & SASS</span></a></li></ol>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搞不懂的-callback"><span class="post-toc-text">搞不懂的 callback</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SCSS-amp-SASS"><span class="post-toc-text">SCSS & SASS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#杂项"><span class="post-toc-text">杂项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语义化版本控制规范（SemVer）"><span class="post-toc-text">语义化版本控制规范（SemVer）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Notes-out-of-youtube"><span class="post-toc-text">Notes out of youtube</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#D3-js"><span class="post-toc-text">D3.js</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#专业术语"><span class="post-toc-text">专业术语</span></a></li></ol></li></ol>
         </div>
         <div class="entry-content">
           <h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
@@ -188,7 +188,12 @@
 </blockquote>
 <p>关于回调等 JS 学到一定地步再来总结吧。</p>
 <ul>
+<li><a href="http://callbackhell.com/" target="_blank" rel="external">Callback Hell</a></li>
+<li><a href="http://www.75team.com/post/%E8%AF%91%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1.html" target="_blank" rel="external">360奇舞团：回调地狱（译）</a></li>
 <li><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">知乎：回调函数（callback）是什么？</a></li>
+<li><a href="http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/" target="_blank" rel="external">腾讯全端 AlloyTeam 团队：使用Generator解决回调地狱</a></li>
+<li><a href="http://web.jobbole.com/85909/" target="_blank" rel="external">伯乐在线：后端程序员的 Js 之旅 : 回调地狱终结者</a></li>
+<li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
 </ul>
 <hr>
 <h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
@@ -196,12 +201,49 @@
 <li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
 <li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
 </ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<blockquote>
+<p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
+<ol>
+<li>主版本号：当你做了不兼容的 API 修改，</li>
+<li>次版本号：当你做了向下兼容的功能性新增，</li>
+<li>修订号：当你做了向下兼容的问题修正。</li>
+</ol>
+<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+</blockquote>
+<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
+<p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
+<p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
+<ul>
+<li>engagement media</li>
+<li>content silos {what?}</li>
+<li>scrollable</li>
+<li>connects to your main offer</li>
+<li>define your role</li>
+<li>footer: information in general</li>
+<li>no flash</li>
+</ul>
+<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
+<ul>
+<li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
+<li>嵌套数据（Nested data）</li>
+<li>网络数据（Network data）</li>
+<li>地理数据（Geographic data）：常见如 <code>GeoJSON</code> <code>TopoJSON</code></li>
+<li>原始数据（Raw data）：文本、图片、视频</li>
+<li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
+</ul>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
 
         </div>
       </article>
     </div>
     <!-- Pre or Next -->
     <div class="nav-links">
+      
+        <div class="nav-previous">
+          <a href="/2016/10/31/daily/" rel="prev"><span class="meta-arraw meta-arraw-left"></span> 上一页</a>
+        </div>
       
       
         <div class="nav-next">

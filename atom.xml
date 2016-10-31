@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-10-30T06:11:39.000Z</updated>
+  <updated>2016-10-31T15:38:45.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -16,11 +16,103 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每日总结 2016-10-31</title>
+    <link href="https://lix90.github.io/2016/10/31/daily/"/>
+    <id>https://lix90.github.io/2016/10/31/daily/</id>
+    <published>2016-10-31T15:36:55.000Z</published>
+    <updated>2016-10-31T15:38:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="with-语句"><a href="#with-语句" class="headerlink" title="with 语句"></a>with 语句</h2><p><code>with expression as target:</code></p>
+<h2 id="open-函数"><a href="#open-函数" class="headerlink" title="open 函数"></a>open 函数</h2><p><code>open(name[, mode[, buffering]])</code></p>
+<p>打开文件，并返回 <code>file</code> 类型的对象。如果无法打开，将抛出 <code>IOError</code> 错误。</p>
+<ul>
+<li><code>name</code> 参数为文件名；</li>
+<li><code>mode</code> 为字符串，指定文件如何打开<ul>
+<li><code>r</code> 读取（默认）</li>
+<li><code>w</code> 写入，如果文件存在，则删掉文件</li>
+<li><code>a</code> 添加到文件末尾</li>
+<li><code>b</code> 二进制</li>
+<li><code>r+</code> <code>w+</code> <code>a+</code> 更新打开的文件</li>
+</ul>
+</li>
+<li><code>buffering</code> 缓存大小<ul>
+<li>0，不进行缓存</li>
+<li>1，按行缓存</li>
+<li>其他正值表示按相应的大小（bytes）进行缓存</li>
+<li>负值意味着使用系统默认的缓存方式</li>
+</ul>
+</li>
+</ul>
+<p>具有相似功能的模块：</p>
+<ul>
+<li><code>fileinput</code> 提供辅助类和函数来快速对标准输入或文件列表进行迭代。</li>
+<li><code>os</code> 提供一些与操作系统有关功能：进程参数、创建文件对象、文件描述符操作、文件和路径操作、进程管理等</li>
+<li><code>os.path</code> 对路径名进行操作</li>
+<li><code>tempfile</code> 创建临时文件和路径</li>
+<li><code>shutil</code> high-level 文件和路径的操作</li>
+</ul>
+<h2 id="csv-模块"><a href="#csv-模块" class="headerlink" title="csv 模块"></a>csv 模块</h2><p>csv 文件的读写（2.3版不支持 Unicode 的输入）。</p>
+<ul>
+<li><code>csv.reader(csvfile, dialect=&#39;excel&#39;, **fmtparams)</code> 返回 reader 对象，按行迭代</li>
+<li><code>csv.writer(csvfile, dialect=&#39;excel&#39;, **fmtparams)</code> 返回 writer 对象</li>
+<li><code>csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect=&#39;excel&#39;, *args, **kwds)</code> 返回与 reader 类似的对象，但是将信息读取为词典形式</li>
+<li><code>csv.DictWriter(csvfile, fieldnames, restval=&#39;&#39;, extrasaction=&#39;raise&#39;, dialect=&#39;excel&#39;, *args, **kwds)</code> 返回与 writer 类似的对象，但是将词典数据写入到行</li>
+</ul>
+<h2 id="datetime-模块"><a href="#datetime-模块" class="headerlink" title="datetime 模块"></a>datetime 模块</h2><p>提供基本的用于操作日期和时间的类和函数。</p>
+<p>在此有两类日期和时间对象：</p>
+<ul>
+<li>aware object: 包含丰富的信息，如时区，夏时令，可以用于和其他 aware 对象进行定位。</li>
+<li><p>naive object: naive object 缺少 aware object 所包含的那些信息，仅仅包含时间。</p>
+</li>
+<li><p><code>date</code> 对象</p>
+</li>
+<li><code>datetime</code> 对象</li>
+<li><code>time</code> 对象</li>
+<li><code>tzinfo</code> 对象</li>
+</ul>
+<p>其他与时间和日期有关的模块</p>
+<ul>
+<li><code>time</code> 模块：提供了许多时间相关的函数，可以访问和转换时间对象。<ul>
+<li><code>time.strftime</code> 将元组或 <code>struct_time</code> 按照时间格式转换为字符串。</li>
+</ul>
+</li>
+<li><code>calendar</code> 模块</li>
+<li><code>locale</code> 模块</li>
+</ul>
+<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="谷歌翻译插件-google-translate"><a href="#谷歌翻译插件-google-translate" class="headerlink" title="谷歌翻译插件 google-translate"></a>谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2><p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p><a href="https://github.com/hallvors/postcss-flexboxfixer" target="_blank" rel="external">flexboxfixer</a>: flexbox 兼容处理</p>
+<p><a href="http://www.browsersync.cn/" target="_blank" rel="external">Browsersync</a></p>
+<blockquote>
+<p>Browsersync 能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。更重要的是 Browsersync 可以同时在 PC、平板、手机等设备下进项调试。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;with-语句&quot;&gt;&lt;a href=&quot;#with-语句&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
+    
+      <category term="Flexbox" scheme="https://lix90.github.io/tags/Flexbox/"/>
+    
+      <category term="Browsersync" scheme="https://lix90.github.io/tags/Browsersync/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-10-30</title>
     <link href="https://lix90.github.io/2016/10/30/daily/"/>
     <id>https://lix90.github.io/2016/10/30/daily/</id>
     <published>2016-10-30T05:57:32.000Z</published>
-    <updated>2016-10-30T06:11:39.000Z</updated>
+    <updated>2016-10-30T12:55:52.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
 <p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
@@ -46,7 +138,12 @@
 </blockquote>
 <p>关于回调等 JS 学到一定地步再来总结吧。</p>
 <ul>
+<li><a href="http://callbackhell.com/" target="_blank" rel="external">Callback Hell</a></li>
+<li><a href="http://www.75team.com/post/%E8%AF%91%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1.html" target="_blank" rel="external">360奇舞团：回调地狱（译）</a></li>
 <li><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">知乎：回调函数（callback）是什么？</a></li>
+<li><a href="http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/" target="_blank" rel="external">腾讯全端 AlloyTeam 团队：使用Generator解决回调地狱</a></li>
+<li><a href="http://web.jobbole.com/85909/" target="_blank" rel="external">伯乐在线：后端程序员的 Js 之旅 : 回调地狱终结者</a></li>
+<li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
 </ul>
 <hr>
 <h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
@@ -54,6 +151,39 @@
 <li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
 <li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
 </ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<blockquote>
+<p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
+<ol>
+<li>主版本号：当你做了不兼容的 API 修改，</li>
+<li>次版本号：当你做了向下兼容的功能性新增，</li>
+<li>修订号：当你做了向下兼容的问题修正。</li>
+</ol>
+<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+</blockquote>
+<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
+<p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
+<p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
+<ul>
+<li>engagement media</li>
+<li>content silos {what?}</li>
+<li>scrollable</li>
+<li>connects to your main offer</li>
+<li>define your role</li>
+<li>footer: information in general</li>
+<li>no flash</li>
+</ul>
+<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
+<ul>
+<li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
+<li>嵌套数据（Nested data）</li>
+<li>网络数据（Network data）</li>
+<li>地理数据（Geographic data）：常见如 <code>GeoJSON</code> <code>TopoJSON</code></li>
+<li>原始数据（Raw data）：文本、图片、视频</li>
+<li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
+</ul>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
 ]]></content>
     
     <summary type="html">
@@ -355,9 +485,9 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
     
       <category term="代码规范" scheme="https://lix90.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
@@ -524,15 +654,13 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="HTTP" scheme="https://lix90.github.io/tags/HTTP/"/>
-    
       <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
-    
-      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="https://lix90.github.io/tags/HTML/"/>
     
       <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
     
       <category term="Javascript" scheme="https://lix90.github.io/tags/Javascript/"/>
     
@@ -543,6 +671,8 @@
       <category term="DOM" scheme="https://lix90.github.io/tags/DOM/"/>
     
       <category term="elisp" scheme="https://lix90.github.io/tags/elisp/"/>
+    
+      <category term="HTTP" scheme="https://lix90.github.io/tags/HTTP/"/>
     
   </entry>
   
@@ -673,11 +803,11 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
+      <category term="Git" scheme="https://lix90.github.io/tags/Git/"/>
     
       <category term="机器学习" scheme="https://lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="Git" scheme="https://lix90.github.io/tags/Git/"/>
+      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -823,13 +953,13 @@
       <category term="D3js" scheme="https://lix90.github.io/categories/D3js/"/>
     
     
-      <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="D3js" scheme="https://lix90.github.io/tags/D3js/"/>
     
       <category term="数据可视化" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="SVG" scheme="https://lix90.github.io/tags/SVG/"/>
+    
+      <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
