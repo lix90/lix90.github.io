@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Lix的博客">
 <meta property="og:description" content="R：数据分析导入 csv 数据通过 readr::read_csv 导入 csv 数据：
 12345678910## wrapper function of data loading for reusingimportdata &amp;lt;- function(d,f) &amp;#123;  data &amp;lt;- readr::read_csv(                   file = file.">
-<meta property="og:updated_time" content="2016-11-08T09:57:44.000Z">
+<meta property="og:updated_time" content="2016-11-08T11:54:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：数据分析记录">
 <meta name="twitter:description" content="R：数据分析导入 csv 数据通过 readr::read_csv 导入 csv 数据：
@@ -323,6 +323,7 @@
 <p>基本包中已经有了导入 csv 数据的函数 <code>read.csv()</code>。</p>
 <h2 id="描述性统计"><a href="#描述性统计" class="headerlink" title="描述性统计"></a>描述性统计</h2><p>获取数据表的属性：</p>
 <ul>
+<li><code>str(data)</code> 数据构成</li>
 <li>列数：<code>ncol(data)</code></li>
 <li>行数：<code>nrow(data)</code></li>
 <li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
@@ -331,7 +332,16 @@
 <p>描述性统计：</p>
 <p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
 <p>如果用特定的计算统计量的函数呢？</p>
-<p>最小值 <code>min(data$col_name)</code><br>最大值 <code>max(data$col_name)</code><br>标准差 <code>sd(data$col_name)</code><br>均值 <code>mean(data$col_name)</code><br>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
 <p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
 <p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -349,7 +359,7 @@
 </ul>
 <p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
 <hr>
-
+<h2 id="描述性统计：可视化"><a href="#描述性统计：可视化" class="headerlink" title="描述性统计：可视化"></a>描述性统计：可视化</h2><h3 id="箱图-Boxplot"><a href="#箱图-Boxplot" class="headerlink" title="箱图 Boxplot"></a>箱图 Boxplot</h3><h3 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h3><h3 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h3>
       
     </div>
 
@@ -382,17 +392,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/07/2016-11-07-daily/" rel="next" title="每日总结 2016-11-07">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-07
+              <a href="/2016/11/08/2016-11-08-daily/" rel="next" title="每日总结 2016-11-08">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-08
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/08/2016-11-08-daily/" rel="prev" title="每日总结 2016-11-08">
-                每日总结 2016-11-08 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -549,7 +555,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R：数据分析"><span class="nav-number">1.</span> <span class="nav-text">R：数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入-csv-数据"><span class="nav-number">1.1.</span> <span class="nav-text">导入 csv 数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述性统计"><span class="nav-number">1.2.</span> <span class="nav-text">描述性统计</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R：数据分析"><span class="nav-number">1.</span> <span class="nav-text">R：数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入-csv-数据"><span class="nav-number">1.1.</span> <span class="nav-text">导入 csv 数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述性统计"><span class="nav-number">1.2.</span> <span class="nav-text">描述性统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述性统计：可视化"><span class="nav-number">1.3.</span> <span class="nav-text">描述性统计：可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#箱图-Boxplot"><span class="nav-number">1.3.1.</span> <span class="nav-text">箱图 Boxplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散点图-Scatterplot"><span class="nav-number">1.3.2.</span> <span class="nav-text">散点图 Scatterplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直方图-Histgram"><span class="nav-number">1.3.3.</span> <span class="nav-text">直方图 Histgram</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

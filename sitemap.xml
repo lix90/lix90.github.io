@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>//lix90.github.io/tags/index.html</loc>
+    
+    <lastmod>2016-11-08T12:03:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/categories/index.html</loc>
+    
+    <lastmod>2016-11-08T12:03:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/</loc>
     
-    <lastmod>2016-11-08T09:57:44.000Z</lastmod>
+    <lastmod>2016-11-08T11:54:13.000Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>//lix90.github.io/2016/10/29/2016-10-29-daily/</loc>
     
     <lastmod>2016-10-30T06:11:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/tags/index.html</loc>
-    
-    <lastmod>2016-10-28T05:49:51.000Z</lastmod>
     
   </url>
   
@@ -138,13 +145,6 @@
     <loc>//lix90.github.io/resume/index.html</loc>
     
     <lastmod>2016-09-14T06:46:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/categories/index.html</loc>
-    
-    <lastmod>2016-09-11T12:41:49.000Z</lastmod>
     
   </url>
   
