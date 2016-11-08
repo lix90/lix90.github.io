@@ -138,7 +138,7 @@ r+">
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     }
   };
 </script>
@@ -205,7 +205,19 @@ r+">
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Beranda
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategori
           </a>
         </li>
       
@@ -213,13 +225,17 @@ r+">
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Arsip
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -274,7 +290,7 @@ r+">
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2016-10-31T23:36:55+08:00" content="2016-10-31">
               2016-10-31
             </time>
@@ -286,7 +302,7 @@ r+">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/每日总结/" itemprop="url" rel="index">
@@ -496,10 +512,10 @@ r+">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Daftar Isi
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Ikhtisar
           </li>
         </ul>
       
@@ -516,16 +532,16 @@ r+">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">17</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posting</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories">
                 <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
+                <span class="site-state-item-name">kategori</span>
+              </a>
             </div>
           
 
@@ -533,7 +549,7 @@ r+">
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">50</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -624,11 +640,11 @@ r+">
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
