@@ -235,6 +235,247 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/17/2016-10-17-d3js-intro/" itemprop="url">
+                  D3.js 入门学习记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-17T16:23:07+08:00" content="2016-10-17">
+              2016-10-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/D3js/" itemprop="url" rel="index">
+                    <span itemprop="name">D3js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/17/2016-10-17-d3js-intro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/17/2016-10-17-d3js-intro/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>使用 D3.js 进行数据可视化需要了解以下内容：</p>
+<ul>
+<li>现代浏览器</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>DOM</li>
+<li>SVG</li>
+<li>网页元素审查器（Web Inspecter）</li>
+</ul>
+<h1 id="添加-DOM-元素"><a href="#添加-DOM-元素" class="headerlink" title="添加 DOM 元素"></a>添加 DOM 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
+<p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
+<p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
+<h1 id="添加-SVG-元素"><a href="#添加-SVG-元素" class="headerlink" title="添加 SVG 元素"></a>添加 SVG 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
+<p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
+<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
+<h1 id="捆绑数据到-DOM-元素中"><a href="#捆绑数据到-DOM-元素中" class="headerlink" title="捆绑数据到 DOM 元素中"></a>捆绑数据到 DOM 元素中</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
+<p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
+<p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
+<p><code>.append()</code> 在占位符上添加 DOM 元素。</p>
+<p><code>.text()</code> 文本方法添加文本到对于 DOM 元素上。</p>
+<p>其中，数据被保存在 <code>__data__</code> 属性中。</p>
+<p>如何将捆绑的数据提取出来呢？</p>
+<p><code>.text( function(d) { return d; } )</code> 其中，匿名函数会对遍历所有元素的数据，分别返回对于的值。<code>d</code> 变量在 D3.js 被用来指代当前元素的 <code>__data__</code> 属性。另外，D3.js 还提供了两个变量 <code>this</code> 和 <code>i</code>。<code>this</code> 指代当前 DOM 元素。<code>i</code> 指代当前选中的元素的下标，<code>i</code> 从0开始计数。所有数据是按顺序分别处理。</p>
+<h1 id="根据数据创建-SVG-元素"><a href="#根据数据创建-SVG-元素" class="headerlink" title="根据数据创建 SVG 元素"></a>根据数据创建 SVG 元素</h1><p>建立数组：<code>var newArray = [10, 20, 30];</code><br>将数据指派给 SVG 元素的属性值 <code>.attr(&#39;r&#39;, function (d) { return d; }</code></p>
+<h1 id="使用-SVG-坐标空间"><a href="#使用-SVG-坐标空间" class="headerlink" title="使用 SVG 坐标空间"></a>使用 SVG 坐标空间</h1><p>SVG 的坐标空间与数学中的坐标空间有两点差异：</p>
+<ul>
+<li>SVG 的坐标空间的零点位于左上角；</li>
+<li>SVG 的坐标空间的 Y 轴由上至下延伸。</li>
+</ul>
+<h1 id="D3-js-支持的数据结构"><a href="#D3-js-支持的数据结构" class="headerlink" title="D3.js 支持的数据结构"></a>D3.js 支持的数据结构</h1><p>数组（Array）：<code>var newArray = [30, 70, 110];</code> 数组可以包含任何对象，包括数字，对象，字符串，数组，HTML元素，DOM元素等。</p>
+<p><code>d3.select()</code> 所得到的也是数组。</p>
+<p>D3.js 可以支持以下数据来源：</p>
+<ul>
+<li>XMLHttpRequest</li>
+<li>文本文件</li>
+<li>JSON blob</li>
+<li>HTML 文档块</li>
+<li>XML 文档块</li>
+<li>CSV 文件</li>
+<li>TSV 文件</li>
+</ul>
+<p>数组甚至可以包含 JSON 数据结构。</p>
+<h1 id="使用-JSON-对象"><a href="#使用-JSON-对象" class="headerlink" title="使用 JSON 对象"></a>使用 JSON 对象</h1><p>使用 JSON 数据结构可以简化代码，使用起来更方便。</p>
+<h1 id="使用-D3-js-绘制-SVG-基本形状的图形"><a href="#使用-D3-js-绘制-SVG-基本形状的图形" class="headerlink" title="使用 D3.js 绘制 SVG 基本形状的图形"></a>使用 D3.js 绘制 SVG 基本形状的图形</h1><p>只要知道相关图形元素的属性，那么就可以通过 D3.js 的算子进行操作了。</p>
+<p>绘制一个圆</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"50"</span> <span class="attr">height</span>=<span class="string">"50"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"25"</span> <span class="attr">cy</span>=<span class="string">"25"</span> <span class="attr">r</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"purple"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonCircle = [ &#123; <span class="string">"x_axis"</span>: <span class="number">30</span>, <span class="string">"y_axis"</span>: <span class="number">30</span>, <span class="string">"radius"</span>: <span class="number">20</span>, <span class="string">"color"</span>: <span class="string">"green"</span>&#125; ];</div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">    .attr(<span class="string">"height"</span>, <span class="number">200</span>)</div><div class="line"><span class="keyword">var</span> circles = svgContainer.selectAll(<span class="string">"circle"</span>)</div><div class="line">    .data(jsonCircles)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"circle"</span>)</div><div class="line"><span class="keyword">var</span> circleAttributes = circles</div><div class="line">    .attr(<span class="string">"cx"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x_axis &#125;)</div><div class="line">    .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y_axis &#125;)</div><div class="line">    .attr(<span class="string">"r"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.radius&#125;)</div><div class="line">    .style(<span class="string">"fill"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.color &#125;);</div></pre></td></tr></table></figure>
+<p>其他简单图形都差不多，只是属性不一样。以此类推。</p>
+<h1 id="SVG-路径"><a href="#SVG-路径" class="headerlink" title="SVG 路径"></a>SVG 路径</h1><p>SVG 路径为一个图形的轮廓。可以使用 SVG 的路径绘制任意形状。路径可以比作钢笔落笔绘制轮廓的过程。路径由属性 <code>d</code> 表示，其语法包括一下几个部分：</p>
+<ul>
+<li>moveto：设置一个新的点</li>
+<li>lineto：绘制一条直线</li>
+<li>curveto：绘制一条曲线（贝塞尔曲线）</li>
+<li>arc：椭圆或者圆弧</li>
+<li>closepath：通过绘制线条封闭当前的图形</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">" M 10 25</span></span></div><div class="line">              L 10 75</div><div class="line">              L 60 75</div><div class="line">              L 10 25"</div><div class="line">              <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"none"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中，路径中的字母是大小写有区分的，大写为绝对定位，小写为相对定位。<br>要绘制更复杂的图形，使用 SVG 是相当难的。所以 D3.js 可以拯救这部分需求的用户。</p>
+<p>使用 D3.js 提供的绘制 SVG 路径的方法要方便许多。</p>
+<p>绘制直线：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//The data for our line</span></div><div class="line"><span class="keyword">var</span> lineData = [ &#123; <span class="string">"x"</span>: <span class="number">1</span>,   <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">20</span>,  <span class="string">"y"</span>: <span class="number">20</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">40</span>,  <span class="string">"y"</span>: <span class="number">10</span>&#125;, &#123; <span class="string">"x"</span>: <span class="number">60</span>,  <span class="string">"y"</span>: <span class="number">40</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">80</span>,  <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">100</span>, <span class="string">"y"</span>: <span class="number">60</span>&#125;];</div><div class="line"></div><div class="line"><span class="comment">//This is the accessor function we talked about above</span></div><div class="line"><span class="keyword">var</span> lineFunction = d3.svg.line()</div><div class="line">                         .x(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x; &#125;)</div><div class="line">                         .y(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y; &#125;)</div><div class="line">                         .interpolate(<span class="string">"linear"</span>);</div><div class="line"></div><div class="line"><span class="comment">//The SVG Container</span></div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"></div><div class="line"><span class="comment">//The line SVG Path we draw</span></div><div class="line"><span class="keyword">var</span> lineGraph = svgContainer.append(<span class="string">"path"</span>)</div><div class="line">                            .attr(<span class="string">"d"</span>, lineFunction(lineData))</div><div class="line">                            .attr(<span class="string">"stroke"</span>, <span class="string">"blue"</span>)</div><div class="line">                            .attr(<span class="string">"stroke-width"</span>, <span class="number">2</span>)</div><div class="line">                            .attr(<span class="string">"fill"</span>, <span class="string">"none"</span>);</div></pre></td></tr></table></figure>
+<p><code>.attr(&quot;d&quot;, lineFunction(lineData))</code> 将数据传递给数据寄存器，然后把数据返回给 SVG 路径命令。</p>
+<p>D3.js 提供了 11 中不同的内插线形：</p>
+<ul>
+<li>linear</li>
+<li>step-before</li>
+<li>step-after</li>
+<li>basis</li>
+<li>basis-open</li>
+<li>basis-closed</li>
+<li>bundle</li>
+<li>cardinal</li>
+<li>cardinal-open</li>
+<li>cardinal-closed</li>
+<li>monotone</li>
+</ul>
+<p>D3.js 提供了多种路径数据产生器（Path data generators），它既是对象又是函数。</p>
+<ul>
+<li>d3.svg.line</li>
+<li>d3.svg.line.radial</li>
+<li>d3.svg.area</li>
+<li>d3.svg.area.radial</li>
+<li>d3.svg.arc</li>
+<li>d3.svg.symbol</li>
+<li>d3.svg.chord</li>
+<li>d3.svg.diagonal</li>
+<li>d3.svg.diagonal.radial</li>
+</ul>
+<h1 id="SVG-动态坐标空间"><a href="#SVG-动态坐标空间" class="headerlink" title="SVG 动态坐标空间"></a>SVG 动态坐标空间</h1><p>如果使坐标根据数据进行调整？当 SVG 容器空间的大小比其中的图形元素坐标要小，那会出现容器空间上无法显式出图形的问题。这个时候需要动态的 SVG 坐标空间。这个时候需要做的是，让容器空间的宽高随着数据而进行伸缩。</p>
+<h1 id="D3-js-标尺（scales）"><a href="#D3-js-标尺（scales）" class="headerlink" title="D3.js 标尺（scales）"></a>D3.js 标尺（scales）</h1><p>与其让 SVG 容器大小适应数据，不如让数据适应容器。因为有的时候，数据的大小尺寸远远大于浏览器显示尺度。这个时候需要对数据进行伸缩变换以便适应空间。</p>
+<p>D3.js 提供了一些方法进行数据的变换。</p>
+<p>例如 <code>d3.scale.linear()</code> 线性变换</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> linearScale = d3.scale.linear()</div><div class="line">                    .domain([<span class="number">0</span>, <span class="number">10000</span>])</div><div class="line">                    .range([<span class="number">0</span>, <span class="number">100</span>])</div></pre></td></tr></table></figure>
+<p><code>.domain()</code> 里输入的范围为原始数据的范围。<br><code>.range()</code> 里输入的范围为变换后的范围。</p>
+<p>提供了计算最大值和最小值的方法：<code>d3.max()</code> <code>d3.min()</code></p>
+<p>D3.js 的标尺类型有以下几种：</p>
+<ul>
+<li>Identity 1:1 的变换，适用于像素值</li>
+<li>Linear 线性的变换</li>
+<li>Power 和 Logarithmic 指数和对数变换</li>
+<li>Quantize 和 Quantile 针对离散数据</li>
+<li>Ordinal 针对非量化的数据，如名称，类别</li>
+</ul>
+<h1 id="SVG-组元素"><a href="#SVG-组元素" class="headerlink" title="SVG 组元素"></a>SVG 组元素</h1><p>SVG 组元素是一个包裹其他子元素的的容器，通过 <code>&lt;g&gt;...&lt;/g&gt;</code> 定义。组元素内可以包含任意组元素。任何对组元素的变换，都将影响其所包含的子元素。</p>
+<p>组元素的作用：</p>
+<ul>
+<li>创建分组，可以使一组元素共享相同的属性</li>
+<li>变换，对一组元素进行同样的变换</li>
+</ul>
+<p>在 D3.js 中构建组元素并增加变换属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"><span class="keyword">var</span> circleGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                              .attr(<span class="string">"transform"</span>, <span class="string">"translate(80, 0)"</span>);</div></pre></td></tr></table></figure>
+<h1 id="SVG-文本元素"><a href="#SVG-文本元素" class="headerlink" title="SVG 文本元素"></a>SVG 文本元素</h1><p>添加 SVG 文本元素跟添加图形类型，只是该元素有一些特殊的属性。同样，使用 D3.js 添加文本和添加图形一样，操纵文本元素的属性和值就可以了。</p>
+<h1 id="SVG-坐标轴（Axes）"><a href="#SVG-坐标轴（Axes）" class="headerlink" title="SVG 坐标轴（Axes）"></a>SVG 坐标轴（Axes）</h1><p>使用 D3.js 绘制坐标轴和坐标刻度。</p>
+<p>创建坐标轴对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis();</div></pre></td></tr></table></figure>
+<p>传递尺度信息给坐标轴对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> axisScale = d3.scale.linear()</div><div class="line">                        .domain([<span class="number">0</span>, <span class="number">100</span>])</div><div class="line">                        .range([<span class="number">0</span>, <span class="number">100</span>]);</div><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis()</div><div class="line">                  .scale(axisScale);</div></pre></td></tr></table></figure>
+<p>创建坐标轴组元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxisGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                             .call(xAxis);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/25/2016-09-25-php-config/" itemprop="url">
                   PHP 安装与配置
                 </a>
@@ -1078,180 +1319,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/13/2016-09-13-mysql-config/" itemprop="url">
-                  MySQL安装与配置（MacOS）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T20:59:16+08:00" content="2016-09-13">
-              2016-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/13/2016-09-13-mysql-config/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-mysql-config/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
-<h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>在网上教程发现提到这三个文件</p>
-<ol>
-<li>mysql-*.pkg：MySql的主要程序包</li>
-<li>MySQL_StartupItem.pkg：MySql的启动项</li>
-<li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
-</ol>
-<p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
-<p>数据库访问密码的设置</p>
-<blockquote>
-<p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
-</blockquote>
-<h1 id="添加到-PATH"><a href="#添加到-PATH" class="headerlink" title="添加到 PATH"></a>添加到 <strong>PATH</strong></h1><p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br><code>Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39;</code></p>
-<p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
-<p><del>寻找 <code>mysql.sock</code> 文件：<code>find / -name &quot;mysql.sock&quot;</code> 得到 <code>/var/lib/mysql/mysql.sock</code><br>那么建立 <code>symbolic link</code>：<code>ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock</code></del></p>
-<p>后来发现，这个报错是因为 <code>MySQL Server</code> 没有运行。于是打开 <code>MySQL.prefPane</code>，打开 <code>MySQL Server</code>。</p>
-<p>又出现另外的报错 <code>ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: YES)</code>。</p>
-<p>检索相关问题发现导致这个报错的原因有以下三种：</p>
-<ol>
-<li>客户端远程访问的用户帐号并未创建；</li>
-<li>用户帐号存在，但未对其所在的客户端的 IP 进行远程访问授权允许；</li>
-<li>用户帐号授权访问的密码不正确。</li>
-</ol>
-<p>看到前面安装 GUI 工具的部分说到，必须重新设置账户密码，root 的密码为弱密码。</p>
-<p>MySQL 还有个配置文件 <code>my.cnf</code>，里面可以设置帐号密码。</p>
-<p><strong>最后发现</strong>，原来在安装 MySQL 时，弹出来一个临时密码的提醒，这个密码用于第一次登录 MySQL，并修改密码。现在终于想起来那个临时密码，但是已经忘了有没有保存。因为自己挖的坑，折腾了很久。</p>
-<p>于是为了图方便，先把 MySQL 完全卸载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># first stop the database server</div><div class="line">sudo rm /usr/local/mysql</div><div class="line">sudo rm -rf /usr/local/mysql*</div><div class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</div><div class="line">sudo rm -rf /Library/PreferencePanes/My*</div><div class="line"># edit /etc/hostconfig and remove the line MYSQLCOM=-YES-</div><div class="line">rm -rf ~/Library/PreferencePanes/My*</div><div class="line">sudo rm -rf /Library/Receipts/mysql*</div><div class="line">sudo rm -rf /Library/Receipts/MySQL*</div><div class="line">sudo rm -rf /private/var/db/receipts/*mysql*</div><div class="line">sudo rm -rf /var/db/receipts/com.mysql.*</div></pre></td></tr></table></figure>
-<p>然后再重新安装 MySQL。</p>
-<p>这次长记性保存了临时密码。</p>
-<p>接下来重新配置 MySQL。</p>
-<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
-<blockquote>
-<p>Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</p>
-</blockquote>
-<p>通过新修改的密码登录 MySQL：<code>mysql -u root -p</code>，提示输入密码，终于成功登录。</p>
-<p>吸取教训，<strong>一定不要完全按照网上的教程来安装配置应用程序，尽量根据官网文档</strong>。</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/macro-cheng/archive/2011/10/25/mysql-001.html" target="_blank" rel="external">MAC下安装与配置MySQL</a></li>
-<li><a href="http://blog.csdn.net/zzq900503/article/details/14163341" target="_blank" rel="external">Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’</a></li>
-<li><a href="https://segmentfault.com/q/1010000000094608" target="_blank" rel="external">Mac上MySQL报错</a></li>
-<li><a href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html" target="_blank" rel="external">Install MySQL on Mac OS X</a></li>
-<li><a href="http://blog.csdn.net/lioncode/article/details/7917310" target="_blank" rel="external">连接MySQL数据库时常见故障问题的分析与解决</a></li>
-<li><a href="http://stackoverflow.com/questions/1436425/how-do-you-uninstall-mysql-from-mac-os-x" target="_blank" rel="external">How do you uninstall MySQL from Mac OS X?</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html" target="_blank" rel="external">Installing MySQL on OS X Using Native Packages</a></li>
-<li><a href="http://community.jaspersoft.com/wiki/uninstall-mysql-mac-os-x" target="_blank" rel="external">Uninstall MySql on a Mac OS X</a></li>
-<li><a href="https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords" target="_blank" rel="external">Setting, Changing And Resetting MySQL Root Passwords</a></li>
-<li><a href="http://stackoverflow.com/questions/33387879/mysql-password-expired-cant-connect" target="_blank" rel="external">Mysql password expired. Can’t connect</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1297,7 +1364,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1314,7 +1381,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

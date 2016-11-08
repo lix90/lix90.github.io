@@ -235,6 +235,195 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/30/2016-10-30-daily/" itemprop="url">
+                  每日总结 2016-10-30
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-30T13:57:32+08:00" content="2016-10-30">
+              2016-10-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/30/2016-10-30-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/30/2016-10-30-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
+<p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
+<blockquote>
+<p>Generators by themselves do not provide any sort of asynchronous support: they rely on either promises or a special type of callback to provide asynchronous behavior. 事实上，generator 本身并未提供异步支持，它依赖于 promise 或特殊类型的 callback 来提供异步行为。</p>
+</blockquote>
+<p>使用异步技术的三种情况：</p>
+<ul>
+<li>网络请求 Network requests</li>
+<li>文件系统的操作（读写等） Filesystem operations</li>
+<li>有目的的延迟功能 Intentionally time-delayed functionality</li>
+</ul>
+<blockquote>
+<p>A <strong>callback</strong> is simply a function that you write that will be <strong>invoked at some point in the future</strong>. There’s nothing special about the function itself: it’s just a regular JavaScript function. Typically, you provide these callback functions to other functions, or set them as properties on objects (or, rarely, provide them in an array). Callbacks are very often (but not always) anonymous functions.</p>
+</blockquote>
+<p>Callback, 回调，就是一般的函数，并无特殊性。只不过因为某个未来的事件或时间点被诱发。回调往往是匿名函数。</p>
+<p><code>回调函数</code> <code>登记回调函数</code> <code>触发回调关联事件</code> <code>调用回调函数</code> <code>响应回调事件</code> <code>回调地狱</code></p>
+<blockquote>
+<p>在js里函数都是对象，这表示它们可以作为参数传递给其他的函数。举例：当函数b()作为参数传递给函数a()，那么在某一时刻函数a()可能会执行或者调用函数b()。这种情况下，函数b()就被称为回调函数，也可以简称叫做回调。</p>
+<p>you have to be mindful of the scope your callbacks are declared in: they will have access to everything in that scope (closure). And because of that, the value may be different when the callback actually executes. This principle applies to all asynchronous techniques, not just callbacks. 需要特别注意回调函数的作用域。</p>
+<p>在传入一个回调函数之前，中间函数是不完整的。换句话说，程序可以在运行时，通过登记不同的回调函数，来决定、改变中间函数的行为。这就比简单的函数调用要灵活太多了。</p>
+<p>回调实际上有两种：阻塞式回调和延迟式回调。两者的区别在于：阻塞式回调里，回调函数的调用一定发生在起始函数返回之前；而延迟式回调里，回调函数的调用有可能是在起始函数返回之后。</p>
+</blockquote>
+<p>关于回调等 JS 学到一定地步再来总结吧。</p>
+<ul>
+<li><a href="http://callbackhell.com/" target="_blank" rel="external">Callback Hell</a></li>
+<li><a href="http://www.75team.com/post/%E8%AF%91%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1.html" target="_blank" rel="external">360奇舞团：回调地狱（译）</a></li>
+<li><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">知乎：回调函数（callback）是什么？</a></li>
+<li><a href="http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/" target="_blank" rel="external">腾讯全端 AlloyTeam 团队：使用Generator解决回调地狱</a></li>
+<li><a href="http://web.jobbole.com/85909/" target="_blank" rel="external">伯乐在线：后端程序员的 Js 之旅 : 回调地狱终结者</a></li>
+<li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
+</ul>
+<hr>
+<h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
+<ul>
+<li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
+<li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
+</ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<blockquote>
+<p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
+<ol>
+<li>主版本号：当你做了不兼容的 API 修改，</li>
+<li>次版本号：当你做了向下兼容的功能性新增，</li>
+<li>修订号：当你做了向下兼容的问题修正。</li>
+</ol>
+<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+</blockquote>
+<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
+<p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
+<p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
+<ul>
+<li>engagement media</li>
+<li>content silos {what?}</li>
+<li>scrollable</li>
+<li>connects to your main offer</li>
+<li>define your role</li>
+<li>footer: information in general</li>
+<li>no flash</li>
+</ul>
+<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
+<ul>
+<li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
+<li>嵌套数据（Nested data）</li>
+<li>网络数据（Network data）</li>
+<li>地理数据（Geographic data）：常见如 <code>GeoJSON</code> <code>TopoJSON</code></li>
+<li>原始数据（Raw data）：文本、图片、视频</li>
+<li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
+</ul>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/29/2016-10-29-daily/" itemprop="url">
                   每日总结 2016-10-29
                 </a>
@@ -1166,247 +1355,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/17/2016-10-17-d3js-intro/" itemprop="url">
-                  D3.js 入门学习记录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T16:23:07+08:00" content="2016-10-17">
-              2016-10-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/D3js/" itemprop="url" rel="index">
-                    <span itemprop="name">D3js</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/17/2016-10-17-d3js-intro/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/17/2016-10-17-d3js-intro/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p>
-<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>使用 D3.js 进行数据可视化需要了解以下内容：</p>
-<ul>
-<li>现代浏览器</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>DOM</li>
-<li>SVG</li>
-<li>网页元素审查器（Web Inspecter）</li>
-</ul>
-<h1 id="添加-DOM-元素"><a href="#添加-DOM-元素" class="headerlink" title="添加 DOM 元素"></a>添加 DOM 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
-<p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
-<p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
-<h1 id="添加-SVG-元素"><a href="#添加-SVG-元素" class="headerlink" title="添加 SVG 元素"></a>添加 SVG 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
-<p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
-<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
-<h1 id="捆绑数据到-DOM-元素中"><a href="#捆绑数据到-DOM-元素中" class="headerlink" title="捆绑数据到 DOM 元素中"></a>捆绑数据到 DOM 元素中</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
-<p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
-<p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
-<p><code>.append()</code> 在占位符上添加 DOM 元素。</p>
-<p><code>.text()</code> 文本方法添加文本到对于 DOM 元素上。</p>
-<p>其中，数据被保存在 <code>__data__</code> 属性中。</p>
-<p>如何将捆绑的数据提取出来呢？</p>
-<p><code>.text( function(d) { return d; } )</code> 其中，匿名函数会对遍历所有元素的数据，分别返回对于的值。<code>d</code> 变量在 D3.js 被用来指代当前元素的 <code>__data__</code> 属性。另外，D3.js 还提供了两个变量 <code>this</code> 和 <code>i</code>。<code>this</code> 指代当前 DOM 元素。<code>i</code> 指代当前选中的元素的下标，<code>i</code> 从0开始计数。所有数据是按顺序分别处理。</p>
-<h1 id="根据数据创建-SVG-元素"><a href="#根据数据创建-SVG-元素" class="headerlink" title="根据数据创建 SVG 元素"></a>根据数据创建 SVG 元素</h1><p>建立数组：<code>var newArray = [10, 20, 30];</code><br>将数据指派给 SVG 元素的属性值 <code>.attr(&#39;r&#39;, function (d) { return d; }</code></p>
-<h1 id="使用-SVG-坐标空间"><a href="#使用-SVG-坐标空间" class="headerlink" title="使用 SVG 坐标空间"></a>使用 SVG 坐标空间</h1><p>SVG 的坐标空间与数学中的坐标空间有两点差异：</p>
-<ul>
-<li>SVG 的坐标空间的零点位于左上角；</li>
-<li>SVG 的坐标空间的 Y 轴由上至下延伸。</li>
-</ul>
-<h1 id="D3-js-支持的数据结构"><a href="#D3-js-支持的数据结构" class="headerlink" title="D3.js 支持的数据结构"></a>D3.js 支持的数据结构</h1><p>数组（Array）：<code>var newArray = [30, 70, 110];</code> 数组可以包含任何对象，包括数字，对象，字符串，数组，HTML元素，DOM元素等。</p>
-<p><code>d3.select()</code> 所得到的也是数组。</p>
-<p>D3.js 可以支持以下数据来源：</p>
-<ul>
-<li>XMLHttpRequest</li>
-<li>文本文件</li>
-<li>JSON blob</li>
-<li>HTML 文档块</li>
-<li>XML 文档块</li>
-<li>CSV 文件</li>
-<li>TSV 文件</li>
-</ul>
-<p>数组甚至可以包含 JSON 数据结构。</p>
-<h1 id="使用-JSON-对象"><a href="#使用-JSON-对象" class="headerlink" title="使用 JSON 对象"></a>使用 JSON 对象</h1><p>使用 JSON 数据结构可以简化代码，使用起来更方便。</p>
-<h1 id="使用-D3-js-绘制-SVG-基本形状的图形"><a href="#使用-D3-js-绘制-SVG-基本形状的图形" class="headerlink" title="使用 D3.js 绘制 SVG 基本形状的图形"></a>使用 D3.js 绘制 SVG 基本形状的图形</h1><p>只要知道相关图形元素的属性，那么就可以通过 D3.js 的算子进行操作了。</p>
-<p>绘制一个圆</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"50"</span> <span class="attr">height</span>=<span class="string">"50"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"25"</span> <span class="attr">cy</span>=<span class="string">"25"</span> <span class="attr">r</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"purple"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonCircle = [ &#123; <span class="string">"x_axis"</span>: <span class="number">30</span>, <span class="string">"y_axis"</span>: <span class="number">30</span>, <span class="string">"radius"</span>: <span class="number">20</span>, <span class="string">"color"</span>: <span class="string">"green"</span>&#125; ];</div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">    .attr(<span class="string">"height"</span>, <span class="number">200</span>)</div><div class="line"><span class="keyword">var</span> circles = svgContainer.selectAll(<span class="string">"circle"</span>)</div><div class="line">    .data(jsonCircles)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"circle"</span>)</div><div class="line"><span class="keyword">var</span> circleAttributes = circles</div><div class="line">    .attr(<span class="string">"cx"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x_axis &#125;)</div><div class="line">    .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y_axis &#125;)</div><div class="line">    .attr(<span class="string">"r"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.radius&#125;)</div><div class="line">    .style(<span class="string">"fill"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.color &#125;);</div></pre></td></tr></table></figure>
-<p>其他简单图形都差不多，只是属性不一样。以此类推。</p>
-<h1 id="SVG-路径"><a href="#SVG-路径" class="headerlink" title="SVG 路径"></a>SVG 路径</h1><p>SVG 路径为一个图形的轮廓。可以使用 SVG 的路径绘制任意形状。路径可以比作钢笔落笔绘制轮廓的过程。路径由属性 <code>d</code> 表示，其语法包括一下几个部分：</p>
-<ul>
-<li>moveto：设置一个新的点</li>
-<li>lineto：绘制一条直线</li>
-<li>curveto：绘制一条曲线（贝塞尔曲线）</li>
-<li>arc：椭圆或者圆弧</li>
-<li>closepath：通过绘制线条封闭当前的图形</li>
-</ul>
-<p>例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">" M 10 25</span></span></div><div class="line">              L 10 75</div><div class="line">              L 60 75</div><div class="line">              L 10 25"</div><div class="line">              <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"none"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>其中，路径中的字母是大小写有区分的，大写为绝对定位，小写为相对定位。<br>要绘制更复杂的图形，使用 SVG 是相当难的。所以 D3.js 可以拯救这部分需求的用户。</p>
-<p>使用 D3.js 提供的绘制 SVG 路径的方法要方便许多。</p>
-<p>绘制直线：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//The data for our line</span></div><div class="line"><span class="keyword">var</span> lineData = [ &#123; <span class="string">"x"</span>: <span class="number">1</span>,   <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">20</span>,  <span class="string">"y"</span>: <span class="number">20</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">40</span>,  <span class="string">"y"</span>: <span class="number">10</span>&#125;, &#123; <span class="string">"x"</span>: <span class="number">60</span>,  <span class="string">"y"</span>: <span class="number">40</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">80</span>,  <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">100</span>, <span class="string">"y"</span>: <span class="number">60</span>&#125;];</div><div class="line"></div><div class="line"><span class="comment">//This is the accessor function we talked about above</span></div><div class="line"><span class="keyword">var</span> lineFunction = d3.svg.line()</div><div class="line">                         .x(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x; &#125;)</div><div class="line">                         .y(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y; &#125;)</div><div class="line">                         .interpolate(<span class="string">"linear"</span>);</div><div class="line"></div><div class="line"><span class="comment">//The SVG Container</span></div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"></div><div class="line"><span class="comment">//The line SVG Path we draw</span></div><div class="line"><span class="keyword">var</span> lineGraph = svgContainer.append(<span class="string">"path"</span>)</div><div class="line">                            .attr(<span class="string">"d"</span>, lineFunction(lineData))</div><div class="line">                            .attr(<span class="string">"stroke"</span>, <span class="string">"blue"</span>)</div><div class="line">                            .attr(<span class="string">"stroke-width"</span>, <span class="number">2</span>)</div><div class="line">                            .attr(<span class="string">"fill"</span>, <span class="string">"none"</span>);</div></pre></td></tr></table></figure>
-<p><code>.attr(&quot;d&quot;, lineFunction(lineData))</code> 将数据传递给数据寄存器，然后把数据返回给 SVG 路径命令。</p>
-<p>D3.js 提供了 11 中不同的内插线形：</p>
-<ul>
-<li>linear</li>
-<li>step-before</li>
-<li>step-after</li>
-<li>basis</li>
-<li>basis-open</li>
-<li>basis-closed</li>
-<li>bundle</li>
-<li>cardinal</li>
-<li>cardinal-open</li>
-<li>cardinal-closed</li>
-<li>monotone</li>
-</ul>
-<p>D3.js 提供了多种路径数据产生器（Path data generators），它既是对象又是函数。</p>
-<ul>
-<li>d3.svg.line</li>
-<li>d3.svg.line.radial</li>
-<li>d3.svg.area</li>
-<li>d3.svg.area.radial</li>
-<li>d3.svg.arc</li>
-<li>d3.svg.symbol</li>
-<li>d3.svg.chord</li>
-<li>d3.svg.diagonal</li>
-<li>d3.svg.diagonal.radial</li>
-</ul>
-<h1 id="SVG-动态坐标空间"><a href="#SVG-动态坐标空间" class="headerlink" title="SVG 动态坐标空间"></a>SVG 动态坐标空间</h1><p>如果使坐标根据数据进行调整？当 SVG 容器空间的大小比其中的图形元素坐标要小，那会出现容器空间上无法显式出图形的问题。这个时候需要动态的 SVG 坐标空间。这个时候需要做的是，让容器空间的宽高随着数据而进行伸缩。</p>
-<h1 id="D3-js-标尺（scales）"><a href="#D3-js-标尺（scales）" class="headerlink" title="D3.js 标尺（scales）"></a>D3.js 标尺（scales）</h1><p>与其让 SVG 容器大小适应数据，不如让数据适应容器。因为有的时候，数据的大小尺寸远远大于浏览器显示尺度。这个时候需要对数据进行伸缩变换以便适应空间。</p>
-<p>D3.js 提供了一些方法进行数据的变换。</p>
-<p>例如 <code>d3.scale.linear()</code> 线性变换</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> linearScale = d3.scale.linear()</div><div class="line">                    .domain([<span class="number">0</span>, <span class="number">10000</span>])</div><div class="line">                    .range([<span class="number">0</span>, <span class="number">100</span>])</div></pre></td></tr></table></figure>
-<p><code>.domain()</code> 里输入的范围为原始数据的范围。<br><code>.range()</code> 里输入的范围为变换后的范围。</p>
-<p>提供了计算最大值和最小值的方法：<code>d3.max()</code> <code>d3.min()</code></p>
-<p>D3.js 的标尺类型有以下几种：</p>
-<ul>
-<li>Identity 1:1 的变换，适用于像素值</li>
-<li>Linear 线性的变换</li>
-<li>Power 和 Logarithmic 指数和对数变换</li>
-<li>Quantize 和 Quantile 针对离散数据</li>
-<li>Ordinal 针对非量化的数据，如名称，类别</li>
-</ul>
-<h1 id="SVG-组元素"><a href="#SVG-组元素" class="headerlink" title="SVG 组元素"></a>SVG 组元素</h1><p>SVG 组元素是一个包裹其他子元素的的容器，通过 <code>&lt;g&gt;...&lt;/g&gt;</code> 定义。组元素内可以包含任意组元素。任何对组元素的变换，都将影响其所包含的子元素。</p>
-<p>组元素的作用：</p>
-<ul>
-<li>创建分组，可以使一组元素共享相同的属性</li>
-<li>变换，对一组元素进行同样的变换</li>
-</ul>
-<p>在 D3.js 中构建组元素并增加变换属性：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"><span class="keyword">var</span> circleGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                              .attr(<span class="string">"transform"</span>, <span class="string">"translate(80, 0)"</span>);</div></pre></td></tr></table></figure>
-<h1 id="SVG-文本元素"><a href="#SVG-文本元素" class="headerlink" title="SVG 文本元素"></a>SVG 文本元素</h1><p>添加 SVG 文本元素跟添加图形类型，只是该元素有一些特殊的属性。同样，使用 D3.js 添加文本和添加图形一样，操纵文本元素的属性和值就可以了。</p>
-<h1 id="SVG-坐标轴（Axes）"><a href="#SVG-坐标轴（Axes）" class="headerlink" title="SVG 坐标轴（Axes）"></a>SVG 坐标轴（Axes）</h1><p>使用 D3.js 绘制坐标轴和坐标刻度。</p>
-<p>创建坐标轴对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis();</div></pre></td></tr></table></figure>
-<p>传递尺度信息给坐标轴对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> axisScale = d3.scale.linear()</div><div class="line">                        .domain([<span class="number">0</span>, <span class="number">100</span>])</div><div class="line">                        .range([<span class="number">0</span>, <span class="number">100</span>]);</div><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis()</div><div class="line">                  .scale(axisScale);</div></pre></td></tr></table></figure>
-<p>创建坐标轴组元素：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxisGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                             .call(xAxis);</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1452,7 +1400,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1469,7 +1417,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
