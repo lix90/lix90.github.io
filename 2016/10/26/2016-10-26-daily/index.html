@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="//lix90.github.io">
+  <title>每日总结 2016-10-26 | Lix的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Skills解决 Git push 冲突当Git无法自动合并分支时，就必须首先解决冲突。Git用 &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;，=======，&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。
+Knowledge机器学习Basic premise of l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日总结 2016-10-26">
+<meta property="og:url" content="//lix90.github.io/2016/10/26/2016-10-26-daily/index.html">
+<meta property="og:site_name" content="Lix的博客">
+<meta property="og:description" content="Skills解决 Git push 冲突当Git无法自动合并分支时，就必须首先解决冲突。Git用 &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;，=======，&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。
+Knowledge机器学习Basic premise of l">
+<meta property="og:updated_time" content="2016-10-27T15:15:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日总结 2016-10-26">
+<meta name="twitter:description" content="Skills解决 Git push 冲突当Git无法自动合并分支时，就必须首先解决冲突。Git用 &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;，=======，&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。
+Knowledge机器学习Basic premise of l">
+  
+    <link rel="alternative" href="/atom.xml" title="Lix的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lix</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜鸟笔记，原创不多</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/每日总结">日总结</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+		        
+					<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Lix</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lix</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜鸟笔记，原创不多</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/每日总结">日总结</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-2016-10-26-daily" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      每日总结 2016-10-26
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="解决-Git-push-冲突"><a href="#解决-Git-push-冲突" class="headerlink" title="解决 Git push 冲突"></a>解决 Git push 冲突</h2><p>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</p>
+<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>Basic premise of learning</p>
+<blockquote>
+<p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
+</blockquote>
+<p>几种学习类型：</p>
+<ul>
+<li>Supervised learning: we get (input, correct output)</li>
+<li>Unsupervised learning: instead of (input, correct output), we get (input, ?)</li>
+<li>Reinforcement learning: instead of (input, correct output), we get (input, <em>some</em> output, <strong>grade for this output</strong>)</li>
+</ul>
+<p>什么是机器学习？</p>
+<blockquote>
+<p>Algorithms for inferring unknowns from knowns.<br>算法，推论，未知，已知</p>
+</blockquote>
+<h3 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h3><ul>
+<li>识别垃圾邮件</li>
+<li>识别手写字</li>
+<li>谷歌街道</li>
+<li>语音识别</li>
+<li>Netflix 推荐系统</li>
+<li>Navigation 导航</li>
+<li>气候模型：解释和预测</li>
+</ul>
+<h3 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h3><ul>
+<li>人类能力不可及：火星探测</li>
+<li>人类无法解释的问题：语音识别</li>
+<li>解决方案随着时间而变化：温度控制</li>
+<li>解决方案需要对个案进行调整</li>
+<li>问题大小超出了人类的合理能力范围</li>
+</ul>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><ul>
+<li>分类问题</li>
+<li>回归问题</li>
+</ul>
+<p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>从二元分类到多元分类</p>
+<h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><ul>
+<li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
+<li>密度估计（Density estimation）</li>
+<li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
+</ul>
+<p>没有训练集也没有奖励与惩罚</p>
+<h3 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h3><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
+<ul>
+<li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
+<li>目标：奖励最大化</li>
+</ul>
+<hr>
+<h2 id="学习的成分"><a href="#学习的成分" class="headerlink" title="学习的成分"></a>学习的成分</h2><ul>
+<li>未知的目标函数 f: x —&gt; y；</li>
+<li>X 的分布 P；</li>
+<li>训练集 D；</li>
+<li>学习算法 A；</li>
+<li>假设集 H。</li>
+</ul>
+<h2 id="机器学习的本质"><a href="#机器学习的本质" class="headerlink" title="机器学习的本质"></a>机器学习的本质</h2><ul>
+<li>A pattern exists; 有规律存在（学习的对象）</li>
+<li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
+<li>We have data on it. 有足够的数据（学习的基础）</li>
+</ul>
+<hr>
+<p>Hoeffding’s inequality</p>
+<p>PAC: probability approximately correct</p>
+<p>通过概率论的方法来表示对未知的学习。</p>
+<p>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。</p>
+<p><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。</p>
+<p>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。</p>
+<p><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。</p>
+<p>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
+<hr>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><p>关于 Margin：</p>
+<blockquote>
+<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
+</blockquote>
+<p>垂直 margin 合并的好处：</p>
+<ul>
+<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
+<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
+<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
+</ul>
+<h2 id="CSS-浮动"><a href="#CSS-浮动" class="headerlink" title="CSS 浮动"></a>CSS 浮动</h2><ul>
+<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
+<li>不出现外边距合并</li>
+<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
+<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
+<li>一般来说浮动元素会成为块级盒</li>
+</ul>
+<blockquote>
+<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
+</blockquote>
+<h2 id="常见清除浮动的办法"><a href="#常见清除浮动的办法" class="headerlink" title="常见清除浮动的办法"></a>常见清除浮动的办法</h2><ol>
+<li>clear 属性</li>
+<li>空 DIV 法：不如何“结构与表现分离原则”</li>
+<li>Overflow 法：可能有副作用</li>
+<li>Clearfix 法</li>
+</ol>
+<blockquote>
+<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
+</blockquote>
+<h2 id="CSS3-提供了几种新的处理布局的方法"><a href="#CSS3-提供了几种新的处理布局的方法" class="headerlink" title="CSS3 提供了几种新的处理布局的方法"></a>CSS3 提供了几种新的处理布局的方法</h2><ol>
+<li>Flexbox 弹性盒子</li>
+<li>Multi-column layout 多栏布局</li>
+<li>Grid layout 格子布局</li>
+</ol>
+<h1 id="Good-stuff"><a href="#Good-stuff" class="headerlink" title="Good stuff"></a>Good stuff</h1><ul>
+<li>Helvetica 纪录片：字体设计</li>
+<li>Code Rush 纪录片：代码奔腾 Firefox 的诞生</li>
+<li>Just for Fun 书籍：Linus 讲述 Linux 如何发明</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/26/2016-10-26-daily/" class="archive-article-date">
+  	<time datetime="2016-10-26T01:30:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-26</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/每日总结/">每日总结</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/27/2016-10-27-daily/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          每日总结 2016-10-27
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/17/2016-10-17-d3js-intro/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">D3.js 入门学习记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lix
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Browsersync/" style="font-size: 10px;">Browsersync</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/tags/D3js/" style="font-size: 10px;">D3js</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ESS/" style="font-size: 10px;">ESS</a> <a href="/tags/Emacs/" style="font-size: 20px;">Emacs</a> <a href="/tags/Flexbox/" style="font-size: 10px;">Flexbox</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Helvetica/" style="font-size: 10px;">Helvetica</a> <a href="/tags/Jade/" style="font-size: 10px;">Jade</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Pugjs/" style="font-size: 10px;">Pugjs</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Rmarkdown/" style="font-size: 10px;">Rmarkdown</a> <a href="/tags/SASS/" style="font-size: 10px;">SASS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/关系型数据库/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/决策树/" style="font-size: 10px;">决策树</a> <a href="/tags/分类算法/" style="font-size: 10px;">分类算法</a> <a href="/tags/学习方法/" style="font-size: 10px;">学习方法</a> <a href="/tags/数据冗余/" style="font-size: 10px;">数据冗余</a> <a href="/tags/数据可视化/" style="font-size: 10px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库系统/" style="font-size: 13.33px;">数据库系统</a> <a href="/tags/机器学习/" style="font-size: 13.33px;">机器学习</a> <a href="/tags/配置/" style="font-size: 13.33px;">配置</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">没啥文化，但喜欢学习和思考，在读心理学硕士，喜欢设计+数据+代码，希望本菜鸟早日修炼成精。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

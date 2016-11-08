@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="//lix90.github.io">
+  <title>每日总结 2016-10-30 | Lix的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="搞不懂的 callbackJS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
+JS 三个异步支持阶段：callback —&amp;gt; promise —&amp;gt; generator
+
+Generators by themselves do not provide any sort of asynchronous support: they rely on either">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日总结 2016-10-30">
+<meta property="og:url" content="//lix90.github.io/2016/10/30/2016-10-30-daily/index.html">
+<meta property="og:site_name" content="Lix的博客">
+<meta property="og:description" content="搞不懂的 callbackJS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
+JS 三个异步支持阶段：callback —&amp;gt; promise —&amp;gt; generator
+
+Generators by themselves do not provide any sort of asynchronous support: they rely on either">
+<meta property="og:updated_time" content="2016-10-30T12:55:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日总结 2016-10-30">
+<meta name="twitter:description" content="搞不懂的 callbackJS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
+JS 三个异步支持阶段：callback —&amp;gt; promise —&amp;gt; generator
+
+Generators by themselves do not provide any sort of asynchronous support: they rely on either">
+  
+    <link rel="alternative" href="/atom.xml" title="Lix的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lix</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜鸟笔记，原创不多</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/每日总结">日总结</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+		        
+					<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Lix</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lix</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜鸟笔记，原创不多</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/每日总结">日总结</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-2016-10-30-daily" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      每日总结 2016-10-30
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
+<p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
+<blockquote>
+<p>Generators by themselves do not provide any sort of asynchronous support: they rely on either promises or a special type of callback to provide asynchronous behavior. 事实上，generator 本身并未提供异步支持，它依赖于 promise 或特殊类型的 callback 来提供异步行为。</p>
+</blockquote>
+<p>使用异步技术的三种情况：</p>
+<ul>
+<li>网络请求 Network requests</li>
+<li>文件系统的操作（读写等） Filesystem operations</li>
+<li>有目的的延迟功能 Intentionally time-delayed functionality</li>
+</ul>
+<blockquote>
+<p>A <strong>callback</strong> is simply a function that you write that will be <strong>invoked at some point in the future</strong>. There’s nothing special about the function itself: it’s just a regular JavaScript function. Typically, you provide these callback functions to other functions, or set them as properties on objects (or, rarely, provide them in an array). Callbacks are very often (but not always) anonymous functions.</p>
+</blockquote>
+<p>Callback, 回调，就是一般的函数，并无特殊性。只不过因为某个未来的事件或时间点被诱发。回调往往是匿名函数。</p>
+<p><code>回调函数</code> <code>登记回调函数</code> <code>触发回调关联事件</code> <code>调用回调函数</code> <code>响应回调事件</code> <code>回调地狱</code></p>
+<blockquote>
+<p>在js里函数都是对象，这表示它们可以作为参数传递给其他的函数。举例：当函数b()作为参数传递给函数a()，那么在某一时刻函数a()可能会执行或者调用函数b()。这种情况下，函数b()就被称为回调函数，也可以简称叫做回调。</p>
+<p>you have to be mindful of the scope your callbacks are declared in: they will have access to everything in that scope (closure). And because of that, the value may be different when the callback actually executes. This principle applies to all asynchronous techniques, not just callbacks. 需要特别注意回调函数的作用域。</p>
+<p>在传入一个回调函数之前，中间函数是不完整的。换句话说，程序可以在运行时，通过登记不同的回调函数，来决定、改变中间函数的行为。这就比简单的函数调用要灵活太多了。</p>
+<p>回调实际上有两种：阻塞式回调和延迟式回调。两者的区别在于：阻塞式回调里，回调函数的调用一定发生在起始函数返回之前；而延迟式回调里，回调函数的调用有可能是在起始函数返回之后。</p>
+</blockquote>
+<p>关于回调等 JS 学到一定地步再来总结吧。</p>
+<ul>
+<li><a href="http://callbackhell.com/" target="_blank" rel="external">Callback Hell</a></li>
+<li><a href="http://www.75team.com/post/%E8%AF%91%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1.html" target="_blank" rel="external">360奇舞团：回调地狱（译）</a></li>
+<li><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">知乎：回调函数（callback）是什么？</a></li>
+<li><a href="http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/" target="_blank" rel="external">腾讯全端 AlloyTeam 团队：使用Generator解决回调地狱</a></li>
+<li><a href="http://web.jobbole.com/85909/" target="_blank" rel="external">伯乐在线：后端程序员的 Js 之旅 : 回调地狱终结者</a></li>
+<li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
+</ul>
+<hr>
+<h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
+<ul>
+<li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
+<li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
+</ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<blockquote>
+<p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
+<ol>
+<li>主版本号：当你做了不兼容的 API 修改，</li>
+<li>次版本号：当你做了向下兼容的功能性新增，</li>
+<li>修订号：当你做了向下兼容的问题修正。</li>
+</ol>
+<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+</blockquote>
+<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
+<p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
+<p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
+<ul>
+<li>engagement media</li>
+<li>content silos {what?}</li>
+<li>scrollable</li>
+<li>connects to your main offer</li>
+<li>define your role</li>
+<li>footer: information in general</li>
+<li>no flash</li>
+</ul>
+<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
+<ul>
+<li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
+<li>嵌套数据（Nested data）</li>
+<li>网络数据（Network data）</li>
+<li>地理数据（Geographic data）：常见如 <code>GeoJSON</code> <code>TopoJSON</code></li>
+<li>原始数据（Raw data）：文本、图片、视频</li>
+<li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
+</ul>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/30/2016-10-30-daily/" class="archive-article-date">
+  	<time datetime="2016-10-30T05:57:32.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Callback/">Callback</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SASS/">SASS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCSS/">SCSS</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/每日总结/">每日总结</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/31/2016-10-31-daily/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          每日总结 2016-10-31
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/29/2016-10-29-daily/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">每日总结 2016-10-29</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lix
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Browsersync/" style="font-size: 10px;">Browsersync</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/tags/D3js/" style="font-size: 10px;">D3js</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ESS/" style="font-size: 10px;">ESS</a> <a href="/tags/Emacs/" style="font-size: 20px;">Emacs</a> <a href="/tags/Flexbox/" style="font-size: 10px;">Flexbox</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Helvetica/" style="font-size: 10px;">Helvetica</a> <a href="/tags/Jade/" style="font-size: 10px;">Jade</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Pugjs/" style="font-size: 10px;">Pugjs</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Rmarkdown/" style="font-size: 10px;">Rmarkdown</a> <a href="/tags/SASS/" style="font-size: 10px;">SASS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/关系型数据库/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/决策树/" style="font-size: 10px;">决策树</a> <a href="/tags/分类算法/" style="font-size: 10px;">分类算法</a> <a href="/tags/学习方法/" style="font-size: 10px;">学习方法</a> <a href="/tags/数据冗余/" style="font-size: 10px;">数据冗余</a> <a href="/tags/数据可视化/" style="font-size: 10px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库系统/" style="font-size: 13.33px;">数据库系统</a> <a href="/tags/机器学习/" style="font-size: 13.33px;">机器学习</a> <a href="/tags/配置/" style="font-size: 13.33px;">配置</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">没啥文化，但喜欢学习和思考，在读心理学硕士，喜欢设计+数据+代码，希望本菜鸟早日修炼成精。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

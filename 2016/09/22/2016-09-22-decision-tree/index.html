@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="//lix90.github.io">
+  <title>从零学机器学习之决策树 | Lix的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之决策树。
+决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。
+《机器学习实战》这本书中描述，决策树的 计算复杂度 不高，输出结果易于理解（可以用直观来理解），对 中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零学机器学习之决策树">
+<meta property="og:url" content="//lix90.github.io/2016/09/22/2016-09-22-decision-tree/index.html">
+<meta property="og:site_name" content="Lix的博客">
+<meta property="og:description" content="以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之决策树。
+决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。
+《机器学习实战》这本书中描述，决策树的 计算复杂度 不高，输出结果易于理解（可以用直观来理解），对 中">
+<meta property="og:updated_time" content="2016-10-28T02:03:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零学机器学习之决策树">
+<meta name="twitter:description" content="以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之决策树。
+决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。
+《机器学习实战》这本书中描述，决策树的 计算复杂度 不高，输出结果易于理解（可以用直观来理解），对 中">
+  
+    <link rel="alternative" href="/atom.xml" title="Lix的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lix</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜鸟笔记，原创不多</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/每日总结">日总结</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+		        
+					<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Lix</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lix</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜鸟笔记，原创不多</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/每日总结">日总结</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-2016-09-22-decision-tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从零学机器学习之决策树
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。</p>
+<p>决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。</p>
+<p>《机器学习实战》这本书中描述，决策树的 <strong>计算复杂度</strong> 不高，输出结果易于理解（可以用直观来理解），对 <strong>中间值</strong> 的缺失不敏感（这里没懂，中间值是啥？），可以处理不相关特征数据（对数据要求不严格？）。但是，决策树虽简单，但容易产生过度匹配问题。为什么会产生过度匹配问题呢？也许是因为分类的标准太“粗糙”或者“武断”吧？？？。其适用数据类型包括 <strong>数值型</strong> 和 <strong>标称型</strong>。</p>
+<p>决策树是通过对数据集的特征按照某种标准进行分类，分成若干个子数据集，子数据集又可以按照新的标准对子数据集进行分类。这里有个疑问，到底要分多少次呢？明白了，如果“决策”次数越多，决策树模型越复杂，模型越复杂，是不是就计算复杂度越高呢？这个又与“过度拟合”有关吗？直觉去看，一个数据集可以有许多特征，但是有些特征对分类并无太大的作用。举个例子，把人和动物进行区分，到底是“使用和制造工具的能力”还是“语言”？对决策树就是这样一个过程。挑选出最能够区分出类别的一批特征，然后对数据集进行分类。这样模型简单，精确度又越高。但是如何知道哪些特征最合适呢？<del>这就需要先验知识了，这里头就有了人为性。所以从这里也可以知道，决策树是一个监督学习。</del> 看到知乎里头一个问题 <a href="https://www.zhihu.com/question/19753084" target="_blank" rel="external">信息增益到底怎么理解呢？</a>，明白了，原来可以用 <strong>信息增益</strong> 来确定一个特征用于分类是不是合适。</p>
+<p>前面说到，决策树适用的数据类型包括了 <strong>数值型</strong>，但是，<strong>树构造算法只适用于标称型数据，数值型数据必须离散化</strong>。也就是说，要用“身高”和“体重”来区分男女，必须把这两个数值型数据转化为离散的，例如 <code>&gt;170cm</code>，<code>&lt;170cm</code>，体重 <code>&gt;60kg</code>，<code>&lt;60kg</code>。或者稍微精细一点，按照 10cm 和 5kg 的精度进行分割。</p>
+<p>阅读《机器学习实战》的过程中，有个概念很抽象，<strong>信息增益</strong>。我尝试去这样理解。如果没有 <strong>生物分类学</strong>，人对物种的认识和理解是杂乱的，可能每个人的主观分类都不一致，因为不同人关注于不同特征。但有了一个分类系统，本来看似乱套的系统，就有了规律，这样就有了标准，形成了可以共享的知识。在这里 “信息” 就是 “不同的生物”，“增益” 就是促进了对生物物种的认识，产生了可以交流和分享的知识。看起来，<strong>信息增益</strong> 是一个褒义词呀，信息增益越高越好。那怎么量化信息增益呢？这里又出现一个更加抽象难以理解的概念 <strong>熵</strong>。最开始见到这个词的时候，我竟担心自己读错。所以，顿时发现，隔行如隔山的罪魁祸首之一就是这些该死的专业术语了。越专业越不好好说话。不过，命名一些专业术语把知识简化，也是为了本专业内沟通的效率吧（活学活用，提高信息增益）。</p>
+<p>那么什么是 <strong>信息熵</strong>？看定义，熵为信息的期望值（期望值即平均值，高中数学的水平，平均值对我来说比较好理解）。在文科生眼里，<strong>信息</strong> 用公式定义真是碉堡了。好了，不想数学公式了。总之，这里把信息当作概率去看待了。我只想明白，熵的大小意味着什么。维基百科的信息熵词条里有几句话：1. 熵最好理解为不确定性的度量而不是确定性的度量，因为越随机的信源的熵越大；2. 比较不可能发生的事情，当它发生了，会提供更多的信息。拿自己所知道的一点点背景知识理解的话，也就是小概率事件发生了，熵就变大了，熵变大了，事情就越发不可预测了，因为越随机了。也就是说，我越懵逼，熵就越大？这个世界乱成一团遭，那么熵就越大了。看来，<strong>熵</strong> 是个贬义词呀，哈哈。像那些信息量大的话，还是不说为好，毕竟熵大，有些人难以理解，毕竟不是所有人都有那么有内涵。那么用熵来量化信息增益，就是，熵变得越小，信息增益就越大。我们为的把世界看清楚，就得让熵变小。但是现实很残酷，我们无法预测未来，熵是不以我们的意志为转移的，该死的熵跟房价一样，死也降不下来啊。不过提高自身实力，认清自我，未来就不那么迷茫了，重要的是脚踏实地嘛。熵自然而然就小了。好吧，扯远了。总之，熵和信息增益是个对立的关系。</p>
+<hr>
+<p>待续</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>《机器学习实战》</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA" target="_blank" rel="external">熵 (信息论)</a>)</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/22/2016-09-22-decision-tree/" class="archive-article-date">
+  	<time datetime="2016-09-22T02:10:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/决策树/">决策树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分类算法/">分类算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/25/2016-09-25-php-config/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PHP 安装与配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/17/2016-09-17-learn-new-lang/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">零基础如何学习一门新的编程语言？</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lix
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Browsersync/" style="font-size: 10px;">Browsersync</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/tags/D3js/" style="font-size: 10px;">D3js</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ESS/" style="font-size: 10px;">ESS</a> <a href="/tags/Emacs/" style="font-size: 20px;">Emacs</a> <a href="/tags/Flexbox/" style="font-size: 10px;">Flexbox</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Helvetica/" style="font-size: 10px;">Helvetica</a> <a href="/tags/Jade/" style="font-size: 10px;">Jade</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Pugjs/" style="font-size: 10px;">Pugjs</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Rmarkdown/" style="font-size: 10px;">Rmarkdown</a> <a href="/tags/SASS/" style="font-size: 10px;">SASS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/关系型数据库/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/决策树/" style="font-size: 10px;">决策树</a> <a href="/tags/分类算法/" style="font-size: 10px;">分类算法</a> <a href="/tags/学习方法/" style="font-size: 10px;">学习方法</a> <a href="/tags/数据冗余/" style="font-size: 10px;">数据冗余</a> <a href="/tags/数据可视化/" style="font-size: 10px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库系统/" style="font-size: 13.33px;">数据库系统</a> <a href="/tags/机器学习/" style="font-size: 13.33px;">机器学习</a> <a href="/tags/配置/" style="font-size: 13.33px;">配置</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">没啥文化，但喜欢学习和思考，在读心理学硕士，喜欢设计+数据+代码，希望本菜鸟早日修炼成精。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

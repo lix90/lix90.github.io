@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="//lix90.github.io">
+  <title>数据冗余 | Lix的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据冗余什么是数据冗余？数据冗余 是指同一个数据在系统中多次重复出现。
+数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便保持数据的一致性。
+Q: 数据冗余会造成什么影响和后果？
+数据冗余的类型
+空间冗余
+时间冗余
+结构冗余
+知识冗余
+视觉冗余
+信息熵冗余
+
+Q：数据冗余与文件压缩有什么样的关系？
+什么时候增加数据冗余？虽然一般情况下，应尽量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据冗余">
+<meta property="og:url" content="//lix90.github.io/2016/09/11/2016-09-11-data-redundency/index.html">
+<meta property="og:site_name" content="Lix的博客">
+<meta property="og:description" content="数据冗余什么是数据冗余？数据冗余 是指同一个数据在系统中多次重复出现。
+数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便保持数据的一致性。
+Q: 数据冗余会造成什么影响和后果？
+数据冗余的类型
+空间冗余
+时间冗余
+结构冗余
+知识冗余
+视觉冗余
+信息熵冗余
+
+Q：数据冗余与文件压缩有什么样的关系？
+什么时候增加数据冗余？虽然一般情况下，应尽量">
+<meta property="og:updated_time" content="2016-10-28T02:02:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据冗余">
+<meta name="twitter:description" content="数据冗余什么是数据冗余？数据冗余 是指同一个数据在系统中多次重复出现。
+数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便保持数据的一致性。
+Q: 数据冗余会造成什么影响和后果？
+数据冗余的类型
+空间冗余
+时间冗余
+结构冗余
+知识冗余
+视觉冗余
+信息熵冗余
+
+Q：数据冗余与文件压缩有什么样的关系？
+什么时候增加数据冗余？虽然一般情况下，应尽量">
+  
+    <link rel="alternative" href="/atom.xml" title="Lix的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lix</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">菜鸟笔记，原创不多</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/每日总结">日总结</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+					<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+		        
+					<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Lix</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Lix</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">菜鸟笔记，原创不多</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/每日总结">日总结</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-2016-09-11-data-redundency" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据冗余
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
+<p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
+<p>Q: 数据冗余会造成什么影响和后果？</p>
+<h2 id="数据冗余的类型"><a href="#数据冗余的类型" class="headerlink" title="数据冗余的类型"></a>数据冗余的类型</h2><ul>
+<li>空间冗余</li>
+<li>时间冗余</li>
+<li>结构冗余</li>
+<li>知识冗余</li>
+<li>视觉冗余</li>
+<li>信息熵冗余</li>
+</ul>
+<p>Q：数据冗余与文件压缩有什么样的关系？</p>
+<h2 id="什么时候增加数据冗余？"><a href="#什么时候增加数据冗余？" class="headerlink" title="什么时候增加数据冗余？"></a>什么时候增加数据冗余？</h2><p>虽然一般情况下，应尽量减少数据冗余，保证数据的一致性，但在某些情况下，也需要适当增加数据冗余度。数据冗余或者信息冗余是生产、生活所必然存在的行为，没有好与坏的总体倾向。</p>
+<ul>
+<li>重复存储或传输数据以<strong>防止数据丢失</strong>；</li>
+<li>对数据进行冗余性的编码来防止数据的丢失、错误，并提供<strong>对错误数据进行反变换</strong>得到原始数据的功能；</li>
+<li>为方便处理和使同一信息在不同地点有<strong>不同的表现形式</strong>；</li>
+<li>为了提高数据的<strong>检索速度</strong>。</li>
+</ul>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>wiki.mbalib.com/wiki/数据冗余</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/11/2016-09-11-data-redundency/" class="archive-article-date">
+  	<time datetime="2016-09-11T11:54:11.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库系统/">数据库系统</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/数据库系统/">数据库系统</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/13/2016-09-13-mysql-config/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL安装与配置（MacOS）
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Lix
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Browsersync/" style="font-size: 10px;">Browsersync</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/tags/D3js/" style="font-size: 10px;">D3js</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ESS/" style="font-size: 10px;">ESS</a> <a href="/tags/Emacs/" style="font-size: 20px;">Emacs</a> <a href="/tags/Flexbox/" style="font-size: 10px;">Flexbox</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Helvetica/" style="font-size: 10px;">Helvetica</a> <a href="/tags/Jade/" style="font-size: 10px;">Jade</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Pugjs/" style="font-size: 10px;">Pugjs</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Rmarkdown/" style="font-size: 10px;">Rmarkdown</a> <a href="/tags/SASS/" style="font-size: 10px;">SASS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/关系型数据库/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/决策树/" style="font-size: 10px;">决策树</a> <a href="/tags/分类算法/" style="font-size: 10px;">分类算法</a> <a href="/tags/学习方法/" style="font-size: 10px;">学习方法</a> <a href="/tags/数据冗余/" style="font-size: 10px;">数据冗余</a> <a href="/tags/数据可视化/" style="font-size: 10px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库系统/" style="font-size: 13.33px;">数据库系统</a> <a href="/tags/机器学习/" style="font-size: 13.33px;">机器学习</a> <a href="/tags/配置/" style="font-size: 13.33px;">配置</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">没啥文化，但喜欢学习和思考，在读心理学硕士，喜欢设计+数据+代码，希望本菜鸟早日修炼成精。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
