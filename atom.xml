@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lix90.github.io/"/>
-  <updated>2016-11-07T08:55:17.000Z</updated>
+  <updated>2016-11-08T02:37:58.000Z</updated>
   <id>https://lix90.github.io/</id>
   
   <author>
@@ -16,11 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="https://lix90.github.io/2016/11/08/daily/"/>
+    <id>https://lix90.github.io/2016/11/08/daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T02:37:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="R" scheme="https://lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="https://lix90.github.io/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-07</title>
     <link href="https://lix90.github.io/2016/11/07/daily/"/>
     <id>https://lix90.github.io/2016/11/07/daily/</id>
     <published>2016-11-06T16:00:00.000Z</published>
-    <updated>2016-11-07T08:55:17.000Z</updated>
+    <updated>2016-11-07T09:04:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近几天忙一些事情，没有积累多少东西，比较零碎。</p>
 <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p><code>:focus</code> 伪类</p>
@@ -281,11 +330,11 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
-    
       <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Bash" scheme="https://lix90.github.io/tags/Bash/"/>
+    
+      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
     
       <category term="Helvetica" scheme="https://lix90.github.io/tags/Helvetica/"/>
     
@@ -373,9 +422,9 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="https://lix90.github.io/tags/Flexbox/"/>
     
@@ -761,15 +810,15 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
+      <category term="代码规范" scheme="https://lix90.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
       <category term="HTML" scheme="https://lix90.github.io/tags/HTML/"/>
     
-      <category term="代码规范" scheme="https://lix90.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
+    
+      <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
     
   </entry>
   
@@ -930,11 +979,11 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="HTTP" scheme="https://lix90.github.io/tags/HTTP/"/>
+      <category term="HTML" scheme="https://lix90.github.io/tags/HTML/"/>
     
       <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
+      <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
     
       <category term="Javascript" scheme="https://lix90.github.io/tags/Javascript/"/>
     
@@ -944,11 +993,11 @@
     
       <category term="DOM" scheme="https://lix90.github.io/tags/DOM/"/>
     
-      <category term="Emacs" scheme="https://lix90.github.io/tags/Emacs/"/>
-    
       <category term="elisp" scheme="https://lix90.github.io/tags/elisp/"/>
     
-      <category term="HTML" scheme="https://lix90.github.io/tags/HTML/"/>
+      <category term="Python" scheme="https://lix90.github.io/tags/Python/"/>
+    
+      <category term="HTTP" scheme="https://lix90.github.io/tags/HTTP/"/>
     
   </entry>
   
@@ -1079,9 +1128,9 @@
       <category term="每日总结" scheme="https://lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
-    
       <category term="机器学习" scheme="https://lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="CSS" scheme="https://lix90.github.io/tags/CSS/"/>
     
       <category term="Git" scheme="https://lix90.github.io/tags/Git/"/>
     
@@ -1229,13 +1278,13 @@
       <category term="D3js" scheme="https://lix90.github.io/categories/D3js/"/>
     
     
+      <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="D3js" scheme="https://lix90.github.io/tags/D3js/"/>
     
       <category term="数据可视化" scheme="https://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="SVG" scheme="https://lix90.github.io/tags/SVG/"/>
-    
-      <category term="JavaScript" scheme="https://lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
