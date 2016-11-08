@@ -1,14 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//lix90.github.io">
-  <title>每日总结 2016-10-27 | Lix的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Javascript数组 Array可包含任意数据类型，并通过索引来访问每个元素。Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,HTTP,Python,Javascript,jQuery,VueJS,DOM,Emacs,elisp,HTML," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="Javascript数组 Array可包含任意数据类型，并通过索引来访问每个元素。Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。
 length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-10-27">
@@ -21,147 +99,232 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
 <meta name="twitter:title" content="每日总结 2016-10-27">
 <meta name="twitter:description" content="Javascript数组 Array可包含任意数据类型，并通过索引来访问每个元素。Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。
 length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始">
-  
-    <link rel="alternative" href="/atom.xml" title="Lix的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/main.css">
-  
 
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="//lix90.github.io/2016/10/27/2016-10-27-daily/"/>
+
+
+  <title> 每日总结 2016-10-27 | Lix的博客 </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-      <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img src="null" class="js-avatar">
-			
-		</a>
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Lix</a></h1>
-		</hgroup>
+  
 
-		
-		<p class="header-subtitle">菜鸟笔记，原创不多</p>
-		
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/每日总结">日总结</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-	        
-    		
-    			
-    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
-    			
-    			
-            
-    			
-    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
-    			
-    			
-            
-    			
-            
-    			
-    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
-    			
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
-		        
-					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-		        
-					<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
-		        
-					<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
-		        
-			</div>
-		</nav>
-	</header>		
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-list"></i></div>
-  		<h1 class="header-author js-mobile-header hide">Lix</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				
-					<img src="null" class="js-avatar">
-				
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Lix</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">菜鸟笔记，原创不多</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/tags/每日总结">日总结</a></li>
-		        
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/lix90" title="github">github</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-						<a class="mail" target="_blank" href="/xiangli90@outlook.com" title="mail">mail</a>
-			        
-						<a class="twitter" target="_blank" href="https://twitter.com/alexiangli" title="twitter">twitter</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div class="body-wrap">
-        <article id="post-2016-10-27-daily" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      每日总结 2016-10-27
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                每日总结 2016-10-27
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-27T23:11:30+08:00" content="2016-10-27">
+              2016-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/27/2016-10-27-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/27/2016-10-27-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><p>可包含任意数据类型，并通过索引来访问每个元素。<br>Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
 <p><code>length</code> 获取长度<br><code>indexOf()</code> 搜索指定元素的位置<br><code>slice</code> 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始参数包括开始索引，不包括结束索引。<br><code>push</code> 向 Array 的末尾添加若干元素<br><code>pop</code> 删除 Array 的最后一个元素<br><code>unshift</code> 往 Array 头部添加若干元素<br><code>shift</code> 删除 Array 的第一个元素<br><code>sort</code> 对 Array 进行排序，并且修改 Array 的元素位置，默认排序标准为 <code>string Unicode code points</code>。<br><code>reverse</code> 反转 Array<br><code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br><code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br><code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
@@ -305,238 +468,397 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
 
       
     </div>
-    <div class="article-info article-info-index">
+
+    <div>
       
-      <a href="/2016/10/27/2016-10-27-daily/" class="archive-article-date">
-  	<time datetime="2016-10-27T15:11:30.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Emacs/">Emacs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VueJS/">VueJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elisp/">elisp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-	</div>
+        
 
       
-	<div class="article-category tagcloud">
-	<i class="icon-price-tags"></i>
-	<a class="article-category-link" href="/categories/每日总结/">每日总结</a>
-	</div>
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
+            <a href="/tags/VueJS/" rel="tag">#VueJS</a>
+          
+            <a href="/tags/DOM/" rel="tag">#DOM</a>
+          
+            <a href="/tags/Emacs/" rel="tag">#Emacs</a>
+          
+            <a href="/tags/elisp/" rel="tag">#elisp</a>
+          
+            <a href="/tags/HTML/" rel="tag">#HTML</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/26/2016-10-26-daily/" rel="next" title="每日总结 2016-10-26">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-10-26
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/28/2016-10-28-daily/" rel="prev" title="每日总结 2016-10-28">
+                每日总结 2016-10-28 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
 
 
-      <div class="clearfix"></div>
+
+    <div class="post-spread">
+      
     </div>
   </div>
-</article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2016/10/28/2016-10-28-daily/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
         
-          每日总结 2016-10-28
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">本科二本学渣，考入西南大学念心理学硕士，不甘成科研民工，决心转行码农。喜欢设计，正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">Kategorien</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">1.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组-Array"><span class="nav-number">1.1.</span> <span class="nav-text">数组 Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-the-DOM"><span class="nav-number">1.3.</span> <span class="nav-text">Optimizing the DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onblocking-css"><span class="nav-number">1.3.1.</span> <span class="nav-text">onblocking css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization-JS"><span class="nav-number">1.3.2.</span> <span class="nav-text">Optimization JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Async-JS"><span class="nav-number">1.3.3.</span> <span class="nav-text">Async JS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vuejs"><span class="nav-number">2.</span> <span class="nav-text">Vuejs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">3.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zoom-属性"><span class="nav-number">3.1.</span> <span class="nav-text">zoom 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-块级格式化上下文"><span class="nav-number">3.2.</span> <span class="nav-text">BFC 块级格式化上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何通过-CSS-动画提升用户体验？"><span class="nav-number">3.3.</span> <span class="nav-text">如何通过 CSS 动画提升用户体验？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">4.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-语义化"><span class="nav-number">4.1.</span> <span class="nav-text">HTML 语义化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number">5.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-与-POST"><span class="nav-number">5.1.</span> <span class="nav-text">GET 与 POST</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs"><span class="nav-number">6.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lisp-and-elisp-小记"><span class="nav-number">6.1.</span> <span class="nav-text">lisp and elisp 小记</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">7.</span> <span class="nav-text">Python</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  
-    <a href="/2016/10/26/2016-10-26-daily/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">每日总结 2016-10-26</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-	    <a class="jiathis_button_twitter"></a>
-	    <a class="jiathis_button_plus"></a> 
-	    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
 </div>
 
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
 
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
 
+        
 
-
-
-
-
-
+        
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 Lix
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
-    <script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: true,
-		root: "/",
-		innerArchive: true
-	}
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<script src="/./main.js"></script>
 
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016/10/27/2016-10-27-daily/';
+      var disqus_title = "每日总结 2016-10-27";
+      var disqus_url = '//lix90.github.io/2016/10/27/2016-10-27-daily/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      }
+    });
+  </script>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
-
-    
-<div class="tools-col">
-  <ul class="btn-wrap">
-    
-      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
-    
-    
-      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
-    
-    
-    
-      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
-    
-  </ul>
-  <div class="tools-wrap">
-    
-    	<section class="tools-section tools-section-all chose">
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-tag">
-    			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Bash/" style="font-size: 13.33px;">Bash</a> <a href="/tags/Browsersync/" style="font-size: 10px;">Browsersync</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/tags/D3js/" style="font-size: 10px;">D3js</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ESS/" style="font-size: 10px;">ESS</a> <a href="/tags/Emacs/" style="font-size: 20px;">Emacs</a> <a href="/tags/Flexbox/" style="font-size: 10px;">Flexbox</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 13.33px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Helvetica/" style="font-size: 10px;">Helvetica</a> <a href="/tags/Jade/" style="font-size: 10px;">Jade</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Pugjs/" style="font-size: 10px;">Pugjs</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Rmarkdown/" style="font-size: 10px;">Rmarkdown</a> <a href="/tags/SASS/" style="font-size: 10px;">SASS</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/VueJS/" style="font-size: 10px;">VueJS</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/关系型数据库/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/决策树/" style="font-size: 10px;">决策树</a> <a href="/tags/分类算法/" style="font-size: 10px;">分类算法</a> <a href="/tags/学习方法/" style="font-size: 10px;">学习方法</a> <a href="/tags/数据冗余/" style="font-size: 10px;">数据冗余</a> <a href="/tags/数据可视化/" style="font-size: 10px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库系统/" style="font-size: 13.33px;">数据库系统</a> <a href="/tags/机器学习/" style="font-size: 13.33px;">机器学习</a> <a href="/tags/配置/" style="font-size: 13.33px;">配置</a>
-    			</div>
-    	</section>
-    
-
-    
-
-    
-    	<section class="tools-section tools-section-me">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">没啥文化，但喜欢学习和思考，在读心理学硕士，喜欢设计+数据+代码，希望本菜鸟早日修炼成精。</div>
-  	  	
-    	</section>
-    
-  </div>
   
-</div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
+  
 
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
+  
 
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
 
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-  </div>
 </body>
 </html>
