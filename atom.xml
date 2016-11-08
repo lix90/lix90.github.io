@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-08T11:54:13.000Z</updated>
+  <updated>2016-11-08T13:00:10.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -16,16 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>R：数据分析记录</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/</id>
+    <title>R：数据导入</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
     <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T11:54:13.000Z</updated>
+    <updated>2016-11-08T13:00:10.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="R：数据分析"><a href="#R：数据分析" class="headerlink" title="R：数据分析"></a>R：数据分析</h1><h2 id="导入-csv-数据"><a href="#导入-csv-数据" class="headerlink" title="导入 csv 数据"></a>导入 csv 数据</h2><p>通过 <code>readr::read_csv</code> 导入 <code>csv</code> 数据：</p>
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<p>基本包中已经有了导入 csv 数据的函数 <code>read.csv()</code>。</p>
-<h2 id="描述性统计"><a href="#描述性统计" class="headerlink" title="描述性统计"></a>描述性统计</h2><p>获取数据表的属性：</p>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T13:01:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
 <ul>
 <li><code>str(data)</code> 数据构成</li>
 <li>列数：<code>ncol(data)</code></li>
@@ -62,12 +88,16 @@
 <li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
 </ul>
 <p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-<hr>
-<h2 id="描述性统计：可视化"><a href="#描述性统计：可视化" class="headerlink" title="描述性统计：可视化"></a>描述性统计：可视化</h2><h3 id="箱图-Boxplot"><a href="#箱图-Boxplot" class="headerlink" title="箱图 Boxplot"></a>箱图 Boxplot</h3><h3 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h3><h3 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h3>]]></content>
+]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;R：数据分析&quot;&gt;&lt;a href=&quot;#R：数据分析&quot; class=&quot;headerlink&quot; title=&quot;R：数据分析&quot;&gt;&lt;/a&gt;R：数据分析&lt;/h1&gt;&lt;h2 id=&quot;导入-csv-数据&quot;&gt;&lt;a href=&quot;#导入-csv-数据&quot; class=&quot;headerlink
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
     
     </summary>
     
@@ -77,6 +107,65 @@
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：基本数据可视化</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T13:02:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单总结常见的统计图形。</p>
+<h1 id="箱图-Boxplot"><a href="#箱图-Boxplot" class="headerlink" title="箱图 Boxplot"></a>箱图 Boxplot</h1><p>什么是箱图？</p>
+<p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
+<p>箱形图的用处：</p>
+<ul>
+<li>粗略估计数据的<strong>对称性</strong>：由上下箱须和箱高度的长短差异表现出来</li>
+<li>粗略观察数据的<strong>离散程度</strong>和<strong>集中程度</strong>：由上下箱须距离和箱的高度表现出来</li>
+<li>粗略比较样本之间的特征</li>
+</ul>
+<p>箱形图的不足：</p>
+<ul>
+<li>无法精确度量数据分布的偏态和尾重程度：可通过偏态值</li>
+<li>对于较大的数据集，反映的信息较为模糊</li>
+<li>中位数代表总体集中程度存在局限性</li>
+</ul>
+<p>绘制过程：</p>
+<p><img src="/img/boxplot.jpg" alt="箱形图"></p>
+<ul>
+<li>计算上四分位数，中位数，下四分位数。</li>
+<li>计算上四分位数和下四分位数之间的差值，即四分位数差（IQR，interquantile range）。</li>
+<li>绘制箱线图的上下范围，上限为上四分位数，下限为下四分位数。在箱子内部中位数的位置绘制横线。</li>
+<li>大于上四分位数1.5倍四分位数差的值，或者小于下四分位数1.5倍四分位数差的值，划为异常值（outliers）。</li>
+<li>异常值之外，最靠近上边缘和下边缘的两个值处，画横线，作为箱线图的触须。</li>
+<li>极端异常值，即超出四分位数差3倍距离的异常值，用实心点表示；较为温和的异常值，即处于1.5倍-3倍四分位数差之间的异常值，用空心点表示。</li>
+<li>为箱线图添加名称，数轴等。</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.sciencenet.cn/blog-255662-239993.html" target="_blank" rel="external">科学网：什么是箱线图</a></li>
+<li><a href="http://web.pdx.edu/~stipakb/download/PA551/boxplot.html" target="_blank" rel="external">http://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a></li>
+</ul>
+<h1 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h1><h1 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简单总结常见的统计图形。&lt;/p&gt;
+&lt;h1 id=&quot;箱图-Boxplot&quot;&gt;&lt;a href=&quot;#箱图-Boxplot&quot; class=&quot;headerlink&quot; title=&quot;箱图 Boxplot&quot;&gt;&lt;/a&gt;箱图 Boxplot&lt;/h1&gt;&lt;p&gt;什么是箱图？&lt;/p&gt;
+&lt;p&gt;箱形图，
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
@@ -879,11 +968,11 @@
     
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="代码规范" scheme="//lix90.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
-      <category term="代码规范" scheme="//lix90.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
   </entry>
   
@@ -1050,6 +1139,10 @@
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
+      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
+    
+      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+    
       <category term="Javascript" scheme="//lix90.github.io/tags/Javascript/"/>
     
       <category term="jQuery" scheme="//lix90.github.io/tags/jQuery/"/>
@@ -1058,11 +1151,7 @@
     
       <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
-    
       <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
-    
-      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
   </entry>
   

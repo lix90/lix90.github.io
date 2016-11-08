@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,数据分析," />
+  <meta name="keywords" content="R,数据可视化," />
 
 
 
@@ -86,19 +86,45 @@
 
 
 
-<meta name="description" content="R：数据分析导入 csv 数据通过 readr::read_csv 导入 csv 数据：
-12345678910## wrapper function of data loading for reusingimportdata &amp;lt;- function(d,f) &amp;#123;  data &amp;lt;- readr::read_csv(                   file = file.">
+<meta name="description" content="简单总结常见的统计图形。
+箱图 Boxplot什么是箱图？
+箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。
+箱形图的用处：
+
+粗略估计数据的对称性：由上下箱须和箱高度的长短差异表现出来
+粗略观察数据的离散程度和集中程度：由上下箱须距离和箱的高度表现出来
+粗略比较样本之间的特征
+
+箱">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R：数据分析记录">
-<meta property="og:url" content="//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/index.html">
+<meta property="og:title" content="R：基本数据可视化">
+<meta property="og:url" content="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="R：数据分析导入 csv 数据通过 readr::read_csv 导入 csv 数据：
-12345678910## wrapper function of data loading for reusingimportdata &amp;lt;- function(d,f) &amp;#123;  data &amp;lt;- readr::read_csv(                   file = file.">
-<meta property="og:updated_time" content="2016-11-08T11:54:13.000Z">
+<meta property="og:description" content="简单总结常见的统计图形。
+箱图 Boxplot什么是箱图？
+箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。
+箱形图的用处：
+
+粗略估计数据的对称性：由上下箱须和箱高度的长短差异表现出来
+粗略观察数据的离散程度和集中程度：由上下箱须距离和箱的高度表现出来
+粗略比较样本之间的特征
+
+箱">
+<meta property="og:image" content="//lix90.github.io/img/boxplot.jpg">
+<meta property="og:updated_time" content="2016-11-08T13:02:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R：数据分析记录">
-<meta name="twitter:description" content="R：数据分析导入 csv 数据通过 readr::read_csv 导入 csv 数据：
-12345678910## wrapper function of data loading for reusingimportdata &amp;lt;- function(d,f) &amp;#123;  data &amp;lt;- readr::read_csv(                   file = file.">
+<meta name="twitter:title" content="R：基本数据可视化">
+<meta name="twitter:description" content="简单总结常见的统计图形。
+箱图 Boxplot什么是箱图？
+箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。
+箱形图的用处：
+
+粗略估计数据的对称性：由上下箱须和箱高度的长短差异表现出来
+粗略观察数据的离散程度和集中程度：由上下箱须距离和箱的高度表现出来
+粗略比较样本之间的特征
+
+箱">
+<meta name="twitter:image" content="//lix90.github.io/img/boxplot.jpg">
 
 
 
@@ -119,10 +145,10 @@
 
 
 
-  <link rel="canonical" href="//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/"/>
+  <link rel="canonical" href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
 
 
-  <title> R：数据分析记录 | Lix的博客 </title>
+  <title> R：基本数据可视化 | Lix的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +278,7 @@
             
             
               
-                R：数据分析记录
+                R：基本数据可视化
               
             
           </h1>
@@ -294,8 +320,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/08/2016-11-08-r-data-analysis/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-data-analysis/" itemprop="commentsCount"></span>
+                <a href="/2016/11/08/2016-11-08-r-basic-vis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-basic-vis/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,48 +344,38 @@
       
 
       
-        <h1 id="R：数据分析"><a href="#R：数据分析" class="headerlink" title="R：数据分析"></a>R：数据分析</h1><h2 id="导入-csv-数据"><a href="#导入-csv-数据" class="headerlink" title="导入 csv 数据"></a>导入 csv 数据</h2><p>通过 <code>readr::read_csv</code> 导入 <code>csv</code> 数据：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<p>基本包中已经有了导入 csv 数据的函数 <code>read.csv()</code>。</p>
-<h2 id="描述性统计"><a href="#描述性统计" class="headerlink" title="描述性统计"></a>描述性统计</h2><p>获取数据表的属性：</p>
+        <p>简单总结常见的统计图形。</p>
+<h1 id="箱图-Boxplot"><a href="#箱图-Boxplot" class="headerlink" title="箱图 Boxplot"></a>箱图 Boxplot</h1><p>什么是箱图？</p>
+<p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
+<p>箱形图的用处：</p>
 <ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+<li>粗略估计数据的<strong>对称性</strong>：由上下箱须和箱高度的长短差异表现出来</li>
+<li>粗略观察数据的<strong>离散程度</strong>和<strong>集中程度</strong>：由上下箱须距离和箱的高度表现出来</li>
+<li>粗略比较样本之间的特征</li>
 </ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
+<p>箱形图的不足：</p>
 <ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+<li>无法精确度量数据分布的偏态和尾重程度：可通过偏态值</li>
+<li>对于较大的数据集，反映的信息较为模糊</li>
+<li>中位数代表总体集中程度存在局限性</li>
 </ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<p>绘制过程：</p>
+<p><img src="/img/boxplot.jpg" alt="箱形图"></p>
 <ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+<li>计算上四分位数，中位数，下四分位数。</li>
+<li>计算上四分位数和下四分位数之间的差值，即四分位数差（IQR，interquantile range）。</li>
+<li>绘制箱线图的上下范围，上限为上四分位数，下限为下四分位数。在箱子内部中位数的位置绘制横线。</li>
+<li>大于上四分位数1.5倍四分位数差的值，或者小于下四分位数1.5倍四分位数差的值，划为异常值（outliers）。</li>
+<li>异常值之外，最靠近上边缘和下边缘的两个值处，画横线，作为箱线图的触须。</li>
+<li>极端异常值，即超出四分位数差3倍距离的异常值，用实心点表示；较为温和的异常值，即处于1.5倍-3倍四分位数差之间的异常值，用空心点表示。</li>
+<li>为箱线图添加名称，数轴等。</li>
 </ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<p>参考：</p>
 <ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+<li><a href="http://blog.sciencenet.cn/blog-255662-239993.html" target="_blank" rel="external">科学网：什么是箱线图</a></li>
+<li><a href="http://web.pdx.edu/~stipakb/download/PA551/boxplot.html" target="_blank" rel="external">http://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a></li>
 </ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-<hr>
-<h2 id="描述性统计：可视化"><a href="#描述性统计：可视化" class="headerlink" title="描述性统计：可视化"></a>描述性统计：可视化</h2><h3 id="箱图-Boxplot"><a href="#箱图-Boxplot" class="headerlink" title="箱图 Boxplot"></a>箱图 Boxplot</h3><h3 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h3><h3 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h3>
+<h1 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h1><h1 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h1>
       
     </div>
 
@@ -383,7 +399,7 @@
           
             <a href="/tags/R/" rel="tag">#R</a>
           
-            <a href="/tags/数据分析/" rel="tag">#数据分析</a>
+            <a href="/tags/数据可视化/" rel="tag">#数据可视化</a>
           
         </div>
       
@@ -399,6 +415,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/08/2016-11-08-r-desc-stats/" rel="prev" title="R：描述性统计">
+                R：描述性统计 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -473,7 +493,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -490,7 +510,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -529,7 +549,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="xiangli90@outlook.com" target="_blank" title="Email">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -555,7 +575,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R：数据分析"><span class="nav-number">1.</span> <span class="nav-text">R：数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入-csv-数据"><span class="nav-number">1.1.</span> <span class="nav-text">导入 csv 数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述性统计"><span class="nav-number">1.2.</span> <span class="nav-text">描述性统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述性统计：可视化"><span class="nav-number">1.3.</span> <span class="nav-text">描述性统计：可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#箱图-Boxplot"><span class="nav-number">1.3.1.</span> <span class="nav-text">箱图 Boxplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散点图-Scatterplot"><span class="nav-number">1.3.2.</span> <span class="nav-text">散点图 Scatterplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直方图-Histgram"><span class="nav-number">1.3.3.</span> <span class="nav-text">直方图 Histgram</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#箱图-Boxplot"><span class="nav-number">1.</span> <span class="nav-text">箱图 Boxplot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散点图-Scatterplot"><span class="nav-number">2.</span> <span class="nav-text">散点图 Scatterplot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直方图-Histgram"><span class="nav-number">3.</span> <span class="nav-text">直方图 Histgram</span></a></li></ol></div>
             
           </div>
         </section>
@@ -682,9 +702,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'lix90';
-      var disqus_identifier = '2016/11/08/2016-11-08-r-data-analysis/';
-      var disqus_title = "R：数据分析记录";
-      var disqus_url = '//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/';
+      var disqus_identifier = '2016/11/08/2016-11-08-r-basic-vis/';
+      var disqus_title = "R：基本数据可视化";
+      var disqus_url = '//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

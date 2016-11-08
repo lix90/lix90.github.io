@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</loc>
+    
+    <lastmod>2016-11-08T13:02:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</loc>
+    
+    <lastmod>2016-11-08T13:01:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</loc>
+    
+    <lastmod>2016-11-08T13:00:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//lix90.github.io/tags/index.html</loc>
     
     <lastmod>2016-11-08T12:03:16.000Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>//lix90.github.io/categories/index.html</loc>
     
     <lastmod>2016-11-08T12:03:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-data-analysis/</loc>
-    
-    <lastmod>2016-11-08T11:54:13.000Z</lastmod>
     
   </url>
   
