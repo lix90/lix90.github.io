@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,数据可视化," />
+  <meta name="keywords" content="数据可视化,R," />
 
 
 
@@ -107,7 +107,7 @@
 
 箱形图的">
 <meta property="og:image" content="//lix90.github.io/img/boxplot.jpg">
-<meta property="og:updated_time" content="2016-11-08T13:50:02.000Z">
+<meta property="og:updated_time" content="2016-11-09T10:14:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：基本数据可视化">
 <meta name="twitter:description" content="简单总结常见的统计图形。
@@ -145,7 +145,7 @@
   <title> R：基本数据可视化 | Lix的博客 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -370,8 +370,99 @@
 <ul>
 <li><code>formula</code> <code>y ~ grp</code> <code>y</code> 为数值型向量，<code>grp</code> 为组或者因素水平。</li>
 <li><code>range</code> 设定箱须的长度，默认为 1.5 个箱高，即 1.5 倍四分位数差。</li>
+<li><code>width</code></li>
+<li><code>varwidth</code></li>
+<li><code>notch</code></li>
+<li><code>outline</code> 是否绘制异常值</li>
+<li><code>names</code> 组标签</li>
+<li><code>boxwex</code> 缩放参数</li>
+<li><code>staplewex</code> 须顶端的横线的宽度（按盒宽比例）</li>
+<li><code>outwex</code></li>
+<li><code>border</code> 边框颜色</li>
+<li><code>col</code> 箱体的颜色</li>
+<li><code>log</code> 对数坐标</li>
+<li><code>pars</code> 更多绘图参数列表</li>
+<li><code>add</code> 添加到当前图中</li>
+<li><code>at</code> 绘制的位置</li>
 </ul>
-<h3 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h3><h3 id="lattice"><a href="#lattice" class="headerlink" title="lattice"></a>lattice</h3><h1 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h1><h1 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h1>
+<h3 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h3><p><code>ggplot</code> 的绘图语法是以添加图层的形式绘制图形。虽然语法上与 <code>boxplot()</code> 存在差异，但是参数都几乎一样。</p>
+<p>首先通过 <code>ggplot()</code> 创建图形（初始化一个 ggplot 的对象），声明输入数据和一般的图形视觉参数（aesthetic mapping，例如线形，颜色等）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- ggplot(data, aes(x, y, <span class="keyword">...</span>))</div></pre></td></tr></table></figure>
+<p>然后添加 <code>geom_boxplot</code> 图层（layers）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- box_plot + geom_boxplot(<span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+<p><code>geom_boxplot()</code> 函数有以下一些参数：</p>
+<ul>
+<li><code>mapping</code> 和 <code>data</code> 跟 <code>ggplot()</code> 的一样，当没有声明时，直接继承 <code>ggplot</code>。</li>
+<li>位置：<code>position</code></li>
+<li>设置异常值的样式：<code>outlier.colour</code> <code>outlier.shape</code> <code>outlier.size</code> <code>outlier.stroke</code></li>
+<li>槽的样式：<code>notch</code> <code>notchwidth</code></li>
+<li><code>show.legend</code> 显示图例</li>
+<li><code>coef</code> 等同于 <code>boxplot</code> 中的 <code>range</code></li>
+</ul>
+<h3 id="lattice"><a href="#lattice" class="headerlink" title="lattice"></a>lattice</h3><blockquote>
+<p>The lattice package, written by Deepayan Sarkar, attempts to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships. In particular, the package supports the creation of trellis graphs - graphs that display a variable or the relationship between variables, conditioned on one or more other variables.</p>
+</blockquote>
+<p><code>lattice</code> 的特长在于展示多变量关系。</p>
+<p>变量的关系通过 <code>formula</code> 表示，例如：</p>
+<ul>
+<li><code>~x|A</code> 表示在因素 <code>A</code> 的所有水平下绘制相应的数值变量 <code>x</code> 的图形</li>
+<li><code>y~x | A*B</code> <code>A</code> 和 <code>B</code> 两个因素混合条件下的 <code>y</code> 和 <code>x</code> 的关系</li>
+</ul>
+<p>参考 <a href="http://www.statmethods.net/advgraphs/trellis.html" target="_blank" rel="external">Quick-R: Lattice Graphs</a></p>
+<p><code>lattice</code> 中绘制箱图的函数为 <code>bwplot()</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">bwplot(x,</div><div class="line">       data,</div><div class="line">       allow.multiple = is.null(groups) || outer,</div><div class="line">       outer = <span class="literal">FALSE</span>,</div><div class="line">       auto.key = <span class="literal">FALSE</span>,</div><div class="line">       aspect = <span class="string">"fill"</span>,</div><div class="line">       panel = lattice.getOption(<span class="string">"panel.bwplot"</span>),</div><div class="line">       prepanel = <span class="literal">NULL</span>,</div><div class="line">       scales = list(),</div><div class="line">       strip = <span class="literal">TRUE</span>,</div><div class="line">       groups = <span class="literal">NULL</span>,</div><div class="line">       xlab,</div><div class="line">       xlim,</div><div class="line">       ylab,</div><div class="line">       ylim,</div><div class="line">       box.ratio = <span class="number">1</span>,</div><div class="line">       horizontal = <span class="literal">NULL</span>,</div><div class="line">       drop.unused.levels = lattice.getOption(<span class="string">"drop.unused.levels"</span>),</div><div class="line">       <span class="keyword">...</span>,</div><div class="line">       lattice.options = <span class="literal">NULL</span>,</div><div class="line">       default.scales,</div><div class="line">       default.prepanel = lattice.getOption(<span class="string">"prepanel.default.bwplot"</span>),</div><div class="line">       subscripts = !is.null(groups),</div><div class="line">       subset = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<h2 id="与箱图类似的图"><a href="#与箱图类似的图" class="headerlink" title="与箱图类似的图"></a>与箱图类似的图</h2><ul>
+<li>Violin Plots <code>vioplot</code> 包<ul>
+<li>呈现出了分布特征</li>
+</ul>
+</li>
+<li>Tufte boxplot</li>
+</ul>
+<h1 id="散点图-Scatterplot"><a href="#散点图-Scatterplot" class="headerlink" title="散点图 Scatterplot"></a>散点图 Scatterplot</h1><h2 id="什么是散点图？"><a href="#什么是散点图？" class="headerlink" title="什么是散点图？"></a>什么是散点图？</h2><blockquote>
+<p>散点图对于绘制多变量数据非常有用。它们可帮助您确定各刻度变量之间的潜在关系。简单散点图使用二维坐标系绘制两个变量。三维散点图使用三维坐标系绘制三个变量。如果需要绘制更多的变量，则可以尝试重叠散点图和散点图矩阵 (SPLOM)。重叠散点图显示 x-y 变量的重叠对，其中每一对都以颜色或形状加以区分。SPLOM 创建一个二维散点图的矩阵，在 SPLOM 中每个变量都参照另外一个变量进行绘制。</p>
+</blockquote>
+<p>好处：</p>
+<ul>
+<li>保留了原始数据信息</li>
+<li>展示多变量关系</li>
+</ul>
+<h2 id="在-R-中绘制基本的散点图"><a href="#在-R-中绘制基本的散点图" class="headerlink" title="在 R 中绘制基本的散点图"></a>在 R 中绘制基本的散点图</h2><ul>
+<li>基本包 <code>plot</code> 顶层绘图函数：<code>plot(x, type=&quot;p&quot;, pch=1)</code></li>
+<li><code>ggplot2::geom_point()</code></li>
+</ul>
+<h2 id="散点图矩阵"><a href="#散点图矩阵" class="headerlink" title="散点图矩阵"></a>散点图矩阵</h2><blockquote>
+<p>散点图矩阵是散点图的高维扩展，它从一定程度上克服了在平面上展示高维数据的困难，在展示多维数据的两两关系时有着不可替代的作用。— <a href="http://cos.name/2009/03/scatterplot-matrix-visualization/" target="_blank" rel="external">统计之都</a></p>
+</blockquote>
+<ul>
+<li><code>graphics::pairs()</code> 是 R 中绘制散点图矩阵的经典函数</li>
+<li><code>car::scatterplot.matrix()</code> 或者简写 <code>car::spm()</code>：可以直接指定散点图中主对角线上的绘图元素（密度图、箱线图、直方图、QQ图等）。</li>
+<li><code>YaleToolkit::gpairs()</code></li>
+<li><code>lattice::splom()</code> 可以按类别绘制散点图矩阵。</li>
+<li><code>GGally::ggpairs()</code> Hadley 推荐的绘制散点图矩阵的函数，用于替代 <code>ggplot2::plotmatrix()</code></li>
+</ul>
+<h2 id="散点图变式"><a href="#散点图变式" class="headerlink" title="散点图变式"></a>散点图变式</h2><p>热图</p>
+<ul>
+<li><code>gplots::heatmap.2()</code></li>
+<li><code>ggplot2::geom_raster()</code> <code>ggplot2::geom_tile()</code></li>
+</ul>
+<p>hexbin plot</p>
+<ul>
+<li><code>Hexbin::hexbinplot()</code></li>
+<li><p><code>ggplot2</code>: <code>stat_binhex()</code> <code>geom_bin2d()</code></p>
+</li>
+<li><p>在散点图上添加等高线：<code>geom_density2d()</code></p>
+</li>
+<li>对散点图进行平滑 <code>graphics::smoothScatter()</code></li>
+<li>在散点图上加上分布图或者直方图<ul>
+<li>使用 <code>ggplot2</code> 分别绘制散点图和直方图，然后用 <code>gridExtra</code> 把图拼接在一起。</li>
+<li>使用 <code>ggplot2</code> 中的 <code>geom_rug()</code> 图层（rug plots）</li>
+<li>使用 <code>ggExtra::ggMarginal()</code> 添加直方图到 <code>ggplot</code> 图层上。</li>
+<li>在这里可能需要对齐图，可以用到 <code>gtable</code> 包，可以将不同的 <code>ggplot</code> 图拼接时对齐。</li>
+</ul>
+</li>
+</ul>
+<p>参考: <a href="http://stackoverflow.com/questions/7714677/r-scatterplot-with-too-many-points" target="_blank" rel="external">StackOverflow: Scatterplot with too many points</a></p>
+<h1 id="直方图-Histgram"><a href="#直方图-Histgram" class="headerlink" title="直方图 Histgram"></a>直方图 Histgram</h1>
       
     </div>
 
@@ -393,9 +484,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag">#R</a>
-          
             <a href="/tags/数据可视化/" rel="tag">#数据可视化</a>
+          
+            <a href="/tags/R/" rel="tag">#R</a>
           
         </div>
       
@@ -404,16 +495,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/08/2016-11-08-r-desc-stats/" rel="next" title="R：描述性统计">
-                <i class="fa fa-chevron-left"></i> R：描述性统计
+              <a href="/2016/11/07/2016-11-07-daily/" rel="next" title="每日总结 2016-11-07">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-07
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/08/2016-11-08-r-import-data/" rel="prev" title="R：数据导入">
-                R：数据导入 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/08/2016-11-08-r-desc-stats/" rel="prev" title="R：描述性统计">
+                R：描述性统计 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -571,7 +662,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#箱图-Boxplot"><span class="nav-number">1.</span> <span class="nav-text">箱图 Boxplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是箱图？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是箱图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的用处"><span class="nav-number">1.2.</span> <span class="nav-text">箱形图的用处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的不足"><span class="nav-number">1.3.</span> <span class="nav-text">箱形图的不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制过程"><span class="nav-number">1.4.</span> <span class="nav-text">绘制过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-R-绘制箱图"><span class="nav-number">1.5.</span> <span class="nav-text">使用 R 绘制箱图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本包函数-boxplot"><span class="nav-number">1.5.1.</span> <span class="nav-text">基本包函数 boxplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot2"><span class="nav-number">1.5.2.</span> <span class="nav-text">ggplot2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice"><span class="nav-number">1.5.3.</span> <span class="nav-text">lattice</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散点图-Scatterplot"><span class="nav-number">2.</span> <span class="nav-text">散点图 Scatterplot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直方图-Histgram"><span class="nav-number">3.</span> <span class="nav-text">直方图 Histgram</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#箱图-Boxplot"><span class="nav-number">1.</span> <span class="nav-text">箱图 Boxplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是箱图？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是箱图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的用处"><span class="nav-number">1.2.</span> <span class="nav-text">箱形图的用处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的不足"><span class="nav-number">1.3.</span> <span class="nav-text">箱形图的不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制过程"><span class="nav-number">1.4.</span> <span class="nav-text">绘制过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-R-绘制箱图"><span class="nav-number">1.5.</span> <span class="nav-text">使用 R 绘制箱图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本包函数-boxplot"><span class="nav-number">1.5.1.</span> <span class="nav-text">基本包函数 boxplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot2"><span class="nav-number">1.5.2.</span> <span class="nav-text">ggplot2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice"><span class="nav-number">1.5.3.</span> <span class="nav-text">lattice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与箱图类似的图"><span class="nav-number">1.6.</span> <span class="nav-text">与箱图类似的图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散点图-Scatterplot"><span class="nav-number">2.</span> <span class="nav-text">散点图 Scatterplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是散点图？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是散点图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-R-中绘制基本的散点图"><span class="nav-number">2.2.</span> <span class="nav-text">在 R 中绘制基本的散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图矩阵"><span class="nav-number">2.3.</span> <span class="nav-text">散点图矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图变式"><span class="nav-number">2.4.</span> <span class="nav-text">散点图变式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直方图-Histgram"><span class="nav-number">3.</span> <span class="nav-text">直方图 Histgram</span></a></li></ol></div>
             
           </div>
         </section>
