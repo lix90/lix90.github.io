@@ -251,6 +251,321 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/08/2016-11-08-r-desc-stats/" itemprop="url">
+                  R：描述性统计
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T00:00:00+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/08/2016-11-08-r-desc-stats/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-desc-stats/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/07/2016-11-07-daily/" itemprop="url">
+                  每日总结 2016-11-07
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-07T00:00:00+08:00" content="2016-11-07">
+              2016-11-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/07/2016-11-07-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/07/2016-11-07-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近几天忙一些事情，没有积累多少东西，比较零碎。</p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p><code>:focus</code> 伪类</p>
+<p>当元素获得“关注”，例如被用户通过键盘选中或者用鼠标激活（表单输入），该伪类就被触发。</p>
+<p><code>:link</code> 未访问的链接<br><code>:visited</code> 已访问的链接<br><code>:hover</code> 鼠标移动到链接上方<br><code>:active</code> 链接激活</p>
+<p><code>:active</code> 允许页面给予反馈，告诉用户浏览器检测到了点击或者 <code>tab</code> 键。该伪类的样式会被任何其他的链接有关的伪类覆盖，例如 <code>:hover</code> <code>:link</code> <code>visited</code>。如果要合适的链接样式，需要按照 <code>:link</code> - <code>:visited</code> - <code>:hover</code> - <code>:active</code> 顺序。</p>
+<p><code>Outline</code> 与 <code>Border</code> 的差别：</p>
+<ul>
+<li><code>outline</code> 不影响布局，不影响盒大小，它是纯表现上的，对页面空间没有影响；<code>border</code> 会增加盒的尺寸，影响布局。</li>
+<li><code>outline</code> 不一定是规则的矩形框；<code>border</code> 是规则的矩形框或者圆形，且可以根据四个边和角设置样式。</li>
+</ul>
+<h1 id="Emacs-中使用-Rmarkdown"><a href="#Emacs-中使用-Rmarkdown" class="headerlink" title="Emacs 中使用 Rmarkdown"></a>Emacs 中使用 Rmarkdown</h1><p>需要用到 ESS 和 polymode。先默认已经在 Emacs 中安装好了 ESS。然后进行如下配置（使用 <code>use-package</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(use-package polymode</div><div class="line">  :ensure t</div><div class="line">  :mode ((&quot;\\.[SR]nw\\&apos;&quot; . poly-noweb+r-mode)</div><div class="line">         (&quot;\\.Rmd\\&apos;&quot; . Rmd-mode))</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">    (defun Rmd-mode ()</div><div class="line">      &quot;ESS Markdown mode for Rmd files.&quot;</div><div class="line">      (interactive)</div><div class="line">      (require &apos;poly-R)</div><div class="line">      (require &apos;poly-markdown)</div><div class="line">      (R-mode)</div><div class="line">      (poly-markdown+r-mode))))</div><div class="line"></div><div class="line">(defun ess-rmarkdown-to-html ()</div><div class="line">  (interactive)</div><div class="line">  &quot;Run kintr::knit2html on the current file.&quot;</div><div class="line">  &quot;https://gist.github.com/kohske/9128031&quot;</div><div class="line">  (shell-command</div><div class="line">   (format &quot;Rscript -e \&quot;kintr::knit2html (&apos;%s&apos;)\&quot;&quot;</div><div class="line">           (shell-quote-argument (buffer-file-name)))))</div></pre></td></tr></table></figure>
+<p>参考：<a href="http://futurismo.biz/archives/2982" target="_blank" rel="external">http://futurismo.biz/archives/2982</a></p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="在-Terminal-中使用-socks5-代理"><a href="#在-Terminal-中使用-socks5-代理" class="headerlink" title="在 Terminal 中使用 socks5 代理"></a>在 Terminal 中使用 socks5 代理</h2><p>前提当然是需要有 socks5 代理了。个人使用 <code>shodowsocks</code>。</p>
+<p>在终端使用代理，可以通过 proxychains，MacOS 下叫 proxychains-ng。</p>
+<p>修改配置：<code>/usr/local/Cellar/proxychains-ng/&lt;version&gt;/etc</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ProxyList]</div><div class="line">socks5 127.0.0.1 1080</div></pre></td></tr></table></figure>
+<p>然后绑定个别名啦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias fq=&quot;/usr/local/Cellar/proxychains-ng/4.11/bin/proxychains4&quot;</div></pre></td></tr></table></figure>
+<h2 id="PNG-图片压缩"><a href="#PNG-图片压缩" class="headerlink" title="PNG 图片压缩"></a>PNG 图片压缩</h2><p>一些常用压缩工具的对比：<a href="http://jamiemason.github.io/ImageOptim-CLI/" target="_blank" rel="external">http://jamiemason.github.io/ImageOptim-CLI/</a></p>
+<ul>
+<li><a href="https://github.com/ImageOptim/ImageOptim" target="_blank" rel="external">ImageOptim</a></li>
+<li><a href="https://github.com/JohnWong/imageoptim" target="_blank" rel="external">ImageOptim with pngquant</a></li>
+<li><a href="https://tinypng.com/" target="_blank" rel="external">TinyPNG</a></li>
+<li><a href="http://www.smushit.com/ysmush.it/" target="_blank" rel="external">Smush.it</a></li>
+</ul>
+<p>参考：<a href="http://johnwong.github.io/showcase/2015/02/19/png-compress.html" target="_blank" rel="external">PNG图片极限压缩</a></p>
+<h2 id="命令行直接调用-Chrome-进行谷歌检索"><a href="#命令行直接调用-Chrome-进行谷歌检索" class="headerlink" title="命令行直接调用 Chrome 进行谷歌检索"></a>命令行直接调用 Chrome 进行谷歌检索</h2><p>在 bash_profile 里头添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function gg() &#123; open /Applications/Google\ Chrome.app/ &quot;http://www.google.com/search?q= $1&quot;; &#125;</div></pre></td></tr></table></figure>
+<p>在 zshrc 里头添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gg() &#123; open -a &quot;Google Chrome&quot; &quot;http://www.google.com/search?q=$1&quot;; &#125;</div></pre></td></tr></table></figure>
+<h2 id="Windows-下包管理器神器：Chocolatey"><a href="#Windows-下包管理器神器：Chocolatey" class="headerlink" title="Windows 下包管理器神器：Chocolatey"></a>Windows 下包管理器神器：<a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a></h2><p>参考：<a href="http://ju.outofmemory.cn/entry/141470" target="_blank" rel="external">Chocolatey, 我爱你</a></p>
+<h2 id="MacOS-访问-Windows-中的共享文件夹"><a href="#MacOS-访问-Windows-中的共享文件夹" class="headerlink" title="MacOS 访问 Windows 中的共享文件夹"></a>MacOS 访问 Windows 中的共享文件夹</h2><ol>
+<li>进入 Finder</li>
+<li>前往 &gt;&gt;&gt; 连接服务器（Command + K）</li>
+<li>服务器地址输入：<code>smb://Computer-Name</code> 或者 <code>smb://IP-Address</code></li>
+</ol>
+<blockquote>
+<p>SMB：服务器信息块协议（Server Message Block protocol）</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/02/2016-11-01-daily/" itemprop="url">
                   每日总结 2016-11-01
                 </a>
@@ -893,477 +1208,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/29/2016-10-29-daily/" itemprop="url">
-                  每日总结 2016-10-29
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T14:03:30+08:00" content="2016-10-29">
-              2016-10-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/29/2016-10-29-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/29/2016-10-29-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天修改了下博客模板，顺便了解了下相关的工具和模块。</p>
-<h1 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h1><p>辅助函数</p>
-<p><code>url_for()</code> 在路径前加根目录 <code>&lt;% url_for(path) %&gt;</code><br><code>relative_url(from, to)</code> 获得一个从 <code>from</code> 到 <code>to</code> 的路径<br><code>css(path, ...)</code> 载入 css 文件<br><code>js(path, ...)</code> 载入 js 文件<br><code>link_to(path, [text], [options])</code> 插入链接<br><code>mail_to(path, [text], [options])</code> 插入电子邮件<br><code>image_tag(path, [options])</code> 插入图片<br><code>favicon_tag(path)</code> 插入 favicon<br><code>feed_tag(path, [options])</code> 插入 feed 链接<br><code>is_*()</code> 系列条件函数，<code>current</code> <code>home</code> <code>post</code> <code>archive</code> <code>year</code> <code>month</code> <code>category</code> <code>tag</code></p>
-<p><code>partial(layout, [locals], [options])</code> 载入其他模板文件，您可在 locals 设定区域变量。<br><code>paginator(options)</code> 插入分页链接<br><code>toc(str, [options])</code></p>
-<p><code>__(&#39;next&#39;)</code> 多语言支持时，<code>__()</code> 用于转换语言。</p>
-<blockquote>
-<p>在模板中，透过 __ 或 _p 辅助函数，即可取得翻译后的字符串，前者用于一般使用；而后者用于复数字符串。</p>
-</blockquote>
-<h1 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1><h2 id="构建自动化"><a href="#构建自动化" class="headerlink" title="构建自动化"></a>构建自动化</h2><p>谈 Grunt，就要谈到“构建自动化”。</p>
-<blockquote>
-<p><strong>Build automation</strong> is the process of automating the creation of a software build and the associated processes including: compiling computer source code into binary code, packaging binary code, and running automated tests.</p>
-</blockquote>
-<p>构建自动化有以下一些好处：</p>
-<blockquote>
-<ul>
-<li>A necessary pre-condition for continuous integration and continuous testing 在连续集成和测试中的必要的前置条件</li>
-<li>Improve product quality 改善产品质量</li>
-<li>Accelerate the compile and link processing 加速编译和链接处理</li>
-<li>Eliminate redundant tasks 去除冗余的任务</li>
-<li>Minimize “bad builds” 减少低质量的构建</li>
-<li>Eliminate dependencies on key personnel 去除关键的人员依赖</li>
-<li>Have history of builds and releases in order to investigate issues 具有可供查询的构建和发布历史</li>
-<li>Save time and money - because of the reasons listed above 节省时间和财力</li>
-</ul>
-</blockquote>
-<h2 id="使用-Grunt"><a href="#使用-Grunt" class="headerlink" title="使用 Grunt"></a>使用 Grunt</h2><p>使用 Grunt 可以加快开发和自动构建。可以帮助开发者将压缩、编译、单元测试、代码检查等工作自动化。</p>
-<p>三步使用 grunt：</p>
-<blockquote>
-<ul>
-<li>Change to the project’s root directory.</li>
-<li>Install project dependencies with npm install.</li>
-<li>Run Grunt with grunt.</li>
-</ul>
-</blockquote>
-<p><code>package.json</code> 保存项目元数据；<br><code>Gruntfile.js</code> 配置或定义任务、加载 Grunt 插件。<br><code>npm install &lt;module&gt; --save-dev</code> 本地安装并将依赖写入 <code>package.json</code> 中 <code>devDependencies</code>。</p>
-<h2 id="Gruntfile-js-配置文件"><a href="#Gruntfile-js-配置文件" class="headerlink" title="Gruntfile.js 配置文件"></a><code>Gruntfile.js</code> 配置文件</h2><p>Gruntfile.js 包括下面四个部分：</p>
-<blockquote>
-<ul>
-<li>The “wrapper” function</li>
-<li>Project and task configuration</li>
-<li>Loading Grunt plugins and tasks</li>
-<li>Custom tasks</li>
-</ul>
-</blockquote>
-<p>包装函数（wrapper function）：概括 grunt 的配置信息。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>在包装函数内，初始化配置对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grunt.initConfig(&#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>将 <code>package.json</code> 的项目设置保存到 <code>pkg</code> 属性：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pkg: grunt.file.readJSON(<span class="string">'package.json'</span>)</div></pre></td></tr></table></figure>
-<p>插件配置（grunt-contrib-concat 为例）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">concat: &#123;</div><div class="line">    options: &#123;</div><div class="line">        seperator: <span class="string">';'</span></div><div class="line">    &#125;,</div><div class="line">    dist: &#123;</div><div class="line">    src: [],</div><div class="line">    dest: <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>加载用到的插件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">'grunt-contrib-concat'</span>);</div></pre></td></tr></table></figure>
-<p>创建任务：</p>
-<p>直接输入 <code>grunt</code> 执行默认任务（default）；<br>输入 <code>grunt test</code> 可以执行自定义的任务。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'concat'</span>]);</div><div class="line">grunt.registerTask(<span class="string">'test'</span>, [<span class="string">'jshint'</span>]);</div></pre></td></tr></table></figure>
-<p>Grunt 常见插件：</p>
-<p><code>grunt-contrib-uglify</code> 压缩 js, css 文件<br><code>grunt-contrib-concat</code> 连接文件<br><code>grunt-contrib-jshint</code> js 代码检测<br><code>grunt-contrib-watch</code> 代码监视</p>
-<h1 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a></h1><p>Gulp 和 Grunt 干差不多的活，目前还不知道优劣。Gulp 显得简单一些。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1 id="EJS"><a href="#EJS" class="headerlink" title="EJS"></a>EJS</h1><blockquote>
-<p>EJS 是一个简单的模板语言，可以让你使用原生 JavaScript 生成 HTML 标记。没有关于如何组织内容的语法规则，也没有循环和控制流的重载，只是使用原生的 JavaScript。</p>
-</blockquote>
-<p>EJS 一个在 HTML 中嵌入原生 JS 语言的模板语言。</p>
-<p>有以下特点：</p>
-<blockquote>
-<p>快速的编写和解析<br>简单的模板标签: &lt;% %&gt;<br>自定义分隔符（例如使用 &lt;? ?&gt;替换&lt;% %&gt;）<br>使用 include 引入其他模板<br>同时支持服务器端和客户端使用<br>JavaScript 的静态缓存<br>模板的静态缓存<br>与 Express 视图系统兼容</p>
-</blockquote>
-<p>一个简单的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>), <span class="comment">// 加载 ejs 模块</span></div><div class="line">    people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>], <span class="comment">// 数据</span></div><div class="line">    html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, &#123;people: people&#125;); <span class="comment">// ejs 渲染</span></div></pre></td></tr></table></figure>
-<p>熟悉这几个标签：</p>
-<ul>
-<li><code>&lt;%</code> ‘Scriptlet’ 标签, 用于控制流，没有输出</li>
-<li><code>&lt;%=</code> 向模板输出值（带有转义）</li>
-<li><code>&lt;%-</code> 向模板输出没有转义的值</li>
-<li><code>&lt;%#</code> 注释标签，不执行，也没有输出</li>
-<li><code>&lt;%%</code> 输出字面的 ‘&lt;%’</li>
-<li><code>%&gt;</code> 普通的结束标签</li>
-<li><code>-%&gt;</code> Trim-mode (‘newline slurp’) 标签, 移除随后的换行符</li>
-</ul>
-<p>使用 <code>include</code> 调用的模板时路径需要 filename 选项。</p>
-<h1 id="JADE"><a href="#JADE" class="headerlink" title="JADE"></a>JADE</h1><p>JADE（现在改名为 Pugjs） 是一个极度注重代码简洁性的模板语言。相比 EJS 来说，渲染性能较低一些。但因为其简单的语法（对其他人来说也许算是“复杂”了）受到欢迎。</p>
-<p>下面记录一些容易忘记的特殊语法：</p>
-<p><code>= &#39;\n&#39;</code> 换行<br><code>!=</code> 不转义的属性</p>
-<blockquote>
-<p>未经转义的缓存代码十分危险。您必须正确处理和过滤用户的输入来避免跨站脚本攻击。</p>
-</blockquote>
-<p><code>&#39;${}&#39;</code> 字符串中嵌入变量</p>
-<p><code>&amp;attributes({&#39;data-foo&#39;: &#39;bar&#39;})</code> 语法可以将一个对象转化为一个元素的属性列表</p>
-<p>分支条件（Case）：case 是 JavaScript 的 switch 指令的缩写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- var foo = 10</div><div class="line">case foo</div><div class="line">    when 0</div><div class="line">        p eee</div><div class="line">    when 1</div><div class="line">        p fff</div><div class="line">    default</div><div class="line">        p ggg #&#123;foo&#125;</div></pre></td></tr></table></figure>
-<p>分支传递 (Case Fall Through) :在 Pug 中，传递会在遇到非空的语法块前一直进行下去。如果不想输出任何东西的话，可以明确地加上一个原生的 break 语句。也可以使用块展开的语法</p>
-<p>由 <code>-</code> 开始的一段为不输出的代码。另起一行并缩进可以写成块的形式。<br>用 <code>=</code> 开始一段带有输出的代码，它应该是可以被求值的一个 JavaScript 表达式。<br>用 <code>!=</code> 开始一段不转义的，带有输出的代码。</p>
-<p>用 <code>//-</code> 进行单行注释，使用 <code>//</code> 并另起一行缩进，可进行块注释。pug 的条件注释跟 html 一样，并没有特殊的写法。</p>
-<p>条件判断形式可以省略开头的 <code>-</code>, <code>if !x</code> === <code>unless x</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if x</div><div class="line">else if y</div><div class="line">else</div><div class="line">    z</div></pre></td></tr></table></figure>
-<p>模板继承：<code>extends</code> 关键字允许模板去扩展一个布局或父模板，这样它就可以覆盖某些预定义的内容。</p>
-<p>包含 <code>include</code> 功能允许您把另外的文件内容插入进来。</p>
-<p>Pug 支持使用 <code>block</code> 和 <code>extends</code> 关键字进行模板的继承。一个称之为“块”（block）的代码块，可以被子模板覆盖、替换。这个过程是递归的。</p>
-<p>Pug 允许您去替换（默认的行为）、<code>prepend</code>（向头部添加内容），或者 <code>append</code>（向尾部添加内容）一个块。当使用 <code>block append</code> 或者 <code>block prepend</code> 时，<code>block</code> 关键字是可省略的</p>
-<p>嵌入 Interpolation：Pug 提供了好几种方式满足不同的嵌入需求。</p>
-<p>迭代 Iteration</p>
-<p><code>each</code> <code>each ... in ...</code> <code>each val, index in arr</code></p>
-<p><code>for</code> <code>while</code> 也可以创建迭代</p>
-<p>混入 Mixin：混入是一种允许您在 Pug 中重复使用一整个代码块的方法。<code>mixin</code> 可以写成函数形式，传入参数。在使用 <code>mixin</code> 的函数形式时，在前面加上 <code>+</code> 号，即 <code>+foo(faz)</code>。还可以使用剩余参数（rest arguments）<code>...</code> 语法来表示参数列表传入若干长度不定的参数。</p>
-<p>放置纯文本</p>
-<ul>
-<li>管道文本：在每行加一个 <code>|</code> 字符。</li>
-<li>标签的行内：文本只需要和标签名隔开一个空格。</li>
-<li>标签中的块：在标签后街上一个 <code>.</code> 点号（没有空格）。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/28/2016-10-28-daily/" itemprop="url">
-                  每日总结 2016-10-28
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T14:10:36+08:00" content="2016-10-28">
-              2016-10-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/28/2016-10-28-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/28/2016-10-28-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>常见的 JS 的鼠标事件：</p>
-<ul>
-<li>mousedown：鼠标的键钮被按下。</li>
-<li>mouseup：鼠标的键钮被释放弹起。</li>
-<li>click：单击鼠标的键钮。</li>
-<li>dblclick：鼠标的键钮被按下。</li>
-<li>contextmenu ：弹出右键菜单。</li>
-<li>mouseover：鼠标移到目标的上方。</li>
-<li>mouseout：鼠标移出目标的上方。</li>
-<li>mousemove：鼠标在目标的上方移动。</li>
-<li>mouseleave：鼠标离开目标。</li>
-</ul>
-<p>jQuery 有与此对应的鼠标事件的方法</p>
-<p><code>map</code> 方法</p>
-<p><code>arr.map(callback[, thisArg])</code>: <code>callback(currentValue, index, array)</code></p>
-<p>就是遍历 <code>arr</code> 里元素，将每个元素传入给 <code>callback</code>，然后生成新的 <code>arr</code>。</p>
-<p><code>setInterval</code> 在固定的时间间隔，重复调用一个函数或代码块，返回 <code>timeoutID</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> intervalID = <span class="built_in">window</span>.setInterval(myCallback, <span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myCallback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>===&gt; WindowTimers</p>
-<p><code>clearInterval()</code> <code>clearTimeout()</code> <code>setInterval()</code> <code>setTimeout()</code><br><code>start</code></p>
-<hr>
-<h1 id="前端代码规范"><a href="#前端代码规范" class="headerlink" title="前端代码规范"></a>前端代码规范</h1><p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
-<blockquote>
-<p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
-</blockquote>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
-<li>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言；</li>
-<li>在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性；</li>
-<li>尽量最少使用标签，并保持最小的复杂度；</li>
-<li>HTML 属性顺序：<code>class</code> (<code>id</code> <code>name</code>) <code>data-*</code> (<code>src</code> <code>for</code> <code>type</code> <code>href</code>) (<code>title</code> <code>alt</code>) (<code>aria-*</code>, <code>role</code>)；</li>
-<li>布尔型属性不用赋值；</li>
-<li>尽量避免多余的父元素；</li>
-<li>尽量避免 JS 生成的标签。</li>
-</ul>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
-<li>用两个空格来代替制表符；</li>
-<li>为选择器分组时，将单独的选择器单独放在一行；</li>
-<li>在每个声明块的左花括号前添加一个空格；</li>
-<li>声明块的右花括号应当单独成行；</li>
-<li>每条声明语句的 <code>:</code> 后应该插入一个空格；</li>
-<li>为了获得更准确的错误报告，每条声明都应该独占一行；</li>
-<li>所有声明语句都应当以分号结尾；</li>
-<li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格；</li>
-<li>不要在 <code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code> 或 <code>rect()</code> 值的内部的逗号后面插入空格；</li>
-<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0；</li>
-<li>十六进制值应该全部小写；</li>
-<li>尽量使用简写形式的十六进制值；</li>
-<li>为选择器中的属性添加双引号；</li>
-<li>避免为 0 值指定单位。</li>
-</ul>
-<h3 id="声明顺序"><a href="#声明顺序" class="headerlink" title="声明顺序"></a>声明顺序</h3><p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
-<ul>
-<li>Positioning</li>
-<li>Box model</li>
-<li>Typographic</li>
-<li>Visual</li>
-</ul>
-<blockquote>
-<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
-</blockquote>
-<h3 id="不要使用-import"><a href="#不要使用-import" class="headerlink" title="不要使用 @import"></a>不要使用 @import</h3><blockquote>
-<p>与 <code>&lt;link&gt;</code> 标签相比，<code>@import</code> 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：</p>
-<ul>
-<li>使用多个 <code>&lt;link&gt;</code> 元素</li>
-<li>通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件</li>
-<li>通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能</li>
-</ul>
-</blockquote>
-<h3 id="媒体查询的位置"><a href="#媒体查询的位置" class="headerlink" title="媒体查询的位置"></a>媒体查询的位置</h3><blockquote>
-<p>将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。</p>
-</blockquote>
-<h3 id="单行规则声明"><a href="#单行规则声明" class="headerlink" title="单行规则声明"></a>单行规则声明</h3><blockquote>
-<p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
-</blockquote>
-<h3 id="简写形式的属性声明"><a href="#简写形式的属性声明" class="headerlink" title="简写形式的属性声明"></a>简写形式的属性声明</h3><blockquote>
-<p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
-</blockquote>
-<h3 id="Less-和-Sass-中的嵌套"><a href="#Less-和-Sass-中的嵌套" class="headerlink" title="Less 和 Sass 中的嵌套"></a>Less 和 Sass 中的嵌套</h3><p>避免非必要的嵌套。</p>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><blockquote>
-<p>请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
-</blockquote>
-<h3 id="class-命名"><a href="#class-命名" class="headerlink" title="class 命名"></a>class 命名</h3><ul>
-<li>class 名称中只能出现小写字符和破折号（dashe）；</li>
-<li>破折号应当用于相关 class 的命名（类似于命名空间）；</li>
-<li>避免过度任意的简写；</li>
-<li>class 名称应当尽可能短，并且意义明确；</li>
-<li>使用有意义的名称；</li>
-<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
-<li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
-</ul>
-<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
-<li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
-<li>对于经常出现的组件，避免使用属性选择器（例如，[class^=”…”]）。浏览器的性能会受到这些因素的影响。</li>
-<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3；</li>
-<li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）。</li>
-</ul>
-<p><code>合理使用标签</code> <code>降低选择器复杂度</code></p>
-<h3 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h3><ul>
-<li>以组件为单位组织代码段。</li>
-<li>制定一致的<strong>注释规范</strong>。</li>
-<li><strong>使用一致的空白符将代码分隔成块</strong>，这样利于扫描较大的文档。</li>
-<li>如果使用了多个 CSS 文件，将其<strong>按照组件而非页面的形式分拆</strong>，因为页面会被重组，而组件只会被移动。</li>
-</ul>
-<p><code>组件化</code> <code>块状</code></p>
-<h3 id="编辑器配置"><a href="#编辑器配置" class="headerlink" title="编辑器配置"></a>编辑器配置</h3><p>将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：</p>
-<ul>
-<li>用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。</li>
-<li>保存文件时，删除尾部的空白符。</li>
-<li>设置文件编码为 UTF-8。</li>
-<li>在文件结尾添加一个空白行。</li>
-</ul>
-<p>在 Emacs 中配置两个空格缩进：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="golden-ratio-mode"><a href="#golden-ratio-mode" class="headerlink" title="golden-ratio-mode"></a>golden-ratio-mode</h2><p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1404,7 +1253,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
