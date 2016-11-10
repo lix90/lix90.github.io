@@ -493,7 +493,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/08/2016-10-08-r-source-code/" itemprop="url">
-                  R：查看函数和方法的源代码
+                  R：查看源代码
                 </a>
               
             
@@ -575,11 +575,9 @@
 </ul>
 <p>不同类型函数获取源代码的方式不同。获取源代码，首先直接执行函数（不带括号），观察返回结果。一般来说，普通函数会直接返回源代码。</p>
 <p>如果返回的结果包含 <code>UseMethod(&quot;function&quot;)</code>，则表示该函数为 S3 范型函数，对于不同类型的对象调用不同的方法。然后就可以使用 <code>methods()</code> 列出特定的范型函数和类 <code>methods(function)</code> <code>methods(class=&quot;classname&quot;)</code>。我们可以看到返回一些带 <code>*</code> 的函数，这类函数为 <code>Non-visible functions</code>，即隐藏的函数，表示这类函数没有从语言包的命名空间导出。但是我们仍然可以查看隐藏函数的源代码，可通过 <code>:::</code> 函数查看，即 <code>pkgname:::function</code>。另外，还可以使用 <code>getAnywhere()</code> 获取。<code>getAnywhere()</code> 并不需要你知道函数来自于哪个语言包。对于没有 <code>*</code> 的方法，直接运行即可获得源代码。另外，对于 S3 范型函数，还可以通过 <code>getS3method(function, class)</code> 获取源代码。</p>
-<p>如果返回的结果包含 <code>standardGeneric(&quot;function&quot;)</code>，意味着该函数为 S4 范型函数。对于这类函数，先通过 <code>showMethods(function)</code> 获得方法对应的 <code>signature</code>（不知道是神马东西）。例如：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; showMethods(chol2inv)</div><div class="line">Function: chol2inv (package base)</div><div class="line">x=<span class="string">"ANY"</span></div><div class="line">x=<span class="string">"CHMfactor"</span></div><div class="line">x=<span class="string">"denseMatrix"</span></div><div class="line">x=<span class="string">"diagonalMatrix"</span></div><div class="line">x=<span class="string">"dtrMatrix"</span></div><div class="line">x=<span class="string">"sparseMatrix"</span></div></pre></td></tr></table></figure>
+<p>如果返回的结果包含 <code>standardGeneric(&quot;function&quot;)</code>，意味着该函数为 S4 范型函数。对于这类函数，先通过 <code>showMethods(function)</code> 获得方法对应的 <code>signature</code>（不知道是神马东西）。例如：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; showMethods(chol2inv)</div><div class="line">Function: chol2inv (package base)</div><div class="line">x=<span class="string">"ANY"</span></div><div class="line">x=<span class="string">"CHMfactor"</span></div><div class="line">x=<span class="string">"denseMatrix"</span></div><div class="line">x=<span class="string">"diagonalMatrix"</span></div><div class="line">x=<span class="string">"dtrMatrix"</span></div><div class="line">x=<span class="string">"sparseMatrix"</span></div></pre></td></tr></table></figure></p>
 <p>（例子来自 stackoverflow）</p>
-<p>那么，可以通过 <code>getMethod(&quot;function&quot;, &quot;signature&quot;)</code> 获取源代码。有一些方法具有更复杂的 <code>signature</code>，例如：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(raster)</div><div class="line">showMethods(extract)</div><div class="line">Function: extract (package raster)</div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"data.frame"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"Extent"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"matrix"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialLines"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPoints"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPolygons"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"vector"</span></div></pre></td></tr></table></figure>
+<p>那么，可以通过 <code>getMethod(&quot;function&quot;, &quot;signature&quot;)</code> 获取源代码。有一些方法具有更复杂的 <code>signature</code>，例如：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(raster)</div><div class="line">showMethods(extract)</div><div class="line">Function: extract (package raster)</div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"data.frame"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"Extent"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"matrix"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialLines"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPoints"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPolygons"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"vector"</span></div></pre></td></tr></table></figure></p>
 <p>那么，可以通过 <code>getMethod(&quot;function&quot;, signature = c(x = &quot;Raster&quot;, y = &quot;SpatialPolygons&quot;))</code>。</p>
 <p>对于 <code>unexported functions</code>，可以使用和隐藏函数一样的方法获取源代码，即 <code>:::</code> 或 <code>getAnywhere()</code>。对于 <code>compiled code</code>，即返回内容中有 <code>&lt;bytecode:0x294e410&gt;</code> 的函数，仍然可以从 R 命令行查阅源代码。但是对于函数中调用的 <code>.C</code> <code>.Call</code> <code>.Fortran</code> <code>.External</code> <code>.Internal</code> <code>.Primitive</code>，无法从命令行获取源代码，需要直接查看编译前的源代码。函数 <code>pryr::show_c_source</code> 可以直接在 Github 中找到 <code>.Internal</code> 和 <code>.Primitive</code> 调用的内容。</p>
 <p>对于无法直接从命令行获取源代码的函数，可以直接下载原始语言包。基本包的源代码，可以通过查阅 R 语言源代码： <a href="http://svn.r-project.org/R/trunk/" target="_blank" rel="external">Subversion repository</a> 或者 <a href="https://github.com/wch/r-source/tree/trunk" target="_blank" rel="external">Winston Chang’s github mirror</a>。</p>
@@ -646,7 +644,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/03/2016-10-03-r-regex/" itemprop="url">
-                  掌握 R 语言之正则表达式
+                  R：正则表达式
                 </a>
               
             
@@ -718,27 +716,21 @@
             <blockquote>
 <p>A ‘regular expression’ is a pattern that describes a set of strings.</p>
 </blockquote>
-<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。</p>
-<p>在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。</p>
-<p>支持正则表达式的函数包括：<br><code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code><br>另外，其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。</p>
-<p>正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
+<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。<br>在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
 <h1 id="Extended-Regular-Expressions"><a href="#Extended-Regular-Expressions" class="headerlink" title="Extended Regular Expressions"></a>Extended Regular Expressions</h1><ul>
 <li>字母和数字本身就是正则表达式，可用来匹配自身。</li>
 <li>具有特殊含义的元字符需要通过反斜杠（backslash，<code>\</code>）逃逸其所代表的特殊含义。</li>
 </ul>
 <p>元字符包括：<code>. \ | ( ) [ { ^ $ * + ?</code></p>
 <blockquote>
-<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.</p>
-<p>A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.</p>
-<p>A range of characters may be specified by giving the first and last characters, separated by a hyphen.</p>
-<p>Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
+<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.<br>A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.<br>A range of characters may be specified by giving the first and last characters, separated by a hyphen.<br>Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
 </blockquote>
 <p><code>[:alnum:]</code> = <code>[:alpha:]</code> + <code>[:digit:]</code><br><code>[:alpha:]</code> = <code>[:lower:]</code> + <code>[:upper:]</code><br><code>[:blank:]</code> 空白符，如空格、tab<br><code>[:cntrl:]</code> Control characters<br><code>[:digit:]</code> 数字<br><code>[:graph:]</code> = <code>[:alnum:]</code> + <code>[:punct:]</code><br><code>[:lower:]</code> 小写字母<br><code>[:print:]</code> 可打印的字符 <code>[:alnum:]</code> <code>[:punct:]</code> 空格<br><code>[:punct:]</code> 标点符号<br><code>[:space:]</code> 空格符：tab, newline, vertical tab, form feed, carriage return, space, and possibly other locale-dependent characters<br><code>[:upper:]</code> 大写字母<br><code>[:xdigit:]</code> 十六进制数字</p>
 <p>元字符</p>
 <p><code>.</code> 匹配其他任何单字符<br><code>\w</code> 匹配单词 = <code>[[:alnum:]_]</code> <code>\W</code> = <code>[^[:alnum:]_]</code><br><code>\s</code> 空白符 <code>\S</code> 非空白符<br><code>\d</code> 数字 <code>\D</code> 非数字<br><code>^</code> 匹配首空字符（line）<br><code>$</code> 匹配尾空字符（line）<br><code>\&lt;</code> 匹配首空字符（word）<br><code>\&gt;</code> 匹配尾空字符（word）<br><code>\b</code> 匹配位于边缘的空字符（word）<br><code>\B</code> 匹配非边缘字符（word）</p>
-<p>匹配频率有关的元字符<br><code>?</code> 匹配 1 次<br><code>*</code> 匹配 0 或多次<br><code>+</code> 匹配 1 或多次<br><code>{n}</code> 匹配 n 次<br><code>{n,}</code> 匹配 n 或更多次<br><code>{n,m}</code> 匹配 n 至 m 次</p>
-<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。</p>
-<p>正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
+<p>匹配频率有关的元字符</p>
+<p><code>?</code> 匹配 1 次<br><code>*</code> 匹配 0 或多次<br><code>+</code> 匹配 1 或多次<br><code>{n}</code> 匹配 n 次<br><code>{n,}</code> 匹配 n 或更多次<br><code>{n,m}</code> 匹配 n 至 m 次</p>
+<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
 <h1 id="正则表达式函数实例"><a href="#正则表达式函数实例" class="headerlink" title="正则表达式函数实例"></a>正则表达式函数实例</h1><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><hr>
 <p>未完待续</p>
 
