@@ -1,0 +1,759 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R,数据分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="熟悉 sapply lapply apply tapply by aggregate 等向量化运算函数。
+apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
+apply(X, MARGIN, FUN, ...)
+
+X 数组或矩阵
+MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示行，2 表示列。c(1,2) 表示行和列。如果 X">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 向量化运算">
+<meta property="og:url" content="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/index.html">
+<meta property="og:site_name" content="Lix的博客">
+<meta property="og:description" content="熟悉 sapply lapply apply tapply by aggregate 等向量化运算函数。
+apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
+apply(X, MARGIN, FUN, ...)
+
+X 数组或矩阵
+MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示行，2 表示列。c(1,2) 表示行和列。如果 X">
+<meta property="og:updated_time" content="2016-11-11T03:54:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R 向量化运算">
+<meta name="twitter:description" content="熟悉 sapply lapply apply tapply by aggregate 等向量化运算函数。
+apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
+apply(X, MARGIN, FUN, ...)
+
+X 数组或矩阵
+MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示行，2 表示列。c(1,2) 表示行和列。如果 X">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/"/>
+
+
+  <title> R 向量化运算 | Lix的博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R 向量化运算
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-13T22:50:21+08:00" content="2016-09-13">
+              2016-09-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/13/2016-09-13-r-apply-family/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-r-apply-family/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>熟悉 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数。</p>
+<h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h1><p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
+<p><code>apply(X, MARGIN, FUN, ...)</code></p>
+<ul>
+<li><code>X</code> 数组或矩阵</li>
+<li><code>MARGIN</code> 指定 <code>FUN</code> 作用的由下标组成的向量。若 <code>X</code> 为矩阵，1 表示行，2 表示列。<code>c(1,2)</code> 表示行和列。如果 <code>X</code> 包含 <code>dimnames</code>，那么也可以为字符向量。</li>
+<li><code>FUN</code> 使用的函数</li>
+</ul>
+<p>如果需要在行或者列上求均值和求和，则建议使用 <code>colMeans</code> <code>rowMeans</code> <code>colSums</code> <code>rowSums</code>。</p>
+<h1 id="tapply"><a href="#tapply" class="headerlink" title="tapply"></a><code>tapply</code></h1><p>需要对向量按组或者因素水平计算，类似于 <code>split-apply-combine</code>。</p>
+<h1 id="by"><a href="#by" class="headerlink" title="by"></a><code>by</code></h1><p>可替代 <code>tapply</code>，在无法使用 <code>tapply</code> 的情况下仍然可用。</p>
+<p><a href="http://stackoverflow.com/a/32262439/6469987" target="_blank" rel="external">参考</a></p>
+<h1 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a><code>aggregate</code></h1><p>跟 <code>tapply</code> 类似，不同的是，<code>aggregate</code> 的第二个参数必须为 list，输出为 data.frame。<code>aggregate</code> 的参数还可以为 formula。需要主要的是 <code>aggregate</code> 的 formula 方法默认 <code>na.action = na.omit</code>，所以需要手动设置参数 <code>na.rm = TRUE</code>。</p>
+<h1 id="lapply"><a href="#lapply" class="headerlink" title="lapply"></a><code>lapply</code></h1><p>输入和输出都为 list。其他 <code>*apply</code> 函数底层都是调用 <code>lapply</code> 函数。</p>
+<p><code>lapply(X, FUN, ...)</code></p>
+<p>返回与 <code>X</code> 等长度的 list，每个元素是由 <code>X</code> 中的元素经过 <code>FUN</code> 计算得到。</p>
+<h1 id="sapply"><a href="#sapply" class="headerlink" title="sapply"></a><code>sapply</code></h1><p>输入为 list，但输出为 vector。</p>
+<p><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></p>
+<p>比 <code>lapply</code> 更友好，虽然默认返回 vector，matrix，但是如果增加 <code>simplify = &quot;array&quot;</code> 的参数，将返回 array。<code>sapply(x, f, simplify=FALSE, USE.NAMES = FALSE)</code> 等同于 <code>lapply(x, f)</code>。</p>
+<h1 id="vapply"><a href="#vapply" class="headerlink" title="vapply"></a><code>vapply</code></h1><p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
+<p>类似与 <code>sapply</code>，但是返回值的类型是事先确定。</p>
+<h1 id="replicate"><a href="#replicate" class="headerlink" title="replicate"></a><code>replicate</code></h1><p>重复地执行表达式。</p>
+<h1 id="其他相关函数"><a href="#其他相关函数" class="headerlink" title="其他相关函数"></a>其他相关函数</h1><p><code>outer</code> <code>ave</code> <code>eapply</code></p>
+<h1 id="比较好的总结"><a href="#比较好的总结" class="headerlink" title="比较好的总结"></a>比较好的总结</h1><blockquote>
+<ul>
+<li><strong>lapply</strong> is a list apply which acts on a list or vector and returns a list.</li>
+<li><strong>sapply</strong> is a simple lapply (function defaults to returning a vector or matrix when possible)</li>
+<li><strong>vapply</strong> is a verified apply (allows the return object type to be prespecified)</li>
+<li><strong>rapply</strong> is a recursive apply for nested lists, i.e. lists within lists</li>
+<li><strong>tapply</strong> is a tagged apply where the tags identify the subsets</li>
+<li><strong>apply</strong> is generic: applies a function to a matrix’s rows or columns (or, more generally, to dimensions of an array)</li>
+</ul>
+</blockquote>
+<p><a href="http://stackoverflow.com/a/23282110/6469987" target="_blank" rel="external">参考</a></p>
+<hr>
+<p>参考资料</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega" target="_blank" rel="external">R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag">#R</a>
+          
+            <a href="/tags/数据分析/" rel="tag">#数据分析</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/13/2016-09-13-mysql-config/" rel="next" title="MySQL安装与配置（MacOS）">
+                <i class="fa fa-chevron-left"></i> MySQL安装与配置（MacOS）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/17/2016-09-17-sql/" rel="prev" title="SQL 语言入门笔记">
+                SQL 语言入门笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">本科二本学渣，考入西南大学念心理学硕士，不甘成科研民工，决心转行码农。喜欢设计，正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#apply"><span class="nav-number">1.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tapply"><span class="nav-number">2.</span> <span class="nav-text">tapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#by"><span class="nav-number">3.</span> <span class="nav-text">by</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aggregate"><span class="nav-number">4.</span> <span class="nav-text">aggregate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lapply"><span class="nav-number">5.</span> <span class="nav-text">lapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sapply"><span class="nav-number">6.</span> <span class="nav-text">sapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vapply"><span class="nav-number">7.</span> <span class="nav-text">vapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#replicate"><span class="nav-number">8.</span> <span class="nav-text">replicate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他相关函数"><span class="nav-number">9.</span> <span class="nav-text">其他相关函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较好的总结"><span class="nav-number">10.</span> <span class="nav-text">比较好的总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016/09/13/2016-09-13-r-apply-family/';
+      var disqus_title = "R 向量化运算";
+      var disqus_url = '//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
