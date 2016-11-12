@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-11T10:09:06.000Z</updated>
+  <updated>2016-11-12T14:11:32.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日总结 2016-11-12</title>
+    <link href="//lix90.github.io/2016/11/12/2016-11-12-daily/"/>
+    <id>//lix90.github.io/2016/11/12/2016-11-12-daily/</id>
+    <published>2016-11-11T16:00:00.000Z</published>
+    <updated>2016-11-12T14:11:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="detach-amp-attach"><a href="#detach-amp-attach" class="headerlink" title="detach &amp; attach"></a><code>detach</code> &amp; <code>attach</code></h2><p><code>attach</code></p>
+<p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
+<p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
+<p><code>detach</code></p>
+<ul>
+<li>将对象从 <code>search path</code> 中移除。对象包括 <code>attach</code> 过的 <code>data.frame</code> 和 package。</li>
+<li>当没有给 <code>detach()</code> 输入参数将会移除 <code>search path</code> 中的第一个项目。</li>
+<li>应该避免在函数中使用 <code>detach/attach</code>。</li>
+<li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
+</ul>
+<h2 id="整数型数值"><a href="#整数型数值" class="headerlink" title="整数型数值"></a>整数型数值</h2><p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>JavaScript：DOM &amp; BOM</p>
+<blockquote>
+<p>The BOM consists of the objects navigator, history, screen, location and document which are children of window. In the document node is the DOM, the document object model, which represents the contents of the page. You can manipulate it using javascript. （”node is in the DOM tree” or “node is the smallest unit in the DOM tree” or “nodes compose the DOM tree”）</p>
+</blockquote>
+<ul>
+<li><a href="http://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript" target="_blank" rel="external">Stackoverflow: What is the DOM and BOM in JavaScript?</a></li>
+<li><a href="https://vkanakaraj.wordpress.com/2009/12/18/javascript-vs-dom-vs-bom-relationship-explained/" target="_blank" rel="external">JavaScript Vs DOM Vs BOM, relationship explained</a></li>
+</ul>
+<p>HTTP：HTTP 是 web 的核心，也是动态 web 应用的核心。理解 HTTP 是理解现代 web 应用如何工作和如何构建的核心。</p>
+<p>数据库的五个基本单位：数据库服务器，数据库，数据表，数据字段（数据列），数据行。</p>
+<p>三类 SQL 语句：</p>
+<ul>
+<li>数据定义语言：定义不同的数据段、数据库、表、列、索引等。常用关键字：<code>create</code> <code>drop</code> <code>alter</code>。</li>
+<li>数据操作语言：用于添加、删除、更新和查询数据库记录，并检查数据的完整性。常用关键字：<code>insert</code> <code>delete</code> <code>update</code> <code>select</code>。</li>
+<li>数据控制语言：用于控制不同数据段直接的许可和访问级别。常用关键字：<code>grant</code> <code>revoke</code>。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;R&quot;&gt;&lt;a href=&quot;#R&quot; class=&quot;headerlink&quot; title=&quot;R&quot;&gt;&lt;/a&gt;R&lt;/h1&gt;&lt;h2 id=&quot;detach-amp-attach&quot;&gt;&lt;a href=&quot;#detach-amp-attach&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+    
+      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
+    
+      <category term="BOM" scheme="//lix90.github.io/tags/BOM/"/>
+    
+  </entry>
   
   <entry>
     <title>男士衬衫穿搭技巧</title>
@@ -122,7 +183,7 @@
     <link href="//lix90.github.io/2016/11/10/2016-11-10-daily/"/>
     <id>//lix90.github.io/2016/11/10/2016-11-10-daily/</id>
     <published>2016-11-09T16:00:00.000Z</published>
-    <updated>2016-11-10T07:51:48.000Z</updated>
+    <updated>2016-11-12T14:11:05.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Ruby：修改-RubyGems-镜像"><a href="#Ruby：修改-RubyGems-镜像" class="headerlink" title="Ruby：修改 RubyGems 镜像"></a>Ruby：修改 RubyGems 镜像</h1><p>在此使用较新的 RubyGems 版本，建议 2.6.X 以上。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gem update --system # 需要翻墙</div><div class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div><div class="line">$ gem sources -l</div><div class="line">https: //gems.ruby-china.org</div><div class="line"># 确保只有以上一项</div></pre></td></tr></table></figure>
@@ -131,6 +192,13 @@
 <p>参考网址：<a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a></p>
 <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><ul>
 <li><a href="https://www.datacamp.com/community/blog/python-pandas-cheat-sheet" target="_blank" rel="external">Pandas Cheat Sheet for Data Science in Python</a></li>
+</ul>
+<p>几篇关于统计显著性和统计显著性水平 p 值的论文和讨论：</p>
+<ul>
+<li><a href="http://stats.stackexchange.com/questions/134890/is-p-value-essentially-useless-and-dangerous-to-use" target="_blank" rel="external">Cross Validated: Is p-value essentially useless and dangerous to use?</a></li>
+<li>Wasserstein, R. L., &amp; Lazar, N. A. (2016). The ASA’s statement on p-values: context, process, and purpose. The American Statistician.</li>
+<li>Nuzzo, R. (2014). Statistical errors. Nature, 506(7487), 150-152.</li>
+<li>Greenland, S., Senn, S. J., Rothman, K. J., et al. (2016). Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations. European journal of epidemiology, 1-14.</li>
 </ul>
 ]]></content>
     
@@ -149,7 +217,9 @@
     
       <category term="Pandas" scheme="//lix90.github.io/tags/Pandas/"/>
     
-      <category term="Cheatsheet" scheme="//lix90.github.io/tags/Cheatsheet/"/>
+      <category term="统计显著性" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+    
+      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -1284,9 +1354,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
