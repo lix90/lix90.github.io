@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-12T14:11:32.000Z</updated>
+  <updated>2016-11-13T02:42:37.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人资源长期整理</title>
+    <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
+    <id>//lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
+    <published>2016-11-12T16:00:00.000Z</published>
+    <updated>2016-11-13T02:42:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
+<h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><ul>
+<li><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a></li>
+<li><a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a></li>
+<li><a href="http://cos.name/" target="_blank" rel="external">统计之都</a></li>
+<li><a href="https://ruby-china.org/" target="_blank" rel="external">Ruby China</a></li>
+<li><a href="http://python-china.org/" target="_blank" rel="external">Python China</a></li>
+<li><a href="https://cnodejs.org/" target="_blank" rel="external">Node.js中文社区</a></li>
+<li><a href="https://emacs-china.org/" target="_blank" rel="external">Emacs China</a></li>
+<li><a href="http://yizaoyiwan.com/" target="_blank" rel="external">一早一晚 | 自由工作社区</a></li>
+<li><a href="http://gold.xitu.io/welcome" target="_blank" rel="external">掘金：高质量的技术社区</a></li>
+<li><a href="http://liqi.io/" target="_blank" rel="external">利器：创造者和他们的工具</a></li>
+</ul>
+<h1 id="播客"><a href="#播客" class="headerlink" title="播客"></a>播客</h1><ul>
+<li><a href="https://ipn.li/" target="_blank" rel="external">IPN</a>：IPN (Intelligent Podcast Network) 是不鳥萬如一和 Rio 创办的播客网络。目前它旗下有十档节目。</li>
+<li><a href="https://codetimecn.com/" target="_blank" rel="external">代码时间</a>：代码时间是一个面向程序员的中文播客节目, 致力于通过语音的方式传播程序员的正能量。</li>
+<li><a href="http://teahour.fm/" target="_blank" rel="external">Teahour.fm</a>：专注程序员感兴趣的话题，包括 Web 设计和开发，移动应用设计和开发，创业以及一切 Geek 的话题。</li>
+<li><a href="http://podcast.uxcoffee.co/" target="_blank" rel="external">UX Coffee 设计咖</a>：一档为产品设计师和关注用户体验的同学准备的播客节目。</li>
+<li><a href="http://nyshalong.com/" target="_blank" rel="external">纽约文化沙龙</a></li>
+</ul>
+<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><ul>
+<li><a href="http://djchina.org/" target="_blank" rel="external">数据新闻网</a></li>
+<li><a href="http://flowingdata.com/" target="_blank" rel="external">FlowingData</a></li>
+<li><a href="http://www.visualisingdata.com/" target="_blank" rel="external">VisualisingData</a></li>
+<li><a href="http://blogger.ghostweather.com/" target="_blank" rel="external">Ghostweather R&amp;D Blog</a></li>
+<li><a href="http://infosthetics.com/information_aesthetics_about.html" target="_blank" rel="external">Information Aesthetics</a></li>
+<li><a href="http://junkcharts.typepad.com/junk_charts/" target="_blank" rel="external">Junk Charts</a></li>
+<li><a href="http://lisacharlotterost.github.io/" target="_blank" rel="external">Lisa Charlotte Rost</a></li>
+<li><a href="http://vis4.net/blog/" target="_blank" rel="external">vis4.net</a></li>
+<li><a href="http://blog.plot.ly/" target="_blank" rel="external">Plotly Blog</a></li>
+<li><a href="http://vallandingham.me/" target="_blank" rel="external">Jim Vallandingham</a></li>
+</ul>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
+<li><a href="https://slides.com" target="_blank" rel="external">slides</a> 在线创建演示文档</li>
+<li><a href="https://www.gitbook.com/" target="_blank" rel="external">Gitbook</a> &amp; <a href="https://readthedocs.org/" target="_blank" rel="external">Read the Docs</a> 创建在线电子书或文档</li>
+<li><a href="https://feedly.com" target="_blank" rel="external">Feedly</a> + <a href="http://reederapp.com/" target="_blank" rel="external">Reeder</a>：Feed 订阅和阅读黄金搭档</li>
+<li><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a>: an API Documentation Browser and Code Snippet Manager</li>
+<li><a href="https://github.com/1995eaton/chromium-vim" target="_blank" rel="external">cVim</a>：让 Chrome/Chromium 具有 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 的高效工作模式</li>
+</ul>
+<!-- ## 心理与行为科学 -->
+<!-- - [Babies Learning Language](http://babieslearninglanguage.blogspot.com/)：斯坦福大学发展心理学教授 [Michael Frank](http://langcog.stanford.edu/) 的个人博客。博客文章涵盖 `发展心理学`、`心理学研究方法`、`开放科学` 等主题。 -->
+<h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><ul>
+<li><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a>: Data wrangling, exploration, and analysis with R</li>
+<li><a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880</a>: Data Visualization (with R)</li>
+<li><a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a></li>
+<li><a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></li>
+</ul>
+<h1 id="学编程"><a href="#学编程" class="headerlink" title="学编程"></a>学编程</h1><h2 id="lisp-elisp"><a href="#lisp-elisp" class="headerlink" title="lisp/elisp"></a>lisp/elisp</h2><ul>
+<li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
+<li><a href="http://www.newthinktank.com/2015/07/learn-lisp-one-video/" target="_blank" rel="external">一个简短的 lisp 教学视频</a></li>
+<li><a href="http://book.emacs-china.org/" target="_blank" rel="external">子龙山人出品：Master Emacs in 21 Days</a></li>
+<li><a href="http://smacs.github.io/elisp/" target="_blank" rel="external">水木社区：Emacs Lisp 简明教程</a></li>
+</ul>
+<h1 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h1><h2 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h2><p><a href="https://www.youtube.com/channel/UCOjD18EJYcsBog4IozkF_7w" target="_blank" rel="external">PyData</a><br><a href="https://www.youtube.com/channel/UC98CzaYuFNAA_gOINFB0e4Q" target="_blank" rel="external">EuroPython Conference</a><br><a href="https://www.youtube.com/channel/UCkhm72fuzkS9fYGlGpEmj7A" target="_blank" rel="external">Enthought</a><br><a href="https://www.youtube.com/channel/UCBBd3JxQl455JkWBeulc-9w" target="_blank" rel="external">Berkeley Institute for Data Science</a><br><a href="https://www.youtube.com/channel/UCDUS80bdunpmvWVPyFRPqFQ" target="_blank" rel="external">UofU Data</a><br><a href="https://www.youtube.com/channel/UCcAtD_VYwcYwVbTdvArsm7w" target="_blank" rel="external">mathematicalmonk’s channel</a><br><a href="https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg" target="_blank" rel="external">RStudio</a><br><a href="https://www.youtube.com/channel/UC8xNPQ-3a5t9uMU7Vah-jWA" target="_blank" rel="external">Jeff Leek</a><br><a href="https://www.youtube.com/channel/UCdjFpvS8lvT2MJVthOUvlyg" target="_blank" rel="external">Brian Caffo</a><br><a href="https://www.youtube.com/channel/UCZA0RbbSK1IXeeJysKYRWuQ" target="_blank" rel="external">Roger Peng</a><br><a href="https://www.youtube.com/channel/UCGwuewhdHD2q0BvuB2oWMRw" target="_blank" rel="external">berkeley-scf</a><br><a href="https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g" target="_blank" rel="external">Codecourse</a><br><a href="https://www.youtube.com/user/learncodeacademy" target="_blank" rel="external">LearnCode.academy</a><br><a href="https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ" target="_blank" rel="external">sentdex</a><br><a href="https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg" target="_blank" rel="external">LevelUpTuts</a><br><a href="https://www.youtube.com/channel/UCFrjdcImgcQVyFbK04MBEhA" target="_blank" rel="external">Brandon Foltz</a><br><a href="https://www.youtube.com/user/noobtoprofessional" target="_blank" rel="external">Chris Hawkes</a><br><a href="https://www.youtube.com/channel/UCUR1pFG_3XoZn3JNKjulqZg" target="_blank" rel="external">thoughtbot</a></p>
+<p>前端开发</p>
+<ul>
+<li><a href="https://www.youtube.com/channel/UCADyUOnhyEoQqrw_RrsGleA" target="_blank" rel="external">Chris Coyier: CSS-TRICKS</a></li>
+<li><a href="https://www.youtube.com/channel/UCyIe-61Y8C4_o-zZCtO4ETQ" target="_blank" rel="external">DevTips</a></li>
+<li><a href="https://www.youtube.com/user/QuentinWatt" target="_blank" rel="external">Quentin Watt Tutorials</a></li>
+</ul>
+<p><a href="https://www.youtube.com/channel/UCSk9gGdqmj-NdcYBQ4kt0jA" target="_blank" rel="external">Tristen Grant</a> Illustration<br><a href="https://www.youtube.com/channel/UC3TabHJUsa2BkEkN_xSpMvQ" target="_blank" rel="external">ATypI</a> Topography, Font design<br><a href="https://www.youtube.com/channel/UCRoLLb8MnLX-P_xg-Z-UxqQ" target="_blank" rel="external">Design Driven NYC</a> Talks<br><a href="https://www.youtube.com/channel/UCfWZwsP8trUy5uHJg8gcGIQ" target="_blank" rel="external">Mackenzie Child</a> Graphic Design<br><a href="https://www.youtube.com/channel/UCK_vX6MneWKCLtL0uJwYOxQ" target="_blank" rel="external">Carl Kwan</a> Presentation, Content</p>
+<hr>
+<p><a href="https://www.youtube.com/channel/UClh-kVGih16yME0-jp3pzVg" target="_blank" rel="external">Sydney Opera House Talks &amp; Ideas</a> Talks, Ideas, and Whatever!<br><a href="https://www.youtube.com/channel/UCWE-aBusAC3UauYLQna7JNQ" target="_blank" rel="external">Shalong NY</a> Talks 纽约文化沙龙</p>
+<hr>
+<p><a href="https://www.youtube.com/channel/UClT2UAbC6j7TqOWurVhkuHQ" target="_blank" rel="external">Sacha Chua</a> Emacs, Tutorial, Talks, Conversations<br><a href="https://www.youtube.com/channel/UCkRmQ_G_NbdbCQMpALg6UPg" target="_blank" rel="external">emacsrocks</a></p>
+<h2 id="Playlist"><a href="#Playlist" class="headerlink" title="Playlist"></a>Playlist</h2><p><a href="https://www.youtube.com/user/dataschool/playlists?shelf_id=4&amp;view=50&amp;sort=dd" target="_blank" rel="external">Introduction to Statistical Learning</a></p>
+<h1 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h1><ul>
+<li>Create a static presentation: R + Rstudio + Rmarkdown + Revealjs</li>
+<li>Create a interactive presentation: R + Rstudio + Shiny</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。&lt;/p&gt;
+&lt;h1 id=&quot;社区&quot;&gt;&lt;a href=&quot;#社区&quot; class=&quot;headerlink&quot; title=&quot;社区&quot;
+    
+    </summary>
+    
+      <category term="Wiki" scheme="//lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="学习" scheme="//lix90.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>每日总结 2016-11-12</title>
@@ -66,9 +159,9 @@
     
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
-      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
       <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
     
@@ -211,6 +304,8 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
+      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
+    
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Ruby" scheme="//lix90.github.io/tags/Ruby/"/>
@@ -218,8 +313,6 @@
       <category term="Pandas" scheme="//lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
-    
-      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -268,40 +361,11 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
       <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     
-      <category term="缺失值" scheme="//lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T13:20:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="缺失值" scheme="//lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
     
   </entry>
   
@@ -367,9 +431,38 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
+      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T13:20:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -874,9 +967,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
     
@@ -966,9 +1059,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
-    
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="Flexbox" scheme="//lix90.github.io/tags/Flexbox/"/>
     
@@ -1523,9 +1616,11 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
       <category term="Javascript" scheme="//lix90.github.io/tags/Javascript/"/>
     
@@ -1538,8 +1633,6 @@
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
-    
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
@@ -1672,11 +1765,11 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
       <category term="机器学习" scheme="//lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
-    
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -1721,9 +1814,9 @@
       <category term="前端开发" scheme="//lix90.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
-    
       <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
   </entry>
   

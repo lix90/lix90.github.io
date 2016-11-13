@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>//lix90.github.io/about/index.html</loc>
+    
+    <lastmod>2016-11-13T02:44:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/13/2016-11-13-wiki/</loc>
+    
+    <lastmod>2016-11-13T02:42:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</loc>
     
     <lastmod>2016-11-13T02:07:28.000Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>//lix90.github.io/categories/index.html</loc>
     
     <lastmod>2016-11-08T12:03:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/about/index.html</loc>
-    
-    <lastmod>2016-11-08T09:44:33.000Z</lastmod>
     
   </url>
   

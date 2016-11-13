@@ -407,6 +407,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/08/2016-11-08-r-import-data/" itemprop="url">
+                  R：数据导入
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T00:00:00+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/08/2016-11-08-r-import-data/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-import-data/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/08/2016-11-08-r-basic-vis/" itemprop="url">
                   R：基本数据可视化
                 </a>
@@ -969,297 +1092,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/02/2016-11-01-daily/" itemprop="url">
-                  每日总结 2016-11-01
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T00:23:13+08:00" content="2016-11-02">
-              2016-11-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/02/2016-11-01-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/02/2016-11-01-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="JS-对象"><a href="#JS-对象" class="headerlink" title="JS 对象"></a>JS 对象</h2><p>JS 的对象是一种<strong>无序的集合数据类型</strong>，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。</p>
-<p>对象属性的访问：</p>
-<ul>
-<li><code>object.property</code> 通过 <code>.</code> 号</li>
-<li><code>object[&#39;property&#39;]</code></li>
-</ul>
-<p>检测是否拥有某一属性：</p>
-<ul>
-<li><code>in</code>： 但是继承所得到的属性 <code>in</code> 也会返回真的结果</li>
-<li><code>hasOwnProperty</code> 判断自身具有的属性</li>
-</ul>
-<h2 id="Map-与-Set"><a href="#Map-与-Set" class="headerlink" title="Map 与 Set"></a>Map 与 Set</h2><p><code>Map</code> 和 <code>Set</code> 为 ES6 规范引入的新数据类型。</p>
-<p><code>Map</code> 是一组<strong>键值对</strong>的结构，具有极快的查找速度。一个 <code>key</code> 只能对应一个 <code>value</code>。初始化 <code>Map</code> 需要一个二维数组。初始化空 <code>Map</code>：<code>var m = new Map()</code>。<code>Map</code> 类型有以下方法：</p>
-<ul>
-<li><code>set(key, value)</code> 添加新的键值对</li>
-<li><code>has(key)</code> 是否存在键</li>
-<li><code>get(key)</code> 获取键所对应的值</li>
-<li><code>delete(key)</code> 删除键</li>
-</ul>
-<p><code>Set</code> 和 <code>Map</code> 类似，也是一组 Key 的集合，但是并不存储 Value。而且，Key 不能重复。创建新的 <code>Set</code> 需要提供一个 <code>Array</code> 作为输入。初始化新 <code>Set</code>：<code>var s = new Set()</code>。<code>Set</code> 包含以下常见方法：</p>
-<ul>
-<li><code>add</code> 增加键</li>
-<li><code>delete</code> 删除键</li>
-<li><code>has</code> 是否存在键</li>
-<li><code>clear</code> 清除所有键</li>
-</ul>
-<h2 id="iterable-类型"><a href="#iterable-类型" class="headerlink" title="iterable 类型"></a>iterable 类型</h2><p>遍历 <code>Array</code> 可以采用下标循环，遍历 <code>Map</code> 和 <code>Set</code> 就无法使用下标。为了统一集合类型，ES6 标准引入了新的 <code>iterable</code> 类型，<code>Array</code>、<code>Map</code> 和 <code>Set</code> 都属于 <code>iterable</code> 类型。</p>
-<p>具有 <code>iterable</code> 类型的集合可以通过新的 <code>for ... of</code> 循环来遍历。</p>
-<p><code>for ... in</code> 和 <code>for ... of</code> 有什么差别？</p>
-<ul>
-<li><code>for ... in</code> 遍历对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</li>
-<li><code>for ... of</code> 只遍历集合本身的元素。</li>
-</ul>
-<p>遍历集合更好的方式是直接使用 <code>iterable</code> 内置的 <code>forEach</code> 方法，它接收一个函数，每次迭代就自动回调该函数。<code>arr.forEach(function(element, index, array) {});</code></p>
-<p><code>Set</code> 与 <code>Array</code> 类似，但 <code>Set</code> 没有索引，因此回调函数的前两个参数都是元素本身。</p>
-<p><code>Map</code> 的回调函数参数依次为 <code>value</code>、<code>key</code> 和 <code>map</code> 本身。</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>在 JavaScript 里，函数是“头等公民”，而且可以像变量一样使用，具有非常强大的抽象能力。</p>
-<p>抽象：借助抽象，可以不用关心底层的具体计算过程，而直接在更高的层次上思考问题。写计算机程序也是一样，函数就是最基本的一种代码抽象的方式。</p>
-<p>函数体内部的语句在执行时，一旦执行到 <code>return</code> 时，函数就执行完毕，并将结果返回。如果没有 <code>return</code> 语句，函数执行完毕后也会返回结果，只是结果为 <code>undefined</code>。</p>
-<p>两种等价的函数定义方式：</p>
-<ul>
-<li><code>function funName() {}</code></li>
-<li><code>var funName = function() {};</code></li>
-</ul>
-<p>注意第二种需要用 <code>;</code> 结尾，表示赋值结束。</p>
-<p>JavaScript 允许传入任意个参数。</p>
-<p><code>arguments</code> 在函数内部起作用，永远指向当前函数的调用者传入的所有参数。</p>
-<p>ES6 标准引入了 <code>rest</code> 参数。<code>rest</code> 参数只能写在最后，前面用 <code>...</code> 标识。<code>function foo(a, b, ...rest) {}</code>。用来表示参数中多余的参数，当没有多余的参数时，<code>rest</code> 就为空。</p>
-<p>变量作用域</p>
-<ul>
-<li>一个变量在函数内部申明，则该变量的作用域为整个函数体，在函数体外不可引用该变量；</li>
-<li>不同函数内部的同名变量相互独立，互不影响；</li>
-<li>在函数嵌套时，内部函数可以访问外部函数定义的变量，反过来则不行；</li>
-<li>函数在查找变量时，从自身函数定义开始，从“内”向“外”查找。如果内部函数定义了与外部函数重名的变量，则内部函数的变量将“屏蔽”外部函数的变量。</li>
-</ul>
-<p>变量提升</p>
-<p>JS 函数会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部。由于 JavaScript 的这一怪异的“特性”，我们在函数内部定义变量时，请严格遵守“在函数内部首先申明所有变量”这一规则。</p>
-<p>全局作用域</p>
-<p><strong>不在任何函数内定义的变量就具有全局作用域</strong>。实际上，JavaScript 默认有一个全局对象 <code>window</code>，全局作用域的变量实际上被绑定到 <code>window</code> 的一个属性。JavaScript 实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报 <code>ReferenceError</code> 错误。</p>
-<p>命名空间</p>
-<p>全局变量会绑定到 window 上，不同的 JavaScript 文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突，并且很难被发现。<strong>减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中</strong>。</p>
-<p>局部作用域</p>
-<p>在 for 循环等语句块中无法定义具有局部作用域的变量。<br>为了解决块级作用域，ES6 引入了新的关键字 <code>let</code>，用 <code>let</code> 替代 <code>var</code> 可以申明一个块级作用域的变量。</p>
-<p>常量</p>
-<p>由于 <code>var</code> 和 <code>let</code> 申明的是变量，如果要申明一个常量，在 ES6 之前是不行的，我们通常用<strong>全部大写的变量</strong>来表示常量。<br>ES6 标准引入了新的关键字 <code>const</code> 来定义常量，<code>const</code> 与 <code>let</code> 都具有块级作用域。</p>
-<p>方法</p>
-<p>在一个对象中绑定的函数就是这个对象的方法。<br>在一个方法内部，<code>this</code> 是一个特殊变量，它始终指向当前对象。</p>
-<p>JavaScript 的函数内部如果调用了 <code>this</code>，那么这个 <code>this</code> 到底指向谁？视情况而定。</p>
-<ul>
-<li>如果以对象的方法形式调用，该函数的 <code>this</code> 指向被调用的对象；</li>
-<li>如果单独调用函数，此时，该函数的 <code>this</code> 指向全局对象，也就是 <code>window</code>。</li>
-</ul>
-<p>要保证 <code>this</code> 指向正确，必须用 <code>obj.xxx()</code> 的形式调用！<br>ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> 指向 <code>undefined</code>。<br>用 <code>var that = this;</code>，你就可以放心地在方法内部定义其他函数，而不是把所有语句都堆到一个方法中。</p>
-<p><code>apply</code> 方法：它接收两个参数，第一个参数就是需要绑定的 <code>this</code> 变量，第二个参数是 <code>Array</code>，表示函数本身的参数。<br><code>apply</code>和<code>call</code>方法：</p>
-<ul>
-<li><code>apply()</code> 把参数打包成 <code>Array</code> 再传入；</li>
-<li><code>call()</code> 把参数按顺序传入；</li>
-</ul>
-<p>对普通函数调用，通常把 <code>this</code> 绑定为 <code>null</code>。</p>
-<p>装饰器：利用 <code>apply</code> 可以动态改变函数的行为。</p>
-<p>高阶函数</p>
-<p>一个函数接收另一个函数作为参数，这种函数就称之为高阶函数。</p>
-<ul>
-<li><code>map</code></li>
-<li><code>reduce</code></li>
-<li><code>filter</code></li>
-<li><code>sort</code>：<code>sort</code> 方法会直接对 <code>Array</code> 进行修改，它返回的结果仍是当前 <code>Array</code>。</li>
-</ul>
-<p>闭包</p>
-<p>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。<br>返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来。</p>
-<p>箭头函数</p>
-<p>箭头函数内部的 <code>this</code> 是词法作用域，由上下文确定。<br>箭头函数完全修复了 <code>this</code> 的指向，<code>this</code> 总是指向词法作用域，也就是外层调用者 <code>obj</code>。</p>
-<p>generator 生成器</p>
-<p>ES6 标准引入的新的数据类型。一个 <code>generator</code> 看上去像一个函数，但可以返回多次。</p>
-<p>小结：</p>
-<p>看了廖雪峰的 JS 入门教程，发现 JS 有许多奇怪的特性，抽象的用法，难以理解。对于我个人来说有以下几个难点：</p>
-<ul>
-<li>作用域</li>
-<li><code>this</code></li>
-<li>闭包</li>
-<li><code>generator</code></li>
-</ul>
-<p>有待后续掌握。</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">廖雪峰的官方网站</a></li>
-</ul>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>生成器</p>
-<p>在 Python 中，这种一边循环一边计算的机制，称为生成器：<code>generator</code>。</p>
-<ul>
-<li><code>generator</code> 保存的是算法</li>
-<li><code>generator</code> 可迭代</li>
-<li>在调用时，局部变量和执行状态自动地保存</li>
-<li>创建生成器时，使用 <code>yield</code> 语句返回数据</li>
-<li>使用 <code>next</code> 调用生成器</li>
-<li>生成器使用圆括号构建</li>
-</ul>
-<p>类 Classes</p>
-<p>至少三级嵌套作用域：</p>
-<ul>
-<li>最内层的作用域，首先被检索，包含了局部命名</li>
-<li>封装的函数的作用域（enclosing functions），包含非局部，但又非全局命名</li>
-<li>包含当前模块的全局命名</li>
-<li>最外层的作用域，也最后被检索，包含了内建命名（built-in names）</li>
-</ul>
-<blockquote>
-<p>if no <code>global</code> statement is in effect – assignments to names always go into the innermost scope. Assignments do not copy data — they just bind names to objects. The same is true for deletions: the statement <code>del x</code> removes the binding of x from the namespace referenced by the local scope.</p>
-</blockquote>
-<p>将数据分派给变量时，并未复制数据，而仅仅是将变量名与对象绑定起来。</p>
-<p>类对象支持两种运算：属性引用（attribute references）和实例化（instantiation）。</p>
-<ul>
-<li>属性引用：<code>obj.name</code>。</li>
-<li>实例化使用函数符号，<code>varName = myClass()</code> 可以创建一个关于该类的新的实例，并指派给局部变量 <code>varName</code>。</li>
-</ul>
-<p><code>__init__()</code> 方法可以指定类的初始状态，在新的类的实例中自动的初始化。</p>
-<p>实例对象具有唯一的运算，属性引用，数据属性和方法。</p>
-<blockquote>
-<p>If the name denotes a valid class attribute that is a function object, a method object is created by packing (pointers to) the instance object and the function object just found together in an abstract object: this is the method object.</p>
-</blockquote>
-<p>—&gt; 未完</p>
-<h2 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h2><p>关于引号：单引号内变量名会被当作字符串，双引号则会被当作变量处理。</p>
-<p>算术运算：<code>expr</code> <code>$(())</code> <code>$[]</code> <code>+</code> <code>-</code> <code>/</code> <code>%</code> <code>**</code></p>
-<p>条件控制:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if 命令为真</div><div class="line">then</div><div class="line">    命令</div><div class="line">fi</div><div class="line"># 或者</div><div class="line">if 命令为真; then</div><div class="line">    命令</div><div class="line">fi</div></pre></td></tr></table></figure>
-<p>测试比较符：</p>
-<ul>
-<li><code>-gt</code> 大于</li>
-<li><code>-eq</code> <code>=</code> 等于</li>
-<li><code>-ne</code> <code>!=</code> 不等于</li>
-<li><code>-lt</code> 小于</li>
-<li><code>-ge</code> 大于或等于</li>
-<li><code>-le</code> 小于或等于</li>
-<li><code>-n</code> 非零长度</li>
-<li><code>-z</code> 零长度</li>
-<li><code>-d</code> 存在路径</li>
-<li><code>-f</code> 存在文件</li>
-</ul>
-<p>循环语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for ((i=1; i&lt;=10; i++))</div><div class="line">do</div><div class="line">    echo &quot;$i&quot;</div><div class="line">done</div><div class="line"></div><div class="line"># 或者</div><div class="line"></div><div class="line">for var in &#123;1..10&#125;</div><div class="line">do</div><div class="line">    echo &quot;$var&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h1 id="Hackerrank-笔记"><a href="#Hackerrank-笔记" class="headerlink" title="Hackerrank 笔记"></a>Hackerrank 笔记</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in &#123;1..100..2&#125;</div><div class="line">do</div><div class="line">    echo $i</div><div class="line">done</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 1 2 99</div></pre></td></tr></table></figure>
-<h2 id="来自于纪录片《Helvetica》"><a href="#来自于纪录片《Helvetica》" class="headerlink" title="来自于纪录片《Helvetica》"></a>来自于纪录片《Helvetica》</h2><blockquote>
-<ul>
-<li>别把易读性和信息传达混为一谈。某样东西清晰易读，并不说明它能传达信息。更重要的是，并不意味着它传达了正确的信息。反过来说，某个东西或许开始的时候很难辨识，但它传达了一种全然不同的信息。同时又切合主题。那么，或许它就是需要读者多花点时间和心思的。这种方式表达的效果往往要更为强烈。如果有条非常重要的信息用一种平凡无聊的方式排出来。这条消息很可能就被忽略了。</li>
-<li>“简洁有力” 和 “空洞乏味” 之间的界限其实很模糊。</li>
-<li>用设计的语言来说，我觉得最重要的是，于细微处获得情感上的回馈。我觉得这是最棒的设计。</li>
-<li>你越是接近它，对它看得越多，就越能够欣赏它的优秀。</li>
-</ul>
-</blockquote>
-<h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><p>recursive invocation 递归调用<br>unqualified reference 没有资格的引用 or 无授权的引用？<br>wrapper 封装</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1305,7 +1137,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1313,7 +1145,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1322,7 +1154,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
