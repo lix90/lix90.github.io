@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,数据库,SQL,JavaScript,HTTP,DOM,BOM," />
+  <meta name="keywords" content="R," />
 
 
 
@@ -86,19 +86,16 @@
 
 
 
-<meta name="description" content="Rdetach &amp;amp; attachattach
-将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或">
+<meta name="description" content="R: library &amp;amp; require谢一辉有一篇博文讨论了 library 和 require 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 require 等于是尝试加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，require 都能正常执行。只不过 require 会出现警告“不存某个包”。而 librar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每日总结 2016-11-12">
-<meta property="og:url" content="//lix90.github.io/2016/11/12/2016-11-12-daily/index.html">
+<meta property="og:title" content="R：加载包">
+<meta property="og:url" content="//lix90.github.io/2016/11/13/2016-11-13-daily/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="Rdetach &amp;amp; attachattach
-将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或">
-<meta property="og:updated_time" content="2016-11-12T14:11:32.000Z">
+<meta property="og:description" content="R: library &amp;amp; require谢一辉有一篇博文讨论了 library 和 require 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 require 等于是尝试加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，require 都能正常执行。只不过 require 会出现警告“不存某个包”。而 librar">
+<meta property="og:updated_time" content="2016-11-13T03:52:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每日总结 2016-11-12">
-<meta name="twitter:description" content="Rdetach &amp;amp; attachattach
-将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或">
+<meta name="twitter:title" content="R：加载包">
+<meta name="twitter:description" content="R: library &amp;amp; require谢一辉有一篇博文讨论了 library 和 require 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 require 等于是尝试加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，require 都能正常执行。只不过 require 会出现警告“不存某个包”。而 librar">
 
 
 
@@ -119,10 +116,10 @@
 
 
 
-  <link rel="canonical" href="//lix90.github.io/2016/11/12/2016-11-12-daily/"/>
+  <link rel="canonical" href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
 
 
-  <title> 每日总结 2016-11-12 | Lix的博客 </title>
+  <title> R：加载包 | Lix的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +249,7 @@
             
             
               
-                每日总结 2016-11-12
+                R：加载包
               
             
           </h1>
@@ -264,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T00:00:00+08:00" content="2016-11-12">
-              2016-11-12
+            <time itemprop="dateCreated" datetime="2016-11-13T00:00:00+08:00" content="2016-11-13">
+              2016-11-13
             </time>
           </span>
 
@@ -278,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
                   </a>
                 </span>
 
@@ -294,8 +291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/12/2016-11-12-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/12/2016-11-12-daily/" itemprop="commentsCount"></span>
+                <a href="/2016/11/13/2016-11-13-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/2016-11-13-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,32 +315,15 @@
       
 
       
-        <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="detach-amp-attach"><a href="#detach-amp-attach" class="headerlink" title="detach &amp; attach"></a><code>detach</code> &amp; <code>attach</code></h2><p><code>attach</code></p>
-<p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
-<p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
-<p><code>detach</code></p>
+        <h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
+<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
+<p>参考</p>
 <ul>
-<li>将对象从 <code>search path</code> 中移除。对象包括 <code>attach</code> 过的 <code>data.frame</code> 和 package。</li>
-<li>当没有给 <code>detach()</code> 输入参数将会移除 <code>search path</code> 中的第一个项目。</li>
-<li>应该避免在函数中使用 <code>detach/attach</code>。</li>
-<li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
-</ul>
-<h2 id="整数型数值"><a href="#整数型数值" class="headerlink" title="整数型数值"></a>整数型数值</h2><p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>JavaScript：DOM &amp; BOM</p>
-<blockquote>
-<p>The BOM consists of the objects navigator, history, screen, location and document which are children of window. In the document node is the DOM, the document object model, which represents the contents of the page. You can manipulate it using javascript. （”node is in the DOM tree” or “node is the smallest unit in the DOM tree” or “nodes compose the DOM tree”）</p>
-</blockquote>
-<ul>
-<li><a href="http://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript" target="_blank" rel="external">Stackoverflow: What is the DOM and BOM in JavaScript?</a></li>
-<li><a href="https://vkanakaraj.wordpress.com/2009/12/18/javascript-vs-dom-vs-bom-relationship-explained/" target="_blank" rel="external">JavaScript Vs DOM Vs BOM, relationship explained</a></li>
-</ul>
-<p>HTTP：HTTP 是 web 的核心，也是动态 web 应用的核心。理解 HTTP 是理解现代 web 应用如何工作和如何构建的核心。</p>
-<p>数据库的五个基本单位：数据库服务器，数据库，数据表，数据字段（数据列），数据行。</p>
-<p>三类 SQL 语句：</p>
-<ul>
-<li>数据定义语言：定义不同的数据段、数据库、表、列、索引等。常用关键字：<code>create</code> <code>drop</code> <code>alter</code>。</li>
-<li>数据操作语言：用于添加、删除、更新和查询数据库记录，并检查数据的完整性。常用关键字：<code>insert</code> <code>delete</code> <code>update</code> <code>select</code>。</li>
-<li>数据控制语言：用于控制不同数据段直接的许可和访问级别。常用关键字：<code>grant</code> <code>revoke</code>。</li>
+<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
+<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
 </ul>
 
       
@@ -369,18 +349,6 @@
           
             <a href="/tags/R/" rel="tag">#R</a>
           
-            <a href="/tags/数据库/" rel="tag">#数据库</a>
-          
-            <a href="/tags/SQL/" rel="tag">#SQL</a>
-          
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
-          
-            <a href="/tags/HTTP/" rel="tag">#HTTP</a>
-          
-            <a href="/tags/DOM/" rel="tag">#DOM</a>
-          
-            <a href="/tags/BOM/" rel="tag">#BOM</a>
-          
         </div>
       
 
@@ -388,16 +356,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/11/2016-11-11-life-shirt/" rel="next" title="男士衬衫穿搭技巧">
-                <i class="fa fa-chevron-left"></i> 男士衬衫穿搭技巧
+              <a href="/2016/11/12/2016-11-12-daily/" rel="next" title="每日总结 2016-11-12">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-12
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/13/2016-11-13-daily/" rel="prev" title="R：加载包">
-                R：加载包 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/13/2016-11-13-wiki/" rel="prev" title="个人资源长期整理">
+                个人资源长期整理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +523,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">1.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#detach-amp-attach"><span class="nav-number">1.1.</span> <span class="nav-text">detach & attach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数型数值"><span class="nav-number">1.2.</span> <span class="nav-text">整数型数值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">2.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R-library-amp-require"><span class="nav-number">1.</span> <span class="nav-text">R: library & require</span></a></li></ol></div>
             
           </div>
         </section>
@@ -675,9 +643,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'lix90';
-      var disqus_identifier = '2016/11/12/2016-11-12-daily/';
-      var disqus_title = "每日总结 2016-11-12";
-      var disqus_url = '//lix90.github.io/2016/11/12/2016-11-12-daily/';
+      var disqus_identifier = '2016/11/13/2016-11-13-daily/';
+      var disqus_title = "R：加载包";
+      var disqus_url = '//lix90.github.io/2016/11/13/2016-11-13-daily/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
