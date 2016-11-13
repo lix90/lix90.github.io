@@ -86,31 +86,37 @@
 
 
 
-<meta name="description" content="熟悉 sapply lapply apply tapply by aggregate 等向量化运算函数。
+<meta name="description" content="Updated in 2016-11-12
+
+学习 sapply lapply apply tapply by aggregate 等向量化运算函数的笔记。
 apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
 apply(X, MARGIN, FUN, ...)
 
 X 数组或矩阵
-MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示行，2 表示列。c(1,2) 表示行和列。如果 X">
+MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R 向量化运算">
 <meta property="og:url" content="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="熟悉 sapply lapply apply tapply by aggregate 等向量化运算函数。
+<meta property="og:description" content="Updated in 2016-11-12
+
+学习 sapply lapply apply tapply by aggregate 等向量化运算函数的笔记。
 apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
 apply(X, MARGIN, FUN, ...)
 
 X 数组或矩阵
-MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示行，2 表示列。c(1,2) 表示行和列。如果 X">
-<meta property="og:updated_time" content="2016-11-11T03:54:49.000Z">
+MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
+<meta property="og:updated_time" content="2016-11-13T02:07:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R 向量化运算">
-<meta name="twitter:description" content="熟悉 sapply lapply apply tapply by aggregate 等向量化运算函数。
+<meta name="twitter:description" content="Updated in 2016-11-12
+
+学习 sapply lapply apply tapply by aggregate 等向量化运算函数的笔记。
 apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
 apply(X, MARGIN, FUN, ...)
 
 X 数组或矩阵
-MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示行，2 表示列。c(1,2) 表示行和列。如果 X">
+MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
 
 
 
@@ -330,7 +336,10 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表示
       
 
       
-        <p>熟悉 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数。</p>
+        <blockquote>
+<p>Updated in 2016-11-12</p>
+</blockquote>
+<p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
 <h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h1><p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
 <p><code>apply(X, MARGIN, FUN, ...)</code></p>
 <ul>

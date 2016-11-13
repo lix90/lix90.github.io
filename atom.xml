@@ -60,9 +60,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
@@ -1354,9 +1354,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
@@ -1884,9 +1884,10 @@
     <link href="//lix90.github.io/2016/10/08/2016-10-08-r-source-code/"/>
     <id>//lix90.github.io/2016/10/08/2016-10-08-r-source-code/</id>
     <published>2016-10-08T14:23:57.000Z</published>
-    <updated>2016-11-10T06:32:04.000Z</updated>
+    <updated>2016-11-13T02:06:17.000Z</updated>
     
-    <content type="html"><![CDATA[<p>为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：</p>
+    <content type="html"><![CDATA[<p>&gt;<br>Updated in 2016-11-11</p>
+<p>为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：</p>
 <ul>
 <li>in-built 函数</li>
 <li>S3 范型函数</li>
@@ -1921,10 +1922,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：&lt;/p&gt;
+      &lt;p&gt;&amp;gt;&lt;br&gt;Updated in 2016-11-11&lt;/p&gt;
+&lt;p&gt;为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;in-built 函数&lt;/li&gt;
-&lt;li&gt;S3 范型函数&lt;/li
     
     </summary>
     
@@ -2491,9 +2491,12 @@
     <link href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/"/>
     <id>//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</id>
     <published>2016-09-13T14:50:21.000Z</published>
-    <updated>2016-11-11T03:54:49.000Z</updated>
+    <updated>2016-11-13T02:07:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p>熟悉 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数。</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>Updated in 2016-11-12</p>
+</blockquote>
+<p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
 <h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h1><p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
 <p><code>apply(X, MARGIN, FUN, ...)</code></p>
 <ul>
@@ -2536,8 +2539,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;熟悉 &lt;code&gt;sapply&lt;/code&gt; &lt;code&gt;lapply&lt;/code&gt; &lt;code&gt;apply&lt;/code&gt; &lt;code&gt;tapply&lt;/code&gt; &lt;code&gt;by&lt;/code&gt; &lt;code&gt;aggregate&lt;/code&gt; 等向量化运算函数。&lt;/p&gt;
-&lt;h
+      &lt;blockquote&gt;
+&lt;p&gt;Updated in 2016-11-12&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;学习 &lt;code&gt;sapply&lt;/code&gt; &lt;code&gt;lapply&lt;/code&gt; &lt;code&gt;apply&lt;/code&gt; &lt;code&gt;tapply&lt;/code&gt;
     
     </summary>
     
