@@ -251,8 +251,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/13/test/" itemprop="url">
-                  test
+                <a class="post-title-link" href="/2016/11/14/2016-11-14-daily/" itemprop="url">
+                  每日总结 2016-11-14
                 </a>
               
             
@@ -265,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T16:24:54+08:00" content="2016-11-13">
-              2016-11-13
+            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -279,8 +279,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/front-end/" itemprop="url" rel="index">
-                    <span itemprop="name">front-end</span>
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
                   </a>
                 </span>
 
@@ -295,8 +295,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/13/test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/test/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/2016-11-14-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -321,9 +321,44 @@
       
         
           
-            <h1 id="title"><a href="#title" class="headerlink" title="title"></a>title</h1><h2 id="sdafa"><a href="#sdafa" class="headerlink" title="sdafa"></a>sdafa</h2><blockquote>
-<p>sdfaf</p>
-</blockquote>
+            <h1 id="R-每日学习记录"><a href="#R-每日学习记录" class="headerlink" title="R 每日学习记录"></a>R 每日学习记录</h1><p>Mode &amp; Type</p>
+<p>Mode 由 <code>mode</code> 获得<br>Type 由 <code>typeof</code> 获得</p>
+<p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
+<ul>
+<li>类型 <code>integer</code> 和 <code>double</code> 的模式均为 <code>numeric</code></li>
+<li>类型 <code>special</code> <code>builtin</code> 的模式均为 <code>function</code></li>
+<li>类型 <code>symbol</code> 返回模式 <code>name</code></li>
+<li>类型 <code>language</code> 返回为 <code>(</code> 或 <code>call</code></li>
+</ul>
+<h1 id="鸟哥-Linux-私房菜学习记录"><a href="#鸟哥-Linux-私房菜学习记录" class="headerlink" title="鸟哥 Linux 私房菜学习记录"></a>鸟哥 Linux 私房菜学习记录</h1><h2 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h2><p>三大部分：输入单元、主机、输出单元。<br>五大部分：输入、输出、CPU 控制单元、CPU 算数逻辑单元与内存。</p>
+<p>中央处理器（Central Processing Unit, CPU），含有微指令集。主机的功能与 CPU 是否具有相关内置的微指令集。<br>CPU 内分为两个主要单元：</p>
+<ul>
+<li>算数逻辑单元：负责程序运算与逻辑判断</li>
+<li>控制单元：协调各周边元件与各单元间的工作</li>
+</ul>
+<p>CPU 从内存中读取数据，内存中的数据从输入单元传入。CPU 处理完毕的数据必须先写回内存，然后才从内存传输到输出单元。</p>
+<p>五大单元：输入单元+{系统单元：[CPU：(控制单元+算数逻辑单元)]+内存}+输出单元+外部储存装置</p>
+<p>以上所有单元均由 CPU 内部的控制单元负责协调。</p>
+<p>两种 CPU 架构：</p>
+<ul>
+<li>精简指令集（Reduced Instruction Set Computer, RISC）</li>
+<li>复杂指令集（Complex Instruction Set Computer, CISC）</li>
+</ul>
+<p>RISC：较为精简，每个指令的执行时间都很短，完成动作很单纯，执行性能较佳。若要做复杂的事情，则需多个指令来完成。<br>CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目多且复杂，每条指令的长度不相同。由于指令执行较为复杂，所以每条指令花费时间较长，但每条指令可以处理的工作较为丰富。大量使用于个人电脑中。</p>
+<p>位：CPU 一次数据读取的最大量。64位 CPU 表示一次读写 64bits 的数据，32位则读取 32bits。一般32位 CPU 能读写的最大数据量为 4GB 左右。</p>
+<h1 id="Git-学习记录"><a href="#Git-学习记录" class="headerlink" title="Git 学习记录"></a>Git 学习记录</h1><h2 id="SHA"><a href="#SHA" class="headerlink" title="SHA"></a>SHA</h2><p>表示项目历史信息的文件由40个字符的“对象名（SHA）”来索引。不同内容的两个对象不可能有相同的对象名。</p>
+<ul>
+<li>快速判断两个对象是否相同；</li>
+<li>不同仓库的同样内容存在相同的对象名下；</li>
+<li>通过检查对象内容的哈希值和对象名来判断对象内容是否正确。</li>
+</ul>
+<h2 id="四种类型的对象"><a href="#四种类型的对象" class="headerlink" title="四种类型的对象"></a>四种类型的对象</h2><ul>
+<li>blob：存储文件数据</li>
+<li>tree：类似文件目录，管理 tree 或 blob</li>
+<li>commit：标记项目某一个特定时间点的状态，包括一些关于时间点的元数据</li>
+<li>tag：标记某一次提交的方法</li>
+</ul>
+<h2 id="Git-与-SVN-的区别"><a href="#Git-与-SVN-的区别" class="headerlink" title="Git 与 SVN 的区别"></a>Git 与 SVN 的区别</h2><p>SVN 使用增量文件系统（Delta storage systems），它们存储每次提交的差异。Git 把每次提交的文件的全部内容（snapshot）都会记录下来。</p>
 
           
         
@@ -1065,7 +1100,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1074,7 +1109,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

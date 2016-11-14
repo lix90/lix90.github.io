@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,统计学,数据分析,缺失值," />
+  <meta name="keywords" content="R,Git,计算机概论," />
 
 
 
@@ -86,37 +86,37 @@
 
 
 
-<meta name="description" content="由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。
-缺失值处理mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
-删除记录/样本在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
+<meta name="description" content="R 每日学习记录Mode &amp;amp; Type
+Mode 由 mode 获得Type 由 typeof 获得
+在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：
 
-有足够的样本点；
-不会引入偏差。
-
-删除变量/属性如">
+类型 integer 和 double 的模式均为 numeric
+类型 special builtin 的模式均为 function
+类型 symbol 返回模式 name
+类型 language 返回为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R：处理缺失值">
-<meta property="og:url" content="//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/index.html">
+<meta property="og:title" content="每日总结 2016-11-14">
+<meta property="og:url" content="//lix90.github.io/2016/11/14/2016-11-14-daily/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。
-缺失值处理mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
-删除记录/样本在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
+<meta property="og:description" content="R 每日学习记录Mode &amp;amp; Type
+Mode 由 mode 获得Type 由 typeof 获得
+在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：
 
-有足够的样本点；
-不会引入偏差。
-
-删除变量/属性如">
-<meta property="og:updated_time" content="2016-11-10T07:19:24.000Z">
+类型 integer 和 double 的模式均为 numeric
+类型 special builtin 的模式均为 function
+类型 symbol 返回模式 name
+类型 language 返回为">
+<meta property="og:updated_time" content="2016-11-14T02:30:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R：处理缺失值">
-<meta name="twitter:description" content="由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。
-缺失值处理mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
-删除记录/样本在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
+<meta name="twitter:title" content="每日总结 2016-11-14">
+<meta name="twitter:description" content="R 每日学习记录Mode &amp;amp; Type
+Mode 由 mode 获得Type 由 typeof 获得
+在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：
 
-有足够的样本点；
-不会引入偏差。
-
-删除变量/属性如">
+类型 integer 和 double 的模式均为 numeric
+类型 special builtin 的模式均为 function
+类型 symbol 返回模式 name
+类型 language 返回为">
 
 
 
@@ -137,10 +137,10 @@
 
 
 
-  <link rel="canonical" href="//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/"/>
+  <link rel="canonical" href="//lix90.github.io/2016/11/14/2016-11-14-daily/"/>
 
 
-  <title> R：处理缺失值 | Lix的博客 </title>
+  <title> 每日总结 2016-11-14 | Lix的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +270,7 @@
             
             
               
-                R：处理缺失值
+                每日总结 2016-11-14
               
             
           </h1>
@@ -282,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-09T00:00:00+08:00" content="2016-11-09">
-              2016-11-09
+            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -296,8 +296,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
                   </a>
                 </span>
 
@@ -312,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/09/2016-11-09-r-missing-value-outlier/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/09/2016-11-09-r-missing-value-outlier/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/2016-11-14-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,30 +336,44 @@
       
 
       
-        <p>由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。</p>
-<h1 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h1><p><code>mice</code> 包是专门用来处理缺失值的 R 语言包。可以通过 <code>mice::md.pattern()</code> 查看缺失值的“数据模式”。</p>
-<h2 id="删除记录-样本"><a href="#删除记录-样本" class="headerlink" title="删除记录/样本"></a>删除记录/样本</h2><p>在 R 中，通过 <code>na.action = na.omit</code> 删除包含有缺失值的观测行。但需要满足两个条件：</p>
+        <h1 id="R-每日学习记录"><a href="#R-每日学习记录" class="headerlink" title="R 每日学习记录"></a>R 每日学习记录</h1><p>Mode &amp; Type</p>
+<p>Mode 由 <code>mode</code> 获得<br>Type 由 <code>typeof</code> 获得</p>
+<p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
 <ul>
-<li>有足够的样本点；</li>
-<li>不会引入偏差。</li>
+<li>类型 <code>integer</code> 和 <code>double</code> 的模式均为 <code>numeric</code></li>
+<li>类型 <code>special</code> <code>builtin</code> 的模式均为 <code>function</code></li>
+<li>类型 <code>symbol</code> 返回模式 <code>name</code></li>
+<li>类型 <code>language</code> 返回为 <code>(</code> 或 <code>call</code></li>
 </ul>
-<h2 id="删除变量-属性"><a href="#删除变量-属性" class="headerlink" title="删除变量/属性"></a>删除变量/属性</h2><p>如果数据集中某个特定变量包含较多的缺失值，并且删除这个变量能够保留更多的观测值。如果该变量不太重要，那么可以删除它。该方法需要权衡变量的重要性和观测值数量。</p>
-<h2 id="使用均值-中位数-众数进行插补"><a href="#使用均值-中位数-众数进行插补" class="headerlink" title="使用均值/中位数/众数进行插补"></a>使用均值/中位数/众数进行插补</h2><p>这是一种比较简单粗暴的方法，如果该变量对因变量的影响较小，该方法是可以接受的。但是，很可能人为增加噪音。</p>
-<h2 id="预测法"><a href="#预测法" class="headerlink" title="预测法"></a>预测法</h2><p>可使用的方法包括：KNN差值，rpart包，mice包。</p>
-<h3 id="kNN-差值法"><a href="#kNN-差值法" class="headerlink" title="kNN 差值法"></a>kNN 差值法</h3><p><code>DMwR::knnImputation()</code> 函数使用 k 近邻方法来填充缺失值。</p>
-<blockquote>
-<p>具体过程如下：对于需要插值的记录，基于欧氏距离计算k个和它最近的观测。接着将这k个近邻的数据利用距离逆加权算出填充值，最后用该值替代缺失值。</p>
-</blockquote>
-<h3 id="rpart"><a href="#rpart" class="headerlink" title="rpart"></a>rpart</h3><p>kNN 插值法的缺点对因子类变量的插补效果不好。rpart 的优点是只需一个未缺失值就可以填充整个数据样本。</p>
-<h3 id="mice"><a href="#mice" class="headerlink" title="mice"></a>mice</h3><blockquote>
-<p>mice 是链式方程多元插值的简写（Multivariate Imputation by Chained Equations）。mice包提供了多种先进的缺失值处理方法。它使用一种不同寻常的方法来进行两步插值：首先利用mice函数建模再用complete函数生成完整数据。mice(df)会返回df的多个完整副本，每个副本都对缺失的数据插补了不同的值。complete()函数则会返回这些数据集中的一个（默认）或多个。</p>
-</blockquote>
-<p>参考资料：</p>
+<h1 id="鸟哥-Linux-私房菜学习记录"><a href="#鸟哥-Linux-私房菜学习记录" class="headerlink" title="鸟哥 Linux 私房菜学习记录"></a>鸟哥 Linux 私房菜学习记录</h1><h2 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h2><p>三大部分：输入单元、主机、输出单元。<br>五大部分：输入、输出、CPU 控制单元、CPU 算数逻辑单元与内存。</p>
+<p>中央处理器（Central Processing Unit, CPU），含有微指令集。主机的功能与 CPU 是否具有相关内置的微指令集。<br>CPU 内分为两个主要单元：</p>
 <ul>
-<li><a href="http://www.xueqing.tv/cms/article/185" target="_blank" rel="external">雪晴数据网：R语言处理缺失值的若干方法</a><a href="http://datascienceplus.com/missing-value-treatment/" target="_blank" rel="external">原文</a></li>
-<li><a href="http://datascienceplus.com/imputing-missing-data-with-r-mice-package/" target="_blank" rel="external">datascience+: Imputing Missing Data with R; MICE package</a></li>
-<li><a href="http://www.zhaokv.com/2016/01/missing-values.html" target="_blank" rel="external">如何处理数据中的缺失值</a></li>
+<li>算数逻辑单元：负责程序运算与逻辑判断</li>
+<li>控制单元：协调各周边元件与各单元间的工作</li>
 </ul>
+<p>CPU 从内存中读取数据，内存中的数据从输入单元传入。CPU 处理完毕的数据必须先写回内存，然后才从内存传输到输出单元。</p>
+<p>五大单元：输入单元+{系统单元：[CPU：(控制单元+算数逻辑单元)]+内存}+输出单元+外部储存装置</p>
+<p>以上所有单元均由 CPU 内部的控制单元负责协调。</p>
+<p>两种 CPU 架构：</p>
+<ul>
+<li>精简指令集（Reduced Instruction Set Computer, RISC）</li>
+<li>复杂指令集（Complex Instruction Set Computer, CISC）</li>
+</ul>
+<p>RISC：较为精简，每个指令的执行时间都很短，完成动作很单纯，执行性能较佳。若要做复杂的事情，则需多个指令来完成。<br>CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目多且复杂，每条指令的长度不相同。由于指令执行较为复杂，所以每条指令花费时间较长，但每条指令可以处理的工作较为丰富。大量使用于个人电脑中。</p>
+<p>位：CPU 一次数据读取的最大量。64位 CPU 表示一次读写 64bits 的数据，32位则读取 32bits。一般32位 CPU 能读写的最大数据量为 4GB 左右。</p>
+<h1 id="Git-学习记录"><a href="#Git-学习记录" class="headerlink" title="Git 学习记录"></a>Git 学习记录</h1><h2 id="SHA"><a href="#SHA" class="headerlink" title="SHA"></a>SHA</h2><p>表示项目历史信息的文件由40个字符的“对象名（SHA）”来索引。不同内容的两个对象不可能有相同的对象名。</p>
+<ul>
+<li>快速判断两个对象是否相同；</li>
+<li>不同仓库的同样内容存在相同的对象名下；</li>
+<li>通过检查对象内容的哈希值和对象名来判断对象内容是否正确。</li>
+</ul>
+<h2 id="四种类型的对象"><a href="#四种类型的对象" class="headerlink" title="四种类型的对象"></a>四种类型的对象</h2><ul>
+<li>blob：存储文件数据</li>
+<li>tree：类似文件目录，管理 tree 或 blob</li>
+<li>commit：标记项目某一个特定时间点的状态，包括一些关于时间点的元数据</li>
+<li>tag：标记某一次提交的方法</li>
+</ul>
+<h2 id="Git-与-SVN-的区别"><a href="#Git-与-SVN-的区别" class="headerlink" title="Git 与 SVN 的区别"></a>Git 与 SVN 的区别</h2><p>SVN 使用增量文件系统（Delta storage systems），它们存储每次提交的差异。Git 把每次提交的文件的全部内容（snapshot）都会记录下来。</p>
 
       
     </div>
@@ -384,11 +398,9 @@
           
             <a href="/tags/R/" rel="tag">#R</a>
           
-            <a href="/tags/统计学/" rel="tag">#统计学</a>
+            <a href="/tags/Git/" rel="tag">#Git</a>
           
-            <a href="/tags/数据分析/" rel="tag">#数据分析</a>
-          
-            <a href="/tags/缺失值/" rel="tag">#缺失值</a>
+            <a href="/tags/计算机概论/" rel="tag">#计算机概论</a>
           
         </div>
       
@@ -397,17 +409,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/08/2016-11-08-r-basic-vis/" rel="next" title="R：基本数据可视化">
-                <i class="fa fa-chevron-left"></i> R：基本数据可视化
+              <a href="/2016/11/13/2016-11-13-wiki/" rel="next" title="个人资源长期整理">
+                <i class="fa fa-chevron-left"></i> 个人资源长期整理
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/10/2016-11-10-daily/" rel="prev" title="每日总结 2016-11-10">
-                每日总结 2016-11-10 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -564,7 +572,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缺失值处理"><span class="nav-number">1.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除记录-样本"><span class="nav-number">1.1.</span> <span class="nav-text">删除记录/样本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除变量-属性"><span class="nav-number">1.2.</span> <span class="nav-text">删除变量/属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用均值-中位数-众数进行插补"><span class="nav-number">1.3.</span> <span class="nav-text">使用均值/中位数/众数进行插补</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预测法"><span class="nav-number">1.4.</span> <span class="nav-text">预测法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kNN-差值法"><span class="nav-number">1.4.1.</span> <span class="nav-text">kNN 差值法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpart"><span class="nav-number">1.4.2.</span> <span class="nav-text">rpart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mice"><span class="nav-number">1.4.3.</span> <span class="nav-text">mice</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R-每日学习记录"><span class="nav-number">1.</span> <span class="nav-text">R 每日学习记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#鸟哥-Linux-私房菜学习记录"><span class="nav-number">2.</span> <span class="nav-text">鸟哥 Linux 私房菜学习记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机概论"><span class="nav-number">2.1.</span> <span class="nav-text">计算机概论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-学习记录"><span class="nav-number">3.</span> <span class="nav-text">Git 学习记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SHA"><span class="nav-number">3.1.</span> <span class="nav-text">SHA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种类型的对象"><span class="nav-number">3.2.</span> <span class="nav-text">四种类型的对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-与-SVN-的区别"><span class="nav-number">3.3.</span> <span class="nav-text">Git 与 SVN 的区别</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -684,9 +692,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'lix90';
-      var disqus_identifier = '2016/11/09/2016-11-09-r-missing-value-outlier/';
-      var disqus_title = "R：处理缺失值";
-      var disqus_url = '//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/';
+      var disqus_identifier = '2016/11/14/2016-11-14-daily/';
+      var disqus_title = "每日总结 2016-11-14";
+      var disqus_url = '//lix90.github.io/2016/11/14/2016-11-14-daily/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
