@@ -261,6 +261,162 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/08/2016-11-08-r-desc-stats/" itemprop="url">
+                  R：描述性统计
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T00:00:00+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/08/2016-11-08-r-desc-stats/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-desc-stats/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/08/2016-11-08-daily/" itemprop="url">
                   每日总结 2016-11-08
                 </a>
@@ -1017,200 +1173,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/30/2016-10-30-daily/" itemprop="url">
-                  每日总结 2016-10-30
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-30T13:57:32+08:00" content="2016-10-30">
-              2016-10-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/30/2016-10-30-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/30/2016-10-30-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
-<p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
-<blockquote>
-<p>Generators by themselves do not provide any sort of asynchronous support: they rely on either promises or a special type of callback to provide asynchronous behavior. 事实上，generator 本身并未提供异步支持，它依赖于 promise 或特殊类型的 callback 来提供异步行为。</p>
-</blockquote>
-<p>使用异步技术的三种情况：</p>
-<ul>
-<li>网络请求 Network requests</li>
-<li>文件系统的操作（读写等） Filesystem operations</li>
-<li>有目的的延迟功能 Intentionally time-delayed functionality</li>
-</ul>
-<blockquote>
-<p>A <strong>callback</strong> is simply a function that you write that will be <strong>invoked at some point in the future</strong>. There’s nothing special about the function itself: it’s just a regular JavaScript function. Typically, you provide these callback functions to other functions, or set them as properties on objects (or, rarely, provide them in an array). Callbacks are very often (but not always) anonymous functions.</p>
-</blockquote>
-<p>Callback, 回调，就是一般的函数，并无特殊性。只不过因为某个未来的事件或时间点被诱发。回调往往是匿名函数。</p>
-<p><code>回调函数</code> <code>登记回调函数</code> <code>触发回调关联事件</code> <code>调用回调函数</code> <code>响应回调事件</code> <code>回调地狱</code></p>
-<blockquote>
-<p>在js里函数都是对象，这表示它们可以作为参数传递给其他的函数。举例：当函数b()作为参数传递给函数a()，那么在某一时刻函数a()可能会执行或者调用函数b()。这种情况下，函数b()就被称为回调函数，也可以简称叫做回调。</p>
-<p>you have to be mindful of the scope your callbacks are declared in: they will have access to everything in that scope (closure). And because of that, the value may be different when the callback actually executes. This principle applies to all asynchronous techniques, not just callbacks. 需要特别注意回调函数的作用域。</p>
-<p>在传入一个回调函数之前，中间函数是不完整的。换句话说，程序可以在运行时，通过登记不同的回调函数，来决定、改变中间函数的行为。这就比简单的函数调用要灵活太多了。</p>
-<p>回调实际上有两种：阻塞式回调和延迟式回调。两者的区别在于：阻塞式回调里，回调函数的调用一定发生在起始函数返回之前；而延迟式回调里，回调函数的调用有可能是在起始函数返回之后。</p>
-</blockquote>
-<p>关于回调等 JS 学到一定地步再来总结吧。</p>
-<ul>
-<li><a href="http://callbackhell.com/" target="_blank" rel="external">Callback Hell</a></li>
-<li><a href="http://www.75team.com/post/%E8%AF%91%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1.html" target="_blank" rel="external">360奇舞团：回调地狱（译）</a></li>
-<li><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">知乎：回调函数（callback）是什么？</a></li>
-<li><a href="http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/" target="_blank" rel="external">腾讯全端 AlloyTeam 团队：使用Generator解决回调地狱</a></li>
-<li><a href="http://web.jobbole.com/85909/" target="_blank" rel="external">伯乐在线：后端程序员的 Js 之旅 : 回调地狱终结者</a></li>
-<li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
-</ul>
-<hr>
-<h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
-<ul>
-<li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
-<li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
-</ul>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
-<blockquote>
-<p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
-<ol>
-<li>主版本号：当你做了不兼容的 API 修改，</li>
-<li>次版本号：当你做了向下兼容的功能性新增，</li>
-<li>修订号：当你做了向下兼容的问题修正。</li>
-</ol>
-<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
-</blockquote>
-<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
-<p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
-<p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
-<ul>
-<li>engagement media</li>
-<li>content silos {what?}</li>
-<li>scrollable</li>
-<li>connects to your main offer</li>
-<li>define your role</li>
-<li>footer: information in general</li>
-<li>no flash</li>
-</ul>
-<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
-<ul>
-<li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
-<li>嵌套数据（Nested data）</li>
-<li>网络数据（Network data）</li>
-<li>地理数据（Geographic data）：常见如 <code>GeoJSON</code> <code>TopoJSON</code></li>
-<li>原始数据（Raw data）：文本、图片、视频</li>
-<li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
-</ul>
-<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1251,7 +1218,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1268,7 +1235,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">75</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
