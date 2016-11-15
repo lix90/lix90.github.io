@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,数据分析," />
+  <meta name="keywords" content="JavaScript,CSS,HTML," />
 
 
 
@@ -86,37 +86,19 @@
 
 
 
-<meta name="description" content="Updated in 2016-11-12
-
-学习 sapply lapply apply tapply by aggregate 等向量化运算函数的笔记。
-apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
-apply(X, MARGIN, FUN, ...)
-
-X 数组或矩阵
-MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
+<meta name="description" content="CSS 和 JS 加载顺序和位置问题为什么要把 CSS 样式表放在头部（Head）如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。
+如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R 向量化运算">
-<meta property="og:url" content="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/index.html">
+<meta property="og:title" content="每日总结 2016-11-15">
+<meta property="og:url" content="//lix90.github.io/2016/11/15/2016-11-15-daily/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="Updated in 2016-11-12
-
-学习 sapply lapply apply tapply by aggregate 等向量化运算函数的笔记。
-apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
-apply(X, MARGIN, FUN, ...)
-
-X 数组或矩阵
-MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
-<meta property="og:updated_time" content="2016-11-13T02:07:28.000Z">
+<meta property="og:description" content="CSS 和 JS 加载顺序和位置问题为什么要把 CSS 样式表放在头部（Head）如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。
+如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页">
+<meta property="og:updated_time" content="2016-11-15T07:59:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R 向量化运算">
-<meta name="twitter:description" content="Updated in 2016-11-12
-
-学习 sapply lapply apply tapply by aggregate 等向量化运算函数的笔记。
-apply当输入数据为矩阵或数组时使用，如果输入数据为 data.frame，则不建议使用。
-apply(X, MARGIN, FUN, ...)
-
-X 数组或矩阵
-MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
+<meta name="twitter:title" content="每日总结 2016-11-15">
+<meta name="twitter:description" content="CSS 和 JS 加载顺序和位置问题为什么要把 CSS 样式表放在头部（Head）如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。
+如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页">
 
 
 
@@ -137,10 +119,10 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
 
 
 
-  <link rel="canonical" href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/"/>
+  <link rel="canonical" href="//lix90.github.io/2016/11/15/2016-11-15-daily/"/>
 
 
-  <title> R 向量化运算 | Lix的博客 </title>
+  <title> 每日总结 2016-11-15 | Lix的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +262,7 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
             
             
               
-                R 向量化运算
+                每日总结 2016-11-15
               
             
           </h1>
@@ -292,8 +274,8 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T22:50:21+08:00" content="2016-09-13">
-              2016-09-13
+            <time itemprop="dateCreated" datetime="2016-11-15T00:00:00+08:00" content="2016-11-15">
+              2016-11-15
             </time>
           </span>
 
@@ -306,8 +288,8 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
                   </a>
                 </span>
 
@@ -322,8 +304,8 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/13/2016-09-13-r-apply-family/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-r-apply-family/" itemprop="commentsCount"></span>
+                <a href="/2016/11/15/2016-11-15-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/2016-11-15-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -346,47 +328,32 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
       
 
       
-        <blockquote>
-<p>Updated in 2016-11-12</p>
-</blockquote>
-<p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
-<h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h1><p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
-<p><code>apply(X, MARGIN, FUN, ...)</code></p>
+        <h1 id="CSS-和-JS-加载顺序和位置问题"><a href="#CSS-和-JS-加载顺序和位置问题" class="headerlink" title="CSS 和 JS 加载顺序和位置问题"></a>CSS 和 JS 加载顺序和位置问题</h1><h2 id="为什么要把-CSS-样式表放在头部（Head）"><a href="#为什么要把-CSS-样式表放在头部（Head）" class="headerlink" title="为什么要把 CSS 样式表放在头部（Head）"></a>为什么要把 CSS 样式表放在头部（Head）</h2><p>如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。</p>
+<p>如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页面元素进行重绘。这样会出现一段时间的白屏。影响用户体验。</p>
+<h2 id="为什么要把-JS-脚本放在底端（the-Bottom-of-Body）"><a href="#为什么要把-JS-脚本放在底端（the-Bottom-of-Body）" class="headerlink" title="为什么要把 JS 脚本放在底端（the Bottom of Body）"></a>为什么要把 JS 脚本放在底端（the Bottom of Body）</h2><p>脚本文件的加载会阻塞并行下载。HTTP/1.1 规定浏览器对于同一个主机的并行下载请求不能超过两个。如果网站图片资源放在多个主机上，那么可以同时超过两个下载请求。但是脚本文件会使浏览器停止其他数据的下载，不同主机的下载都会停止。</p>
+<p>但是在某些情况下，并不能将 JS 脚本放在底端。例如，脚本中包含有使用 <code>document.write</code> 插入部分页面内容，这就不能放在后面加载。</p>
+<p>替代的做法是，使用 <code>defer</code> 加载脚本，这样就可以放在头部了。<code>defer</code> 属性表明了脚本并不包含 <code>document.write</code>，在加载脚本的同时，页面也一同渲染。Firefox 并不支持 <code>defer</code> 属性。</p>
+<h2 id="如果-script-和-link-都在头部，谁在前，谁在后？"><a href="#如果-script-和-link-都在头部，谁在前，谁在后？" class="headerlink" title="如果 script 和 link 都在头部，谁在前，谁在后？"></a>如果 script 和 link 都在头部，谁在前，谁在后？</h2><p>对于现代<strong>桌面</strong>浏览器来说，CSS 在 JS 前声明对性能并没有显著提高。甚至，CSS 在 JS 之后，不但不影响性能，反而在特定情况下还能提升性能。不过，这仅限于现代桌面浏览器。对于老式浏览器，仍然需要在 JS 之前声明 CSS 的外部链接。这归功于现代桌面浏览器使用了“推测渲染技术”（speculative parsing），这种技术能够让浏览器往前一步看，总是在脚本下载和执行之前下载其他资源。老式浏览器并不支持该技术，所以把脚本放在前面会影响性能。</p>
+<p>目前，85% 的桌面浏览器均支持推测渲染技术。把脚本放在样式表之前仍然可能会影响 15% 的用户。对于移动端的浏览器，无法获得一个明确的支持该技术的比例。WebKit 内核的移动浏览器已支持该技术。但是即便是最新的 WebKit 内核浏览器，<a href="http://stackoverflow.com/users/201952/josh3736" target="_blank" rel="external">josh3736</a>仍然发现 JS 在 CSS 之前会影响性能，这可能与移动设备在 CPU，内存以及网络上的限制而关闭了限制了该功能。</p>
+<p>参考资料：</p>
 <ul>
-<li><code>X</code> 数组或矩阵</li>
-<li><code>MARGIN</code> 指定 <code>FUN</code> 作用的由下标组成的向量。若 <code>X</code> 为矩阵，1 表示行，2 表示列。<code>c(1,2)</code> 表示行和列。如果 <code>X</code> 包含 <code>dimnames</code>，那么也可以为字符向量。</li>
-<li><code>FUN</code> 使用的函数</li>
+<li><a href="http://stackoverflow.com/questions/6625773/where-should-i-put-the-css-and-javascript-code-in-an-html-webpage" target="_blank" rel="external">stackoverflow: Where should I put the CSS and Javascript code in an HTML webpage?</a></li>
+<li><a href="http://stackoverflow.com/questions/9271276/is-the-recommendation-to-include-css-before-javascript-invalid" target="_blank" rel="external">stackoverflow: Is the recommendation to include CSS before JavaScript invalid?</a></li>
+<li><a href="http://stackoverflow.com/questions/7120801/group-of-css-and-js-files-import-at-html" target="_blank" rel="external">stackoverflow: Group of CSS and JS files import at HTML?</a></li>
+<li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo! Best Practices for Speeding Up Your Web Site</a></li>
 </ul>
-<p>如果需要在行或者列上求均值和求和，则建议使用 <code>colMeans</code> <code>rowMeans</code> <code>colSums</code> <code>rowSums</code>。</p>
-<h1 id="tapply"><a href="#tapply" class="headerlink" title="tapply"></a><code>tapply</code></h1><p>需要对向量按组或者因素水平计算，类似于 <code>split-apply-combine</code>。</p>
-<h1 id="by"><a href="#by" class="headerlink" title="by"></a><code>by</code></h1><p>可替代 <code>tapply</code>，在无法使用 <code>tapply</code> 的情况下仍然可用。</p>
-<p><a href="http://stackoverflow.com/a/32262439/6469987" target="_blank" rel="external">参考</a></p>
-<h1 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a><code>aggregate</code></h1><p>跟 <code>tapply</code> 类似，不同的是，<code>aggregate</code> 的第二个参数必须为 list，输出为 data.frame。<code>aggregate</code> 的参数还可以为 formula。需要主要的是 <code>aggregate</code> 的 formula 方法默认 <code>na.action = na.omit</code>，所以需要手动设置参数 <code>na.rm = TRUE</code>。</p>
-<h1 id="lapply"><a href="#lapply" class="headerlink" title="lapply"></a><code>lapply</code></h1><p>输入和输出都为 list。其他 <code>*apply</code> 函数底层都是调用 <code>lapply</code> 函数。</p>
-<p><code>lapply(X, FUN, ...)</code></p>
-<p>返回与 <code>X</code> 等长度的 list，每个元素是由 <code>X</code> 中的元素经过 <code>FUN</code> 计算得到。</p>
-<h1 id="sapply"><a href="#sapply" class="headerlink" title="sapply"></a><code>sapply</code></h1><p>输入为 list，但输出为 vector。</p>
-<p><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></p>
-<p>比 <code>lapply</code> 更友好，虽然默认返回 vector，matrix，但是如果增加 <code>simplify = &quot;array&quot;</code> 的参数，将返回 array。<code>sapply(x, f, simplify=FALSE, USE.NAMES = FALSE)</code> 等同于 <code>lapply(x, f)</code>。</p>
-<h1 id="vapply"><a href="#vapply" class="headerlink" title="vapply"></a><code>vapply</code></h1><p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
-<p>类似与 <code>sapply</code>，但是返回值的类型是事先确定。</p>
-<h1 id="replicate"><a href="#replicate" class="headerlink" title="replicate"></a><code>replicate</code></h1><p>重复地执行表达式。</p>
-<h1 id="其他相关函数"><a href="#其他相关函数" class="headerlink" title="其他相关函数"></a>其他相关函数</h1><p><code>outer</code> <code>ave</code> <code>eapply</code></p>
-<h1 id="比较好的总结"><a href="#比较好的总结" class="headerlink" title="比较好的总结"></a>比较好的总结</h1><blockquote>
-<ul>
-<li><strong>lapply</strong> is a list apply which acts on a list or vector and returns a list.</li>
-<li><strong>sapply</strong> is a simple lapply (function defaults to returning a vector or matrix when possible)</li>
-<li><strong>vapply</strong> is a verified apply (allows the return object type to be prespecified)</li>
-<li><strong>rapply</strong> is a recursive apply for nested lists, i.e. lists within lists</li>
-<li><strong>tapply</strong> is a tagged apply where the tags identify the subsets</li>
-<li><strong>apply</strong> is generic: applies a function to a matrix’s rows or columns (or, more generally, to dimensions of an array)</li>
-</ul>
-</blockquote>
-<p><a href="http://stackoverflow.com/a/23282110/6469987" target="_blank" rel="external">参考</a></p>
 <hr>
-<p>参考资料</p>
+<h1 id="CSS：-import-vs-Link"><a href="#CSS：-import-vs-Link" class="headerlink" title="CSS：@import vs Link"></a>CSS：@import vs Link</h1><blockquote>
+<p>The bottomline is: use LINK instead of @import if you want stylesheets to download in parallel resulting in a faster page.</p>
 <ul>
-<li><a href="https://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega" target="_blank" rel="external">R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate</a></li>
+<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
+<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
+</ul>
+</blockquote>
+<p>避免使用 <code>@import</code> 能够提升性能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">SteveSounders: don’t use @import</a></li>
 </ul>
 
       
@@ -410,9 +377,11 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag">#R</a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
-            <a href="/tags/数据分析/" rel="tag">#数据分析</a>
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/HTML/" rel="tag">#HTML</a>
           
         </div>
       
@@ -421,17 +390,13 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/13/2016-09-13-mysql-config/" rel="next" title="MySQL安装与配置（MacOS）">
-                <i class="fa fa-chevron-left"></i> MySQL安装与配置（MacOS）
+              <a href="/2016/11/14/2016-11-14-daily/" rel="next" title="每日总结 2016-11-14">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-14
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/17/2016-09-17-sql/" rel="prev" title="SQL 语言入门笔记">
-                SQL 语言入门笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -588,7 +553,7 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#apply"><span class="nav-number">1.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tapply"><span class="nav-number">2.</span> <span class="nav-text">tapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#by"><span class="nav-number">3.</span> <span class="nav-text">by</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aggregate"><span class="nav-number">4.</span> <span class="nav-text">aggregate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lapply"><span class="nav-number">5.</span> <span class="nav-text">lapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sapply"><span class="nav-number">6.</span> <span class="nav-text">sapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vapply"><span class="nav-number">7.</span> <span class="nav-text">vapply</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#replicate"><span class="nav-number">8.</span> <span class="nav-text">replicate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他相关函数"><span class="nav-number">9.</span> <span class="nav-text">其他相关函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较好的总结"><span class="nav-number">10.</span> <span class="nav-text">比较好的总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-和-JS-加载顺序和位置问题"><span class="nav-number">1.</span> <span class="nav-text">CSS 和 JS 加载顺序和位置问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要把-CSS-样式表放在头部（Head）"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要把 CSS 样式表放在头部（Head）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要把-JS-脚本放在底端（the-Bottom-of-Body）"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要把 JS 脚本放在底端（the Bottom of Body）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果-script-和-link-都在头部，谁在前，谁在后？"><span class="nav-number">1.3.</span> <span class="nav-text">如果 script 和 link 都在头部，谁在前，谁在后？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS：-import-vs-Link"><span class="nav-number">2.</span> <span class="nav-text">CSS：@import vs Link</span></a></li></ol></div>
             
           </div>
         </section>
@@ -708,9 +673,9 @@ MARGIN 指定 FUN 作用的由下标组成的向量。若 X 为矩阵，1 表">
 
     <script type="text/javascript">
       var disqus_shortname = 'lix90';
-      var disqus_identifier = '2016/09/13/2016-09-13-r-apply-family/';
-      var disqus_title = "R 向量化运算";
-      var disqus_url = '//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/';
+      var disqus_identifier = '2016/11/15/2016-11-15-daily/';
+      var disqus_title = "每日总结 2016-11-15";
+      var disqus_url = '//lix90.github.io/2016/11/15/2016-11-15-daily/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

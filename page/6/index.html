@@ -261,6 +261,144 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/25/2016-09-25-php-config/" itemprop="url">
+                  PHP 安装与配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-25T21:00:45+08:00" content="2016-09-25">
+              2016-09-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/25/2016-09-25-php-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/2016-09-25-php-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p>
+<p>因为系统是 Mac OSX，所以直接使用 <code>brew install php56</code> 来安装。但是并未找到 php56 。于是 <code>brew search php</code>，发现 php 相关安装包位于 <code>/homebrew/php/*</code>，于是用 <code>brew install homebrew/php/php56</code> 安装。但是出现报错 <code>undefined method rebuild</code> 的错误。尝试 <code>brew cleanup &amp;&amp; brew update</code>，仍然不起作用，依旧报错。后来查询到可以更新下 homebrew 的仓库。于是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $(brew --repo)</div><div class="line">git fetch</div><div class="line">git reset --hard origin/master</div><div class="line">brew update</div></pre></td></tr></table></figure>
+<p>然后再尝试安装 <code>brew install homebrew/php/php56</code>。</p>
+<p>其实也可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew tap homebrew/dupes</div><div class="line">brew tap homebrew/versions</div><div class="line">brew tap homebrew/homebrew-php</div><div class="line">brew install php56</div></pre></td></tr></table></figure>
+<p>然后安装了包管理工具 composer</p>
+<blockquote>
+<p>PHP 世界的包管理工具Composer</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install homebrew/php/composer</div></pre></td></tr></table></figure>
+<p>并且安装了 psySH</p>
+<blockquote>
+<p>A runtime developer console, interactive debugger and REPL for PHP.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer g require psy/psysh:@stable</div></pre></td></tr></table></figure>
+<p>psySH 的二进制文件位于 <code>~/.composer/vendor/psysh</code><br>也可以通过这个来运行 <code>~/.composer/vendor/bin/psysh</code><br>为了方便，我将其添加到 PATH <code>export $PATH:/Users/lix/.composer/vendor/bin</code></p>
+<p>配置 emacs 的 php 环境<br>先安装 ac-php 的依赖 <code>brew install cscope</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">;;; php mode</div><div class="line">(use-package php-mode</div><div class="line">  :ensure t</div><div class="line">  :mode &quot;\\.php\\&apos;&quot;</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">    (add-hook &apos;php-mode-hook &apos;smartparens-mode)</div><div class="line">    (use-package ac-php</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook</div><div class="line">                &apos;(lambda ()</div><div class="line">                   (use-package company-php :ensure t)</div><div class="line">                   (company-mode t)</div><div class="line">                   (add-to-list &apos;company-backends &apos;company-ac-php-backend))))</div><div class="line">    (use-package php-eldoc</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook &apos;php-eldoc-enable))))</div><div class="line"></div><div class="line">;;; php REPL</div><div class="line">(use-package psysh</div><div class="line">  :if (executable-find &quot;psysh&quot;)</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :config</div><div class="line">  (add-hook &apos;psysh-mode-hook &apos;smartparens-mode))</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/22/2016-09-22-decision-tree/" itemprop="url">
                   从零学机器学习之决策树
                 </a>
@@ -1127,180 +1265,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/13/2016-09-13-mysql-config/" itemprop="url">
-                  MySQL安装与配置（MacOS）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T20:59:16+08:00" content="2016-09-13">
-              2016-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/13/2016-09-13-mysql-config/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-mysql-config/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
-<h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>在网上教程发现提到这三个文件</p>
-<ol>
-<li>mysql-*.pkg：MySql的主要程序包</li>
-<li>MySQL_StartupItem.pkg：MySql的启动项</li>
-<li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
-</ol>
-<p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
-<p>数据库访问密码的设置</p>
-<blockquote>
-<p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
-</blockquote>
-<h1 id="添加到-PATH"><a href="#添加到-PATH" class="headerlink" title="添加到 PATH"></a>添加到 <strong>PATH</strong></h1><p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br><code>Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39;</code></p>
-<p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
-<p><del>寻找 <code>mysql.sock</code> 文件：<code>find / -name &quot;mysql.sock&quot;</code> 得到 <code>/var/lib/mysql/mysql.sock</code><br>那么建立 <code>symbolic link</code>：<code>ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock</code></del></p>
-<p>后来发现，这个报错是因为 <code>MySQL Server</code> 没有运行。于是打开 <code>MySQL.prefPane</code>，打开 <code>MySQL Server</code>。</p>
-<p>又出现另外的报错 <code>ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: YES)</code>。</p>
-<p>检索相关问题发现导致这个报错的原因有以下三种：</p>
-<ol>
-<li>客户端远程访问的用户帐号并未创建；</li>
-<li>用户帐号存在，但未对其所在的客户端的 IP 进行远程访问授权允许；</li>
-<li>用户帐号授权访问的密码不正确。</li>
-</ol>
-<p>看到前面安装 GUI 工具的部分说到，必须重新设置账户密码，root 的密码为弱密码。</p>
-<p>MySQL 还有个配置文件 <code>my.cnf</code>，里面可以设置帐号密码。</p>
-<p><strong>最后发现</strong>，原来在安装 MySQL 时，弹出来一个临时密码的提醒，这个密码用于第一次登录 MySQL，并修改密码。现在终于想起来那个临时密码，但是已经忘了有没有保存。因为自己挖的坑，折腾了很久。</p>
-<p>于是为了图方便，先把 MySQL 完全卸载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># first stop the database server</div><div class="line">sudo rm /usr/local/mysql</div><div class="line">sudo rm -rf /usr/local/mysql*</div><div class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</div><div class="line">sudo rm -rf /Library/PreferencePanes/My*</div><div class="line"># edit /etc/hostconfig and remove the line MYSQLCOM=-YES-</div><div class="line">rm -rf ~/Library/PreferencePanes/My*</div><div class="line">sudo rm -rf /Library/Receipts/mysql*</div><div class="line">sudo rm -rf /Library/Receipts/MySQL*</div><div class="line">sudo rm -rf /private/var/db/receipts/*mysql*</div><div class="line">sudo rm -rf /var/db/receipts/com.mysql.*</div></pre></td></tr></table></figure>
-<p>然后再重新安装 MySQL。</p>
-<p>这次长记性保存了临时密码。</p>
-<p>接下来重新配置 MySQL。</p>
-<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
-<blockquote>
-<p>Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</p>
-</blockquote>
-<p>通过新修改的密码登录 MySQL：<code>mysql -u root -p</code>，提示输入密码，终于成功登录。</p>
-<p>吸取教训，<strong>一定不要完全按照网上的教程来安装配置应用程序，尽量根据官网文档</strong>。</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/macro-cheng/archive/2011/10/25/mysql-001.html" target="_blank" rel="external">MAC下安装与配置MySQL</a></li>
-<li><a href="http://blog.csdn.net/zzq900503/article/details/14163341" target="_blank" rel="external">Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’</a></li>
-<li><a href="https://segmentfault.com/q/1010000000094608" target="_blank" rel="external">Mac上MySQL报错</a></li>
-<li><a href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html" target="_blank" rel="external">Install MySQL on Mac OS X</a></li>
-<li><a href="http://blog.csdn.net/lioncode/article/details/7917310" target="_blank" rel="external">连接MySQL数据库时常见故障问题的分析与解决</a></li>
-<li><a href="http://stackoverflow.com/questions/1436425/how-do-you-uninstall-mysql-from-mac-os-x" target="_blank" rel="external">How do you uninstall MySQL from Mac OS X?</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html" target="_blank" rel="external">Installing MySQL on OS X Using Native Packages</a></li>
-<li><a href="http://community.jaspersoft.com/wiki/uninstall-mysql-mac-os-x" target="_blank" rel="external">Uninstall MySql on a Mac OS X</a></li>
-<li><a href="https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords" target="_blank" rel="external">Setting, Changing And Resetting MySQL Root Passwords</a></li>
-<li><a href="http://stackoverflow.com/questions/33387879/mysql-password-expired-cant-connect" target="_blank" rel="external">Mysql password expired. Can’t connect</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1346,7 +1310,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
