@@ -99,7 +99,7 @@
     <link href="//lix90.github.io/2016/11/16/2016-11-16-daily/"/>
     <id>//lix90.github.io/2016/11/16/2016-11-16-daily/</id>
     <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-11-16T14:16:18.000Z</updated>
+    <updated>2016-11-16T14:18:17.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
 <ul>
@@ -188,9 +188,11 @@
     
       <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
     
@@ -245,136 +247,11 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-15T15:16:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
-    
-    </summary>
-    
-      <category term="实验室内部分享" scheme="//lix90.github.io/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%86%85%E9%83%A8%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
     
   </entry>
   
@@ -563,6 +440,131 @@
   </entry>
   
   <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-15T15:16:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+    
+    </summary>
+    
+      <category term="实验室内部分享" scheme="//lix90.github.io/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%86%85%E9%83%A8%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>个人资源长期整理</title>
     <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
     <id>//lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
@@ -734,11 +736,11 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
       <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
-    
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
@@ -978,6 +980,74 @@
   </entry>
   
   <entry>
+    <title>R：描述性统计</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T13:01:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：基本数据可视化</title>
     <link href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
     <id>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
@@ -1160,74 +1230,6 @@
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：描述性统计</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T13:01:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -1546,9 +1548,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
     
@@ -2026,9 +2028,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
@@ -2195,9 +2197,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
@@ -2541,9 +2543,9 @@
       <category term="D3js" scheme="//lix90.github.io/categories/D3js/"/>
     
     
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="D3js" scheme="//lix90.github.io/tags/D3js/"/>
     
