@@ -331,7 +331,27 @@
       
         
           
-            <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Unix-Linux"><a href="#Unix-Linux" class="headerlink" title="Unix/Linux"></a>Unix/Linux</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+            <h1 id="浏览器如何渲染页面？"><a href="#浏览器如何渲染页面？" class="headerlink" title="浏览器如何渲染页面？"></a>浏览器如何渲染页面？</h1><p>Content tree (DOM tree)</p>
+<p>Loading: get the data</p>
+<ul>
+<li>two paths: frames (page) vs. resources</li>
+</ul>
+<p>loading a frame</p>
+<ul>
+<li>frameloader</li>
+<li>policy stage</li>
+<li>provisional phase</li>
+<li>commited phase</li>
+</ul>
+<p>Parsing: make a DOM tree</p>
+<p>Data structure</p>
+<ul>
+<li>parsing dom tree</li>
+<li>layout</li>
+<li>line layout</li>
+</ul>
+<p>Layout: put stuff on the right place.</p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
 <p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
 <h2 id="统计学"><a href="#统计学" class="headerlink" title="统计学"></a>统计学</h2><h3 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h3><p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
 <blockquote>
@@ -342,8 +362,11 @@
 <p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
 <h2 id="Mac-安装-pip"><a href="#Mac-安装-pip" class="headerlink" title="Mac 安装 pip"></a>Mac 安装 pip</h2><ol>
 <li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
-<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew<br>或直接使用 Anaconda 等发行版，自带 pip</li>
+<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
 </ol>
+<h2 id="CSS：利用偏移垂直居中"><a href="#CSS：利用偏移垂直居中" class="headerlink" title="CSS：利用偏移垂直居中"></a>CSS：利用偏移垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
+<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
 <h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
 
           
