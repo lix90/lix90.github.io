@@ -261,6 +261,241 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/28/2016-10-28-daily/" itemprop="url">
+                  每日总结 2016-10-28
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T14:10:36+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/2016-10-28-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/28/2016-10-28-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>常见的 JS 的鼠标事件：</p>
+<ul>
+<li>mousedown：鼠标的键钮被按下。</li>
+<li>mouseup：鼠标的键钮被释放弹起。</li>
+<li>click：单击鼠标的键钮。</li>
+<li>dblclick：鼠标的键钮被按下。</li>
+<li>contextmenu ：弹出右键菜单。</li>
+<li>mouseover：鼠标移到目标的上方。</li>
+<li>mouseout：鼠标移出目标的上方。</li>
+<li>mousemove：鼠标在目标的上方移动。</li>
+<li>mouseleave：鼠标离开目标。</li>
+</ul>
+<p>jQuery 有与此对应的鼠标事件的方法</p>
+<p><code>map</code> 方法</p>
+<p><code>arr.map(callback[, thisArg])</code>: <code>callback(currentValue, index, array)</code></p>
+<p>就是遍历 <code>arr</code> 里元素，将每个元素传入给 <code>callback</code>，然后生成新的 <code>arr</code>。</p>
+<p><code>setInterval</code> 在固定的时间间隔，重复调用一个函数或代码块，返回 <code>timeoutID</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> intervalID = <span class="built_in">window</span>.setInterval(myCallback, <span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myCallback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>===&gt; WindowTimers</p>
+<p><code>clearInterval()</code> <code>clearTimeout()</code> <code>setInterval()</code> <code>setTimeout()</code><br><code>start</code></p>
+<hr>
+<h1 id="前端代码规范"><a href="#前端代码规范" class="headerlink" title="前端代码规范"></a>前端代码规范</h1><p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
+<blockquote>
+<p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
+</blockquote>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
+<li>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言；</li>
+<li>在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性；</li>
+<li>尽量最少使用标签，并保持最小的复杂度；</li>
+<li>HTML 属性顺序：<code>class</code> (<code>id</code> <code>name</code>) <code>data-*</code> (<code>src</code> <code>for</code> <code>type</code> <code>href</code>) (<code>title</code> <code>alt</code>) (<code>aria-*</code>, <code>role</code>)；</li>
+<li>布尔型属性不用赋值；</li>
+<li>尽量避免多余的父元素；</li>
+<li>尽量避免 JS 生成的标签。</li>
+</ul>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
+<li>用两个空格来代替制表符；</li>
+<li>为选择器分组时，将单独的选择器单独放在一行；</li>
+<li>在每个声明块的左花括号前添加一个空格；</li>
+<li>声明块的右花括号应当单独成行；</li>
+<li>每条声明语句的 <code>:</code> 后应该插入一个空格；</li>
+<li>为了获得更准确的错误报告，每条声明都应该独占一行；</li>
+<li>所有声明语句都应当以分号结尾；</li>
+<li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格；</li>
+<li>不要在 <code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code> 或 <code>rect()</code> 值的内部的逗号后面插入空格；</li>
+<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0；</li>
+<li>十六进制值应该全部小写；</li>
+<li>尽量使用简写形式的十六进制值；</li>
+<li>为选择器中的属性添加双引号；</li>
+<li>避免为 0 值指定单位。</li>
+</ul>
+<h3 id="声明顺序"><a href="#声明顺序" class="headerlink" title="声明顺序"></a>声明顺序</h3><p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
+<ul>
+<li>Positioning</li>
+<li>Box model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ul>
+<blockquote>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
+</blockquote>
+<h3 id="不要使用-import"><a href="#不要使用-import" class="headerlink" title="不要使用 @import"></a>不要使用 @import</h3><blockquote>
+<p>与 <code>&lt;link&gt;</code> 标签相比，<code>@import</code> 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：</p>
+<ul>
+<li>使用多个 <code>&lt;link&gt;</code> 元素</li>
+<li>通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件</li>
+<li>通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能</li>
+</ul>
+</blockquote>
+<h3 id="媒体查询的位置"><a href="#媒体查询的位置" class="headerlink" title="媒体查询的位置"></a>媒体查询的位置</h3><blockquote>
+<p>将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。</p>
+</blockquote>
+<h3 id="单行规则声明"><a href="#单行规则声明" class="headerlink" title="单行规则声明"></a>单行规则声明</h3><blockquote>
+<p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
+</blockquote>
+<h3 id="简写形式的属性声明"><a href="#简写形式的属性声明" class="headerlink" title="简写形式的属性声明"></a>简写形式的属性声明</h3><blockquote>
+<p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
+</blockquote>
+<h3 id="Less-和-Sass-中的嵌套"><a href="#Less-和-Sass-中的嵌套" class="headerlink" title="Less 和 Sass 中的嵌套"></a>Less 和 Sass 中的嵌套</h3><p>避免非必要的嵌套。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><blockquote>
+<p>请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
+</blockquote>
+<h3 id="class-命名"><a href="#class-命名" class="headerlink" title="class 命名"></a>class 命名</h3><ul>
+<li>class 名称中只能出现小写字符和破折号（dashe）；</li>
+<li>破折号应当用于相关 class 的命名（类似于命名空间）；</li>
+<li>避免过度任意的简写；</li>
+<li>class 名称应当尽可能短，并且意义明确；</li>
+<li>使用有意义的名称；</li>
+<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
+<li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
+<li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
+<li>对于经常出现的组件，避免使用属性选择器（例如，[class^=”…”]）。浏览器的性能会受到这些因素的影响。</li>
+<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3；</li>
+<li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）。</li>
+</ul>
+<p><code>合理使用标签</code> <code>降低选择器复杂度</code></p>
+<h3 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h3><ul>
+<li>以组件为单位组织代码段。</li>
+<li>制定一致的<strong>注释规范</strong>。</li>
+<li><strong>使用一致的空白符将代码分隔成块</strong>，这样利于扫描较大的文档。</li>
+<li>如果使用了多个 CSS 文件，将其<strong>按照组件而非页面的形式分拆</strong>，因为页面会被重组，而组件只会被移动。</li>
+</ul>
+<p><code>组件化</code> <code>块状</code></p>
+<h3 id="编辑器配置"><a href="#编辑器配置" class="headerlink" title="编辑器配置"></a>编辑器配置</h3><p>将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：</p>
+<ul>
+<li>用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。</li>
+<li>保存文件时，删除尾部的空白符。</li>
+<li>设置文件编码为 UTF-8。</li>
+<li>在文件结尾添加一个空白行。</li>
+</ul>
+<p>在 Emacs 中配置两个空格缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="golden-ratio-mode"><a href="#golden-ratio-mode" class="headerlink" title="golden-ratio-mode"></a>golden-ratio-mode</h2><p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/27/2016-10-27-daily/" itemprop="url">
                   每日总结 2016-10-27
                 </a>
@@ -1108,157 +1343,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/08/2016-10-08-r-source-code/" itemprop="url">
-                  R：查看源代码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T22:23:57+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/08/2016-10-08-r-source-code/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/08/2016-10-08-r-source-code/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>&gt;<br>Updated in 2016-11-11</p>
-<p>为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：</p>
-<ul>
-<li>in-built 函数</li>
-<li>S3 范型函数</li>
-<li>S4 范型函数</li>
-<li>non-visible functions 隐藏函数</li>
-<li>unexported functions</li>
-<li>compiled code</li>
-<li>infix operators</li>
-</ul>
-<p>不同类型函数获取源代码的方式不同。要获取源代码，首先直接执行函数（不带括号），观察返回结果。一般来说，普通函数会直接返回源代码。</p>
-<p>如果返回的结果包含 <code>UseMethod(&quot;function&quot;)</code>，则表示该函数为 S3 范型函数，它根据对象类型的不同调用不同的方法。然后使用 <code>methods()</code> 列出特定的范型函数和与类有关的函数 <code>methods(function)</code> <code>methods(class=&quot;classname&quot;)</code>。我们可以看到返回一些带 <code>*</code> 的函数，这类函数为 <code>Non-visible functions</code>，即隐藏的函数，表示这类函数没有从语言包的命名空间导出。但是我们仍然可以查看隐藏函数的源代码，可通过 <code>:::</code> 函数查看，即 <code>pkgname:::function</code>。另外，还可以使用 <code>getAnywhere()</code> 获取。<code>getAnywhere()</code> 并不需要知道函数来自于哪个语言包。对于没有 <code>*</code> 的方法，直接运行即可获得源代码。另外，S3 范型函数还可以通过 <code>getS3method(function, class)</code> 获取源代码。</p>
-<p>如果返回的结果包含 <code>standardGeneric(&quot;function&quot;)</code>，意味着该函数为 S4 范型函数。对于这类函数，先通过 <code>showMethods(function)</code> 获得方法对应的 <code>signature</code>（不知道是神马东西）。例如：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; showMethods(chol2inv)</div><div class="line">Function: chol2inv (package base)</div><div class="line">x=<span class="string">"ANY"</span></div><div class="line">x=<span class="string">"CHMfactor"</span></div><div class="line">x=<span class="string">"denseMatrix"</span></div><div class="line">x=<span class="string">"diagonalMatrix"</span></div><div class="line">x=<span class="string">"dtrMatrix"</span></div><div class="line">x=<span class="string">"sparseMatrix"</span></div></pre></td></tr></table></figure></p>
-<p>其中 <code>x=&quot;ANY&quot;</code> 就是 signature。那么，可以通过 <code>getMethod(&quot;function&quot;, &quot;signature&quot;)</code> 获取源代码。<br>有一些方法具有更复杂的 <code>signature</code>，例如：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(raster)</div><div class="line">showMethods(extract)</div><div class="line">Function: extract (package raster)</div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"data.frame"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"Extent"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"matrix"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialLines"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPoints"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPolygons"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"vector"</span></div></pre></td></tr></table></figure>
-<p>那么，可以通过 <code>getMethod(&quot;function&quot;, signature = c(x = &quot;Raster&quot;, y = &quot;SpatialPolygons&quot;))</code> 获取源代码。</p>
-<p>对于 <code>unexported functions</code>，可以使用和隐藏函数一样的方法获取源代码，即 <code>:::</code> 或 <code>getAnywhere()</code>。对于 <code>compiled code</code>，即返回内容中有 <code>&lt;bytecode:0x294e410&gt;</code> 的函数，仍然可以从 R 命令行查阅源代码。但是对于函数中调用的 <code>.C</code> <code>.Call</code> <code>.Fortran</code> <code>.External</code> <code>.Internal</code> <code>.Primitive</code>，无法从命令行获取源代码，需要直接查看编译前的源代码。函数 <code>pryr::show_c_source</code> 可以直接在 Github 中找到 <code>.Internal</code> 和 <code>.Primitive</code> 调用的内容。</p>
-<p>对于无法直接从命令行获取源代码的函数，可以直接下载原始语言包。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## from CRAN</span></div><div class="line">download.packages(pkgs = <span class="string">"Matrix"</span>,</div><div class="line">                  destdir = <span class="string">"."</span>,</div><div class="line">                  type = <span class="string">"source"</span>)</div><div class="line"><span class="comment">## uncompressing and untaring</span></div><div class="line">untar(download.packages(pkgs = <span class="string">"Matrix"</span>,</div><div class="line">                        destdir = <span class="string">"."</span>,</div><div class="line">                        type = <span class="string">"source"</span>)[,<span class="number">2</span>])</div></pre></td></tr></table></figure>
-<p>基本包的源代码，可以通过查阅 R 语言源代码： <a href="http://svn.r-project.org/R/trunk/" target="_blank" rel="external">Subversion repository</a> 或者 <a href="https://github.com/wch/r-source/tree/trunk" target="_blank" rel="external">Winston Chang’s github mirror</a>。对于其他来源的包，直接从相应网站获取。</p>
-<p>最后，可以通过 <code>edit(getAnywhere(&quot;function&quot;), file = &quot;source_function.r&quot;)</code> 或者 <code>capture.output(getAnywhere(&quot;function&quot;), file = &quot;source_function.r&quot;)</code> 获得源代码的文本内容。</p>
-<p>另外，还可以通过代码调试方法获得源代码 <code>debugonce(function)</code>，使用 <code>debug(function)</code> 需要使用 <code>undebug()</code> 结束调试。</p>
-<p>对于 infix operators，即 <code>%%</code> <code>%*%</code> <code>%in%</code>，可以通过 <code>getAnywhere</code> 或者 使用 backticks ‘`’ 包裹然后执行即可返回源代码。</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function" target="_blank" rel="external">How can I view the source code for a function?</a> 主要参考资料</li>
-<li><a href="http://stackoverflow.com/questions/6583265/what-does-s3-methods-mean-in-r/6583639#6583639" target="_blank" rel="external">What does “S3 methods” mean in R?</a></li>
-<li><a href="http://yusung.blogspot.jp/2007/08/get-invisible-functions-or-internal.html" target="_blank" rel="external">Get source codes for invisible functions or internal functions in R</a></li>
-<li><a href="http://stackoverflow.com/questions/5937832/how-do-i-show-the-source-code-of-an-s4-function-in-a-package" target="_blank" rel="external">How do I show the source code of an S4 function in a package?</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1304,7 +1388,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1321,7 +1405,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

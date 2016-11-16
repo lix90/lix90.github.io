@@ -261,6 +261,165 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/07/2016-11-07-daily/" itemprop="url">
+                  每日总结 2016-11-07
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-07T00:00:00+08:00" content="2016-11-07">
+              2016-11-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/07/2016-11-07-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/07/2016-11-07-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近几天忙一些事情，没有积累多少东西，比较零碎。</p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p><code>:focus</code> 伪类</p>
+<p>当元素获得“关注”，例如被用户通过键盘选中或者用鼠标激活（表单输入），该伪类就被触发。</p>
+<p><code>:link</code> 未访问的链接<br><code>:visited</code> 已访问的链接<br><code>:hover</code> 鼠标移动到链接上方<br><code>:active</code> 链接激活</p>
+<p><code>:active</code> 允许页面给予反馈，告诉用户浏览器检测到了点击或者 <code>tab</code> 键。该伪类的样式会被任何其他的链接有关的伪类覆盖，例如 <code>:hover</code> <code>:link</code> <code>visited</code>。如果要合适的链接样式，需要按照 <code>:link</code> - <code>:visited</code> - <code>:hover</code> - <code>:active</code> 顺序。</p>
+<p><code>Outline</code> 与 <code>Border</code> 的差别：</p>
+<ul>
+<li><code>outline</code> 不影响布局，不影响盒大小，它是纯表现上的，对页面空间没有影响；<code>border</code> 会增加盒的尺寸，影响布局。</li>
+<li><code>outline</code> 不一定是规则的矩形框；<code>border</code> 是规则的矩形框或者圆形，且可以根据四个边和角设置样式。</li>
+</ul>
+<h1 id="Emacs-中使用-Rmarkdown"><a href="#Emacs-中使用-Rmarkdown" class="headerlink" title="Emacs 中使用 Rmarkdown"></a>Emacs 中使用 Rmarkdown</h1><p>需要用到 ESS 和 polymode。先默认已经在 Emacs 中安装好了 ESS。然后进行如下配置（使用 <code>use-package</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(use-package polymode</div><div class="line">  :ensure t</div><div class="line">  :mode ((&quot;\\.[SR]nw\\&apos;&quot; . poly-noweb+r-mode)</div><div class="line">         (&quot;\\.Rmd\\&apos;&quot; . Rmd-mode))</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">    (defun Rmd-mode ()</div><div class="line">      &quot;ESS Markdown mode for Rmd files.&quot;</div><div class="line">      (interactive)</div><div class="line">      (require &apos;poly-R)</div><div class="line">      (require &apos;poly-markdown)</div><div class="line">      (R-mode)</div><div class="line">      (poly-markdown+r-mode))))</div><div class="line"></div><div class="line">(defun ess-rmarkdown-to-html ()</div><div class="line">  (interactive)</div><div class="line">  &quot;Run kintr::knit2html on the current file.&quot;</div><div class="line">  &quot;https://gist.github.com/kohske/9128031&quot;</div><div class="line">  (shell-command</div><div class="line">   (format &quot;Rscript -e \&quot;kintr::knit2html (&apos;%s&apos;)\&quot;&quot;</div><div class="line">           (shell-quote-argument (buffer-file-name)))))</div></pre></td></tr></table></figure>
+<p>参考：<a href="http://futurismo.biz/archives/2982" target="_blank" rel="external">http://futurismo.biz/archives/2982</a></p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="在-Terminal-中使用-socks5-代理"><a href="#在-Terminal-中使用-socks5-代理" class="headerlink" title="在 Terminal 中使用 socks5 代理"></a>在 Terminal 中使用 socks5 代理</h2><p>前提当然是需要有 socks5 代理了。个人使用 <code>shodowsocks</code>。</p>
+<p>在终端使用代理，可以通过 proxychains，MacOS 下叫 proxychains-ng。</p>
+<p>修改配置：<code>/usr/local/Cellar/proxychains-ng/&lt;version&gt;/etc</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ProxyList]</div><div class="line">socks5 127.0.0.1 1080</div></pre></td></tr></table></figure>
+<p>然后绑定个别名啦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias fq=&quot;/usr/local/Cellar/proxychains-ng/4.11/bin/proxychains4&quot;</div></pre></td></tr></table></figure>
+<h2 id="PNG-图片压缩"><a href="#PNG-图片压缩" class="headerlink" title="PNG 图片压缩"></a>PNG 图片压缩</h2><p>一些常用压缩工具的对比：<a href="http://jamiemason.github.io/ImageOptim-CLI/" target="_blank" rel="external">http://jamiemason.github.io/ImageOptim-CLI/</a></p>
+<ul>
+<li><a href="https://github.com/ImageOptim/ImageOptim" target="_blank" rel="external">ImageOptim</a></li>
+<li><a href="https://github.com/JohnWong/imageoptim" target="_blank" rel="external">ImageOptim with pngquant</a></li>
+<li><a href="https://tinypng.com/" target="_blank" rel="external">TinyPNG</a></li>
+<li><a href="http://www.smushit.com/ysmush.it/" target="_blank" rel="external">Smush.it</a></li>
+</ul>
+<p>参考：<a href="http://johnwong.github.io/showcase/2015/02/19/png-compress.html" target="_blank" rel="external">PNG图片极限压缩</a></p>
+<h2 id="命令行直接调用-Chrome-进行谷歌检索"><a href="#命令行直接调用-Chrome-进行谷歌检索" class="headerlink" title="命令行直接调用 Chrome 进行谷歌检索"></a>命令行直接调用 Chrome 进行谷歌检索</h2><p>在 bash_profile 里头添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function gg() &#123; open /Applications/Google\ Chrome.app/ &quot;http://www.google.com/search?q= $1&quot;; &#125;</div></pre></td></tr></table></figure>
+<p>在 zshrc 里头添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gg() &#123; open -a &quot;Google Chrome&quot; &quot;http://www.google.com/search?q=$1&quot;; &#125;</div></pre></td></tr></table></figure>
+<h2 id="Windows-下包管理器神器：Chocolatey"><a href="#Windows-下包管理器神器：Chocolatey" class="headerlink" title="Windows 下包管理器神器：Chocolatey"></a>Windows 下包管理器神器：<a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a></h2><p>参考：<a href="http://ju.outofmemory.cn/entry/141470" target="_blank" rel="external">Chocolatey, 我爱你</a></p>
+<h2 id="MacOS-访问-Windows-中的共享文件夹"><a href="#MacOS-访问-Windows-中的共享文件夹" class="headerlink" title="MacOS 访问 Windows 中的共享文件夹"></a>MacOS 访问 Windows 中的共享文件夹</h2><ol>
+<li>进入 Finder</li>
+<li>前往 &gt;&gt;&gt; 连接服务器（Command + K）</li>
+<li>服务器地址输入：<code>smb://Computer-Name</code> 或者 <code>smb://IP-Address</code></li>
+</ol>
+<blockquote>
+<p>SMB：服务器信息块协议（Server Message Block protocol）</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/02/2016-11-01-daily/" itemprop="url">
                   每日总结 2016-11-01
                 </a>
@@ -1134,241 +1293,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/28/2016-10-28-daily/" itemprop="url">
-                  每日总结 2016-10-28
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-28T14:10:36+08:00" content="2016-10-28">
-              2016-10-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/28/2016-10-28-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/28/2016-10-28-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>常见的 JS 的鼠标事件：</p>
-<ul>
-<li>mousedown：鼠标的键钮被按下。</li>
-<li>mouseup：鼠标的键钮被释放弹起。</li>
-<li>click：单击鼠标的键钮。</li>
-<li>dblclick：鼠标的键钮被按下。</li>
-<li>contextmenu ：弹出右键菜单。</li>
-<li>mouseover：鼠标移到目标的上方。</li>
-<li>mouseout：鼠标移出目标的上方。</li>
-<li>mousemove：鼠标在目标的上方移动。</li>
-<li>mouseleave：鼠标离开目标。</li>
-</ul>
-<p>jQuery 有与此对应的鼠标事件的方法</p>
-<p><code>map</code> 方法</p>
-<p><code>arr.map(callback[, thisArg])</code>: <code>callback(currentValue, index, array)</code></p>
-<p>就是遍历 <code>arr</code> 里元素，将每个元素传入给 <code>callback</code>，然后生成新的 <code>arr</code>。</p>
-<p><code>setInterval</code> 在固定的时间间隔，重复调用一个函数或代码块，返回 <code>timeoutID</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> intervalID = <span class="built_in">window</span>.setInterval(myCallback, <span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myCallback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>===&gt; WindowTimers</p>
-<p><code>clearInterval()</code> <code>clearTimeout()</code> <code>setInterval()</code> <code>setTimeout()</code><br><code>start</code></p>
-<hr>
-<h1 id="前端代码规范"><a href="#前端代码规范" class="headerlink" title="前端代码规范"></a>前端代码规范</h1><p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
-<blockquote>
-<p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
-</blockquote>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
-<li>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言；</li>
-<li>在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性；</li>
-<li>尽量最少使用标签，并保持最小的复杂度；</li>
-<li>HTML 属性顺序：<code>class</code> (<code>id</code> <code>name</code>) <code>data-*</code> (<code>src</code> <code>for</code> <code>type</code> <code>href</code>) (<code>title</code> <code>alt</code>) (<code>aria-*</code>, <code>role</code>)；</li>
-<li>布尔型属性不用赋值；</li>
-<li>尽量避免多余的父元素；</li>
-<li>尽量避免 JS 生成的标签。</li>
-</ul>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
-<li>用两个空格来代替制表符；</li>
-<li>为选择器分组时，将单独的选择器单独放在一行；</li>
-<li>在每个声明块的左花括号前添加一个空格；</li>
-<li>声明块的右花括号应当单独成行；</li>
-<li>每条声明语句的 <code>:</code> 后应该插入一个空格；</li>
-<li>为了获得更准确的错误报告，每条声明都应该独占一行；</li>
-<li>所有声明语句都应当以分号结尾；</li>
-<li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格；</li>
-<li>不要在 <code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code> 或 <code>rect()</code> 值的内部的逗号后面插入空格；</li>
-<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0；</li>
-<li>十六进制值应该全部小写；</li>
-<li>尽量使用简写形式的十六进制值；</li>
-<li>为选择器中的属性添加双引号；</li>
-<li>避免为 0 值指定单位。</li>
-</ul>
-<h3 id="声明顺序"><a href="#声明顺序" class="headerlink" title="声明顺序"></a>声明顺序</h3><p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
-<ul>
-<li>Positioning</li>
-<li>Box model</li>
-<li>Typographic</li>
-<li>Visual</li>
-</ul>
-<blockquote>
-<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
-</blockquote>
-<h3 id="不要使用-import"><a href="#不要使用-import" class="headerlink" title="不要使用 @import"></a>不要使用 @import</h3><blockquote>
-<p>与 <code>&lt;link&gt;</code> 标签相比，<code>@import</code> 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：</p>
-<ul>
-<li>使用多个 <code>&lt;link&gt;</code> 元素</li>
-<li>通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件</li>
-<li>通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能</li>
-</ul>
-</blockquote>
-<h3 id="媒体查询的位置"><a href="#媒体查询的位置" class="headerlink" title="媒体查询的位置"></a>媒体查询的位置</h3><blockquote>
-<p>将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。</p>
-</blockquote>
-<h3 id="单行规则声明"><a href="#单行规则声明" class="headerlink" title="单行规则声明"></a>单行规则声明</h3><blockquote>
-<p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
-</blockquote>
-<h3 id="简写形式的属性声明"><a href="#简写形式的属性声明" class="headerlink" title="简写形式的属性声明"></a>简写形式的属性声明</h3><blockquote>
-<p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
-</blockquote>
-<h3 id="Less-和-Sass-中的嵌套"><a href="#Less-和-Sass-中的嵌套" class="headerlink" title="Less 和 Sass 中的嵌套"></a>Less 和 Sass 中的嵌套</h3><p>避免非必要的嵌套。</p>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><blockquote>
-<p>请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
-</blockquote>
-<h3 id="class-命名"><a href="#class-命名" class="headerlink" title="class 命名"></a>class 命名</h3><ul>
-<li>class 名称中只能出现小写字符和破折号（dashe）；</li>
-<li>破折号应当用于相关 class 的命名（类似于命名空间）；</li>
-<li>避免过度任意的简写；</li>
-<li>class 名称应当尽可能短，并且意义明确；</li>
-<li>使用有意义的名称；</li>
-<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
-<li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
-</ul>
-<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
-<li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
-<li>对于经常出现的组件，避免使用属性选择器（例如，[class^=”…”]）。浏览器的性能会受到这些因素的影响。</li>
-<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3；</li>
-<li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）。</li>
-</ul>
-<p><code>合理使用标签</code> <code>降低选择器复杂度</code></p>
-<h3 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h3><ul>
-<li>以组件为单位组织代码段。</li>
-<li>制定一致的<strong>注释规范</strong>。</li>
-<li><strong>使用一致的空白符将代码分隔成块</strong>，这样利于扫描较大的文档。</li>
-<li>如果使用了多个 CSS 文件，将其<strong>按照组件而非页面的形式分拆</strong>，因为页面会被重组，而组件只会被移动。</li>
-</ul>
-<p><code>组件化</code> <code>块状</code></p>
-<h3 id="编辑器配置"><a href="#编辑器配置" class="headerlink" title="编辑器配置"></a>编辑器配置</h3><p>将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：</p>
-<ul>
-<li>用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。</li>
-<li>保存文件时，删除尾部的空白符。</li>
-<li>设置文件编码为 UTF-8。</li>
-<li>在文件结尾添加一个空白行。</li>
-</ul>
-<p>在 Emacs 中配置两个空格缩进：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="golden-ratio-mode"><a href="#golden-ratio-mode" class="headerlink" title="golden-ratio-mode"></a>golden-ratio-mode</h2><p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1414,7 +1338,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1431,7 +1355,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

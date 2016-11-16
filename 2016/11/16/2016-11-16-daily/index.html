@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="统计学,R,Python,数据可视化,Shell," />
+  <meta name="keywords" content="R,统计学,Python,数据可视化,Shell," />
 
 
 
@@ -86,7 +86,7 @@
 
 
 
-<meta name="description" content="R图形设备grDevices::Devices R 绘图时支持的图形设备。
+<meta name="description" content="R：图形设备grDevices::Devices R 绘图时支持的图形设备。
 
 pdf postscript xfig bitmap pictex
 X11 在 X11 视窗系统下支持
@@ -94,12 +94,12 @@ svg 基于 cairo 图形的 SVG 设备
 位图 png jpeg bmp tiff
 quartz 仅在 macOS 上支持
 
-如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 options(&amp;">
+如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 options(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-16">
 <meta property="og:url" content="//lix90.github.io/2016/11/16/2016-11-16-daily/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="R图形设备grDevices::Devices R 绘图时支持的图形设备。
+<meta property="og:description" content="R：图形设备grDevices::Devices R 绘图时支持的图形设备。
 
 pdf postscript xfig bitmap pictex
 X11 在 X11 视窗系统下支持
@@ -107,11 +107,11 @@ svg 基于 cairo 图形的 SVG 设备
 位图 png jpeg bmp tiff
 quartz 仅在 macOS 上支持
 
-如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 options(&amp;">
-<meta property="og:updated_time" content="2016-11-16T13:32:51.000Z">
+如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 options(">
+<meta property="og:updated_time" content="2016-11-16T14:16:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-16">
-<meta name="twitter:description" content="R图形设备grDevices::Devices R 绘图时支持的图形设备。
+<meta name="twitter:description" content="R：图形设备grDevices::Devices R 绘图时支持的图形设备。
 
 pdf postscript xfig bitmap pictex
 X11 在 X11 视窗系统下支持
@@ -119,7 +119,7 @@ svg 基于 cairo 图形的 SVG 设备
 位图 png jpeg bmp tiff
 quartz 仅在 macOS 上支持
 
-如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 options(&amp;">
+如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 options(">
 
 
 
@@ -349,7 +349,7 @@ quartz 仅在 macOS 上支持
       
 
       
-        <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="图形设备"><a href="#图形设备" class="headerlink" title="图形设备"></a>图形设备</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+        <h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
 <ul>
 <li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
 <li><code>X11</code> 在 X11 视窗系统下支持</li>
@@ -402,61 +402,6 @@ quartz 仅在 macOS 上支持
 <li>默认背景色为 <code>&quot;white&quot;</code></li>
 <li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
 </ul>
-<h2 id="绘图布局"><a href="#绘图布局" class="headerlink" title="绘图布局"></a>绘图布局</h2><h3 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h3><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
-<p>参数：</p>
-<ul>
-<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
-<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
-<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
-<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
-<li><code>n</code>：绘制的图形个数。</li>
-</ul>
-<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h3 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h3><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h4 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h4><p><strong>Outer margin</strong> 外边缘</p>
-<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
-<ul>
-<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
-<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
-<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
-</ul>
-<p><strong>Inner region</strong> 内区域</p>
-<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
-<p><strong>Figure region</strong> 图形区域</p>
-<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
-<p><strong>Figure margin</strong> 图形边缘</p>
-<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
-<ul>
-<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
-<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
-<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
-<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
-</ul>
-<p><strong>Plot region</strong> 绘制区域</p>
-<ul>
-<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
-<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
-<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
-</ul>
-<p>子图或多图绘制</p>
-<ul>
-<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
-<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
-</ul>
-<h3 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h3><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
-<p><code>split.screen</code> 参数：</p>
-<ul>
-<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
-<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
-<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
-<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
-<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
-<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
-<p>NDC：normalized device coordinates</p>
 <hr>
 <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
 <p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
@@ -497,9 +442,9 @@ quartz 仅在 macOS 上支持
       
         <div class="post-tags">
           
-            <a href="/tags/统计学/" rel="tag">#统计学</a>
-          
             <a href="/tags/R/" rel="tag">#R</a>
+          
+            <a href="/tags/统计学/" rel="tag">#统计学</a>
           
             <a href="/tags/Python/" rel="tag">#Python</a>
           
@@ -521,6 +466,10 @@ quartz 仅在 macOS 上支持
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/16/2016-11-16-r-vis-layout/" rel="prev" title="R：使用基本包进行多图布局">
+                R：使用基本包进行多图布局 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -595,7 +544,7 @@ quartz 仅在 macOS 上支持
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -612,7 +561,7 @@ quartz 仅在 macOS 上支持
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -677,7 +626,7 @@ quartz 仅在 macOS 上支持
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">1.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图形设备"><span class="nav-number">1.1.</span> <span class="nav-text">图形设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘图布局"><span class="nav-number">1.2.</span> <span class="nav-text">绘图布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout-布局"><span class="nav-number">1.2.1.</span> <span class="nav-text">Layout 布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Par-的-mfrow-和-mfcol-参数布局"><span class="nav-number">1.2.2.</span> <span class="nav-text">Par 的 mfrow 和 mfcol 参数布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#par-关于布局的参数"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">par 关于布局的参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Split-screen-布局"><span class="nav-number">1.2.3.</span> <span class="nav-text">Split.screen 布局</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">2.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">2.1.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计学"><span class="nav-number">2.2.</span> <span class="nav-text">统计学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准差"><span class="nav-number">2.2.1.</span> <span class="nav-text">标准差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环变量"><span class="nav-number">2.2.2.</span> <span class="nav-text">循环变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-安装-pip"><span class="nav-number">2.3.</span> <span class="nav-text">Mac 安装 pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS：利用偏移垂直居中"><span class="nav-number">2.4.</span> <span class="nav-text">CSS：利用偏移垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">2.5.</span> <span class="nav-text">TODO</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R：图形设备"><span class="nav-number">1.</span> <span class="nav-text">R：图形设备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">2.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">2.1.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计学"><span class="nav-number">2.2.</span> <span class="nav-text">统计学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准差"><span class="nav-number">2.2.1.</span> <span class="nav-text">标准差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环变量"><span class="nav-number">2.2.2.</span> <span class="nav-text">循环变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-安装-pip"><span class="nav-number">2.3.</span> <span class="nav-text">Mac 安装 pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS：利用偏移垂直居中"><span class="nav-number">2.4.</span> <span class="nav-text">CSS：利用偏移垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">2.5.</span> <span class="nav-text">TODO</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

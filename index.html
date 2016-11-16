@@ -261,6 +261,180 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/16/2016-11-16-r-vis-layout/" itemprop="url">
+                  R：使用基本包进行多图布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
+              2016-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/16/2016-11-16-r-vis-layout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/16/2016-11-16-r-vis-layout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
+<p>参数：</p>
+<ul>
+<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
+<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
+<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
+<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
+<li><code>n</code>：绘制的图形个数。</li>
+</ul>
+<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
+<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
+<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
+<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
+<ul>
+<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
+<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
+<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
+</ul>
+<p><strong>Inner region</strong> 内区域</p>
+<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
+<p><strong>Figure region</strong> 图形区域</p>
+<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
+<p><strong>Figure margin</strong> 图形边缘</p>
+<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
+<ul>
+<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
+<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
+<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
+<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
+</ul>
+<p><strong>Plot region</strong> 绘制区域</p>
+<ul>
+<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
+<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
+<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
+</ul>
+<p>子图或多图绘制</p>
+<ul>
+<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
+<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
+</ul>
+<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
+<p><code>split.screen</code> 参数：</p>
+<ul>
+<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
+<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
+<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
+<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
+<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
+<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
+<p>NDC：normalized device coordinates</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/16/2016-11-16-daily/" itemprop="url">
                   每日总结 2016-11-16
                 </a>
@@ -331,7 +505,7 @@
       
         
           
-            <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="图形设备"><a href="#图形设备" class="headerlink" title="图形设备"></a>图形设备</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+            <h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
 <ul>
 <li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
 <li><code>X11</code> 在 X11 视窗系统下支持</li>
@@ -384,61 +558,6 @@
 <li>默认背景色为 <code>&quot;white&quot;</code></li>
 <li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
 </ul>
-<h2 id="绘图布局"><a href="#绘图布局" class="headerlink" title="绘图布局"></a>绘图布局</h2><h3 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h3><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
-<p>参数：</p>
-<ul>
-<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
-<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
-<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
-<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
-<li><code>n</code>：绘制的图形个数。</li>
-</ul>
-<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h3 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h3><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h4 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h4><p><strong>Outer margin</strong> 外边缘</p>
-<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
-<ul>
-<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
-<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
-<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
-</ul>
-<p><strong>Inner region</strong> 内区域</p>
-<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
-<p><strong>Figure region</strong> 图形区域</p>
-<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
-<p><strong>Figure margin</strong> 图形边缘</p>
-<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
-<ul>
-<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
-<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
-<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
-<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
-</ul>
-<p><strong>Plot region</strong> 绘制区域</p>
-<ul>
-<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
-<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
-<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
-</ul>
-<p>子图或多图绘制</p>
-<ul>
-<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
-<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
-</ul>
-<h3 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h3><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
-<p><code>split.screen</code> 参数：</p>
-<ul>
-<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
-<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
-<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
-<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
-<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
-<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
-<p>NDC：normalized device coordinates</p>
 <hr>
 <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
 <p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
@@ -1110,195 +1229,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/13/2016-11-13-wiki/" itemprop="url">
-                  个人资源长期整理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T00:00:00+08:00" content="2016-11-13">
-              2016-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Wiki/" itemprop="url" rel="index">
-                    <span itemprop="name">Wiki</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/13/2016-11-13-wiki/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/2016-11-13-wiki/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
-<h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><ul>
-<li><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a></li>
-<li><a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a></li>
-<li><a href="http://cos.name/" target="_blank" rel="external">统计之都</a></li>
-<li><a href="https://ruby-china.org/" target="_blank" rel="external">Ruby China</a></li>
-<li><a href="http://python-china.org/" target="_blank" rel="external">Python China</a></li>
-<li><a href="https://cnodejs.org/" target="_blank" rel="external">Node.js中文社区</a></li>
-<li><a href="https://emacs-china.org/" target="_blank" rel="external">Emacs China</a></li>
-<li><a href="http://yizaoyiwan.com/" target="_blank" rel="external">一早一晚 | 自由工作社区</a></li>
-<li><a href="http://gold.xitu.io/welcome" target="_blank" rel="external">掘金：高质量的技术社区</a></li>
-<li><a href="http://liqi.io/" target="_blank" rel="external">利器：创造者和他们的工具</a></li>
-</ul>
-<h1 id="播客"><a href="#播客" class="headerlink" title="播客"></a>播客</h1><ul>
-<li><a href="https://ipn.li/" target="_blank" rel="external">IPN</a>：IPN (Intelligent Podcast Network) 是不鳥萬如一和 Rio 创办的播客网络。目前它旗下有十档节目。</li>
-<li><a href="https://codetimecn.com/" target="_blank" rel="external">代码时间</a>：代码时间是一个面向程序员的中文播客节目, 致力于通过语音的方式传播程序员的正能量。</li>
-<li><a href="http://teahour.fm/" target="_blank" rel="external">Teahour.fm</a>：专注程序员感兴趣的话题，包括 Web 设计和开发，移动应用设计和开发，创业以及一切 Geek 的话题。</li>
-<li><a href="http://podcast.uxcoffee.co/" target="_blank" rel="external">UX Coffee 设计咖</a>：一档为产品设计师和关注用户体验的同学准备的播客节目。</li>
-<li><a href="http://nyshalong.com/" target="_blank" rel="external">纽约文化沙龙</a></li>
-</ul>
-<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><ul>
-<li><a href="http://djchina.org/" target="_blank" rel="external">数据新闻网</a></li>
-<li><a href="http://flowingdata.com/" target="_blank" rel="external">FlowingData</a></li>
-<li><a href="http://www.visualisingdata.com/" target="_blank" rel="external">VisualisingData</a></li>
-<li><a href="http://blogger.ghostweather.com/" target="_blank" rel="external">Ghostweather R&amp;D Blog</a></li>
-<li><a href="http://infosthetics.com/information_aesthetics_about.html" target="_blank" rel="external">Information Aesthetics</a></li>
-<li><a href="http://junkcharts.typepad.com/junk_charts/" target="_blank" rel="external">Junk Charts</a></li>
-<li><a href="http://lisacharlotterost.github.io/" target="_blank" rel="external">Lisa Charlotte Rost</a></li>
-<li><a href="http://vis4.net/blog/" target="_blank" rel="external">vis4.net</a></li>
-<li><a href="http://blog.plot.ly/" target="_blank" rel="external">Plotly Blog</a></li>
-<li><a href="http://vallandingham.me/" target="_blank" rel="external">Jim Vallandingham</a></li>
-</ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
-<li><a href="https://slides.com" target="_blank" rel="external">slides</a> 在线创建演示文档</li>
-<li><a href="https://www.gitbook.com/" target="_blank" rel="external">Gitbook</a> &amp; <a href="https://readthedocs.org/" target="_blank" rel="external">Read the Docs</a> 创建在线电子书或文档</li>
-<li><a href="https://feedly.com" target="_blank" rel="external">Feedly</a> + <a href="http://reederapp.com/" target="_blank" rel="external">Reeder</a>：Feed 订阅和阅读黄金搭档</li>
-<li><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a>: an API Documentation Browser and Code Snippet Manager</li>
-<li><a href="https://github.com/1995eaton/chromium-vim" target="_blank" rel="external">cVim</a>：让 Chrome/Chromium 具有 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 的高效工作模式</li>
-</ul>
-<!-- ## 心理与行为科学 -->
-<!-- - [Babies Learning Language](http://babieslearninglanguage.blogspot.com/)：斯坦福大学发展心理学教授 [Michael Frank](http://langcog.stanford.edu/) 的个人博客。博客文章涵盖 `发展心理学`、`心理学研究方法`、`开放科学` 等主题。 -->
-<h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><ul>
-<li><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a>: Data wrangling, exploration, and analysis with R</li>
-<li><a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880</a>: Data Visualization (with R)</li>
-<li><a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a></li>
-<li><a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></li>
-</ul>
-<h1 id="学编程"><a href="#学编程" class="headerlink" title="学编程"></a>学编程</h1><h2 id="lisp-elisp"><a href="#lisp-elisp" class="headerlink" title="lisp/elisp"></a>lisp/elisp</h2><ul>
-<li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
-<li><a href="http://www.newthinktank.com/2015/07/learn-lisp-one-video/" target="_blank" rel="external">一个简短的 lisp 教学视频</a></li>
-<li><a href="http://book.emacs-china.org/" target="_blank" rel="external">子龙山人出品：Master Emacs in 21 Days</a></li>
-<li><a href="http://smacs.github.io/elisp/" target="_blank" rel="external">水木社区：Emacs Lisp 简明教程</a></li>
-</ul>
-<h1 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h1><h2 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h2><p><a href="https://www.youtube.com/channel/UCOjD18EJYcsBog4IozkF_7w" target="_blank" rel="external">PyData</a><br><a href="https://www.youtube.com/channel/UC98CzaYuFNAA_gOINFB0e4Q" target="_blank" rel="external">EuroPython Conference</a><br><a href="https://www.youtube.com/channel/UCkhm72fuzkS9fYGlGpEmj7A" target="_blank" rel="external">Enthought</a><br><a href="https://www.youtube.com/channel/UCBBd3JxQl455JkWBeulc-9w" target="_blank" rel="external">Berkeley Institute for Data Science</a><br><a href="https://www.youtube.com/channel/UCDUS80bdunpmvWVPyFRPqFQ" target="_blank" rel="external">UofU Data</a><br><a href="https://www.youtube.com/channel/UCcAtD_VYwcYwVbTdvArsm7w" target="_blank" rel="external">mathematicalmonk’s channel</a><br><a href="https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg" target="_blank" rel="external">RStudio</a><br><a href="https://www.youtube.com/channel/UC8xNPQ-3a5t9uMU7Vah-jWA" target="_blank" rel="external">Jeff Leek</a><br><a href="https://www.youtube.com/channel/UCdjFpvS8lvT2MJVthOUvlyg" target="_blank" rel="external">Brian Caffo</a><br><a href="https://www.youtube.com/channel/UCZA0RbbSK1IXeeJysKYRWuQ" target="_blank" rel="external">Roger Peng</a><br><a href="https://www.youtube.com/channel/UCGwuewhdHD2q0BvuB2oWMRw" target="_blank" rel="external">berkeley-scf</a><br><a href="https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g" target="_blank" rel="external">Codecourse</a><br><a href="https://www.youtube.com/user/learncodeacademy" target="_blank" rel="external">LearnCode.academy</a><br><a href="https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ" target="_blank" rel="external">sentdex</a><br><a href="https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg" target="_blank" rel="external">LevelUpTuts</a><br><a href="https://www.youtube.com/channel/UCFrjdcImgcQVyFbK04MBEhA" target="_blank" rel="external">Brandon Foltz</a><br><a href="https://www.youtube.com/user/noobtoprofessional" target="_blank" rel="external">Chris Hawkes</a><br><a href="https://www.youtube.com/channel/UCUR1pFG_3XoZn3JNKjulqZg" target="_blank" rel="external">thoughtbot</a></p>
-<p>前端开发</p>
-<ul>
-<li><a href="https://www.youtube.com/channel/UCADyUOnhyEoQqrw_RrsGleA" target="_blank" rel="external">Chris Coyier: CSS-TRICKS</a></li>
-<li><a href="https://www.youtube.com/channel/UCyIe-61Y8C4_o-zZCtO4ETQ" target="_blank" rel="external">DevTips</a></li>
-<li><a href="https://www.youtube.com/user/QuentinWatt" target="_blank" rel="external">Quentin Watt Tutorials</a></li>
-</ul>
-<p><a href="https://www.youtube.com/channel/UCSk9gGdqmj-NdcYBQ4kt0jA" target="_blank" rel="external">Tristen Grant</a> Illustration<br><a href="https://www.youtube.com/channel/UC3TabHJUsa2BkEkN_xSpMvQ" target="_blank" rel="external">ATypI</a> Topography, Font design<br><a href="https://www.youtube.com/channel/UCRoLLb8MnLX-P_xg-Z-UxqQ" target="_blank" rel="external">Design Driven NYC</a> Talks<br><a href="https://www.youtube.com/channel/UCfWZwsP8trUy5uHJg8gcGIQ" target="_blank" rel="external">Mackenzie Child</a> Graphic Design<br><a href="https://www.youtube.com/channel/UCK_vX6MneWKCLtL0uJwYOxQ" target="_blank" rel="external">Carl Kwan</a> Presentation, Content</p>
-<hr>
-<p><a href="https://www.youtube.com/channel/UClh-kVGih16yME0-jp3pzVg" target="_blank" rel="external">Sydney Opera House Talks &amp; Ideas</a> Talks, Ideas, and Whatever!<br><a href="https://www.youtube.com/channel/UCWE-aBusAC3UauYLQna7JNQ" target="_blank" rel="external">Shalong NY</a> Talks 纽约文化沙龙</p>
-<hr>
-<p><a href="https://www.youtube.com/channel/UClT2UAbC6j7TqOWurVhkuHQ" target="_blank" rel="external">Sacha Chua</a> Emacs, Tutorial, Talks, Conversations<br><a href="https://www.youtube.com/channel/UCkRmQ_G_NbdbCQMpALg6UPg" target="_blank" rel="external">emacsrocks</a></p>
-<h2 id="Playlist"><a href="#Playlist" class="headerlink" title="Playlist"></a>Playlist</h2><p><a href="https://www.youtube.com/user/dataschool/playlists?shelf_id=4&amp;view=50&amp;sort=dd" target="_blank" rel="external">Introduction to Statistical Learning</a></p>
-<h1 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h1><ul>
-<li>Create a static presentation: R + Rstudio + Rmarkdown + Revealjs</li>
-<li>Create a interactive presentation: R + Rstudio + Shiny</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1344,7 +1274,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1361,7 +1291,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
