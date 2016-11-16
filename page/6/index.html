@@ -261,6 +261,145 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/03/2016-10-03-r-regex/" itemprop="url">
+                  R：正则表达式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-03T00:46:15+08:00" content="2016-10-03">
+              2016-10-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/03/2016-10-03-r-regex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/03/2016-10-03-r-regex/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>A ‘regular expression’ is a pattern that describes a set of strings.</p>
+</blockquote>
+<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。<br>在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
+<h1 id="Extended-Regular-Expressions"><a href="#Extended-Regular-Expressions" class="headerlink" title="Extended Regular Expressions"></a>Extended Regular Expressions</h1><ul>
+<li>字母和数字本身就是正则表达式，可用来匹配自身。</li>
+<li>具有特殊含义的元字符需要通过反斜杠（backslash，<code>\</code>）逃逸其所代表的特殊含义。</li>
+</ul>
+<p>元字符包括：<code>. \ | ( ) [ { ^ $ * + ?</code></p>
+<blockquote>
+<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.<br>A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.<br>A range of characters may be specified by giving the first and last characters, separated by a hyphen.<br>Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
+</blockquote>
+<p><code>[:alnum:]</code> = <code>[:alpha:]</code> + <code>[:digit:]</code><br><code>[:alpha:]</code> = <code>[:lower:]</code> + <code>[:upper:]</code><br><code>[:blank:]</code> 空白符，如空格、tab<br><code>[:cntrl:]</code> Control characters<br><code>[:digit:]</code> 数字<br><code>[:graph:]</code> = <code>[:alnum:]</code> + <code>[:punct:]</code><br><code>[:lower:]</code> 小写字母<br><code>[:print:]</code> 可打印的字符 <code>[:alnum:]</code> <code>[:punct:]</code> 空格<br><code>[:punct:]</code> 标点符号<br><code>[:space:]</code> 空格符：tab, newline, vertical tab, form feed, carriage return, space, and possibly other locale-dependent characters<br><code>[:upper:]</code> 大写字母<br><code>[:xdigit:]</code> 十六进制数字</p>
+<p>元字符</p>
+<p><code>.</code> 匹配其他任何单字符<br><code>\w</code> 匹配单词 = <code>[[:alnum:]_]</code> <code>\W</code> = <code>[^[:alnum:]_]</code><br><code>\s</code> 空白符 <code>\S</code> 非空白符<br><code>\d</code> 数字 <code>\D</code> 非数字<br><code>^</code> 匹配首空字符（line）<br><code>$</code> 匹配尾空字符（line）<br><code>\&lt;</code> 匹配首空字符（word）<br><code>\&gt;</code> 匹配尾空字符（word）<br><code>\b</code> 匹配位于边缘的空字符（word）<br><code>\B</code> 匹配非边缘字符（word）</p>
+<p>匹配频率有关的元字符</p>
+<p><code>?</code> 匹配 1 次<br><code>*</code> 匹配 0 或多次<br><code>+</code> 匹配 1 或多次<br><code>{n}</code> 匹配 n 次<br><code>{n,}</code> 匹配 n 或更多次<br><code>{n,m}</code> 匹配 n 至 m 次</p>
+<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
+<h1 id="正则表达式函数实例"><a href="#正则表达式函数实例" class="headerlink" title="正则表达式函数实例"></a>正则表达式函数实例</h1><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><hr>
+<p>未完待续</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/25/2016-09-25-php-config/" itemprop="url">
                   PHP 安装与配置
                 </a>
@@ -1104,167 +1243,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/13/2016-09-13-r-apply-family/" itemprop="url">
-                  R 向量化运算
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T22:50:21+08:00" content="2016-09-13">
-              2016-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/13/2016-09-13-r-apply-family/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-r-apply-family/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>Updated in 2016-11-12</p>
-</blockquote>
-<p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
-<h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h1><p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
-<p><code>apply(X, MARGIN, FUN, ...)</code></p>
-<ul>
-<li><code>X</code> 数组或矩阵</li>
-<li><code>MARGIN</code> 指定 <code>FUN</code> 作用的由下标组成的向量。若 <code>X</code> 为矩阵，1 表示行，2 表示列。<code>c(1,2)</code> 表示行和列。如果 <code>X</code> 包含 <code>dimnames</code>，那么也可以为字符向量。</li>
-<li><code>FUN</code> 使用的函数</li>
-</ul>
-<p>如果需要在行或者列上求均值和求和，则建议使用 <code>colMeans</code> <code>rowMeans</code> <code>colSums</code> <code>rowSums</code>。</p>
-<h1 id="tapply"><a href="#tapply" class="headerlink" title="tapply"></a><code>tapply</code></h1><p>需要对向量按组或者因素水平计算，类似于 <code>split-apply-combine</code>。</p>
-<h1 id="by"><a href="#by" class="headerlink" title="by"></a><code>by</code></h1><p>可替代 <code>tapply</code>，在无法使用 <code>tapply</code> 的情况下仍然可用。</p>
-<p><a href="http://stackoverflow.com/a/32262439/6469987" target="_blank" rel="external">参考</a></p>
-<h1 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a><code>aggregate</code></h1><p>跟 <code>tapply</code> 类似，不同的是，<code>aggregate</code> 的第二个参数必须为 list，输出为 data.frame。<code>aggregate</code> 的参数还可以为 formula。需要主要的是 <code>aggregate</code> 的 formula 方法默认 <code>na.action = na.omit</code>，所以需要手动设置参数 <code>na.rm = TRUE</code>。</p>
-<h1 id="lapply"><a href="#lapply" class="headerlink" title="lapply"></a><code>lapply</code></h1><p>输入和输出都为 list。其他 <code>*apply</code> 函数底层都是调用 <code>lapply</code> 函数。</p>
-<p><code>lapply(X, FUN, ...)</code></p>
-<p>返回与 <code>X</code> 等长度的 list，每个元素是由 <code>X</code> 中的元素经过 <code>FUN</code> 计算得到。</p>
-<h1 id="sapply"><a href="#sapply" class="headerlink" title="sapply"></a><code>sapply</code></h1><p>输入为 list，但输出为 vector。</p>
-<p><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></p>
-<p>比 <code>lapply</code> 更友好，虽然默认返回 vector，matrix，但是如果增加 <code>simplify = &quot;array&quot;</code> 的参数，将返回 array。<code>sapply(x, f, simplify=FALSE, USE.NAMES = FALSE)</code> 等同于 <code>lapply(x, f)</code>。</p>
-<h1 id="vapply"><a href="#vapply" class="headerlink" title="vapply"></a><code>vapply</code></h1><p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
-<p>类似与 <code>sapply</code>，但是返回值的类型是事先确定。</p>
-<h1 id="replicate"><a href="#replicate" class="headerlink" title="replicate"></a><code>replicate</code></h1><p>重复地执行表达式。</p>
-<h1 id="其他相关函数"><a href="#其他相关函数" class="headerlink" title="其他相关函数"></a>其他相关函数</h1><p><code>outer</code> <code>ave</code> <code>eapply</code></p>
-<h1 id="比较好的总结"><a href="#比较好的总结" class="headerlink" title="比较好的总结"></a>比较好的总结</h1><blockquote>
-<ul>
-<li><strong>lapply</strong> is a list apply which acts on a list or vector and returns a list.</li>
-<li><strong>sapply</strong> is a simple lapply (function defaults to returning a vector or matrix when possible)</li>
-<li><strong>vapply</strong> is a verified apply (allows the return object type to be prespecified)</li>
-<li><strong>rapply</strong> is a recursive apply for nested lists, i.e. lists within lists</li>
-<li><strong>tapply</strong> is a tagged apply where the tags identify the subsets</li>
-<li><strong>apply</strong> is generic: applies a function to a matrix’s rows or columns (or, more generally, to dimensions of an array)</li>
-</ul>
-</blockquote>
-<p><a href="http://stackoverflow.com/a/23282110/6469987" target="_blank" rel="external">参考</a></p>
-<hr>
-<p>参考资料</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega" target="_blank" rel="external">R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1310,7 +1288,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1327,7 +1305,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">74</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
