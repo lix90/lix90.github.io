@@ -104,7 +104,7 @@ data 数据框
 key 键，新生成的因子列名（不需要加引号）
 value 值，新生成的数值列名（不需要加引号）
 ... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构">
-<meta property="og:updated_time" content="2016-11-17T08:37:49.000Z">
+<meta property="og:updated_time" content="2016-11-17T08:55:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：使用 tidyr 进行数据操作">
 <meta name="twitter:description" content="宽转长 Wide2Longtidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
@@ -411,6 +411,11 @@ value 值，新生成的数值列名（不需要加引号）
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
 <p>合并列与分割列</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
+<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
+</ul>
 
       
     </div>
@@ -444,8 +449,8 @@ value 值，新生成的数值列名（不需要加引号）
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/16/2016-11-16-daily/" rel="next" title="每日总结 2016-11-16">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-16
+              <a href="/2016/11/16/2016-11-16-r-vis-layout/" rel="next" title="R：使用基本包进行多图布局">
+                <i class="fa fa-chevron-left"></i> R：使用基本包进行多图布局
               </a>
             
           </div>
