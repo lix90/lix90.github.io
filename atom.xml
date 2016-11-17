@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-16T14:16:37.000Z</updated>
+  <updated>2016-11-17T08:32:36.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,98 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R：使用 tidyr 进行数据操作</title>
+    <link href="//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
+    <id>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-17T08:32:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>data</code> 数据框</li>
+<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
+<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
+<li><code>-z</code> 排除 z 变量</li>
+<li><code>x,y,z</code> 选择 x y z 三个变量</li>
+<li><code>2:4</code> 选择第2到4列</li>
+</ul>
+</li>
+<li><code>na.rm</code> 是否去除缺失值</li>
+<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
+<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
+</ul>
+<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>key</code> 该列的因子转换为多个列的列名</li>
+<li><code>value</code> 该列的内容将分配到多个列中</li>
+<li><code>fill</code> 指定填充缺失值的值</li>
+<li><code>convert</code> 数据类型转换</li>
+<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
+<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
+</ul>
+<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 列名（不需要引号）</li>
+<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
+<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
+</ul>
+</li>
+<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
+<li><code>convert</code> 数据类型转换。</li>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
+<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
+<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
+</ul>
+</li>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
+<li><code>&quot;right&quot;</code> 在右侧填充</li>
+<li><code>&quot;left&quot;</code> 在左侧填充</li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
+<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 将要合并得到的列名</li>
+<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
+<li><code>sep</code> 分隔符</li>
+<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span></div></pre></td></tr></table></figure>
+<p>长转宽</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>宽转长</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
+<p>合并列与分割列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;宽转长-Wide2Long&quot;&gt;&lt;a href=&quot;#宽转长-Wide2Long&quot; class=&quot;headerlink&quot; title=&quot;宽转长 Wide2Long&quot;&gt;&lt;/a&gt;宽转长 Wide2Long&lt;/h1&gt;&lt;p&gt;&lt;code&gt;tidyr::gather(data, 
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="tidyr" scheme="//lix90.github.io/tags/tidyr/"/>
+    
+  </entry>
   
   <entry>
     <title>R：使用基本包进行多图布局</title>
@@ -186,13 +278,13 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    
       <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     
       <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
     
@@ -252,6 +344,131 @@
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-15T15:16:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+    
+    </summary>
+    
+      <category term="实验室内部分享" scheme="//lix90.github.io/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%86%85%E9%83%A8%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
     
   </entry>
   
@@ -440,131 +657,6 @@
   </entry>
   
   <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-15T15:16:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
-    
-    </summary>
-    
-      <category term="实验室内部分享" scheme="//lix90.github.io/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%86%85%E9%83%A8%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>个人资源长期整理</title>
     <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
     <id>//lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
@@ -736,11 +828,11 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
       <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
@@ -885,8 +977,6 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
-    
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Ruby" scheme="//lix90.github.io/tags/Ruby/"/>
@@ -894,6 +984,8 @@
       <category term="Pandas" scheme="//lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+    
+      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -942,40 +1034,11 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
+      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
       <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
       <category term="缺失值" scheme="//lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T13:20:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -1041,7 +1104,85 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
+      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
       <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T03:26:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T13:20:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -1230,55 +1371,6 @@
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T03:26:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -1640,9 +1732,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="//lix90.github.io/tags/Flexbox/"/>
     
@@ -2197,11 +2289,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="Javascript" scheme="//lix90.github.io/tags/Javascript/"/>
     
@@ -2214,6 +2304,8 @@
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
@@ -2346,11 +2438,11 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
       <category term="机器学习" scheme="//lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -2395,9 +2487,9 @@
       <category term="前端开发" scheme="//lix90.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+    
+      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -2543,13 +2635,13 @@
       <category term="D3js" scheme="//lix90.github.io/categories/D3js/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="D3js" scheme="//lix90.github.io/tags/D3js/"/>
     
       <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
-      <category term="D3js" scheme="//lix90.github.io/tags/D3js/"/>
-    
       <category term="SVG" scheme="//lix90.github.io/tags/SVG/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
