@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -86,16 +86,43 @@
 
 
 
-<meta name="description" content="R: library &amp;amp; require谢一辉有一篇博文讨论了 library 和 require 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 require 等于是尝试加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，require 都能正常执行。只不过 require 会出现警告“不存某个包”。而 librar">
+<meta name="description" content="GitGit branch 分支操作git branch 列出，新建，或者删除分支
+
+git branch --list 列出存在的分支，带 * 号的为当前分支
+git branch -r 列出远程跟踪的分支
+git branch -a 列出本地和远程分支
+git branch -d|-D 删除分支
+git branch -rd 删除远程分析
+git branch -m|-M 重命名分支
+
+Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R：加载包">
-<meta property="og:url" content="//lix90.github.io/2016/11/13/2016-11-13-daily/index.html">
+<meta property="og:title" content="每日总结 2016-11-17">
+<meta property="og:url" content="//lix90.github.io/2016/11/17/2016-11-17-daily/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="R: library &amp;amp; require谢一辉有一篇博文讨论了 library 和 require 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 require 等于是尝试加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，require 都能正常执行。只不过 require 会出现警告“不存某个包”。而 librar">
-<meta property="og:updated_time" content="2016-11-13T03:52:55.000Z">
+<meta property="og:description" content="GitGit branch 分支操作git branch 列出，新建，或者删除分支
+
+git branch --list 列出存在的分支，带 * 号的为当前分支
+git branch -r 列出远程跟踪的分支
+git branch -a 列出本地和远程分支
+git branch -d|-D 删除分支
+git branch -rd 删除远程分析
+git branch -m|-M 重命名分支
+
+Git">
+<meta property="og:updated_time" content="2016-11-17T14:14:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R：加载包">
-<meta name="twitter:description" content="R: library &amp;amp; require谢一辉有一篇博文讨论了 library 和 require 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 require 等于是尝试加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，require 都能正常执行。只不过 require 会出现警告“不存某个包”。而 librar">
+<meta name="twitter:title" content="每日总结 2016-11-17">
+<meta name="twitter:description" content="GitGit branch 分支操作git branch 列出，新建，或者删除分支
+
+git branch --list 列出存在的分支，带 * 号的为当前分支
+git branch -r 列出远程跟踪的分支
+git branch -a 列出本地和远程分支
+git branch -d|-D 删除分支
+git branch -rd 删除远程分析
+git branch -m|-M 重命名分支
+
+Git">
 
 
 
@@ -116,10 +143,10 @@
 
 
 
-  <link rel="canonical" href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+  <link rel="canonical" href="//lix90.github.io/2016/11/17/2016-11-17-daily/"/>
 
 
-  <title> R：加载包 | Lix的博客 </title>
+  <title> 每日总结 2016-11-17 | Lix的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +286,7 @@
             
             
               
-                R：加载包
+                每日总结 2016-11-17
               
             
           </h1>
@@ -271,8 +298,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T00:00:00+08:00" content="2016-11-13">
-              2016-11-13
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
             </time>
           </span>
 
@@ -285,8 +312,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
                   </a>
                 </span>
 
@@ -301,8 +328,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/13/2016-11-13-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/2016-11-13-daily/" itemprop="commentsCount"></span>
+                <a href="/2016/11/17/2016-11-17-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/17/2016-11-17-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -325,15 +352,30 @@
       
 
       
-        <h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
+        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
 <ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
 </ul>
 
       
@@ -357,7 +399,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag">#R</a>
+            <a href="/tags/Git/" rel="tag">#Git</a>
           
         </div>
       
@@ -366,16 +408,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/12/2016-11-12-daily/" rel="next" title="每日总结 2016-11-12">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-12
+              <a href="/2016/11/16/2016-11-16-daily/" rel="next" title="每日总结 2016-11-16">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-16
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/13/2016-11-13-wiki/" rel="prev" title="个人资源长期整理">
-                个人资源长期整理 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/17/2016-11-17-r-tidyr/" rel="prev" title="R：使用 tidyr 进行数据操作">
+                R：使用 tidyr 进行数据操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -533,7 +575,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R-library-amp-require"><span class="nav-number">1.</span> <span class="nav-text">R: library & require</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-branch-分支操作"><span class="nav-number">1.1.</span> <span class="nav-text">Git branch 分支操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-checkout-切换分支"><span class="nav-number">1.2.</span> <span class="nav-text">Git checkout 切换分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEAD"><span class="nav-number">1.3.</span> <span class="nav-text">HEAD</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -653,9 +695,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'lix90';
-      var disqus_identifier = '2016/11/13/2016-11-13-daily/';
-      var disqus_title = "R：加载包";
-      var disqus_url = '//lix90.github.io/2016/11/13/2016-11-13-daily/';
+      var disqus_identifier = '2016/11/17/2016-11-17-daily/';
+      var disqus_title = "每日总结 2016-11-17";
+      var disqus_url = '//lix90.github.io/2016/11/17/2016-11-17-daily/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
