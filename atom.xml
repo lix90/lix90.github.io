@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-17T08:55:58.000Z</updated>
+  <updated>2016-11-18T03:39:05.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日总结 2016-11-18</title>
+    <link href="//lix90.github.io/2016/11/18/2016-11-18-daily/"/>
+    <id>//lix90.github.io/2016/11/18/2016-11-18-daily/</id>
+    <published>2016-11-17T16:00:00.000Z</published>
+    <updated>2016-11-18T03:39:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h1><p>中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》</p>
+<blockquote>
+<p>容器的技术生态主要分为<strong>核心容器技术</strong>、<strong>分布式容器技术</strong>、<strong>容器平台技术</strong>，以及<strong>容器原生辅助支持技术</strong>四部分。</p>
+</blockquote>
+<p>容器技术应用面临多个问题：</p>
+<ul>
+<li>技术多样化多平台，缺乏统一标准；</li>
+<li>传统服务较难与容器平台整合；</li>
+<li>容器技术快速传播，但尚未形成较好的盈利模式；</li>
+<li>容器技术本身在稳定性、安全性、监控成熟度、管理平台、网络和存储方面的成熟度还需提高。</li>
+</ul>
+<p>来源：<a href="http://blog.dataman-inc.com/shurenyun-news-1110/" target="_blank" rel="external">数人云博客</a></p>
+<hr>
+<p>云计算目前分为：IaaS、SaaS、PaaS<br>IaaS 和 PaaS 的区别：</p>
+<ul>
+<li>IaaS 层指用户无需购置存储、网络设备等，例如云主机，使用者为运维/研发等。</li>
+<li>PaaS 层主要提供 SDK、API，用户不必自己购买专用的开发软件、测试软件、服务器等，实现软件的轻松快速发布，多为软件开发商。</li>
+</ul>
+<p>来源：<a href="http://blog.qiniu.com/archives/7442" target="_blank" rel="external">七牛云博客</a></p>
+<hr>
+<p>云能解决哪些问题？</p>
+<ul>
+<li>降低采购周期，提高资源利用率</li>
+<li>降低研发、运维难度<blockquote>
+<ul>
+<li>购买技术和对应的一些服务来降低开发难度，提高开发效率，让你的产品能够更快的出来，能让你在互联网时代更敏捷一些。</li>
+<li>引入这个层面的服务，最大的好处是什么呢？是能够把你的最好的研发人员从底层系统挪到你的业务层系统，让你最有价值的业务层能够比较快速的发展。</li>
+<li>将控制流和数据流分开，使用不同的云服务来解决不同的问题</li>
+</ul>
+</blockquote>
+</li>
+<li>改善服务治理</li>
+</ul>
+<p>来源：<a href="http://blog.qiniu.com/archives/7403" target="_blank" rel="external">七牛云博客</a></p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="静态-UI-组件重构"><a href="#静态-UI-组件重构" class="headerlink" title="静态 UI 组件重构"></a>静态 UI 组件重构</h2><p>CSS color 属性驱动的静态 UI 组件实现策略</p>
+<ul>
+<li>提取专门的颜色类名 <code>.dark { color: #33373d; }</code></li>
+<li>静态 UI 组件所有动态颜色全部走原生变量（即颜色值直接缺省）</li>
+<li>颜色类名既扮演状态类名角色又扮演颜色控制角色</li>
+<li>构建基础类名和基础样式<ul>
+<li>currentColor 变量</li>
+<li><code>.btn-normal::first-line { color: #fff}</code></li>
+</ul>
+</li>
+</ul>
+<p>兼容性限制：currentColor 只在IE9+浏览器下支持，目前适用于移动端开发，以及一些不需考虑低版本 IE 的项目。<br>不适用于开源项目</p>
+<p>代码结构：基本按钮 &gt;&gt;&gt; 特殊按钮 &gt;&gt;&gt; 基础颜色</p>
+<p>来源：<a href="http://www.zhangxinxu.com/wordpress/2016/11/development-ui-component-based-on-css-color/" target="_blank" rel="external">张鑫旭博客</a></p>
+<h2 id="CSS-原生变量"><a href="#CSS-原生变量" class="headerlink" title="CSS 原生变量"></a>CSS 原生变量</h2><p>CSS 变量即 CSS 自定义属性。以前原生 CSS 没有变量，只能借助 SASS 或者 LESS 预编译器。新草案发布，包含了在 CSS 中定义和使用变量。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables" target="_blank" rel="external">MDN–使用CSS变量</a></li>
+<li><a href="https://philipwalton.com/articles/why-im-excited-about-native-css-variables/" target="_blank" rel="external">Why I’m Excited About Native CSS Variables</a></li>
+</ul>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
+<li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
+<li>SaaS - Software as a Service <a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">软件即服务</a>，通俗可以称为“即需即用软件”，是一种软件交互模式。在这种交互模式中云端集中式托管软件及相关的数据，软件仅需透过互联网，而不须透过安装即可使用。用户通常使用精简客户端经由一个网页浏览器来访问软件即服务。</li>
+<li>IoT - Internet of Things <a href="https://zh.wikipedia.org/wiki/%E7%89%A9%E8%81%94%E7%BD%91" target="_blank" rel="external">物联网</a>，让所有能行使独立功能的普通物体实现互联互通的网络。</li>
+<li>SOA - Service-oriented architecture <a href="https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9E%B6%E6%9E%84" target="_blank" rel="external">面向服务的体系结构</a>，是构造分布式计算的应用程序的方法，它将应用程序功能作为服务发送给最终用户或者其他服务。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;云计算&quot;&gt;&lt;a href=&quot;#云计算&quot; class=&quot;headerlink&quot; title=&quot;云计算&quot;&gt;&lt;/a&gt;云计算&lt;/h1&gt;&lt;p&gt;中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;容器的技术生态主要分为
+    
+    </summary>
+    
+      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="Cloud" scheme="//lix90.github.io/tags/Cloud/"/>
+    
+  </entry>
   
   <entry>
     <title>R：使用 tidyr 进行数据操作</title>
@@ -160,6 +247,85 @@
   </entry>
   
   <entry>
+    <title>R：使用基本包进行多图布局</title>
+    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
+    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
+    <published>2016-11-15T16:00:00.000Z</published>
+    <updated>2016-11-16T14:16:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
+<p>参数：</p>
+<ul>
+<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
+<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
+<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
+<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
+<li><code>n</code>：绘制的图形个数。</li>
+</ul>
+<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
+<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
+<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
+<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
+<ul>
+<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
+<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
+<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
+</ul>
+<p><strong>Inner region</strong> 内区域</p>
+<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
+<p><strong>Figure region</strong> 图形区域</p>
+<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
+<p><strong>Figure margin</strong> 图形边缘</p>
+<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
+<ul>
+<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
+<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
+<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
+<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
+</ul>
+<p><strong>Plot region</strong> 绘制区域</p>
+<ul>
+<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
+<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
+<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
+</ul>
+<p>子图或多图绘制</p>
+<ul>
+<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
+<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
+</ul>
+<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
+<p><code>split.screen</code> 参数：</p>
+<ul>
+<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
+<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
+<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
+<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
+<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
+<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
+<p>NDC：normalized device coordinates</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Layout-布局&quot;&gt;&lt;a href=&quot;#Layout-布局&quot; class=&quot;headerlink&quot; title=&quot;Layout 布局&quot;&gt;&lt;/a&gt;Layout 布局&lt;/h1&gt;&lt;p&gt;&lt;code&gt;layout&lt;/code&gt; 函数可以指定复杂的绘图布局。该函数可以将设备
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-16</title>
     <link href="//lix90.github.io/2016/11/16/2016-11-16-daily/"/>
     <id>//lix90.github.io/2016/11/16/2016-11-16-daily/</id>
@@ -260,85 +426,6 @@
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：使用基本包进行多图布局</title>
-    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
-    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
-    <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-11-16T14:16:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
-<p>参数：</p>
-<ul>
-<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
-<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
-<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
-<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
-<li><code>n</code>：绘制的图形个数。</li>
-</ul>
-<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
-<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
-<ul>
-<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
-<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
-<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
-</ul>
-<p><strong>Inner region</strong> 内区域</p>
-<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
-<p><strong>Figure region</strong> 图形区域</p>
-<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
-<p><strong>Figure margin</strong> 图形边缘</p>
-<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
-<ul>
-<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
-<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
-<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
-<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
-</ul>
-<p><strong>Plot region</strong> 绘制区域</p>
-<ul>
-<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
-<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
-<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
-</ul>
-<p>子图或多图绘制</p>
-<ul>
-<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
-<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
-</ul>
-<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
-<p><code>split.screen</code> 参数：</p>
-<ul>
-<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
-<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
-<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
-<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
-<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
-<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
-<p>NDC：normalized device coordinates</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Layout-布局&quot;&gt;&lt;a href=&quot;#Layout-布局&quot; class=&quot;headerlink&quot; title=&quot;Layout 布局&quot;&gt;&lt;/a&gt;Layout 布局&lt;/h1&gt;&lt;p&gt;&lt;code&gt;layout&lt;/code&gt; 函数可以指定复杂的绘图布局。该函数可以将设备
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
@@ -882,9 +969,9 @@
     
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
-      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
-    
       <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
@@ -1091,123 +1178,6 @@
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="缺失值" scheme="//lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：描述性统计</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T13:01:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T03:26:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -1423,6 +1393,123 @@
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T13:01:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-08T03:26:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -2687,9 +2774,9 @@
       <category term="D3js" scheme="//lix90.github.io/categories/D3js/"/>
     
     
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
       <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="D3js" scheme="//lix90.github.io/tags/D3js/"/>
     

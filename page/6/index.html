@@ -261,6 +261,234 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/26/2016-10-26-daily/" itemprop="url">
+                  每日总结 2016-10-26
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-26T09:30:34+08:00" content="2016-10-26">
+              2016-10-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/26/2016-10-26-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/26/2016-10-26-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="解决-Git-push-冲突"><a href="#解决-Git-push-冲突" class="headerlink" title="解决 Git push 冲突"></a>解决 Git push 冲突</h2><p>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</p>
+<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>Basic premise of learning</p>
+<blockquote>
+<p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
+</blockquote>
+<p>几种学习类型：</p>
+<ul>
+<li>Supervised learning: we get (input, correct output)</li>
+<li>Unsupervised learning: instead of (input, correct output), we get (input, ?)</li>
+<li>Reinforcement learning: instead of (input, correct output), we get (input, <em>some</em> output, <strong>grade for this output</strong>)</li>
+</ul>
+<p>什么是机器学习？</p>
+<blockquote>
+<p>Algorithms for inferring unknowns from knowns.<br>算法，推论，未知，已知</p>
+</blockquote>
+<h3 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h3><ul>
+<li>识别垃圾邮件</li>
+<li>识别手写字</li>
+<li>谷歌街道</li>
+<li>语音识别</li>
+<li>Netflix 推荐系统</li>
+<li>Navigation 导航</li>
+<li>气候模型：解释和预测</li>
+</ul>
+<h3 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h3><ul>
+<li>人类能力不可及：火星探测</li>
+<li>人类无法解释的问题：语音识别</li>
+<li>解决方案随着时间而变化：温度控制</li>
+<li>解决方案需要对个案进行调整</li>
+<li>问题大小超出了人类的合理能力范围</li>
+</ul>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><ul>
+<li>分类问题</li>
+<li>回归问题</li>
+</ul>
+<p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>从二元分类到多元分类</p>
+<h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><ul>
+<li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
+<li>密度估计（Density estimation）</li>
+<li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
+</ul>
+<p>没有训练集也没有奖励与惩罚</p>
+<h3 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h3><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
+<ul>
+<li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
+<li>目标：奖励最大化</li>
+</ul>
+<hr>
+<h2 id="学习的成分"><a href="#学习的成分" class="headerlink" title="学习的成分"></a>学习的成分</h2><ul>
+<li>未知的目标函数 f: x —&gt; y；</li>
+<li>X 的分布 P；</li>
+<li>训练集 D；</li>
+<li>学习算法 A；</li>
+<li>假设集 H。</li>
+</ul>
+<h2 id="机器学习的本质"><a href="#机器学习的本质" class="headerlink" title="机器学习的本质"></a>机器学习的本质</h2><ul>
+<li>A pattern exists; 有规律存在（学习的对象）</li>
+<li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
+<li>We have data on it. 有足够的数据（学习的基础）</li>
+</ul>
+<hr>
+<p>Hoeffding’s inequality</p>
+<p>PAC: probability approximately correct</p>
+<p>通过概率论的方法来表示对未知的学习。</p>
+<p>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。</p>
+<p><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。</p>
+<p>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。</p>
+<p><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。</p>
+<p>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
+<hr>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><p>关于 Margin：</p>
+<blockquote>
+<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
+</blockquote>
+<p>垂直 margin 合并的好处：</p>
+<ul>
+<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
+<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
+<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
+</ul>
+<h2 id="CSS-浮动"><a href="#CSS-浮动" class="headerlink" title="CSS 浮动"></a>CSS 浮动</h2><ul>
+<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
+<li>不出现外边距合并</li>
+<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
+<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
+<li>一般来说浮动元素会成为块级盒</li>
+</ul>
+<blockquote>
+<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
+</blockquote>
+<h2 id="常见清除浮动的办法"><a href="#常见清除浮动的办法" class="headerlink" title="常见清除浮动的办法"></a>常见清除浮动的办法</h2><ol>
+<li>clear 属性</li>
+<li>空 DIV 法：不如何“结构与表现分离原则”</li>
+<li>Overflow 法：可能有副作用</li>
+<li>Clearfix 法</li>
+</ol>
+<blockquote>
+<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
+</blockquote>
+<h2 id="CSS3-提供了几种新的处理布局的方法"><a href="#CSS3-提供了几种新的处理布局的方法" class="headerlink" title="CSS3 提供了几种新的处理布局的方法"></a>CSS3 提供了几种新的处理布局的方法</h2><ol>
+<li>Flexbox 弹性盒子</li>
+<li>Multi-column layout 多栏布局</li>
+<li>Grid layout 格子布局</li>
+</ol>
+<h1 id="Good-stuff"><a href="#Good-stuff" class="headerlink" title="Good stuff"></a>Good stuff</h1><ul>
+<li>Helvetica 纪录片：字体设计</li>
+<li>Code Rush 纪录片：代码奔腾 Firefox 的诞生</li>
+<li>Just for Fun 书籍：Linus 讲述 Linux 如何发明</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/22/2016-10-22-http/" itemprop="url">
                   HTTP 学习记录
                 </a>
@@ -912,144 +1140,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/25/2016-09-25-php-config/" itemprop="url">
-                  PHP 安装与配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T21:00:45+08:00" content="2016-09-25">
-              2016-09-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/25/2016-09-25-php-config/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/2016-09-25-php-config/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p>
-<p>因为系统是 Mac OSX，所以直接使用 <code>brew install php56</code> 来安装。但是并未找到 php56 。于是 <code>brew search php</code>，发现 php 相关安装包位于 <code>/homebrew/php/*</code>，于是用 <code>brew install homebrew/php/php56</code> 安装。但是出现报错 <code>undefined method rebuild</code> 的错误。尝试 <code>brew cleanup &amp;&amp; brew update</code>，仍然不起作用，依旧报错。后来查询到可以更新下 homebrew 的仓库。于是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $(brew --repo)</div><div class="line">git fetch</div><div class="line">git reset --hard origin/master</div><div class="line">brew update</div></pre></td></tr></table></figure>
-<p>然后再尝试安装 <code>brew install homebrew/php/php56</code>。</p>
-<p>其实也可以这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew tap homebrew/dupes</div><div class="line">brew tap homebrew/versions</div><div class="line">brew tap homebrew/homebrew-php</div><div class="line">brew install php56</div></pre></td></tr></table></figure>
-<p>然后安装了包管理工具 composer</p>
-<blockquote>
-<p>PHP 世界的包管理工具Composer</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install homebrew/php/composer</div></pre></td></tr></table></figure>
-<p>并且安装了 psySH</p>
-<blockquote>
-<p>A runtime developer console, interactive debugger and REPL for PHP.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer g require psy/psysh:@stable</div></pre></td></tr></table></figure>
-<p>psySH 的二进制文件位于 <code>~/.composer/vendor/psysh</code><br>也可以通过这个来运行 <code>~/.composer/vendor/bin/psysh</code><br>为了方便，我将其添加到 PATH <code>export $PATH:/Users/lix/.composer/vendor/bin</code></p>
-<p>配置 emacs 的 php 环境<br>先安装 ac-php 的依赖 <code>brew install cscope</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">;;; php mode</div><div class="line">(use-package php-mode</div><div class="line">  :ensure t</div><div class="line">  :mode &quot;\\.php\\&apos;&quot;</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">    (add-hook &apos;php-mode-hook &apos;smartparens-mode)</div><div class="line">    (use-package ac-php</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook</div><div class="line">                &apos;(lambda ()</div><div class="line">                   (use-package company-php :ensure t)</div><div class="line">                   (company-mode t)</div><div class="line">                   (add-to-list &apos;company-backends &apos;company-ac-php-backend))))</div><div class="line">    (use-package php-eldoc</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook &apos;php-eldoc-enable))))</div><div class="line"></div><div class="line">;;; php REPL</div><div class="line">(use-package psysh</div><div class="line">  :if (executable-find &quot;psysh&quot;)</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :config</div><div class="line">  (add-hook &apos;psysh-mode-hook &apos;smartparens-mode))</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1095,7 +1185,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1112,7 +1202,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
