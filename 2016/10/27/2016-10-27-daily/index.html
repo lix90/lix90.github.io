@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,Python,HTTP,Javascript,jQuery,VueJS,DOM,Emacs,elisp,HTML," />
+  <meta name="keywords" content="HTTP,CSS,JavaScript,jQuery,Vue.js,DOM,Emacs,elisp,Python,HTML," />
 
 
 
@@ -94,7 +94,7 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
 <meta property="og:site_name" content="Lix的博客">
 <meta property="og:description" content="Javascript数组 Array可包含任意数据类型，并通过索引来访问每个元素。Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。
 length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始">
-<meta property="og:updated_time" content="2016-10-27T15:16:44.000Z">
+<meta property="og:updated_time" content="2016-11-19T03:10:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-10-27">
 <meta name="twitter:description" content="Javascript数组 Array可包含任意数据类型，并通过索引来访问每个元素。Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。
@@ -463,7 +463,7 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
 <li><a href="http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/" target="_blank" rel="external">Configure the Scratch Buffer’s Mode</a></li>
 </ul>
 <h2 id="lisp-and-elisp-小记"><a href="#lisp-and-elisp-小记" class="headerlink" title="lisp and elisp 小记"></a>lisp and elisp 小记</h2><p><code>when</code>: <code>(when COND BODY ...)</code> 当 COND 为真，eval BODY；按顺序 eval BODY 中的项，返回最后一项的值。<br><code>and</code>: <code>(and CONDITIONS ...)</code> 当 CONDITIONS 全部为 non-nil 时返回最后一个 arg 的值；如果一个为 nil，后面的都不用 eval，直接返回 nil。<br><code>listp</code>: <code>(listp OBJECT)</code> 当 OBJECT 为 list 返回 t，否则返回 nil。<br><code>cons</code>: <code>(cons CAR CDR)</code> 创建新的 cons。<br><code>not</code>: <code>(not OBJECT)</code> 如果 OBJECT 为 nil 范围 t，否则返回 nil。<br><code>car</code>: <code>(car LIST)</code> 返回 LIST 中的第一个值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br><code>cdr</code>: <code>(cdr LIST)</code> 返回 LIST 中除第一个值之外剩余的值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br><code>cadr</code>: <code>(cadr X)</code> 返回 X 的 cdr 的 car，即范围 X 的第二个元素。<br><code>nth</code>: <code>(nth N LIST)</code> 范围 LIST 中第 N 个元素。<br><code>progn</code>: <code>(progn BODY ...)</code> 按顺序 eval BODY，返回最后一项的值。<br><code>if</code>: <code>(if COND THEN ELSE)</code> 如果 COND 为 non-nil，执行 THEN，否则执行 ELSE；返回 THEN 的值，或者 ELSE 的最后一项的值；THEN 只能有一个表达式，但是 ELSE 可以有零到多个表达式；如果 COND 为 nil，且没有 ELSE，整个 IF 语句返回的值为 nil。<br><code>cond</code>: <code>(cond CLAUSES...)</code> 当一个 clause 执行完再执行下一个 clause. clause 的表达式为 <code>(CONDITION BODY...)</code>. CONDITION eval 的值为 non-nil，那么 eval BODY 表达式中的项目，并且返回最后一个项目的值。如果 clause 表达式仅仅只有一个元素，如 <code>(CONDITION)</code>，如果 CONDITION 为 non-nil，那么返回 CONDITION 的值。如果没有 clause 执行成功，那么 cond 返回 nil。<br><code>eq</code>: <code>(eq OBJ1 OBJ2)</code> 如果两个 args 为相同的 Lisp 对象，那么返回 t。<br><code>defvar</code>: <code>(defvar SYMBOL &amp;optional INITVALUE DOCSTRING)</code> 定义 SYMBOL 为一个变量，然后返回 SYMBOL 的值。</p>
-<p><strong>Q: The differences between Macros and Functions?</strong></p>
+<p><strong>Q: The differences between Macros and Functions?</strong><br>在后面的每日总结有提到两者的差异（更新 @2016-11-19）</p>
 <hr>
 <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p><code>/</code> 与 <code>//</code> 的差别</p>
 <p>在 python2 中，当除数和被除数有一个为浮点型，/ 为一般的除法，如果除数和被除数均为整数型，/ 为整除。而 // 在任何情况下都是整除。而在 python3 中，/ 为浮点除法，// 为整除除法。</p>
@@ -489,23 +489,23 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag">#CSS</a>
-          
-            <a href="/tags/Python/" rel="tag">#Python</a>
-          
             <a href="/tags/HTTP/" rel="tag">#HTTP</a>
           
-            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
             <a href="/tags/jQuery/" rel="tag">#jQuery</a>
           
-            <a href="/tags/VueJS/" rel="tag">#VueJS</a>
+            <a href="/tags/Vue-js/" rel="tag">#Vue.js</a>
           
             <a href="/tags/DOM/" rel="tag">#DOM</a>
           
             <a href="/tags/Emacs/" rel="tag">#Emacs</a>
           
             <a href="/tags/elisp/" rel="tag">#elisp</a>
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
             <a href="/tags/HTML/" rel="tag">#HTML</a>
           
@@ -601,7 +601,7 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -609,7 +609,7 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -618,7 +618,7 @@ length 获取长度indexOf() 搜索指定元素的位置slice 截取 Array 的�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

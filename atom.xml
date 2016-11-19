@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-18T04:04:51.000Z</updated>
+  <updated>2016-11-19T03:17:43.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -16,11 +16,119 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据库面试题解答</title>
+    <link href="//lix90.github.io/2016/11/19/2016-11-19-sql-interview/"/>
+    <id>//lix90.github.io/2016/11/19/2016-11-19-sql-interview/</id>
+    <published>2016-11-18T16:00:00.000Z</published>
+    <updated>2016-11-19T03:17:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>内容来源：<a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></p>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>什么是存储过程？优缺点？</p>
+<p>存储过程：一个预编译的代码块（T-SQL），实现一系列功能（对表单或多表增删改查），然后方便调用。<br>优点：执行效率较高；降低网络通信量，提高通信效率；一定程度上确保数据安全。</p>
+<p>我的问题：如何编写存储过程代码？</p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>什么是索引？作用？优缺点？使用索引查询一定能提高查询的性能吗？</p>
+<p>索引：对数据库表中一或多个列的值进行<strong>排序</strong>的结构，能够<strong>加快数据检索</strong>，允许数据库程序迅速找到表中数据，而不必扫描整个数据库。<br>MySQL中几个基本的索引：普通索引、唯一索引、主键索引、全文索引。<br>优缺点：</p>
+<ul>
+<li>加快数据检索速度</li>
+<li>降低增删改等维护任务的速度</li>
+<li>唯一索引可以确保每一行数据的唯一性</li>
+<li>可以在查询过程中使用优化隐藏器，提高系统性能</li>
+<li>占物理和数据空间（缺点）</li>
+</ul>
+<p>然而，在使用索引查询数据时，需要注意到它的代价。<strong>索引需要存储空间，也需要定期维护</strong>，当表中记录被增减，或者索引列被修改时，索引本身也会被修改，将会因此多付出4，5次磁盘I/O。有时候，<strong>不必要的索引反而会时查询反应时间变慢</strong>，所使用索引并不一定提高查询性能。</p>
+<p>索引查询适合两种情况：</p>
+<ul>
+<li><strong>基于一定范围的检索</strong>，一般查询返回结果集小于表中记录数的30%；</li>
+<li><strong>基于非唯一性索引的检索</strong>。</li>
+</ul>
+<p>我的问题：如何创建索引？</p>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>事务（Transaction）：并发控制的基本单位。它是一个操作序列，要么执行，要么都不执行，是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，保持数据一致性。</p>
+<h1 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h1><p>乐观锁与悲观锁</p>
+<p><strong>并发控制</strong>确保多个事务在同时存取数据库中同一数据时，不破坏事务的隔离性和统一性，以及数据库的统一性。乐观锁和悲观锁为并发控制的主要技术手段。</p>
+<ul>
+<li>悲观锁为悲观并发控制，它假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作；</li>
+<li>乐观锁为乐观并发控制，它假定不会发生并发冲突，只在提交操作时检查是否违反数据完整性。</li>
+</ul>
+<h1 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h1><p>drop, delete, truncate 的区别？分别在什么场景下使用？</p>
+<ul>
+<li>三者均为删除操作；</li>
+<li>delete 和 truncate 只删除表的数据不删除表的结构</li>
+<li>速度：drop &gt; truncate &gt; delete</li>
+<li>delete 语句是 dml，这个操作会放到 rollback segement 中，事务提交之后才生效；如果有相应的 trigger，执行的时候将被触发。truncate，drop 是 ddl，操作立即生效，原数据不放到 rollback segment 中，不能回滚。操作不触发 trigger。</li>
+</ul>
+<p>场景：</p>
+<ul>
+<li>不再需要一张表，用 drop；</li>
+<li>删除部分数据行，用 delete，带上 where 子句；</li>
+<li>保留表而删除所有数据，用 truncate。</li>
+</ul>
+<h1 id="键"><a href="#键" class="headerlink" title="键"></a>键</h1><p>超键、候选键、主键、外键是什么？</p>
+<p>超键：在关系中<strong>能唯一标识元组的属性集</strong>称为关系模式的超键。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含<strong>候选键</strong>和<strong>主键</strong>。<br>候选键：最小超键，即没有冗余元素的超键。<br>主键：数据库表中对储存数据对象予以<strong>唯一和完整标识</strong>的数据列或属性的组合。<strong>一个数据列只能有一个主键</strong>，且主键的取值不能缺失，即不能为空值（Null）。<br>外键：在一个表中存在的另一个表的主键称此表的外键。</p>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>什么是视图？视图的使用场景？</p>
+<p>视图是一种虚拟的表，具有和物理表相同的功能，可对视图进行增，改，查的操作。视图通常是一个表或者多个表的行或列的子集。相比多表查询，使得我们获取数据更容易。对视图的修改不影响基本表。</p>
+<ul>
+<li>只暴露部分字段给访问者；</li>
+<li>查询的数据来源于不同的表，而查询者希望以统一的方式查询，创建视图能把多个表查询结果联合起来，查询者只需要直接从视图中获取数据，不必考虑数据来源于不同表所带来的差异</li>
+</ul>
+<h1 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h1><p>范式（Normal Form）：符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。通俗地讲，就是一张数据表的表结构所符合的某种设计标准的级别。符合高一级范式的设计，必定符合低一级范式。范式作为设计的标准范式，其最大的意义就是为了避免数据的冗余和插入/删除/更新的异常。</p>
+<p>第一范式 1NF：符合 1NF 关系中的每个属性都不可再分。也就是说，一个属性不能有子属性。1NF 是所有关系型数据库（RDB）的最基本要求。只要在关系型数据库管理系统中已经存在的数据表，一定是符合 1NF 的。如果仅仅符合 1NF 的设计，会存在数据冗余过大，插入异常，删除异常，修改异常等问题。故需要提高设计标准，解决导致上述问题的因素，使其符合更高一级范式，这就是所谓的“规范化”。</p>
+<p>第二范式 2NF：2NF 在 1NF 的基础上，消除了非主属性对于码的部分函数依赖。2NF 要求，如果依赖于主键，则需要依赖于所有主键，不能存在依赖部分主键的情况。通俗说，就是不要把不相关的东西放到一个表中。不相关的东西不要放在一起，用多个小表连接来代替大表，减少修改时候的负担。</p>
+<ul>
+<li>函数依赖：若在一张表中，在属性（或属性组）X 的值确定的情况下，必定能确定属性 Y 的值，那就可以说 Y 函数依赖于 X，写作 $X\toY$。函数依赖包括三种依赖：完全函数依赖、部分函数依赖、传递函数依赖。</li>
+<li>码：假设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都<strong>完全函数依赖</strong>于 K，那么我们称 K 为候选码，简称为码。换句话说，假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。一张表中可以有超过一个码。实际应用中为了方便，通常选择其中的一个码作为主码。</li>
+<li>非主属性：包含在任何一个码中的属性称为主属性。</li>
+</ul>
+<p>判断是否符合 2NF 就是看数据表中是否存在非主属性对于码的部分函数依赖。若存在，则数据表最高只符合 1NF 的要求，若不存在，则符合 2NF 的要求。判断方法为：</p>
+<ul>
+<li>第一步：找出数据表中所有的码。</li>
+<li>第二步：根据第一步得到的码，找出所有的主属性。</li>
+<li>第三步：数据表中，除去所有的主属性，剩下的就都是非主属性了。</li>
+<li>第四步：查看是否存在非主属性对码的部分函数依赖。</li>
+</ul>
+<p>如何消除部分函数依赖，从而让表符合 2NF 的要求？</p>
+<ul>
+<li>将大数据表拆分成两个或者更多个更小的数据表，在拆分过程中，要达到更高一级范式的要求，这个过程叫做<strong>模式分解</strong>。模式分解方法不是唯一的。<strong>如何进行模式分解呢？</strong></li>
+</ul>
+<p>仅仅符合 2NF 的要求，仍然存在非主属性对于码的传递函数依赖。为了进一步解决问题，还需将数据表改进为符合 3NF 的要求。</p>
+<p>第三范式 3NF：3NF 在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖。如果存在非主属性对于码的传递函数依赖，则不符合 3NF 的要求。3NF 避免了查询路径过长而导致询问时间过长或者更新异常，提高查询效率。然而，在某些特殊情况下，即使关系模式符合 3NF 的要求，仍然存在这插入、修改、删除异常。造成问题的原因在于，存在着主属性对于码的部分函数依赖和传递函数依赖。解决办法是在 3NF 的基础上消除主属性对于码的部分与传递函数依赖。此时的设计为 BCNF 范式。BC 范式的每个表中只有一个候选键。</p>
+<p><strong>所谓的范式，是用来学习参考的，设计的时候根据情况，未必一定要遵守。</strong></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/24696366" target="_blank" rel="external">解释一下关系数据库的第一第二第三范式？刘慰、Lyken的回答</a></li>
+</ul>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/CareySon/archive/2010/02/16/1668803.html" target="_blank" rel="external">数据库范式那些事</a></li>
+</ul>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内容来源：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/23713529&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎专栏-学习编程：常见面试题整理–数据库篇&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;存储过程&quot;&gt;&lt;a href=
+    
+    </summary>
+    
+      <category term="Database" scheme="//lix90.github.io/categories/Database/"/>
+    
+    
+      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+    
+      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-18</title>
     <link href="//lix90.github.io/2016/11/18/2016-11-18-daily/"/>
     <id>//lix90.github.io/2016/11/18/2016-11-18-daily/</id>
     <published>2016-11-17T16:00:00.000Z</published>
-    <updated>2016-11-18T04:04:51.000Z</updated>
+    <updated>2016-11-19T02:54:48.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h1><p>中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》</p>
 <blockquote>
@@ -78,8 +186,13 @@
 </ul>
 <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git-commit"></a>git-commit</h2><p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br><code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
 <p><strong>git 跟踪的是内容不是文件</strong></p>
-<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<h1 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h1><p><strong>应该使用 Yes/No 或者 Ok/Cancel 在消息框中吗？</strong><br>一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
+<p>参考：<a href="http://ux.stackexchange.com/questions/9946/should-i-use-yes-no-or-ok-cancel-on-my-message-box?newsletter=1&amp;nlcode=678926%7caee7" target="_blank" rel="external">stackexchange: user experience</a></p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><ol>
+<li>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</li>
+<li>新创刊期刊影响因子多久出来？3-5年，第4年出第三年的影响因子。所以第一年和第二年没有影响因子。</li>
+</ol>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
 <li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
 <li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
 <li>SaaS - Software as a Service <a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">软件即服务</a>，通俗可以称为“即需即用软件”，是一种软件交互模式。在这种交互模式中云端集中式托管软件及相关的数据，软件仅需透过互联网，而不须透过安装即可使用。用户通常使用精简客户端经由一个网页浏览器来访问软件即服务。</li>
@@ -99,56 +212,13 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
+      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
+      <category term="交互设计" scheme="//lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
+    
       <category term="Cloud" scheme="//lix90.github.io/tags/Cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="//lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>//lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-17T14:14:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -157,7 +227,7 @@
     <link href="//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
     <id>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
     <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-17T08:55:58.000Z</updated>
+    <updated>2016-11-19T03:17:12.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
 <p>参数：</p>
@@ -242,6 +312,8 @@
     
       <category term="R" scheme="//lix90.github.io/categories/R/"/>
     
+      <category term="Data science" scheme="//lix90.github.io/categories/R/Data-science/"/>
+    
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
@@ -250,11 +322,58 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="//lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>//lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-17T14:14:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：使用基本包进行多图布局</title>
     <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
     <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
     <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-11-16T14:16:37.000Z</updated>
+    <updated>2016-11-19T03:16:58.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
@@ -321,10 +440,12 @@
     
       <category term="R" scheme="//lix90.github.io/categories/R/"/>
     
+      <category term="Data viz" scheme="//lix90.github.io/categories/R/Data-viz/"/>
+    
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
     
   </entry>
   
@@ -333,7 +454,7 @@
     <link href="//lix90.github.io/2016/11/16/2016-11-16-daily/"/>
     <id>//lix90.github.io/2016/11/16/2016-11-16-daily/</id>
     <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-11-16T14:18:17.000Z</updated>
+    <updated>2016-11-19T03:16:48.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
 <ul>
@@ -420,13 +541,13 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
     
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
     
       <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
     
@@ -481,136 +602,11 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-15T15:16:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
-    
-    </summary>
-    
-      <category term="实验室内部分享" scheme="//lix90.github.io/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%86%85%E9%83%A8%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
     
   </entry>
   
@@ -619,9 +615,9 @@
     <link href="//lix90.github.io/2016/11/14/2016-11-14-daily/"/>
     <id>//lix90.github.io/2016/11/14/2016-11-14-daily/</id>
     <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-14T14:57:12.000Z</updated>
+    <updated>2016-11-19T03:16:09.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="R-每日学习记录"><a href="#R-每日学习记录" class="headerlink" title="R 每日学习记录"></a>R 每日学习记录</h1><p>Mode &amp; Type</p>
+    <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><p>Mode &amp; Type</p>
 <p>Mode 由 <code>mode</code> 获得<br>Type 由 <code>typeof</code> 获得</p>
 <p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
 <ul>
@@ -772,8 +768,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;R-每日学习记录&quot;&gt;&lt;a href=&quot;#R-每日学习记录&quot; class=&quot;headerlink&quot; title=&quot;R 每日学习记录&quot;&gt;&lt;/a&gt;R 每日学习记录&lt;/h1&gt;&lt;p&gt;Mode &amp;amp; Type&lt;/p&gt;
-&lt;p&gt;Mode 由 &lt;code&gt;mode&lt;/code
+      &lt;h1 id=&quot;R&quot;&gt;&lt;a href=&quot;#R&quot; class=&quot;headerlink&quot; title=&quot;R&quot;&gt;&lt;/a&gt;R&lt;/h1&gt;&lt;p&gt;Mode &amp;amp; Type&lt;/p&gt;
+&lt;p&gt;Mode 由 &lt;code&gt;mode&lt;/code&gt; 获得&lt;br&gt;Type 由 &lt;code&gt;typeof&lt;
     
     </summary>
     
@@ -782,19 +778,180 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
+      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
+    
       <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="计算机概论" scheme="//lix90.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/"/>
     
-      <category term="数据挖掘" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+      <category term="Data mining" scheme="//lix90.github.io/tags/Data-mining/"/>
     
       <category term="数据预处理" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
     
       <category term="交互设计" scheme="//lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="界面设计" scheme="//lix90.github.io/tags/%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/"/>
+      <category term="UI" scheme="//lix90.github.io/tags/UI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-19T03:16:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+    
+    </summary>
+    
+      <category term="Lab" scheme="//lix90.github.io/categories/Lab/"/>
+    
+    
+      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：加载包</title>
+    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+    <id>//lix90.github.io/2016/11/13/2016-11-13-daily/</id>
+    <published>2016-11-12T16:00:00.000Z</published>
+    <updated>2016-11-19T03:15:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
+<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
+<p>参考</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
+<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -803,7 +960,7 @@
     <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
     <id>//lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
     <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-13T02:42:37.000Z</updated>
+    <updated>2016-11-19T03:15:23.000Z</updated>
     
     <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
 <h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><ul>
@@ -887,39 +1044,7 @@
       <category term="Wiki" scheme="//lix90.github.io/categories/Wiki/"/>
     
     
-      <category term="学习" scheme="//lix90.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：加载包</title>
-    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
-    <id>//lix90.github.io/2016/11/13/2016-11-13-daily/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-13T03:52:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
@@ -928,7 +1053,7 @@
     <link href="//lix90.github.io/2016/11/12/2016-11-12-daily/"/>
     <id>//lix90.github.io/2016/11/12/2016-11-12-daily/</id>
     <published>2016-11-11T16:00:00.000Z</published>
-    <updated>2016-11-12T14:11:32.000Z</updated>
+    <updated>2016-11-19T03:15:02.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="detach-amp-attach"><a href="#detach-amp-attach" class="headerlink" title="detach &amp; attach"></a><code>detach</code> &amp; <code>attach</code></h2><p><code>attach</code></p>
 <p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
@@ -970,17 +1095,17 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
-      <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
       <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
     
       <category term="BOM" scheme="//lix90.github.io/tags/BOM/"/>
+    
+      <category term="Data base" scheme="//lix90.github.io/tags/Data-base/"/>
     
   </entry>
   
@@ -989,7 +1114,7 @@
     <link href="//lix90.github.io/2016/11/11/2016-11-11-life-shirt/"/>
     <id>//lix90.github.io/2016/11/11/2016-11-11-life-shirt/</id>
     <published>2016-11-10T16:00:00.000Z</published>
-    <updated>2016-11-11T10:09:06.000Z</updated>
+    <updated>2016-11-19T03:14:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>临近求职，即将从学生狗迈入“社会”，需要关注下着装和生活品味。个人喜欢将看起来不严肃的事情也当做很“正经”的事情学习研究一番，这篇笔记便是最好的见证。</p>
 <h1 id="男士衬衫穿搭技巧"><a href="#男士衬衫穿搭技巧" class="headerlink" title="男士衬衫穿搭技巧"></a>男士衬衫穿搭技巧</h1><h2 id="正装衬衫"><a href="#正装衬衫" class="headerlink" title="正装衬衫"></a>正装衬衫</h2><h3 id="挑选技巧"><a href="#挑选技巧" class="headerlink" title="挑选技巧"></a>挑选技巧</h3><ol>
@@ -1077,12 +1202,12 @@
     
     </summary>
     
-      <category term="生活方式" scheme="//lix90.github.io/categories/%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F/"/>
+      <category term="Life style" scheme="//lix90.github.io/categories/Life-style/"/>
     
     
-      <category term="生活方式" scheme="//lix90.github.io/tags/%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F/"/>
+      <category term="Life style" scheme="//lix90.github.io/tags/Life-style/"/>
     
-      <category term="衬衫" scheme="//lix90.github.io/tags/%E8%A1%AC%E8%A1%AB/"/>
+      <category term="Shirt" scheme="//lix90.github.io/tags/Shirt/"/>
     
   </entry>
   
@@ -1091,7 +1216,7 @@
     <link href="//lix90.github.io/2016/11/10/2016-11-10-daily/"/>
     <id>//lix90.github.io/2016/11/10/2016-11-10-daily/</id>
     <published>2016-11-09T16:00:00.000Z</published>
-    <updated>2016-11-12T14:11:05.000Z</updated>
+    <updated>2016-11-19T03:14:29.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Ruby：修改-RubyGems-镜像"><a href="#Ruby：修改-RubyGems-镜像" class="headerlink" title="Ruby：修改 RubyGems 镜像"></a>Ruby：修改 RubyGems 镜像</h1><p>在此使用较新的 RubyGems 版本，建议 2.6.X 以上。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gem update --system # 需要翻墙</div><div class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div><div class="line">$ gem sources -l</div><div class="line">https: //gems.ruby-china.org</div><div class="line"># 确保只有以上一项</div></pre></td></tr></table></figure>
@@ -1119,7 +1244,7 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
+      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
@@ -1129,6 +1254,8 @@
     
       <category term="统计显著性" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
     
+      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
+    
   </entry>
   
   <entry>
@@ -1136,7 +1263,7 @@
     <link href="//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/"/>
     <id>//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/</id>
     <published>2016-11-08T16:00:00.000Z</published>
-    <updated>2016-11-10T07:19:24.000Z</updated>
+    <updated>2016-11-19T03:14:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。</p>
 <h1 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h1><p><code>mice</code> 包是专门用来处理缺失值的 R 语言包。可以通过 <code>mice::md.pattern()</code> 查看缺失值的“数据模式”。</p>
@@ -1173,10 +1300,12 @@
     
       <category term="R" scheme="//lix90.github.io/categories/R/"/>
     
+      <category term="Data science" scheme="//lix90.github.io/categories/R/Data-science/"/>
+    
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
     
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -1185,108 +1314,11 @@
   </entry>
   
   <entry>
-    <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T13:20:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：描述性统计</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T13:01:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="R" scheme="//lix90.github.io/categories/R/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="统计学" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：基本数据可视化</title>
     <link href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
     <id>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
     <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-09T14:01:26.000Z</updated>
+    <updated>2016-11-19T03:12:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近需要分析毕业论文数据，借机温习一下常见的统计图形，并且熟悉下如何在 R 下进行数据可视化。</p>
 <h1 id="箱图-Boxplot"><a href="#箱图-Boxplot" class="headerlink" title="箱图 Boxplot"></a>箱图 Boxplot</h1><h2 id="什么是箱图？"><a href="#什么是箱图？" class="headerlink" title="什么是箱图？"></a>什么是箱图？</h2><p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
@@ -1460,10 +1492,14 @@
     
       <category term="R" scheme="//lix90.github.io/categories/R/"/>
     
+      <category term="Data viz" scheme="//lix90.github.io/categories/R/Data-viz/"/>
+    
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+    
+      <category term="R-viz" scheme="//lix90.github.io/tags/R-viz/"/>
     
   </entry>
   
@@ -1472,7 +1508,7 @@
     <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
     <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
     <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-08T03:26:13.000Z</updated>
+    <updated>2016-11-19T03:12:15.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
 <blockquote>
@@ -1517,11 +1553,112 @@
   </entry>
   
   <entry>
+    <title>R：数据导入</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:13:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+      <category term="Data science" scheme="//lix90.github.io/categories/R/Data-science/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:13:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="R" scheme="//lix90.github.io/categories/R/"/>
+    
+      <category term="Data science" scheme="//lix90.github.io/categories/R/Data-science/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-07</title>
     <link href="//lix90.github.io/2016/11/07/2016-11-07-daily/"/>
     <id>//lix90.github.io/2016/11/07/2016-11-07-daily/</id>
     <published>2016-11-06T16:00:00.000Z</published>
-    <updated>2016-11-07T09:04:06.000Z</updated>
+    <updated>2016-11-19T03:12:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近几天忙一些事情，没有积累多少东西，比较零碎。</p>
 <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p><code>:focus</code> 伪类</p>
@@ -1597,7 +1734,7 @@
     <link href="//lix90.github.io/2016/11/02/2016-11-01-daily/"/>
     <id>//lix90.github.io/2016/11/02/2016-11-01-daily/</id>
     <published>2016-11-01T16:23:13.000Z</published>
-    <updated>2016-11-01T16:26:27.000Z</updated>
+    <updated>2016-11-19T03:11:57.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="JS-对象"><a href="#JS-对象" class="headerlink" title="JS 对象"></a>JS 对象</h2><p>JS 的对象是一种<strong>无序的集合数据类型</strong>，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。</p>
 <p>对象属性的访问：</p>
@@ -1797,7 +1934,7 @@
     <link href="//lix90.github.io/2016/10/31/2016-10-31-daily/"/>
     <id>//lix90.github.io/2016/10/31/2016-10-31-daily/</id>
     <published>2016-10-31T15:36:55.000Z</published>
-    <updated>2016-10-31T15:38:45.000Z</updated>
+    <updated>2016-11-19T03:11:52.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="with-语句"><a href="#with-语句" class="headerlink" title="with 语句"></a>with 语句</h2><p><code>with expression as target:</code></p>
 <h2 id="open-函数"><a href="#open-函数" class="headerlink" title="open 函数"></a>open 函数</h2><p><code>open(name[, mode[, buffering]])</code></p>
@@ -1874,9 +2011,9 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="//lix90.github.io/tags/Flexbox/"/>
     
@@ -1889,7 +2026,7 @@
     <link href="//lix90.github.io/2016/10/30/2016-10-30-daily/"/>
     <id>//lix90.github.io/2016/10/30/2016-10-30-daily/</id>
     <published>2016-10-30T05:57:32.000Z</published>
-    <updated>2016-10-30T12:55:52.000Z</updated>
+    <updated>2016-11-19T03:11:40.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
 <p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
@@ -1987,7 +2124,7 @@
     <link href="//lix90.github.io/2016/10/29/2016-10-29-daily/"/>
     <id>//lix90.github.io/2016/10/29/2016-10-29-daily/</id>
     <published>2016-10-29T06:03:30.000Z</published>
-    <updated>2016-10-30T06:11:25.000Z</updated>
+    <updated>2016-11-19T03:11:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天修改了下博客模板，顺便了解了下相关的工具和模块。</p>
 <h1 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h1><p>辅助函数</p>
@@ -2114,7 +2251,7 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="hexo" scheme="//lix90.github.io/tags/hexo/"/>
+      <category term="Hexo" scheme="//lix90.github.io/tags/Hexo/"/>
     
       <category term="Grunt" scheme="//lix90.github.io/tags/Grunt/"/>
     
@@ -2122,7 +2259,7 @@
     
       <category term="Jade" scheme="//lix90.github.io/tags/Jade/"/>
     
-      <category term="Pugjs" scheme="//lix90.github.io/tags/Pugjs/"/>
+      <category term="Pug.js" scheme="//lix90.github.io/tags/Pug-js/"/>
     
   </entry>
   
@@ -2131,7 +2268,7 @@
     <link href="//lix90.github.io/2016/10/28/2016-10-28-daily/"/>
     <id>//lix90.github.io/2016/10/28/2016-10-28-daily/</id>
     <published>2016-10-28T06:10:36.000Z</published>
-    <updated>2016-10-30T06:13:45.000Z</updated>
+    <updated>2016-11-19T03:11:19.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>常见的 JS 的鼠标事件：</p>
 <ul>
@@ -2262,15 +2399,15 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
-      <category term="代码规范" scheme="//lix90.github.io/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+      <category term="Coding style" scheme="//lix90.github.io/tags/Coding-style/"/>
     
   </entry>
   
@@ -2279,7 +2416,7 @@
     <link href="//lix90.github.io/2016/10/27/2016-10-27-daily/"/>
     <id>//lix90.github.io/2016/10/27/2016-10-27-daily/</id>
     <published>2016-10-27T15:11:30.000Z</published>
-    <updated>2016-10-27T15:16:44.000Z</updated>
+    <updated>2016-11-19T03:10:30.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><p>可包含任意数据类型，并通过索引来访问每个元素。<br>Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
 <p><code>length</code> 获取长度<br><code>indexOf()</code> 搜索指定元素的位置<br><code>slice</code> 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始参数包括开始索引，不包括结束索引。<br><code>push</code> 向 Array 的末尾添加若干元素<br><code>pop</code> 删除 Array 的最后一个元素<br><code>unshift</code> 往 Array 头部添加若干元素<br><code>shift</code> 删除 Array 的第一个元素<br><code>sort</code> 对 Array 进行排序，并且修改 Array 的元素位置，默认排序标准为 <code>string Unicode code points</code>。<br><code>reverse</code> 反转 Array<br><code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br><code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br><code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
@@ -2416,7 +2553,7 @@
 <li><a href="http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/" target="_blank" rel="external">Configure the Scratch Buffer’s Mode</a></li>
 </ul>
 <h2 id="lisp-and-elisp-小记"><a href="#lisp-and-elisp-小记" class="headerlink" title="lisp and elisp 小记"></a>lisp and elisp 小记</h2><p><code>when</code>: <code>(when COND BODY ...)</code> 当 COND 为真，eval BODY；按顺序 eval BODY 中的项，返回最后一项的值。<br><code>and</code>: <code>(and CONDITIONS ...)</code> 当 CONDITIONS 全部为 non-nil 时返回最后一个 arg 的值；如果一个为 nil，后面的都不用 eval，直接返回 nil。<br><code>listp</code>: <code>(listp OBJECT)</code> 当 OBJECT 为 list 返回 t，否则返回 nil。<br><code>cons</code>: <code>(cons CAR CDR)</code> 创建新的 cons。<br><code>not</code>: <code>(not OBJECT)</code> 如果 OBJECT 为 nil 范围 t，否则返回 nil。<br><code>car</code>: <code>(car LIST)</code> 返回 LIST 中的第一个值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br><code>cdr</code>: <code>(cdr LIST)</code> 返回 LIST 中除第一个值之外剩余的值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br><code>cadr</code>: <code>(cadr X)</code> 返回 X 的 cdr 的 car，即范围 X 的第二个元素。<br><code>nth</code>: <code>(nth N LIST)</code> 范围 LIST 中第 N 个元素。<br><code>progn</code>: <code>(progn BODY ...)</code> 按顺序 eval BODY，返回最后一项的值。<br><code>if</code>: <code>(if COND THEN ELSE)</code> 如果 COND 为 non-nil，执行 THEN，否则执行 ELSE；返回 THEN 的值，或者 ELSE 的最后一项的值；THEN 只能有一个表达式，但是 ELSE 可以有零到多个表达式；如果 COND 为 nil，且没有 ELSE，整个 IF 语句返回的值为 nil。<br><code>cond</code>: <code>(cond CLAUSES...)</code> 当一个 clause 执行完再执行下一个 clause. clause 的表达式为 <code>(CONDITION BODY...)</code>. CONDITION eval 的值为 non-nil，那么 eval BODY 表达式中的项目，并且返回最后一个项目的值。如果 clause 表达式仅仅只有一个元素，如 <code>(CONDITION)</code>，如果 CONDITION 为 non-nil，那么返回 CONDITION 的值。如果没有 clause 执行成功，那么 cond 返回 nil。<br><code>eq</code>: <code>(eq OBJ1 OBJ2)</code> 如果两个 args 为相同的 Lisp 对象，那么返回 t。<br><code>defvar</code>: <code>(defvar SYMBOL &amp;optional INITVALUE DOCSTRING)</code> 定义 SYMBOL 为一个变量，然后返回 SYMBOL 的值。</p>
-<p><strong>Q: The differences between Macros and Functions?</strong></p>
+<p><strong>Q: The differences between Macros and Functions?</strong><br>在后面的每日总结有提到两者的差异（更新 @2016-11-19）</p>
 <hr>
 <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p><code>/</code> 与 <code>//</code> 的差别</p>
 <p>在 python2 中，当除数和被除数有一个为浮点型，/ 为一般的除法，如果除数和被除数均为整数型，/ 为整除。而 // 在任何情况下都是整除。而在 python3 中，/ 为浮点除法，// 为整除除法。</p>
@@ -2431,23 +2568,23 @@
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
-      <category term="Javascript" scheme="//lix90.github.io/tags/Javascript/"/>
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="jQuery" scheme="//lix90.github.io/tags/jQuery/"/>
     
-      <category term="VueJS" scheme="//lix90.github.io/tags/VueJS/"/>
+      <category term="Vue.js" scheme="//lix90.github.io/tags/Vue-js/"/>
     
       <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
@@ -2458,10 +2595,9 @@
     <link href="//lix90.github.io/2016/10/26/2016-10-26-daily/"/>
     <id>//lix90.github.io/2016/10/26/2016-10-26-daily/</id>
     <published>2016-10-26T01:30:34.000Z</published>
-    <updated>2016-10-27T15:15:11.000Z</updated>
+    <updated>2016-11-19T03:08:53.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><h2 id="解决-Git-push-冲突"><a href="#解决-Git-push-冲突" class="headerlink" title="解决 Git push 冲突"></a>解决 Git push 冲突</h2><p>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</p>
-<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>Basic premise of learning</p>
+    <content type="html"><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>Basic premise of learning</p>
 <blockquote>
 <p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
 </blockquote>
@@ -2475,7 +2611,7 @@
 <blockquote>
 <p>Algorithms for inferring unknowns from knowns.<br>算法，推论，未知，已知</p>
 </blockquote>
-<h3 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h3><ul>
+<h2 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h2><ul>
 <li>识别垃圾邮件</li>
 <li>识别手写字</li>
 <li>谷歌街道</li>
@@ -2484,25 +2620,25 @@
 <li>Navigation 导航</li>
 <li>气候模型：解释和预测</li>
 </ul>
-<h3 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h3><ul>
+<h2 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h2><ul>
 <li>人类能力不可及：火星探测</li>
 <li>人类无法解释的问题：语音识别</li>
 <li>解决方案随着时间而变化：温度控制</li>
 <li>解决方案需要对个案进行调整</li>
 <li>问题大小超出了人类的合理能力范围</li>
 </ul>
-<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><ul>
+<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><ul>
 <li>分类问题</li>
 <li>回归问题</li>
 </ul>
 <p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>从二元分类到多元分类</p>
-<h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><ul>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><ul>
 <li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
 <li>密度估计（Density estimation）</li>
 <li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
 </ul>
 <p>没有训练集也没有奖励与惩罚</p>
-<h3 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h3><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
+<h2 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h2><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
 <ul>
 <li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
 <li>目标：奖励最大化</li>
@@ -2521,15 +2657,8 @@
 <li>We have data on it. 有足够的数据（学习的基础）</li>
 </ul>
 <hr>
-<p>Hoeffding’s inequality</p>
-<p>PAC: probability approximately correct</p>
-<p>通过概率论的方法来表示对未知的学习。</p>
-<p>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。</p>
-<p><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。</p>
-<p>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。</p>
-<p><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。</p>
-<p>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
-<hr>
+<p>Hoeffding’s inequality<br>PAC: probability approximately correct</p>
+<p>通过概率论的方法来表示对未知的学习。<br>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。<br><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。<br>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。<br><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。<br>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
 <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><p>关于 Margin：</p>
 <blockquote>
 <p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
@@ -2564,27 +2693,29 @@
 <li>Multi-column layout 多栏布局</li>
 <li>Grid layout 格子布局</li>
 </ol>
-<h1 id="Good-stuff"><a href="#Good-stuff" class="headerlink" title="Good stuff"></a>Good stuff</h1><ul>
-<li>Helvetica 纪录片：字体设计</li>
-<li>Code Rush 纪录片：代码奔腾 Firefox 的诞生</li>
-<li>Just for Fun 书籍：Linus 讲述 Linux 如何发明</li>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>解决 Git push 冲突</p>
+<ul>
+<li>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</li>
 </ul>
+<p>Helvetica 纪录片：字体设计<br>Code Rush 纪录片：代码奔腾 Firefox 的诞生<br>Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Skills&quot;&gt;&lt;a href=&quot;#Skills&quot; class=&quot;headerlink&quot; title=&quot;Skills&quot;&gt;&lt;/a&gt;Skills&lt;/h1&gt;&lt;h2 id=&quot;解决-Git-push-冲突&quot;&gt;&lt;a href=&quot;#解决-Git-push-冲突&quot; class=&quot;
+      &lt;h1 id=&quot;机器学习&quot;&gt;&lt;a href=&quot;#机器学习&quot; class=&quot;headerlink&quot; title=&quot;机器学习&quot;&gt;&lt;/a&gt;机器学习&lt;/h1&gt;&lt;p&gt;Basic premise of learning&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;using a set of o
     
     </summary>
     
       <category term="每日总结" scheme="//lix90.github.io/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
-      <category term="机器学习" scheme="//lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+    
+      <category term="Machine Learning" scheme="//lix90.github.io/tags/Machine-Learning/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -2593,7 +2724,7 @@
     <link href="//lix90.github.io/2016/10/22/2016-10-22-http/"/>
     <id>//lix90.github.io/2016/10/22/2016-10-22-http/</id>
     <published>2016-10-22T11:45:33.000Z</published>
-    <updated>2016-11-10T01:53:29.000Z</updated>
+    <updated>2016-11-19T03:06:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>HTTP/0.9 —&gt; HTTP/1.0 —&gt; HTTP/1.1 —&gt; SPDY 协议 —&gt; HTTP/2</p>
 <h1 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP/1.0"></a>HTTP/1.0</h1><p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
@@ -2629,9 +2760,9 @@
       <category term="前端开发" scheme="//lix90.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+    
+      <category term="Web" scheme="//lix90.github.io/tags/Web/"/>
     
   </entry>
   
@@ -2640,7 +2771,7 @@
     <link href="//lix90.github.io/2016/10/17/2016-10-17-d3js-intro/"/>
     <id>//lix90.github.io/2016/10/17/2016-10-17-d3js-intro/</id>
     <published>2016-10-17T08:23:07.000Z</published>
-    <updated>2016-10-28T02:05:07.000Z</updated>
+    <updated>2016-11-19T03:04:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p>
 <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>使用 D3.js 进行数据可视化需要了解以下内容：</p>
@@ -2774,14 +2905,14 @@
     
     </summary>
     
-      <category term="D3js" scheme="//lix90.github.io/categories/D3js/"/>
+      <category term="Data viz" scheme="//lix90.github.io/categories/Data-viz/"/>
+    
+      <category term="Data science" scheme="//lix90.github.io/categories/Data-viz/Data-science/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="D3.js" scheme="//lix90.github.io/tags/D3-js/"/>
     
-      <category term="数据可视化" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="D3js" scheme="//lix90.github.io/tags/D3js/"/>
+      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
     
       <category term="SVG" scheme="//lix90.github.io/tags/SVG/"/>
     
@@ -2792,7 +2923,7 @@
     <link href="//lix90.github.io/2016/10/08/2016-10-08-r-source-code/"/>
     <id>//lix90.github.io/2016/10/08/2016-10-08-r-source-code/</id>
     <published>2016-10-08T14:23:57.000Z</published>
-    <updated>2016-11-13T02:06:17.000Z</updated>
+    <updated>2016-11-19T03:03:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>&gt;<br>Updated in 2016-11-11</p>
 <p>为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：</p>
@@ -2838,8 +2969,12 @@
     
       <category term="R" scheme="//lix90.github.io/categories/R/"/>
     
+      <category term="Data science" scheme="//lix90.github.io/categories/R/Data-science/"/>
+    
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -2848,7 +2983,7 @@
     <link href="//lix90.github.io/2016/10/03/2016-10-03-r-regex/"/>
     <id>//lix90.github.io/2016/10/03/2016-10-03-r-regex/</id>
     <published>2016-10-02T16:46:15.000Z</published>
-    <updated>2016-11-10T03:24:28.000Z</updated>
+    <updated>2016-11-19T03:01:45.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>A ‘regular expression’ is a pattern that describes a set of strings.</p>
@@ -2883,6 +3018,8 @@
     
       <category term="R" scheme="//lix90.github.io/categories/R/"/>
     
+      <category term="Data science" scheme="//lix90.github.io/categories/R/Data-science/"/>
+    
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
@@ -2895,7 +3032,7 @@
     <link href="//lix90.github.io/2016/09/25/2016-09-25-php-config/"/>
     <id>//lix90.github.io/2016/09/25/2016-09-25-php-config/</id>
     <published>2016-09-25T13:00:45.000Z</published>
-    <updated>2016-10-28T02:03:40.000Z</updated>
+    <updated>2016-11-19T03:02:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p>
 <p>因为系统是 Mac OSX，所以直接使用 <code>brew install php56</code> 来安装。但是并未找到 php56 。于是 <code>brew search php</code>，发现 php 相关安装包位于 <code>/homebrew/php/*</code>，于是用 <code>brew install homebrew/php/php56</code> 安装。但是出现报错 <code>undefined method rebuild</code> 的错误。尝试 <code>brew cleanup &amp;&amp; brew update</code>，仍然不起作用，依旧报错。后来查询到可以更新下 homebrew 的仓库。于是</p>
@@ -2925,10 +3062,10 @@
     
     </summary>
     
-      <category term="PHP" scheme="//lix90.github.io/categories/PHP/"/>
+      <category term="Configuration" scheme="//lix90.github.io/categories/Configuration/"/>
     
     
-      <category term="配置" scheme="//lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
+      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     
       <category term="PHP" scheme="//lix90.github.io/tags/PHP/"/>
     
@@ -2939,7 +3076,7 @@
     <link href="//lix90.github.io/2016/09/22/2016-09-22-decision-tree/"/>
     <id>//lix90.github.io/2016/09/22/2016-09-22-decision-tree/</id>
     <published>2016-09-22T02:10:09.000Z</published>
-    <updated>2016-10-28T02:03:33.000Z</updated>
+    <updated>2016-11-19T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。</p>
 <p>决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。</p>
@@ -2965,12 +3102,14 @@
     
     </summary>
     
+      <category term="Data science" scheme="//lix90.github.io/categories/Data-science/"/>
     
-      <category term="机器学习" scheme="//lix90.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="决策树" scheme="//lix90.github.io/tags/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
+      <category term="Machine learning" scheme="//lix90.github.io/tags/Machine-learning/"/>
     
-      <category term="分类算法" scheme="//lix90.github.io/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+      <category term="Decision tree" scheme="//lix90.github.io/tags/Decision-tree/"/>
+    
+      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
     
   </entry>
   
@@ -2979,7 +3118,7 @@
     <link href="//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/"/>
     <id>//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/</id>
     <published>2016-09-17T06:48:43.000Z</published>
-    <updated>2016-10-28T02:03:08.000Z</updated>
+    <updated>2016-11-19T03:02:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>在正式读研之前，我几乎没有编程基础。本科在一所不知名的民办二本院校的第一届人力资源班。只在省二级计算机考试中接触了丁点儿编程（好像是VFOX）。也没有考国家计算机二级证书。从刚读研开始，需要在 MATLAB 环境下工作，才正式学起了一门程序语言。所以学习一门编程语言并没有想象中的困难。</p>
 <p>借这个地儿，分享<strong>如何从零基础菜鸟开始入门到熟悉并且掌握一门程序语言</strong>的一些经验，希望能够给同样零基础，或者畏惧编程的朋友（特别是从事科学研究的人）一些启发。</p>
@@ -3118,10 +3257,10 @@
     
     </summary>
     
-      <category term="个人日志" scheme="//lix90.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
+      <category term="How-to-learn" scheme="//lix90.github.io/categories/How-to-learn/"/>
     
     
-      <category term="学习方法" scheme="//lix90.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+      <category term="Programming" scheme="//lix90.github.io/tags/Programming/"/>
     
   </entry>
   
@@ -3130,7 +3269,7 @@
     <link href="//lix90.github.io/2016/09/17/2016-09-17-sql/"/>
     <id>//lix90.github.io/2016/09/17/2016-09-17-sql/</id>
     <published>2016-09-17T01:46:39.000Z</published>
-    <updated>2016-10-28T02:03:24.000Z</updated>
+    <updated>2016-11-19T03:02:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>《数据库系统概论》第三章笔记。</p>
 <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="SQL-历史"><a href="#SQL-历史" class="headerlink" title="SQL 历史"></a>SQL 历史</h2><ul>
@@ -3385,21 +3524,21 @@
     
     </summary>
     
-      <category term="数据库系统" scheme="//lix90.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/"/>
+      <category term="Database" scheme="//lix90.github.io/categories/Database/"/>
     
     
-      <category term="数据库系统" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/"/>
+      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
     
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
   </entry>
   
   <entry>
-    <title>R 向量化运算</title>
+    <title>R：向量化运算</title>
     <link href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/"/>
     <id>//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</id>
     <published>2016-09-13T14:50:21.000Z</published>
-    <updated>2016-11-13T02:07:28.000Z</updated>
+    <updated>2016-11-19T03:02:35.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Updated in 2016-11-12</p>
@@ -3459,7 +3598,7 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -3468,7 +3607,7 @@
     <link href="//lix90.github.io/2016/09/13/2016-09-13-mysql-config/"/>
     <id>//lix90.github.io/2016/09/13/2016-09-13-mysql-config/</id>
     <published>2016-09-13T12:59:16.000Z</published>
-    <updated>2016-10-28T02:03:01.000Z</updated>
+    <updated>2016-11-19T03:03:13.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
 <h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>在网上教程发现提到这三个文件</p>
@@ -3533,16 +3672,16 @@
     
     </summary>
     
-      <category term="MySQL" scheme="//lix90.github.io/categories/MySQL/"/>
+      <category term="Database" scheme="//lix90.github.io/categories/Database/"/>
     
+      <category term="Configuration" scheme="//lix90.github.io/categories/Database/Configuration/"/>
+    
+    
+      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
     
       <category term="MySQL" scheme="//lix90.github.io/tags/MySQL/"/>
     
-      <category term="数据库" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="关系型数据库" scheme="//lix90.github.io/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="配置" scheme="//lix90.github.io/tags/%E9%85%8D%E7%BD%AE/"/>
+      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     
   </entry>
   
@@ -3551,7 +3690,7 @@
     <link href="//lix90.github.io/2016/09/11/2016-09-11-data-redundency/"/>
     <id>//lix90.github.io/2016/09/11/2016-09-11-data-redundency/</id>
     <published>2016-09-11T11:54:11.000Z</published>
-    <updated>2016-10-28T02:02:42.000Z</updated>
+    <updated>2016-11-19T03:03:30.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
 <p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
@@ -3585,12 +3724,10 @@
     
     </summary>
     
-      <category term="数据库系统" scheme="//lix90.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/"/>
+      <category term="Database" scheme="//lix90.github.io/categories/Database/"/>
     
     
-      <category term="数据库系统" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="数据冗余" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%86%97%E4%BD%99/"/>
+      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
     
   </entry>
   

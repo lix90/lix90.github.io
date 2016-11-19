@@ -261,6 +261,208 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/19/2016-11-19-sql-interview/" itemprop="url">
+                  数据库面试题解答
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T00:00:00+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/2016-11-19-sql-interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/19/2016-11-19-sql-interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>内容来源：<a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></p>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>什么是存储过程？优缺点？</p>
+<p>存储过程：一个预编译的代码块（T-SQL），实现一系列功能（对表单或多表增删改查），然后方便调用。<br>优点：执行效率较高；降低网络通信量，提高通信效率；一定程度上确保数据安全。</p>
+<p>我的问题：如何编写存储过程代码？</p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>什么是索引？作用？优缺点？使用索引查询一定能提高查询的性能吗？</p>
+<p>索引：对数据库表中一或多个列的值进行<strong>排序</strong>的结构，能够<strong>加快数据检索</strong>，允许数据库程序迅速找到表中数据，而不必扫描整个数据库。<br>MySQL中几个基本的索引：普通索引、唯一索引、主键索引、全文索引。<br>优缺点：</p>
+<ul>
+<li>加快数据检索速度</li>
+<li>降低增删改等维护任务的速度</li>
+<li>唯一索引可以确保每一行数据的唯一性</li>
+<li>可以在查询过程中使用优化隐藏器，提高系统性能</li>
+<li>占物理和数据空间（缺点）</li>
+</ul>
+<p>然而，在使用索引查询数据时，需要注意到它的代价。<strong>索引需要存储空间，也需要定期维护</strong>，当表中记录被增减，或者索引列被修改时，索引本身也会被修改，将会因此多付出4，5次磁盘I/O。有时候，<strong>不必要的索引反而会时查询反应时间变慢</strong>，所使用索引并不一定提高查询性能。</p>
+<p>索引查询适合两种情况：</p>
+<ul>
+<li><strong>基于一定范围的检索</strong>，一般查询返回结果集小于表中记录数的30%；</li>
+<li><strong>基于非唯一性索引的检索</strong>。</li>
+</ul>
+<p>我的问题：如何创建索引？</p>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>事务（Transaction）：并发控制的基本单位。它是一个操作序列，要么执行，要么都不执行，是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，保持数据一致性。</p>
+<h1 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h1><p>乐观锁与悲观锁</p>
+<p><strong>并发控制</strong>确保多个事务在同时存取数据库中同一数据时，不破坏事务的隔离性和统一性，以及数据库的统一性。乐观锁和悲观锁为并发控制的主要技术手段。</p>
+<ul>
+<li>悲观锁为悲观并发控制，它假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作；</li>
+<li>乐观锁为乐观并发控制，它假定不会发生并发冲突，只在提交操作时检查是否违反数据完整性。</li>
+</ul>
+<h1 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h1><p>drop, delete, truncate 的区别？分别在什么场景下使用？</p>
+<ul>
+<li>三者均为删除操作；</li>
+<li>delete 和 truncate 只删除表的数据不删除表的结构</li>
+<li>速度：drop &gt; truncate &gt; delete</li>
+<li>delete 语句是 dml，这个操作会放到 rollback segement 中，事务提交之后才生效；如果有相应的 trigger，执行的时候将被触发。truncate，drop 是 ddl，操作立即生效，原数据不放到 rollback segment 中，不能回滚。操作不触发 trigger。</li>
+</ul>
+<p>场景：</p>
+<ul>
+<li>不再需要一张表，用 drop；</li>
+<li>删除部分数据行，用 delete，带上 where 子句；</li>
+<li>保留表而删除所有数据，用 truncate。</li>
+</ul>
+<h1 id="键"><a href="#键" class="headerlink" title="键"></a>键</h1><p>超键、候选键、主键、外键是什么？</p>
+<p>超键：在关系中<strong>能唯一标识元组的属性集</strong>称为关系模式的超键。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含<strong>候选键</strong>和<strong>主键</strong>。<br>候选键：最小超键，即没有冗余元素的超键。<br>主键：数据库表中对储存数据对象予以<strong>唯一和完整标识</strong>的数据列或属性的组合。<strong>一个数据列只能有一个主键</strong>，且主键的取值不能缺失，即不能为空值（Null）。<br>外键：在一个表中存在的另一个表的主键称此表的外键。</p>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>什么是视图？视图的使用场景？</p>
+<p>视图是一种虚拟的表，具有和物理表相同的功能，可对视图进行增，改，查的操作。视图通常是一个表或者多个表的行或列的子集。相比多表查询，使得我们获取数据更容易。对视图的修改不影响基本表。</p>
+<ul>
+<li>只暴露部分字段给访问者；</li>
+<li>查询的数据来源于不同的表，而查询者希望以统一的方式查询，创建视图能把多个表查询结果联合起来，查询者只需要直接从视图中获取数据，不必考虑数据来源于不同表所带来的差异</li>
+</ul>
+<h1 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h1><p>范式（Normal Form）：符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。通俗地讲，就是一张数据表的表结构所符合的某种设计标准的级别。符合高一级范式的设计，必定符合低一级范式。范式作为设计的标准范式，其最大的意义就是为了避免数据的冗余和插入/删除/更新的异常。</p>
+<p>第一范式 1NF：符合 1NF 关系中的每个属性都不可再分。也就是说，一个属性不能有子属性。1NF 是所有关系型数据库（RDB）的最基本要求。只要在关系型数据库管理系统中已经存在的数据表，一定是符合 1NF 的。如果仅仅符合 1NF 的设计，会存在数据冗余过大，插入异常，删除异常，修改异常等问题。故需要提高设计标准，解决导致上述问题的因素，使其符合更高一级范式，这就是所谓的“规范化”。</p>
+<p>第二范式 2NF：2NF 在 1NF 的基础上，消除了非主属性对于码的部分函数依赖。2NF 要求，如果依赖于主键，则需要依赖于所有主键，不能存在依赖部分主键的情况。通俗说，就是不要把不相关的东西放到一个表中。不相关的东西不要放在一起，用多个小表连接来代替大表，减少修改时候的负担。</p>
+<ul>
+<li>函数依赖：若在一张表中，在属性（或属性组）X 的值确定的情况下，必定能确定属性 Y 的值，那就可以说 Y 函数依赖于 X，写作 $X\toY$。函数依赖包括三种依赖：完全函数依赖、部分函数依赖、传递函数依赖。</li>
+<li>码：假设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都<strong>完全函数依赖</strong>于 K，那么我们称 K 为候选码，简称为码。换句话说，假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。一张表中可以有超过一个码。实际应用中为了方便，通常选择其中的一个码作为主码。</li>
+<li>非主属性：包含在任何一个码中的属性称为主属性。</li>
+</ul>
+<p>判断是否符合 2NF 就是看数据表中是否存在非主属性对于码的部分函数依赖。若存在，则数据表最高只符合 1NF 的要求，若不存在，则符合 2NF 的要求。判断方法为：</p>
+<ul>
+<li>第一步：找出数据表中所有的码。</li>
+<li>第二步：根据第一步得到的码，找出所有的主属性。</li>
+<li>第三步：数据表中，除去所有的主属性，剩下的就都是非主属性了。</li>
+<li>第四步：查看是否存在非主属性对码的部分函数依赖。</li>
+</ul>
+<p>如何消除部分函数依赖，从而让表符合 2NF 的要求？</p>
+<ul>
+<li>将大数据表拆分成两个或者更多个更小的数据表，在拆分过程中，要达到更高一级范式的要求，这个过程叫做<strong>模式分解</strong>。模式分解方法不是唯一的。<strong>如何进行模式分解呢？</strong></li>
+</ul>
+<p>仅仅符合 2NF 的要求，仍然存在非主属性对于码的传递函数依赖。为了进一步解决问题，还需将数据表改进为符合 3NF 的要求。</p>
+<p>第三范式 3NF：3NF 在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖。如果存在非主属性对于码的传递函数依赖，则不符合 3NF 的要求。3NF 避免了查询路径过长而导致询问时间过长或者更新异常，提高查询效率。然而，在某些特殊情况下，即使关系模式符合 3NF 的要求，仍然存在这插入、修改、删除异常。造成问题的原因在于，存在着主属性对于码的部分函数依赖和传递函数依赖。解决办法是在 3NF 的基础上消除主属性对于码的部分与传递函数依赖。此时的设计为 BCNF 范式。BC 范式的每个表中只有一个候选键。</p>
+<p><strong>所谓的范式，是用来学习参考的，设计的时候根据情况，未必一定要遵守。</strong></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/24696366" target="_blank" rel="external">解释一下关系数据库的第一第二第三范式？刘慰、Lyken的回答</a></li>
+</ul>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/CareySon/archive/2010/02/16/1668803.html" target="_blank" rel="external">数据库范式那些事</a></li>
+</ul>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/18/2016-11-18-daily/" itemprop="url">
                   每日总结 2016-11-18
                 </a>
@@ -387,13 +589,222 @@
 </ul>
 <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git-commit"></a>git-commit</h2><p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br><code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
 <p><strong>git 跟踪的是内容不是文件</strong></p>
-<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<h1 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h1><p><strong>应该使用 Yes/No 或者 Ok/Cancel 在消息框中吗？</strong><br>一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
+<p>参考：<a href="http://ux.stackexchange.com/questions/9946/should-i-use-yes-no-or-ok-cancel-on-my-message-box?newsletter=1&amp;nlcode=678926%7caee7" target="_blank" rel="external">stackexchange: user experience</a></p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><ol>
+<li>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</li>
+<li>新创刊期刊影响因子多久出来？3-5年，第4年出第三年的影响因子。所以第一年和第二年没有影响因子。</li>
+</ol>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
 <li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
 <li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
 <li>SaaS - Software as a Service <a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">软件即服务</a>，通俗可以称为“即需即用软件”，是一种软件交互模式。在这种交互模式中云端集中式托管软件及相关的数据，软件仅需透过互联网，而不须透过安装即可使用。用户通常使用精简客户端经由一个网页浏览器来访问软件即服务。</li>
 <li>IoT - Internet of Things <a href="https://zh.wikipedia.org/wiki/%E7%89%A9%E8%81%94%E7%BD%91" target="_blank" rel="external">物联网</a>，让所有能行使独立功能的普通物体实现互联互通的网络。</li>
 <li>SOA - Service-oriented architecture <a href="https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9E%B6%E6%9E%84" target="_blank" rel="external">面向服务的体系结构</a>，是构造分布式计算的应用程序的方法，它将应用程序功能作为服务发送给最终用户或者其他服务。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/17/2016-11-17-r-tidyr/" itemprop="url">
+                  R：使用 tidyr 进行数据操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/Data-science/" itemprop="url" rel="index">
+                    <span itemprop="name">Data science</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/17/2016-11-17-r-tidyr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/17/2016-11-17-r-tidyr/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>data</code> 数据框</li>
+<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
+<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
+<li><code>-z</code> 排除 z 变量</li>
+<li><code>x,y,z</code> 选择 x y z 三个变量</li>
+<li><code>2:4</code> 选择第2到4列</li>
+</ul>
+</li>
+<li><code>na.rm</code> 是否去除缺失值</li>
+<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
+<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
+</ul>
+<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>key</code> 该列的因子转换为多个列的列名</li>
+<li><code>value</code> 该列的内容将分配到多个列中</li>
+<li><code>fill</code> 指定填充缺失值的值</li>
+<li><code>convert</code> 数据类型转换</li>
+<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
+<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
+</ul>
+<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 列名（不需要引号）</li>
+<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
+<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
+</ul>
+</li>
+<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
+<li><code>convert</code> 数据类型转换。</li>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
+<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
+<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
+</ul>
+</li>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
+<li><code>&quot;right&quot;</code> 在右侧填充</li>
+<li><code>&quot;left&quot;</code> 在左侧填充</li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
+<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 将要合并得到的列名</li>
+<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
+<li><code>sep</code> 分隔符</li>
+<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>长转宽</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>宽转长</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
+<p>合并列与分割列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
+<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
 </ul>
 
           
@@ -588,198 +999,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/17/2016-11-17-r-tidyr/" itemprop="url">
-                  R：使用 tidyr 进行数据操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
-              2016-11-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/17/2016-11-17-r-tidyr/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/17/2016-11-17-r-tidyr/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>data</code> 数据框</li>
-<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
-<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
-<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
-<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
-<li><code>-z</code> 排除 z 变量</li>
-<li><code>x,y,z</code> 选择 x y z 三个变量</li>
-<li><code>2:4</code> 选择第2到4列</li>
-</ul>
-</li>
-<li><code>na.rm</code> 是否去除缺失值</li>
-<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
-<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
-</ul>
-<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>key</code> 该列的因子转换为多个列的列名</li>
-<li><code>value</code> 该列的内容将分配到多个列中</li>
-<li><code>fill</code> 指定填充缺失值的值</li>
-<li><code>convert</code> 数据类型转换</li>
-<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
-<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
-</ul>
-<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>col</code> 列名（不需要引号）</li>
-<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
-<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
-<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
-<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
-</ul>
-</li>
-<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
-<li><code>convert</code> 数据类型转换。</li>
-<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
-<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
-<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
-<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
-</ul>
-</li>
-<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
-<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
-<li><code>&quot;right&quot;</code> 在右侧填充</li>
-<li><code>&quot;left&quot;</code> 在左侧填充</li>
-</ul>
-</li>
-</ul>
-<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
-<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>col</code> 将要合并得到的列名</li>
-<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
-<li><code>sep</code> 分隔符</li>
-<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>长转宽</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>宽转长</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
-<p>合并列与分割列</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
-<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/11/16/2016-11-16-r-vis-layout/" itemprop="url">
                   R：使用基本包进行多图布局
                 </a>
@@ -810,6 +1029,18 @@
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/R/" itemprop="url" rel="index">
                     <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/R/Data-viz/" itemprop="url" rel="index">
+                    <span itemprop="name">Data viz</span>
                   </a>
                 </span>
 
@@ -933,196 +1164,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/16/2016-11-16-daily/" itemprop="url">
-                  每日总结 2016-11-16
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
-              2016-11-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/每日总结/" itemprop="url" rel="index">
-                    <span itemprop="name">每日总结</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/16/2016-11-16-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/16/2016-11-16-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
-<ul>
-<li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
-<li><code>X11</code> 在 X11 视窗系统下支持</li>
-<li><code>svg</code> 基于 cairo 图形的 SVG 设备</li>
-<li>位图 <code>png</code> <code>jpeg</code> <code>bmp</code> <code>tiff</code></li>
-<li><code>quartz</code> 仅在 macOS 上支持</li>
-</ul>
-<p>如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 <code>options(&quot;device&quot;)</code> 指定。 返回。默认的设备为初始化设置为当前平台最合适的设备。</p>
-<p>在 R 中，只允许存在一个“活动（active）”的设备，所有图形操作均在活动设备之上。只要 R 在运行，就有一个“空设备”一直处于开启状态，但仅仅作为占位，任何使用这个空设备的尝试将会打开一个新的设备。设备与一个名称和数字编号关联，数字编号范围为1到63。空设备为编号1。一旦设备被打开，空设备将变成非活动的设备。可以通过 <code>dev.next</code> 和 <code>dev.prev</code> 选择一列开启的设备中，活动的设备的上一个或者下一个设备。</p>
-<p>可以通过 <code>dev.off</code> 关闭指定的设备。如果未指定编号，默认关闭当前活动的设备。如果当前活动设备被关闭，那么下一个设备会被当作活动设备。编号1的设备不能关闭。正常结束一个对话可以执行 <code>graphics.off()</code>。</p>
-<p><code>dev.set</code> 将指定设备更改为活动设备。<code>dev.cur</code> 返回当前活动设备。<code>dev.list</code> 列出所有开启的设备，如果不存在开启的设备，那么返回空设备。如果不存在指定编号的设备，那么默认将 <code>dev.next</code> 所得到的设备当作活动设备。如果指定编号1设备，那么将开启新的设备，并将其设置为活动设备。</p>
-<p><code>dev.new</code> 将开启新的设备。正常情况下，需要时 R 会自动开启新的设备，但这是<strong>让你开启独立于平台的设备</strong>(?疑问：原文”this enables you to open further devices in a platform-indenpendent way.”)。当基于文件的设备（<code>pdf</code>等），文件名将依次命名为 <code>Rplots&lt;1~99&gt;.pdf</code>。对于标准位图设备，如果未指定单位和分辨率，默认强制设置为 <code>units = &quot;in&quot;, res = 72</code>。</p>
-<p>图形设备相关参数：</p>
-<ul>
-<li><code>title</code> 标题</li>
-<li><code>width</code> 宽度</li>
-<li><code>height</code> 高度</li>
-<li><code>pointsize</code> 点尺寸</li>
-<li><code>family</code> 字体</li>
-<li><code>antialias</code> 是否抗锯齿</li>
-<li><code>type</code> 类型</li>
-<li><code>file</code> 文件名</li>
-<li><code>bg</code> 背景色</li>
-<li><code>canvas</code> 画布</li>
-<li><code>dpi</code> 分辨率（每英寸点数）</li>
-</ul>
-<p>PDF 设备参数：</p>
-<ul>
-<li><code>paper</code> 纸张类型，<code>&quot;a4&quot;,&quot;letter&quot;,&quot;legal&quot;,...</code></li>
-<li><code>bg</code> 背景色，默认为 <code>&quot;transparent&quot;</code></li>
-<li><code>fg</code> 前景色，默认为 <code>&quot;black&quot;</code></li>
-<li><code>pointsize</code> 默认为 <code>12</code>，1/72英寸为一个点</li>
-<li><code>colormodel</code> 颜色模式 <code>&quot;srgb&quot;,&quot;gray&quot;,&quot;cmyk&quot;</code>，默认为 <code>&quot;srgb&quot;</code></li>
-</ul>
-<p>PDF 设备并不嵌入字体到 PDF 文件中，所以建议使用常见的字体例如：<code>&quot;Times&quot;(=&quot;serif&quot;),&quot;Helvetica&quot;(=&quot;sans&quot;),&quot;Courier&quot;(=&quot;mono&quot;)</code>。</p>
-<ul>
-<li>默认设备尺寸为 7 英寸的正方形。</li>
-<li>字体大小为 “big points”。</li>
-<li>默认字体为 Helvetica。</li>
-<li>线宽为1/96英寸的倍数，最小为 0.01。</li>
-<li>可支持任意弧度的圆形。</li>
-<li>颜色模式默认为 sRGB。</li>
-<li>如果线宽特别细，线型默认强制为实线。</li>
-</ul>
-<p>位图设备参数：</p>
-<ul>
-<li>默认宽高均为 <code>480px</code></li>
-<li>默认单位为 <code>px</code></li>
-<li>默认点大小为 <code>12</code></li>
-<li>默认背景色为 <code>&quot;white&quot;</code></li>
-<li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
-</ul>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
-<h2 id="统计学"><a href="#统计学" class="headerlink" title="统计学"></a>统计学</h2><h3 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h3><p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
-<blockquote>
-<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
-</blockquote>
-<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
-<h3 id="循环变量"><a href="#循环变量" class="headerlink" title="循环变量"></a>循环变量</h3><p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
-<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
-<h2 id="Mac-安装-pip"><a href="#Mac-安装-pip" class="headerlink" title="Mac 安装 pip"></a>Mac 安装 pip</h2><ol>
-<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
-<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
-</ol>
-<h2 id="CSS：利用偏移垂直居中"><a href="#CSS：利用偏移垂直居中" class="headerlink" title="CSS：利用偏移垂直居中"></a>CSS：利用偏移垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
-<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1168,7 +1209,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1176,7 +1217,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1185,7 +1226,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

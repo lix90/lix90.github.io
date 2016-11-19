@@ -261,6 +261,196 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/16/2016-11-16-daily/" itemprop="url">
+                  每日总结 2016-11-16
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
+              2016-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/每日总结/" itemprop="url" rel="index">
+                    <span itemprop="name">每日总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/16/2016-11-16-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/16/2016-11-16-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+<ul>
+<li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
+<li><code>X11</code> 在 X11 视窗系统下支持</li>
+<li><code>svg</code> 基于 cairo 图形的 SVG 设备</li>
+<li>位图 <code>png</code> <code>jpeg</code> <code>bmp</code> <code>tiff</code></li>
+<li><code>quartz</code> 仅在 macOS 上支持</li>
+</ul>
+<p>如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 <code>options(&quot;device&quot;)</code> 指定。 返回。默认的设备为初始化设置为当前平台最合适的设备。</p>
+<p>在 R 中，只允许存在一个“活动（active）”的设备，所有图形操作均在活动设备之上。只要 R 在运行，就有一个“空设备”一直处于开启状态，但仅仅作为占位，任何使用这个空设备的尝试将会打开一个新的设备。设备与一个名称和数字编号关联，数字编号范围为1到63。空设备为编号1。一旦设备被打开，空设备将变成非活动的设备。可以通过 <code>dev.next</code> 和 <code>dev.prev</code> 选择一列开启的设备中，活动的设备的上一个或者下一个设备。</p>
+<p>可以通过 <code>dev.off</code> 关闭指定的设备。如果未指定编号，默认关闭当前活动的设备。如果当前活动设备被关闭，那么下一个设备会被当作活动设备。编号1的设备不能关闭。正常结束一个对话可以执行 <code>graphics.off()</code>。</p>
+<p><code>dev.set</code> 将指定设备更改为活动设备。<code>dev.cur</code> 返回当前活动设备。<code>dev.list</code> 列出所有开启的设备，如果不存在开启的设备，那么返回空设备。如果不存在指定编号的设备，那么默认将 <code>dev.next</code> 所得到的设备当作活动设备。如果指定编号1设备，那么将开启新的设备，并将其设置为活动设备。</p>
+<p><code>dev.new</code> 将开启新的设备。正常情况下，需要时 R 会自动开启新的设备，但这是<strong>让你开启独立于平台的设备</strong>(?疑问：原文”this enables you to open further devices in a platform-indenpendent way.”)。当基于文件的设备（<code>pdf</code>等），文件名将依次命名为 <code>Rplots&lt;1~99&gt;.pdf</code>。对于标准位图设备，如果未指定单位和分辨率，默认强制设置为 <code>units = &quot;in&quot;, res = 72</code>。</p>
+<p>图形设备相关参数：</p>
+<ul>
+<li><code>title</code> 标题</li>
+<li><code>width</code> 宽度</li>
+<li><code>height</code> 高度</li>
+<li><code>pointsize</code> 点尺寸</li>
+<li><code>family</code> 字体</li>
+<li><code>antialias</code> 是否抗锯齿</li>
+<li><code>type</code> 类型</li>
+<li><code>file</code> 文件名</li>
+<li><code>bg</code> 背景色</li>
+<li><code>canvas</code> 画布</li>
+<li><code>dpi</code> 分辨率（每英寸点数）</li>
+</ul>
+<p>PDF 设备参数：</p>
+<ul>
+<li><code>paper</code> 纸张类型，<code>&quot;a4&quot;,&quot;letter&quot;,&quot;legal&quot;,...</code></li>
+<li><code>bg</code> 背景色，默认为 <code>&quot;transparent&quot;</code></li>
+<li><code>fg</code> 前景色，默认为 <code>&quot;black&quot;</code></li>
+<li><code>pointsize</code> 默认为 <code>12</code>，1/72英寸为一个点</li>
+<li><code>colormodel</code> 颜色模式 <code>&quot;srgb&quot;,&quot;gray&quot;,&quot;cmyk&quot;</code>，默认为 <code>&quot;srgb&quot;</code></li>
+</ul>
+<p>PDF 设备并不嵌入字体到 PDF 文件中，所以建议使用常见的字体例如：<code>&quot;Times&quot;(=&quot;serif&quot;),&quot;Helvetica&quot;(=&quot;sans&quot;),&quot;Courier&quot;(=&quot;mono&quot;)</code>。</p>
+<ul>
+<li>默认设备尺寸为 7 英寸的正方形。</li>
+<li>字体大小为 “big points”。</li>
+<li>默认字体为 Helvetica。</li>
+<li>线宽为1/96英寸的倍数，最小为 0.01。</li>
+<li>可支持任意弧度的圆形。</li>
+<li>颜色模式默认为 sRGB。</li>
+<li>如果线宽特别细，线型默认强制为实线。</li>
+</ul>
+<p>位图设备参数：</p>
+<ul>
+<li>默认宽高均为 <code>480px</code></li>
+<li>默认单位为 <code>px</code></li>
+<li>默认点大小为 <code>12</code></li>
+<li>默认背景色为 <code>&quot;white&quot;</code></li>
+<li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
+</ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
+<h2 id="统计学"><a href="#统计学" class="headerlink" title="统计学"></a>统计学</h2><h3 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h3><p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
+<blockquote>
+<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
+</blockquote>
+<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
+<h3 id="循环变量"><a href="#循环变量" class="headerlink" title="循环变量"></a>循环变量</h3><p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
+<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
+<h2 id="Mac-安装-pip"><a href="#Mac-安装-pip" class="headerlink" title="Mac 安装 pip"></a>Mac 安装 pip</h2><ol>
+<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
+<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
+</ol>
+<h2 id="CSS：利用偏移垂直居中"><a href="#CSS：利用偏移垂直居中" class="headerlink" title="CSS：利用偏移垂直居中"></a>CSS：利用偏移垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
+<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/15/2016-11-15-daily/" itemprop="url">
                   每日总结 2016-11-15
                 </a>
@@ -411,215 +601,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/2016-11-14-img-output/" itemprop="url">
-                  实验室内部分享一：绘制和编辑可发表的图形
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/实验室内部分享/" itemprop="url" rel="index">
-                    <span itemprop="name">实验室内部分享</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/2016-11-14-img-output/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-img-output/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/11/14/2016-11-14-daily/" itemprop="url">
                   每日总结 2016-11-14
                 </a>
@@ -690,7 +671,7 @@
       
         
           
-            <h1 id="R-每日学习记录"><a href="#R-每日学习记录" class="headerlink" title="R 每日学习记录"></a>R 每日学习记录</h1><p>Mode &amp; Type</p>
+            <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><p>Mode &amp; Type</p>
 <p>Mode 由 <code>mode</code> 获得<br>Type 由 <code>typeof</code> 获得</p>
 <p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
 <ul>
@@ -886,8 +867,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/13/2016-11-13-wiki/" itemprop="url">
-                  个人资源长期整理
+                <a class="post-title-link" href="/2016/11/14/2016-11-14-img-output/" itemprop="url">
+                  实验室内部分享一：绘制和编辑可发表的图形
                 </a>
               
             
@@ -900,8 +881,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T00:00:00+08:00" content="2016-11-13">
-              2016-11-13
+            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -914,8 +895,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Wiki/" itemprop="url" rel="index">
-                    <span itemprop="name">Wiki</span>
+                  <a href="/categories/Lab/" itemprop="url" rel="index">
+                    <span itemprop="name">Lab</span>
                   </a>
                 </span>
 
@@ -930,8 +911,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/13/2016-11-13-wiki/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/2016-11-13-wiki/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/2016-11-14-img-output/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-img-output/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -956,75 +937,95 @@
       
         
           
-            <p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
-<h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><ul>
-<li><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a></li>
-<li><a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a></li>
-<li><a href="http://cos.name/" target="_blank" rel="external">统计之都</a></li>
-<li><a href="https://ruby-china.org/" target="_blank" rel="external">Ruby China</a></li>
-<li><a href="http://python-china.org/" target="_blank" rel="external">Python China</a></li>
-<li><a href="https://cnodejs.org/" target="_blank" rel="external">Node.js中文社区</a></li>
-<li><a href="https://emacs-china.org/" target="_blank" rel="external">Emacs China</a></li>
-<li><a href="http://yizaoyiwan.com/" target="_blank" rel="external">一早一晚 | 自由工作社区</a></li>
-<li><a href="http://gold.xitu.io/welcome" target="_blank" rel="external">掘金：高质量的技术社区</a></li>
-<li><a href="http://liqi.io/" target="_blank" rel="external">利器：创造者和他们的工具</a></li>
+            <p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
 </ul>
-<h1 id="播客"><a href="#播客" class="headerlink" title="播客"></a>播客</h1><ul>
-<li><a href="https://ipn.li/" target="_blank" rel="external">IPN</a>：IPN (Intelligent Podcast Network) 是不鳥萬如一和 Rio 创办的播客网络。目前它旗下有十档节目。</li>
-<li><a href="https://codetimecn.com/" target="_blank" rel="external">代码时间</a>：代码时间是一个面向程序员的中文播客节目, 致力于通过语音的方式传播程序员的正能量。</li>
-<li><a href="http://teahour.fm/" target="_blank" rel="external">Teahour.fm</a>：专注程序员感兴趣的话题，包括 Web 设计和开发，移动应用设计和开发，创业以及一切 Geek 的话题。</li>
-<li><a href="http://podcast.uxcoffee.co/" target="_blank" rel="external">UX Coffee 设计咖</a>：一档为产品设计师和关注用户体验的同学准备的播客节目。</li>
-<li><a href="http://nyshalong.com/" target="_blank" rel="external">纽约文化沙龙</a></li>
-</ul>
-<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><ul>
-<li><a href="http://djchina.org/" target="_blank" rel="external">数据新闻网</a></li>
-<li><a href="http://flowingdata.com/" target="_blank" rel="external">FlowingData</a></li>
-<li><a href="http://www.visualisingdata.com/" target="_blank" rel="external">VisualisingData</a></li>
-<li><a href="http://blogger.ghostweather.com/" target="_blank" rel="external">Ghostweather R&amp;D Blog</a></li>
-<li><a href="http://infosthetics.com/information_aesthetics_about.html" target="_blank" rel="external">Information Aesthetics</a></li>
-<li><a href="http://junkcharts.typepad.com/junk_charts/" target="_blank" rel="external">Junk Charts</a></li>
-<li><a href="http://lisacharlotterost.github.io/" target="_blank" rel="external">Lisa Charlotte Rost</a></li>
-<li><a href="http://vis4.net/blog/" target="_blank" rel="external">vis4.net</a></li>
-<li><a href="http://blog.plot.ly/" target="_blank" rel="external">Plotly Blog</a></li>
-<li><a href="http://vallandingham.me/" target="_blank" rel="external">Jim Vallandingham</a></li>
-</ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
-<li><a href="https://slides.com" target="_blank" rel="external">slides</a> 在线创建演示文档</li>
-<li><a href="https://www.gitbook.com/" target="_blank" rel="external">Gitbook</a> &amp; <a href="https://readthedocs.org/" target="_blank" rel="external">Read the Docs</a> 创建在线电子书或文档</li>
-<li><a href="https://feedly.com" target="_blank" rel="external">Feedly</a> + <a href="http://reederapp.com/" target="_blank" rel="external">Reeder</a>：Feed 订阅和阅读黄金搭档</li>
-<li><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a>: an API Documentation Browser and Code Snippet Manager</li>
-<li><a href="https://github.com/1995eaton/chromium-vim" target="_blank" rel="external">cVim</a>：让 Chrome/Chromium 具有 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 的高效工作模式</li>
-</ul>
-<!-- ## 心理与行为科学 -->
-<!-- - [Babies Learning Language](http://babieslearninglanguage.blogspot.com/)：斯坦福大学发展心理学教授 [Michael Frank](http://langcog.stanford.edu/) 的个人博客。博客文章涵盖 `发展心理学`、`心理学研究方法`、`开放科学` 等主题。 -->
-<h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><ul>
-<li><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a>: Data wrangling, exploration, and analysis with R</li>
-<li><a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880</a>: Data Visualization (with R)</li>
-<li><a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a></li>
-<li><a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></li>
-</ul>
-<h1 id="学编程"><a href="#学编程" class="headerlink" title="学编程"></a>学编程</h1><h2 id="lisp-elisp"><a href="#lisp-elisp" class="headerlink" title="lisp/elisp"></a>lisp/elisp</h2><ul>
-<li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
-<li><a href="http://www.newthinktank.com/2015/07/learn-lisp-one-video/" target="_blank" rel="external">一个简短的 lisp 教学视频</a></li>
-<li><a href="http://book.emacs-china.org/" target="_blank" rel="external">子龙山人出品：Master Emacs in 21 Days</a></li>
-<li><a href="http://smacs.github.io/elisp/" target="_blank" rel="external">水木社区：Emacs Lisp 简明教程</a></li>
-</ul>
-<h1 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h1><h2 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h2><p><a href="https://www.youtube.com/channel/UCOjD18EJYcsBog4IozkF_7w" target="_blank" rel="external">PyData</a><br><a href="https://www.youtube.com/channel/UC98CzaYuFNAA_gOINFB0e4Q" target="_blank" rel="external">EuroPython Conference</a><br><a href="https://www.youtube.com/channel/UCkhm72fuzkS9fYGlGpEmj7A" target="_blank" rel="external">Enthought</a><br><a href="https://www.youtube.com/channel/UCBBd3JxQl455JkWBeulc-9w" target="_blank" rel="external">Berkeley Institute for Data Science</a><br><a href="https://www.youtube.com/channel/UCDUS80bdunpmvWVPyFRPqFQ" target="_blank" rel="external">UofU Data</a><br><a href="https://www.youtube.com/channel/UCcAtD_VYwcYwVbTdvArsm7w" target="_blank" rel="external">mathematicalmonk’s channel</a><br><a href="https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg" target="_blank" rel="external">RStudio</a><br><a href="https://www.youtube.com/channel/UC8xNPQ-3a5t9uMU7Vah-jWA" target="_blank" rel="external">Jeff Leek</a><br><a href="https://www.youtube.com/channel/UCdjFpvS8lvT2MJVthOUvlyg" target="_blank" rel="external">Brian Caffo</a><br><a href="https://www.youtube.com/channel/UCZA0RbbSK1IXeeJysKYRWuQ" target="_blank" rel="external">Roger Peng</a><br><a href="https://www.youtube.com/channel/UCGwuewhdHD2q0BvuB2oWMRw" target="_blank" rel="external">berkeley-scf</a><br><a href="https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g" target="_blank" rel="external">Codecourse</a><br><a href="https://www.youtube.com/user/learncodeacademy" target="_blank" rel="external">LearnCode.academy</a><br><a href="https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ" target="_blank" rel="external">sentdex</a><br><a href="https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg" target="_blank" rel="external">LevelUpTuts</a><br><a href="https://www.youtube.com/channel/UCFrjdcImgcQVyFbK04MBEhA" target="_blank" rel="external">Brandon Foltz</a><br><a href="https://www.youtube.com/user/noobtoprofessional" target="_blank" rel="external">Chris Hawkes</a><br><a href="https://www.youtube.com/channel/UCUR1pFG_3XoZn3JNKjulqZg" target="_blank" rel="external">thoughtbot</a></p>
-<p>前端开发</p>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
 <ul>
-<li><a href="https://www.youtube.com/channel/UCADyUOnhyEoQqrw_RrsGleA" target="_blank" rel="external">Chris Coyier: CSS-TRICKS</a></li>
-<li><a href="https://www.youtube.com/channel/UCyIe-61Y8C4_o-zZCtO4ETQ" target="_blank" rel="external">DevTips</a></li>
-<li><a href="https://www.youtube.com/user/QuentinWatt" target="_blank" rel="external">Quentin Watt Tutorials</a></li>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
 </ul>
-<p><a href="https://www.youtube.com/channel/UCSk9gGdqmj-NdcYBQ4kt0jA" target="_blank" rel="external">Tristen Grant</a> Illustration<br><a href="https://www.youtube.com/channel/UC3TabHJUsa2BkEkN_xSpMvQ" target="_blank" rel="external">ATypI</a> Topography, Font design<br><a href="https://www.youtube.com/channel/UCRoLLb8MnLX-P_xg-Z-UxqQ" target="_blank" rel="external">Design Driven NYC</a> Talks<br><a href="https://www.youtube.com/channel/UCfWZwsP8trUy5uHJg8gcGIQ" target="_blank" rel="external">Mackenzie Child</a> Graphic Design<br><a href="https://www.youtube.com/channel/UCK_vX6MneWKCLtL0uJwYOxQ" target="_blank" rel="external">Carl Kwan</a> Presentation, Content</p>
-<hr>
-<p><a href="https://www.youtube.com/channel/UClh-kVGih16yME0-jp3pzVg" target="_blank" rel="external">Sydney Opera House Talks &amp; Ideas</a> Talks, Ideas, and Whatever!<br><a href="https://www.youtube.com/channel/UCWE-aBusAC3UauYLQna7JNQ" target="_blank" rel="external">Shalong NY</a> Talks 纽约文化沙龙</p>
-<hr>
-<p><a href="https://www.youtube.com/channel/UClT2UAbC6j7TqOWurVhkuHQ" target="_blank" rel="external">Sacha Chua</a> Emacs, Tutorial, Talks, Conversations<br><a href="https://www.youtube.com/channel/UCkRmQ_G_NbdbCQMpALg6UPg" target="_blank" rel="external">emacsrocks</a></p>
-<h2 id="Playlist"><a href="#Playlist" class="headerlink" title="Playlist"></a>Playlist</h2><p><a href="https://www.youtube.com/user/dataschool/playlists?shelf_id=4&amp;view=50&amp;sort=dd" target="_blank" rel="external">Introduction to Statistical Learning</a></p>
-<h1 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h1><ul>
-<li>Create a static presentation: R + Rstudio + Rmarkdown + Revealjs</li>
-<li>Create a interactive presentation: R + Rstudio + Shiny</li>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
 </ul>
 
           
@@ -1228,7 +1229,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1236,7 +1237,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1245,7 +1246,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
