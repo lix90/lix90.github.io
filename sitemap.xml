@@ -2,23 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>//lix90.github.io/2016/11/19/2016-11-19-sql-interview/</loc>
+    <loc>//lix90.github.io/2016/09/13/2016-09-13-mysql-config/</loc>
     
-    <lastmod>2016-11-19T03:17:43.000Z</lastmod>
+    <lastmod>2016-11-19T03:23:32.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</loc>
+    <loc>//lix90.github.io/2016/10/03/2016-10-03-r-regex/</loc>
     
-    <lastmod>2016-11-19T03:17:12.000Z</lastmod>
+    <lastmod>2016-11-19T03:22:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/10/08/2016-10-08-r-source-code/</loc>
+    
+    <lastmod>2016-11-19T03:22:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/10/17/2016-10-17-d3js-intro/</loc>
+    
+    <lastmod>2016-11-19T03:22:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</loc>
+    
+    <lastmod>2016-11-19T03:22:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</loc>
+    
+    <lastmod>2016-11-19T03:22:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</loc>
+    
+    <lastmod>2016-11-19T03:22:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/</loc>
+    
+    <lastmod>2016-11-19T03:21:51.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</loc>
     
-    <lastmod>2016-11-19T03:16:58.000Z</lastmod>
+    <lastmod>2016-11-19T03:21:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</loc>
+    
+    <lastmod>2016-11-19T03:20:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//lix90.github.io/2016/11/19/2016-11-19-sql-interview/</loc>
+    
+    <lastmod>2016-11-19T03:20:38.000Z</lastmod>
     
   </url>
   
@@ -75,34 +131,6 @@
     <loc>//lix90.github.io/2016/11/10/2016-11-10-daily/</loc>
     
     <lastmod>2016-11-19T03:14:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/</loc>
-    
-    <lastmod>2016-11-19T03:14:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</loc>
-    
-    <lastmod>2016-11-19T03:13:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</loc>
-    
-    <lastmod>2016-11-19T03:13:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</loc>
-    
-    <lastmod>2016-11-19T03:12:44.000Z</lastmod>
     
   </url>
   
@@ -177,30 +205,9 @@
   </url>
   
   <url>
-    <loc>//lix90.github.io/2016/10/17/2016-10-17-d3js-intro/</loc>
-    
-    <lastmod>2016-11-19T03:04:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/10/08/2016-10-08-r-source-code/</loc>
-    
-    <lastmod>2016-11-19T03:03:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//lix90.github.io/2016/09/11/2016-09-11-data-redundency/</loc>
     
     <lastmod>2016-11-19T03:03:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/09/13/2016-09-13-mysql-config/</loc>
-    
-    <lastmod>2016-11-19T03:03:13.000Z</lastmod>
     
   </url>
   
@@ -236,13 +243,6 @@
     <loc>//lix90.github.io/2016/09/25/2016-09-25-php-config/</loc>
     
     <lastmod>2016-11-19T03:02:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//lix90.github.io/2016/10/03/2016-10-03-r-regex/</loc>
-    
-    <lastmod>2016-11-19T03:01:45.000Z</lastmod>
     
   </url>
   
