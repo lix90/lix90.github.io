@@ -261,6 +261,195 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/30/2016-10-30-daily/" itemprop="url">
+                  每日总结 2016-10-30
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-30T13:57:32+08:00" content="2016-10-30">
+              2016-10-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/30/2016-10-30-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/30/2016-10-30-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
+<p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
+<blockquote>
+<p>Generators by themselves do not provide any sort of asynchronous support: they rely on either promises or a special type of callback to provide asynchronous behavior. 事实上，generator 本身并未提供异步支持，它依赖于 promise 或特殊类型的 callback 来提供异步行为。</p>
+</blockquote>
+<p>使用异步技术的三种情况：</p>
+<ul>
+<li>网络请求 Network requests</li>
+<li>文件系统的操作（读写等） Filesystem operations</li>
+<li>有目的的延迟功能 Intentionally time-delayed functionality</li>
+</ul>
+<blockquote>
+<p>A <strong>callback</strong> is simply a function that you write that will be <strong>invoked at some point in the future</strong>. There’s nothing special about the function itself: it’s just a regular JavaScript function. Typically, you provide these callback functions to other functions, or set them as properties on objects (or, rarely, provide them in an array). Callbacks are very often (but not always) anonymous functions.</p>
+</blockquote>
+<p>Callback, 回调，就是一般的函数，并无特殊性。只不过因为某个未来的事件或时间点被诱发。回调往往是匿名函数。</p>
+<p><code>回调函数</code> <code>登记回调函数</code> <code>触发回调关联事件</code> <code>调用回调函数</code> <code>响应回调事件</code> <code>回调地狱</code></p>
+<blockquote>
+<p>在js里函数都是对象，这表示它们可以作为参数传递给其他的函数。举例：当函数b()作为参数传递给函数a()，那么在某一时刻函数a()可能会执行或者调用函数b()。这种情况下，函数b()就被称为回调函数，也可以简称叫做回调。</p>
+<p>you have to be mindful of the scope your callbacks are declared in: they will have access to everything in that scope (closure). And because of that, the value may be different when the callback actually executes. This principle applies to all asynchronous techniques, not just callbacks. 需要特别注意回调函数的作用域。</p>
+<p>在传入一个回调函数之前，中间函数是不完整的。换句话说，程序可以在运行时，通过登记不同的回调函数，来决定、改变中间函数的行为。这就比简单的函数调用要灵活太多了。</p>
+<p>回调实际上有两种：阻塞式回调和延迟式回调。两者的区别在于：阻塞式回调里，回调函数的调用一定发生在起始函数返回之前；而延迟式回调里，回调函数的调用有可能是在起始函数返回之后。</p>
+</blockquote>
+<p>关于回调等 JS 学到一定地步再来总结吧。</p>
+<ul>
+<li><a href="http://callbackhell.com/" target="_blank" rel="external">Callback Hell</a></li>
+<li><a href="http://www.75team.com/post/%E8%AF%91%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1.html" target="_blank" rel="external">360奇舞团：回调地狱（译）</a></li>
+<li><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">知乎：回调函数（callback）是什么？</a></li>
+<li><a href="http://www.alloyteam.com/2015/04/solve-callback-hell-with-generator/" target="_blank" rel="external">腾讯全端 AlloyTeam 团队：使用Generator解决回调地狱</a></li>
+<li><a href="http://web.jobbole.com/85909/" target="_blank" rel="external">伯乐在线：后端程序员的 Js 之旅 : 回调地狱终结者</a></li>
+<li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
+</ul>
+<hr>
+<h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
+<ul>
+<li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
+<li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
+</ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<blockquote>
+<p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
+<ol>
+<li>主版本号：当你做了不兼容的 API 修改，</li>
+<li>次版本号：当你做了向下兼容的功能性新增，</li>
+<li>修订号：当你做了向下兼容的问题修正。</li>
+</ol>
+<p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
+</blockquote>
+<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
+<p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
+<p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
+<ul>
+<li>engagement media</li>
+<li>content silos {what?}</li>
+<li>scrollable</li>
+<li>connects to your main offer</li>
+<li>define your role</li>
+<li>footer: information in general</li>
+<li>no flash</li>
+</ul>
+<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
+<ul>
+<li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
+<li>嵌套数据（Nested data）</li>
+<li>网络数据（Network data）</li>
+<li>地理数据（Geographic data）：常见如 <code>GeoJSON</code> <code>TopoJSON</code></li>
+<li>原始数据（Raw data）：文本、图片、视频</li>
+<li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
+</ul>
+<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/29/2016-10-29-daily/" itemprop="url">
                   每日总结 2016-10-29
                 </a>
@@ -1184,152 +1373,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/22/2016-10-22-http/" itemprop="url">
-                  HTTP 学习记录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-22T19:45:33+08:00" content="2016-10-22">
-              2016-10-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/22/2016-10-22-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/22/2016-10-22-http/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>HTTP/0.9 —&gt; HTTP/1.0 —&gt; HTTP/1.1 —&gt; SPDY 协议 —&gt; HTTP/2</p>
-<h1 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP/1.0"></a>HTTP/1.0</h1><p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
-<h1 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP/1.1"></a>HTTP/1.1</h1><p>目前是最流行的版本。该版本最大的变化是，引入了<strong>持久连接（persistent connection）</strong>，即 TCP 连接默认不关闭，可被多个请求复用，无须申明 <code>Connection: keep-alive</code>。当客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。更规范的做法是，在客户端最后一次请求时，发送 <code>Connection: close</code>，明确要求服务器关闭 TCP 连接。</p>
-<p>引入管道机制：在同一个 TCP 连接里面，客户端可以同时发送多个请求。</p>
-<p>缺点：虽然1.1版允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着。这就会出现”队头堵塞”（Head-of-line blocking）。</p>
-<h1 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h1><ul>
-<li>二进制协议：头信息和数据体都是二进制，并且统称为”帧”（frame）：头信息帧和数据帧。<br>多工：双向的、实时的通信。</li>
-<li>数据流：HTTP/2 将每个请求或回应的所有数据包，称为一个数据流（stream）。每个数据流都有一个独一无二的编号。数据包发送的时候，都必须标记数据流 ID，用来区分它属于哪个数据流。另外还规定，客户端发出的数据流，ID 一律为奇数，服务器发出的，ID 为偶数。</li>
-<li>头信息压缩机制（header compression）</li>
-<li>服务器推送</li>
-</ul>
-<p>问题：</p>
-<ol>
-<li>HTTP/1.0 相对于 HTTP/0.9 有哪些新标准？HTTP/1.0 有什么缺点？</li>
-<li>HTTP/1.1 相对于 HTTP/1.0 有哪些新标准？HTTP/1.1 有什么缺点？</li>
-<li>HTTP/2 相对于 HTTP/1.1 有哪些新标准？</li>
-<li>HTTPS 是什么？与 HTTP/2 有什么差别？</li>
-</ol>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2016/08/http.html" target="_blank" rel="external">阮一峰：HTTP 协议入门</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1370,7 +1418,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1378,7 +1426,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1387,7 +1435,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">86</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
