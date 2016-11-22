@@ -261,6 +261,156 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/15/2016-11-15-daily/" itemprop="url">
+                  每日总结 2016-11-15
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T00:00:00+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/2016-11-15-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/2016-11-15-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CSS-和-JS-加载顺序和位置问题"><a href="#CSS-和-JS-加载顺序和位置问题" class="headerlink" title="CSS 和 JS 加载顺序和位置问题"></a>CSS 和 JS 加载顺序和位置问题</h1><h2 id="为什么要把-CSS-样式表放在头部（Head）"><a href="#为什么要把-CSS-样式表放在头部（Head）" class="headerlink" title="为什么要把 CSS 样式表放在头部（Head）"></a>为什么要把 CSS 样式表放在头部（Head）</h2><p>如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。</p>
+<p>如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页面元素进行重绘。这样会出现一段时间的白屏。影响用户体验。</p>
+<h2 id="为什么要把-JS-脚本放在底端（the-Bottom-of-Body）"><a href="#为什么要把-JS-脚本放在底端（the-Bottom-of-Body）" class="headerlink" title="为什么要把 JS 脚本放在底端（the Bottom of Body）"></a>为什么要把 JS 脚本放在底端（the Bottom of Body）</h2><p>脚本文件的加载会阻塞并行下载。HTTP/1.1 规定浏览器对于同一个主机的并行下载请求不能超过两个。如果网站图片资源放在多个主机上，那么可以同时超过两个下载请求。但是脚本文件会使浏览器停止其他数据的下载，不同主机的下载都会停止。</p>
+<p>但是在某些情况下，并不能将 JS 脚本放在底端。例如，脚本中包含有使用 <code>document.write</code> 插入部分页面内容，这就不能放在后面加载。</p>
+<p>替代的做法是，使用 <code>defer</code> 加载脚本，这样就可以放在头部了。<code>defer</code> 属性表明了脚本并不包含 <code>document.write</code>，在加载脚本的同时，页面也一同渲染。Firefox 并不支持 <code>defer</code> 属性。</p>
+<h2 id="如果-script-和-link-都在头部，谁在前，谁在后？"><a href="#如果-script-和-link-都在头部，谁在前，谁在后？" class="headerlink" title="如果 script 和 link 都在头部，谁在前，谁在后？"></a>如果 script 和 link 都在头部，谁在前，谁在后？</h2><p>对于现代<strong>桌面</strong>浏览器来说，CSS 在 JS 前声明对性能并没有显著提高。甚至，CSS 在 JS 之后，不但不影响性能，反而在特定情况下还能提升性能。不过，这仅限于现代桌面浏览器。对于老式浏览器，仍然需要在 JS 之前声明 CSS 的外部链接。这归功于现代桌面浏览器使用了“推测渲染技术”（speculative parsing），这种技术能够让浏览器往前一步看，总是在脚本下载和执行之前下载其他资源。老式浏览器并不支持该技术，所以把脚本放在前面会影响性能。</p>
+<p>目前，85% 的桌面浏览器均支持推测渲染技术。把脚本放在样式表之前仍然可能会影响 15% 的用户。对于移动端的浏览器，无法获得一个明确的支持该技术的比例。WebKit 内核的移动浏览器已支持该技术。但是即便是最新的 WebKit 内核浏览器，<a href="http://stackoverflow.com/users/201952/josh3736" target="_blank" rel="external">josh3736</a>仍然发现 JS 在 CSS 之前会影响性能，这可能与移动设备在 CPU，内存以及网络上的限制而关闭了限制了该功能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/6625773/where-should-i-put-the-css-and-javascript-code-in-an-html-webpage" target="_blank" rel="external">stackoverflow: Where should I put the CSS and Javascript code in an HTML webpage?</a></li>
+<li><a href="http://stackoverflow.com/questions/9271276/is-the-recommendation-to-include-css-before-javascript-invalid" target="_blank" rel="external">stackoverflow: Is the recommendation to include CSS before JavaScript invalid?</a></li>
+<li><a href="http://stackoverflow.com/questions/7120801/group-of-css-and-js-files-import-at-html" target="_blank" rel="external">stackoverflow: Group of CSS and JS files import at HTML?</a></li>
+<li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo! Best Practices for Speeding Up Your Web Site</a></li>
+</ul>
+<hr>
+<h1 id="CSS：-import-vs-Link"><a href="#CSS：-import-vs-Link" class="headerlink" title="CSS：@import vs Link"></a>CSS：@import vs Link</h1><blockquote>
+<p>The bottomline is: use LINK instead of @import if you want stylesheets to download in parallel resulting in a faster page.</p>
+<ul>
+<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
+<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
+</ul>
+</blockquote>
+<p>避免使用 <code>@import</code> 能够提升性能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">SteveSounders: don’t use @import</a></li>
+</ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><blockquote>
+<p><a href="https://github.com/rushter/MLAlgorithms" target="_blank" rel="external">rushter/MLAlgorithms</a><br>A collection of minimal and clean implementations of machine learning algorithms.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/2016-11-14-daily/" itemprop="url">
                   每日总结 2016-11-14
                 </a>
@@ -1033,152 +1183,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/12/2016-11-12-daily/" itemprop="url">
-                  每日总结 2016-11-12
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T00:00:00+08:00" content="2016-11-12">
-              2016-11-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/12/2016-11-12-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/12/2016-11-12-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="detach-amp-attach"><a href="#detach-amp-attach" class="headerlink" title="detach &amp; attach"></a><code>detach</code> &amp; <code>attach</code></h2><p><code>attach</code></p>
-<p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
-<p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
-<p><code>detach</code></p>
-<ul>
-<li>将对象从 <code>search path</code> 中移除。对象包括 <code>attach</code> 过的 <code>data.frame</code> 和 package。</li>
-<li>当没有给 <code>detach()</code> 输入参数将会移除 <code>search path</code> 中的第一个项目。</li>
-<li>应该避免在函数中使用 <code>detach/attach</code>。</li>
-<li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
-</ul>
-<h2 id="整数型数值"><a href="#整数型数值" class="headerlink" title="整数型数值"></a>整数型数值</h2><p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>JavaScript：DOM &amp; BOM</p>
-<blockquote>
-<p>The BOM consists of the objects navigator, history, screen, location and document which are children of window. In the document node is the DOM, the document object model, which represents the contents of the page. You can manipulate it using javascript. （”node is in the DOM tree” or “node is the smallest unit in the DOM tree” or “nodes compose the DOM tree”）</p>
-</blockquote>
-<ul>
-<li><a href="http://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript" target="_blank" rel="external">Stackoverflow: What is the DOM and BOM in JavaScript?</a></li>
-<li><a href="https://vkanakaraj.wordpress.com/2009/12/18/javascript-vs-dom-vs-bom-relationship-explained/" target="_blank" rel="external">JavaScript Vs DOM Vs BOM, relationship explained</a></li>
-</ul>
-<p>HTTP：HTTP 是 web 的核心，也是动态 web 应用的核心。理解 HTTP 是理解现代 web 应用如何工作和如何构建的核心。</p>
-<p>数据库的五个基本单位：数据库服务器，数据库，数据表，数据字段（数据列），数据行。</p>
-<p>三类 SQL 语句：</p>
-<ul>
-<li>数据定义语言：定义不同的数据段、数据库、表、列、索引等。常用关键字：<code>create</code> <code>drop</code> <code>alter</code>。</li>
-<li>数据操作语言：用于添加、删除、更新和查询数据库记录，并检查数据的完整性。常用关键字：<code>insert</code> <code>delete</code> <code>update</code> <code>select</code>。</li>
-<li>数据控制语言：用于控制不同数据段直接的许可和访问级别。常用关键字：<code>grant</code> <code>revoke</code>。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1224,7 +1228,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

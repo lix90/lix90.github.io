@@ -261,6 +261,189 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/31/2016-10-31-daily/" itemprop="url">
+                  每日总结 2016-10-31
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-31T23:36:55+08:00" content="2016-10-31">
+              2016-10-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/31/2016-10-31-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/31/2016-10-31-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="with-语句"><a href="#with-语句" class="headerlink" title="with 语句"></a>with 语句</h2><p><code>with expression as target:</code></p>
+<h2 id="open-函数"><a href="#open-函数" class="headerlink" title="open 函数"></a>open 函数</h2><p><code>open(name[, mode[, buffering]])</code></p>
+<p>打开文件，并返回 <code>file</code> 类型的对象。如果无法打开，将抛出 <code>IOError</code> 错误。</p>
+<ul>
+<li><code>name</code> 参数为文件名；</li>
+<li><code>mode</code> 为字符串，指定文件如何打开<ul>
+<li><code>r</code> 读取（默认）</li>
+<li><code>w</code> 写入，如果文件存在，则删掉文件</li>
+<li><code>a</code> 添加到文件末尾</li>
+<li><code>b</code> 二进制</li>
+<li><code>r+</code> <code>w+</code> <code>a+</code> 更新打开的文件</li>
+</ul>
+</li>
+<li><code>buffering</code> 缓存大小<ul>
+<li>0，不进行缓存</li>
+<li>1，按行缓存</li>
+<li>其他正值表示按相应的大小（bytes）进行缓存</li>
+<li>负值意味着使用系统默认的缓存方式</li>
+</ul>
+</li>
+</ul>
+<p>具有相似功能的模块：</p>
+<ul>
+<li><code>fileinput</code> 提供辅助类和函数来快速对标准输入或文件列表进行迭代。</li>
+<li><code>os</code> 提供一些与操作系统有关功能：进程参数、创建文件对象、文件描述符操作、文件和路径操作、进程管理等</li>
+<li><code>os.path</code> 对路径名进行操作</li>
+<li><code>tempfile</code> 创建临时文件和路径</li>
+<li><code>shutil</code> high-level 文件和路径的操作</li>
+</ul>
+<h2 id="csv-模块"><a href="#csv-模块" class="headerlink" title="csv 模块"></a>csv 模块</h2><p>csv 文件的读写（2.3版不支持 Unicode 的输入）。</p>
+<ul>
+<li><code>csv.reader(csvfile, dialect=&#39;excel&#39;, **fmtparams)</code> 返回 reader 对象，按行迭代</li>
+<li><code>csv.writer(csvfile, dialect=&#39;excel&#39;, **fmtparams)</code> 返回 writer 对象</li>
+<li><code>csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect=&#39;excel&#39;, *args, **kwds)</code> 返回与 reader 类似的对象，但是将信息读取为词典形式</li>
+<li><code>csv.DictWriter(csvfile, fieldnames, restval=&#39;&#39;, extrasaction=&#39;raise&#39;, dialect=&#39;excel&#39;, *args, **kwds)</code> 返回与 writer 类似的对象，但是将词典数据写入到行</li>
+</ul>
+<h2 id="datetime-模块"><a href="#datetime-模块" class="headerlink" title="datetime 模块"></a>datetime 模块</h2><p>提供基本的用于操作日期和时间的类和函数。</p>
+<p>在此有两类日期和时间对象：</p>
+<ul>
+<li>aware object: 包含丰富的信息，如时区，夏时令，可以用于和其他 aware 对象进行定位。</li>
+<li><p>naive object: naive object 缺少 aware object 所包含的那些信息，仅仅包含时间。</p>
+</li>
+<li><p><code>date</code> 对象</p>
+</li>
+<li><code>datetime</code> 对象</li>
+<li><code>time</code> 对象</li>
+<li><code>tzinfo</code> 对象</li>
+</ul>
+<p>其他与时间和日期有关的模块</p>
+<ul>
+<li><code>time</code> 模块：提供了许多时间相关的函数，可以访问和转换时间对象。<ul>
+<li><code>time.strftime</code> 将元组或 <code>struct_time</code> 按照时间格式转换为字符串。</li>
+</ul>
+</li>
+<li><code>calendar</code> 模块</li>
+<li><code>locale</code> 模块</li>
+</ul>
+<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="谷歌翻译插件-google-translate"><a href="#谷歌翻译插件-google-translate" class="headerlink" title="谷歌翻译插件 google-translate"></a>谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2><p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p><a href="https://github.com/hallvors/postcss-flexboxfixer" target="_blank" rel="external">flexboxfixer</a>: flexbox 兼容处理</p>
+<p><a href="http://www.browsersync.cn/" target="_blank" rel="external">Browsersync</a></p>
+<blockquote>
+<p>Browsersync 能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。更重要的是 Browsersync 可以同时在 PC、平板、手机等设备下进项调试。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/30/2016-10-30-daily/" itemprop="url">
                   每日总结 2016-10-30
                 </a>
@@ -1153,226 +1336,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/26/2016-10-26-daily/" itemprop="url">
-                  每日总结 2016-10-26
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-26T09:30:34+08:00" content="2016-10-26">
-              2016-10-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/26/2016-10-26-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/26/2016-10-26-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>Basic premise of learning</p>
-<blockquote>
-<p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
-</blockquote>
-<p>几种学习类型：</p>
-<ul>
-<li>Supervised learning: we get (input, correct output)</li>
-<li>Unsupervised learning: instead of (input, correct output), we get (input, ?)</li>
-<li>Reinforcement learning: instead of (input, correct output), we get (input, <em>some</em> output, <strong>grade for this output</strong>)</li>
-</ul>
-<p>什么是机器学习？</p>
-<blockquote>
-<p>Algorithms for inferring unknowns from knowns.<br>算法，推论，未知，已知</p>
-</blockquote>
-<h2 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h2><ul>
-<li>识别垃圾邮件</li>
-<li>识别手写字</li>
-<li>谷歌街道</li>
-<li>语音识别</li>
-<li>Netflix 推荐系统</li>
-<li>Navigation 导航</li>
-<li>气候模型：解释和预测</li>
-</ul>
-<h2 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h2><ul>
-<li>人类能力不可及：火星探测</li>
-<li>人类无法解释的问题：语音识别</li>
-<li>解决方案随着时间而变化：温度控制</li>
-<li>解决方案需要对个案进行调整</li>
-<li>问题大小超出了人类的合理能力范围</li>
-</ul>
-<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><ul>
-<li>分类问题</li>
-<li>回归问题</li>
-</ul>
-<p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>从二元分类到多元分类</p>
-<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><ul>
-<li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
-<li>密度估计（Density estimation）</li>
-<li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
-</ul>
-<p>没有训练集也没有奖励与惩罚</p>
-<h2 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h2><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
-<ul>
-<li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
-<li>目标：奖励最大化</li>
-</ul>
-<hr>
-<h2 id="学习的成分"><a href="#学习的成分" class="headerlink" title="学习的成分"></a>学习的成分</h2><ul>
-<li>未知的目标函数 f: x —&gt; y；</li>
-<li>X 的分布 P；</li>
-<li>训练集 D；</li>
-<li>学习算法 A；</li>
-<li>假设集 H。</li>
-</ul>
-<h2 id="机器学习的本质"><a href="#机器学习的本质" class="headerlink" title="机器学习的本质"></a>机器学习的本质</h2><ul>
-<li>A pattern exists; 有规律存在（学习的对象）</li>
-<li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
-<li>We have data on it. 有足够的数据（学习的基础）</li>
-</ul>
-<hr>
-<p>Hoeffding’s inequality<br>PAC: probability approximately correct</p>
-<p>通过概率论的方法来表示对未知的学习。<br>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。<br><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。<br>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。<br><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。<br>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><p>关于 Margin：</p>
-<blockquote>
-<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
-</blockquote>
-<p>垂直 margin 合并的好处：</p>
-<ul>
-<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
-<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
-<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
-</ul>
-<h2 id="CSS-浮动"><a href="#CSS-浮动" class="headerlink" title="CSS 浮动"></a>CSS 浮动</h2><ul>
-<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
-<li>不出现外边距合并</li>
-<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
-<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
-<li>一般来说浮动元素会成为块级盒</li>
-</ul>
-<blockquote>
-<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
-</blockquote>
-<h2 id="常见清除浮动的办法"><a href="#常见清除浮动的办法" class="headerlink" title="常见清除浮动的办法"></a>常见清除浮动的办法</h2><ol>
-<li>clear 属性</li>
-<li>空 DIV 法：不如何“结构与表现分离原则”</li>
-<li>Overflow 法：可能有副作用</li>
-<li>Clearfix 法</li>
-</ol>
-<blockquote>
-<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
-</blockquote>
-<h2 id="CSS3-提供了几种新的处理布局的方法"><a href="#CSS3-提供了几种新的处理布局的方法" class="headerlink" title="CSS3 提供了几种新的处理布局的方法"></a>CSS3 提供了几种新的处理布局的方法</h2><ol>
-<li>Flexbox 弹性盒子</li>
-<li>Multi-column layout 多栏布局</li>
-<li>Grid layout 格子布局</li>
-</ol>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>解决 Git push 冲突</p>
-<ul>
-<li>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</li>
-</ul>
-<p>Helvetica 纪录片：字体设计<br>Code Rush 纪录片：代码奔腾 Firefox 的诞生<br>Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1418,7 +1381,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
