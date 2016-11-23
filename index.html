@@ -651,6 +651,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">while sleep 1; do echo &quot;Repeat me every one second.&quot;; done</div></pre></td></tr></table></figure>
 <p>来源：<a href="http://unix.stackexchange.com/questions/10646/repeat-a-unix-command-every-x-seconds-forever" target="_blank" rel="external">stackexchange - Unix &amp; Linux</a></p>
 <p><code>fdisk -l</code> 查看硬盘分区<br><code>mount -t ntfs /dev/sda1 /mnt/</code> 挂载 ntfs 分区 sda1 至 mnt 下</p>
+<h1 id="Emacs-lisp"><a href="#Emacs-lisp" class="headerlink" title="Emacs lisp"></a>Emacs lisp</h1><h2 id="添加镜像"><a href="#添加镜像" class="headerlink" title="添加镜像"></a>添加镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(add-to-list</div><div class="line">    &apos;package-archives &apos;(&quot;melpa&quot; . &quot;https://elpa.zilongshanren.com/melpa/&quot;))</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(setq package-archives &apos;((&quot;gnu&quot; . &quot;http://elpa.zilongshanren.com/gnu/&quot;)</div><div class="line">                         (&quot;melpa&quot; . &quot;http://elpa.zilongshanren.com/melpa/&quot;))</div></pre></td></tr></table></figure>
+<h2 id="list-循环添加镜像"><a href="#list-循环添加镜像" class="headerlink" title="list 循环添加镜像"></a>list 循环添加镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(dolist (i &apos;((&quot;melpa-cn&quot; . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/&quot;)</div><div class="line">             (&quot;org-cn&quot;   . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/org/&quot;)</div><div class="line">             (&quot;gnu-cn&quot;   . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/&quot;)))</div><div class="line">  (add-to-list &apos;package-archives i))</div></pre></td></tr></table></figure>
+<p>来源：<a href="https://emacs-china.org/t/emacs-china-archive/1656/1" target="_blank" rel="external">Emacs-china</a></p>
+<h1 id="没来得及看"><a href="#没来得及看" class="headerlink" title="没来得及看"></a>没来得及看</h1><ul>
+<li><a href="https://github.com/liuchengxu/git-commit-emoji-cn" target="_blank" rel="external">git commit emoji 使用指南</a></li>
+<li><a href="https://www.h5jun.com/post/gitmoji.html" target="_blank" rel="external">程序员提交代码的 emoji 指南</a></li>
+<li><a href="https://forum.freecodecamp.com/t/testing-your-own-code-using-mocha-and-chai-simple-example/44149/1" target="_blank" rel="external">FreeCodeCamp: Mocha 和 Chai 测试入门</a></li>
+</ul>
 
           
         
@@ -975,6 +985,155 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/21/2016-11-21-eeg-egi/" itemprop="url">
+                  关于 EEGLAB 分析 EGI 数据
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T00:00:00+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/EEG/" itemprop="url" rel="index">
+                    <span itemprop="name">EEG</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/21/2016-11-21-eeg-egi/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/21/2016-11-21-eeg-egi/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/21/2016-11-21-clean-suit/" itemprop="url">
                   西服保养建议
                 </a>
@@ -1135,157 +1294,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/21/2016-11-21-eeg-egi/" itemprop="url">
-                  关于 EEGLAB 分析 EGI 数据
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T00:00:00+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/EEG/" itemprop="url" rel="index">
-                    <span itemprop="name">EEG</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/2016-11-21-eeg-egi/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/21/2016-11-21-eeg-egi/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/19/2016-11-19-sql-interview/" itemprop="url">
-                  数据库面试题解答
+                <a class="post-title-link" href="/2016/11/19/2016-11-19-daily/" itemprop="url">
+                  每日总结 2016-11-19
                 </a>
               
             
@@ -1312,8 +1322,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
                   </a>
                 </span>
 
@@ -1328,8 +1338,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/19/2016-11-19-sql-interview/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/19/2016-11-19-sql-interview/" itemprop="commentsCount"></span>
+                <a href="/2016/11/19/2016-11-19-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/19/2016-11-19-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1354,89 +1364,85 @@
       
         
           
-            <p>内容来源：<a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></p>
-<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>什么是存储过程？优缺点？</p>
-<p>存储过程：一个预编译的代码块（T-SQL），实现一系列功能（对表单或多表增删改查），然后方便调用。<br>优点：执行效率较高；降低网络通信量，提高通信效率；一定程度上确保数据安全。</p>
-<p>我的问题：如何编写存储过程代码？</p>
-<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>什么是索引？作用？优缺点？使用索引查询一定能提高查询的性能吗？</p>
-<p>索引：对数据库表中一或多个列的值进行<strong>排序</strong>的结构，能够<strong>加快数据检索</strong>，允许数据库程序迅速找到表中数据，而不必扫描整个数据库。<br>MySQL中几个基本的索引：普通索引、唯一索引、主键索引、全文索引。<br>优缺点：</p>
+            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
 <ul>
-<li>加快数据检索速度</li>
-<li>降低增删改等维护任务的速度</li>
-<li>唯一索引可以确保每一行数据的唯一性</li>
-<li>可以在查询过程中使用优化隐藏器，提高系统性能</li>
-<li>占物理和数据空间（缺点）</li>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
 </ul>
-<p>然而，在使用索引查询数据时，需要注意到它的代价。<strong>索引需要存储空间，也需要定期维护</strong>，当表中记录被增减，或者索引列被修改时，索引本身也会被修改，将会因此多付出4，5次磁盘I/O。有时候，<strong>不必要的索引反而会时查询反应时间变慢</strong>，所使用索引并不一定提高查询性能。</p>
-<p>索引查询适合两种情况：</p>
-<ul>
-<li><strong>基于一定范围的检索</strong>，一般查询返回结果集小于表中记录数的30%；</li>
-<li><strong>基于非唯一性索引的检索</strong>。</li>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
+<li>代码风格<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
 </ul>
-<p>我的问题：如何创建索引？</p>
-<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>事务（Transaction）：并发控制的基本单位。它是一个操作序列，要么执行，要么都不执行，是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，保持数据一致性。</p>
-<h1 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h1><p>乐观锁与悲观锁</p>
-<p><strong>并发控制</strong>确保多个事务在同时存取数据库中同一数据时，不破坏事务的隔离性和统一性，以及数据库的统一性。乐观锁和悲观锁为并发控制的主要技术手段。</p>
-<ul>
-<li>悲观锁为悲观并发控制，它假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作；</li>
-<li>乐观锁为乐观并发控制，它假定不会发生并发冲突，只在提交操作时检查是否违反数据完整性。</li>
+</li>
+<li>前端框架<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
 </ul>
-<h1 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h1><p>drop, delete, truncate 的区别？分别在什么场景下使用？</p>
-<ul>
-<li>三者均为删除操作；</li>
-<li>delete 和 truncate 只删除表的数据不删除表的结构</li>
-<li>速度：drop &gt; truncate &gt; delete</li>
-<li>delete 语句是 dml，这个操作会放到 rollback segement 中，事务提交之后才生效；如果有相应的 trigger，执行的时候将被触发。truncate，drop 是 ddl，操作立即生效，原数据不放到 rollback segment 中，不能回滚。操作不触发 trigger。</li>
+</li>
+<li>状态管理<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
 </ul>
-<p>场景：</p>
-<ul>
-<li>不再需要一张表，用 drop；</li>
-<li>删除部分数据行，用 delete，带上 where 子句；</li>
-<li>保留表而删除所有数据，用 truncate。</li>
+</li>
+<li>API 层<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
 </ul>
-<h1 id="键"><a href="#键" class="headerlink" title="键"></a>键</h1><p>超键、候选键、主键、外键是什么？</p>
-<p>超键：在关系中<strong>能唯一标识元组的属性集</strong>称为关系模式的超键。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含<strong>候选键</strong>和<strong>主键</strong>。<br>候选键：最小超键，即没有冗余元素的超键。<br>主键：数据库表中对储存数据对象予以<strong>唯一和完整标识</strong>的数据列或属性的组合。<strong>一个数据列只能有一个主键</strong>，且主键的取值不能缺失，即不能为空值（Null）。<br>外键：在一个表中存在的另一个表的主键称此表的外键。</p>
-<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>什么是视图？视图的使用场景？</p>
-<p>视图是一种虚拟的表，具有和物理表相同的功能，可对视图进行增，改，查的操作。视图通常是一个表或者多个表的行或列的子集。相比多表查询，使得我们获取数据更容易。对视图的修改不影响基本表。</p>
-<ul>
-<li>只暴露部分字段给访问者；</li>
-<li>查询的数据来源于不同的表，而查询者希望以统一的方式查询，创建视图能把多个表查询结果联合起来，查询者只需要直接从视图中获取数据，不必考虑数据来源于不同表所带来的差异</li>
+</li>
+<li>全栈框架<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
 </ul>
-<h1 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h1><p>范式（Normal Form）：符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。通俗地讲，就是一张数据表的表结构所符合的某种设计标准的级别。符合高一级范式的设计，必定符合低一级范式。范式作为设计的标准范式，其最大的意义就是为了避免数据的冗余和插入/删除/更新的异常。</p>
-<p>第一范式 1NF：符合 1NF 关系中的每个属性都不可再分。也就是说，一个属性不能有子属性。1NF 是所有关系型数据库（RDB）的最基本要求。只要在关系型数据库管理系统中已经存在的数据表，一定是符合 1NF 的。如果仅仅符合 1NF 的设计，会存在数据冗余过大，插入异常，删除异常，修改异常等问题。故需要提高设计标准，解决导致上述问题的因素，使其符合更高一级范式，这就是所谓的“规范化”。</p>
-<p>第二范式 2NF：2NF 在 1NF 的基础上，消除了非主属性对于码的部分函数依赖。2NF 要求，如果依赖于主键，则需要依赖于所有主键，不能存在依赖部分主键的情况。通俗说，就是不要把不相关的东西放到一个表中。不相关的东西不要放在一起，用多个小表连接来代替大表，减少修改时候的负担。</p>
-<ul>
-<li>函数依赖：若在一张表中，在属性（或属性组）X 的值确定的情况下，必定能确定属性 Y 的值，那就可以说 Y 函数依赖于 X，写作 $X\toY$。函数依赖包括三种依赖：完全函数依赖、部分函数依赖、传递函数依赖。</li>
-<li>码：假设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都<strong>完全函数依赖</strong>于 K，那么我们称 K 为候选码，简称为码。换句话说，假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。一张表中可以有超过一个码。实际应用中为了方便，通常选择其中的一个码作为主码。</li>
-<li>非主属性：包含在任何一个码中的属性称为主属性。</li>
+</li>
+<li>测试框架<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
 </ul>
-<p>判断是否符合 2NF 就是看数据表中是否存在非主属性对于码的部分函数依赖。若存在，则数据表最高只符合 1NF 的要求，若不存在，则符合 2NF 的要求。判断方法为：</p>
-<ul>
-<li>第一步：找出数据表中所有的码。</li>
-<li>第二步：根据第一步得到的码，找出所有的主属性。</li>
-<li>第三步：数据表中，除去所有的主属性，剩下的就都是非主属性了。</li>
-<li>第四步：查看是否存在非主属性对码的部分函数依赖。</li>
+</li>
+<li>CSS 构建工具/预处理器<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
 </ul>
-<p>如何消除部分函数依赖，从而让表符合 2NF 的要求？</p>
-<ul>
-<li>将大数据表拆分成两个或者更多个更小的数据表，在拆分过程中，要达到更高一级范式的要求，这个过程叫做<strong>模式分解</strong>。模式分解方法不是唯一的。<strong>如何进行模式分解呢？</strong></li>
+</li>
+<li>构建工具<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
 </ul>
-<p>仅仅符合 2NF 的要求，仍然存在非主属性对于码的传递函数依赖。为了进一步解决问题，还需将数据表改进为符合 3NF 的要求。</p>
-<p>第三范式 3NF：3NF 在 2NF 的基础之上，消除了非主属性对于码的传递函数依赖。如果存在非主属性对于码的传递函数依赖，则不符合 3NF 的要求。3NF 避免了查询路径过长而导致询问时间过长或者更新异常，提高查询效率。然而，在某些特殊情况下，即使关系模式符合 3NF 的要求，仍然存在这插入、修改、删除异常。造成问题的原因在于，存在着主属性对于码的部分函数依赖和传递函数依赖。解决办法是在 3NF 的基础上消除主属性对于码的部分与传递函数依赖。此时的设计为 BCNF 范式。BC 范式的每个表中只有一个候选键。</p>
-<p><strong>所谓的范式，是用来学习参考的，设计的时候根据情况，未必一定要遵守。</strong></p>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/24696366" target="_blank" rel="external">解释一下关系数据库的第一第二第三范式？刘慰、Lyken的回答</a></li>
+</li>
+<li>移动端框架<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
 </ul>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/CareySon/archive/2010/02/16/1668803.html" target="_blank" rel="external">数据库范式那些事</a></li>
+</li>
+<li>新特性<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
 </ul>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></li>
+</li>
 </ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
 
           
         
