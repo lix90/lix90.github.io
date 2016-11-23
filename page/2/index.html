@@ -261,6 +261,204 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/19/2016-11-19-daily/" itemprop="url">
+                  每日总结 2016-11-19
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T00:00:00+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/2016-11-19-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/19/2016-11-19-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
+<ul>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
+<li>代码风格<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
+</ul>
+</li>
+<li>前端框架<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
+</ul>
+</li>
+<li>状态管理<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
+</ul>
+</li>
+<li>API 层<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
+</ul>
+</li>
+<li>全栈框架<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
+</ul>
+</li>
+<li>测试框架<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
+</ul>
+</li>
+<li>CSS 构建工具/预处理器<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
+</ul>
+</li>
+<li>构建工具<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
+</ul>
+</li>
+<li>移动端框架<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
+</ul>
+</li>
+<li>新特性<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/18/2016-11-18-daily/" itemprop="url">
                   每日总结 2016-11-18
                 </a>
@@ -938,196 +1136,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/16/2016-11-16-daily/" itemprop="url">
-                  每日总结 2016-11-16
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
-              2016-11-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/16/2016-11-16-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/16/2016-11-16-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R：图形设备"><a href="#R：图形设备" class="headerlink" title="R：图形设备"></a>R：图形设备</h1><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
-<ul>
-<li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
-<li><code>X11</code> 在 X11 视窗系统下支持</li>
-<li><code>svg</code> 基于 cairo 图形的 SVG 设备</li>
-<li>位图 <code>png</code> <code>jpeg</code> <code>bmp</code> <code>tiff</code></li>
-<li><code>quartz</code> 仅在 macOS 上支持</li>
-</ul>
-<p>如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 <code>options(&quot;device&quot;)</code> 指定。 返回。默认的设备为初始化设置为当前平台最合适的设备。</p>
-<p>在 R 中，只允许存在一个“活动（active）”的设备，所有图形操作均在活动设备之上。只要 R 在运行，就有一个“空设备”一直处于开启状态，但仅仅作为占位，任何使用这个空设备的尝试将会打开一个新的设备。设备与一个名称和数字编号关联，数字编号范围为1到63。空设备为编号1。一旦设备被打开，空设备将变成非活动的设备。可以通过 <code>dev.next</code> 和 <code>dev.prev</code> 选择一列开启的设备中，活动的设备的上一个或者下一个设备。</p>
-<p>可以通过 <code>dev.off</code> 关闭指定的设备。如果未指定编号，默认关闭当前活动的设备。如果当前活动设备被关闭，那么下一个设备会被当作活动设备。编号1的设备不能关闭。正常结束一个对话可以执行 <code>graphics.off()</code>。</p>
-<p><code>dev.set</code> 将指定设备更改为活动设备。<code>dev.cur</code> 返回当前活动设备。<code>dev.list</code> 列出所有开启的设备，如果不存在开启的设备，那么返回空设备。如果不存在指定编号的设备，那么默认将 <code>dev.next</code> 所得到的设备当作活动设备。如果指定编号1设备，那么将开启新的设备，并将其设置为活动设备。</p>
-<p><code>dev.new</code> 将开启新的设备。正常情况下，需要时 R 会自动开启新的设备，但这是<strong>让你开启独立于平台的设备</strong>(?疑问：原文”this enables you to open further devices in a platform-indenpendent way.”)。当基于文件的设备（<code>pdf</code>等），文件名将依次命名为 <code>Rplots&lt;1~99&gt;.pdf</code>。对于标准位图设备，如果未指定单位和分辨率，默认强制设置为 <code>units = &quot;in&quot;, res = 72</code>。</p>
-<p>图形设备相关参数：</p>
-<ul>
-<li><code>title</code> 标题</li>
-<li><code>width</code> 宽度</li>
-<li><code>height</code> 高度</li>
-<li><code>pointsize</code> 点尺寸</li>
-<li><code>family</code> 字体</li>
-<li><code>antialias</code> 是否抗锯齿</li>
-<li><code>type</code> 类型</li>
-<li><code>file</code> 文件名</li>
-<li><code>bg</code> 背景色</li>
-<li><code>canvas</code> 画布</li>
-<li><code>dpi</code> 分辨率（每英寸点数）</li>
-</ul>
-<p>PDF 设备参数：</p>
-<ul>
-<li><code>paper</code> 纸张类型，<code>&quot;a4&quot;,&quot;letter&quot;,&quot;legal&quot;,...</code></li>
-<li><code>bg</code> 背景色，默认为 <code>&quot;transparent&quot;</code></li>
-<li><code>fg</code> 前景色，默认为 <code>&quot;black&quot;</code></li>
-<li><code>pointsize</code> 默认为 <code>12</code>，1/72英寸为一个点</li>
-<li><code>colormodel</code> 颜色模式 <code>&quot;srgb&quot;,&quot;gray&quot;,&quot;cmyk&quot;</code>，默认为 <code>&quot;srgb&quot;</code></li>
-</ul>
-<p>PDF 设备并不嵌入字体到 PDF 文件中，所以建议使用常见的字体例如：<code>&quot;Times&quot;(=&quot;serif&quot;),&quot;Helvetica&quot;(=&quot;sans&quot;),&quot;Courier&quot;(=&quot;mono&quot;)</code>。</p>
-<ul>
-<li>默认设备尺寸为 7 英寸的正方形。</li>
-<li>字体大小为 “big points”。</li>
-<li>默认字体为 Helvetica。</li>
-<li>线宽为1/96英寸的倍数，最小为 0.01。</li>
-<li>可支持任意弧度的圆形。</li>
-<li>颜色模式默认为 sRGB。</li>
-<li>如果线宽特别细，线型默认强制为实线。</li>
-</ul>
-<p>位图设备参数：</p>
-<ul>
-<li>默认宽高均为 <code>480px</code></li>
-<li>默认单位为 <code>px</code></li>
-<li>默认点大小为 <code>12</code></li>
-<li>默认背景色为 <code>&quot;white&quot;</code></li>
-<li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
-</ul>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
-<h2 id="统计学"><a href="#统计学" class="headerlink" title="统计学"></a>统计学</h2><h3 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h3><p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
-<blockquote>
-<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
-</blockquote>
-<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
-<h3 id="循环变量"><a href="#循环变量" class="headerlink" title="循环变量"></a>循环变量</h3><p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
-<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
-<h2 id="Mac-安装-pip"><a href="#Mac-安装-pip" class="headerlink" title="Mac 安装 pip"></a>Mac 安装 pip</h2><ol>
-<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
-<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
-</ol>
-<h2 id="CSS：利用偏移垂直居中"><a href="#CSS：利用偏移垂直居中" class="headerlink" title="CSS：利用偏移垂直居中"></a>CSS：利用偏移垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
-<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1173,7 +1181,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1190,7 +1198,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

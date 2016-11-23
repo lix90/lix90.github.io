@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,项目管理,单元测试," />
+  <meta name="keywords" content="JavaScript,项目管理,单元测试,Conf,Chrome," />
 
 
 
@@ -96,7 +96,7 @@
 <meta property="og:description" content="JavaScript：函数函数声明与函数表达式函数是对象，函数名是指针。函数表达式最后有分号 ;。使用不带圆括号的函数名是访问函数指针，而非调用函数。Firefox, Opera, Chrome, Safari 通过 name 属性，访问函数名 function.name。
 函数声明提升：在执行代码前会先读取函数声明。也就是说，可以把函数声明放在调用它的语句之后。
 每个函数继承的 toLocale">
-<meta property="og:updated_time" content="2016-11-22T14:06:47.000Z">
+<meta property="og:updated_time" content="2016-11-22T15:34:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-22">
 <meta name="twitter:description" content="JavaScript：函数函数声明与函数表达式函数是对象，函数名是指针。函数表达式最后有分号 ;。使用不带圆括号的函数名是访问函数指针，而非调用函数。Firefox, Opera, Chrome, Safari 通过 name 属性，访问函数名 function.name。
@@ -372,57 +372,38 @@
 </ul>
 <p>可以通过闭包来创建用于访问私有变量的公有方法。</p>
 <p><strong>特权方法（previleged method）</strong>：有权访问私有变量和私有函数的公有方法。</p>
-<ol>
-<li>在构造函数中定义特权方法。</li>
-</ol>
+<p>1) 在构造函数中定义特权方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyObject</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 私有变量和私有函数</span></div><div class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//特权方法</span></div><div class="line">    <span class="keyword">this</span>.publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        privateVariable++;</div><div class="line">        <span class="keyword">return</span> privateFunction();</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>在私有作用域中定义私有变量或函数创建特权方法。</li>
-</ol>
+<p>2) 在私有作用域中定义私有变量或函数创建特权方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 私有变量和私有函数</span></div><div class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 构造函数</span></div><div class="line">    MyObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 公有/特权方法</span></div><div class="line">    MyObject.prototype.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        privateVariable++;</div><div class="line">        <span class="keyword">return</span> privateFunction();</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 <p>注意：在初始化未经声明的变量，总是会创建一个全局变量。但是，在严格模式下给未经声明的变量赋值会导致错误。</p>
 <p>这个模式与在构造函数中定义特权方法的主要区别，在于<strong>私有变量和函数是由实例共享的。</strong>由于特权方法是在原型上定义的，因此所有实例都使用同一个函数。而这个特权方法，作为一个闭包，总是保存着对包含作用域的引用。</p>
 <p>以这种方式创建静态私有变量会因为使用原型而增进代码复用，但<strong>每个实例都没有自己的私有变量</strong>。</p>
-<ol>
-<li>模块模式</li>
-</ol>
+<p>3) 模块模式</p>
 <p>单例指只有一个实例的对象。模块模式是为单例创建私有变量和特权方法。模块模式通过为单例添加私有变量和特权方法能够使其得到增强。这种模式在需要对单例进行某些初始化，同时又需要维护其私有变量时是非常有用的。如果必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，那么就可以使用模块模式。</p>
-<ol>
-<li>增强的模块模式</li>
-</ol>
+<p>4) 增强的模块模式</p>
 <p><strong>增强的模块模式</strong>：在返回对象之前加入对其增强的代码，这种模式适合那些单例必须是某些类型的实例，同时还必须添加某些属性和（或）方法对其加以增强的情况。</p>
 <p>来源：《JavaScript 高级程序设计 第三版》</p>
 <hr>
 <h1 id="JavaScript-编写可维护的-JS-代码"><a href="#JavaScript-编写可维护的-JS-代码" class="headerlink" title="JavaScript: 编写可维护的 JS 代码"></a>JavaScript: 编写可维护的 JS 代码</h1><p>如何把一个意大利面式的代码仓库整理成一个整洁、有组织并易扩展的项目代码？</p>
-<ol>
-<li>分析项目：把自己当成用户去审视项目</li>
-</ol>
+<p>1) 分析项目：把自己当成用户去审视项目</p>
 <ul>
 <li>使用网站所有功能，打开开发者工具，看是否有报错或输出日志。</li>
 <li>Node.js 项目：打开名两行接口检查 api。最好的情况是项目有一个入口，通过入口能将所有模块初始化；最坏的情况也得找到每个业务逻辑的位置。</li>
 <li>找出使用的工具，阅读工具的文档，寻找最佳实践。</li>
 </ul>
-<ol>
-<li>深入了解项目</li>
-</ol>
+<p>2) 深入了解项目</p>
 <ul>
 <li>单元测试：测试代码的功能和方法是否按预期调用的一种方法。通过单元测试深入了解代码。</li>
 </ul>
-<ol>
-<li>创建一个规范</li>
-</ol>
+<p>3) 创建一个规范</p>
 <ul>
 <li>建议添加一个 .editorconfig 文件来保证代码在不同的编辑器、IDE 或不同开发者之间的编写风格一致。</li>
 </ul>
-<ol>
-<li>代码缩进</li>
-<li>命名规则</li>
-<li>尽可能使用 lint：ESlint, JSlint, JSHint。</li>
-<li>更新依赖：更新依赖需谨慎，升级依赖没有通用的处理规则。<ul>
+<p>4) 代码缩进<br>5) 命名规则<br>6) 尽可能使用 lint：ESlint, JSlint, JSHint。<br>7) 更新依赖：更新依赖需谨慎，升级依赖没有通用的处理规则。</p>
+<ul>
 <li><code>npm outdated</code> 可以检查哪些依赖版本比较旧</li>
 </ul>
-</li>
-</ol>
 <p><strong>常见单元测试框架</strong>：karma，jasmine，macha，ava。<br>如果测试用户界面，可以使用 Nightwatch.js 和 Dalekjs 这类<strong>浏览器自动测试工具</strong>。</p>
 <p><strong>单元测试与浏览器自动化测试的区别</strong>：前者测试 JS 本身代码，保证所有的模块和通用逻辑能预期运行；后者测试项目的用户界面，保证页面上的元素在预期正确的位置。</p>
 <p><strong>在重构之前先建立好单元测试。</strong></p>
@@ -467,6 +448,45 @@
 <li>模块化</li>
 <li>良好的版本控制流程习惯</li>
 </ul>
+<h1 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h1><h2 id="Chrome-Dev-Summit-2016"><a href="#Chrome-Dev-Summit-2016" class="headerlink" title="Chrome Dev Summit 2016"></a>Chrome Dev Summit 2016</h2><p>Progressive Web Apps (PWA)，能够提供类似 Native app 一样体验的 Web app。主要有几个特点：</p>
+<ul>
+<li>可添加至桌面（可安装）</li>
+<li>离线能力</li>
+<li>消息推送</li>
+<li>安全</li>
+<li>响应式</li>
+</ul>
+<p>Darin Fisher（选择我感兴趣的点）</p>
+<ul>
+<li>移动端的挑战：分辨率，cpu，内存，电池，网络</li>
+<li>印度 2.3 亿，美国 4.6 亿，中国 7.6 亿的网民</li>
+<li><strong>超过 3 秒的网页，53% 的用户选择离开</strong></li>
+<li>在 3G 环境下，要确保页面 5 秒内加载完成</li>
+<li>“添加到主屏幕”这个功能提高了用户 4 倍的浏览频率</li>
+<li>Lighthouse 是个测试 PWA 的工具</li>
+<li><a href="https://browser-issue-tracker-search.appspot.com/" target="_blank" rel="external">browser-issue-tracker-search</a> 为开发者提供的网站，包括bug，w3c 标准，API 建议等</li>
+</ul>
+<p>Alex</p>
+<ul>
+<li>手机网页打开的平均时间在 19s</li>
+<li>Motion Mark 测试，PC 要比手机端快 25 倍</li>
+<li><strong>使用真机 Debug</strong></li>
+<li><strong>重视低端设备</strong></li>
+<li>硬件限制以至于手机不能比 PC 块</li>
+<li><a href="https://hpbn.co/" target="_blank" rel="external">High Performance Browser Networking</a></li>
+<li>少加载 code，在合适的时间执行合适的代码</li>
+<li>Service Worker 不仅仅是离线，更重要的是提升效率</li>
+</ul>
+<p>Paul - 关于 Web 未来发展方向</p>
+<ul>
+<li><strong>Web 一定会赶超 Native APIs</strong></li>
+<li>手机游戏会与 Native 平起平坐，并带来更高的利润</li>
+<li>现有 API：定位（Geolocation），相机（Camera），麦克风（Microphone），电池（Battery），权限（Permissions），网络状况（Network），自动填充（Autofill），用户授权（Credential Management API），支付（PaymentRequest API），消息推送（Push notifications），离线（Offline），可安装（Installability）</li>
+<li>SLICE（Secure，Linkable，Indexable，Composable，Ephemeral）</li>
+<li><a href="https://infrequently.org/2015/08/doing-science-on-the-web/" target="_blank" rel="external">Doing Science On The Web</a></li>
+<li><strong>新的交互方式</strong>：Physical Web. Web Bluetooth. WebUSB. WebVR.</li>
+</ul>
+<p>来源：<a href="http://www.75team.com/post/cds.html" target="_blank" rel="external">奇舞团博客</a></p>
 
       
     </div>
@@ -495,6 +515,10 @@
           
             <a href="/tags/单元测试/" rel="tag">#单元测试</a>
           
+            <a href="/tags/Conf/" rel="tag">#Conf</a>
+          
+            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
+          
         </div>
       
 
@@ -502,13 +526,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/2016-11-21-clean-suit/" rel="next" title="西服保养建议">
-                <i class="fa fa-chevron-left"></i> 西服保养建议
+              <a href="/2016/11/21/2016-11-21-eeg-egi/" rel="next" title="关于 EEGLAB 分析 EGI 数据">
+                <i class="fa fa-chevron-left"></i> 关于 EEGLAB 分析 EGI 数据
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/23/2016-11-23-daily/" rel="prev" title="每日总结 2016-11-23">
+                每日总结 2016-11-23 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -583,7 +611,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -600,7 +628,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -665,7 +693,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript：函数"><span class="nav-number">1.</span> <span class="nav-text">JavaScript：函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-amp-call"><span class="nav-number">1.2.</span> <span class="nav-text">apply & call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">1.3.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.4.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">this 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.4.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模仿块级作用域"><span class="nav-number">1.5.</span> <span class="nav-text">模仿块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有变量"><span class="nav-number">1.6.</span> <span class="nav-text">私有变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-编写可维护的-JS-代码"><span class="nav-number">2.</span> <span class="nav-text">JavaScript: 编写可维护的 JS 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人总结"><span class="nav-number">2.1.</span> <span class="nav-text">个人总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript：函数"><span class="nav-number">1.</span> <span class="nav-text">JavaScript：函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-amp-call"><span class="nav-number">1.2.</span> <span class="nav-text">apply & call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">1.3.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.4.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">this 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.4.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模仿块级作用域"><span class="nav-number">1.5.</span> <span class="nav-text">模仿块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有变量"><span class="nav-number">1.6.</span> <span class="nav-text">私有变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-编写可维护的-JS-代码"><span class="nav-number">2.</span> <span class="nav-text">JavaScript: 编写可维护的 JS 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人总结"><span class="nav-number">2.1.</span> <span class="nav-text">个人总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读"><span class="nav-number">3.</span> <span class="nav-text">阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome-Dev-Summit-2016"><span class="nav-number">3.1.</span> <span class="nav-text">Chrome Dev Summit 2016</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

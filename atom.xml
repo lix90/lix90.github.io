@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-22T14:06:47.000Z</updated>
+  <updated>2016-11-23T04:04:19.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -16,11 +16,182 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每日总结 2016-11-23</title>
+    <link href="//lix90.github.io/2016/11/23/2016-11-23-daily/"/>
+    <id>//lix90.github.io/2016/11/23/2016-11-23-daily/</id>
+    <published>2016-11-22T16:00:00.000Z</published>
+    <updated>2016-11-23T04:04:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="grid-布局"><a href="#grid-布局" class="headerlink" title="grid 布局"></a>grid 布局</h2><p>来源：<a href="https://www.villainhr.com/page/2016/10/12/%E4%BA%8C%E7%BB%B4%20grid%20%E5%B8%83%E5%B1%80" target="_blank" rel="external">VillainHR: 二维 grid 布局</a></p>
+<p>flexbox &gt;&gt;&gt; 一维布局<br><strong>grid &gt;&gt;&gt; 二维布局</strong><br>absolute &gt;&gt;&gt; 性能损耗？<br>grid 浏览器还未全面支持，需要额外开启实验特性。在 Chrome 中打开 <code>chrome://flags</code> 开启实验特性。</p>
+<p>grid 相当于 table 和 flexbox 两者结合的产物。直接通过 <code>display: grid</code> 使用。最基本格式为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">style</span>=<span class="string">"display:grid;"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>container 与 items</strong></p>
+<ul>
+<li><strong>container</strong> 为 grid 的 DOM。<strong>items</strong> 为 container 包裹的一级子元素。<strong>二级子元素与 grid 没有关系。</strong></li>
+</ul>
+<p><strong>line 和 cell</strong></p>
+<ul>
+<li>grid_line 类似于表格线</li>
+<li>grid_cell 类似于表格单元格</li>
+</ul>
+<p><strong>track 和 area</strong></p>
+<ul>
+<li>track 行或列</li>
+<li>area 多个 cell 构成的面积</li>
+</ul>
+<p><strong>grid 布局</strong></p>
+<ul>
+<li>可以将 DOM 放置于 grid 中的任何格子里</li>
+<li><strong>column, float, clear, 和 vertical-align 在 grid 布局中没有效果</strong></li>
+</ul>
+<p><strong>grid 标签</strong></p>
+<ul>
+<li><p>container</p>
+<ul>
+<li><code>grid-template-*</code></li>
+<li><code>grid-auto-*</code></li>
+<li><code>grid</code></li>
+<li><code>grid-gap</code></li>
+<li><code>grid-*-gap</code></li>
+<li><code>justify/align-items</code> 控制 item 水平/垂直布局</li>
+<li><code>justify/align-content</code> 控制整个 container 水平/垂直布局</li>
+</ul>
+</li>
+<li><p>items</p>
+<ul>
+<li><code>grid-column-*</code></li>
+<li><code>grid-row-*</code></li>
+<li><code>grid-area</code></li>
+<li><code>justify-self</code></li>
+<li><code>align-self</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="在一个-JS-脚本文件中导入另一个-JS-脚本文件"><a href="#在一个-JS-脚本文件中导入另一个-JS-脚本文件" class="headerlink" title="在一个 JS 脚本文件中导入另一个 JS 脚本文件"></a>在一个 JS 脚本文件中导入另一个 JS 脚本文件</h2><p>来源：<a href="http://stackoverflow.com/questions/950087/how-to-include-a-javascript-file-in-another-javascript-file" target="_blank" rel="external">stackoverflow: How to include a JavaScript file in another JavaScript file?</a></p>
+<p>JS 没有 import, include, 或 require（在 ES6 Modules 中已支持）。</p>
+<p><strong>通过 AJAX 导入</strong></p>
+<ul>
+<li>但有一定的限制，可能会引入 bugs 和 hacks<br><strong>通过 jQuery 导入</strong>：<code>jQuery.getScript()</code> <a href="http://api.jquery.com/jQuery.getScript/" target="_blank" rel="external">see</a><br><strong>动态加载（Dynamic script loading）</strong>：通过 <code>script</code> 标签导入。<a href="http://unixpapa.com/js/dyna.html" target="_blank" rel="external">JavaScript Madness: Dynamic Script Loading</a><br><strong>将多个文件合并为一个文件，然后单独加载</strong>：<a href="http://stackoverflow.com/questions/5511989/combine-multiple-javascript-files-into-one-js-file" target="_blank" rel="external">Combine multiple JavaScript files into one JS file</a></li>
+</ul>
+<p><strong>如何检测脚本何时执行？</strong></p>
+<h2 id="如何从-JS-数组中删除特定元素？"><a href="#如何从-JS-数组中删除特定元素？" class="headerlink" title="如何从 JS 数组中删除特定元素？"></a>如何从 JS 数组中删除特定元素？</h2><p>来源：<a href="http://stackoverflow.com/questions/5767325/how-to-remove-a-particular-element-from-an-array-in-javascript" target="_blank" rel="external">stackoverflow: How to remove a particular element from an array in JavaScript?</a></p>
+<p>寻找数组中要删除的元素的索引（index）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> index = array.indexOf(<span class="number">5</span>); <span class="comment">// indexOf 在 IE7/8 下不支持</span></div></pre></td></tr></table></figure>
+<p>通过 <code>splice</code> 删除索引对应的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (index &gt; <span class="number">-1</span>) &#123;</div><div class="line">    array.splice(index, <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>splice</code> 的第二个参数为删除的元素的个数。</p>
+<hr>
+<h1 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h1><p>解释 R 语言中 <code>lm()</code> 的输出结果</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mod &lt;- lm(iris$Sepal.Width ~ iris$Petal.Width)</div><div class="line">summary(mod)</div><div class="line"></div><div class="line">Call:</div><div class="line">lm(formula = iris$Sepal.Width ~ iris$Petal.Width)</div><div class="line"></div><div class="line">Residuals:</div><div class="line">     Min       1Q   Median       3Q      Max</div><div class="line">-<span class="number">1.09907</span> -<span class="number">0.23626</span> -<span class="number">0.01064</span>  <span class="number">0.23345</span>  <span class="number">1.17532</span></div><div class="line"></div><div class="line">Coefficients:</div><div class="line">                 Estimate Std. Error t value Pr(&gt;|t|)</div><div class="line">(Intercept)       <span class="number">3.30843</span>    <span class="number">0.06210</span>  <span class="number">53.278</span>  &lt; <span class="number">2e-16</span> ***</div><div class="line">iris$Petal.Width -<span class="number">0.20936</span>    <span class="number">0.04374</span>  -<span class="number">4.786</span> <span class="number">4.07e-06</span> ***</div><div class="line">---</div><div class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></div><div class="line"></div><div class="line">Residual standard error: <span class="number">0.407</span> on <span class="number">148</span> degrees of freedom</div><div class="line">Multiple R-squared:  <span class="number">0.134</span>,	Adjusted R-squared:  <span class="number">0.1282</span></div><div class="line"><span class="literal">F</span>-statistic: <span class="number">22.91</span> on <span class="number">1</span> and <span class="number">148</span> DF,  p-value: <span class="number">4.073e-06</span></div></pre></td></tr></table></figure>
+<p><strong>Five point summary of Residuals</strong><br>对残差（residuals）的快速总结。残差应该相对于均值对称分布，即中位数（Median）应该接近0，1Q 和 3Q 的值应该最好具有差不多的绝对值。</p>
+<p><strong>Coefficients</strong><br>模型中的每个系数均为（标准）高斯随机变量。<br>$\hat{\beta_i}$ 为该随机变量的分布的均值的估计。<br>标准误为该分布的方差的平方根，它是 $\hat{\beta_i}$ 的估计的可能性指标。<br>$t$ 统计量为 $t_i = \frac{\hat{\beta_i}}{\hat{\sigma_i}}$</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tstats &lt;- coef(mod) / sqrt(diag(vcov(mod))))</div></pre></td></tr></table></figure>
+<ul>
+<li><code>coef(mod)</code> 为 $\hat{\beta_i}$</li>
+<li><code>sqrt(diag(vcov(mod)))</code> 模型参数的协方差矩阵的对角元素的平方根，即为参数的标准误（$\hat{\sigma_i}$）</li>
+</ul>
+<p>p-value 为当虚无假设为真时，获得当前 $t$ 的概率。计算 p-value：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">2</span> * pt(abs(tstats), df = df.residual(mod), lower.tail = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<p><strong>残差标准误（the residual standard error）</strong>为参数 $\sigma$ 的估计。</p>
+<blockquote>
+<p>The assumption in ordinary least squares（普通最小二乘） is that the residuals are individually described by a Gaussian (normal) distribution with mean 0 and standard deviation $\sigma$. The $\sigma$ relates to the constant variance assumption（方差恒定）; each residual has the same variance and that variance is equal to $\sigma^2$.</p>
+</blockquote>
+<p><strong>adjusted R^2</strong></p>
+<blockquote>
+<p>The adjusted $R^2$ is the same thing as $R^2$, but adjusted for the complexity of the model, i.e. the number of parameters in the model. Think about things for a minute. If we have a model with a single parameter. It will have a certain $R^2$. If we add another parameter to this model, the $R^2$ of the new model has to increase, even if the added parameter has no statistical power. The adjusted $R^2$ tries to account for this, by including information on the number of parameters in the model. 预测变量的增加，模型的 R^2 也会相应的增加。</p>
+</blockquote>
+<p>计算 Adjusted $R^2$:</p>
+<p>$$1 - (1 - R^2) \frac{n - 1}{n - p - 1}$$</p>
+<p><strong>F 值</strong></p>
+<blockquote>
+<p>The $F$ is the ratio of two variances, the variance explained by the parameters in the model and the residual or unexplained variance. F 值为两个方差的比值，这两个方差分别代表了模型中参数所能解释的方差，和残差或者模型参数无法解释的方差。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">anova(mod)</div><div class="line"></div><div class="line">Analysis of Variance Table</div><div class="line"></div><div class="line">Response: Sepal.Width</div><div class="line">             Df  Sum Sq Mean Sq <span class="literal">F</span> value    Pr(&gt;<span class="literal">F</span>)</div><div class="line">Petal.Width   <span class="number">1</span>  <span class="number">3.7945</span>  <span class="number">3.7945</span>   <span class="number">22.91</span> <span class="number">4.073e-06</span> ***</div><div class="line">Residuals   <span class="number">148</span> <span class="number">24.5124</span>  <span class="number">0.1656</span></div><div class="line">---</div><div class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>ANOVA 输出结果中的 F 值与 <code>summary(mod)</code> 中输出的 F 值是一样的。F 值由 <code>Mean Sq</code> 列中的数值计算得到：$3.7945 / 0.1656 = 22.91$。可以通过 F 分布和预测变量和残差的自由度来计算当虚无假设为真时获得当前 F 值的概率。对于<strong>单个连续的预测变量</strong>，F 值等于 t 值的平方。$F = t_{\mathrm{Petal.Width}}^2$。</p>
+<p>来源：<a href="http://stats.stackexchange.com/questions/5135/interpretation-of-rs-lm-output" target="_blank" rel="external">stackexchange - cross validated</a></p>
+<p><strong>标准差是否有好坏之分？</strong></p>
+<ul>
+<li>标准差并无好坏之分，有的时候需要较大的标准差，有时候需要较少的标准差，应该关注统计检验的目的，样本特征。</li>
+</ul>
+<hr>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="MySQL-索引最佳实践"><a href="#MySQL-索引最佳实践" class="headerlink" title="MySQL 索引最佳实践"></a>MySQL 索引最佳实践</h2><p>索引有何用？</p>
+<ul>
+<li>加速数据库数据读取</li>
+<li>强制约束（唯一索引 UNIQUE，外键 FOREIGN KEY）</li>
+<li>提高查询效率：没有任何索引的情况下查询页能正常运行，但可能需很长时间</li>
+</ul>
+<p>索引类型：</p>
+<ul>
+<li>BTREE 索引：MySQL 中主要的索引类型</li>
+<li>RTREE 索引：只有 MyISAM 支持，用于 GIS</li>
+<li>HASH 索引：MEMORY, NDB 支持</li>
+<li>BITMAP 索引：MySQL 不支持</li>
+<li>FULLTEXT 索引：MyISAM, Innodb（MySQL 5.6 以上支持）</li>
+</ul>
+<p>BTREE 索引适用的操作：</p>
+<ul>
+<li>点查询：查询所有 KEY = 5 的记录</li>
+<li>开合间查询：查询所有 KEY &gt; 5 的记录</li>
+<li>闭合间查询：查询所有 5 &lt; KEY &lt; 10 的记录</li>
+</ul>
+<p>字符索引<br>联合索引</p>
+<p>索引的开销</p>
+<ul>
+<li>不要添加多余的索引：多数情况下，扩展索引比添加一个新的索引要好</li>
+<li>写：主要为更新索引</li>
+<li>读：需要占用硬盘和内存空间</li>
+</ul>
+<p>越长的索引越慢</p>
+<p>MySQL 中常见索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> EMPLOYEES <span class="keyword">WHERE</span></div><div class="line">LAST_NAME = <span class="string">"Smith"</span></div></pre></td></tr></table></figure>
+<p>KEY(LAST_NAME)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> EMPLOYEES <span class="keyword">WHERE</span></div><div class="line">LAST_NAME=<span class="string">"Smith"</span> <span class="keyword">AND</span> DEPT=<span class="string">"Accounting"</span></div></pre></td></tr></table></figure>
+<p>复合索引 KEY(DEPT, LAST_NAME)</p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000007494097" target="_blank" rel="external">MYSQL索引最佳实践</a><a href="https://www.percona.com/files/presentations/WEBINAR-MySQL-Indexing-Best-Practices.pdf" target="_blank" rel="external">原文</a></li>
+</ul>
+<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>三个命令：<code>repeat</code> <code>watch</code> <code>sleep</code></p>
+<p><code>repeat 5 echo &quot;Repeat the line 5 times.&quot;</code> 重复执行5次<br><code>watch -n 1 echo &quot;Repeat the line every second, forever.&quot;</code> 每隔1秒执行重复执行</p>
+<p>MacOS 下默认未安装 <code>watch</code> 可从 Mac Ports 或者 Homebrew 获取 <code>brew install watch</code></p>
+<p>通过 <code>while</code> 和 <code>sleep</code> 也可以实现按固定周期重复命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">while true</div><div class="line">do</div><div class="line">    echo &quot;Repeat me every one second.&quot;</div><div class="line">    sleep 1</div><div class="line">done</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">while sleep 1; do echo &quot;Repeat me every one second.&quot;; done</div></pre></td></tr></table></figure>
+<p>来源：<a href="http://unix.stackexchange.com/questions/10646/repeat-a-unix-command-every-x-seconds-forever" target="_blank" rel="external">stackexchange - Unix &amp; Linux</a></p>
+<p><code>fdisk -l</code> 查看硬盘分区<br><code>mount -t ntfs /dev/sda1 /mnt/</code> 挂载 ntfs 分区 sda1 至 mnt 下</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h1&gt;&lt;h2 id=&quot;grid-布局&quot;&gt;&lt;a href=&quot;#grid-布局&quot; class=&quot;headerlink&quot; title=&quot;grid 布局
+    
+    </summary>
+    
+      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
+    
+      <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
+    
+      <category term="grid layout" scheme="//lix90.github.io/tags/grid-layout/"/>
+    
+      <category term="Linear regression" scheme="//lix90.github.io/tags/Linear-regression/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-22</title>
     <link href="//lix90.github.io/2016/11/22/2016-11-22-daily/"/>
     <id>//lix90.github.io/2016/11/22/2016-11-22-daily/</id>
     <published>2016-11-21T16:00:00.000Z</published>
-    <updated>2016-11-22T14:06:47.000Z</updated>
+    <updated>2016-11-22T15:34:55.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JavaScript：函数"><a href="#JavaScript：函数" class="headerlink" title="JavaScript：函数"></a>JavaScript：函数</h1><h2 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h2><p>函数是对象，函数名是指针。<br>函数表达式最后有分号 <code>;</code>。<br>使用不带圆括号的函数名是访问函数指针，而非调用函数。<br>Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名 <code>function.name</code>。</p>
 <p><strong>函数声明提升</strong>：在执行代码前会先读取函数声明。也就是说，可以把函数声明放在调用它的语句之后。</p>
@@ -63,57 +234,38 @@
 </ul>
 <p>可以通过闭包来创建用于访问私有变量的公有方法。</p>
 <p><strong>特权方法（previleged method）</strong>：有权访问私有变量和私有函数的公有方法。</p>
-<ol>
-<li>在构造函数中定义特权方法。</li>
-</ol>
+<p>1) 在构造函数中定义特权方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyObject</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 私有变量和私有函数</span></div><div class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//特权方法</span></div><div class="line">    <span class="keyword">this</span>.publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        privateVariable++;</div><div class="line">        <span class="keyword">return</span> privateFunction();</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>在私有作用域中定义私有变量或函数创建特权方法。</li>
-</ol>
+<p>2) 在私有作用域中定义私有变量或函数创建特权方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 私有变量和私有函数</span></div><div class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 构造函数</span></div><div class="line">    MyObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 公有/特权方法</span></div><div class="line">    MyObject.prototype.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        privateVariable++;</div><div class="line">        <span class="keyword">return</span> privateFunction();</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 <p>注意：在初始化未经声明的变量，总是会创建一个全局变量。但是，在严格模式下给未经声明的变量赋值会导致错误。</p>
 <p>这个模式与在构造函数中定义特权方法的主要区别，在于<strong>私有变量和函数是由实例共享的。</strong>由于特权方法是在原型上定义的，因此所有实例都使用同一个函数。而这个特权方法，作为一个闭包，总是保存着对包含作用域的引用。</p>
 <p>以这种方式创建静态私有变量会因为使用原型而增进代码复用，但<strong>每个实例都没有自己的私有变量</strong>。</p>
-<ol>
-<li>模块模式</li>
-</ol>
+<p>3) 模块模式</p>
 <p>单例指只有一个实例的对象。模块模式是为单例创建私有变量和特权方法。模块模式通过为单例添加私有变量和特权方法能够使其得到增强。这种模式在需要对单例进行某些初始化，同时又需要维护其私有变量时是非常有用的。如果必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，那么就可以使用模块模式。</p>
-<ol>
-<li>增强的模块模式</li>
-</ol>
+<p>4) 增强的模块模式</p>
 <p><strong>增强的模块模式</strong>：在返回对象之前加入对其增强的代码，这种模式适合那些单例必须是某些类型的实例，同时还必须添加某些属性和（或）方法对其加以增强的情况。</p>
 <p>来源：《JavaScript 高级程序设计 第三版》</p>
 <hr>
 <h1 id="JavaScript-编写可维护的-JS-代码"><a href="#JavaScript-编写可维护的-JS-代码" class="headerlink" title="JavaScript: 编写可维护的 JS 代码"></a>JavaScript: 编写可维护的 JS 代码</h1><p>如何把一个意大利面式的代码仓库整理成一个整洁、有组织并易扩展的项目代码？</p>
-<ol>
-<li>分析项目：把自己当成用户去审视项目</li>
-</ol>
+<p>1) 分析项目：把自己当成用户去审视项目</p>
 <ul>
 <li>使用网站所有功能，打开开发者工具，看是否有报错或输出日志。</li>
 <li>Node.js 项目：打开名两行接口检查 api。最好的情况是项目有一个入口，通过入口能将所有模块初始化；最坏的情况也得找到每个业务逻辑的位置。</li>
 <li>找出使用的工具，阅读工具的文档，寻找最佳实践。</li>
 </ul>
-<ol>
-<li>深入了解项目</li>
-</ol>
+<p>2) 深入了解项目</p>
 <ul>
 <li>单元测试：测试代码的功能和方法是否按预期调用的一种方法。通过单元测试深入了解代码。</li>
 </ul>
-<ol>
-<li>创建一个规范</li>
-</ol>
+<p>3) 创建一个规范</p>
 <ul>
 <li>建议添加一个 .editorconfig 文件来保证代码在不同的编辑器、IDE 或不同开发者之间的编写风格一致。</li>
 </ul>
-<ol>
-<li>代码缩进</li>
-<li>命名规则</li>
-<li>尽可能使用 lint：ESlint, JSlint, JSHint。</li>
-<li>更新依赖：更新依赖需谨慎，升级依赖没有通用的处理规则。<ul>
+<p>4) 代码缩进<br>5) 命名规则<br>6) 尽可能使用 lint：ESlint, JSlint, JSHint。<br>7) 更新依赖：更新依赖需谨慎，升级依赖没有通用的处理规则。</p>
+<ul>
 <li><code>npm outdated</code> 可以检查哪些依赖版本比较旧</li>
 </ul>
-</li>
-</ol>
 <p><strong>常见单元测试框架</strong>：karma，jasmine，macha，ava。<br>如果测试用户界面，可以使用 Nightwatch.js 和 Dalekjs 这类<strong>浏览器自动测试工具</strong>。</p>
 <p><strong>单元测试与浏览器自动化测试的区别</strong>：前者测试 JS 本身代码，保证所有的模块和通用逻辑能预期运行；后者测试项目的用户界面，保证页面上的元素在预期正确的位置。</p>
 <p><strong>在重构之前先建立好单元测试。</strong></p>
@@ -158,6 +310,45 @@
 <li>模块化</li>
 <li>良好的版本控制流程习惯</li>
 </ul>
+<h1 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h1><h2 id="Chrome-Dev-Summit-2016"><a href="#Chrome-Dev-Summit-2016" class="headerlink" title="Chrome Dev Summit 2016"></a>Chrome Dev Summit 2016</h2><p>Progressive Web Apps (PWA)，能够提供类似 Native app 一样体验的 Web app。主要有几个特点：</p>
+<ul>
+<li>可添加至桌面（可安装）</li>
+<li>离线能力</li>
+<li>消息推送</li>
+<li>安全</li>
+<li>响应式</li>
+</ul>
+<p>Darin Fisher（选择我感兴趣的点）</p>
+<ul>
+<li>移动端的挑战：分辨率，cpu，内存，电池，网络</li>
+<li>印度 2.3 亿，美国 4.6 亿，中国 7.6 亿的网民</li>
+<li><strong>超过 3 秒的网页，53% 的用户选择离开</strong></li>
+<li>在 3G 环境下，要确保页面 5 秒内加载完成</li>
+<li>“添加到主屏幕”这个功能提高了用户 4 倍的浏览频率</li>
+<li>Lighthouse 是个测试 PWA 的工具</li>
+<li><a href="https://browser-issue-tracker-search.appspot.com/" target="_blank" rel="external">browser-issue-tracker-search</a> 为开发者提供的网站，包括bug，w3c 标准，API 建议等</li>
+</ul>
+<p>Alex</p>
+<ul>
+<li>手机网页打开的平均时间在 19s</li>
+<li>Motion Mark 测试，PC 要比手机端快 25 倍</li>
+<li><strong>使用真机 Debug</strong></li>
+<li><strong>重视低端设备</strong></li>
+<li>硬件限制以至于手机不能比 PC 块</li>
+<li><a href="https://hpbn.co/" target="_blank" rel="external">High Performance Browser Networking</a></li>
+<li>少加载 code，在合适的时间执行合适的代码</li>
+<li>Service Worker 不仅仅是离线，更重要的是提升效率</li>
+</ul>
+<p>Paul - 关于 Web 未来发展方向</p>
+<ul>
+<li><strong>Web 一定会赶超 Native APIs</strong></li>
+<li>手机游戏会与 Native 平起平坐，并带来更高的利润</li>
+<li>现有 API：定位（Geolocation），相机（Camera），麦克风（Microphone），电池（Battery），权限（Permissions），网络状况（Network），自动填充（Autofill），用户授权（Credential Management API），支付（PaymentRequest API），消息推送（Push notifications），离线（Offline），可安装（Installability）</li>
+<li>SLICE（Secure，Linkable，Indexable，Composable，Ephemeral）</li>
+<li><a href="https://infrequently.org/2015/08/doing-science-on-the-web/" target="_blank" rel="external">Doing Science On The Web</a></li>
+<li><strong>新的交互方式</strong>：Physical Web. Web Bluetooth. WebUSB. WebVR.</li>
+</ul>
+<p>来源：<a href="http://www.75team.com/post/cds.html" target="_blank" rel="external">奇舞团博客</a></p>
 ]]></content>
     
     <summary type="html">
@@ -174,6 +365,56 @@
       <category term="项目管理" scheme="//lix90.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
     
       <category term="单元测试" scheme="//lix90.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Conf" scheme="//lix90.github.io/tags/Conf/"/>
+    
+      <category term="Chrome" scheme="//lix90.github.io/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-21T12:48:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
+    
+      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -241,52 +482,6 @@
       <category term="Life style" scheme="//lix90.github.io/tags/Life-style/"/>
     
       <category term="西服保养" scheme="//lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-21T12:48:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电
-    
-    </summary>
-    
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
-    
-      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -495,13 +690,13 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
     
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
+      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -594,9 +789,9 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="交互设计" scheme="//lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
@@ -919,11 +1114,11 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
+      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
-      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
     
       <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
     
@@ -980,9 +1175,9 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
@@ -1302,6 +1497,40 @@
   </entry>
   
   <entry>
+    <title>R：加载包</title>
+    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+    <id>//lix90.github.io/2016/11/13/2016-11-13-daily/</id>
+    <published>2016-11-12T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
+<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
+<p>参考</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
+<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
+    
+    </summary>
+    
+      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>个人资源长期整理</title>
     <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
     <id>//lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
@@ -1397,40 +1626,6 @@
   </entry>
   
   <entry>
-    <title>R：加载包</title>
-    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
-    <id>//lix90.github.io/2016/11/13/2016-11-13-daily/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
-    
-    </summary>
-    
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-12</title>
     <link href="//lix90.github.io/2016/11/12/2016-11-12-daily/"/>
     <id>//lix90.github.io/2016/11/12/2016-11-12-daily/</id>
@@ -1477,11 +1672,11 @@
     
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
     
@@ -1626,17 +1821,17 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
+      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     
       <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
-      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     
       <category term="Ruby" scheme="//lix90.github.io/tags/Ruby/"/>
     
       <category term="Pandas" scheme="//lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+    
+      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -1690,55 +1885,6 @@
       <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="缺失值" scheme="//lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:30:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -1929,6 +2075,84 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:30:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：描述性统计</title>
     <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
     <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
@@ -1993,35 +2217,6 @@
       <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
     
       <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -2383,9 +2578,9 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="//lix90.github.io/tags/Flexbox/"/>
     
@@ -2771,9 +2966,9 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
@@ -2940,13 +3135,11 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
       <category term="jQuery" scheme="//lix90.github.io/tags/jQuery/"/>
     
@@ -2957,6 +3150,8 @@
       <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
@@ -3083,11 +3278,11 @@
       <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
     
       <category term="Machine Learning" scheme="//lix90.github.io/tags/Machine-Learning/"/>
+    
+      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -4043,9 +4238,9 @@
       <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
     
     
-      <category term="MySQL" scheme="//lix90.github.io/tags/MySQL/"/>
-    
       <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+    
+      <category term="MySQL" scheme="//lix90.github.io/tags/MySQL/"/>
     
       <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     
