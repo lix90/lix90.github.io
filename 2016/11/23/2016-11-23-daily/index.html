@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,JavaScript,CSS,Statistics,Shell,grid layout,Linear regression," />
+  <meta name="keywords" content="R,JavaScript,CSS,Statistics,Shell,grid layout,Linear regression,Monte Carlo," />
 
 
 
@@ -96,7 +96,7 @@ grid 相当于 table 和 flexbox 两者结合">
 <meta property="og:description" content="CSSgrid 布局来源：VillainHR: 二维 grid 布局
 flexbox &amp;gt;&amp;gt;&amp;gt; 一维布局grid &amp;gt;&amp;gt;&amp;gt; 二维布局absolute &amp;gt;&amp;gt;&amp;gt; 性能损耗？grid 浏览器还未全面支持，需要额外开启实验特性。在 Chrome 中打开 chrome://flags 开启实验特性。
 grid 相当于 table 和 flexbox 两者结合">
-<meta property="og:updated_time" content="2016-11-23T07:19:00.000Z">
+<meta property="og:updated_time" content="2016-11-23T13:15:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-23">
 <meta name="twitter:description" content="CSSgrid 布局来源：VillainHR: 二维 grid 布局
@@ -430,12 +430,184 @@ grid 相当于 table 和 flexbox 两者结合">
 <li>log, log.p：逻辑值，若为 <code>TRUE</code>，概率值取对数 <code>log(p)</code></li>
 <li>lower.tail：逻辑值，若为 <code>TRUE</code>，概率为 P[X &lt;= x] 否则为 P[X &gt; x]</li>
 </ul>
+<h2 id="数据模拟"><a href="#数据模拟" class="headerlink" title="数据模拟"></a>数据模拟</h2><p><strong>为什么要进行模拟？</strong></p>
+<blockquote>
+<p>According to Mooney (1997) Monte Carlo simulations are useful to:</p>
+<ul>
+<li>Make inferences when weak statistical theory exists for an estimator</li>
+<li>Test null hypotheses under a variety of plausible conditions</li>
+<li>Assess the quality of an inference method</li>
+<li>Assess the robustness of parametric inference to assumption violations</li>
+<li>Compare estimator’s properties</li>
+</ul>
+</blockquote>
+<p><strong>蒙特卡洛模拟的逻辑</strong></p>
+<blockquote>
+<p>Mooney (1997) presents five steps</p>
+<ol>
+<li>Specify the pseudo-population in symbolic terms in such a way that it can be used to generate samples. That is, writing code to generate data in a specific manner.</li>
+<li>Sample from the pseudo-population in ways that reflect the topic of interest</li>
+<li>Calculate $\theta$ in a pseudo-sample and store it in a vector</li>
+<li>Repeat steps 2 and 3 t times where t is the number of trials</li>
+<li>Construct a relative frequency distribution of resulting  values which is a Monte Carlo estimate of the sampling distribution of  under the conditions specified by the pseudo-population and the sampling procedures</li>
+</ol>
+</blockquote>
+<p><strong>使用 R 进行模拟</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">获取文档</th>
+<th style="text-align:left">分布简称</th>
+<th style="text-align:left">分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>?Normal</code></td>
+<td style="text-align:left"><code>norm</code></td>
+<td style="text-align:left">标准正态分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?Uniform</code></td>
+<td style="text-align:left"><code>unif</code></td>
+<td style="text-align:left">均匀分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?Possion</code></td>
+<td style="text-align:left"><code>pois</code></td>
+<td style="text-align:left">泊松分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?Binomial</code></td>
+<td style="text-align:left"><code>binom</code></td>
+<td style="text-align:left">二项分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?NegativeBinomial</code></td>
+<td style="text-align:left"><code>nbinom</code></td>
+<td style="text-align:left">负二项分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?Geometric</code></td>
+<td style="text-align:left"><code>geom</code></td>
+<td style="text-align:left">几何分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?TDist</code></td>
+<td style="text-align:left"><code>t</code></td>
+<td style="text-align:left">学生 t 分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?FDist</code></td>
+<td style="text-align:left"><code>f</code></td>
+<td style="text-align:left">F 分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?Chisquare</code></td>
+<td style="text-align:left"><code>chisq</code></td>
+<td style="text-align:left">卡方分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?Exponential</code></td>
+<td style="text-align:left"><code>exp</code></td>
+<td style="text-align:left">指数分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Beta</code></td>
+<td style="text-align:left"><code>beta</code></td>
+<td style="text-align:left">beta 分布</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?GammaDist</code></td>
+<td style="text-align:left"><code>gamma</code></td>
+<td style="text-align:left">gamma 分布</td>
+</tr>
+</tbody>
+</table>
+<p><code>d*</code> density function<br><code>p*</code> distribution function<br><code>q*</code> quantile function<br><code>r*</code> random generation function</p>
+<p><strong>可重复的随机数生成</strong>：使用 <code>set.seed()</code> 命令设置随机数生成的起始点。使用同一个种子点，能够获得同一批随机数。（注意：有的时候并非如此）</p>
+<p><code>sample(x, size, replace = FALSE, prob = NULL)</code></p>
+<ul>
+<li><code>sample(x)</code> 随机置换 x 向量</li>
+<li><code>sample(x, size)</code> 从 x 向量中不放回的随机抽取 size 大小的向量</li>
+<li><code>sample(x, size, replace = TRUE)</code> 放回的随机抽样</li>
+<li><p><code>prob</code> 参数指定一个抽样的概率权重</p>
+</li>
+<li><p>从已知分布中生成随机数：<code>r*</code>前缀的分布函数</p>
+</li>
+<li>重复表达式：<code>replicate</code><ul>
+<li><code>replicate(n, expression)</code></li>
+<li><code>replicate(10, mean(rnorm(100)))</code></li>
+</ul>
+</li>
+<li>针对参数的不同元素重复执行表达式：<code>sapply</code><ul>
+<li><code>sapply(1:10, sum)</code></li>
+<li><code>sapply(1:10, function(n))</code></li>
+</ul>
+</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.esg.montana.edu/R/rsimul.pdf" target="_blank" rel="external">http://www.esg.montana.edu/R/rsimul.pdf</a></li>
+<li><a href="http://had.co.nz/stat480/lectures/15-simulation.pdf" target="_blank" rel="external">http://had.co.nz/stat480/lectures/15-simulation.pdf</a></li>
+</ul>
+<h2 id="rep-amp-seq"><a href="#rep-amp-seq" class="headerlink" title="rep &amp; seq"></a>rep &amp; seq</h2><p><code>rep(x, ...)</code> 复制 <code>x</code> 中的元素</p>
+<ul>
+<li><code>rep(x)</code> 返回 <code>x</code> 自身，等同于 <code>rep(x, times = 1, length.out = NA, each = 1)</code></li>
+<li><code>rep(x, times)</code><ul>
+<li>如果 <code>times</code> 为正整数，将 <code>x</code> 整体复制 <code>n</code> 次。</li>
+<li>如果 <code>times</code> 为与<code>x</code>等长的向量，那么对<code>x</code>的元素复制在<code>times</code>中对应的次数。</li>
+</ul>
+</li>
+<li><code>rep(x, each = n)</code> 对 <code>x</code> 中的每个元素复制 <code>n</code> 次。<ul>
+<li><code>each</code> 只能传入长度为1的向量，当传入的向量长度大于1，取向量的第一个元素当作实参。</li>
+</ul>
+</li>
+<li><code>rep(x, length.out = n)</code> 根据 <code>x</code> 返回长度为 <code>n</code> 的对象。<ul>
+<li>如果 <code>n &lt; length(x)</code> 那么丢弃 <code>n</code> 之外的元素。</li>
+<li>如果 <code>n &gt; length(x)</code> 那么复制 <code>x</code> 直到输出对象的长度为 <code>n</code> 为止。</li>
+<li>当 <code>length.out</code> 与 <code>each</code> 或者 <code>times</code> 同时使用，最后输出的对象的长度受制于 <code>length.out</code>。</li>
+</ul>
+</li>
+<li><code>rep.int</code> <code>rep_len</code> 的计算效率比 <code>rep</code> 更高。</li>
+</ul>
+<p><code>seq(...)</code> 生成数列</p>
+<ul>
+<li>默认用法 <code>seq(from = 1, to = 1, by = ((to - from)/(length.out - 1)), length.out = NULL, along.with = NULL, ...)</code></li>
+<li><code>from</code> <code>to</code> 数列的起始和终点值。</li>
+<li><code>by</code> 数值，数列的增量或间隔</li>
+<li><code>length.out</code> 数列长度</li>
+<li><code>along.with</code> 与传入对象同等长度的数列</li>
+<li><code>seq.int</code> <code>seq_along</code> <code>seq_len</code> 的计算效率比 <code>seq</code> 更高。</li>
+</ul>
+<p>常见用法：</p>
+<ul>
+<li><code>seq(from, to)</code> 此时增量默认为1</li>
+<li><code>seq(from, to, by = )</code> 人为指定了增量</li>
+<li><code>seq(from, to, length.out = )</code> 指定了数列长度</li>
+<li><code>seq(along.with)</code> 指定了某个对象，此时 <code>from = 1</code> <code>to = length(along.with)</code> <code>by = 1</code></li>
+<li><code>seq(from)</code> 此时 <code>from = 1</code> <code>to = from</code> <code>by = 1</code></li>
+<li><code>seq(length.out = )</code> 此时 <code>from = 1</code> <code>to = length.out</code> <code>by = 1</code></li>
+</ul>
+<p><code>:</code> 也可以生成数列，用法为 <code>from:to</code>；<code>:</code> 还有另外一个用法，表示交互作用 <code>a:b</code> 等同于 <code>interaction(a, b)</code>。</p>
+<h2 id="sort-amp-order"><a href="#sort-amp-order" class="headerlink" title="sort &amp; order"></a>sort &amp; order</h2><p><code>sort(x, decreasing = FALSE, na.last = NA, ...)</code> 将一个向量或因子增序或者降序排列。对于数据框，使用 <code>order</code> 来排序。</p>
+<ul>
+<li><code>decreasing</code> 是否为降序</li>
+<li><code>na.last</code> 若为 <code>TRUE</code> 缺失值被排到最后；若为 <code>FALSE</code> 排到最前；若为 <code>NA</code> 剔除缺失值。</li>
+<li><code>method</code> 算法名，包括 <code>&quot;shell&quot;</code> <code>&quot;quick&quot;</code> <code>&quot;radix&quot;</code></li>
+<li><code>index.return</code> 是否返回索引</li>
+</ul>
+<p>查看 <code>sort.default</code> 的源代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> (x, decreasing = <span class="literal">FALSE</span>, na.last = <span class="literal">NA</span>, <span class="keyword">...</span>) &#123;</div><div class="line">    <span class="keyword">if</span> (is.object(x))</div><div class="line">    x[order(x, na.last = na.last, decreasing = decreasing)]</div><div class="line">    <span class="keyword">else</span> sort.int(x, na.last = na.last, decreasing = decreasing, <span class="keyword">...</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>order(..., na.last = TRUE, decreasing = FALSE, method = c(&quot;shell&quot;, &quot;radix&quot;))</code> 返回第一个参数对象的元素对应的排列顺序的索引。</p>
+<ul>
+<li>实际上，<code>sort</code> 调用了 <code>order</code> 来对向量进行排序。<code>sort(x)</code> 等同于 <code>x[order(x)]</code>。</li>
+</ul>
 <h1 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h1><p><strong>标准差是否有好坏之分？</strong></p>
 <ul>
 <li>标准差并无好坏之分，有的时候需要较大的标准差，有时候需要较少的标准差，应该关注统计检验的目的，样本特征。</li>
 </ul>
-<hr>
-<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="MySQL-索引最佳实践"><a href="#MySQL-索引最佳实践" class="headerlink" title="MySQL 索引最佳实践"></a>MySQL 索引最佳实践</h2><p>索引有何用？</p>
+<h1 id="MySQL-索引"><a href="#MySQL-索引" class="headerlink" title="MySQL 索引"></a>MySQL 索引</h1><p>索引有何用？</p>
 <ul>
 <li>加速数据库数据读取</li>
 <li>强制约束（唯一索引 UNIQUE，外键 FOREIGN KEY）</li>
@@ -514,6 +686,8 @@ grid 相当于 table 和 flexbox 两者结合">
             <a href="/tags/grid-layout/" rel="tag">#grid layout</a>
           
             <a href="/tags/Linear-regression/" rel="tag">#Linear regression</a>
+          
+            <a href="/tags/Monte-Carlo/" rel="tag">#Monte Carlo</a>
           
         </div>
       
@@ -620,7 +794,7 @@ grid 相当于 table 和 flexbox 两者结合">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-count">93</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -685,7 +859,7 @@ grid 相当于 table 和 flexbox 两者结合">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-布局"><span class="nav-number">1.1.</span> <span class="nav-text">grid 布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在一个-JS-脚本文件中导入另一个-JS-脚本文件"><span class="nav-number">2.1.</span> <span class="nav-text">在一个 JS 脚本文件中导入另一个 JS 脚本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何从-JS-数组中删除特定元素？"><span class="nav-number">2.2.</span> <span class="nav-text">如何从 JS 数组中删除特定元素？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解释-lm-的输出结果"><span class="nav-number">3.1.</span> <span class="nav-text">解释 lm() 的输出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用于模型对象的范型函数"><span class="nav-number">3.2.</span> <span class="nav-text">作用于模型对象的范型函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布函数"><span class="nav-number">3.3.</span> <span class="nav-text">分布函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-分布函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">F 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#t-分布函数"><span class="nav-number">3.3.2.</span> <span class="nav-text">t 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.3.3.</span> <span class="nav-text">参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Statistics"><span class="nav-number">4.</span> <span class="nav-text">Statistics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">5.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-索引最佳实践"><span class="nav-number">5.1.</span> <span class="nav-text">MySQL 索引最佳实践</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-number">6.</span> <span class="nav-text">Shell</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-布局"><span class="nav-number">1.1.</span> <span class="nav-text">grid 布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在一个-JS-脚本文件中导入另一个-JS-脚本文件"><span class="nav-number">2.1.</span> <span class="nav-text">在一个 JS 脚本文件中导入另一个 JS 脚本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何从-JS-数组中删除特定元素？"><span class="nav-number">2.2.</span> <span class="nav-text">如何从 JS 数组中删除特定元素？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解释-lm-的输出结果"><span class="nav-number">3.1.</span> <span class="nav-text">解释 lm() 的输出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用于模型对象的范型函数"><span class="nav-number">3.2.</span> <span class="nav-text">作用于模型对象的范型函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布函数"><span class="nav-number">3.3.</span> <span class="nav-text">分布函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-分布函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">F 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#t-分布函数"><span class="nav-number">3.3.2.</span> <span class="nav-text">t 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.3.3.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据模拟"><span class="nav-number">3.4.</span> <span class="nav-text">数据模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rep-amp-seq"><span class="nav-number">3.5.</span> <span class="nav-text">rep & seq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-amp-order"><span class="nav-number">3.6.</span> <span class="nav-text">sort & order</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Statistics"><span class="nav-number">4.</span> <span class="nav-text">Statistics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL-索引"><span class="nav-number">5.</span> <span class="nav-text">MySQL 索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-number">6.</span> <span class="nav-text">Shell</span></a></li></ol></div>
             
           </div>
         </section>
