@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-23T13:55:56.000Z</updated>
+  <updated>2016-11-24T09:43:56.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R：基本数据类型（一）</title>
+    <link href="//lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>//lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-24T09:43:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Vector-向量"><a href="#Vector-向量" class="headerlink" title="Vector 向量"></a>Vector 向量</h1><p>向量 vector 由同类型的元素构成。</p>
+<h2 id="向量创建"><a href="#向量创建" class="headerlink" title="向量创建"></a>向量创建</h2><p><code>vector</code> 创建给定长度和模式的向量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; vector(mode = <span class="string">"character"</span>, length = <span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span></div></pre></td></tr></table></figure>
+<p><code>as.vector</code> 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “integer”, “numeric” (“double”), “complex”, “character”, 和 “raw”。在 R 中原子模式应该就是指最基本的模式，能够组合成其他的复杂模式，例如 “list” “expression”。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x &lt;- c(a = <span class="number">1</span>, b = <span class="number">2</span>)</div><div class="line">a b</div><div class="line"><span class="number">1</span> <span class="number">2</span></div><div class="line">&gt;&gt;&gt; is.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt;&gt;&gt; as.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span></div><div class="line">all.equal(x, as.vector(x))</div><div class="line">[<span class="number">1</span>] <span class="string">"names for target but not for current"</span></div></pre></td></tr></table></figure>
+<p><code>c</code> 可以将它的实参组合成一个向量。所有的实参都将被强制转换为通用的类型，除了 names 之外，其他属性都将丢失。输出数据类型由实参中元素的最高级类型决定（NULL &lt; raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list &lt; expression）。</p>
+<p>例如：</p>
+<p>转换为字符串。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, <span class="string">"2"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="string">"2"</span></div></pre></td></tr></table></figure>
+<p>转换为 list</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, list(<span class="number">2</span>)))</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div></pre></td></tr></table></figure>
+<h3 id="向量运算"><a href="#向量运算" class="headerlink" title="向量运算"></a>向量运算</h3><p><strong>向量的索引</strong><br><code>a[1]</code> 单个元素的索引<br><code>a[1:2]</code> <code>a[c(1,3)]</code> 多个元素的索引<br><code>a[a==5]</code> 使用逻辑值来索引<br><code>a[-1]</code> <code>a[c(-1,-3)]</code> 排除元素</p>
+<p><strong>向量的运算</strong><br><code>a*2</code> 向量与2相乘，2将与向量的每一个元素相乘。<br><code>a*b</code> 向量与向量相乘，对应位置的元素相乘。如果 <code>a</code> 和 <code>b</code> 的长度不等长呢？试一个例子：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; v1 &lt;- c(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; v2 &lt;- c(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; v3 &lt;- c(<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt; v1*v2</div><div class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">6</span> <span class="number">3</span></div><div class="line">Warning message:</div><div class="line">In v1 * v2 : 长的对象长度不是短的对象长度的整倍数</div><div class="line">&gt;&gt;&gt; v1*v3</div><div class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">8</span> <span class="number">4</span> <span class="number">8</span></div></pre></td></tr></table></figure></p>
+<p>也就是说，向量相乘时，若长度不相等，较短的向量会继续往后与长的向量相乘。如果向量的长度不是整数倍，会出现警告：“长的对象长度不是短的对象长度的整倍数”。</p>
+<p><code>a%%2</code> 对向量所有元素求余数<br><code>a%/%2.4</code> 向量所有元素与2.4进行整除运算<br><code>t(a)</code> 对 <code>a</code> 进行转置</p>
+<p><strong>总结：对于向量的运算，都是对其元素的运算。</strong></p>
+<p>函数 <code>sample</code> <code>combinat::permn</code> <code>order</code> <code>sort</code> <code>rank</code> 可用于向量的操作。</p>
+<h2 id="Matrix-矩阵（以及数组-array）"><a href="#Matrix-矩阵（以及数组-array）" class="headerlink" title="Matrix 矩阵（以及数组 array）"></a>Matrix 矩阵（以及数组 array）</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
+<ul>
+<li><code>data</code> 为向量类型，非原子模式的对象将由 <code>as.vector</code> 强制转换为向量，并且去掉属性。</li>
+<li><code>nrow</code> <code>ncol</code> 指定矩阵的行或列的数目，如果两个参数均未指定，那么将得到一个单列矩阵。</li>
+<li><code>byrow</code> 逻辑值，若 <code>FALSE</code>（默认），矩阵按列来填充；若 <code>TRUE</code> 则按行填充。</li>
+<li><code>dimnames</code> 矩阵的名称属性，<code>NULL</code> 或者长度为 list 的对象，空 list 为 <code>NULL</code>。list 的第一个元素的值被当作矩阵行的名称。list 也可以含有名称，那么 list 的名称将被当作矩阵的维度名称。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; mdat &lt;- matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>), nrow = <span class="number">2</span>, ncol = <span class="number">3</span>, byrow = <span class="literal">TRUE</span>,</div><div class="line">+ dimnames = list(c(<span class="string">"R.1"</span>, <span class="string">"R.2"</span>), c(<span class="string">"C.1"</span>, <span class="string">"C.2"</span>, <span class="string">"C.3"</span>)))</div><div class="line">&gt;&gt;&gt; mdat</div><div class="line">     C.1 C.2 C.3</div><div class="line">row1   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></div><div class="line">row2  <span class="number">11</span>  <span class="number">12</span>  <span class="number">13</span></div></pre></td></tr></table></figure>
+<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p><code>a[,2]</code> <code>a[1,2]</code> <code>a[c(1,2),]</code> <code>a[-2,]</code> 矩阵索引或者取子矩阵<br><code>rbind(a,b)</code> <code>cbind(a,c)</code> 将两个矩阵或向量按照行或者列合并</p>
+<p><code>a*b</code> 一对一乘积（点积），行和列数必须匹配。<br><code>a%*%b</code> 矩阵乘积，<code>a</code> 的列必须等于 <code>b</code> 的行。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; b &lt;- matrix(<span class="number">2</span>:<span class="number">7</span>, nrow = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; a*b</div><div class="line">Error <span class="keyword">in</span> a * b : 非整合陈列</div><div class="line">&gt;&gt;&gt; a*t(b)</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">9</span>   <span class="number">20</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">10</span>   <span class="number">24</span>   <span class="number">42</span></div><div class="line">&gt;&gt;&gt; a%*%b</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]   <span class="number">31</span>   <span class="number">58</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">40</span>   <span class="number">76</span></div><div class="line">&gt;&gt;&gt; a%*%t(b)</div><div class="line">Error <span class="keyword">in</span> a %*% t(b) : 非整合参数</div></pre></td></tr></table></figure>
+<p><code>apply(a, MARGIN, FUN, ...)</code> 对矩阵或数组的向量化运算，如果存在名称的话，<code>MARGIN</code> 也可为维度的名称字符串。在此只讨论对矩阵的用法。</p>
+<ul>
+<li><code>apply(a, MARGIN = 1, sum)</code> 对矩阵 a 的行求和。</li>
+<li><code>apply(a, MARGIN = 2, sum)</code> 对矩阵 a 的列求和。</li>
+<li><code>apply(a, MARGIN = C(1,2), sum)</code> 对矩阵 a 的行列求和，得到的仍为原来的矩阵。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">1</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">9</span> <span class="number">12</span></div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">2</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">3</span>  <span class="number">7</span> <span class="number">11</span></div><div class="line">&gt;&gt;&gt; apply(a, c(<span class="number">1</span>,<span class="number">2</span>), sum)</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span>    <span class="number">5</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span>    <span class="number">6</span></div></pre></td></tr></table></figure>
+<p><code>diag(a)</code> 提取矩阵 a 的对角元素<br><code>diag(1:4)</code> 构建一个新的对角矩阵<br><code>crossprod(a,b)</code> 矩阵叉积，等同于 <code>t(a)%*%b</code>，前者计算效率更高。</p>
+<h3 id="Array-数组创建"><a href="#Array-数组创建" class="headerlink" title="Array 数组创建"></a>Array 数组创建</h3><p><code>array(data = NA, dim = length(data), dimnames = NULL)</code></p>
+<p>矩阵其实是特殊的两个维度的数组。<code>dim</code> 用于指定每个维度的长度。如果 <code>data</code> 数据长度不足，将会被复制循环填充。</p>
+<h2 id="factor-因子"><a href="#factor-因子" class="headerlink" title="factor 因子"></a>factor 因子</h2><p>因子是一个由字符串或者整数组成的向量，用来对另外一个等长的向量进行分类的离散变量。与一般的向量不同点是 factor 具有 <code>level</code> 属性。R 提供了已排序和未排序两类 factor。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">factor(x = character(), levels, labels = levels,</div><div class="line">    exclude = <span class="literal">NA</span>, ordered = is.ordered(x), nmax = <span class="literal">NA</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>x</code> 向量，一般为少数几个不同的值。向量 <code>x</code> 的类型必须可以被转换为字符串 <code>as.character()</code> 和可以被排序 <code>sort.list</code>。</li>
+<li><code>levels</code> 水平，<code>x</code> 中选择性的值构成的字符串向量。默认值为 <code>unique(as.character(x))</code>，并且增序排列。<code>levels</code> 可以少于 <code>sort(unique(x))</code>。如果 <code>levels</code> 少于 <code>sort(unique(x))</code>，<code>x</code> 中没有包含的元素将被当作 <code>NA</code>。</li>
+<li><code>labels</code> 可选的参数，用来命名因子水平名称。例如，如果 <code>labels = &quot;f&quot;</code>，那么因子名为 <code>f1, f2, ...</code>。</li>
+<li><code>exclude</code> 在组成 <code>levels</code> 时需要排除掉的元素。与 <code>x</code> 类型相同，否则需要强制转换。</li>
+<li><code>ordered</code> 是否有序。有序的因子与未排序的因子仅仅在类上不同，但是方法和模型拟合函数对两者的处理有非常大的不同。</li>
+<li><code>nmax</code> 水平数的上限。</li>
+</ul>
+<p><code>factor</code> 函数返回一个 “factor” 类的对象，这个对象具有和 <code>x</code> 等长的整数码，具有 “character” 模式的 “levels” 属性。如果 <code>ordered = TRUE</code> 或者使用了 <code>ordered()</code> ，那么对象则具有两个类 <code>c(&quot;ordered&quot;, &quot;factor&quot;)</code>。对因子的解释依赖于编码（codes）和水平属性（levels）两个因素，所以在对因子进行比较时需谨慎。对因子使用 <code>as.numeric</code> 没有意义，因为会自动强制转换。如果要将因子 <code>f</code> 转换为初始的数值，建议使用 <code>as.numeric(levels(f))[f]</code>，这样要比 <code>as.numeric(as.character(f))</code> 效率高。因子的水平默认进行了排序，但是排序的标准依赖本地区域设置。可能不是基于 ASCII。尽量不要使用 <code>NA</code> 作为水平值。</p>
+<h3 id="因子的创建和操作"><a href="#因子的创建和操作" class="headerlink" title="因子的创建和操作"></a>因子的创建和操作</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; f &lt;- factor(a)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## 指派了 levels 结果一致</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>, <span class="string">"2"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## levels 个数少于 a</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span>    <span class="number">1</span>    &lt;<span class="literal">NA</span>&gt; &lt;<span class="literal">NA</span>&gt;</div><div class="line">Levels: <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment">## 增加标签</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 x2</div><div class="line"></div><div class="line"><span class="comment">## 增加排序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 &lt; x2</div><div class="line"></div><div class="line"><span class="comment">## 改变 levels 的顺序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"2"</span>, <span class="string">"1"</span>), labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x2 x2 x1 x1</div><div class="line">Levels: x1 &lt; x2</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 构建一个 data.frame</span></div><div class="line">&gt;&gt;&gt; c.1 &lt;- rep(c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; c.2 &lt;- <span class="number">1</span>:<span class="number">6</span></div><div class="line">&gt;&gt;&gt; d &lt;- data.frame(c.1, c.2)</div><div class="line">&gt;&gt;&gt; d</div><div class="line">  c.1 c.2</div><div class="line"><span class="number">1</span>  f1   <span class="number">1</span></div><div class="line"><span class="number">2</span>  f1   <span class="number">2</span></div><div class="line"><span class="number">3</span>  f1   <span class="number">3</span></div><div class="line"><span class="number">4</span>  f2   <span class="number">4</span></div><div class="line"><span class="number">5</span>  f2   <span class="number">5</span></div><div class="line"><span class="number">6</span>  f2   <span class="number">6</span></div><div class="line"></div><div class="line"><span class="comment">## 将 c.1 转换为因子</span></div><div class="line">&gt;&gt;&gt; (d$c.1 &lt;- factor(c.1))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 as.factor</span></div><div class="line">&gt;&gt;&gt; as.factor(d$c.1)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 进行一个排序</span></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 ordered</span></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line"><span class="comment">## 转换因子的数据模式</span></div><div class="line">&gt;&gt;&gt; as.character(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f2"</span> <span class="string">"f2"</span> <span class="string">"f2"</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.numeric(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.logical(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Vector-向量&quot;&gt;&lt;a href=&quot;#Vector-向量&quot; class=&quot;headerlink&quot; title=&quot;Vector 向量&quot;&gt;&lt;/a&gt;Vector 向量&lt;/h1&gt;&lt;p&gt;向量 vector 由同类型的元素构成。&lt;/p&gt;
+&lt;h2 id=&quot;向量创建&quot;&gt;&lt;a 
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+      <category term="R" scheme="//lix90.github.io/categories/Original/R/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
   
   <entry>
     <title>每日总结 2016-11-23</title>
@@ -683,113 +761,6 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-19</title>
-    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily/"/>
-    <id>//lix90.github.io/2016/11/19/2016-11-19-daily/</id>
-    <published>2016-11-18T16:00:00.000Z</published>
-    <updated>2016-11-22T07:40:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
-<p>三种时间表现形式：</p>
-<ul>
-<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
-<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
-<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
-</ul>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
-<li>代码风格<ul>
-<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
-<li>CoffeeScript 正过时</li>
-</ul>
-</li>
-<li>前端框架<ul>
-<li>React 强势</li>
-<li>Vue 崛起</li>
-<li>Angular 2 &gt; Angular 1</li>
-</ul>
-</li>
-<li>状态管理<ul>
-<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
-</ul>
-</li>
-<li>API 层<ul>
-<li>GraphQL 有前途？</li>
-<li>REST APIs 广泛适用</li>
-</ul>
-</li>
-<li>全栈框架<ul>
-<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
-<li>“一体化”框架并没有期待的那么受欢迎</li>
-</ul>
-</li>
-<li>测试框架<ul>
-<li>Mocha 和 Jasmine 较主流</li>
-<li>开发者总体对 JS 的测试不太满意</li>
-</ul>
-</li>
-<li>CSS 构建工具/预处理器<ul>
-<li>SASS/SCSS 主导</li>
-<li>CSS Modules</li>
-</ul>
-</li>
-<li>构建工具<ul>
-<li>Webpack 和 Gulp 最受欢迎</li>
-<li>Grunt 已过气</li>
-</ul>
-</li>
-<li>移动端框架<ul>
-<li>原生应用最主流</li>
-<li>React Native 较为受欢迎</li>
-</ul>
-</li>
-<li>新特性<ul>
-<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
-<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
-<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
-<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
-<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
-<li>Real-time operations 实时交互</li>
-<li>Dead code elimination 冗余代码消除</li>
-<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
-<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
-<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
-<li>熟练掌握盒模型、常用布局</li>
-<li>能够处理好浏览器和移动设备兼容性问题</li>
-<li>熟悉 Angular/React 等框架，并开发成型项目</li>
-<li>熟悉调试、抓包工具</li>
-<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
-<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
-<li>熟悉常用设计模式和常用 MV* 框架</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>数据库面试题解答</title>
     <link href="//lix90.github.io/2016/11/19/2016-11-19-sql-interview/"/>
     <id>//lix90.github.io/2016/11/19/2016-11-19-sql-interview/</id>
@@ -894,6 +865,113 @@
       <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
     
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-19</title>
+    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily/"/>
+    <id>//lix90.github.io/2016/11/19/2016-11-19-daily/</id>
+    <published>2016-11-18T16:00:00.000Z</published>
+    <updated>2016-11-22T07:40:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
+<ul>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
+<li>代码风格<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
+</ul>
+</li>
+<li>前端框架<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
+</ul>
+</li>
+<li>状态管理<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
+</ul>
+</li>
+<li>API 层<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
+</ul>
+</li>
+<li>全栈框架<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
+</ul>
+</li>
+<li>测试框架<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
+</ul>
+</li>
+<li>CSS 构建工具/预处理器<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
+</ul>
+</li>
+<li>构建工具<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
+</ul>
+</li>
+<li>移动端框架<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
+</ul>
+</li>
+<li>新特性<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
@@ -1381,6 +1459,133 @@
   </entry>
   
   <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-19T03:32:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+      <category term="Lab" scheme="//lix90.github.io/tags/Lab/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-14</title>
     <link href="//lix90.github.io/2016/11/14/2016-11-14-daily/"/>
     <id>//lix90.github.io/2016/11/14/2016-11-14-daily/</id>
@@ -1563,133 +1768,6 @@
       <category term="交互设计" scheme="//lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="UI" scheme="//lix90.github.io/tags/UI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-19T03:32:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
-    
-    </summary>
-    
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
-    
-      <category term="Lab" scheme="//lix90.github.io/tags/Lab/"/>
     
   </entry>
   
@@ -2154,35 +2232,6 @@
   </entry>
   
   <entry>
-    <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-08</title>
     <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
     <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
@@ -2228,6 +2277,35 @@
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -3167,11 +3245,11 @@
     
       <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Coding style" scheme="//lix90.github.io/tags/Coding-style/"/>
     
       <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
-      <category term="Coding style" scheme="//lix90.github.io/tags/Coding-style/"/>
+      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
     
   </entry>
   
@@ -3340,17 +3418,17 @@
     
       <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
     
+      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
+    
+      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+    
       <category term="jQuery" scheme="//lix90.github.io/tags/jQuery/"/>
     
       <category term="Vue.js" scheme="//lix90.github.io/tags/Vue-js/"/>
     
       <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
-    
       <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
-    
-      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
     
   </entry>
   
@@ -4435,9 +4513,9 @@
       <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
     
     
-      <category term="MySQL" scheme="//lix90.github.io/tags/MySQL/"/>
-    
       <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+    
+      <category term="MySQL" scheme="//lix90.github.io/tags/MySQL/"/>
     
       <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
     

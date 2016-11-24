@@ -261,6 +261,369 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/17/2016-09-17-sql/" itemprop="url">
+                  SQL 语言入门笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T09:46:39+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/2016-09-17-sql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/2016-09-17-sql/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>《数据库系统概论》第三章笔记。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="SQL-历史"><a href="#SQL-历史" class="headerlink" title="SQL 历史"></a>SQL 历史</h2><ul>
+<li>1974 年，Boyce 和 Chamberlin 提出，Sequel</li>
+<li>1986 年 10 月，美国国家标准局（ANSI）的数据库委员会 X3H2 批准，同年公布 SQL 标准文本</li>
+<li>1987 年，国际化标准组织（ISO）通过这一标准</li>
+</ul>
+<p>没有一个数据库系统能够支持 SQL 标准的所有概念和特性。许多软件厂商对 SQL 的基本命令集进行了不同程度的扩充和修改，又可以支持标准以外的一些功能特性。</p>
+<h2 id="SQL-特点"><a href="#SQL-特点" class="headerlink" title="SQL 特点"></a>SQL 特点</h2><ul>
+<li>综合统一<ul>
+<li>SQL 集 <code>数据定义语言</code>、<code>数据操纵语言</code>、<code>数据控制语言</code> 的功能于一体，可以独立完成数据库生命周期中的全部活动。<ul>
+<li>定义和修改、删除关系模式，定义和删除视图，插入数据，建立数据库；</li>
+<li>对数据库中的数据进行查询和更新；</li>
+<li>数据库重构和维护；</li>
+<li>数据库安全性、完整性控制，以及事务控制；</li>
+<li>嵌入式 SQL 和动态 SQL 定义。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高度非过程化</li>
+<li>面向集合的操作方式</li>
+<li>以同一种语法结构提供多种使用方式<ul>
+<li>既是独立语言，又是嵌入式语言</li>
+</ul>
+</li>
+<li>语言简洁，易学易用</li>
+</ul>
+<h2 id="SQL-基本概念"><a href="#SQL-基本概念" class="headerlink" title="SQL 基本概念"></a>SQL 基本概念</h2><p>三级模式结构</p>
+<ul>
+<li>外模式：若干视图、部分基本表</li>
+<li>模式：若干基本表</li>
+<li>内模式：若干存储文件</li>
+</ul>
+<hr>
+<h1 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h1><h2 id="模式的定义与删除"><a href="#模式的定义与删除" class="headerlink" title="模式的定义与删除"></a>模式的定义与删除</h2><h3 id="1-定义模式"><a href="#1-定义模式" class="headerlink" title="1. 定义模式"></a>1. 定义模式</h3><p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code></p>
+<p>进行该操作需具备数据库管理员权限，或者获得了数据库管理员授予的 CREATE SCHEMA 的权限。</p>
+<p>定义模式实际上定义了一个命名空间，在此可以进一步定义该模式包含的数据库对象。</p>
+<p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt; [&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]</code></p>
+<h3 id="2-删除模式"><a href="#2-删除模式" class="headerlink" title="2. 删除模式"></a>2. 删除模式</h3><p><code>DROP SCHEMA &lt;模式名&gt;&lt;CASCADE|RESTRICT&gt;</code></p>
+<ul>
+<li><code>CASCADE</code> 级联，表示在删除模式时把该模式中所有的数据库对象全部删除；</li>
+<li><code>RESTRICT</code> 限制，表示如果该模式中定义了下属的数据库对象（如表或视图），则拒绝该删除语句的执行。</li>
+</ul>
+<h2 id="基本表的定义、删除与修改"><a href="#基本表的定义、删除与修改" class="headerlink" title="基本表的定义、删除与修改"></a>基本表的定义、删除与修改</h2><h3 id="1-定义基本表"><a href="#1-定义基本表" class="headerlink" title="1. 定义基本表"></a>1. 定义基本表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;表名&gt;</div><div class="line">    (&lt;列名&gt;&lt;数据类型&gt; [列级完整性约束条件]</div><div class="line">    [,&lt;列名&gt;&lt;数据类型&gt; [列级完整性约束条件]]</div><div class="line">    ...</div><div class="line">    [,&lt;表级完整性约束条件&gt;]);</div></pre></td></tr></table></figure>
+<h3 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h3><p>在 SQL 中域的概念用数据类型来实现。定义表的各个属性时需要指明其数据类型及长度。选择数据类型从两方面考虑，一是取值范围，二是要做哪些运算。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>CHAR(n)</code>,<code>CHARACTER(n)</code></td>
+<td style="text-align:left">长度为 n 的定长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VARCHAR(n)</code>,<code>CHARACTERVARYING(n)</code></td>
+<td style="text-align:left">最大长度为 n 的变长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CLOB</code></td>
+<td style="text-align:left">字符串大对象</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BLOB</code></td>
+<td style="text-align:left">二进制大对象</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>INT</code>,<code>INTEGER</code></td>
+<td style="text-align:left">长整数（4字节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMALLINT</code></td>
+<td style="text-align:left">短整数（2字节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BIGINT</code></td>
+<td style="text-align:left">大整数（8字节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMERIC(p,d)</code></td>
+<td style="text-align:left">定点数，由 p 位数字（不包括符号、小数点）组成，小数点后面有 d 位数字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DECIMAL(p,d)</code>,<code>DEC(p,d)</code></td>
+<td style="text-align:left">同 NUMERIC</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>REAL</code></td>
+<td style="text-align:left">取决于机器精度的单精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DOUBLE PRECISION</code></td>
+<td style="text-align:left">取决于机器精度的双精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>FLOAT(n)</code></td>
+<td style="text-align:left">可选精度的浮点数，精度至少位 n 位数字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BOOLEAN</code></td>
+<td style="text-align:left">逻辑布尔量</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DATE</code></td>
+<td style="text-align:left">日期，包含年、月、日，格式为 YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TIME</code></td>
+<td style="text-align:left">时间，包含一日的时、分、秒，格式为 HH:MM:SS</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TIMESTAMP</code></td>
+<td style="text-align:left">时间戳类型</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>INTERVAL</code></td>
+<td style="text-align:left">时间间隔类型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-模式与表"><a href="#3-模式与表" class="headerlink" title="3. 模式与表"></a>3. 模式与表</h3><p>三种方法定义基本表所属的模式：</p>
+<ol>
+<li>在表名中明显地给出模式名；</li>
+<li>在创建模式语句中同时创建表；</li>
+<li>设置所属的模式，这样在创建表时表名中不必给出模式名。</li>
+</ol>
+<p>显示当前搜索路径：<code>SHOW search_path</code>;<br>设置搜索路径：<code>SET search_path &lt;模式名&gt;,PUBLIC</code>;</p>
+<h3 id="4-修改基本表"><a href="#4-修改基本表" class="headerlink" title="4. 修改基本表"></a>4. 修改基本表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt;</div><div class="line">[<span class="keyword">ADD</span> [<span class="keyword">COLUMN</span>] &lt;新列名&gt;&lt;数据类型&gt; [完整性约束]]</div><div class="line">[<span class="keyword">ADD</span> &lt;表级完整性约束&gt;]</div><div class="line">[<span class="keyword">DROP</span> [<span class="keyword">COLUMN</span>] &lt;列名&gt; [<span class="keyword">CASCADE</span>|RESTRICT]]</div><div class="line">[<span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> &lt;完整性约束&gt; [RESTRICT|<span class="keyword">CASCADE</span>]]</div><div class="line">[<span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> &lt;列名&gt;&lt;数据类型&gt;];</div></pre></td></tr></table></figure>
+<h3 id="5-删除基本表"><a href="#5-删除基本表" class="headerlink" title="5. 删除基本表"></a>5. 删除基本表</h3><p><code>DROP TABLE &lt;表名&gt; [RESTRICT|CASCADE]</code></p>
+<p>不同的数据库产品在遵循 SQL 标准的基础上具体实现细节和处理策略会与标准有差别。</p>
+<h2 id="索引的建立与删除"><a href="#索引的建立与删除" class="headerlink" title="索引的建立与删除"></a>索引的建立与删除</h2><p>建立索引时加快查询速度的有效手段。索引是关系数据库管理系统的内部实现技术，属于内模式范畴。用户不必也不能显式地选择索引。</p>
+<p>常见的数据库索引：</p>
+<ul>
+<li>顺序文件上的索引；</li>
+<li>B+树索引</li>
+<li>散列索引</li>
+<li>位图索引</li>
+</ul>
+<h3 id="1-建立索引"><a href="#1-建立索引" class="headerlink" title="1. 建立索引"></a>1. 建立索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> [<span class="keyword">UNIQUE</span>] [CLUSTER] <span class="keyword">INDEX</span> &lt;索引名&gt;</div><div class="line"><span class="keyword">ON</span> &lt;表名&gt;(&lt;列名&gt; [&lt;次序&gt;][,&lt;列名&gt; [&lt;次序&gt;]] ...);</div></pre></td></tr></table></figure>
+<h3 id="2-修改索引"><a href="#2-修改索引" class="headerlink" title="2. 修改索引"></a>2. 修改索引</h3><p><code>ALTER INDEX &lt;旧索引名&gt;RENAME TO&lt;新索引名&gt;</code></p>
+<h3 id="3-删除索引"><a href="#3-删除索引" class="headerlink" title="3. 删除索引"></a>3. 删除索引</h3><p><code>DROP INDEX &lt;索引名&gt;</code></p>
+<h2 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h2><blockquote>
+<p>数据字典时关系数据库管理系统内部的一组系统表，它记录了数据库中所有的定义信息，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典表中的相应信息。在进行查询优化和查询处理时，数据字典中的信息是其重要依据。</p>
+</blockquote>
+<hr>
+<h1 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> [ALL|<span class="keyword">DISTINCT</span>] &lt;目标列表达式&gt; [,&lt;目标列表达式&gt;]...</div><div class="line"><span class="keyword">FROM</span> &lt;表名或视图名&gt; [,&lt;表名或视图名&gt;]|(&lt;<span class="keyword">SELECT</span> 语句&gt;)[<span class="keyword">AS</span>]&lt;别名&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">HAVING</span> &lt;条件表达式&gt;]]</div><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;列名<span class="number">2</span>&gt; [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>]];</div></pre></td></tr></table></figure>
+<h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><ol>
+<li>选择表中若干列</li>
+<li>选择表中若干元组</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">查询条件</th>
+<th style="text-align:left">谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>!&gt;</code>, <code>!&lt;</code>; <code>NOT+上述比较运算符</code></td>
+</tr>
+<tr>
+<td style="text-align:left">确定范围</td>
+<td style="text-align:left"><code>BETWEEN AND</code>, <code>NOT BETWEEN AND</code></td>
+</tr>
+<tr>
+<td style="text-align:left">确定集合</td>
+<td style="text-align:left"><code>IN</code>, <code>NOT IN</code></td>
+</tr>
+<tr>
+<td style="text-align:left">字符匹配</td>
+<td style="text-align:left"><code>LIKE</code>, <code>NOT LIKE</code></td>
+</tr>
+<tr>
+<td style="text-align:left">空值</td>
+<td style="text-align:left"><code>IS NULL</code>, <code>IS NOT NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">多重条件（逻辑运算）</td>
+<td style="text-align:left"><code>AND</code>, <code>OR</code>, <code>NOT</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>OBDER BY</code> 子句</li>
+<li>聚集函数</li>
+<li><code>GROUP BY</code> 子句</li>
+</ol>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><p>连接查询：查询同时涉及两个以上的表。</p>
+<ol>
+<li>等值与非等值连接的查询</li>
+<li>自身连接</li>
+<li>外连接</li>
+<li>多表连接</li>
+</ol>
+<h2 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h2><blockquote>
+<p>在 SQL 语言中，一个 <code>SELECT-FROM-WHERE</code> 语句称为一个查询块。将一个查询块嵌套再另一个查询块的 <code>WHERE</code> 子句或 <code>HAVING</code> 短语的条件中的查询称为嵌套查询。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> Sname <span class="comment">/*外层查询或父查询*/</span></div><div class="line"><span class="keyword">FROM</span> Student</div><div class="line"><span class="keyword">WHERE</span> Sno <span class="keyword">IN</span></div><div class="line">    (<span class="keyword">SELECT</span> Sno <span class="comment">/*内层查询或子查询*/</span></div><div class="line">    <span class="keyword">FROM</span> SC</div><div class="line">    <span class="keyword">WHERE</span> Cno=<span class="string">'2'</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>带有 <code>IN</code> 谓词的子查询</li>
+<li>带有比较运算符的子查询</li>
+<li>带有 <code>ANY (SOME)</code> 或 <code>ALL</code> 谓词的子查询</li>
+<li>带有 <code>EXISTS</code> 谓词的子查询</li>
+</ol>
+<h2 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h2><blockquote>
+<p>集合操作主要包括并操作 <code>UNION</code>、交操作 <code>INTERSECT</code> 和差操作 <code>EXCEPT</code>。参加集合操作的各查询结果的<strong>列数</strong>必须相同；对应项的<strong>数据类型</strong>也必须相同。</p>
+</blockquote>
+<h2 id="基于派生表的查询"><a href="#基于派生表的查询" class="headerlink" title="基于派生表的查询"></a>基于派生表的查询</h2><blockquote>
+<p>子查询不仅可以出现在 <code>WHERE</code> 子句中，还可以出现再 <code>FROM</code> 子句中，这时子查询生成的临时派生表称为主查询的查询对象。</p>
+</blockquote>
+<hr>
+<h1 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><ol>
+<li>插入元组</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line"><span class="keyword">VALUES</span> (&lt;常量 <span class="number">1</span>&gt; [,&lt;常量 <span class="number">2</span>&gt;]); <span class="comment">-- 字符串常量使用单引号括起来</span></div></pre></td></tr></table></figure>
+<ol>
+<li>插入子查询结果</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line">子查询;</div></pre></td></tr></table></figure>
+<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> &lt;<span class="keyword">TABLE</span>&gt;</div><div class="line"><span class="keyword">SET</span> &lt;<span class="keyword">column</span>&gt;=&lt;expression&gt; [,&lt;<span class="keyword">column</span>&gt;=&lt;expression&gt;]</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span></div><div class="line"><span class="keyword">FROM</span> &lt;<span class="keyword">table</span>&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h1><p>空值：不知道或者不存在或者无意义的值。</p>
+<p>以下条件取空值：</p>
+<ul>
+<li>该属性应该有一个值，但目前不知道；</li>
+<li>该属性不应该有值；</li>
+<li>由于某种原因不便于填写。</li>
+</ul>
+<p>空值的判断：<code>IS NULL</code> <code>IS NOT NULL</code>。</p>
+<hr>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p><code>CREATE VIEW</code><br><code>ALTER VIEW</code><br><code>DROP VIEW</code><br><code>SHOW VIEW</code></p>
+<h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h2><ul>
+<li>简化用户操作</li>
+<li>使用户以多种角度看待同一数据</li>
+<li>对重构数据库提供了一定程度的逻辑独立性</li>
+<li>对机密数据提供安全保护</li>
+<li>适当利用视图可以更清晰地表达查询</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/13/2016-09-13-r-apply-family/" itemprop="url">
                   R：向量化运算
                 </a>
@@ -763,7 +1126,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -771,7 +1134,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
