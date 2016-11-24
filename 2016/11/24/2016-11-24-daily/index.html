@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,R-basics," />
+  <meta name="keywords" content="Data science,Emacs,Open data," />
 
 
 
@@ -86,25 +86,16 @@
 
 
 
-<meta name="description" content="Vector 向量向量 vector 由同类型的元素构成。
-向量创建vector 创建给定长度和模式的向量。
-12&amp;gt;&amp;gt;&amp;gt; vector(mode = &quot;character&quot;, length = 5)[1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
-as.vector 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “">
+<meta name="description" content="25 个公开数据网站一般类型的数据data.gov 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。data.gov.in 印度政府公开数据，涉及不同行业，气候，健康医疗等。World Bank 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。RBI 印度储备银行数据Five Thirty Eight Datasets FiveThirtyEig">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R：基本数据类型（一）">
+<meta property="og:title" content="每日总结 2016-11-24">
 <meta property="og:url" content="//lix90.github.io/2016/11/24/2016-11-24-daily/index.html">
 <meta property="og:site_name" content="Lix的博客">
-<meta property="og:description" content="Vector 向量向量 vector 由同类型的元素构成。
-向量创建vector 创建给定长度和模式的向量。
-12&amp;gt;&amp;gt;&amp;gt; vector(mode = &quot;character&quot;, length = 5)[1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
-as.vector 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “">
-<meta property="og:updated_time" content="2016-11-24T09:43:56.000Z">
+<meta property="og:description" content="25 个公开数据网站一般类型的数据data.gov 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。data.gov.in 印度政府公开数据，涉及不同行业，气候，健康医疗等。World Bank 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。RBI 印度储备银行数据Five Thirty Eight Datasets FiveThirtyEig">
+<meta property="og:updated_time" content="2016-11-24T13:37:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R：基本数据类型（一）">
-<meta name="twitter:description" content="Vector 向量向量 vector 由同类型的元素构成。
-向量创建vector 创建给定长度和模式的向量。
-12&amp;gt;&amp;gt;&amp;gt; vector(mode = &quot;character&quot;, length = 5)[1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
-as.vector 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “">
+<meta name="twitter:title" content="每日总结 2016-11-24">
+<meta name="twitter:description" content="25 个公开数据网站一般类型的数据data.gov 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。data.gov.in 印度政府公开数据，涉及不同行业，气候，健康医疗等。World Bank 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。RBI 印度储备银行数据Five Thirty Eight Datasets FiveThirtyEig">
 
 
 
@@ -128,7 +119,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
   <link rel="canonical" href="//lix90.github.io/2016/11/24/2016-11-24-daily/"/>
 
 
-  <title> R：基本数据类型（一） | Lix的博客 </title>
+  <title> 每日总结 2016-11-24 | Lix的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +259,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
             
             
               
-                R：基本数据类型（一）
+                每日总结 2016-11-24
               
             
           </h1>
@@ -294,20 +285,8 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
                   </a>
                 </span>
 
@@ -346,57 +325,16 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
       
 
       
-        <h1 id="Vector-向量"><a href="#Vector-向量" class="headerlink" title="Vector 向量"></a>Vector 向量</h1><p>向量 vector 由同类型的元素构成。</p>
-<h2 id="向量创建"><a href="#向量创建" class="headerlink" title="向量创建"></a>向量创建</h2><p><code>vector</code> 创建给定长度和模式的向量。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; vector(mode = <span class="string">"character"</span>, length = <span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span></div></pre></td></tr></table></figure>
-<p><code>as.vector</code> 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “integer”, “numeric” (“double”), “complex”, “character”, 和 “raw”。在 R 中原子模式应该就是指最基本的模式，能够组合成其他的复杂模式，例如 “list” “expression”。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x &lt;- c(a = <span class="number">1</span>, b = <span class="number">2</span>)</div><div class="line">a b</div><div class="line"><span class="number">1</span> <span class="number">2</span></div><div class="line">&gt;&gt;&gt; is.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt;&gt;&gt; as.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span></div><div class="line">all.equal(x, as.vector(x))</div><div class="line">[<span class="number">1</span>] <span class="string">"names for target but not for current"</span></div></pre></td></tr></table></figure>
-<p><code>c</code> 可以将它的实参组合成一个向量。所有的实参都将被强制转换为通用的类型，除了 names 之外，其他属性都将丢失。输出数据类型由实参中元素的最高级类型决定（NULL &lt; raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list &lt; expression）。</p>
-<p>例如：</p>
-<p>转换为字符串。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, <span class="string">"2"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="string">"2"</span></div></pre></td></tr></table></figure>
-<p>转换为 list</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, list(<span class="number">2</span>)))</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div></pre></td></tr></table></figure>
-<h3 id="向量运算"><a href="#向量运算" class="headerlink" title="向量运算"></a>向量运算</h3><p><strong>向量的索引</strong><br><code>a[1]</code> 单个元素的索引<br><code>a[1:2]</code> <code>a[c(1,3)]</code> 多个元素的索引<br><code>a[a==5]</code> 使用逻辑值来索引<br><code>a[-1]</code> <code>a[c(-1,-3)]</code> 排除元素</p>
-<p><strong>向量的运算</strong><br><code>a*2</code> 向量与2相乘，2将与向量的每一个元素相乘。<br><code>a*b</code> 向量与向量相乘，对应位置的元素相乘。如果 <code>a</code> 和 <code>b</code> 的长度不等长呢？试一个例子：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; v1 &lt;- c(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; v2 &lt;- c(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; v3 &lt;- c(<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt; v1*v2</div><div class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">6</span> <span class="number">3</span></div><div class="line">Warning message:</div><div class="line">In v1 * v2 : 长的对象长度不是短的对象长度的整倍数</div><div class="line">&gt;&gt;&gt; v1*v3</div><div class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">8</span> <span class="number">4</span> <span class="number">8</span></div></pre></td></tr></table></figure></p>
-<p>也就是说，向量相乘时，若长度不相等，较短的向量会继续往后与长的向量相乘。如果向量的长度不是整数倍，会出现警告：“长的对象长度不是短的对象长度的整倍数”。</p>
-<p><code>a%%2</code> 对向量所有元素求余数<br><code>a%/%2.4</code> 向量所有元素与2.4进行整除运算<br><code>t(a)</code> 对 <code>a</code> 进行转置</p>
-<p><strong>总结：对于向量的运算，都是对其元素的运算。</strong></p>
-<p>函数 <code>sample</code> <code>combinat::permn</code> <code>order</code> <code>sort</code> <code>rank</code> 可用于向量的操作。</p>
-<h2 id="Matrix-矩阵（以及数组-array）"><a href="#Matrix-矩阵（以及数组-array）" class="headerlink" title="Matrix 矩阵（以及数组 array）"></a>Matrix 矩阵（以及数组 array）</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
-<ul>
-<li><code>data</code> 为向量类型，非原子模式的对象将由 <code>as.vector</code> 强制转换为向量，并且去掉属性。</li>
-<li><code>nrow</code> <code>ncol</code> 指定矩阵的行或列的数目，如果两个参数均未指定，那么将得到一个单列矩阵。</li>
-<li><code>byrow</code> 逻辑值，若 <code>FALSE</code>（默认），矩阵按列来填充；若 <code>TRUE</code> 则按行填充。</li>
-<li><code>dimnames</code> 矩阵的名称属性，<code>NULL</code> 或者长度为 list 的对象，空 list 为 <code>NULL</code>。list 的第一个元素的值被当作矩阵行的名称。list 也可以含有名称，那么 list 的名称将被当作矩阵的维度名称。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; mdat &lt;- matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>), nrow = <span class="number">2</span>, ncol = <span class="number">3</span>, byrow = <span class="literal">TRUE</span>,</div><div class="line">+ dimnames = list(c(<span class="string">"R.1"</span>, <span class="string">"R.2"</span>), c(<span class="string">"C.1"</span>, <span class="string">"C.2"</span>, <span class="string">"C.3"</span>)))</div><div class="line">&gt;&gt;&gt; mdat</div><div class="line">     C.1 C.2 C.3</div><div class="line">row1   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></div><div class="line">row2  <span class="number">11</span>  <span class="number">12</span>  <span class="number">13</span></div></pre></td></tr></table></figure>
-<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p><code>a[,2]</code> <code>a[1,2]</code> <code>a[c(1,2),]</code> <code>a[-2,]</code> 矩阵索引或者取子矩阵<br><code>rbind(a,b)</code> <code>cbind(a,c)</code> 将两个矩阵或向量按照行或者列合并</p>
-<p><code>a*b</code> 一对一乘积（点积），行和列数必须匹配。<br><code>a%*%b</code> 矩阵乘积，<code>a</code> 的列必须等于 <code>b</code> 的行。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; b &lt;- matrix(<span class="number">2</span>:<span class="number">7</span>, nrow = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; a*b</div><div class="line">Error <span class="keyword">in</span> a * b : 非整合陈列</div><div class="line">&gt;&gt;&gt; a*t(b)</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">9</span>   <span class="number">20</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">10</span>   <span class="number">24</span>   <span class="number">42</span></div><div class="line">&gt;&gt;&gt; a%*%b</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]   <span class="number">31</span>   <span class="number">58</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">40</span>   <span class="number">76</span></div><div class="line">&gt;&gt;&gt; a%*%t(b)</div><div class="line">Error <span class="keyword">in</span> a %*% t(b) : 非整合参数</div></pre></td></tr></table></figure>
-<p><code>apply(a, MARGIN, FUN, ...)</code> 对矩阵或数组的向量化运算，如果存在名称的话，<code>MARGIN</code> 也可为维度的名称字符串。在此只讨论对矩阵的用法。</p>
-<ul>
-<li><code>apply(a, MARGIN = 1, sum)</code> 对矩阵 a 的行求和。</li>
-<li><code>apply(a, MARGIN = 2, sum)</code> 对矩阵 a 的列求和。</li>
-<li><code>apply(a, MARGIN = C(1,2), sum)</code> 对矩阵 a 的行列求和，得到的仍为原来的矩阵。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">1</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">9</span> <span class="number">12</span></div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">2</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">3</span>  <span class="number">7</span> <span class="number">11</span></div><div class="line">&gt;&gt;&gt; apply(a, c(<span class="number">1</span>,<span class="number">2</span>), sum)</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span>    <span class="number">5</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span>    <span class="number">6</span></div></pre></td></tr></table></figure>
-<p><code>diag(a)</code> 提取矩阵 a 的对角元素<br><code>diag(1:4)</code> 构建一个新的对角矩阵<br><code>crossprod(a,b)</code> 矩阵叉积，等同于 <code>t(a)%*%b</code>，前者计算效率更高。</p>
-<h3 id="Array-数组创建"><a href="#Array-数组创建" class="headerlink" title="Array 数组创建"></a>Array 数组创建</h3><p><code>array(data = NA, dim = length(data), dimnames = NULL)</code></p>
-<p>矩阵其实是特殊的两个维度的数组。<code>dim</code> 用于指定每个维度的长度。如果 <code>data</code> 数据长度不足，将会被复制循环填充。</p>
-<h2 id="factor-因子"><a href="#factor-因子" class="headerlink" title="factor 因子"></a>factor 因子</h2><p>因子是一个由字符串或者整数组成的向量，用来对另外一个等长的向量进行分类的离散变量。与一般的向量不同点是 factor 具有 <code>level</code> 属性。R 提供了已排序和未排序两类 factor。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">factor(x = character(), levels, labels = levels,</div><div class="line">    exclude = <span class="literal">NA</span>, ordered = is.ordered(x), nmax = <span class="literal">NA</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li><code>x</code> 向量，一般为少数几个不同的值。向量 <code>x</code> 的类型必须可以被转换为字符串 <code>as.character()</code> 和可以被排序 <code>sort.list</code>。</li>
-<li><code>levels</code> 水平，<code>x</code> 中选择性的值构成的字符串向量。默认值为 <code>unique(as.character(x))</code>，并且增序排列。<code>levels</code> 可以少于 <code>sort(unique(x))</code>。如果 <code>levels</code> 少于 <code>sort(unique(x))</code>，<code>x</code> 中没有包含的元素将被当作 <code>NA</code>。</li>
-<li><code>labels</code> 可选的参数，用来命名因子水平名称。例如，如果 <code>labels = &quot;f&quot;</code>，那么因子名为 <code>f1, f2, ...</code>。</li>
-<li><code>exclude</code> 在组成 <code>levels</code> 时需要排除掉的元素。与 <code>x</code> 类型相同，否则需要强制转换。</li>
-<li><code>ordered</code> 是否有序。有序的因子与未排序的因子仅仅在类上不同，但是方法和模型拟合函数对两者的处理有非常大的不同。</li>
-<li><code>nmax</code> 水平数的上限。</li>
-</ul>
-<p><code>factor</code> 函数返回一个 “factor” 类的对象，这个对象具有和 <code>x</code> 等长的整数码，具有 “character” 模式的 “levels” 属性。如果 <code>ordered = TRUE</code> 或者使用了 <code>ordered()</code> ，那么对象则具有两个类 <code>c(&quot;ordered&quot;, &quot;factor&quot;)</code>。对因子的解释依赖于编码（codes）和水平属性（levels）两个因素，所以在对因子进行比较时需谨慎。对因子使用 <code>as.numeric</code> 没有意义，因为会自动强制转换。如果要将因子 <code>f</code> 转换为初始的数值，建议使用 <code>as.numeric(levels(f))[f]</code>，这样要比 <code>as.numeric(as.character(f))</code> 效率高。因子的水平默认进行了排序，但是排序的标准依赖本地区域设置。可能不是基于 ASCII。尽量不要使用 <code>NA</code> 作为水平值。</p>
-<h3 id="因子的创建和操作"><a href="#因子的创建和操作" class="headerlink" title="因子的创建和操作"></a>因子的创建和操作</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; f &lt;- factor(a)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## 指派了 levels 结果一致</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>, <span class="string">"2"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## levels 个数少于 a</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span>    <span class="number">1</span>    &lt;<span class="literal">NA</span>&gt; &lt;<span class="literal">NA</span>&gt;</div><div class="line">Levels: <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment">## 增加标签</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 x2</div><div class="line"></div><div class="line"><span class="comment">## 增加排序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 &lt; x2</div><div class="line"></div><div class="line"><span class="comment">## 改变 levels 的顺序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"2"</span>, <span class="string">"1"</span>), labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x2 x2 x1 x1</div><div class="line">Levels: x1 &lt; x2</div></pre></td></tr></table></figure>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 构建一个 data.frame</span></div><div class="line">&gt;&gt;&gt; c.1 &lt;- rep(c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; c.2 &lt;- <span class="number">1</span>:<span class="number">6</span></div><div class="line">&gt;&gt;&gt; d &lt;- data.frame(c.1, c.2)</div><div class="line">&gt;&gt;&gt; d</div><div class="line">  c.1 c.2</div><div class="line"><span class="number">1</span>  f1   <span class="number">1</span></div><div class="line"><span class="number">2</span>  f1   <span class="number">2</span></div><div class="line"><span class="number">3</span>  f1   <span class="number">3</span></div><div class="line"><span class="number">4</span>  f2   <span class="number">4</span></div><div class="line"><span class="number">5</span>  f2   <span class="number">5</span></div><div class="line"><span class="number">6</span>  f2   <span class="number">6</span></div><div class="line"></div><div class="line"><span class="comment">## 将 c.1 转换为因子</span></div><div class="line">&gt;&gt;&gt; (d$c.1 &lt;- factor(c.1))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 as.factor</span></div><div class="line">&gt;&gt;&gt; as.factor(d$c.1)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 进行一个排序</span></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 ordered</span></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line"><span class="comment">## 转换因子的数据模式</span></div><div class="line">&gt;&gt;&gt; as.character(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f2"</span> <span class="string">"f2"</span> <span class="string">"f2"</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.numeric(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.logical(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+        <h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
 
       
     </div>
@@ -419,9 +357,11 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag">#R</a>
+            <a href="/tags/Data-science/" rel="tag">#Data science</a>
           
-            <a href="/tags/R-basics/" rel="tag">#R-basics</a>
+            <a href="/tags/Emacs/" rel="tag">#Emacs</a>
+          
+            <a href="/tags/Open-data/" rel="tag">#Open data</a>
           
         </div>
       
@@ -430,8 +370,8 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/23/2016-11-23-daily/" rel="next" title="每日总结 2016-11-23">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-23
+              <a href="/2016/11/24/2016-11-24-r-data-type-1st/" rel="next" title="R：基本数据类型（一）">
+                <i class="fa fa-chevron-left"></i> R：基本数据类型（一）
               </a>
             
           </div>
@@ -511,7 +451,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -528,7 +468,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">93</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -593,7 +533,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector-向量"><span class="nav-number">1.</span> <span class="nav-text">Vector 向量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量创建"><span class="nav-number">1.1.</span> <span class="nav-text">向量创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量运算"><span class="nav-number">1.1.1.</span> <span class="nav-text">向量运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-矩阵（以及数组-array）"><span class="nav-number">1.2.</span> <span class="nav-text">Matrix 矩阵（以及数组 array）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵创建"><span class="nav-number">1.2.1.</span> <span class="nav-text">矩阵创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵运算"><span class="nav-number">1.2.2.</span> <span class="nav-text">矩阵运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-数组创建"><span class="nav-number">1.2.3.</span> <span class="nav-text">Array 数组创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#factor-因子"><span class="nav-number">1.3.</span> <span class="nav-text">factor 因子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#因子的创建和操作"><span class="nav-number">1.3.1.</span> <span class="nav-text">因子的创建和操作</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#25-个公开数据网站"><span class="nav-number">1.</span> <span class="nav-text">25 个公开数据网站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs-手册阅读"><span class="nav-number">2.</span> <span class="nav-text">Emacs 手册阅读</span></a></li></ol></div>
             
           </div>
         </section>
@@ -714,7 +654,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
     <script type="text/javascript">
       var disqus_shortname = 'lix90';
       var disqus_identifier = '2016/11/24/2016-11-24-daily/';
-      var disqus_title = "R：基本数据类型（一）";
+      var disqus_title = "每日总结 2016-11-24";
       var disqus_url = '//lix90.github.io/2016/11/24/2016-11-24-daily/';
 
       function run_disqus_script(disqus_script){
