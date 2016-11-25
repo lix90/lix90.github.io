@@ -4,9 +4,9 @@
   <subtitle>菜鸟笔记，原创不多</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="//lix90.github.io/"/>
+  <link href="http://lix90.github.io/"/>
   <updated>2016-11-24T11:54:58.000Z</updated>
-  <id>//lix90.github.io/</id>
+  <id>http://lix90.github.io/</id>
   
   <author>
     <name>Lix</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>R：基本数据类型（一）</title>
-    <link href="//lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st"/>
-    <id>//lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st</id>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st/</id>
     <published>2016-11-23T16:00:00.000Z</published>
     <updated>2016-11-24T11:54:58.000Z</updated>
     
@@ -82,21 +82,21 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
-      <category term="R" scheme="//lix90.github.io/categories/Original/R/"/>
+      <category term="R" scheme="http://lix90.github.io/categories/Original/R/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-24</title>
-    <link href="//lix90.github.io/2016/11/24/2016-11-24-daily"/>
-    <id>//lix90.github.io/2016/11/24/2016-11-24-daily</id>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
     <published>2016-11-23T16:00:00.000Z</published>
     <updated>2016-11-24T13:37:59.000Z</updated>
     
@@ -118,21 +118,21 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="Open data" scheme="//lix90.github.io/tags/Open-data/"/>
+      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-23</title>
-    <link href="//lix90.github.io/2016/11/23/2016-11-23-daily"/>
-    <id>//lix90.github.io/2016/11/23/2016-11-23-daily</id>
+    <link href="http://lix90.github.io/2016/11/23/2016-11-23-daily/"/>
+    <id>http://lix90.github.io/2016/11/23/2016-11-23-daily/</id>
     <published>2016-11-22T16:00:00.000Z</published>
     <updated>2016-11-24T12:52:34.000Z</updated>
     
@@ -474,33 +474,33 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
-      <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
-      <category term="grid layout" scheme="//lix90.github.io/tags/grid-layout/"/>
+      <category term="grid layout" scheme="http://lix90.github.io/tags/grid-layout/"/>
     
-      <category term="Linear regression" scheme="//lix90.github.io/tags/Linear-regression/"/>
+      <category term="Linear regression" scheme="http://lix90.github.io/tags/Linear-regression/"/>
     
-      <category term="Monte Carlo" scheme="//lix90.github.io/tags/Monte-Carlo/"/>
+      <category term="Monte Carlo" scheme="http://lix90.github.io/tags/Monte-Carlo/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-22</title>
-    <link href="//lix90.github.io/2016/11/22/2016-11-22-daily"/>
-    <id>//lix90.github.io/2016/11/22/2016-11-22-daily</id>
+    <link href="http://lix90.github.io/2016/11/22/2016-11-22-daily/"/>
+    <id>http://lix90.github.io/2016/11/22/2016-11-22-daily/</id>
     <published>2016-11-21T16:00:00.000Z</published>
     <updated>2016-11-22T15:34:55.000Z</updated>
     
@@ -668,25 +668,25 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="项目管理" scheme="//lix90.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+      <category term="项目管理" scheme="http://lix90.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
     
-      <category term="单元测试" scheme="//lix90.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+      <category term="单元测试" scheme="http://lix90.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="Conf" scheme="//lix90.github.io/tags/Conf/"/>
+      <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
-      <category term="Chrome" scheme="//lix90.github.io/tags/Chrome/"/>
+      <category term="Chrome" scheme="http://lix90.github.io/tags/Chrome/"/>
     
   </entry>
   
   <entry>
     <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi"/>
-    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi</id>
+    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
     <published>2016-11-20T16:00:00.000Z</published>
     <updated>2016-11-21T12:48:16.000Z</updated>
     
@@ -716,23 +716,23 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
-      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
+      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
     
     
-      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
+      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
     
-      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
+      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
     
-      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
+      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
   <entry>
     <title>西服保养建议</title>
-    <link href="//lix90.github.io/2016/11/21/2016-11-21-clean-suit"/>
-    <id>//lix90.github.io/2016/11/21/2016-11-21-clean-suit</id>
+    <link href="http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/"/>
+    <id>http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/</id>
     <published>2016-11-20T16:00:00.000Z</published>
     <updated>2016-11-21T02:22:55.000Z</updated>
     
@@ -787,19 +787,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="Life style" scheme="//lix90.github.io/tags/Life-style/"/>
+      <category term="Life style" scheme="http://lix90.github.io/tags/Life-style/"/>
     
-      <category term="西服保养" scheme="//lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
+      <category term="西服保养" scheme="http://lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-19</title>
-    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily"/>
-    <id>//lix90.github.io/2016/11/19/2016-11-19-daily</id>
+    <link href="http://lix90.github.io/2016/11/19/2016-11-19-daily/"/>
+    <id>http://lix90.github.io/2016/11/19/2016-11-19-daily/</id>
     <published>2016-11-18T16:00:00.000Z</published>
     <updated>2016-11-22T07:40:47.000Z</updated>
     
@@ -890,23 +890,23 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
   <entry>
     <title>数据库面试题解答</title>
-    <link href="//lix90.github.io/2016/11/19/2016-11-19-sql-interview"/>
-    <id>//lix90.github.io/2016/11/19/2016-11-19-sql-interview</id>
+    <link href="http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/"/>
+    <id>http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/</id>
     <published>2016-11-18T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:33.000Z</updated>
     
@@ -1002,19 +1002,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+      <category term="Database" scheme="http://lix90.github.io/tags/Database/"/>
     
-      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+      <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-18</title>
-    <link href="//lix90.github.io/2016/11/18/2016-11-18-daily"/>
-    <id>//lix90.github.io/2016/11/18/2016-11-18-daily</id>
+    <link href="http://lix90.github.io/2016/11/18/2016-11-18-daily/"/>
+    <id>http://lix90.github.io/2016/11/18/2016-11-18-daily/</id>
     <published>2016-11-17T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:24.000Z</updated>
     
@@ -1097,23 +1097,23 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
-      <category term="交互设计" scheme="//lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
+      <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="Cloud" scheme="//lix90.github.io/tags/Cloud/"/>
+      <category term="Cloud" scheme="http://lix90.github.io/tags/Cloud/"/>
     
   </entry>
   
   <entry>
     <title>R：使用 tidyr 进行数据操作</title>
-    <link href="//lix90.github.io/2016/11/17/2016-11-17-r-tidyr"/>
-    <id>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr</id>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
     <published>2016-11-16T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:16.000Z</updated>
     
@@ -1198,19 +1198,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="tidyr" scheme="//lix90.github.io/tags/tidyr/"/>
+      <category term="tidyr" scheme="http://lix90.github.io/tags/tidyr/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-17</title>
-    <link href="//lix90.github.io/2016/11/17/2016-11-17-daily"/>
-    <id>//lix90.github.io/2016/11/17/2016-11-17-daily</id>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
     <published>2016-11-16T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:07.000Z</updated>
     
@@ -1247,17 +1247,17 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>R：使用基本包进行多图布局</title>
-    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout"/>
-    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout</id>
+    <link href="http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
+    <id>http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
     <published>2016-11-15T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:01.000Z</updated>
     
@@ -1324,19 +1324,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-16</title>
-    <link href="//lix90.github.io/2016/11/16/2016-11-16-daily"/>
-    <id>//lix90.github.io/2016/11/16/2016-11-16-daily</id>
+    <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
+    <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
     <published>2016-11-15T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:47.000Z</updated>
     
@@ -1420,27 +1420,27 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
-      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
-      <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-15</title>
-    <link href="//lix90.github.io/2016/11/15/2016-11-15-daily"/>
-    <id>//lix90.github.io/2016/11/15/2016-11-15-daily</id>
+    <link href="http://lix90.github.io/2016/11/15/2016-11-15-daily/"/>
+    <id>http://lix90.github.io/2016/11/15/2016-11-15-daily/</id>
     <published>2016-11-14T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:41.000Z</updated>
     
@@ -1483,21 +1483,21 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
+      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
   </entry>
   
   <entry>
     <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output</id>
+    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
     <published>2016-11-13T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:33.000Z</updated>
     
@@ -1600,31 +1600,31 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="学术出版" scheme="//lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
     
-      <category term="统计图表" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
     
-      <category term="Illustrator" scheme="//lix90.github.io/tags/Illustrator/"/>
+      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
     
-      <category term="Photoshop" scheme="//lix90.github.io/tags/Photoshop/"/>
+      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
     
-      <category term="Inkscape" scheme="//lix90.github.io/tags/Inkscape/"/>
+      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
     
-      <category term="矢量图" scheme="//lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
     
-      <category term="位图" scheme="//lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
     
-      <category term="Lab" scheme="//lix90.github.io/tags/Lab/"/>
+      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-14</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-daily"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-daily</id>
+    <link href="http://lix90.github.io/2016/11/14/2016-11-14-daily/"/>
+    <id>http://lix90.github.io/2016/11/14/2016-11-14-daily/</id>
     <published>2016-11-13T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:22.000Z</updated>
     
@@ -1784,33 +1784,33 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
-      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="计算机概论" scheme="//lix90.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/"/>
+      <category term="计算机概论" scheme="http://lix90.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/"/>
     
-      <category term="Data mining" scheme="//lix90.github.io/tags/Data-mining/"/>
+      <category term="Data mining" scheme="http://lix90.github.io/tags/Data-mining/"/>
     
-      <category term="数据预处理" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
+      <category term="数据预处理" scheme="http://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/"/>
     
-      <category term="交互设计" scheme="//lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
+      <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="UI" scheme="//lix90.github.io/tags/UI/"/>
+      <category term="UI" scheme="http://lix90.github.io/tags/UI/"/>
     
   </entry>
   
   <entry>
     <title>个人资源长期整理</title>
-    <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki"/>
-    <id>//lix90.github.io/2016/11/13/2016-11-13-wiki</id>
+    <link href="http://lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
+    <id>http://lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
     <published>2016-11-12T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:13.000Z</updated>
     
@@ -1893,19 +1893,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
-      <category term="Wiki" scheme="//lix90.github.io/tags/Wiki/"/>
+      <category term="Wiki" scheme="http://lix90.github.io/tags/Wiki/"/>
     
   </entry>
   
   <entry>
     <title>R：加载包</title>
-    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily"/>
-    <id>//lix90.github.io/2016/11/13/2016-11-13-daily</id>
+    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
     <published>2016-11-12T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:56.000Z</updated>
     
@@ -1927,19 +1927,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-12</title>
-    <link href="//lix90.github.io/2016/11/12/2016-11-12-daily"/>
-    <id>//lix90.github.io/2016/11/12/2016-11-12-daily</id>
+    <link href="http://lix90.github.io/2016/11/12/2016-11-12-daily/"/>
+    <id>http://lix90.github.io/2016/11/12/2016-11-12-daily/</id>
     <published>2016-11-11T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:41.000Z</updated>
     
@@ -1978,29 +1978,29 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+      <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
-      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
-      <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
+      <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
-      <category term="BOM" scheme="//lix90.github.io/tags/BOM/"/>
+      <category term="BOM" scheme="http://lix90.github.io/tags/BOM/"/>
     
-      <category term="Data base" scheme="//lix90.github.io/tags/Data-base/"/>
+      <category term="Data base" scheme="http://lix90.github.io/tags/Data-base/"/>
     
   </entry>
   
   <entry>
     <title>男士衬衫穿搭技巧</title>
-    <link href="//lix90.github.io/2016/11/11/2016-11-11-life-shirt"/>
-    <id>//lix90.github.io/2016/11/11/2016-11-11-life-shirt</id>
+    <link href="http://lix90.github.io/2016/11/11/2016-11-11-life-shirt/"/>
+    <id>http://lix90.github.io/2016/11/11/2016-11-11-life-shirt/</id>
     <published>2016-11-10T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:34.000Z</updated>
     
@@ -2090,19 +2090,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="Life style" scheme="//lix90.github.io/tags/Life-style/"/>
+      <category term="Life style" scheme="http://lix90.github.io/tags/Life-style/"/>
     
-      <category term="Shirt" scheme="//lix90.github.io/tags/Shirt/"/>
+      <category term="Shirt" scheme="http://lix90.github.io/tags/Shirt/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-10</title>
-    <link href="//lix90.github.io/2016/11/10/2016-11-10-daily"/>
-    <id>//lix90.github.io/2016/11/10/2016-11-10-daily</id>
+    <link href="http://lix90.github.io/2016/11/10/2016-11-10-daily/"/>
+    <id>http://lix90.github.io/2016/11/10/2016-11-10-daily/</id>
     <published>2016-11-09T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:24.000Z</updated>
     
@@ -2129,27 +2129,27 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="P-value" scheme="//lix90.github.io/tags/P-value/"/>
+      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
-      <category term="Ruby" scheme="//lix90.github.io/tags/Ruby/"/>
+      <category term="Ruby" scheme="http://lix90.github.io/tags/Ruby/"/>
     
-      <category term="Pandas" scheme="//lix90.github.io/tags/Pandas/"/>
+      <category term="Pandas" scheme="http://lix90.github.io/tags/Pandas/"/>
     
-      <category term="统计显著性" scheme="//lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+      <category term="统计显著性" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
     
   </entry>
   
   <entry>
     <title>R：处理缺失值</title>
-    <link href="//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier"/>
-    <id>//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier</id>
+    <link href="http://lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/"/>
+    <id>http://lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/</id>
     <published>2016-11-08T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:16.000Z</updated>
     
@@ -2186,23 +2186,23 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
-      <category term="数据分析" scheme="//lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+      <category term="数据分析" scheme="http://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
-      <category term="缺失值" scheme="//lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
+      <category term="缺失值" scheme="http://lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
     
   </entry>
   
   <entry>
     <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data</id>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:08.000Z</updated>
     
@@ -2219,19 +2219,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-08</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-daily</id>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:30:46.000Z</updated>
     
@@ -2268,19 +2268,19 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
+      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
   <entry>
     <title>R：基本数据可视化</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis</id>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:30:55.000Z</updated>
     
@@ -2454,19 +2454,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
   </entry>
   
   <entry>
     <title>R：描述性统计</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats</id>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:01.000Z</updated>
     
@@ -2520,21 +2520,21 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
-      <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-07</title>
-    <link href="//lix90.github.io/2016/11/07/2016-11-07-daily"/>
-    <id>//lix90.github.io/2016/11/07/2016-11-07-daily</id>
+    <link href="http://lix90.github.io/2016/11/07/2016-11-07-daily/"/>
+    <id>http://lix90.github.io/2016/11/07/2016-11-07-daily/</id>
     <published>2016-11-06T16:00:00.000Z</published>
     <updated>2016-11-19T03:30:40.000Z</updated>
     
@@ -2588,29 +2588,29 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="ESS" scheme="//lix90.github.io/tags/ESS/"/>
+      <category term="ESS" scheme="http://lix90.github.io/tags/ESS/"/>
     
-      <category term="Rmarkdown" scheme="//lix90.github.io/tags/Rmarkdown/"/>
+      <category term="Rmarkdown" scheme="http://lix90.github.io/tags/Rmarkdown/"/>
     
-      <category term="Terminal" scheme="//lix90.github.io/tags/Terminal/"/>
+      <category term="Terminal" scheme="http://lix90.github.io/tags/Terminal/"/>
     
-      <category term="MacOS" scheme="//lix90.github.io/tags/MacOS/"/>
+      <category term="MacOS" scheme="http://lix90.github.io/tags/MacOS/"/>
     
-      <category term="Tools" scheme="//lix90.github.io/tags/Tools/"/>
+      <category term="Tools" scheme="http://lix90.github.io/tags/Tools/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-11-01</title>
-    <link href="//lix90.github.io/2016/11/02/2016-11-01-daily"/>
-    <id>//lix90.github.io/2016/11/02/2016-11-01-daily</id>
+    <link href="http://lix90.github.io/2016/11/02/2016-11-01-daily/"/>
+    <id>http://lix90.github.io/2016/11/02/2016-11-01-daily/</id>
     <published>2016-11-01T16:23:13.000Z</published>
     <updated>2016-11-19T03:30:32.000Z</updated>
     
@@ -2794,23 +2794,23 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="Bash" scheme="//lix90.github.io/tags/Bash/"/>
+      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
-      <category term="Helvetica" scheme="//lix90.github.io/tags/Helvetica/"/>
+      <category term="Helvetica" scheme="http://lix90.github.io/tags/Helvetica/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-10-31</title>
-    <link href="//lix90.github.io/2016/10/31/2016-10-31-daily"/>
-    <id>//lix90.github.io/2016/10/31/2016-10-31-daily</id>
+    <link href="http://lix90.github.io/2016/10/31/2016-10-31-daily/"/>
+    <id>http://lix90.github.io/2016/10/31/2016-10-31-daily/</id>
     <published>2016-10-31T15:36:55.000Z</published>
     <updated>2016-11-19T03:30:25.000Z</updated>
     
@@ -2886,23 +2886,23 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="Flexbox" scheme="//lix90.github.io/tags/Flexbox/"/>
+      <category term="Flexbox" scheme="http://lix90.github.io/tags/Flexbox/"/>
     
-      <category term="Browsersync" scheme="//lix90.github.io/tags/Browsersync/"/>
+      <category term="Browsersync" scheme="http://lix90.github.io/tags/Browsersync/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-10-30</title>
-    <link href="//lix90.github.io/2016/10/30/2016-10-30-daily"/>
-    <id>//lix90.github.io/2016/10/30/2016-10-30-daily</id>
+    <link href="http://lix90.github.io/2016/10/30/2016-10-30-daily/"/>
+    <id>http://lix90.github.io/2016/10/30/2016-10-30-daily/</id>
     <published>2016-10-30T05:57:32.000Z</published>
     <updated>2016-11-19T03:30:17.000Z</updated>
     
@@ -2984,23 +2984,23 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="Callback" scheme="//lix90.github.io/tags/Callback/"/>
+      <category term="Callback" scheme="http://lix90.github.io/tags/Callback/"/>
     
-      <category term="SCSS" scheme="//lix90.github.io/tags/SCSS/"/>
+      <category term="SCSS" scheme="http://lix90.github.io/tags/SCSS/"/>
     
-      <category term="SASS" scheme="//lix90.github.io/tags/SASS/"/>
+      <category term="SASS" scheme="http://lix90.github.io/tags/SASS/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-10-29</title>
-    <link href="//lix90.github.io/2016/10/29/2016-10-29-daily"/>
-    <id>//lix90.github.io/2016/10/29/2016-10-29-daily</id>
+    <link href="http://lix90.github.io/2016/10/29/2016-10-29-daily/"/>
+    <id>http://lix90.github.io/2016/10/29/2016-10-29-daily/</id>
     <published>2016-10-29T06:03:30.000Z</published>
     <updated>2016-11-19T03:30:10.000Z</updated>
     
@@ -3126,25 +3126,25 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Hexo" scheme="//lix90.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://lix90.github.io/tags/Hexo/"/>
     
-      <category term="Grunt" scheme="//lix90.github.io/tags/Grunt/"/>
+      <category term="Grunt" scheme="http://lix90.github.io/tags/Grunt/"/>
     
-      <category term="Gulp" scheme="//lix90.github.io/tags/Gulp/"/>
+      <category term="Gulp" scheme="http://lix90.github.io/tags/Gulp/"/>
     
-      <category term="Jade" scheme="//lix90.github.io/tags/Jade/"/>
+      <category term="Jade" scheme="http://lix90.github.io/tags/Jade/"/>
     
-      <category term="Pug.js" scheme="//lix90.github.io/tags/Pug-js/"/>
+      <category term="Pug.js" scheme="http://lix90.github.io/tags/Pug-js/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-10-28</title>
-    <link href="//lix90.github.io/2016/10/28/2016-10-28-daily"/>
-    <id>//lix90.github.io/2016/10/28/2016-10-28-daily</id>
+    <link href="http://lix90.github.io/2016/10/28/2016-10-28-daily/"/>
+    <id>http://lix90.github.io/2016/10/28/2016-10-28-daily/</id>
     <published>2016-10-28T06:10:36.000Z</published>
     <updated>2016-11-19T03:30:04.000Z</updated>
     
@@ -3274,25 +3274,25 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
+      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
-      <category term="Coding style" scheme="//lix90.github.io/tags/Coding-style/"/>
+      <category term="Coding style" scheme="http://lix90.github.io/tags/Coding-style/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-10-27</title>
-    <link href="//lix90.github.io/2016/10/27/2016-10-27-daily"/>
-    <id>//lix90.github.io/2016/10/27/2016-10-27-daily</id>
+    <link href="http://lix90.github.io/2016/10/27/2016-10-27-daily/"/>
+    <id>http://lix90.github.io/2016/10/27/2016-10-27-daily/</id>
     <published>2016-10-27T15:11:30.000Z</published>
     <updated>2016-11-19T03:29:58.000Z</updated>
     
@@ -3443,35 +3443,35 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
-      <category term="jQuery" scheme="//lix90.github.io/tags/jQuery/"/>
+      <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
-      <category term="Vue.js" scheme="//lix90.github.io/tags/Vue-js/"/>
+      <category term="Vue.js" scheme="http://lix90.github.io/tags/Vue-js/"/>
     
-      <category term="DOM" scheme="//lix90.github.io/tags/DOM/"/>
+      <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
-      <category term="elisp" scheme="//lix90.github.io/tags/elisp/"/>
+      <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
     
-      <category term="HTML" scheme="//lix90.github.io/tags/HTML/"/>
+      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
   </entry>
   
   <entry>
     <title>每日总结 2016-10-26</title>
-    <link href="//lix90.github.io/2016/10/26/2016-10-26-daily"/>
-    <id>//lix90.github.io/2016/10/26/2016-10-26-daily</id>
+    <link href="http://lix90.github.io/2016/10/26/2016-10-26-daily/"/>
+    <id>http://lix90.github.io/2016/10/26/2016-10-26-daily/</id>
     <published>2016-10-26T01:30:34.000Z</published>
     <updated>2016-11-19T03:29:51.000Z</updated>
     
@@ -3586,21 +3586,21 @@
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="//lix90.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Git" scheme="//lix90.github.io/tags/Git/"/>
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
-      <category term="Machine Learning" scheme="//lix90.github.io/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="http://lix90.github.io/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>HTTP 学习记录</title>
-    <link href="//lix90.github.io/2016/10/22/2016-10-22-http"/>
-    <id>//lix90.github.io/2016/10/22/2016-10-22-http</id>
+    <link href="http://lix90.github.io/2016/10/22/2016-10-22-http/"/>
+    <id>http://lix90.github.io/2016/10/22/2016-10-22-http/</id>
     <published>2016-10-22T11:45:33.000Z</published>
     <updated>2016-11-19T03:29:43.000Z</updated>
     
@@ -3635,19 +3635,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="HTTP" scheme="//lix90.github.io/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
-      <category term="Web" scheme="//lix90.github.io/tags/Web/"/>
+      <category term="Web" scheme="http://lix90.github.io/tags/Web/"/>
     
   </entry>
   
   <entry>
     <title>D3.js 入门学习记录</title>
-    <link href="//lix90.github.io/2016/10/17/2016-10-17-d3js-intro"/>
-    <id>//lix90.github.io/2016/10/17/2016-10-17-d3js-intro</id>
+    <link href="http://lix90.github.io/2016/10/17/2016-10-17-d3js-intro/"/>
+    <id>http://lix90.github.io/2016/10/17/2016-10-17-d3js-intro/</id>
     <published>2016-10-17T08:23:07.000Z</published>
     <updated>2016-11-19T03:29:37.000Z</updated>
     
@@ -3783,21 +3783,21 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="D3.js" scheme="//lix90.github.io/tags/D3-js/"/>
+      <category term="D3.js" scheme="http://lix90.github.io/tags/D3-js/"/>
     
-      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
-      <category term="SVG" scheme="//lix90.github.io/tags/SVG/"/>
+      <category term="SVG" scheme="http://lix90.github.io/tags/SVG/"/>
     
   </entry>
   
   <entry>
     <title>R：查看源代码</title>
-    <link href="//lix90.github.io/2016/10/08/2016-10-08-r-source-code"/>
-    <id>//lix90.github.io/2016/10/08/2016-10-08-r-source-code</id>
+    <link href="http://lix90.github.io/2016/10/08/2016-10-08-r-source-code/"/>
+    <id>http://lix90.github.io/2016/10/08/2016-10-08-r-source-code/</id>
     <published>2016-10-08T14:23:57.000Z</published>
     <updated>2016-11-19T03:29:30.000Z</updated>
     
@@ -3843,19 +3843,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
   <entry>
     <title>R：正则表达式</title>
-    <link href="//lix90.github.io/2016/10/03/2016-10-03-r-regex"/>
-    <id>//lix90.github.io/2016/10/03/2016-10-03-r-regex</id>
+    <link href="http://lix90.github.io/2016/10/03/2016-10-03-r-regex/"/>
+    <id>http://lix90.github.io/2016/10/03/2016-10-03-r-regex/</id>
     <published>2016-10-02T16:46:15.000Z</published>
     <updated>2016-11-19T03:29:10.000Z</updated>
     
@@ -3890,19 +3890,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="正则表达式" scheme="//lix90.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="http://lix90.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>PHP 安装与配置</title>
-    <link href="//lix90.github.io/2016/09/25/2016-09-25-php-config"/>
-    <id>//lix90.github.io/2016/09/25/2016-09-25-php-config</id>
+    <link href="http://lix90.github.io/2016/09/25/2016-09-25-php-config/"/>
+    <id>http://lix90.github.io/2016/09/25/2016-09-25-php-config/</id>
     <published>2016-09-25T13:00:45.000Z</published>
     <updated>2016-11-19T03:28:58.000Z</updated>
     
@@ -3934,19 +3934,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
-      <category term="PHP" scheme="//lix90.github.io/tags/PHP/"/>
+      <category term="PHP" scheme="http://lix90.github.io/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>从零学机器学习之决策树</title>
-    <link href="//lix90.github.io/2016/09/22/2016-09-22-decision-tree"/>
-    <id>//lix90.github.io/2016/09/22/2016-09-22-decision-tree</id>
+    <link href="http://lix90.github.io/2016/09/22/2016-09-22-decision-tree/"/>
+    <id>http://lix90.github.io/2016/09/22/2016-09-22-decision-tree/</id>
     <published>2016-09-22T02:10:09.000Z</published>
     <updated>2016-11-19T03:28:50.000Z</updated>
     
@@ -3974,21 +3974,21 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="Machine learning" scheme="//lix90.github.io/tags/Machine-learning/"/>
+      <category term="Machine learning" scheme="http://lix90.github.io/tags/Machine-learning/"/>
     
-      <category term="Decision tree" scheme="//lix90.github.io/tags/Decision-tree/"/>
+      <category term="Decision tree" scheme="http://lix90.github.io/tags/Decision-tree/"/>
     
-      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
   </entry>
   
   <entry>
     <title>零基础如何学习一门新的编程语言？</title>
-    <link href="//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang"/>
-    <id>//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang</id>
+    <link href="http://lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/"/>
+    <id>http://lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/</id>
     <published>2016-09-17T06:48:43.000Z</published>
     <updated>2016-11-19T03:27:48.000Z</updated>
     
@@ -4129,19 +4129,19 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="Programming" scheme="//lix90.github.io/tags/Programming/"/>
+      <category term="Programming" scheme="http://lix90.github.io/tags/Programming/"/>
     
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
   <entry>
     <title>SQL 语言入门笔记</title>
-    <link href="//lix90.github.io/2016/09/17/2016-09-17-sql"/>
-    <id>//lix90.github.io/2016/09/17/2016-09-17-sql</id>
+    <link href="http://lix90.github.io/2016/09/17/2016-09-17-sql/"/>
+    <id>http://lix90.github.io/2016/09/17/2016-09-17-sql/</id>
     <published>2016-09-17T01:46:39.000Z</published>
     <updated>2016-11-19T03:28:13.000Z</updated>
     
@@ -4398,19 +4398,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+      <category term="Database" scheme="http://lix90.github.io/tags/Database/"/>
     
-      <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+      <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>R：向量化运算</title>
-    <link href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family"/>
-    <id>//lix90.github.io/2016/09/13/2016-09-13-r-apply-family</id>
+    <link href="http://lix90.github.io/2016/09/13/2016-09-13-r-apply-family/"/>
+    <id>http://lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</id>
     <published>2016-09-13T14:50:21.000Z</published>
     <updated>2016-11-19T03:28:31.000Z</updated>
     
@@ -4467,19 +4467,19 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
   <entry>
     <title>MySQL安装与配置（MacOS）</title>
-    <link href="//lix90.github.io/2016/09/13/2016-09-13-mysql-config"/>
-    <id>//lix90.github.io/2016/09/13/2016-09-13-mysql-config</id>
+    <link href="http://lix90.github.io/2016/09/13/2016-09-13-mysql-config/"/>
+    <id>http://lix90.github.io/2016/09/13/2016-09-13-mysql-config/</id>
     <published>2016-09-13T12:59:16.000Z</published>
     <updated>2016-11-19T03:26:43.000Z</updated>
     
@@ -4546,21 +4546,21 @@
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+      <category term="Database" scheme="http://lix90.github.io/tags/Database/"/>
     
-      <category term="MySQL" scheme="//lix90.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="http://lix90.github.io/tags/MySQL/"/>
     
-      <category term="Configuration" scheme="//lix90.github.io/tags/Configuration/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
   </entry>
   
   <entry>
     <title>数据冗余</title>
-    <link href="//lix90.github.io/2016/09/11/2016-09-11-data-redundency"/>
-    <id>//lix90.github.io/2016/09/11/2016-09-11-data-redundency</id>
+    <link href="http://lix90.github.io/2016/09/11/2016-09-11-data-redundency/"/>
+    <id>http://lix90.github.io/2016/09/11/2016-09-11-data-redundency/</id>
     <published>2016-09-11T11:54:11.000Z</published>
     <updated>2016-11-19T03:26:25.000Z</updated>
     
@@ -4596,10 +4596,10 @@
     
     </summary>
     
-      <category term="Notes" scheme="//lix90.github.io/categories/Notes/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
+      <category term="Database" scheme="http://lix90.github.io/tags/Database/"/>
     
   </entry>
   
