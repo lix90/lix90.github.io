@@ -100,7 +100,7 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
 向量创建vector 创建给定长度和模式的向量。
 12&amp;gt;&amp;gt;&amp;gt; vector(mode = &quot;character&quot;, length = 5)[1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
 as.vector 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “">
-<meta property="og:updated_time" content="2016-11-25T03:35:22.000Z">
+<meta property="og:updated_time" content="2016-11-25T05:38:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：基本数据类型">
 <meta name="twitter:description" content="Vector 向量向量 vector 由同类型的元素构成。
@@ -388,7 +388,6 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
 <p>也就是说，向量相乘时，若长度不相等，较短的向量会继续往后与长的向量相乘。如果向量的长度不是整数倍，会出现警告：“长的对象长度不是短的对象长度的整倍数”。</p>
 <p><code>a%%2</code> 对向量所有元素求余数<br><code>a%/%2.4</code> 向量所有元素与2.4进行整除运算<br><code>t(a)</code> 对 <code>a</code> 进行转置</p>
 <p><strong>总结：对于向量的运算，都是对其元素的运算。</strong></p>
-<p>函数 <code>sample</code> <code>combinat::permn</code> <code>order</code> <code>sort</code> <code>rank</code> 可用于向量的操作。</p>
 <h2 id="Matrix-矩阵（以及数组-array）"><a href="#Matrix-矩阵（以及数组-array）" class="headerlink" title="Matrix 矩阵（以及数组 array）"></a>Matrix 矩阵（以及数组 array）</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
 <ul>
 <li><code>data</code> 为向量类型，非原子模式的对象将由 <code>as.vector</code> 强制转换为向量，并且去掉属性。</li>
@@ -477,16 +476,16 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/23/2016-11-23-daily/" rel="next" title="每日总结 2016-11-23">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-23
+              <a href="/2016/11/24/2016-11-24-daily/" rel="next" title="每日总结 2016-11-24">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-24
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/24/2016-11-24-daily/" rel="prev" title="每日总结 2016-11-24">
-                每日总结 2016-11-24 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/25/2016-11-25-daily/" rel="prev" title="每日总结 2016-11-25">
+                每日总结 2016-11-25 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,25 +500,6 @@ as.vector 可以将实参转换为给定模式的向量。如果输入结果为�
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/11/24/2016-11-24-r-data-type/"
-     data-title="R：基本数据类型"
-     data-content=""
-     data-url="http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>

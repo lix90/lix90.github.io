@@ -47,47 +47,11 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-24</title>
-    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
-    <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-24T13:37:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
-<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
-<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
-<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
-<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
-<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
-<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
-<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
-<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
-<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;25-个公开数据网站&quot;&gt;&lt;a href=&quot;#25-个公开数据网站&quot; class=&quot;headerlink&quot; title=&quot;25 个公开数据网站&quot;&gt;&lt;/a&gt;25 个公开数据网站&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一般类型的数据&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;h
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
-    
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：基本数据类型</title>
     <link href="http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/"/>
     <id>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</id>
     <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-25T03:35:22.000Z</updated>
+    <updated>2016-11-25T05:38:38.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Vector-向量"><a href="#Vector-向量" class="headerlink" title="Vector 向量"></a>Vector 向量</h1><p>向量 vector 由同类型的元素构成。</p>
 <h2 id="向量创建"><a href="#向量创建" class="headerlink" title="向量创建"></a>向量创建</h2><p><code>vector</code> 创建给定长度和模式的向量。</p>
@@ -105,7 +69,6 @@
 <p>也就是说，向量相乘时，若长度不相等，较短的向量会继续往后与长的向量相乘。如果向量的长度不是整数倍，会出现警告：“长的对象长度不是短的对象长度的整倍数”。</p>
 <p><code>a%%2</code> 对向量所有元素求余数<br><code>a%/%2.4</code> 向量所有元素与2.4进行整除运算<br><code>t(a)</code> 对 <code>a</code> 进行转置</p>
 <p><strong>总结：对于向量的运算，都是对其元素的运算。</strong></p>
-<p>函数 <code>sample</code> <code>combinat::permn</code> <code>order</code> <code>sort</code> <code>rank</code> 可用于向量的操作。</p>
 <h2 id="Matrix-矩阵（以及数组-array）"><a href="#Matrix-矩阵（以及数组-array）" class="headerlink" title="Matrix 矩阵（以及数组 array）"></a>Matrix 矩阵（以及数组 array）</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
 <ul>
 <li><code>data</code> 为向量类型，非原子模式的对象将由 <code>as.vector</code> 强制转换为向量，并且去掉属性。</li>
@@ -178,6 +141,42 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-24</title>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-24T13:37:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;25-个公开数据网站&quot;&gt;&lt;a href=&quot;#25-个公开数据网站&quot; class=&quot;headerlink&quot; title=&quot;25 个公开数据网站&quot;&gt;&lt;/a&gt;25 个公开数据网站&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一般类型的数据&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -1163,6 +1162,53 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：使用 tidyr 进行数据操作</title>
     <link href="http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
     <id>http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
@@ -1256,53 +1302,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="tidyr" scheme="http://lix90.github.io/tags/tidyr/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -2349,55 +2348,6 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:30:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：基本数据可视化</title>
     <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
     <id>http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
@@ -2580,6 +2530,55 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:30:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
