@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//lix90.github.io/"/>
-  <updated>2016-11-24T13:37:59.000Z</updated>
+  <updated>2016-11-24T11:54:58.000Z</updated>
   <id>//lix90.github.io/</id>
   
   <author>
@@ -14,42 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>每日总结 2016-11-24</title>
-    <link href="//lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>//lix90.github.io/2016/11/24/2016-11-24-daily/</id>
-    <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-24T13:37:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
-<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
-<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
-<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
-<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
-<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
-<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
-<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
-<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
-<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;25-个公开数据网站&quot;&gt;&lt;a href=&quot;#25-个公开数据网站&quot; class=&quot;headerlink&quot; title=&quot;25 个公开数据网站&quot;&gt;&lt;/a&gt;25 个公开数据网站&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一般类型的数据&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;h
-    
-    </summary>
-    
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
-    
-      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Open data" scheme="//lix90.github.io/tags/Open-data/"/>
-    
-  </entry>
   
   <entry>
     <title>R：基本数据类型（一）</title>
@@ -126,6 +90,42 @@
       <category term="R" scheme="//lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="//lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-24</title>
+    <link href="//lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>//lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-24T13:37:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;25-个公开数据网站&quot;&gt;&lt;a href=&quot;#25-个公开数据网站&quot; class=&quot;headerlink&quot; title=&quot;25 个公开数据网站&quot;&gt;&lt;/a&gt;25 个公开数据网站&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一般类型的数据&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;h
+    
+    </summary>
+    
+      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Data science" scheme="//lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Emacs" scheme="//lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Open data" scheme="//lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -684,52 +684,6 @@
   </entry>
   
   <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-21T12:48:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电
-    
-    </summary>
-    
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
-    
-      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>西服保养建议</title>
     <link href="//lix90.github.io/2016/11/21/2016-11-21-clean-suit/"/>
     <id>//lix90.github.io/2016/11/21/2016-11-21-clean-suit/</id>
@@ -797,109 +751,48 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-19</title>
-    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily/"/>
-    <id>//lix90.github.io/2016/11/19/2016-11-19-daily/</id>
-    <published>2016-11-18T16:00:00.000Z</published>
-    <updated>2016-11-22T07:40:47.000Z</updated>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-21T12:48:16.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
-<p>三种时间表现形式：</p>
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
 <ul>
-<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
-<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
-<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
 </ul>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
-<li>代码风格<ul>
-<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
-<li>CoffeeScript 正过时</li>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
 </ul>
-</li>
-<li>前端框架<ul>
-<li>React 强势</li>
-<li>Vue 崛起</li>
-<li>Angular 2 &gt; Angular 1</li>
-</ul>
-</li>
-<li>状态管理<ul>
-<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
-</ul>
-</li>
-<li>API 层<ul>
-<li>GraphQL 有前途？</li>
-<li>REST APIs 广泛适用</li>
-</ul>
-</li>
-<li>全栈框架<ul>
-<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
-<li>“一体化”框架并没有期待的那么受欢迎</li>
-</ul>
-</li>
-<li>测试框架<ul>
-<li>Mocha 和 Jasmine 较主流</li>
-<li>开发者总体对 JS 的测试不太满意</li>
-</ul>
-</li>
-<li>CSS 构建工具/预处理器<ul>
-<li>SASS/SCSS 主导</li>
-<li>CSS Modules</li>
-</ul>
-</li>
-<li>构建工具<ul>
-<li>Webpack 和 Gulp 最受欢迎</li>
-<li>Grunt 已过气</li>
-</ul>
-</li>
-<li>移动端框架<ul>
-<li>原生应用最主流</li>
-<li>React Native 较为受欢迎</li>
-</ul>
-</li>
-<li>新特性<ul>
-<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
-<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
-<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
-<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
-<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
-<li>Real-time operations 实时交互</li>
-<li>Dead code elimination 冗余代码消除</li>
-<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
-<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
-<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
-<li>熟练掌握盒模型、常用布局</li>
-<li>能够处理好浏览器和移动设备兼容性问题</li>
-<li>熟悉 Angular/React 等框架，并开发成型项目</li>
-<li>熟悉调试、抓包工具</li>
-<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
-<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
-<li>熟悉常用设计模式和常用 MV* 框架</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
+      &lt;p&gt;EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电
     
     </summary>
     
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
     
     
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
     
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
     
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
+      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -1008,6 +901,113 @@
       <category term="Database" scheme="//lix90.github.io/tags/Database/"/>
     
       <category term="SQL" scheme="//lix90.github.io/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-19</title>
+    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily/"/>
+    <id>//lix90.github.io/2016/11/19/2016-11-19-daily/</id>
+    <published>2016-11-18T16:00:00.000Z</published>
+    <updated>2016-11-22T07:40:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
+<ul>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
+<li>代码风格<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
+</ul>
+</li>
+<li>前端框架<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
+</ul>
+</li>
+<li>状态管理<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
+</ul>
+</li>
+<li>API 层<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
+</ul>
+</li>
+<li>全栈框架<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
+</ul>
+</li>
+<li>测试框架<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
+</ul>
+</li>
+<li>CSS 构建工具/预处理器<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
+</ul>
+</li>
+<li>构建工具<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
+</ul>
+</li>
+<li>移动端框架<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
+</ul>
+</li>
+<li>新特性<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
@@ -1255,6 +1255,85 @@
   </entry>
   
   <entry>
+    <title>R：使用基本包进行多图布局</title>
+    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
+    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
+    <published>2016-11-15T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
+<p>参数：</p>
+<ul>
+<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
+<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
+<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
+<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
+<li><code>n</code>：绘制的图形个数。</li>
+</ul>
+<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
+<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
+<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
+<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
+<ul>
+<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
+<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
+<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
+</ul>
+<p><strong>Inner region</strong> 内区域</p>
+<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
+<p><strong>Figure region</strong> 图形区域</p>
+<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
+<p><strong>Figure margin</strong> 图形边缘</p>
+<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
+<ul>
+<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
+<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
+<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
+<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
+</ul>
+<p><strong>Plot region</strong> 绘制区域</p>
+<ul>
+<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
+<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
+<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
+</ul>
+<p>子图或多图绘制</p>
+<ul>
+<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
+<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
+</ul>
+<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
+<p><code>split.screen</code> 参数：</p>
+<ul>
+<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
+<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
+<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
+<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
+<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
+<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
+<p>NDC：normalized device coordinates</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Layout-布局&quot;&gt;&lt;a href=&quot;#Layout-布局&quot; class=&quot;headerlink&quot; title=&quot;Layout 布局&quot;&gt;&lt;/a&gt;Layout 布局&lt;/h1&gt;&lt;p&gt;&lt;code&gt;layout&lt;/code&gt; 函数可以指定复杂的绘图布局。该函数可以将设备
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="R" scheme="//lix90.github.io/tags/R/"/>
+    
+      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-16</title>
     <link href="//lix90.github.io/2016/11/16/2016-11-16-daily/"/>
     <id>//lix90.github.io/2016/11/16/2016-11-16-daily/</id>
@@ -1355,85 +1434,6 @@
       <category term="Statistics" scheme="//lix90.github.io/tags/Statistics/"/>
     
       <category term="Shell" scheme="//lix90.github.io/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：使用基本包进行多图布局</title>
-    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
-    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
-    <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
-<p>参数：</p>
-<ul>
-<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
-<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
-<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
-<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
-<li><code>n</code>：绘制的图形个数。</li>
-</ul>
-<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
-<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
-<ul>
-<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
-<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
-<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
-</ul>
-<p><strong>Inner region</strong> 内区域</p>
-<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
-<p><strong>Figure region</strong> 图形区域</p>
-<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
-<p><strong>Figure margin</strong> 图形边缘</p>
-<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
-<ul>
-<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
-<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
-<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
-<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
-</ul>
-<p><strong>Plot region</strong> 绘制区域</p>
-<ul>
-<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
-<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
-<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
-</ul>
-<p>子图或多图绘制</p>
-<ul>
-<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
-<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
-</ul>
-<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
-<p><code>split.screen</code> 参数：</p>
-<ul>
-<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
-<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
-<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
-<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
-<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
-<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
-<p>NDC：normalized device coordinates</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Layout-布局&quot;&gt;&lt;a href=&quot;#Layout-布局&quot; class=&quot;headerlink&quot; title=&quot;Layout 布局&quot;&gt;&lt;/a&gt;Layout 布局&lt;/h1&gt;&lt;p&gt;&lt;code&gt;layout&lt;/code&gt; 函数可以指定复杂的绘图布局。该函数可以将设备
-    
-    </summary>
-    
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="//lix90.github.io/tags/R/"/>
-    
-      <category term="Data viz" scheme="//lix90.github.io/tags/Data-viz/"/>
     
   </entry>
   
