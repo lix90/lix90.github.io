@@ -282,6 +282,198 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/17/2016-11-17-r-tidyr/" itemprop="url">
+                  R：使用 tidyr 进行数据操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/17/2016-11-17-r-tidyr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/2016-11-17-r-tidyr/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>data</code> 数据框</li>
+<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
+<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
+<li><code>-z</code> 排除 z 变量</li>
+<li><code>x,y,z</code> 选择 x y z 三个变量</li>
+<li><code>2:4</code> 选择第2到4列</li>
+</ul>
+</li>
+<li><code>na.rm</code> 是否去除缺失值</li>
+<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
+<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
+</ul>
+<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>key</code> 该列的因子转换为多个列的列名</li>
+<li><code>value</code> 该列的内容将分配到多个列中</li>
+<li><code>fill</code> 指定填充缺失值的值</li>
+<li><code>convert</code> 数据类型转换</li>
+<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
+<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
+</ul>
+<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 列名（不需要引号）</li>
+<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
+<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
+</ul>
+</li>
+<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
+<li><code>convert</code> 数据类型转换。</li>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
+<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
+<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
+</ul>
+</li>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
+<li><code>&quot;right&quot;</code> 在右侧填充</li>
+<li><code>&quot;left&quot;</code> 在左侧填充</li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
+<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 将要合并得到的列名</li>
+<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
+<li><code>sep</code> 分隔符</li>
+<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>长转宽</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>宽转长</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
+<p>合并列与分割列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
+<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/17/2016-11-17-daily/" itemprop="url">
                   每日总结 2016-11-17
                 </a>
@@ -919,277 +1111,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/2016-11-14-daily/" itemprop="url">
-                  每日总结 2016-11-14
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/2016-11-14-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/2016-11-14-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><p>Mode &amp; Type</p>
-<p>Mode 由 <code>mode</code> 获得<br>Type 由 <code>typeof</code> 获得</p>
-<p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
-<ul>
-<li>类型 <code>integer</code> 和 <code>double</code> 的模式均为 <code>numeric</code></li>
-<li>类型 <code>special</code> <code>builtin</code> 的模式均为 <code>function</code></li>
-<li>类型 <code>symbol</code> 返回模式 <code>name</code></li>
-<li>类型 <code>language</code> 返回为 <code>(</code> 或 <code>call</code></li>
-</ul>
-<hr>
-<h1 id="鸟哥-Linux-私房菜学习记录"><a href="#鸟哥-Linux-私房菜学习记录" class="headerlink" title="鸟哥 Linux 私房菜学习记录"></a>鸟哥 Linux 私房菜学习记录</h1><h2 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h2><p>三大部分：输入单元、主机、输出单元。<br>五大部分：输入、输出、CPU 控制单元、CPU 算数逻辑单元与内存。</p>
-<p>中央处理器（Central Processing Unit, CPU），含有微指令集。主机的功能与 CPU 是否具有相关内置的微指令集。<br>CPU 内分为两个主要单元：</p>
-<ul>
-<li>算数逻辑单元：负责程序运算与逻辑判断</li>
-<li>控制单元：协调各周边元件与各单元间的工作</li>
-</ul>
-<p>CPU 从内存中读取数据，内存中的数据从输入单元传入。CPU 处理完毕的数据必须先写回内存，然后才从内存传输到输出单元。</p>
-<p>五大单元：输入单元+{系统单元：[CPU：(控制单元+算数逻辑单元)]+内存}+输出单元+外部储存装置</p>
-<p>以上所有单元均由 CPU 内部的控制单元负责协调。</p>
-<p>两种 CPU 架构：</p>
-<ul>
-<li>精简指令集（Reduced Instruction Set Computer, RISC）</li>
-<li>复杂指令集（Complex Instruction Set Computer, CISC）</li>
-</ul>
-<p>RISC：较为精简，每个指令的执行时间都很短，完成动作很单纯，执行性能较佳。若要做复杂的事情，则需多个指令来完成。<br>CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目多且复杂，每条指令的长度不相同。由于指令执行较为复杂，所以每条指令花费时间较长，但每条指令可以处理的工作较为丰富。大量使用于个人电脑中。</p>
-<p>位：CPU 一次数据读取的最大量。64位 CPU 表示一次读写 64bits 的数据，32位则读取 32bits。一般32位 CPU 能读写的最大数据量为 4GB 左右。</p>
-<hr>
-<h1 id="Git-学习记录"><a href="#Git-学习记录" class="headerlink" title="Git 学习记录"></a>Git 学习记录</h1><h2 id="SHA"><a href="#SHA" class="headerlink" title="SHA"></a>SHA</h2><p>表示项目历史信息的文件由40个字符的“对象名（SHA）”来索引。不同内容的两个对象不可能有相同的对象名。</p>
-<ul>
-<li>快速判断两个对象是否相同；</li>
-<li>不同仓库的同样内容存在相同的对象名下；</li>
-<li>通过检查对象内容的哈希值和对象名来判断对象内容是否正确。</li>
-</ul>
-<h2 id="四种类型的对象"><a href="#四种类型的对象" class="headerlink" title="四种类型的对象"></a>四种类型的对象</h2><ul>
-<li>blob：存储文件数据</li>
-<li>tree：类似文件目录，管理 tree 或 blob</li>
-<li>commit：标记项目某一个特定时间点的状态，包括一些关于时间点的元数据</li>
-<li>tag：标记某一次提交的方法</li>
-</ul>
-<h2 id="Git-与-SVN-的区别"><a href="#Git-与-SVN-的区别" class="headerlink" title="Git 与 SVN 的区别"></a>Git 与 SVN 的区别</h2><p>SVN 使用增量文件系统（Delta storage systems），它们存储每次提交的差异。Git 把每次提交的文件的全部内容（snapshot）都会记录下来。</p>
-<hr>
-<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><p>四种类型的快捷键设置：</p>
-<ul>
-<li>全局快捷键：<code>(global-set-key (kbd &quot;A&quot;) &#39;your-command&#39;)</code></li>
-<li>全局映射键：<code>(define-key key-translation-map (kbd &quot;A&quot;) (kbd &quot;B&quot;))</code></li>
-<li>基于 Major-Mode 的局部快捷键：<code>(local-set-key (kbd &quot;A&quot;) &#39;your-command)</code></li>
-<li>基于 Minor-Mode 的局部快捷键：<code>(define-key your-minor-mode-map (kbd &quot;A&quot;) &#39;your-command)</code></li>
-</ul>
-<p>删除或禁用键：<code>(global/local-unset-key (kbd &quot;A&quot;))</code> <code>(global/local-set-key (kbd &quot;A&quot;) &#39;ignore/nil)</code></p>
-<p>解决键冲突</p>
-<ul>
-<li>暴力映射：<code>define-key key-translation-map</code></li>
-<li>映射到新的 prefix 键上，再全局或者局部设置键。</li>
-</ul>
-<p>宏与函数的区别：函数的参数是在传入时 eval，而宏则是传入并展开后再 eval。<br>快捷键的优先级：<code>key-translation-map &gt; minor-mode-map &gt; local-set-key &gt; global-set-key</code><br>在设置局部键时，需写出相应的代理映射键（prefix）。</p>
-<p>说明：整理自Emacs（微信公众号）文章《那就从妖艳酷炫的快捷键开始吧！（一）》</p>
-<h2 id="amp-符号"><a href="#amp-符号" class="headerlink" title=": &amp; 符号"></a>: &amp; 符号</h2><ul>
-<li><code>:foo</code> 在 Emacs Lisp 中是 <code>keyword symbol</code></li>
-<li>在 <code>use-package</code> 中被用作 <code>keyword arguments</code></li>
-<li><code>&amp;optional</code> 指定的形参是可选的，如果没有指定，则当作 <code>nil</code></li>
-<li><code>&amp;rest</code> 指定的形参是可变</li>
-</ul>
-<blockquote>
-<p>宏的实参不会在宏被求值的时候立刻求值，而是会被当做数据直接传递给宏。因此宏可以自己决定那些代码在什么时候被求值。</p>
-</blockquote>
-<p>参考 emacs-china 社区<a href="https://emacs-china.org/t/emacslisp/1566" target="_blank" rel="external">问答</a></p>
-<hr>
-<h1 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h1><p>在数据挖掘中，理解数据、检查数据，对数据进行预处理至关重要。</p>
-<h2 id="数据理解"><a href="#数据理解" class="headerlink" title="数据理解"></a>数据理解</h2><ul>
-<li>明确数据记录的详细程度</li>
-<li>确定研究群体：用户群，受众；“群体”可以是事物，如电影。</li>
-<li>理解每个变量的含义：与业务目标无关的变量可直接剔除（冗余变量）。</li>
-</ul>
-<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
-<li>分类变量：名义变量和定序变量。</li>
-<li>数值变量：只有在代数运算下有意义的变量才是数值型变量。</li>
-</ul>
-<p>许多数据挖掘模型不能直接处理分类自变量，此时需要将分类变量转换成数值变量。对于名义自变量，常用的转换方法是构造0-1型哑变量。当名义变量有 K 个类别取值时，需要构造 K-1 个哑变量。<strong>名义变量取值过多会生成太多的哑变量，此时可能造成模型的过度拟合。</strong></p>
-<p>在有些情况下，数值变量需要转换成分类变量，此时需要用到“数据分箱”的方法。</p>
-<p><strong>数据分箱</strong></p>
-<ul>
-<li>通过取值范围转换成不同类别可以有效平滑数据，降低误差；</li>
-<li>对于某些算法（如决策树），数据分箱可以提高算法效率；</li>
-<li>有些模型算法（如关联规则）只能处理分类型自变量。</li>
-</ul>
-<p>数据分箱可以使用每个分箱内的均值、中位数、临界值等作为这个类别的代表值，也可以直接将不同取值范围定义成不同的类别。</p>
-<p><strong>常见的数据分箱方法</strong></p>
-<ul>
-<li>等宽分箱：将变量取值范围划分成等宽的几个区间。</li>
-<li>等频分箱：按变量取值的分位数进行划分。</li>
-<li>基于k均值聚类的分箱：将所有数据进行k均值聚类，所得类别即为不同的分箱。</li>
-<li>其他分箱：如使分箱后的结果达到最小熵或最小描述长度等。</li>
-</ul>
-<h2 id="质量检查"><a href="#质量检查" class="headerlink" title="质量检查"></a>质量检查</h2><p>一般来说，质量检查包括检查每个变量的缺失程度和取值范围的合理性。</p>
-<h3 id="缺失检查"><a href="#缺失检查" class="headerlink" title="缺失检查"></a>缺失检查</h3><ul>
-<li><strong>有些缺失是合理的</strong>，但是对于这种缺失值，很难判断缺失的原因。</li>
-<li><strong>对于不允许缺失的变量，必须进行相应处理。</strong>如果缺失率过高，例如达到70%，可以考虑剔除。如果比例可以接受，可以尝试插补。</li>
-<li><strong>插补的目的是使插补值最大可能接近真实的取值</strong>，如果能从其他途径得到真实值，那么优先选择这种方法。</li>
-</ul>
-<p>插补方法</p>
-<ul>
-<li>数值变量可用已观测值的均值、中位数、众数等。</li>
-<li>分类变量可用已观测值中比例最高的类别取值进行插补。</li>
-<li>还可以选择更复杂的模型插补方法：对被插补变量和其他自变量之间的关系建立统计模型，将模型预测值作为插补值。</li>
-</ul>
-<h3 id="变量取值合理性检查"><a href="#变量取值合理性检查" class="headerlink" title="变量取值合理性检查"></a>变量取值合理性检查</h3><ul>
-<li>通过判断变量的取值是否超出它应有的取值范围，可以简单的对异常值进行甄别。</li>
-<li>根据变量之间的相互关系进行判断。</li>
-</ul>
-<p>说明：整理自狗熊会（微信公众号）文章《灰常数据挖掘|数据理解和预处理》</p>
-<hr>
-<h1 id="交互设计：按钮"><a href="#交互设计：按钮" class="headerlink" title="交互设计：按钮"></a>交互设计：按钮</h1><h2 id="让按钮看起来像按钮"><a href="#让按钮看起来像按钮" class="headerlink" title="让按钮看起来像按钮"></a>让按钮看起来像按钮</h2><p>视觉线索让人确定部件的可点击特性。在可点击的元素上使用合适的视觉线索使得它们看起来想按钮。</p>
-<h3 id="形状"><a href="#形状" class="headerlink" title="形状"></a>形状</h3><ul>
-<li>比较保险的是使用方形，圆角方形。</li>
-<li>在使用其他特别的形状，例如圆形、三角形，或者其他图形时，得确保用户能将其当作按钮。</li>
-<li>无论使用什么形状，<strong>确保界面控件的一致性</strong>，这样用户才能识别处所有的元素为按钮。</li>
-</ul>
-<h3 id="阴影和高光"><a href="#阴影和高光" class="headerlink" title="阴影和高光"></a>阴影和高光</h3><p>阴影可以让元素从背景中凸显出来，更容易识别为可点击的元素，看起来像真实的可以被按下去的按钮。</p>
-<h2 id="清晰地标记按钮"><a href="#清晰地标记按钮" class="headerlink" title="清晰地标记按钮"></a>清晰地标记按钮</h2><p>用户容易忽视没有清晰的含义的界面元素。所以，界面中的按钮应该有合适的标签或者图标。但是，需遵循最小装饰原则。</p>
-<h3 id="清晰的标签"><a href="#清晰的标签" class="headerlink" title="清晰的标签"></a>清晰的标签</h3><p>按钮上的标签应该与用户将要执行的动作有关联，告知用户点击按钮所要执行的行为。<br>动作按钮应该向用户声明当前任务是什么，这样用户在点击按钮时知道会发生什么。</p>
-<h2 id="将按钮放置到用户容易找到的地方"><a href="#将按钮放置到用户容易找到的地方" class="headerlink" title="将按钮放置到用户容易找到的地方"></a>将按钮放置到用户容易找到的地方</h2><h3 id="位置和顺序"><a href="#位置和顺序" class="headerlink" title="位置和顺序"></a>位置和顺序</h3><ul>
-<li>如果开发原生 app，则需遵循开发平台的图形界面指南。</li>
-<li>如果是基于网页的 app，应该思考哪个位置对用户使用起来最有效。</li>
-<li>如果设计移动导航栏，有必要关注下按钮位置的最佳实践。&gt;&gt;&gt; <a href="https://www.smashingmagazine.com/2016/11/the-golden-rules-of-mobile-navigation-design/" target="_blank" rel="external">The Golden Rules Of Bottom Navigation Design</a></li>
-</ul>
-<h2 id="让用户轻而易举地点击按钮"><a href="#让用户轻而易举地点击按钮" class="headerlink" title="让用户轻而易举地点击按钮"></a>让用户轻而易举地点击按钮</h2><h3 id="尺寸和内边距"><a href="#尺寸和内边距" class="headerlink" title="尺寸和内边距"></a>尺寸和内边距</h3><p>需要考虑相对页面上其他元素来确定按钮的尺寸。</p>
-<blockquote>
-<p>When a tap is used as a primary input method for your app or site, you can rely on the <a href="http://touchlab.mit.edu/publications/2003_009.pdf" target="_blank" rel="external">MIT Touch Lab</a> study to choose a proper size for your buttons. This study found that the average size of finger pads are between 10–14mm and fingertips are 8–10mm, making 10mm x 10mm a good minimum touch target size. When a mouse and keyboard are the primary input methods, button measurements can be slightly reduced to accommodate dense UIs.</p>
-</blockquote>
-<h3 id="提供视觉反馈"><a href="#提供视觉反馈" class="headerlink" title="提供视觉反馈"></a>提供视觉反馈</h3><p>按钮具有多个状态，通过提供视觉反馈来提示用户按钮的当前状态。<a href="">Material Design</a> 清晰展示了不同的按钮状态：Normal, Focused, Pressed, Disabled。</p>
-<h2 id="在视觉上强调最重要的按钮"><a href="#在视觉上强调最重要的按钮" class="headerlink" title="在视觉上强调最重要的按钮"></a>在视觉上强调最重要的按钮</h2><p>确保在设计中，对主要的或者最重要的动作进行了强调。使用颜色和对比度可以让用户聚焦于动作之上，并且将按钮放置于最显眼的位置。</p>
-<h3 id="Call-to-Action-Button"><a href="#Call-to-Action-Button" class="headerlink" title="Call-to-Action Button"></a>Call-to-Action Button</h3><p>Call-to-Action Button：吸引用户注意力并且引诱用户去点击的按钮。创建一个有效的 call-to-action 按钮，需要使用与背景有高对比度的颜色，并且将按钮放置于用户使用路径上。</p>
-<h3 id="让首要的和次要的按钮具有视觉区分度"><a href="#让首要的和次要的按钮具有视觉区分度" class="headerlink" title="让首要的和次要的按钮具有视觉区分度"></a>让首要的和次要的按钮具有视觉区分度</h3><ul>
-<li>首要的与积极事件/动作关联的按钮应该有较强的视觉权重。</li>
-<li>次要的事件/动作，例如“取消”或“退回”，应该具有较弱的视觉权重。</li>
-</ul>
-<h2 id="按钮设计清单"><a href="#按钮设计清单" class="headerlink" title="按钮设计清单"></a>按钮设计清单</h2><ul>
-<li>用户将元素识别为按钮了吗？</li>
-<li>按钮的标签传递了清晰的含义了吗？</li>
-<li>用户能容易地找到按钮吗？</li>
-<li>如果在界面中有两个或多个按钮，最重要的是否具有最强的视觉权重？</li>
-</ul>
-<p>说明：笔记整理来自<a href="https://www.smashingmagazine.com/2016/11/a-quick-guide-for-designing-better-buttons/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=rss" target="_blank" rel="external">Smashing Magazine: A Quick Guide For Designing Better Buttons</a></p>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><ul>
-<li><a href="http://webpro.github.io/programming-principles/" target="_blank" rel="external">Programming Principles</a> 编程原则</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1230,7 +1156,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

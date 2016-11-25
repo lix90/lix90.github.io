@@ -282,8 +282,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/24/2016-11-24-r-data-type-1st/" itemprop="url">
-                  R：基本数据类型（一）
+                <a class="post-title-link" href="/2016/11/25/2016-11-25-daily/" itemprop="url">
+                  每日总结 2016-11-25
                 </a>
               
             
@@ -296,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-24T00:00:00+08:00" content="2016-11-24">
-              2016-11-24
+            <time itemprop="dateCreated" datetime="2016-11-25T00:00:00+08:00" content="2016-11-25">
+              2016-11-25
             </time>
           </span>
 
@@ -310,20 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
                   </a>
                 </span>
 
@@ -338,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/24/2016-11-24-r-data-type-1st/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/2016-11-24-r-data-type-1st/" itemprop="commentsCount"></span>
+                <a href="/2016/11/25/2016-11-25-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/2016-11-25-daily/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -364,57 +352,15 @@
       
         
           
-            <h1 id="Vector-向量"><a href="#Vector-向量" class="headerlink" title="Vector 向量"></a>Vector 向量</h1><p>向量 vector 由同类型的元素构成。</p>
-<h2 id="向量创建"><a href="#向量创建" class="headerlink" title="向量创建"></a>向量创建</h2><p><code>vector</code> 创建给定长度和模式的向量。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; vector(mode = <span class="string">"character"</span>, length = <span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span></div></pre></td></tr></table></figure>
-<p><code>as.vector</code> 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “integer”, “numeric” (“double”), “complex”, “character”, 和 “raw”。在 R 中原子模式应该就是指最基本的模式，能够组合成其他的复杂模式，例如 “list” “expression”。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x &lt;- c(a = <span class="number">1</span>, b = <span class="number">2</span>)</div><div class="line">a b</div><div class="line"><span class="number">1</span> <span class="number">2</span></div><div class="line">&gt;&gt;&gt; is.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt;&gt;&gt; as.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span></div><div class="line">all.equal(x, as.vector(x))</div><div class="line">[<span class="number">1</span>] <span class="string">"names for target but not for current"</span></div></pre></td></tr></table></figure>
-<p><code>c</code> 可以将它的实参组合成一个向量。所有的实参都将被强制转换为通用的类型，除了 names 之外，其他属性都将丢失。输出数据类型由实参中元素的最高级类型决定（NULL &lt; raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list &lt; expression）。</p>
-<p>例如：</p>
-<p>转换为字符串。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, <span class="string">"2"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="string">"2"</span></div></pre></td></tr></table></figure>
-<p>转换为 list</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, list(<span class="number">2</span>)))</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div></pre></td></tr></table></figure>
-<h3 id="向量运算"><a href="#向量运算" class="headerlink" title="向量运算"></a>向量运算</h3><p><strong>向量的索引</strong><br><code>a[1]</code> 单个元素的索引<br><code>a[1:2]</code> <code>a[c(1,3)]</code> 多个元素的索引<br><code>a[a==5]</code> 使用逻辑值来索引<br><code>a[-1]</code> <code>a[c(-1,-3)]</code> 排除元素</p>
-<p><strong>向量的运算</strong><br><code>a*2</code> 向量与2相乘，2将与向量的每一个元素相乘。<br><code>a*b</code> 向量与向量相乘，对应位置的元素相乘。如果 <code>a</code> 和 <code>b</code> 的长度不等长呢？试一个例子：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; v1 &lt;- c(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; v2 &lt;- c(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; v3 &lt;- c(<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt; v1*v2</div><div class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">6</span> <span class="number">3</span></div><div class="line">Warning message:</div><div class="line">In v1 * v2 : 长的对象长度不是短的对象长度的整倍数</div><div class="line">&gt;&gt;&gt; v1*v3</div><div class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">8</span> <span class="number">4</span> <span class="number">8</span></div></pre></td></tr></table></figure></p>
-<p>也就是说，向量相乘时，若长度不相等，较短的向量会继续往后与长的向量相乘。如果向量的长度不是整数倍，会出现警告：“长的对象长度不是短的对象长度的整倍数”。</p>
-<p><code>a%%2</code> 对向量所有元素求余数<br><code>a%/%2.4</code> 向量所有元素与2.4进行整除运算<br><code>t(a)</code> 对 <code>a</code> 进行转置</p>
-<p><strong>总结：对于向量的运算，都是对其元素的运算。</strong></p>
-<p>函数 <code>sample</code> <code>combinat::permn</code> <code>order</code> <code>sort</code> <code>rank</code> 可用于向量的操作。</p>
-<h2 id="Matrix-矩阵（以及数组-array）"><a href="#Matrix-矩阵（以及数组-array）" class="headerlink" title="Matrix 矩阵（以及数组 array）"></a>Matrix 矩阵（以及数组 array）</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
+            <h1 id="Chrome-开发者工具"><a href="#Chrome-开发者工具" class="headerlink" title="Chrome 开发者工具"></a>Chrome 开发者工具</h1><p>来源：<a href="http://web.jobbole.com/89079/" target="_blank" rel="external">伯乐在线：Chrome 开发者工具详解（1）</a></p>
+<p>Console 面板</p>
 <ul>
-<li><code>data</code> 为向量类型，非原子模式的对象将由 <code>as.vector</code> 强制转换为向量，并且去掉属性。</li>
-<li><code>nrow</code> <code>ncol</code> 指定矩阵的行或列的数目，如果两个参数均未指定，那么将得到一个单列矩阵。</li>
-<li><code>byrow</code> 逻辑值，若 <code>FALSE</code>（默认），矩阵按列来填充；若 <code>TRUE</code> 则按行填充。</li>
-<li><code>dimnames</code> 矩阵的名称属性，<code>NULL</code> 或者长度为 list 的对象，空 list 为 <code>NULL</code>。list 的第一个元素的值被当作矩阵行的名称。list 也可以含有名称，那么 list 的名称将被当作矩阵的维度名称。</li>
+<li>console.log 显示一般的基本日志信息，当要显示的基本日志太多时可以使用 console.group 将相关的日志进行分组</li>
+<li>console.warn 显示带有黄色警告图标的警告信息</li>
+<li>console.error 显示带有红色错误图标的红色的错误信息</li>
+<li>console.assert 当第一个参数为 false 时，显示出带有红色错误图标并且包含第二个参数的内容</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; mdat &lt;- matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>), nrow = <span class="number">2</span>, ncol = <span class="number">3</span>, byrow = <span class="literal">TRUE</span>,</div><div class="line">+ dimnames = list(c(<span class="string">"R.1"</span>, <span class="string">"R.2"</span>), c(<span class="string">"C.1"</span>, <span class="string">"C.2"</span>, <span class="string">"C.3"</span>)))</div><div class="line">&gt;&gt;&gt; mdat</div><div class="line">     C.1 C.2 C.3</div><div class="line">row1   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></div><div class="line">row2  <span class="number">11</span>  <span class="number">12</span>  <span class="number">13</span></div></pre></td></tr></table></figure>
-<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p><code>a[,2]</code> <code>a[1,2]</code> <code>a[c(1,2),]</code> <code>a[-2,]</code> 矩阵索引或者取子矩阵<br><code>rbind(a,b)</code> <code>cbind(a,c)</code> 将两个矩阵或向量按照行或者列合并</p>
-<p><code>a*b</code> 一对一乘积（点积），行和列数必须匹配。<br><code>a%*%b</code> 矩阵乘积，<code>a</code> 的列必须等于 <code>b</code> 的行。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; b &lt;- matrix(<span class="number">2</span>:<span class="number">7</span>, nrow = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; a*b</div><div class="line">Error <span class="keyword">in</span> a * b : 非整合陈列</div><div class="line">&gt;&gt;&gt; a*t(b)</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">9</span>   <span class="number">20</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">10</span>   <span class="number">24</span>   <span class="number">42</span></div><div class="line">&gt;&gt;&gt; a%*%b</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]   <span class="number">31</span>   <span class="number">58</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">40</span>   <span class="number">76</span></div><div class="line">&gt;&gt;&gt; a%*%t(b)</div><div class="line">Error <span class="keyword">in</span> a %*% t(b) : 非整合参数</div></pre></td></tr></table></figure>
-<p><code>apply(a, MARGIN, FUN, ...)</code> 对矩阵或数组的向量化运算，如果存在名称的话，<code>MARGIN</code> 也可为维度的名称字符串。在此只讨论对矩阵的用法。</p>
-<ul>
-<li><code>apply(a, MARGIN = 1, sum)</code> 对矩阵 a 的行求和。</li>
-<li><code>apply(a, MARGIN = 2, sum)</code> 对矩阵 a 的列求和。</li>
-<li><code>apply(a, MARGIN = C(1,2), sum)</code> 对矩阵 a 的行列求和，得到的仍为原来的矩阵。</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">1</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">9</span> <span class="number">12</span></div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">2</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">3</span>  <span class="number">7</span> <span class="number">11</span></div><div class="line">&gt;&gt;&gt; apply(a, c(<span class="number">1</span>,<span class="number">2</span>), sum)</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span>    <span class="number">5</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span>    <span class="number">6</span></div></pre></td></tr></table></figure>
-<p><code>diag(a)</code> 提取矩阵 a 的对角元素<br><code>diag(1:4)</code> 构建一个新的对角矩阵<br><code>crossprod(a,b)</code> 矩阵叉积，等同于 <code>t(a)%*%b</code>，前者计算效率更高。</p>
-<h3 id="Array-数组创建"><a href="#Array-数组创建" class="headerlink" title="Array 数组创建"></a>Array 数组创建</h3><p><code>array(data = NA, dim = length(data), dimnames = NULL)</code></p>
-<p>矩阵其实是特殊的两个维度的数组。<code>dim</code> 用于指定每个维度的长度。如果 <code>data</code> 数据长度不足，将会被复制循环填充。</p>
-<h2 id="factor-因子"><a href="#factor-因子" class="headerlink" title="factor 因子"></a>factor 因子</h2><p>因子是一个由字符串或者整数组成的向量，用来对另外一个等长的向量进行分类的离散变量。与一般的向量不同点是 factor 具有 <code>level</code> 属性。R 提供了已排序和未排序两类 factor。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">factor(x = character(), levels, labels = levels,</div><div class="line">    exclude = <span class="literal">NA</span>, ordered = is.ordered(x), nmax = <span class="literal">NA</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li><code>x</code> 向量，一般为少数几个不同的值。向量 <code>x</code> 的类型必须可以被转换为字符串 <code>as.character()</code> 和可以被排序 <code>sort.list</code>。</li>
-<li><code>levels</code> 水平，<code>x</code> 中选择性的值构成的字符串向量。默认值为 <code>unique(as.character(x))</code>，并且增序排列。<code>levels</code> 可以少于 <code>sort(unique(x))</code>。如果 <code>levels</code> 少于 <code>sort(unique(x))</code>，<code>x</code> 中没有包含的元素将被当作 <code>NA</code>。</li>
-<li><code>labels</code> 可选的参数，用来命名因子水平名称。例如，如果 <code>labels = &quot;f&quot;</code>，那么因子名为 <code>f1, f2, ...</code>。</li>
-<li><code>exclude</code> 在组成 <code>levels</code> 时需要排除掉的元素。与 <code>x</code> 类型相同，否则需要强制转换。</li>
-<li><code>ordered</code> 是否有序。有序的因子与未排序的因子仅仅在类上不同，但是方法和模型拟合函数对两者的处理有非常大的不同。</li>
-<li><code>nmax</code> 水平数的上限。</li>
-</ul>
-<p><code>factor</code> 函数返回一个 “factor” 类的对象，这个对象具有和 <code>x</code> 等长的整数码，具有 “character” 模式的 “levels” 属性。如果 <code>ordered = TRUE</code> 或者使用了 <code>ordered()</code> ，那么对象则具有两个类 <code>c(&quot;ordered&quot;, &quot;factor&quot;)</code>。对因子的解释依赖于编码（codes）和水平属性（levels）两个因素，所以在对因子进行比较时需谨慎。对因子使用 <code>as.numeric</code> 没有意义，因为会自动强制转换。如果要将因子 <code>f</code> 转换为初始的数值，建议使用 <code>as.numeric(levels(f))[f]</code>，这样要比 <code>as.numeric(as.character(f))</code> 效率高。因子的水平默认进行了排序，但是排序的标准依赖本地区域设置。可能不是基于 ASCII。尽量不要使用 <code>NA</code> 作为水平值。</p>
-<h3 id="因子的创建和操作"><a href="#因子的创建和操作" class="headerlink" title="因子的创建和操作"></a>因子的创建和操作</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; f &lt;- factor(a)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## 指派了 levels 结果一致</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>, <span class="string">"2"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## levels 个数少于 a</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span>    <span class="number">1</span>    &lt;<span class="literal">NA</span>&gt; &lt;<span class="literal">NA</span>&gt;</div><div class="line">Levels: <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment">## 增加标签</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 x2</div><div class="line"></div><div class="line"><span class="comment">## 增加排序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 &lt; x2</div><div class="line"></div><div class="line"><span class="comment">## 改变 levels 的顺序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"2"</span>, <span class="string">"1"</span>), labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x2 x2 x1 x1</div><div class="line">Levels: x1 &lt; x2</div></pre></td></tr></table></figure>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 构建一个 data.frame</span></div><div class="line">&gt;&gt;&gt; c.1 &lt;- rep(c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; c.2 &lt;- <span class="number">1</span>:<span class="number">6</span></div><div class="line">&gt;&gt;&gt; d &lt;- data.frame(c.1, c.2)</div><div class="line">&gt;&gt;&gt; d</div><div class="line">  c.1 c.2</div><div class="line"><span class="number">1</span>  f1   <span class="number">1</span></div><div class="line"><span class="number">2</span>  f1   <span class="number">2</span></div><div class="line"><span class="number">3</span>  f1   <span class="number">3</span></div><div class="line"><span class="number">4</span>  f2   <span class="number">4</span></div><div class="line"><span class="number">5</span>  f2   <span class="number">5</span></div><div class="line"><span class="number">6</span>  f2   <span class="number">6</span></div><div class="line"></div><div class="line"><span class="comment">## 将 c.1 转换为因子</span></div><div class="line">&gt;&gt;&gt; (d$c.1 &lt;- factor(c.1))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 as.factor</span></div><div class="line">&gt;&gt;&gt; as.factor(d$c.1)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 进行一个排序</span></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 ordered</span></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line"><span class="comment">## 转换因子的数据模式</span></div><div class="line">&gt;&gt;&gt; as.character(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f2"</span> <span class="string">"f2"</span> <span class="string">"f2"</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.numeric(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.logical(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+<p>Source 面板可以用来调试代码</p>
 
           
         
@@ -544,6 +490,209 @@
 <p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
 <h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
 <p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/24/2016-11-24-r-data-type/" itemprop="url">
+                  R：基本数据类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-24T00:00:00+08:00" content="2016-11-24">
+              2016-11-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/24/2016-11-24-r-data-type/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/2016-11-24-r-data-type/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Vector-向量"><a href="#Vector-向量" class="headerlink" title="Vector 向量"></a>Vector 向量</h1><p>向量 vector 由同类型的元素构成。</p>
+<h2 id="向量创建"><a href="#向量创建" class="headerlink" title="向量创建"></a>向量创建</h2><p><code>vector</code> 创建给定长度和模式的向量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; vector(mode = <span class="string">"character"</span>, length = <span class="number">5</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span> <span class="string">""</span></div></pre></td></tr></table></figure>
+<p><code>as.vector</code> 可以将实参转换为给定模式的向量。如果输入结果为原子模式（atomic），属性将丢失。R 中原子模式为 “logical”, “integer”, “numeric” (“double”), “complex”, “character”, 和 “raw”。在 R 中原子模式应该就是指最基本的模式，能够组合成其他的复杂模式，例如 “list” “expression”。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x &lt;- c(a = <span class="number">1</span>, b = <span class="number">2</span>)</div><div class="line">a b</div><div class="line"><span class="number">1</span> <span class="number">2</span></div><div class="line">&gt;&gt;&gt; is.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt;&gt;&gt; as.vector(x)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span></div><div class="line">all.equal(x, as.vector(x))</div><div class="line">[<span class="number">1</span>] <span class="string">"names for target but not for current"</span></div></pre></td></tr></table></figure>
+<p><code>c</code> 可以将它的实参组合成一个向量。所有的实参都将被强制转换为通用的类型，除了 names 之外，其他属性都将丢失。输出数据类型由实参中元素的最高级类型决定（NULL &lt; raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list &lt; expression）。</p>
+<p>例如：</p>
+<p>转换为字符串。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, <span class="string">"2"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="string">"2"</span></div></pre></td></tr></table></figure>
+<p>转换为 list</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; (out &lt;- c(<span class="number">1</span>, list(<span class="number">2</span>)))</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">[<span class="number">1</span>] <span class="number">2</span></div></pre></td></tr></table></figure>
+<h3 id="向量运算"><a href="#向量运算" class="headerlink" title="向量运算"></a>向量运算</h3><p><strong>向量的索引</strong><br><code>a[1]</code> 单个元素的索引<br><code>a[1:2]</code> <code>a[c(1,3)]</code> 多个元素的索引<br><code>a[a==5]</code> 使用逻辑值来索引<br><code>a[-1]</code> <code>a[c(-1,-3)]</code> 排除元素</p>
+<p><strong>向量的运算</strong><br><code>a*2</code> 向量与2相乘，2将与向量的每一个元素相乘。<br><code>a*b</code> 向量与向量相乘，对应位置的元素相乘。如果 <code>a</code> 和 <code>b</code> 的长度不等长呢？试一个例子：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; v1 &lt;- c(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; v2 &lt;- c(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; v3 &lt;- c(<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>)</div><div class="line">&gt;&gt;&gt; v1*v2</div><div class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">6</span> <span class="number">3</span></div><div class="line">Warning message:</div><div class="line">In v1 * v2 : 长的对象长度不是短的对象长度的整倍数</div><div class="line">&gt;&gt;&gt; v1*v3</div><div class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">8</span> <span class="number">4</span> <span class="number">8</span></div></pre></td></tr></table></figure></p>
+<p>也就是说，向量相乘时，若长度不相等，较短的向量会继续往后与长的向量相乘。如果向量的长度不是整数倍，会出现警告：“长的对象长度不是短的对象长度的整倍数”。</p>
+<p><code>a%%2</code> 对向量所有元素求余数<br><code>a%/%2.4</code> 向量所有元素与2.4进行整除运算<br><code>t(a)</code> 对 <code>a</code> 进行转置</p>
+<p><strong>总结：对于向量的运算，都是对其元素的运算。</strong></p>
+<p>函数 <code>sample</code> <code>combinat::permn</code> <code>order</code> <code>sort</code> <code>rank</code> 可用于向量的操作。</p>
+<h2 id="Matrix-矩阵（以及数组-array）"><a href="#Matrix-矩阵（以及数组-array）" class="headerlink" title="Matrix 矩阵（以及数组 array）"></a>Matrix 矩阵（以及数组 array）</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><p><code>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code></p>
+<ul>
+<li><code>data</code> 为向量类型，非原子模式的对象将由 <code>as.vector</code> 强制转换为向量，并且去掉属性。</li>
+<li><code>nrow</code> <code>ncol</code> 指定矩阵的行或列的数目，如果两个参数均未指定，那么将得到一个单列矩阵。</li>
+<li><code>byrow</code> 逻辑值，若 <code>FALSE</code>（默认），矩阵按列来填充；若 <code>TRUE</code> 则按行填充。</li>
+<li><code>dimnames</code> 矩阵的名称属性，<code>NULL</code> 或者长度为 list 的对象，空 list 为 <code>NULL</code>。list 的第一个元素的值被当作矩阵行的名称。list 也可以含有名称，那么 list 的名称将被当作矩阵的维度名称。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; mdat &lt;- matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>), nrow = <span class="number">2</span>, ncol = <span class="number">3</span>, byrow = <span class="literal">TRUE</span>,</div><div class="line">+ dimnames = list(c(<span class="string">"R.1"</span>, <span class="string">"R.2"</span>), c(<span class="string">"C.1"</span>, <span class="string">"C.2"</span>, <span class="string">"C.3"</span>)))</div><div class="line">&gt;&gt;&gt; mdat</div><div class="line">     C.1 C.2 C.3</div><div class="line">row1   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></div><div class="line">row2  <span class="number">11</span>  <span class="number">12</span>  <span class="number">13</span></div></pre></td></tr></table></figure>
+<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p><code>a[,2]</code> <code>a[1,2]</code> <code>a[c(1,2),]</code> <code>a[-2,]</code> 矩阵索引或者取子矩阵<br><code>rbind(a,b)</code> <code>cbind(a,c)</code> 将两个矩阵或向量按照行或者列合并</p>
+<p><code>a*b</code> 一对一乘积（点积），行和列数必须匹配。<br><code>a%*%b</code> 矩阵乘积，<code>a</code> 的列必须等于 <code>b</code> 的行。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; b &lt;- matrix(<span class="number">2</span>:<span class="number">7</span>, nrow = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; a*b</div><div class="line">Error <span class="keyword">in</span> a * b : 非整合陈列</div><div class="line">&gt;&gt;&gt; a*t(b)</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">9</span>   <span class="number">20</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">10</span>   <span class="number">24</span>   <span class="number">42</span></div><div class="line">&gt;&gt;&gt; a%*%b</div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]   <span class="number">31</span>   <span class="number">58</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">40</span>   <span class="number">76</span></div><div class="line">&gt;&gt;&gt; a%*%t(b)</div><div class="line">Error <span class="keyword">in</span> a %*% t(b) : 非整合参数</div></pre></td></tr></table></figure>
+<p><code>apply(a, MARGIN, FUN, ...)</code> 对矩阵或数组的向量化运算，如果存在名称的话，<code>MARGIN</code> 也可为维度的名称字符串。在此只讨论对矩阵的用法。</p>
+<ul>
+<li><code>apply(a, MARGIN = 1, sum)</code> 对矩阵 a 的行求和。</li>
+<li><code>apply(a, MARGIN = 2, sum)</code> 对矩阵 a 的列求和。</li>
+<li><code>apply(a, MARGIN = C(1,2), sum)</code> 对矩阵 a 的行列求和，得到的仍为原来的矩阵。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">1</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">9</span> <span class="number">12</span></div><div class="line">&gt;&gt;&gt; apply(a, <span class="number">2</span>, sum)</div><div class="line">[<span class="number">1</span>]  <span class="number">3</span>  <span class="number">7</span> <span class="number">11</span></div><div class="line">&gt;&gt;&gt; apply(a, c(<span class="number">1</span>,<span class="number">2</span>), sum)</div><div class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span>    <span class="number">5</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span>    <span class="number">6</span></div></pre></td></tr></table></figure>
+<p><code>diag(a)</code> 提取矩阵 a 的对角元素<br><code>diag(1:4)</code> 构建一个新的对角矩阵<br><code>crossprod(a,b)</code> 矩阵叉积，等同于 <code>t(a)%*%b</code>，前者计算效率更高。</p>
+<h3 id="Array-数组创建"><a href="#Array-数组创建" class="headerlink" title="Array 数组创建"></a>Array 数组创建</h3><p><code>array(data = NA, dim = length(data), dimnames = NULL)</code></p>
+<p>数组可以存储两个以上维度数据。矩阵其实是特殊的两个维度的数组。<code>dim</code> 用于指定每个维度的长度。如果 <code>data</code> 数据长度不足，将会被复制循环填充。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; arr &lt;- array(<span class="number">1</span>:<span class="number">12</span>, dim = c(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>))</div><div class="line">&gt;&gt;&gt; arr</div><div class="line">, , <span class="number">1</span></div><div class="line"></div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></div><div class="line"></div><div class="line">, , <span class="number">2</span></div><div class="line"></div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">5</span>    <span class="number">7</span></div><div class="line">[<span class="number">2</span>,]    <span class="number">6</span>    <span class="number">8</span></div><div class="line"></div><div class="line">, , <span class="number">3</span></div><div class="line"></div><div class="line">[,<span class="number">1</span>] [,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>,]    <span class="number">9</span>   <span class="number">11</span></div><div class="line">[<span class="number">2</span>,]   <span class="number">10</span>   <span class="number">12</span></div></pre></td></tr></table></figure>
+<h2 id="factor-因子"><a href="#factor-因子" class="headerlink" title="factor 因子"></a>factor 因子</h2><p>因子是一个由字符串或者整数组成的向量，用来对另外一个等长的向量进行分类的离散变量。与一般的向量不同点是 factor 具有 <code>level</code> 属性。R 提供了已排序和未排序两类 factor。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">factor(x = character(), levels, labels = levels,</div><div class="line">    exclude = <span class="literal">NA</span>, ordered = is.ordered(x), nmax = <span class="literal">NA</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>x</code> 向量，一般为少数几个不同的值。向量 <code>x</code> 的类型必须可以被转换为字符串 <code>as.character()</code> 和可以被排序 <code>sort.list</code>。</li>
+<li><code>levels</code> 水平，<code>x</code> 中选择性的值构成的字符串向量。默认值为 <code>unique(as.character(x))</code>，并且增序排列。<code>levels</code> 可以少于 <code>sort(unique(x))</code>。如果 <code>levels</code> 少于 <code>sort(unique(x))</code>，<code>x</code> 中没有包含的元素将被当作 <code>NA</code>。</li>
+<li><code>labels</code> 可选的参数，用来命名因子水平名称。例如，如果 <code>labels = &quot;f&quot;</code>，那么因子名为 <code>f1, f2, ...</code>。</li>
+<li><code>exclude</code> 在组成 <code>levels</code> 时需要排除掉的元素。与 <code>x</code> 类型相同，否则需要强制转换。</li>
+<li><code>ordered</code> 是否有序。有序的因子与未排序的因子仅仅在类上不同，但是方法和模型拟合函数对两者的处理有非常大的不同。</li>
+<li><code>nmax</code> 水平数的上限。</li>
+</ul>
+<p><code>factor</code> 函数返回一个 “factor” 类的对象，这个对象具有和 <code>x</code> 等长的整数码，具有 “character” 模式的 “levels” 属性。如果 <code>ordered = TRUE</code> 或者使用了 <code>ordered()</code> ，那么对象则具有两个类 <code>c(&quot;ordered&quot;, &quot;factor&quot;)</code>。对因子的解释依赖于编码（codes）和水平属性（levels）两个因素，所以在对因子进行比较时需谨慎。对因子使用 <code>as.numeric</code> 没有意义，因为会自动强制转换。如果要将因子 <code>f</code> 转换为初始的数值，建议使用 <code>as.numeric(levels(f))[f]</code>，这样要比 <code>as.numeric(as.character(f))</code> 效率高。因子的水平默认进行了排序，但是排序的标准依赖本地区域设置。可能不是基于 ASCII。尽量不要使用 <code>NA</code> 作为水平值。</p>
+<h3 id="因子的创建和操作"><a href="#因子的创建和操作" class="headerlink" title="因子的创建和操作"></a>因子的创建和操作</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a &lt;- c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">&gt;&gt;&gt; f &lt;- factor(a)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## 指派了 levels 结果一致</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>, <span class="string">"2"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></div><div class="line">Levels: <span class="number">1</span> <span class="number">2</span></div><div class="line"></div><div class="line"><span class="comment">## levels 个数少于 a</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"1"</span>))</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] <span class="number">1</span>    <span class="number">1</span>    &lt;<span class="literal">NA</span>&gt; &lt;<span class="literal">NA</span>&gt;</div><div class="line">Levels: <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment">## 增加标签</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 x2</div><div class="line"></div><div class="line"><span class="comment">## 增加排序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x1 x1 x2 x2</div><div class="line">Levels: x1 &lt; x2</div><div class="line"></div><div class="line"><span class="comment">## 改变 levels 的顺序</span></div><div class="line">&gt;&gt;&gt; f &lt;- factor(a, levels = c(<span class="string">"2"</span>, <span class="string">"1"</span>), labels = <span class="string">"x"</span>, ordered = <span class="literal">TRUE</span>)</div><div class="line">&gt;&gt;&gt; f</div><div class="line">[<span class="number">1</span>] x2 x2 x1 x1</div><div class="line">Levels: x1 &lt; x2</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 构建一个 data.frame</span></div><div class="line">&gt;&gt;&gt; c.1 &lt;- rep(c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; c.2 &lt;- <span class="number">1</span>:<span class="number">6</span></div><div class="line">&gt;&gt;&gt; d &lt;- data.frame(c.1, c.2)</div><div class="line">&gt;&gt;&gt; d</div><div class="line">  c.1 c.2</div><div class="line"><span class="number">1</span>  f1   <span class="number">1</span></div><div class="line"><span class="number">2</span>  f1   <span class="number">2</span></div><div class="line"><span class="number">3</span>  f1   <span class="number">3</span></div><div class="line"><span class="number">4</span>  f2   <span class="number">4</span></div><div class="line"><span class="number">5</span>  f2   <span class="number">5</span></div><div class="line"><span class="number">6</span>  f2   <span class="number">6</span></div><div class="line"></div><div class="line"><span class="comment">## 将 c.1 转换为因子</span></div><div class="line">&gt;&gt;&gt; (d$c.1 &lt;- factor(c.1))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 as.factor</span></div><div class="line">&gt;&gt;&gt; as.factor(d$c.1)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line"><span class="comment">## 进行一个排序</span></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line">&gt;&gt;&gt; factor(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), ordered = <span class="literal">TRUE</span>)</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line"><span class="comment">## 或者使用 ordered</span></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f1"</span>, <span class="string">"f2"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 &lt; f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; ordered(d$c.1, levels = c(<span class="string">"f2"</span>, <span class="string">"f1"</span>))</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f2 &lt; f1</div><div class="line"></div><div class="line"><span class="comment">## 转换因子的数据模式</span></div><div class="line">&gt;&gt;&gt; as.character(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f1"</span> <span class="string">"f2"</span> <span class="string">"f2"</span> <span class="string">"f2"</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.numeric(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; as.logical(d$c.1)</div><div class="line">[<span class="number">1</span>] <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+<h1 id="List-列表"><a href="#List-列表" class="headerlink" title="List 列表"></a>List 列表</h1><p>list 是 R 中比较宽松的数据类型，它可以由类型不一致的任意对象构成。list 非常适合用于封装函数的输出对象。list 的元素可以使用 <code>$</code> <code>[]</code> <code>[[]]</code> 访问。</p>
+<p><code>l = list(tag1 = value1, tag2 = value2, ..., tagn = valuen)</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x = list(a = <span class="number">1</span>:<span class="number">10</span>, beta = exp(-<span class="number">3</span>:<span class="number">3</span>),</div><div class="line">+ logic = c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">FALSE</span>,<span class="literal">TRUE</span>))</div><div class="line"></div><div class="line">&gt;&gt;&gt; x</div><div class="line">$a</div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span></div><div class="line"></div><div class="line">$beta</div><div class="line">[<span class="number">1</span>]  <span class="number">0.04978707</span>  <span class="number">0.13533528</span>  <span class="number">0.36787944</span>  <span class="number">1.00000000</span>  <span class="number">2.71828183</span>  <span class="number">7.38905610</span></div><div class="line">[<span class="number">7</span>] <span class="number">20.08553692</span></div><div class="line"></div><div class="line">$logic</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; x$a</div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span></div><div class="line">&gt;&gt;&gt; x[<span class="number">1</span>]</div><div class="line">$a</div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; x[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span></div><div class="line">&gt;&gt;&gt; x[[<span class="number">1</span>]][<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p><code>apply</code> 函数簇中 <code>lapply</code> 函数可以对 list 进行向量化运算，返回的数据类型也是 list。<code>sapply</code> 同样支持 list 类型的参数，但是默认返回的数据类型为 vector。但是当传入参数 <code>simplify = FALSE</code>，返回 list。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; lapply(x, mean)</div><div class="line">$a</div><div class="line">[<span class="number">1</span>] <span class="number">5.5</span></div><div class="line"></div><div class="line">$beta</div><div class="line">[<span class="number">1</span>] <span class="number">4.535125</span></div><div class="line"></div><div class="line">$logic</div><div class="line">[<span class="number">1</span>] <span class="number">0.5</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; sapply(x, mean)</div><div class="line">       a     beta    logic</div><div class="line"><span class="number">5.500000</span> <span class="number">4.535125</span> <span class="number">0.500000</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; class(lapply(x,mean))</div><div class="line">[<span class="number">1</span>] <span class="string">"list"</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; class(sapply(x,mean))</div><div class="line">[<span class="number">1</span>] <span class="string">"numeric"</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; is.matrix(sapply(x,mean))</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; is.vector(sapply(x,mean))</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; is.list(sapply(x,mean,simplify = <span class="literal">FALSE</span>))</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
+<p>其他与 list 有关的函数</p>
+<p><code>unlist(x, recursive = TRUE, use.names = TRUE)</code> 将 list 展开，转换为 vector</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; unlist(x)</div><div class="line">         a1          a2          a3          a4          a5          a6</div><div class="line"> <span class="number">1.00000000</span>  <span class="number">2.00000000</span>  <span class="number">3.00000000</span>  <span class="number">4.00000000</span>  <span class="number">5.00000000</span>  <span class="number">6.00000000</span></div><div class="line">         a7          a8          a9         a10       beta1       beta2</div><div class="line"> <span class="number">7.00000000</span>  <span class="number">8.00000000</span>  <span class="number">9.00000000</span> <span class="number">10.00000000</span>  <span class="number">0.04978707</span>  <span class="number">0.13533528</span></div><div class="line">      beta3       beta4       beta5       beta6       beta7      logic1</div><div class="line"> <span class="number">0.36787944</span>  <span class="number">1.00000000</span>  <span class="number">2.71828183</span>  <span class="number">7.38905610</span> <span class="number">20.08553692</span>  <span class="number">1.00000000</span></div><div class="line">     logic2      logic3      logic4</div><div class="line"> <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">1.00000000</span></div></pre></td></tr></table></figure>
+<p><code>as.list(x, all.names = FALSE, sorted = FALSE, ...)</code> 将对象数据类型转换为 list<br><code>is.list(x)</code> 检测数据类型是否为 list</p>
+<h1 id="Data-frame-数据框"><a href="#Data-frame-数据框" class="headerlink" title="Data.frame 数据框"></a>Data.frame 数据框</h1><p>data.frame 是 R 中非常重要的数据类型，它长得像 matrix，但是又与 list 一样，可以存储不同类型的数据，但是有一个每列数据长度必须一致。同样，data.frame 数据的访问与 matrix 和 list 类似。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.frame(<span class="keyword">...</span>, row.names = <span class="literal">NULL</span>, check.rows = <span class="literal">FALSE</span>,</div><div class="line">           check.names = <span class="literal">TRUE</span>,</div><div class="line">           stringsAsFactors = default.stringsAsFactors())</div></pre></td></tr></table></figure>
+<p>参数</p>
+<ul>
+<li><code>...</code> 参数形式为 value 或者 tag = value，value 为数据内容，tag 为列名。</li>
+<li><code>row.names</code> 行的名称</li>
+<li><code>check.rows</code> 是否检测行数和名称是否一致。</li>
+<li><code>check.names</code> 是否检测列的名称的合法性以及是否重复，有必要的话，通过 <code>make.names</code> 调整名称。</li>
+<li><code>stringsAsFactors</code> 是否将字符向量转换为因子类型。如果不想让某个对象被强行转换类型，可以用 <code>I(a)</code> 包裹。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; d &lt;- data.frame(c1 = rep(c(<span class="string">"f1"</span>, <span class="string">"f2"</span>), each = <span class="number">3</span>), c2 = <span class="number">1</span>:<span class="number">6</span>)</div><div class="line">&gt;&gt;&gt; d</div><div class="line">  c1 c2</div><div class="line"><span class="number">1</span> f1  <span class="number">1</span></div><div class="line"><span class="number">2</span> f1  <span class="number">2</span></div><div class="line"><span class="number">3</span> f1  <span class="number">3</span></div><div class="line"><span class="number">4</span> f2  <span class="number">4</span></div><div class="line"><span class="number">5</span> f2  <span class="number">5</span></div><div class="line"><span class="number">6</span> f2  <span class="number">6</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; d$c1</div><div class="line">[<span class="number">1</span>] f1 f1 f1 f2 f2 f2</div><div class="line">Levels: f1 f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; d[<span class="number">1</span>]</div><div class="line">c1</div><div class="line"><span class="number">1</span> f1</div><div class="line"><span class="number">2</span> f1</div><div class="line"><span class="number">3</span> f1</div><div class="line"><span class="number">4</span> f2</div><div class="line"><span class="number">5</span> f2</div><div class="line"><span class="number">6</span> f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; d[<span class="number">1</span>,<span class="number">2</span>]</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line"></div><div class="line">&gt;&gt;&gt; d[<span class="string">"c1"</span>]</div><div class="line">c1</div><div class="line"><span class="number">1</span> f1</div><div class="line"><span class="number">2</span> f1</div><div class="line"><span class="number">3</span> f1</div><div class="line"><span class="number">4</span> f2</div><div class="line"><span class="number">5</span> f2</div><div class="line"><span class="number">6</span> f2</div><div class="line"></div><div class="line">&gt;&gt;&gt; d[<span class="string">"c1"</span>][<span class="number">1</span>,]</div><div class="line">[<span class="number">1</span>] f1</div><div class="line">Levels: f1 f2</div></pre></td></tr></table></figure>
 
           
         
@@ -1296,160 +1445,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/21/2016-11-21-eeg-egi/" itemprop="url">
-                  关于 EEGLAB 分析 EGI 数据
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-21T00:00:00+08:00" content="2016-11-21">
-              2016-11-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/EEG/" itemprop="url" rel="index">
-                    <span itemprop="name">EEG</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/21/2016-11-21-eeg-egi/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/2016-11-21-eeg-egi/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1490,7 +1490,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
