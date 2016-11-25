@@ -17,8 +17,8 @@
   
   <entry>
     <title>R：基本数据类型（一）</title>
-    <link href="//lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st/"/>
-    <id>//lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st/</id>
+    <link href="//lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st"/>
+    <id>//lix90.github.io/2016/11/24/2016-11-24-r-data-type-1st</id>
     <published>2016-11-23T16:00:00.000Z</published>
     <updated>2016-11-24T11:54:58.000Z</updated>
     
@@ -95,8 +95,8 @@
   
   <entry>
     <title>每日总结 2016-11-24</title>
-    <link href="//lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>//lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <link href="//lix90.github.io/2016/11/24/2016-11-24-daily"/>
+    <id>//lix90.github.io/2016/11/24/2016-11-24-daily</id>
     <published>2016-11-23T16:00:00.000Z</published>
     <updated>2016-11-24T13:37:59.000Z</updated>
     
@@ -131,8 +131,8 @@
   
   <entry>
     <title>每日总结 2016-11-23</title>
-    <link href="//lix90.github.io/2016/11/23/2016-11-23-daily/"/>
-    <id>//lix90.github.io/2016/11/23/2016-11-23-daily/</id>
+    <link href="//lix90.github.io/2016/11/23/2016-11-23-daily"/>
+    <id>//lix90.github.io/2016/11/23/2016-11-23-daily</id>
     <published>2016-11-22T16:00:00.000Z</published>
     <updated>2016-11-24T12:52:34.000Z</updated>
     
@@ -499,8 +499,8 @@
   
   <entry>
     <title>每日总结 2016-11-22</title>
-    <link href="//lix90.github.io/2016/11/22/2016-11-22-daily/"/>
-    <id>//lix90.github.io/2016/11/22/2016-11-22-daily/</id>
+    <link href="//lix90.github.io/2016/11/22/2016-11-22-daily"/>
+    <id>//lix90.github.io/2016/11/22/2016-11-22-daily</id>
     <published>2016-11-21T16:00:00.000Z</published>
     <updated>2016-11-22T15:34:55.000Z</updated>
     
@@ -684,9 +684,55 @@
   </entry>
   
   <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi"/>
+    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-21T12:48:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电
+    
+    </summary>
+    
+      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
+    
+      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>西服保养建议</title>
-    <link href="//lix90.github.io/2016/11/21/2016-11-21-clean-suit/"/>
-    <id>//lix90.github.io/2016/11/21/2016-11-21-clean-suit/</id>
+    <link href="//lix90.github.io/2016/11/21/2016-11-21-clean-suit"/>
+    <id>//lix90.github.io/2016/11/21/2016-11-21-clean-suit</id>
     <published>2016-11-20T16:00:00.000Z</published>
     <updated>2016-11-21T02:22:55.000Z</updated>
     
@@ -751,55 +797,116 @@
   </entry>
   
   <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>//lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-21T12:48:16.000Z</updated>
+    <title>每日总结 2016-11-19</title>
+    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily"/>
+    <id>//lix90.github.io/2016/11/19/2016-11-19-daily</id>
+    <published>2016-11-18T16:00:00.000Z</published>
+    <updated>2016-11-22T07:40:47.000Z</updated>
     
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
 <ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
 </ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
+<li>代码风格<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
 </ul>
+</li>
+<li>前端框架<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
+</ul>
+</li>
+<li>状态管理<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
+</ul>
+</li>
+<li>API 层<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
+</ul>
+</li>
+<li>全栈框架<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
+</ul>
+</li>
+<li>测试框架<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
+</ul>
+</li>
+<li>CSS 构建工具/预处理器<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
+</ul>
+</li>
+<li>构建工具<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
+</ul>
+</li>
+<li>移动端框架<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
+</ul>
+</li>
+<li>新特性<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电
+      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
     
     </summary>
     
-      <category term="Original" scheme="//lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="//lix90.github.io/categories/Original/EEG/"/>
+      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
     
     
-      <category term="EEG" scheme="//lix90.github.io/tags/EEG/"/>
+      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
     
-      <category term="EGI" scheme="//lix90.github.io/tags/EGI/"/>
+      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
-      <category term="EEGLAB" scheme="//lix90.github.io/tags/EEGLAB/"/>
+      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
+    
+      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
   <entry>
     <title>数据库面试题解答</title>
-    <link href="//lix90.github.io/2016/11/19/2016-11-19-sql-interview/"/>
-    <id>//lix90.github.io/2016/11/19/2016-11-19-sql-interview/</id>
+    <link href="//lix90.github.io/2016/11/19/2016-11-19-sql-interview"/>
+    <id>//lix90.github.io/2016/11/19/2016-11-19-sql-interview</id>
     <published>2016-11-18T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:33.000Z</updated>
     
@@ -905,116 +1012,9 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-19</title>
-    <link href="//lix90.github.io/2016/11/19/2016-11-19-daily/"/>
-    <id>//lix90.github.io/2016/11/19/2016-11-19-daily/</id>
-    <published>2016-11-18T16:00:00.000Z</published>
-    <updated>2016-11-22T07:40:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
-<p>三种时间表现形式：</p>
-<ul>
-<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
-<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
-<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
-</ul>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
-<li>代码风格<ul>
-<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
-<li>CoffeeScript 正过时</li>
-</ul>
-</li>
-<li>前端框架<ul>
-<li>React 强势</li>
-<li>Vue 崛起</li>
-<li>Angular 2 &gt; Angular 1</li>
-</ul>
-</li>
-<li>状态管理<ul>
-<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
-</ul>
-</li>
-<li>API 层<ul>
-<li>GraphQL 有前途？</li>
-<li>REST APIs 广泛适用</li>
-</ul>
-</li>
-<li>全栈框架<ul>
-<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
-<li>“一体化”框架并没有期待的那么受欢迎</li>
-</ul>
-</li>
-<li>测试框架<ul>
-<li>Mocha 和 Jasmine 较主流</li>
-<li>开发者总体对 JS 的测试不太满意</li>
-</ul>
-</li>
-<li>CSS 构建工具/预处理器<ul>
-<li>SASS/SCSS 主导</li>
-<li>CSS Modules</li>
-</ul>
-</li>
-<li>构建工具<ul>
-<li>Webpack 和 Gulp 最受欢迎</li>
-<li>Grunt 已过气</li>
-</ul>
-</li>
-<li>移动端框架<ul>
-<li>原生应用最主流</li>
-<li>React Native 较为受欢迎</li>
-</ul>
-</li>
-<li>新特性<ul>
-<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
-<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
-<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
-<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
-<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
-<li>Real-time operations 实时交互</li>
-<li>Dead code elimination 冗余代码消除</li>
-<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
-<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
-<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
-<li>熟练掌握盒模型、常用布局</li>
-<li>能够处理好浏览器和移动设备兼容性问题</li>
-<li>熟悉 Angular/React 等框架，并开发成型项目</li>
-<li>熟悉调试、抓包工具</li>
-<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
-<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
-<li>熟悉常用设计模式和常用 MV* 框架</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="Daily" scheme="//lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="JavaScript" scheme="//lix90.github.io/tags/JavaScript/"/>
-    
-      <category term="前端开发" scheme="//lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="Python" scheme="//lix90.github.io/tags/Python/"/>
-    
-      <category term="How-to-learn" scheme="//lix90.github.io/tags/How-to-learn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-18</title>
-    <link href="//lix90.github.io/2016/11/18/2016-11-18-daily/"/>
-    <id>//lix90.github.io/2016/11/18/2016-11-18-daily/</id>
+    <link href="//lix90.github.io/2016/11/18/2016-11-18-daily"/>
+    <id>//lix90.github.io/2016/11/18/2016-11-18-daily</id>
     <published>2016-11-17T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:24.000Z</updated>
     
@@ -1112,8 +1112,8 @@
   
   <entry>
     <title>R：使用 tidyr 进行数据操作</title>
-    <link href="//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
-    <id>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
+    <link href="//lix90.github.io/2016/11/17/2016-11-17-r-tidyr"/>
+    <id>//lix90.github.io/2016/11/17/2016-11-17-r-tidyr</id>
     <published>2016-11-16T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:16.000Z</updated>
     
@@ -1209,8 +1209,8 @@
   
   <entry>
     <title>每日总结 2016-11-17</title>
-    <link href="//lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>//lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <link href="//lix90.github.io/2016/11/17/2016-11-17-daily"/>
+    <id>//lix90.github.io/2016/11/17/2016-11-17-daily</id>
     <published>2016-11-16T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:07.000Z</updated>
     
@@ -1256,8 +1256,8 @@
   
   <entry>
     <title>R：使用基本包进行多图布局</title>
-    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
-    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
+    <link href="//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout"/>
+    <id>//lix90.github.io/2016/11/16/2016-11-16-r-vis-layout</id>
     <published>2016-11-15T16:00:00.000Z</published>
     <updated>2016-11-19T03:33:01.000Z</updated>
     
@@ -1335,8 +1335,8 @@
   
   <entry>
     <title>每日总结 2016-11-16</title>
-    <link href="//lix90.github.io/2016/11/16/2016-11-16-daily/"/>
-    <id>//lix90.github.io/2016/11/16/2016-11-16-daily/</id>
+    <link href="//lix90.github.io/2016/11/16/2016-11-16-daily"/>
+    <id>//lix90.github.io/2016/11/16/2016-11-16-daily</id>
     <published>2016-11-15T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:47.000Z</updated>
     
@@ -1439,8 +1439,8 @@
   
   <entry>
     <title>每日总结 2016-11-15</title>
-    <link href="//lix90.github.io/2016/11/15/2016-11-15-daily/"/>
-    <id>//lix90.github.io/2016/11/15/2016-11-15-daily/</id>
+    <link href="//lix90.github.io/2016/11/15/2016-11-15-daily"/>
+    <id>//lix90.github.io/2016/11/15/2016-11-15-daily</id>
     <published>2016-11-14T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:41.000Z</updated>
     
@@ -1496,8 +1496,8 @@
   
   <entry>
     <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <link href="//lix90.github.io/2016/11/14/2016-11-14-img-output"/>
+    <id>//lix90.github.io/2016/11/14/2016-11-14-img-output</id>
     <published>2016-11-13T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:33.000Z</updated>
     
@@ -1623,8 +1623,8 @@
   
   <entry>
     <title>每日总结 2016-11-14</title>
-    <link href="//lix90.github.io/2016/11/14/2016-11-14-daily/"/>
-    <id>//lix90.github.io/2016/11/14/2016-11-14-daily/</id>
+    <link href="//lix90.github.io/2016/11/14/2016-11-14-daily"/>
+    <id>//lix90.github.io/2016/11/14/2016-11-14-daily</id>
     <published>2016-11-13T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:22.000Z</updated>
     
@@ -1809,8 +1809,8 @@
   
   <entry>
     <title>个人资源长期整理</title>
-    <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki/"/>
-    <id>//lix90.github.io/2016/11/13/2016-11-13-wiki/</id>
+    <link href="//lix90.github.io/2016/11/13/2016-11-13-wiki"/>
+    <id>//lix90.github.io/2016/11/13/2016-11-13-wiki</id>
     <published>2016-11-12T16:00:00.000Z</published>
     <updated>2016-11-19T03:32:13.000Z</updated>
     
@@ -1904,8 +1904,8 @@
   
   <entry>
     <title>R：加载包</title>
-    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily/"/>
-    <id>//lix90.github.io/2016/11/13/2016-11-13-daily/</id>
+    <link href="//lix90.github.io/2016/11/13/2016-11-13-daily"/>
+    <id>//lix90.github.io/2016/11/13/2016-11-13-daily</id>
     <published>2016-11-12T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:56.000Z</updated>
     
@@ -1938,8 +1938,8 @@
   
   <entry>
     <title>每日总结 2016-11-12</title>
-    <link href="//lix90.github.io/2016/11/12/2016-11-12-daily/"/>
-    <id>//lix90.github.io/2016/11/12/2016-11-12-daily/</id>
+    <link href="//lix90.github.io/2016/11/12/2016-11-12-daily"/>
+    <id>//lix90.github.io/2016/11/12/2016-11-12-daily</id>
     <published>2016-11-11T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:41.000Z</updated>
     
@@ -1999,8 +1999,8 @@
   
   <entry>
     <title>男士衬衫穿搭技巧</title>
-    <link href="//lix90.github.io/2016/11/11/2016-11-11-life-shirt/"/>
-    <id>//lix90.github.io/2016/11/11/2016-11-11-life-shirt/</id>
+    <link href="//lix90.github.io/2016/11/11/2016-11-11-life-shirt"/>
+    <id>//lix90.github.io/2016/11/11/2016-11-11-life-shirt</id>
     <published>2016-11-10T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:34.000Z</updated>
     
@@ -2101,8 +2101,8 @@
   
   <entry>
     <title>每日总结 2016-11-10</title>
-    <link href="//lix90.github.io/2016/11/10/2016-11-10-daily/"/>
-    <id>//lix90.github.io/2016/11/10/2016-11-10-daily/</id>
+    <link href="//lix90.github.io/2016/11/10/2016-11-10-daily"/>
+    <id>//lix90.github.io/2016/11/10/2016-11-10-daily</id>
     <published>2016-11-09T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:24.000Z</updated>
     
@@ -2148,8 +2148,8 @@
   
   <entry>
     <title>R：处理缺失值</title>
-    <link href="//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/"/>
-    <id>//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/</id>
+    <link href="//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier"/>
+    <id>//lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier</id>
     <published>2016-11-08T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:16.000Z</updated>
     
@@ -2201,8 +2201,8 @@
   
   <entry>
     <title>R：数据导入</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-import-data"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-import-data</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:08.000Z</updated>
     
@@ -2230,8 +2230,8 @@
   
   <entry>
     <title>每日总结 2016-11-08</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-daily"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-daily</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:30:46.000Z</updated>
     
@@ -2279,8 +2279,8 @@
   
   <entry>
     <title>R：基本数据可视化</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-basic-vis</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:30:55.000Z</updated>
     
@@ -2465,8 +2465,8 @@
   
   <entry>
     <title>R：描述性统计</title>
-    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <link href="//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats"/>
+    <id>//lix90.github.io/2016/11/08/2016-11-08-r-desc-stats</id>
     <published>2016-11-07T16:00:00.000Z</published>
     <updated>2016-11-19T03:31:01.000Z</updated>
     
@@ -2533,8 +2533,8 @@
   
   <entry>
     <title>每日总结 2016-11-07</title>
-    <link href="//lix90.github.io/2016/11/07/2016-11-07-daily/"/>
-    <id>//lix90.github.io/2016/11/07/2016-11-07-daily/</id>
+    <link href="//lix90.github.io/2016/11/07/2016-11-07-daily"/>
+    <id>//lix90.github.io/2016/11/07/2016-11-07-daily</id>
     <published>2016-11-06T16:00:00.000Z</published>
     <updated>2016-11-19T03:30:40.000Z</updated>
     
@@ -2609,8 +2609,8 @@
   
   <entry>
     <title>每日总结 2016-11-01</title>
-    <link href="//lix90.github.io/2016/11/02/2016-11-01-daily/"/>
-    <id>//lix90.github.io/2016/11/02/2016-11-01-daily/</id>
+    <link href="//lix90.github.io/2016/11/02/2016-11-01-daily"/>
+    <id>//lix90.github.io/2016/11/02/2016-11-01-daily</id>
     <published>2016-11-01T16:23:13.000Z</published>
     <updated>2016-11-19T03:30:32.000Z</updated>
     
@@ -2809,8 +2809,8 @@
   
   <entry>
     <title>每日总结 2016-10-31</title>
-    <link href="//lix90.github.io/2016/10/31/2016-10-31-daily/"/>
-    <id>//lix90.github.io/2016/10/31/2016-10-31-daily/</id>
+    <link href="//lix90.github.io/2016/10/31/2016-10-31-daily"/>
+    <id>//lix90.github.io/2016/10/31/2016-10-31-daily</id>
     <published>2016-10-31T15:36:55.000Z</published>
     <updated>2016-11-19T03:30:25.000Z</updated>
     
@@ -2901,8 +2901,8 @@
   
   <entry>
     <title>每日总结 2016-10-30</title>
-    <link href="//lix90.github.io/2016/10/30/2016-10-30-daily/"/>
-    <id>//lix90.github.io/2016/10/30/2016-10-30-daily/</id>
+    <link href="//lix90.github.io/2016/10/30/2016-10-30-daily"/>
+    <id>//lix90.github.io/2016/10/30/2016-10-30-daily</id>
     <published>2016-10-30T05:57:32.000Z</published>
     <updated>2016-11-19T03:30:17.000Z</updated>
     
@@ -2999,8 +2999,8 @@
   
   <entry>
     <title>每日总结 2016-10-29</title>
-    <link href="//lix90.github.io/2016/10/29/2016-10-29-daily/"/>
-    <id>//lix90.github.io/2016/10/29/2016-10-29-daily/</id>
+    <link href="//lix90.github.io/2016/10/29/2016-10-29-daily"/>
+    <id>//lix90.github.io/2016/10/29/2016-10-29-daily</id>
     <published>2016-10-29T06:03:30.000Z</published>
     <updated>2016-11-19T03:30:10.000Z</updated>
     
@@ -3143,8 +3143,8 @@
   
   <entry>
     <title>每日总结 2016-10-28</title>
-    <link href="//lix90.github.io/2016/10/28/2016-10-28-daily/"/>
-    <id>//lix90.github.io/2016/10/28/2016-10-28-daily/</id>
+    <link href="//lix90.github.io/2016/10/28/2016-10-28-daily"/>
+    <id>//lix90.github.io/2016/10/28/2016-10-28-daily</id>
     <published>2016-10-28T06:10:36.000Z</published>
     <updated>2016-11-19T03:30:04.000Z</updated>
     
@@ -3291,8 +3291,8 @@
   
   <entry>
     <title>每日总结 2016-10-27</title>
-    <link href="//lix90.github.io/2016/10/27/2016-10-27-daily/"/>
-    <id>//lix90.github.io/2016/10/27/2016-10-27-daily/</id>
+    <link href="//lix90.github.io/2016/10/27/2016-10-27-daily"/>
+    <id>//lix90.github.io/2016/10/27/2016-10-27-daily</id>
     <published>2016-10-27T15:11:30.000Z</published>
     <updated>2016-11-19T03:29:58.000Z</updated>
     
@@ -3470,8 +3470,8 @@
   
   <entry>
     <title>每日总结 2016-10-26</title>
-    <link href="//lix90.github.io/2016/10/26/2016-10-26-daily/"/>
-    <id>//lix90.github.io/2016/10/26/2016-10-26-daily/</id>
+    <link href="//lix90.github.io/2016/10/26/2016-10-26-daily"/>
+    <id>//lix90.github.io/2016/10/26/2016-10-26-daily</id>
     <published>2016-10-26T01:30:34.000Z</published>
     <updated>2016-11-19T03:29:51.000Z</updated>
     
@@ -3599,8 +3599,8 @@
   
   <entry>
     <title>HTTP 学习记录</title>
-    <link href="//lix90.github.io/2016/10/22/2016-10-22-http/"/>
-    <id>//lix90.github.io/2016/10/22/2016-10-22-http/</id>
+    <link href="//lix90.github.io/2016/10/22/2016-10-22-http"/>
+    <id>//lix90.github.io/2016/10/22/2016-10-22-http</id>
     <published>2016-10-22T11:45:33.000Z</published>
     <updated>2016-11-19T03:29:43.000Z</updated>
     
@@ -3646,8 +3646,8 @@
   
   <entry>
     <title>D3.js 入门学习记录</title>
-    <link href="//lix90.github.io/2016/10/17/2016-10-17-d3js-intro/"/>
-    <id>//lix90.github.io/2016/10/17/2016-10-17-d3js-intro/</id>
+    <link href="//lix90.github.io/2016/10/17/2016-10-17-d3js-intro"/>
+    <id>//lix90.github.io/2016/10/17/2016-10-17-d3js-intro</id>
     <published>2016-10-17T08:23:07.000Z</published>
     <updated>2016-11-19T03:29:37.000Z</updated>
     
@@ -3796,8 +3796,8 @@
   
   <entry>
     <title>R：查看源代码</title>
-    <link href="//lix90.github.io/2016/10/08/2016-10-08-r-source-code/"/>
-    <id>//lix90.github.io/2016/10/08/2016-10-08-r-source-code/</id>
+    <link href="//lix90.github.io/2016/10/08/2016-10-08-r-source-code"/>
+    <id>//lix90.github.io/2016/10/08/2016-10-08-r-source-code</id>
     <published>2016-10-08T14:23:57.000Z</published>
     <updated>2016-11-19T03:29:30.000Z</updated>
     
@@ -3854,8 +3854,8 @@
   
   <entry>
     <title>R：正则表达式</title>
-    <link href="//lix90.github.io/2016/10/03/2016-10-03-r-regex/"/>
-    <id>//lix90.github.io/2016/10/03/2016-10-03-r-regex/</id>
+    <link href="//lix90.github.io/2016/10/03/2016-10-03-r-regex"/>
+    <id>//lix90.github.io/2016/10/03/2016-10-03-r-regex</id>
     <published>2016-10-02T16:46:15.000Z</published>
     <updated>2016-11-19T03:29:10.000Z</updated>
     
@@ -3901,8 +3901,8 @@
   
   <entry>
     <title>PHP 安装与配置</title>
-    <link href="//lix90.github.io/2016/09/25/2016-09-25-php-config/"/>
-    <id>//lix90.github.io/2016/09/25/2016-09-25-php-config/</id>
+    <link href="//lix90.github.io/2016/09/25/2016-09-25-php-config"/>
+    <id>//lix90.github.io/2016/09/25/2016-09-25-php-config</id>
     <published>2016-09-25T13:00:45.000Z</published>
     <updated>2016-11-19T03:28:58.000Z</updated>
     
@@ -3945,8 +3945,8 @@
   
   <entry>
     <title>从零学机器学习之决策树</title>
-    <link href="//lix90.github.io/2016/09/22/2016-09-22-decision-tree/"/>
-    <id>//lix90.github.io/2016/09/22/2016-09-22-decision-tree/</id>
+    <link href="//lix90.github.io/2016/09/22/2016-09-22-decision-tree"/>
+    <id>//lix90.github.io/2016/09/22/2016-09-22-decision-tree</id>
     <published>2016-09-22T02:10:09.000Z</published>
     <updated>2016-11-19T03:28:50.000Z</updated>
     
@@ -3987,8 +3987,8 @@
   
   <entry>
     <title>零基础如何学习一门新的编程语言？</title>
-    <link href="//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/"/>
-    <id>//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/</id>
+    <link href="//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang"/>
+    <id>//lix90.github.io/2016/09/17/2016-09-17-learn-new-lang</id>
     <published>2016-09-17T06:48:43.000Z</published>
     <updated>2016-11-19T03:27:48.000Z</updated>
     
@@ -4140,8 +4140,8 @@
   
   <entry>
     <title>SQL 语言入门笔记</title>
-    <link href="//lix90.github.io/2016/09/17/2016-09-17-sql/"/>
-    <id>//lix90.github.io/2016/09/17/2016-09-17-sql/</id>
+    <link href="//lix90.github.io/2016/09/17/2016-09-17-sql"/>
+    <id>//lix90.github.io/2016/09/17/2016-09-17-sql</id>
     <published>2016-09-17T01:46:39.000Z</published>
     <updated>2016-11-19T03:28:13.000Z</updated>
     
@@ -4409,8 +4409,8 @@
   
   <entry>
     <title>R：向量化运算</title>
-    <link href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/"/>
-    <id>//lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</id>
+    <link href="//lix90.github.io/2016/09/13/2016-09-13-r-apply-family"/>
+    <id>//lix90.github.io/2016/09/13/2016-09-13-r-apply-family</id>
     <published>2016-09-13T14:50:21.000Z</published>
     <updated>2016-11-19T03:28:31.000Z</updated>
     
@@ -4478,8 +4478,8 @@
   
   <entry>
     <title>MySQL安装与配置（MacOS）</title>
-    <link href="//lix90.github.io/2016/09/13/2016-09-13-mysql-config/"/>
-    <id>//lix90.github.io/2016/09/13/2016-09-13-mysql-config/</id>
+    <link href="//lix90.github.io/2016/09/13/2016-09-13-mysql-config"/>
+    <id>//lix90.github.io/2016/09/13/2016-09-13-mysql-config</id>
     <published>2016-09-13T12:59:16.000Z</published>
     <updated>2016-11-19T03:26:43.000Z</updated>
     
@@ -4559,8 +4559,8 @@
   
   <entry>
     <title>数据冗余</title>
-    <link href="//lix90.github.io/2016/09/11/2016-09-11-data-redundency/"/>
-    <id>//lix90.github.io/2016/09/11/2016-09-11-data-redundency/</id>
+    <link href="//lix90.github.io/2016/09/11/2016-09-11-data-redundency"/>
+    <id>//lix90.github.io/2016/09/11/2016-09-11-data-redundency</id>
     <published>2016-09-11T11:54:11.000Z</published>
     <updated>2016-11-19T03:26:25.000Z</updated>
     
