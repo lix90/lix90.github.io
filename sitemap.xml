@@ -2,9 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lix90.github.io/2016/10/22/2016-10-22-http/</loc>
+    
+    <lastmod>2016-11-28T12:44:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/09/25/2016-09-25-php-config/</loc>
+    
+    <lastmod>2016-11-28T12:44:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/09/22/2016-09-22-decision-tree/</loc>
+    
+    <lastmod>2016-11-28T12:43:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/</loc>
+    
+    <lastmod>2016-11-28T12:43:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</loc>
+    
+    <lastmod>2016-11-28T12:42:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/09/13/2016-09-13-mysql-config/</loc>
+    
+    <lastmod>2016-11-28T12:42:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/09/17/2016-09-17-sql/</loc>
+    
+    <lastmod>2016-11-28T12:42:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/</loc>
+    
+    <lastmod>2016-11-28T12:42:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/</loc>
+    
+    <lastmod>2016-11-28T12:40:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</loc>
+    
+    <lastmod>2016-11-28T12:36:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/22/2016-11-22-daily/</loc>
+    
+    <lastmod>2016-11-28T12:35:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/23/2016-11-23-daily/</loc>
+    
+    <lastmod>2016-11-28T12:33:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/24/2016-11-24-daily/</loc>
+    
+    <lastmod>2016-11-28T12:29:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</loc>
+    
+    <lastmod>2016-11-28T12:26:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/25/2016-11-25-daily/</loc>
+    
+    <lastmod>2016-11-28T12:24:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/27/2016-11-27-daily/</loc>
+    
+    <lastmod>2016-11-28T12:23:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lix90.github.io/2016/11/28/2016-11-28-daily/</loc>
     
-    <lastmod>2016-11-28T11:51:14.000Z</lastmod>
+    <lastmod>2016-11-28T12:18:23.000Z</lastmod>
     
   </url>
   
@@ -16,72 +128,9 @@
   </url>
   
   <url>
-    <loc>http://lix90.github.io/2016/11/27/2016-11-27-daily/</loc>
-    
-    <lastmod>2016-11-28T03:38:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/25/2016-11-25-daily/</loc>
-    
-    <lastmod>2016-11-28T03:36:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</loc>
-    
-    <lastmod>2016-11-25T08:23:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/24/2016-11-24-daily/</loc>
-    
-    <lastmod>2016-11-24T13:37:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/23/2016-11-23-daily/</loc>
-    
-    <lastmod>2016-11-24T12:52:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/22/2016-11-22-daily/</loc>
-    
-    <lastmod>2016-11-22T15:34:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://lix90.github.io/2016/11/19/2016-11-19-daily/</loc>
     
     <lastmod>2016-11-22T07:40:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</loc>
-    
-    <lastmod>2016-11-21T12:48:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/</loc>
-    
-    <lastmod>2016-11-21T02:22:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/</loc>
-    
-    <lastmod>2016-11-19T03:33:33.000Z</lastmod>
     
   </url>
   
@@ -268,13 +317,6 @@
   </url>
   
   <url>
-    <loc>http://lix90.github.io/2016/10/22/2016-10-22-http/</loc>
-    
-    <lastmod>2016-11-19T03:29:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://lix90.github.io/2016/10/17/2016-10-17-d3js-intro/</loc>
     
     <lastmod>2016-11-19T03:29:37.000Z</lastmod>
@@ -292,48 +334,6 @@
     <loc>http://lix90.github.io/2016/10/03/2016-10-03-r-regex/</loc>
     
     <lastmod>2016-11-19T03:29:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/09/25/2016-09-25-php-config/</loc>
-    
-    <lastmod>2016-11-19T03:28:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/09/22/2016-09-22-decision-tree/</loc>
-    
-    <lastmod>2016-11-19T03:28:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/09/13/2016-09-13-r-apply-family/</loc>
-    
-    <lastmod>2016-11-19T03:28:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/09/17/2016-09-17-sql/</loc>
-    
-    <lastmod>2016-11-19T03:28:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/09/17/2016-09-17-learn-new-lang/</loc>
-    
-    <lastmod>2016-11-19T03:27:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/09/13/2016-09-13-mysql-config/</loc>
-    
-    <lastmod>2016-11-19T03:26:43.000Z</lastmod>
     
   </url>
   
