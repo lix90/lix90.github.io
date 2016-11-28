@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-11-28T08:49:42.000Z</updated>
+  <updated>2016-11-28T11:51:14.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lix90.github.io/2016/11/28/2016-11-28-daily/"/>
     <id>http://lix90.github.io/2016/11/28/2016-11-28-daily/</id>
     <published>2016-11-27T16:00:00.000Z</published>
-    <updated>2016-11-28T08:49:42.000Z</updated>
+    <updated>2016-11-28T11:51:14.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><p>重新熟悉常用的几个模式的快捷键绑定。</p>
 <h2 id="Emacs-markdown-mode"><a href="#Emacs-markdown-mode" class="headerlink" title="Emacs: markdown mode"></a>Emacs: markdown mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
@@ -564,10 +564,9 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">长属性名</th>
 <th style="text-align:left">短属性名</th>
-<th>说明</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
@@ -615,17 +614,81 @@
 <li>条件匹配</li>
 <li>正则表达式注释</li>
 </ul>
+<h1 id="阅读：前端工程"><a href="#阅读：前端工程" class="headerlink" title="阅读：前端工程"></a>阅读：前端工程</h1><blockquote>
+<p>从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。</p>
+</blockquote>
+<p>前端工程的三个阶段<br><strong>第一阶段：库/框架选型。</strong>根据项目特征进行技术选型，合理的技术选型可以为项目节省许多工程量这点毋庸置疑。<br><strong>第二阶段：简单构建优化。</strong>选型之后基本上就可以开始敲码了，不过光解决开发效率还不够，必须要兼顾运行性能。前端工程进行到第二阶段会选型一种构建工具，对代码进行压缩，校验，之后再以页面为单位进行简单的资源合并。<br><strong>第三阶段：JS/CSS模块化开发。</strong>分而治之是软件工程中的重要思想，是复杂系统开发和维护的基石，这点放在前端开发中同样适用。在解决了基本开发效率运行效率问题之后，前端团队开始<strong>思考维护效率</strong>，模块化是目前前端最流行的分治手段。模块化开发的最大价值应该是分治。</p>
+<ul>
+<li>JS 模块化方案，AMD/CommonJS/UMD/ES6 Module等。</li>
+<li>CSS 模块化方案，less、sass、stylus等预处理器的import/mixin特性支持下实现。</li>
+</ul>
+<p>第四阶段<br>前端是一种<strong>技术问题较少、工程问题较多</strong>的软件开发领域。</p>
+<p>在开发一款完整的Web应用时，前端将面临许多工程问题，比如：</p>
+<ul>
+<li>大体量：多功能、多页面、多状态、多系统；</li>
+<li>大规模：多人甚至多团队合作开发；</li>
+<li>高性能：CDN 部署、缓存控制、文件指纹、缓存复用、请求合并、按需加载、同步/异步加载、移动端首屏 CSS 内嵌、HTTP 2.0 服务端资源推送。</li>
+</ul>
+<p>用最少最简单明了的规则制定出最容易遵守最容易理解的开发规范或工具，以提升开发效率和工程质量，这同样是小而美的典范！</p>
+<p>进入第四阶段，我们只需做好两件事就能大幅提升前端开发效率，并且兼顾运行性能，那就是——组件化开发与资源管理。</p>
+<p>第一件事：组件化开发</p>
+<blockquote>
+<p>前端作为一种GUI软件，光有JS/CSS的模块化还不够，对于UI组件的分治也有着同样迫切的需求。</p>
+</blockquote>
+<p>前端组件化开发理念：</p>
+<blockquote>
+<ol>
+<li>页面上的每个独立的可视/可交互区域视为一个组件；</li>
+<li>每个组件对应一个工程目录，组件所需的各种资源都在这个目录下就近维护；</li>
+<li>由于组件具有独立性，因此组件与组件之间可以自由组合；</li>
+<li>页面只不过是组件的容器，负责组合组件形成功能完整的界面；</li>
+<li>当不需要某个组件，或者想要替换组件时，可以整个目录删除/替换。</li>
+</ol>
+<p>基于这样的工程理念，我们很容易将系统以独立的组件为单元进行分工划分。由于系统功能被分治到独立的模块或组件中，粒度比较精细，组织形式松散，开发者之间不会产生开发时序的依赖，大幅提升并行的开发效率，理论上允许随时加入新成员认领组件开发或维护工作，也更容易支持多个团队共同维护一个大型站点的开发。</p>
+</blockquote>
+<p>整个前端项目可以划分为这么几种开发概念：</p>
+<ul>
+<li><strong>JS 模块</strong>：<strong>独立</strong>的算法和数据单元。例如：浏览器环境监测；网络请求；应用配置。</li>
+<li><strong>CSS 模块</strong>：<strong>独立</strong>的功能性样式单元。例如：栅格系统；字体图标；动画样式。</li>
+<li><strong>UI 组件</strong>：<strong>独立</strong>的可视/可交互功能单元。例如：页头、页尾、导航栏。</li>
+<li><strong>页面</strong>：前端这种 GUI 软件的界面状态，是 <strong>UI 组件的容器</strong>。例如：首页，列表页，用户管理。</li>
+<li><strong>应用</strong>：<strong>整个项目或整个站点</strong>被称之为应用，由多个页面组成。</li>
+</ul>
+<p>第二件事：“智能”静态资源管理</p>
+<blockquote>
+<p>模块化/组件化开发之后，我们最终要解决的，就是模块/组件加载的技术问题。</p>
+<p>前端是一种远程部署，运行时增量下载的GUI软件。前端应用没有安装过程，其所需程序资源都部署在远程服务器，用户使用浏览器访问不同的页面来加载不同的资源，随着页面访问的增加，渐进式的将整个程序下载到本地运行，<strong>“增量下载”是前端在工程上有别于客户端GUI软件的根本原因。</strong></p>
+<p>静态资源管理系统 = 资源表 + 资源加载框架<br>通过一个小工具扫描所有静态资源，生成一张资源表，然后有一个PHP实现的资源管理框架（Celerity）提供了资源加载接口，替代了传统的script/link等静态的资源加载标签，最终通过查表来加载资源。</p>
+<p>资源表是非常通用的数据结构，无论什么业务场景，其业务代码最终都可以被扫描为相同结构的表数据，并标记资源间的依赖关系，有了表之后我们只需根据不同的业务场景定制不同的资源加载框架就行了，从此彻底告别一个团队维护一套工具的时代！！！</p>
+</blockquote>
+<p>内容来源：<a href="https://github.com/fouber/blog/issues/10" target="_blank" rel="external">fouber：前端工程——基础篇</a><br>拓展阅读：<a href="http://velocity.oreilly.com.cn/2010/index.php?func=session&amp;name=%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E5%92%8C%E4%BC%98%E5%8C%96" target="_blank" rel="external">静态网页资源的管理和优化</a></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>作为初学者，无须把目标设为掌握前端工程话，但必须得提前<strong>了解前端工程化</strong>。从 fouber 这篇文章，有一些关键概念和理念。</p>
+<p><strong>关键概念</strong></p>
+<ul>
+<li>模块化与组件化</li>
+<li>分治</li>
+<li>三个效率：开发效率、运行效率（性能）、维护效率</li>
+<li>增量下载</li>
+</ul>
+<p><strong>关键观点</strong></p>
+<ul>
+<li>前端即用户图形界面。</li>
+<li>前端是一种<strong>技术问题较少、工程问题较多</strong>的软件开发领域。</li>
+<li>静态资源管理系统 = 资源表 + 资源加载框架</li>
+</ul>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>没有银弹</strong>：没有任何一项技术或方法能让软件工程的生产力在十年内提高十倍。[百度百科]<br><strong>粒度</strong>：指数据仓库的数据单位中保存数据的细化或综合程度的级别。细化程度越高，粒度级就越小；相反，细化程度越低，粒度级就越大。数据的粒度一直是一个设计问题。在数据仓库环境中粒度之所以是主要的设计问题，是因为它<strong>深深地影响存放在数据仓库中的数据量的大小，同时影响数据仓库所能回答的查询类型</strong>。在数据仓库中的数据量大小与查询的详细程度之间要作出权衡。[百度百科]</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Emacs&quot;&gt;&lt;a href=&quot;#Emacs&quot; class=&quot;headerlink&quot; title=&quot;Emacs&quot;&gt;&lt;/a&gt;Emacs&lt;/h1&gt;&lt;p&gt;重新熟悉常用的几个模式的快捷键绑定。&lt;/p&gt;
-&lt;h2 id=&quot;Emacs-markdown-mode&quot;&gt;&lt;a hre
+      整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式；记录了JavaScript学习笔记。
     
     </summary>
     
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -779,6 +842,42 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-24</title>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-24T13:37:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;25-个公开数据网站&quot;&gt;&lt;a href=&quot;#25-个公开数据网站&quot; class=&quot;headerlink&quot; title=&quot;25 个公开数据网站&quot;&gt;&lt;/a&gt;25 个公开数据网站&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一般类型的数据&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：基本数据类型</title>
     <link href="http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/"/>
     <id>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</id>
@@ -873,42 +972,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-24</title>
-    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
-    <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-24T13:37:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
-<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
-<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
-<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
-<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
-<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
-<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
-<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
-<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
-<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;25-个公开数据网站&quot;&gt;&lt;a href=&quot;#25-个公开数据网站&quot; class=&quot;headerlink&quot; title=&quot;25 个公开数据网站&quot;&gt;&lt;/a&gt;25 个公开数据网站&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一般类型的数据&lt;/strong&gt;&lt;br&gt;&lt;a href=&quot;h
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
-    
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -1580,6 +1643,113 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-19</title>
+    <link href="http://lix90.github.io/2016/11/19/2016-11-19-daily/"/>
+    <id>http://lix90.github.io/2016/11/19/2016-11-19-daily/</id>
+    <published>2016-11-18T16:00:00.000Z</published>
+    <updated>2016-11-22T07:40:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
+<ul>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
+<li>代码风格<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
+</ul>
+</li>
+<li>前端框架<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
+</ul>
+</li>
+<li>状态管理<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
+</ul>
+</li>
+<li>API 层<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
+</ul>
+</li>
+<li>全栈框架<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
+</ul>
+</li>
+<li>测试框架<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
+</ul>
+</li>
+<li>CSS 构建工具/预处理器<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
+</ul>
+</li>
+<li>构建工具<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
+</ul>
+</li>
+<li>移动端框架<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
+</ul>
+</li>
+<li>新特性<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库面试题解答</title>
     <link href="http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/"/>
     <id>http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/</id>
@@ -1688,113 +1858,6 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-19</title>
-    <link href="http://lix90.github.io/2016/11/19/2016-11-19-daily/"/>
-    <id>http://lix90.github.io/2016/11/19/2016-11-19-daily/</id>
-    <published>2016-11-18T16:00:00.000Z</published>
-    <updated>2016-11-22T07:40:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
-<p>三种时间表现形式：</p>
-<ul>
-<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
-<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
-<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
-</ul>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
-<li>代码风格<ul>
-<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
-<li>CoffeeScript 正过时</li>
-</ul>
-</li>
-<li>前端框架<ul>
-<li>React 强势</li>
-<li>Vue 崛起</li>
-<li>Angular 2 &gt; Angular 1</li>
-</ul>
-</li>
-<li>状态管理<ul>
-<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
-</ul>
-</li>
-<li>API 层<ul>
-<li>GraphQL 有前途？</li>
-<li>REST APIs 广泛适用</li>
-</ul>
-</li>
-<li>全栈框架<ul>
-<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
-<li>“一体化”框架并没有期待的那么受欢迎</li>
-</ul>
-</li>
-<li>测试框架<ul>
-<li>Mocha 和 Jasmine 较主流</li>
-<li>开发者总体对 JS 的测试不太满意</li>
-</ul>
-</li>
-<li>CSS 构建工具/预处理器<ul>
-<li>SASS/SCSS 主导</li>
-<li>CSS Modules</li>
-</ul>
-</li>
-<li>构建工具<ul>
-<li>Webpack 和 Gulp 最受欢迎</li>
-<li>Grunt 已过气</li>
-</ul>
-</li>
-<li>移动端框架<ul>
-<li>原生应用最主流</li>
-<li>React Native 较为受欢迎</li>
-</ul>
-</li>
-<li>新特性<ul>
-<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
-<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
-<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
-<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
-<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
-<li>Real-time operations 实时交互</li>
-<li>Dead code elimination 冗余代码消除</li>
-<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
-<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
-<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
-<li>熟练掌握盒模型、常用布局</li>
-<li>能够处理好浏览器和移动设备兼容性问题</li>
-<li>熟悉 Angular/React 等框架，并开发成型项目</li>
-<li>熟悉调试、抓包工具</li>
-<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
-<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
-<li>熟悉常用设计模式和常用 MV* 框架</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;h2 id=&quot;日期时间处理&quot;&gt;&lt;a href=&quot;#日期时间处理&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-18</title>
     <link href="http://lix90.github.io/2016/11/18/2016-11-18-daily/"/>
     <id>http://lix90.github.io/2016/11/18/2016-11-18-daily/</id>
@@ -1894,6 +1957,53 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：使用 tidyr 进行数据操作</title>
     <link href="http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
     <id>http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
@@ -1987,53 +2097,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="tidyr" scheme="http://lix90.github.io/tags/tidyr/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -2212,9 +2275,9 @@
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
-    
       <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
       <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
@@ -2983,35 +3046,6 @@
   </entry>
   
   <entry>
-    <title>R：数据导入</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：基本数据可视化</title>
     <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
     <id>http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
@@ -3198,55 +3232,6 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:30:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：描述性统计</title>
     <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
     <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
@@ -3311,6 +3296,84 @@
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
       <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:30:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -4064,11 +4127,11 @@
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+      <category term="Coding style" scheme="http://lix90.github.io/tags/Coding-style/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
-      <category term="Coding style" scheme="http://lix90.github.io/tags/Coding-style/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
   </entry>
   
@@ -4237,17 +4300,17 @@
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
+      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
       <category term="Vue.js" scheme="http://lix90.github.io/tags/Vue-js/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
-    
-      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
   </entry>
   
