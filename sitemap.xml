@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</loc>
+    <loc>http://lix90.github.io/2016/11/28/2016-11-28-daily/</loc>
     
-    <lastmod>2016-11-25T08:23:19.000Z</lastmod>
+    <lastmod>2016-11-28T03:36:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://lix90.github.io/2016/11/25/2016-11-25-daily/</loc>
     
-    <lastmod>2016-11-25T02:25:09.000Z</lastmod>
+    <lastmod>2016-11-28T03:36:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/27/2016-11-27-daily/</loc>
+    
+    <lastmod>2016-11-28T03:35:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</loc>
+    
+    <lastmod>2016-11-25T08:23:19.000Z</lastmod>
     
   </url>
   
