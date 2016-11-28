@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-11-28T08:46:28.000Z</updated>
+  <updated>2016-11-28T08:49:42.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lix90.github.io/2016/11/28/2016-11-28-daily/"/>
     <id>http://lix90.github.io/2016/11/28/2016-11-28-daily/</id>
     <published>2016-11-27T16:00:00.000Z</published>
-    <updated>2016-11-28T08:46:28.000Z</updated>
+    <updated>2016-11-28T08:49:42.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><p>重新熟悉常用的几个模式的快捷键绑定。</p>
 <h2 id="Emacs-markdown-mode"><a href="#Emacs-markdown-mode" class="headerlink" title="Emacs: markdown mode"></a>Emacs: markdown mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
@@ -49,6 +49,7 @@
 <h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><table>
 <thead>
 <tr>
+<th style="text-align:left"></th>
 <th style="text-align:left"></th>
 <th style="text-align:left"></th>
 </tr>
@@ -145,9 +146,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -206,9 +206,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">key</th>
-<th>bindings</th>
+<th style="text-align:left">bindings</th>
 </tr>
 </thead>
 <tbody>
@@ -230,9 +229,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -326,9 +324,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -386,9 +383,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -418,9 +414,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -466,9 +461,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -518,9 +512,8 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
 <th style="text-align:left">Key</th>
-<th>binding</th>
+<th style="text-align:left">binding</th>
 </tr>
 </thead>
 <tbody>
@@ -729,9 +722,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
@@ -1269,9 +1262,9 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -1791,11 +1784,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
@@ -2215,9 +2208,9 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
@@ -2276,9 +2269,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -2990,70 +2983,31 @@
   </entry>
   
   <entry>
-    <title>R：描述性统计</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <title>R：数据导入</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
     <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:01.000Z</updated>
+    <updated>2016-11-19T03:31:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
@@ -3244,35 +3198,6 @@
   </entry>
   
   <entry>
-    <title>R：数据导入</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-08</title>
     <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
     <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
@@ -3318,6 +3243,74 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
@@ -3587,9 +3580,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
@@ -4067,9 +4060,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -4236,11 +4229,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
@@ -5339,9 +5332,9 @@
       <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="MySQL" scheme="http://lix90.github.io/tags/MySQL/"/>
-    
       <category term="Database" scheme="http://lix90.github.io/tags/Database/"/>
+    
+      <category term="MySQL" scheme="http://lix90.github.io/tags/MySQL/"/>
     
       <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
