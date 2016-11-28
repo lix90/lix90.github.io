@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-11-28T12:18:23.000Z</updated>
+  <updated>2016-11-28T13:32:57.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lix90.github.io/2016/11/28/2016-11-28-daily/"/>
     <id>http://lix90.github.io/2016/11/28/2016-11-28-daily/</id>
     <published>2016-11-27T16:00:00.000Z</published>
-    <updated>2016-11-28T12:18:23.000Z</updated>
+    <updated>2016-11-28T13:32:57.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><p>重新熟悉常用的几个模式的快捷键绑定。</p>
 <h2 id="Emacs-markdown-mode"><a href="#Emacs-markdown-mode" class="headerlink" title="Emacs: markdown mode"></a>Emacs: markdown mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
@@ -535,9 +535,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>几个较难理解的概念</p>
-<p>执行环境<br>作用域<br>作用域链<br>块级作用域<br>生命周期<br>内存泄漏</p>
-<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>构建 Date 类型<br><code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>构建 Date 类型<br><code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
 <p>两个方法：输出因浏览器而异。<br><code>Data.parse()</code> 接收日期的字符串参数然后返回时间戳。参数格式因本地语言设置有关。<br><code>Data.UTC()</code> 接收的参数分别为年、月（0开始）、日、时、分、秒、毫秒。返回时间戳。</p>
 <p>ECMAScript 5 新引入的方法<br><code>Data.now()</code> 调用该方式时的日期和时间的毫秒数。</p>
 <p>继承方法<br>Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code>valueOf()</code> 的方法，但输出值与其他类型的方法不同。</p>
@@ -614,7 +612,24 @@
 <li>条件匹配</li>
 <li>正则表达式注释</li>
 </ul>
-<h1 id="阅读：前端工程"><a href="#阅读：前端工程" class="headerlink" title="阅读：前端工程"></a>阅读：前端工程</h1><blockquote>
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><p>jQuery 的优势：</p>
+<ul>
+<li>轻量级：采用 UglifyJS 压缩，保持在 30KB 左右。</li>
+<li>强大的选择器：允许开发者使用 CSS 几乎所有选择器，以及独创的高级而复杂的选择器。开发者还可以编写自己的选择器。</li>
+<li>出色的 DOM 操作的封装。</li>
+<li>可靠的事件处理机制。</li>
+<li>完善的 Ajax。所有 ajax 的操作都封装到一个函数 <code>$.ajax()</code> 里，使得开发者处理 ajax 的时候能够专心处理业务逻辑。</li>
+<li>不污染顶层变量。该特性使得 jQuery 可以与其他 JS 库共存。</li>
+<li>出色的浏览器兼容性。</li>
+<li>链式操作方法。jQuery 最有特色的莫过于它的链式操作方式，即对发生在同一个 jQuery 对象上的一组动作，可以直接连写而无需重复获取对象。</li>
+<li>隐式迭代。jQuery 里的方法都被设计成自动操作对象集合，而不是单独的对象。</li>
+<li>行为层与结构层的分离。开发者可以使用 jQuery 选择器选中元素，然后直接给元素添加事件。</li>
+<li>丰富的插件支持。jQuery 的易扩展性，吸引了来自全球的开发者来编写 jQuery 的扩展插件。</li>
+<li>完善的文档。包括长期更新的中文文档。</li>
+<li>开源。</li>
+</ul>
+<p>来源：《锋利的 jQeury 第二版》</p>
+<h1 id="阅读：前端工程"><a href="#阅读：前端工程" class="headerlink" title="阅读：前端工程"></a>阅读：前端工程</h1><h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><blockquote>
 <p>从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。</p>
 </blockquote>
 <p>前端工程的三个阶段<br><strong>第一阶段：库/框架选型。</strong>根据项目特征进行技术选型，合理的技术选型可以为项目节省许多工程量这点毋庸置疑。<br><strong>第二阶段：简单构建优化。</strong>选型之后基本上就可以开始敲码了，不过光解决开发效率还不够，必须要兼顾运行性能。前端工程进行到第二阶段会选型一种构建工具，对代码进行压缩，校验，之后再以页面为单位进行简单的资源合并。<br><strong>第三阶段：JS/CSS模块化开发。</strong>分而治之是软件工程中的重要思想，是复杂系统开发和维护的基石，这点放在前端开发中同样适用。在解决了基本开发效率运行效率问题之后，前端团队开始<strong>思考维护效率</strong>，模块化是目前前端最流行的分治手段。模块化开发的最大价值应该是分治。</p>
@@ -690,7 +705,7 @@
     
     <summary type="html">
     
-      整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。记录了JavaScript学习笔记。阅读了一篇关于前端工程化的文章。
+      整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。
     
     </summary>
     
@@ -699,7 +714,11 @@
     
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
+      <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
+    
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Front-end" scheme="http://lix90.github.io/tags/Front-end/"/>
     
   </entry>
   
@@ -849,6 +868,42 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-24</title>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-28T12:29:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：基本数据对象</title>
     <link href="http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/"/>
     <id>http://lix90.github.io/2016/11/24/2016-11-24-r-data-type/</id>
@@ -942,42 +997,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-24</title>
-    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
-    <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-28T12:29:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
-<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
-<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
-<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
-<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
-<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
-<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
-<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
-<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
-<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
-    
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -1525,13 +1544,59 @@
     
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
-      <category term="Chrome" scheme="http://lix90.github.io/tags/Chrome/"/>
-    
       <category term="项目管理" scheme="http://lix90.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
     
       <category term="单元测试" scheme="http://lix90.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
+    
+      <category term="Chrome" scheme="http://lix90.github.io/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-28T12:36:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
+    
+      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -1597,52 +1662,6 @@
       <category term="Life style" scheme="http://lix90.github.io/tags/Life-style/"/>
     
       <category term="西服保养" scheme="http://lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-28T12:36:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
-    
-      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -2344,6 +2363,133 @@
   </entry>
   
   <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-19T03:32:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-14</title>
     <link href="http://lix90.github.io/2016/11/14/2016-11-14-daily/"/>
     <id>http://lix90.github.io/2016/11/14/2016-11-14-daily/</id>
@@ -2513,9 +2659,9 @@
     
       <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
-    
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="计算机概论" scheme="http://lix90.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%AE%BA/"/>
     
@@ -2526,133 +2672,6 @@
       <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="UI" scheme="http://lix90.github.io/tags/UI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-19T03:32:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
-    
-      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
     
   </entry>
   
@@ -2836,9 +2855,9 @@
     
       <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
-      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
-    
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
+    
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
       <category term="BOM" scheme="http://lix90.github.io/tags/BOM/"/>
     
@@ -3049,31 +3068,70 @@
   </entry>
   
   <entry>
-    <title>R：数据导入</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <title>R：描述性统计</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
     <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
+    <updated>2016-11-19T03:31:01.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
     
     </summary>
     
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
@@ -3313,70 +3371,31 @@
   </entry>
   
   <entry>
-    <title>R：描述性统计</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <title>R：数据导入</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
     <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:01.000Z</updated>
+    <updated>2016-11-19T03:31:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
@@ -4301,8 +4320,6 @@
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
-    
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
       <category term="Vue.js" scheme="http://lix90.github.io/tags/Vue-js/"/>
@@ -4314,6 +4331,8 @@
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
+    
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
   </entry>
   

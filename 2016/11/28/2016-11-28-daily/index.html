@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,Emacs," />
+  <meta name="keywords" content="JavaScript,jQuery,Emacs,Front-end," />
 
 
 
@@ -88,16 +88,16 @@
 
 
 
-<meta name="description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。记录了JavaScript学习笔记。阅读了一篇关于前端工程化的文章。">
+<meta name="description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-28">
 <meta property="og:url" content="http://lix90.github.io/2016/11/28/2016-11-28-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。记录了JavaScript学习笔记。阅读了一篇关于前端工程化的文章。">
-<meta property="og:updated_time" content="2016-11-28T12:18:23.000Z">
+<meta property="og:description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
+<meta property="og:updated_time" content="2016-11-28T13:32:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-28">
-<meta name="twitter:description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。记录了JavaScript学习笔记。阅读了一篇关于前端工程化的文章。">
+<meta name="twitter:description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
 
 
 
@@ -864,9 +864,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>几个较难理解的概念</p>
-<p>执行环境<br>作用域<br>作用域链<br>块级作用域<br>生命周期<br>内存泄漏</p>
-<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>构建 Date 类型<br><code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>构建 Date 类型<br><code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
 <p>两个方法：输出因浏览器而异。<br><code>Data.parse()</code> 接收日期的字符串参数然后返回时间戳。参数格式因本地语言设置有关。<br><code>Data.UTC()</code> 接收的参数分别为年、月（0开始）、日、时、分、秒、毫秒。返回时间戳。</p>
 <p>ECMAScript 5 新引入的方法<br><code>Data.now()</code> 调用该方式时的日期和时间的毫秒数。</p>
 <p>继承方法<br>Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code>valueOf()</code> 的方法，但输出值与其他类型的方法不同。</p>
@@ -943,7 +941,24 @@
 <li>条件匹配</li>
 <li>正则表达式注释</li>
 </ul>
-<h1 id="阅读：前端工程"><a href="#阅读：前端工程" class="headerlink" title="阅读：前端工程"></a>阅读：前端工程</h1><blockquote>
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><p>jQuery 的优势：</p>
+<ul>
+<li>轻量级：采用 UglifyJS 压缩，保持在 30KB 左右。</li>
+<li>强大的选择器：允许开发者使用 CSS 几乎所有选择器，以及独创的高级而复杂的选择器。开发者还可以编写自己的选择器。</li>
+<li>出色的 DOM 操作的封装。</li>
+<li>可靠的事件处理机制。</li>
+<li>完善的 Ajax。所有 ajax 的操作都封装到一个函数 <code>$.ajax()</code> 里，使得开发者处理 ajax 的时候能够专心处理业务逻辑。</li>
+<li>不污染顶层变量。该特性使得 jQuery 可以与其他 JS 库共存。</li>
+<li>出色的浏览器兼容性。</li>
+<li>链式操作方法。jQuery 最有特色的莫过于它的链式操作方式，即对发生在同一个 jQuery 对象上的一组动作，可以直接连写而无需重复获取对象。</li>
+<li>隐式迭代。jQuery 里的方法都被设计成自动操作对象集合，而不是单独的对象。</li>
+<li>行为层与结构层的分离。开发者可以使用 jQuery 选择器选中元素，然后直接给元素添加事件。</li>
+<li>丰富的插件支持。jQuery 的易扩展性，吸引了来自全球的开发者来编写 jQuery 的扩展插件。</li>
+<li>完善的文档。包括长期更新的中文文档。</li>
+<li>开源。</li>
+</ul>
+<p>来源：《锋利的 jQeury 第二版》</p>
+<h1 id="阅读：前端工程"><a href="#阅读：前端工程" class="headerlink" title="阅读：前端工程"></a>阅读：前端工程</h1><h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><blockquote>
 <p>从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。</p>
 </blockquote>
 <p>前端工程的三个阶段<br><strong>第一阶段：库/框架选型。</strong>根据项目特征进行技术选型，合理的技术选型可以为项目节省许多工程量这点毋庸置疑。<br><strong>第二阶段：简单构建优化。</strong>选型之后基本上就可以开始敲码了，不过光解决开发效率还不够，必须要兼顾运行性能。前端工程进行到第二阶段会选型一种构建工具，对代码进行压缩，校验，之后再以页面为单位进行简单的资源合并。<br><strong>第三阶段：JS/CSS模块化开发。</strong>分而治之是软件工程中的重要思想，是复杂系统开发和维护的基石，这点放在前端开发中同样适用。在解决了基本开发效率运行效率问题之后，前端团队开始<strong>思考维护效率</strong>，模块化是目前前端最流行的分治手段。模块化开发的最大价值应该是分治。</p>
@@ -1039,7 +1054,11 @@
           
             <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
             <a href="/tags/Emacs/" rel="tag">#Emacs</a>
+          
+            <a href="/tags/Front-end/" rel="tag">#Front-end</a>
           
         </div>
       
@@ -1217,7 +1236,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs"><span class="nav-number">1.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-markdown-mode"><span class="nav-number">1.1.</span> <span class="nav-text">Emacs: markdown mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对标题的操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">对标题的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转与移动"><span class="nav-number">1.1.2.</span> <span class="nav-text">跳转与移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加内容"><span class="nav-number">1.1.3.</span> <span class="nav-text">添加内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-help-mode"><span class="nav-number">1.2.</span> <span class="nav-text">Emacs: help-mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-Dired-mode"><span class="nav-number">1.3.</span> <span class="nav-text">Emacs: Dired mode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">2.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">2.2.</span> <span class="nav-text">RegExp 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-实例属性"><span class="nav-number">2.2.1.</span> <span class="nav-text">RegExp 实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-构造函数属性"><span class="nav-number">2.2.2.</span> <span class="nav-text">RegExp 构造函数属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的局限性"><span class="nav-number">2.2.3.</span> <span class="nav-text">模式的局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读：前端工程"><span class="nav-number">3.</span> <span class="nav-text">阅读：前端工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">3.0.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">4.</span> <span class="nav-text">概念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs"><span class="nav-number">1.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-markdown-mode"><span class="nav-number">1.1.</span> <span class="nav-text">Emacs: markdown mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对标题的操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">对标题的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转与移动"><span class="nav-number">1.1.2.</span> <span class="nav-text">跳转与移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加内容"><span class="nav-number">1.1.3.</span> <span class="nav-text">添加内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-help-mode"><span class="nav-number">1.2.</span> <span class="nav-text">Emacs: help-mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-Dired-mode"><span class="nav-number">1.3.</span> <span class="nav-text">Emacs: Dired mode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">2.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">2.2.</span> <span class="nav-text">RegExp 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-实例属性"><span class="nav-number">2.2.1.</span> <span class="nav-text">RegExp 实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-构造函数属性"><span class="nav-number">2.2.2.</span> <span class="nav-text">RegExp 构造函数属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的局限性"><span class="nav-number">2.2.3.</span> <span class="nav-text">模式的局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery"><span class="nav-number">3.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读：前端工程"><span class="nav-number">4.</span> <span class="nav-text">阅读：前端工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">4.1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">4.1.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">5.</span> <span class="nav-text">概念</span></a></li></ol></div>
             
           </div>
         </section>
