@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-11-28T13:40:52.000Z</updated>
+  <updated>2016-11-29T12:39:02.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -16,15 +16,120 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每日总结 2016-11-29</title>
+    <link href="http://lix90.github.io/2016/11/29/2016-11-29-daily/"/>
+    <id>http://lix90.github.io/2016/11/29/2016-11-29-daily/</id>
+    <published>2016-11-28T16:00:00.000Z</published>
+    <updated>2016-11-29T12:39:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h2><p>ECMAScript 提供了3个特殊的引用类型：Boolean、Number 和 String。<br>引用类型与基本包装类型的主要区别就是<strong>对象的生存期</strong>。</p>
+<blockquote>
+<p>使用 new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。这意味着不能在运行时为基本类型值添加属性和方法。</p>
+</blockquote>
+<p>使用 new 调用基本包装类型的构造函数，与直接调用同名的转型函数不一样。使用转型函数得到的对象仍然为基本类型。<br>不建议显式地创建基本包装类型的对象。</p>
+<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>基本类型与引用类型的布尔值的区别：</p>
+<ul>
+<li>布尔表达式中的所有对象都会被转换为 true，所以即便 Boolean 对象的值为 false，在布尔表达式中仍然为 true。</li>
+<li>typeof 操作符对基本类型返回 “boolean”，而对引用类型返回 “object”。</li>
+<li>由于 Boolean 对象是 Boolean 类型的实例，所以使用 instanceof 操作符测试 Boolean 对象会返回 true，而测试基本类型的布尔值则返回 false。</li>
+</ul>
+<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><p>Number 类型提供了操作数值的方法。</p>
+<ul>
+<li><code>toExponential</code> 返回指数（科学记数法）表示方法的数值的字符串。</li>
+<li><code>toFixed()</code> 返回固定小数点位数表示方法的数值的字符串。</li>
+<li><code>toPrecision()</code> 返回特定精度的数值的字符串。</li>
+<li><code>valueOf()</code> 返回基本类型值</li>
+<li><code>toLocaleString()</code> <code>toString()</code> 返回数值的字符串表示。</li>
+</ul>
+<h3 id="String-类型"><a href="#String-类型" class="headerlink" title="String 类型"></a>String 类型</h3><p>String 类型实例同样继承了 <code>valueOf()</code> <code>toLocaleString()</code> <code>toString()</code> 方法，都返回对象所表示的基本字符串值。</p>
+<p><strong>字符方法</strong><br>两个用于访问字符串中特定字符的方法：<code>charAt()</code> 和 <code>charCodeAt()</code>，两个方法都接收一个参数，即基于0的字符位置。<br>ECMAScript 5定义了另一个访问个别字符的方法，在支持此方法的浏览器中，可以使用方括号加数字索引来反问字符串中的特定字符。</p>
+<p><strong>字符串操作方法</strong><br>拼接字符串 <code>concat()</code>，该方法可以接受任意多个参数。<br>三个基于子字符串创建新字符串的方法：<code>slice()</code> <code>substr()</code> <code>substring()</code>。<br>字符串位置方法：<code>indexOf()</code> <code>lastIndexOf()</code><br><code>trim()</code> 方法：删除前置及后缀的所有空格。<br>大小写转换方法：<code>toLowerCase()</code> <code>toLocaleLowerCase()</code> <code>toUpperCase()</code> <code>toLocaleUpperCase()</code><br>模式匹配方法：<code>match()</code> <code>search()</code> <code>replace()</code> <code>split()</code><br><code>localeCompare()</code>：比较两个字符串，并返回-1，0，或1。<br><code>fromCharCode()</code>：接收一或多个字符编码，然后将它们转换成一个字符串。</p>
+<h2 id="单体内置对象"><a href="#单体内置对象" class="headerlink" title="单体内置对象"></a>单体内置对象</h2><p><strong>内置对象</strong>：由 ECMAScript 实现提供的、不依赖于宿主环境的对象，这些对象在 ECMAScript 程序执行之前就已经存在了。开发者不必显式地实例化内置对象，因为它们已经被实例化了。</p>
+<h3 id="Global-对象"><a href="#Global-对象" class="headerlink" title="Global 对象"></a>Global 对象</h3><p>不属于任何其他对象的属性和方法，最终都是 Global 对象的属性和方法。事实上，没有全局变量或全局函数；所有在全局作用域中定义的属性和函数，都是 Global 对象的属性。</p>
+<p>URI 编码方法<br><code>encodeURI()</code> <code>encodeURIComponent()</code> 方法可以对 URI (Uniform Resource Identifiers, 通用资源标识符) 进行编码，以便发送给浏览器。有效的 URI 中不能包含某些字符，于是这两个方法就对 URI 进行编码，使用特殊的 UTF-8 编码替换掉所有无效的字符，从而让浏览器能够接受和理解。</p>
+<p><code>decodeURI()</code> <code>decodeURIComponent()</code> 解码方法和编码方法相对应。</p>
+<p><code>eval()</code> 方法像是一个完整的 ECMAScript 解析器，只接受一个参数，即要执行的 ECMAScript 字符串。</p>
+<h3 id="Math-对象"><a href="#Math-对象" class="headerlink" title="Math 对象"></a>Math 对象</h3><p>Math 对象的属性，大多是数学计算中可能会用到的一些特殊值。<br><code>min()</code> 和 <code>max()</code> 方法<br>舍入方法：<code>Math.ceil()</code> <code>Math.floor()</code> <code>Math.round()</code><br><code>random()</code> 方法返回大于等于0小于1的一个随机数。<br>要得到特定范围的随机值 <code>值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)</code></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学习 JavaScript 编程基础已有一段时间，觉得 JavaScript 的难点在于几个难以理解的抽象概念和应对一些语言设计上的“坑”。理解了 JS 语言中的这几个概念，例如，对象，类，原型，原型链，作用域，闭包，继承等，也就算是入门了吧。实际上，这些概念也就是面向对象和函数式编程语言对于初学编程的人来说难以理解的点。只不过在 JS 上，有其特殊性。</p>
+<hr>
+<h1 id="JavaScript-作用域"><a href="#JavaScript-作用域" class="headerlink" title="JavaScript 作用域"></a>JavaScript 作用域</h1><p>来源：你不知道的 JS 上 — 作用域</p>
+<p>传统编译语言的流程中，源码在执行前会经历三个步骤（编译）：</p>
+<ul>
+<li><strong>分词/词法分析（Tokenizing/Lexing）</strong>：将由字符组成的字符串分解成有意义的代码块（词法单元）。</li>
+<li><strong>解析/语法分析（Parsing）</strong>：将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的数（抽象语法树，Abstract Syntax Tree, AST）。</li>
+<li><strong>代码生成</strong>：将 AST 转换为可执行代码。</li>
+</ul>
+<p>对 JS 来说，大部分情况下编译发生在代码执行前的几微秒（甚至更短！）的时间内。任何 JS 代码片段在执行前都要进行编译。编译后通常马上执行它。</p>
+<p>代码编译到执行关键的三个部件：</p>
+<ul>
+<li><strong>引擎</strong>：从头到尾负责整个 JS 程序的编译及执行过程。</li>
+<li><strong>编译器</strong>：负责语法分析及代码生成等。</li>
+<li><strong>作用域</strong>：负责收集并维护有所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符的访问权限。</li>
+</ul>
+<p><strong>变量的赋值操作</strong>会执行两个动作，首先编译器会在当前作用域中声明一个变量（如果之前没有声明过），然后在运行时引擎会在作用域中查找该变量，如果能够找到就会对它赋值。</p>
+<p>理解两种查询方式：</p>
+<ul>
+<li><strong>LHS 查询</strong>，视图找到变量的容器本身，然后对其赋值。赋值操作的目标是谁？</li>
+<li><strong>RHS 查询</strong>，取到它的源值，意味着得到某某的值。谁是赋值操作的源头？</li>
+</ul>
+<p>当变量出现在赋值操作的左侧时，进行 LHS 查询，出现在右侧（非左侧）则进行 RHS 查询。RHS 查询与简单地查找某个变量的值别无二致，而 LHS 查询则是视图找到变量的容器本身，从而可以对其赋值。</p>
+<p>当一个块或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。<br><strong>遍历嵌套作用域链</strong>：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到与否，查找过程都会停止。</p>
+<p><strong>ReferenceError</strong><br>如果 RHS 查询在所有嵌套的作用域中遍寻不到所需的变量，引擎就会抛出 ReferenceError 异常。但是，当引擎执行 LHS 查询时，如果在顶层中也无法找到目标变量，全局作用域中就会创建一个具有该名称的变量，并将其返还给引擎，前提是程序运行在非“严格模式”下。在严格模式下，会禁止自动或隐式地创建全局变量。因此，在严格模式中 LHS 查询失败时，并不会创建并返回一个全局变量，引擎同样抛出 ReferenceError 异常。</p>
+<p><strong>TypeError</strong><br>如果 RHS 查询找到了一个变量，但是你尝试对这个变量的值进行不合理的操作，比如视图对一个非函数类型的值进行函数调用，或者引用 null 或 undefined 类型的值中的属性，那么引擎会抛出另外一种类型的异常，叫作 TypeError。</p>
+<p>总结：作用域是学习编程过程中需要着重理解的概念之一。</p>
+<h1 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h1><h2 id="R-地理信息可视化"><a href="#R-地理信息可视化" class="headerlink" title="R 地理信息可视化"></a>R 地理信息可视化</h2><p>看了 REmap 包的开发者<a href="http://lchiffon.github.io/about/" target="_blank" rel="external">郎大为</a>在<a href="http://www.xueqing.tv/" target="_blank" rel="external">雪晴数据网</a>上所做的 REmap 基本教程。了解了一些地理信息可视化包。</p>
+<p>静态地理信息：</p>
+<ul>
+<li>maps：较老</li>
+<li>ggmap：需科学上网</li>
+<li>choroplethr：国外比较火<br>交互地理信息：</li>
+<li>leaflet</li>
+<li>googleVis<br>辅助的 R 包：</li>
+<li>RgoogleMaps</li>
+<li>mapdata</li>
+<li>mapproj</li>
+<li>baidumap：与 ggplot2 结合</li>
+</ul>
+<p><a href="https://github.com/lchiffon/REmap" target="_blank" rel="external">REmap</a> 是一个基于 Echarts 的 R 包，提供了一个简便，可交互的地图数据可视化工具。</p>
+<p>安装：<code>devtools::install_github(&#39;lchiffon/REmap&#39;)</code></p>
+<p>关于数据产品</p>
+<ul>
+<li>数据驱动</li>
+<li>建模预测</li>
+<li>较好的可视化</li>
+</ul>
+<h2 id="数据工程师"><a href="#数据工程师" class="headerlink" title="数据工程师"></a>数据工程师</h2><p>在学晴网上还报了个免费的数据工程师入门系列教程—<a href="http://www.xueqing.tv/course/73" target="_blank" rel="external">全栈数据工程师养成攻略</a>，可以稍微走一个整体的简单数据挖掘的流程，特别是我还未实际操作过的领域，比如爬虫，与数据库交互，交互式数据可视化，Processing 可视化等。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      JS 包括引用类型中的包装类型和内置对象。你不知道的JS之作用域。看了学晴数据网上的通过R进行地理信息数据可视化的教学视频。报了个免费基础数据挖掘教程“全栈数据工程师养成”。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-28</title>
     <link href="http://lix90.github.io/2016/11/28/2016-11-28-daily/"/>
     <id>http://lix90.github.io/2016/11/28/2016-11-28-daily/</id>
     <published>2016-11-27T16:00:00.000Z</published>
-    <updated>2016-11-28T13:40:52.000Z</updated>
+    <updated>2016-11-28T13:43:48.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><p>重新熟悉常用的几个模式的快捷键绑定。</p>
 <h2 id="Emacs-markdown-mode"><a href="#Emacs-markdown-mode" class="headerlink" title="Emacs: markdown mode"></a>Emacs: markdown mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
-<p>在 markdown-mode 下，打开帮助文档 <kbd>C-h m</kbd>（我自己将 <code>C-h</code> 改为了 <code>f1</code>）。markdown-mode 的 key-map 的前缀命令为 <code>C-c</code>，也就是按这个键能调出与 markdown-mode 有关的一些命令的快捷键。</p>
+<p>在 markdown-mode 下，打开帮助文档 <kbd>C-h m</kbd>（我自己将 <kbd>C-h</kbd> 改为了 <kbd>f1</kbd>）。markdown-mode 的 key-map 的前缀命令为 <kbd>C-c</kbd>，也就是按这个键能调出与 markdown-mode 有关的一些命令的快捷键。</p>
 <h3 id="对标题的操作"><a href="#对标题的操作" class="headerlink" title="对标题的操作"></a>对标题的操作</h3><ul>
 <li><code>&lt;M-S-down/up&gt;</code> <code>markdown-move-subtree-down/up</code> 向下或向上移动标题。</li>
 <li><code>&lt;M-S-left/right&gt;</code> <code>markdown-promote/demote-subtree</code> 标题升级或降级。<ul>
@@ -813,9 +918,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
@@ -1350,9 +1455,9 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -1373,13 +1478,13 @@
     <link href="http://lix90.github.io/2016/11/22/2016-11-22-daily/"/>
     <id>http://lix90.github.io/2016/11/22/2016-11-22-daily/</id>
     <published>2016-11-21T16:00:00.000Z</published>
-    <updated>2016-11-28T12:35:12.000Z</updated>
+    <updated>2016-11-29T02:26:09.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="JavaScript：函数"><a href="#JavaScript：函数" class="headerlink" title="JavaScript：函数"></a>JavaScript：函数</h1><h2 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h2><p>函数是对象，函数名是指针。<br>函数表达式最后有分号 <code>;</code>。<br>使用不带圆括号的函数名是访问函数指针，而非调用函数。<br>Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名 <code>function.name</code>。</p>
-<p><strong>函数声明提升</strong>：在执行代码前会先读取函数声明。也就是说，可以把函数声明放在调用它的语句之后。</p>
+    <content type="html"><![CDATA[<h1 id="JavaScript：函数"><a href="#JavaScript：函数" class="headerlink" title="JavaScript：函数"></a>JavaScript：函数</h1><h2 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h2><p><strong>函数是对象，函数名是指针。</strong><br>使用不带圆括号的函数名是访问函数指针，而非调用函数。<br>函数表达式最后有分号 <code>;</code>。<br>Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名 <code>function.name</code>。</p>
+<p><strong>函数声明提升</strong>：在执行代码前会先读取函数声明。也就是说，可以把函数声明放在调用它的语句之后。<br>而对于<strong>函数表达式</strong>，必须等到解析器执行到它所在的代码行，才会真正被解释执行。</p>
 <p>每个函数继承的 <code>toLocaleString()</code> 和 <code>toString()</code> 方法始终都返回函数的代码。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">5</span>)&#125;</div><div class="line">func.toString()</div><div class="line"><span class="string">'function () &#123;console.log(5)&#125;'</span></div><div class="line">func.toLocaleString()</div><div class="line"><span class="string">'function () &#123;console.log(5)&#125;'</span></div></pre></td></tr></table></figure>
-<p><strong>匿名函数</strong>：<code>function</code> 关键字后面没有标识符。匿名函数的 <code>name</code> 属性为空字符串。</p>
+<p><strong>匿名函数</strong>：<code>function</code> 关键字后面没有标识符。匿名函数的 <code>name</code> 属性为空字符串。<br><strong>函数名本身就是变量</strong>，所以函数也可以作为值来使用。函数既可作为参数传递给另一个函数，又可以将一个函数作为结果返回。<br><strong>两个特殊对象</strong>：arguments 和 this。</p>
 <h2 id="apply-amp-call"><a href="#apply-amp-call" class="headerlink" title="apply &amp; call"></a>apply &amp; call</h2><p>可在特定的作用域中调用函数，等同于设置函数体内 this 对象的值。</p>
 <ul>
 <li><code>apply()</code> 方法接受两个参数：一个是在其中运行函数的作用域，另一个是<strong>参数数组</strong>。第二个参数可以为 Array 实例，也可以为 arguments 对象。</li>
@@ -1535,7 +1640,7 @@
     
     <summary type="html">
     
-      JS 记录了下函数部分内容的学习笔记；另外阅读了一篇关于“编写可维护的 JS 代码”的文章。最后看了篇 chrome 开发者大会的文章。
+      JS 包括函数的学习笔记；阅读了一篇关于“编写可维护的 JS 代码”的文章。最后看了篇 chrome 开发者大会的文章。
     
     </summary>
     
@@ -1869,13 +1974,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
-      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -1968,13 +2073,60 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Cloud" scheme="http://lix90.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -2072,53 +2224,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="tidyr" scheme="http://lix90.github.io/tags/tidyr/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -2293,11 +2398,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
       <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
@@ -2354,9 +2459,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -2851,11 +2956,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
@@ -3000,17 +3105,17 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Ruby" scheme="http://lix90.github.io/tags/Ruby/"/>
     
       <category term="Pandas" scheme="http://lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+    
+      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -3064,103 +3169,6 @@
       <category term="数据分析" scheme="http://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="缺失值" scheme="http://lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：数据导入</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：描述性统计</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
@@ -3396,6 +3404,103 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="导入-CSV-数据"><a href="#导入-CSV-数据" class="headerlink" title="导入 CSV 数据"></a>导入 CSV 数据</h1><p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1 id="导入-EXCEL-数据"><a href="#导入-EXCEL-数据" class="headerlink" title="导入 EXCEL 数据"></a>导入 EXCEL 数据</h1><h1 id="导入-SPSS-数据"><a href="#导入-SPSS-数据" class="headerlink" title="导入 SPSS 数据"></a>导入 SPSS 数据</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;导入-CSV-数据&quot;&gt;&lt;a href=&quot;#导入-CSV-数据&quot; class=&quot;headerlink&quot; title=&quot;导入 CSV 数据&quot;&gt;&lt;/a&gt;导入 CSV 数据&lt;/h1&gt;&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -3757,9 +3862,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="http://lix90.github.io/tags/Flexbox/"/>
     
@@ -4145,9 +4250,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -4314,13 +4419,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
@@ -4331,6 +4434,8 @@
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -4457,11 +4562,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="Machine Learning" scheme="http://lix90.github.io/tags/Machine-Learning/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
   </entry>
   
