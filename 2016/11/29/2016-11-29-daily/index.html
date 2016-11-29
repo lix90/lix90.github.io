@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="R,Data science,Data viz,JavaScript," />
+  <meta name="keywords" content="R,JavaScript,Data science,Data viz," />
 
 
 
@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lix90.github.io/2016/11/29/2016-11-29-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="JS 包括引用类型中的包装类型和内置对象。你不知道的JS之作用域。看了学晴数据网上的通过R进行地理信息数据可视化的教学视频。报了个免费基础数据挖掘教程“全栈数据工程师养成”。">
-<meta property="og:updated_time" content="2016-11-29T12:39:02.000Z">
+<meta property="og:updated_time" content="2016-11-29T12:53:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-29">
 <meta name="twitter:description" content="JS 包括引用类型中的包装类型和内置对象。你不知道的JS之作用域。看了学晴数据网上的通过R进行地理信息数据可视化的教学视频。报了个免费基础数据挖掘教程“全栈数据工程师养成”。">
@@ -428,6 +428,10 @@
 <li>较好的可视化</li>
 </ul>
 <h2 id="数据工程师"><a href="#数据工程师" class="headerlink" title="数据工程师"></a>数据工程师</h2><p>在学晴网上还报了个免费的数据工程师入门系列教程—<a href="http://www.xueqing.tv/course/73" target="_blank" rel="external">全栈数据工程师养成攻略</a>，可以稍微走一个整体的简单数据挖掘的流程，特别是我还未实际操作过的领域，比如爬虫，与数据库交互，交互式数据可视化，Processing 可视化等。</p>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。发现 anaconda 也安装了 libxml2。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
+<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。</p>
 
       
     </div>
@@ -452,11 +456,11 @@
           
             <a href="/tags/R/" rel="tag">#R</a>
           
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
             <a href="/tags/Data-science/" rel="tag">#Data science</a>
           
             <a href="/tags/Data-viz/" rel="tag">#Data viz</a>
-          
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
         </div>
       
@@ -634,7 +638,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本包装类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean-类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">Boolean 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">Number 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">String 类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单体内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">单体内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Global 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">Math 对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-作用域"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据科学"><span class="nav-number">3.</span> <span class="nav-text">数据科学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#R-地理信息可视化"><span class="nav-number">3.1.</span> <span class="nav-text">R 地理信息可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据工程师"><span class="nav-number">3.2.</span> <span class="nav-text">数据工程师</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本包装类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean-类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">Boolean 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">Number 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">String 类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单体内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">单体内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Global 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">Math 对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-作用域"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据科学"><span class="nav-number">3.</span> <span class="nav-text">数据科学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#R-地理信息可视化"><span class="nav-number">3.1.</span> <span class="nav-text">R 地理信息可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据工程师"><span class="nav-number">3.2.</span> <span class="nav-text">数据工程师</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题解决"><span class="nav-number">4.</span> <span class="nav-text">问题解决</span></a></li></ol></div>
             
           </div>
         </section>
