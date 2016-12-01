@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lix90.github.io/2016/11/29/2016-11-29-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="JS 包括引用类型中的包装类型和内置对象。你不知道的JS之作用域。看了学晴数据网上的通过R进行地理信息数据可视化的教学视频。报了个免费基础数据挖掘教程“全栈数据工程师养成”。">
-<meta property="og:updated_time" content="2016-11-29T13:57:10.000Z">
+<meta property="og:updated_time" content="2016-11-30T07:36:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-29">
 <meta name="twitter:description" content="JS 包括引用类型中的包装类型和内置对象。你不知道的JS之作用域。看了学晴数据网上的通过R进行地理信息数据可视化的教学视频。报了个免费基础数据挖掘教程“全栈数据工程师养成”。">
@@ -446,6 +446,7 @@
 <p>运行 <code>brew doctor</code> 发现一个警告：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
 <p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
+<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
 
       
     </div>
@@ -492,6 +493,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/30/2016-11-30-daily/" rel="prev" title="每日总结 2016-11-30">
+                每日总结 2016-11-30 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -566,7 +571,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -583,7 +588,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">98</span>
+                <span class="site-state-item-count">100</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
