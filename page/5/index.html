@@ -282,6 +282,654 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/17/2016-11-17-r-tidyr/" itemprop="url">
+                  R：使用 tidyr 进行数据操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/17/2016-11-17-r-tidyr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/17/2016-11-17-r-tidyr/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>data</code> 数据框</li>
+<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
+<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
+<li><code>-z</code> 排除 z 变量</li>
+<li><code>x,y,z</code> 选择 x y z 三个变量</li>
+<li><code>2:4</code> 选择第2到4列</li>
+</ul>
+</li>
+<li><code>na.rm</code> 是否去除缺失值</li>
+<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
+<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
+</ul>
+<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>key</code> 该列的因子转换为多个列的列名</li>
+<li><code>value</code> 该列的内容将分配到多个列中</li>
+<li><code>fill</code> 指定填充缺失值的值</li>
+<li><code>convert</code> 数据类型转换</li>
+<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
+<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
+</ul>
+<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 列名（不需要引号）</li>
+<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
+<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
+</ul>
+</li>
+<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
+<li><code>convert</code> 数据类型转换。</li>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
+<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
+<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
+</ul>
+</li>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
+<li><code>&quot;right&quot;</code> 在右侧填充</li>
+<li><code>&quot;left&quot;</code> 在左侧填充</li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
+<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 将要合并得到的列名</li>
+<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
+<li><code>sep</code> 分隔符</li>
+<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>长转宽</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>宽转长</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
+<p>合并列与分割列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
+<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/16/2016-11-16-daily/" itemprop="url">
+                  每日总结 2016-11-16
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
+              2016-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/16/2016-11-16-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/16/2016-11-16-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
+<h2 id="统计学"><a href="#统计学" class="headerlink" title="统计学"></a>统计学</h2><h3 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h3><p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
+<blockquote>
+<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
+</blockquote>
+<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
+<h3 id="循环变量"><a href="#循环变量" class="headerlink" title="循环变量"></a>循环变量</h3><p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
+<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
+<h2 id="CSS：利用偏移垂直居中"><a href="#CSS：利用偏移垂直居中" class="headerlink" title="CSS：利用偏移垂直居中"></a>CSS：利用偏移垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
+<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/16/2016-11-16-r-vis-layout/" itemprop="url">
+                  R：使用基本包进行多图布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
+              2016-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/16/2016-11-16-r-vis-layout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/16/2016-11-16-r-vis-layout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
+<p>参数：</p>
+<ul>
+<li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
+<li><code>widths</code>：向量对象，指定列宽。可以通过数值指定相对宽度。而绝对宽度通过 <code>lcm()</code> 指定。</li>
+<li><code>heights</code>：向量对象，指定列高。高度设置跟 <code>widths</code> 一样。</li>
+<li><code>respect</code>：要么逻辑值要么矩阵对象。如果为矩阵对象，那么必须与 <code>mat</code> 具有同样的维度，而且每个值为 0 或者 1。该参数控制列宽的单位是否与行高的单位在设备物理测量上相同，控制设备的纵横比。纵横比为列数比上行数。如果 <code>respect = TRUE</code> 那么列宽和行高单位相同，不受页面纵横比的影响。如果 <code>respect = FALSE</code>，那么一行的高和一列的宽不一样，会受到页面的影响。</li>
+<li><code>n</code>：绘制的图形个数。</li>
+</ul>
+<p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
+<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
+<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
+<p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
+<ul>
+<li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
+<li><code>omd</code> 向量 <code>c(x1,x2,y1,y2)</code> 外边缘定位，单位为 NDC，即<code>c(left,right,bottom,top)</code></li>
+<li><code>omi</code> 向量 <code>c(bottm, left, top, right)</code> 外边缘尺寸，英寸</li>
+</ul>
+<p><strong>Inner region</strong> 内区域</p>
+<p>为除去外边缘之外剩余的区域。如果只有一个图，那么就等于 figure region。如果有多个图，那就是多个图合并的区域。</p>
+<p><strong>Figure region</strong> 图形区域</p>
+<p>受到外边缘和图的个数的影响。绘图区域通过 <code>fig</code> 和 <code>fin</code> 参数设定。<code>fig</code> 用来定位，<code>c(left, right, bottom, top)</code>，其中的值为内区域的大小（除去外边缘之后的区域）。<code>fin</code> 用于设定绘图区域大小，<code>c(width,height)</code>，单位为英寸，最后绘图区域将在内区域中居中。</p>
+<p><strong>Figure margin</strong> 图形边缘</p>
+<p>图形边缘，通过 <code>mar</code> 和 <code>mai</code> 参数设定。</p>
+<ul>
+<li><code>mai</code> 数值向量 <code>c(bottom, left, top, right)</code> 绘图边缘的尺寸，英寸</li>
+<li><code>mar</code> 数值向量 <code>c(bottom, left, top, right)</code> 指定绘图边缘尺寸，行高，默认为 <code>c(5,4,4,2)+0.1</code></li>
+<li><code>mex</code> 行尺寸扩展因子，用于描述绘图边缘上的坐标。并不改变字体大小，而是指定用来转换 <code>mar</code> 和 <code>mai</code> 以及 <code>oma</code> 和 <code>omi</code> 的文本行尺寸。</li>
+<li><code>mgp</code> 边缘行（<code>mex</code> 单位），用于轴标题、标签和线。<code>mgp[1]</code> 影响 <code>title</code>,<code>mgp[2:3]</code> 影响坐标轴。默认为 <code>c(3,1,0)</code>。</li>
+</ul>
+<p><strong>Plot region</strong> 绘制区域</p>
+<ul>
+<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
+<li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
+<li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
+</ul>
+<p>子图或多图绘制</p>
+<ul>
+<li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
+<li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
+</ul>
+<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
+<p><code>split.screen</code> 参数：</p>
+<ul>
+<li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
+<li><code>screen</code> 用于分割的屏幕编号。默认为当前屏幕，否则为整个设备区域。</li>
+<li><code>erase</code> 逻辑值，是否清空选中的屏幕。</li>
+<li><code>n</code> 代表将准备用于绘制、擦除、或者关闭的屏幕编号。</li>
+<li><code>new</code> 逻辑值，代表着是否擦除当前屏幕用于新图的绘制。</li>
+<li><code>all.screens</code> 逻辑值，是否关闭所有屏幕。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 构建两行两列的 screen</span></div><div class="line">screen(<span class="number">2</span>) <span class="comment"># 选中第2个 screen</span></div><div class="line">split.screen(c(<span class="number">2</span>,<span class="number">1</span>)) <span class="comment"># 将第2个 screen 再次分割为两行</span></div><div class="line">screen(<span class="number">4</span>) <span class="comment"># 选中第4个 screen</span></div><div class="line">plot(<span class="number">10</span>:<span class="number">1</span>)</div><div class="line">erase.screen() <span class="comment"># 擦除当前 screen</span></div><div class="line">plot(<span class="number">15</span>:<span class="number">1</span>) <span class="comment"># 继续在当前 screen 上绘制</span></div></pre></td></tr></table></figure>
+<p>NDC：normalized device coordinates</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/15/2016-11-15-daily/" itemprop="url">
+                  每日总结 2016-11-15
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T00:00:00+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/2016-11-15-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/2016-11-15-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CSS-和-JS-加载顺序和位置问题"><a href="#CSS-和-JS-加载顺序和位置问题" class="headerlink" title="CSS 和 JS 加载顺序和位置问题"></a>CSS 和 JS 加载顺序和位置问题</h1><h2 id="为什么要把-CSS-样式表放在头部（Head）"><a href="#为什么要把-CSS-样式表放在头部（Head）" class="headerlink" title="为什么要把 CSS 样式表放在头部（Head）"></a>为什么要把 CSS 样式表放在头部（Head）</h2><p>如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。</p>
+<p>如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页面元素进行重绘。这样会出现一段时间的白屏。影响用户体验。</p>
+<h2 id="为什么要把-JS-脚本放在底端（the-Bottom-of-Body）"><a href="#为什么要把-JS-脚本放在底端（the-Bottom-of-Body）" class="headerlink" title="为什么要把 JS 脚本放在底端（the Bottom of Body）"></a>为什么要把 JS 脚本放在底端（the Bottom of Body）</h2><p>脚本文件的加载会阻塞并行下载。HTTP/1.1 规定浏览器对于同一个主机的并行下载请求不能超过两个。如果网站图片资源放在多个主机上，那么可以同时超过两个下载请求。但是脚本文件会使浏览器停止其他数据的下载，不同主机的下载都会停止。</p>
+<p>但是在某些情况下，并不能将 JS 脚本放在底端。例如，脚本中包含有使用 <code>document.write</code> 插入部分页面内容，这就不能放在后面加载。</p>
+<p>替代的做法是，使用 <code>defer</code> 加载脚本，这样就可以放在头部了。<code>defer</code> 属性表明了脚本并不包含 <code>document.write</code>，在加载脚本的同时，页面也一同渲染。Firefox 并不支持 <code>defer</code> 属性。</p>
+<h2 id="如果-script-和-link-都在头部，谁在前，谁在后？"><a href="#如果-script-和-link-都在头部，谁在前，谁在后？" class="headerlink" title="如果 script 和 link 都在头部，谁在前，谁在后？"></a>如果 script 和 link 都在头部，谁在前，谁在后？</h2><p>对于现代<strong>桌面</strong>浏览器来说，CSS 在 JS 前声明对性能并没有显著提高。甚至，CSS 在 JS 之后，不但不影响性能，反而在特定情况下还能提升性能。不过，这仅限于现代桌面浏览器。对于老式浏览器，仍然需要在 JS 之前声明 CSS 的外部链接。这归功于现代桌面浏览器使用了“推测渲染技术”（speculative parsing），这种技术能够让浏览器往前一步看，总是在脚本下载和执行之前下载其他资源。老式浏览器并不支持该技术，所以把脚本放在前面会影响性能。</p>
+<p>目前，85% 的桌面浏览器均支持推测渲染技术。把脚本放在样式表之前仍然可能会影响 15% 的用户。对于移动端的浏览器，无法获得一个明确的支持该技术的比例。WebKit 内核的移动浏览器已支持该技术。但是即便是最新的 WebKit 内核浏览器，<a href="http://stackoverflow.com/users/201952/josh3736" target="_blank" rel="external">josh3736</a>仍然发现 JS 在 CSS 之前会影响性能，这可能与移动设备在 CPU，内存以及网络上的限制而关闭了限制了该功能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/6625773/where-should-i-put-the-css-and-javascript-code-in-an-html-webpage" target="_blank" rel="external">stackoverflow: Where should I put the CSS and Javascript code in an HTML webpage?</a></li>
+<li><a href="http://stackoverflow.com/questions/9271276/is-the-recommendation-to-include-css-before-javascript-invalid" target="_blank" rel="external">stackoverflow: Is the recommendation to include CSS before JavaScript invalid?</a></li>
+<li><a href="http://stackoverflow.com/questions/7120801/group-of-css-and-js-files-import-at-html" target="_blank" rel="external">stackoverflow: Group of CSS and JS files import at HTML?</a></li>
+<li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo! Best Practices for Speeding Up Your Web Site</a></li>
+</ul>
+<hr>
+<h1 id="CSS：-import-vs-Link"><a href="#CSS：-import-vs-Link" class="headerlink" title="CSS：@import vs Link"></a>CSS：@import vs Link</h1><blockquote>
+<p>The bottomline is: use LINK instead of @import if you want stylesheets to download in parallel resulting in a faster page.</p>
+<ul>
+<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
+<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
+</ul>
+</blockquote>
+<p>避免使用 <code>@import</code> 能够提升性能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">SteveSounders: don’t use @import</a></li>
+</ul>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><blockquote>
+<p><a href="https://github.com/rushter/MLAlgorithms" target="_blank" rel="external">rushter/MLAlgorithms</a><br>A collection of minimal and clean implementations of machine learning algorithms.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/2016-11-14-img-output/" itemprop="url">
                   实验室内部分享一：绘制和编辑可发表的图形
                 </a>
@@ -470,671 +1118,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/13/2016-11-13-wiki/" itemprop="url">
-                  个人资源长期整理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T00:00:00+08:00" content="2016-11-13">
-              2016-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/13/2016-11-13-wiki/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/2016-11-13-wiki/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
-<h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><ul>
-<li><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a></li>
-<li><a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a></li>
-<li><a href="http://cos.name/" target="_blank" rel="external">统计之都</a></li>
-<li><a href="https://ruby-china.org/" target="_blank" rel="external">Ruby China</a></li>
-<li><a href="http://python-china.org/" target="_blank" rel="external">Python China</a></li>
-<li><a href="https://cnodejs.org/" target="_blank" rel="external">Node.js中文社区</a></li>
-<li><a href="https://emacs-china.org/" target="_blank" rel="external">Emacs China</a></li>
-<li><a href="http://yizaoyiwan.com/" target="_blank" rel="external">一早一晚 | 自由工作社区</a></li>
-<li><a href="http://gold.xitu.io/welcome" target="_blank" rel="external">掘金：高质量的技术社区</a></li>
-<li><a href="http://liqi.io/" target="_blank" rel="external">利器：创造者和他们的工具</a></li>
-</ul>
-<h1 id="播客"><a href="#播客" class="headerlink" title="播客"></a>播客</h1><ul>
-<li><a href="https://ipn.li/" target="_blank" rel="external">IPN</a>：IPN (Intelligent Podcast Network) 是不鳥萬如一和 Rio 创办的播客网络。目前它旗下有十档节目。</li>
-<li><a href="https://codetimecn.com/" target="_blank" rel="external">代码时间</a>：代码时间是一个面向程序员的中文播客节目, 致力于通过语音的方式传播程序员的正能量。</li>
-<li><a href="http://teahour.fm/" target="_blank" rel="external">Teahour.fm</a>：专注程序员感兴趣的话题，包括 Web 设计和开发，移动应用设计和开发，创业以及一切 Geek 的话题。</li>
-<li><a href="http://podcast.uxcoffee.co/" target="_blank" rel="external">UX Coffee 设计咖</a>：一档为产品设计师和关注用户体验的同学准备的播客节目。</li>
-<li><a href="http://nyshalong.com/" target="_blank" rel="external">纽约文化沙龙</a></li>
-</ul>
-<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><ul>
-<li><a href="http://djchina.org/" target="_blank" rel="external">数据新闻网</a></li>
-<li><a href="http://flowingdata.com/" target="_blank" rel="external">FlowingData</a></li>
-<li><a href="http://www.visualisingdata.com/" target="_blank" rel="external">VisualisingData</a></li>
-<li><a href="http://blogger.ghostweather.com/" target="_blank" rel="external">Ghostweather R&amp;D Blog</a></li>
-<li><a href="http://infosthetics.com/information_aesthetics_about.html" target="_blank" rel="external">Information Aesthetics</a></li>
-<li><a href="http://junkcharts.typepad.com/junk_charts/" target="_blank" rel="external">Junk Charts</a></li>
-<li><a href="http://lisacharlotterost.github.io/" target="_blank" rel="external">Lisa Charlotte Rost</a></li>
-<li><a href="http://vis4.net/blog/" target="_blank" rel="external">vis4.net</a></li>
-<li><a href="http://blog.plot.ly/" target="_blank" rel="external">Plotly Blog</a></li>
-<li><a href="http://vallandingham.me/" target="_blank" rel="external">Jim Vallandingham</a></li>
-</ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
-<li><a href="https://slides.com" target="_blank" rel="external">slides</a> 在线创建演示文档</li>
-<li><a href="https://www.gitbook.com/" target="_blank" rel="external">Gitbook</a> &amp; <a href="https://readthedocs.org/" target="_blank" rel="external">Read the Docs</a> 创建在线电子书或文档</li>
-<li><a href="https://feedly.com" target="_blank" rel="external">Feedly</a> + <a href="http://reederapp.com/" target="_blank" rel="external">Reeder</a>：Feed 订阅和阅读黄金搭档</li>
-<li><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a>: an API Documentation Browser and Code Snippet Manager</li>
-<li><a href="https://github.com/1995eaton/chromium-vim" target="_blank" rel="external">cVim</a>：让 Chrome/Chromium 具有 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 的高效工作模式</li>
-</ul>
-<!-- ## 心理与行为科学 -->
-<!-- - [Babies Learning Language](http://babieslearninglanguage.blogspot.com/)：斯坦福大学发展心理学教授 [Michael Frank](http://langcog.stanford.edu/) 的个人博客。博客文章涵盖 `发展心理学`、`心理学研究方法`、`开放科学` 等主题。 -->
-<h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><h2 id="R"><a href="#R" class="headerlink" title="R"></a>R</h2><ul>
-<li><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a>: Data wrangling, exploration, and analysis with R</li>
-<li><a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880</a>: Data Visualization (with R)</li>
-<li><a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a></li>
-<li><a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></li>
-</ul>
-<h1 id="学编程"><a href="#学编程" class="headerlink" title="学编程"></a>学编程</h1><h2 id="lisp-elisp"><a href="#lisp-elisp" class="headerlink" title="lisp/elisp"></a>lisp/elisp</h2><ul>
-<li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
-<li><a href="http://www.newthinktank.com/2015/07/learn-lisp-one-video/" target="_blank" rel="external">一个简短的 lisp 教学视频</a></li>
-<li><a href="http://book.emacs-china.org/" target="_blank" rel="external">子龙山人出品：Master Emacs in 21 Days</a></li>
-<li><a href="http://smacs.github.io/elisp/" target="_blank" rel="external">水木社区：Emacs Lisp 简明教程</a></li>
-</ul>
-<h1 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h1><h2 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h2><p><a href="https://www.youtube.com/channel/UCOjD18EJYcsBog4IozkF_7w" target="_blank" rel="external">PyData</a><br><a href="https://www.youtube.com/channel/UC98CzaYuFNAA_gOINFB0e4Q" target="_blank" rel="external">EuroPython Conference</a><br><a href="https://www.youtube.com/channel/UCkhm72fuzkS9fYGlGpEmj7A" target="_blank" rel="external">Enthought</a><br><a href="https://www.youtube.com/channel/UCBBd3JxQl455JkWBeulc-9w" target="_blank" rel="external">Berkeley Institute for Data Science</a><br><a href="https://www.youtube.com/channel/UCDUS80bdunpmvWVPyFRPqFQ" target="_blank" rel="external">UofU Data</a><br><a href="https://www.youtube.com/channel/UCcAtD_VYwcYwVbTdvArsm7w" target="_blank" rel="external">mathematicalmonk’s channel</a><br><a href="https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg" target="_blank" rel="external">RStudio</a><br><a href="https://www.youtube.com/channel/UC8xNPQ-3a5t9uMU7Vah-jWA" target="_blank" rel="external">Jeff Leek</a><br><a href="https://www.youtube.com/channel/UCdjFpvS8lvT2MJVthOUvlyg" target="_blank" rel="external">Brian Caffo</a><br><a href="https://www.youtube.com/channel/UCZA0RbbSK1IXeeJysKYRWuQ" target="_blank" rel="external">Roger Peng</a><br><a href="https://www.youtube.com/channel/UCGwuewhdHD2q0BvuB2oWMRw" target="_blank" rel="external">berkeley-scf</a><br><a href="https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g" target="_blank" rel="external">Codecourse</a><br><a href="https://www.youtube.com/user/learncodeacademy" target="_blank" rel="external">LearnCode.academy</a><br><a href="https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ" target="_blank" rel="external">sentdex</a><br><a href="https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg" target="_blank" rel="external">LevelUpTuts</a><br><a href="https://www.youtube.com/channel/UCFrjdcImgcQVyFbK04MBEhA" target="_blank" rel="external">Brandon Foltz</a><br><a href="https://www.youtube.com/user/noobtoprofessional" target="_blank" rel="external">Chris Hawkes</a><br><a href="https://www.youtube.com/channel/UCUR1pFG_3XoZn3JNKjulqZg" target="_blank" rel="external">thoughtbot</a></p>
-<p>前端开发</p>
-<ul>
-<li><a href="https://www.youtube.com/channel/UCADyUOnhyEoQqrw_RrsGleA" target="_blank" rel="external">Chris Coyier: CSS-TRICKS</a></li>
-<li><a href="https://www.youtube.com/channel/UCyIe-61Y8C4_o-zZCtO4ETQ" target="_blank" rel="external">DevTips</a></li>
-<li><a href="https://www.youtube.com/user/QuentinWatt" target="_blank" rel="external">Quentin Watt Tutorials</a></li>
-</ul>
-<p><a href="https://www.youtube.com/channel/UCSk9gGdqmj-NdcYBQ4kt0jA" target="_blank" rel="external">Tristen Grant</a> Illustration<br><a href="https://www.youtube.com/channel/UC3TabHJUsa2BkEkN_xSpMvQ" target="_blank" rel="external">ATypI</a> Topography, Font design<br><a href="https://www.youtube.com/channel/UCRoLLb8MnLX-P_xg-Z-UxqQ" target="_blank" rel="external">Design Driven NYC</a> Talks<br><a href="https://www.youtube.com/channel/UCfWZwsP8trUy5uHJg8gcGIQ" target="_blank" rel="external">Mackenzie Child</a> Graphic Design<br><a href="https://www.youtube.com/channel/UCK_vX6MneWKCLtL0uJwYOxQ" target="_blank" rel="external">Carl Kwan</a> Presentation, Content</p>
-<hr>
-<p><a href="https://www.youtube.com/channel/UClh-kVGih16yME0-jp3pzVg" target="_blank" rel="external">Sydney Opera House Talks &amp; Ideas</a> Talks, Ideas, and Whatever!<br><a href="https://www.youtube.com/channel/UCWE-aBusAC3UauYLQna7JNQ" target="_blank" rel="external">Shalong NY</a> Talks 纽约文化沙龙</p>
-<hr>
-<p><a href="https://www.youtube.com/channel/UClT2UAbC6j7TqOWurVhkuHQ" target="_blank" rel="external">Sacha Chua</a> Emacs, Tutorial, Talks, Conversations<br><a href="https://www.youtube.com/channel/UCkRmQ_G_NbdbCQMpALg6UPg" target="_blank" rel="external">emacsrocks</a></p>
-<h2 id="Playlist"><a href="#Playlist" class="headerlink" title="Playlist"></a>Playlist</h2><p><a href="https://www.youtube.com/user/dataschool/playlists?shelf_id=4&amp;view=50&amp;sort=dd" target="_blank" rel="external">Introduction to Statistical Learning</a></p>
-<h1 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h1><ul>
-<li>Create a static presentation: R + Rstudio + Rmarkdown + Revealjs</li>
-<li>Create a interactive presentation: R + Rstudio + Shiny</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/13/2016-11-13-daily/" itemprop="url">
-                  R：加载包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T00:00:00+08:00" content="2016-11-13">
-              2016-11-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/13/2016-11-13-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/13/2016-11-13-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/12/2016-11-12-daily/" itemprop="url">
-                  每日总结 2016-11-12
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T00:00:00+08:00" content="2016-11-12">
-              2016-11-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/12/2016-11-12-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/12/2016-11-12-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="detach-amp-attach"><a href="#detach-amp-attach" class="headerlink" title="detach &amp; attach"></a><code>detach</code> &amp; <code>attach</code></h2><p><code>attach</code></p>
-<p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
-<p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
-<p><code>detach</code></p>
-<ul>
-<li>将对象从 <code>search path</code> 中移除。对象包括 <code>attach</code> 过的 <code>data.frame</code> 和 package。</li>
-<li>当没有给 <code>detach()</code> 输入参数将会移除 <code>search path</code> 中的第一个项目。</li>
-<li>应该避免在函数中使用 <code>detach/attach</code>。</li>
-<li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
-</ul>
-<h2 id="整数型数值"><a href="#整数型数值" class="headerlink" title="整数型数值"></a>整数型数值</h2><p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>JavaScript：DOM &amp; BOM</p>
-<blockquote>
-<p>The BOM consists of the objects navigator, history, screen, location and document which are children of window. In the document node is the DOM, the document object model, which represents the contents of the page. You can manipulate it using javascript. （”node is in the DOM tree” or “node is the smallest unit in the DOM tree” or “nodes compose the DOM tree”）</p>
-</blockquote>
-<ul>
-<li><a href="http://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript" target="_blank" rel="external">Stackoverflow: What is the DOM and BOM in JavaScript?</a></li>
-<li><a href="https://vkanakaraj.wordpress.com/2009/12/18/javascript-vs-dom-vs-bom-relationship-explained/" target="_blank" rel="external">JavaScript Vs DOM Vs BOM, relationship explained</a></li>
-</ul>
-<p>HTTP：HTTP 是 web 的核心，也是动态 web 应用的核心。理解 HTTP 是理解现代 web 应用如何工作和如何构建的核心。</p>
-<p>数据库的五个基本单位：数据库服务器，数据库，数据表，数据字段（数据列），数据行。</p>
-<p>三类 SQL 语句：</p>
-<ul>
-<li>数据定义语言：定义不同的数据段、数据库、表、列、索引等。常用关键字：<code>create</code> <code>drop</code> <code>alter</code>。</li>
-<li>数据操作语言：用于添加、删除、更新和查询数据库记录，并检查数据的完整性。常用关键字：<code>insert</code> <code>delete</code> <code>update</code> <code>select</code>。</li>
-<li>数据控制语言：用于控制不同数据段直接的许可和访问级别。常用关键字：<code>grant</code> <code>revoke</code>。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/11/2016-11-11-life-shirt/" itemprop="url">
-                  男士衬衫穿搭技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T00:00:00+08:00" content="2016-11-11">
-              2016-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/11/2016-11-11-life-shirt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/11/2016-11-11-life-shirt/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>临近求职，即将从学生狗迈入“社会”，需要关注下着装和生活品味。个人喜欢将看起来不严肃的事情也当做很“正经”的事情学习研究一番，这篇笔记便是最好的见证。</p>
-<h1 id="男士衬衫穿搭技巧"><a href="#男士衬衫穿搭技巧" class="headerlink" title="男士衬衫穿搭技巧"></a>男士衬衫穿搭技巧</h1><h2 id="正装衬衫"><a href="#正装衬衫" class="headerlink" title="正装衬衫"></a>正装衬衫</h2><h3 id="挑选技巧"><a href="#挑选技巧" class="headerlink" title="挑选技巧"></a>挑选技巧</h3><ol>
-<li>合身：首要条件务必合身。</li>
-<li>版型：<ul>
-<li><strong>Slim</strong> 腰线挺拔</li>
-<li><strong>Regular</strong> 严肃商务风</li>
-<li><strong>Full</strong> 宽容，适合较胖的人</li>
-</ul>
-</li>
-<li>颜色：白色严肃，适合最正式及重要场合；次重要场合可以选蓝色和灰色。</li>
-</ol>
-<h3 id="搭配技巧"><a href="#搭配技巧" class="headerlink" title="搭配技巧"></a>搭配技巧</h3><ol>
-<li>白衬衫谨慎单穿：对身材要求高；故可做正装内搭；单穿宜选择蓝灰。</li>
-<li>搭配灰色或海军蓝的西装：黑色适合场合较少，比较沉闷和老气。</li>
-<li>正装衬衫也可以在非正式场合穿：例如，搭配不沉闷的领带。也可以把休闲商务内搭换成正装衬衫。</li>
-</ol>
-<h2 id="牛津纺衬衫"><a href="#牛津纺衬衫" class="headerlink" title="牛津纺衬衫"></a>牛津纺衬衫</h2><blockquote>
-<p>牛津纺一般由白色和其他颜色的纱线交织而成。白色的加入，会在视觉上弱化了另一颜色的色度，形成的特殊“点状肌理”，使整体的色调更加柔和，这也是牛津纺最吸引人之处。<br>牛津纺衬衫的适用性非常强，既可上班，亦可休闲，并往往能体现穿着者儒雅、斯文的一面。</p>
-</blockquote>
-<h3 id="搭配技巧-1"><a href="#搭配技巧-1" class="headerlink" title="搭配技巧"></a>搭配技巧</h3><ol>
-<li>衬衫下摆处理：牛津纺适合单穿，在不同场合可以考虑是否将下摆包进裤子里。<ul>
-<li>日常工作场合，可以考虑穿着蓝色、灰色等明度低的牛津纺衬衫，下摆包进裤子。可搭配一条卡其裤/西裤，和一双与之搭配的鞋子。</li>
-<li>工作之余下摆可以不用包进裤子，但这种情况下，下摆不宜过长。合适的下摆有利于调整身材比例。</li>
-</ul>
-</li>
-<li>牛津纺色调较柔和，可以尝试多种颜色：白蓝为百搭；粉红色适合偏瘦的人；马卡龙绿、桃红适合沙滩、度假等休闲场合。</li>
-<li>无敌内搭单品：虽百搭，但与之绝配的是针织衫/毛衣。还可以搭配外套或夹克。</li>
-</ol>
-<h2 id="格子衬衫"><a href="#格子衬衫" class="headerlink" title="格子衬衫"></a>格子衬衫</h2><h3 id="挑选原则"><a href="#挑选原则" class="headerlink" title="挑选原则"></a>挑选原则</h3><ol>
-<li>小格子：大格子衬衫是屌丝感的罪魁祸首。</li>
-<li>颜色鲜而柔和</li>
-</ol>
-<blockquote>
-<p>小格子可以穿出文艺温柔的感觉，鲜亮而柔和的颜色避免了深色线条的粗硬感；另外小格子衬衫可把扣子全扣上穿出一种精致感。</p>
-</blockquote>
-<h3 id="搭配技巧-2"><a href="#搭配技巧-2" class="headerlink" title="搭配技巧"></a>搭配技巧</h3><p>格子衬衫单穿对衬衫及个人气质要求相对高，但内搭比较容易穿出彩。</p>
-<p>格子衬衫搭配需要遵循2个原则：</p>
-<ol>
-<li>同色系：搭配的其他单品最好呼应其中的颜色，而不要给造型新增颜色。</li>
-<li>简约（Simple）：搭配单品尽量保持 simple（纯色、无花纹）</li>
-</ol>
-<p>技巧：</p>
-<ol>
-<li>内搭纯白 Tee：选择跟格子颜色相关的裤子。</li>
-<li>绑在腰上，作为造型装饰。</li>
-<li>内搭：西装、马甲、皮衣都非常合适。<ul>
-<li>西装：可不需要格子衬衫与西装色系呼应，可以大胆撞色。</li>
-<li>马甲：化解了单穿格子衬衫的难度。</li>
-</ul>
-</li>
-<li>如何化解深色大格子衬衫的屌丝既视感：搭配牛仔外套，将衬衫内搭，其他单品遵循同色系、simple两个原则。</li>
-</ol>
-<h2 id="牛仔衬衫"><a href="#牛仔衬衫" class="headerlink" title="牛仔衬衫"></a>牛仔衬衫</h2><p>牛仔衬衫包括两种风格：</p>
-<ol>
-<li>阳刚不羁：牛仔布厚实、织纹清晰，加上洗水工艺</li>
-<li>优雅清新：牛仔布细密柔软，水洗致颜色柔和</li>
-</ol>
-<h3 id="搭配技巧-3"><a href="#搭配技巧-3" class="headerlink" title="搭配技巧"></a>搭配技巧</h3><ol>
-<li>单穿、外穿牛仔衬衫：让牛仔衬衫成为主角！<ul>
-<li>下身可搭配深色牛仔裤、卡其裤、中长靴；</li>
-<li>避免同牛仔衬衫颜色接近的牛仔裤；</li>
-</ul>
-</li>
-<li>内搭：可搭配棒球外套、皮衣和针织衫。</li>
-<li>搭配军绿色单品：军绿色风格与天然有着硬朗感的牛仔衬衫风格匹配。</li>
-</ol>
-<h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h2><ul>
-<li>正式场合颜色和面料宜淡雅</li>
-<li>分清主配角</li>
-<li>灵活运用加减法</li>
-<li>一定要考虑身材和场合</li>
-<li>正装衬衫可以和休闲单品搭配，但休闲款谨慎当正装穿</li>
-<li>你柔我柔，你刚我刚</li>
-<li>没有完美的单品，单穿还是内外搭，需具体分析</li>
-</ul>
-<hr>
-<p>该博文总结浓缩于<a href="https://www.douban.com/note/513750015/" target="_blank" rel="external">这篇文章</a>。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1175,7 +1163,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1183,7 +1171,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1192,7 +1180,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">100</span>
+                <span class="site-state-item-count">98</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

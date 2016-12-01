@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,jQuery,Emacs,Front-end," />
+  <meta name="keywords" content="JavaScript,jQuery,Front-end," />
 
 
 
@@ -88,16 +88,16 @@
 
 
 
-<meta name="description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
+<meta name="description" content="JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-28">
 <meta property="og:url" content="http://lix90.github.io/2016/11/28/2016-11-28-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
-<meta property="og:updated_time" content="2016-11-28T13:43:48.000Z">
+<meta property="og:description" content="JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
+<meta property="og:updated_time" content="2016-12-01T03:37:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-28">
-<meta name="twitter:description" content="整理Emacs三个常用编辑模式的快捷键绑定，包括markdown、help、dired模式。JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
+<meta name="twitter:description" content="JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。">
 
 
 
@@ -351,520 +351,7 @@
       
 
       
-        <h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><p>重新熟悉常用的几个模式的快捷键绑定。</p>
-<h2 id="Emacs-markdown-mode"><a href="#Emacs-markdown-mode" class="headerlink" title="Emacs: markdown mode"></a>Emacs: markdown mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
-<p>在 markdown-mode 下，打开帮助文档 <kbd>C-h m</kbd>（我自己将 <kbd>C-h</kbd> 改为了 <kbd>f1</kbd>）。markdown-mode 的 key-map 的前缀命令为 <kbd>C-c</kbd>，也就是按这个键能调出与 markdown-mode 有关的一些命令的快捷键。</p>
-<h3 id="对标题的操作"><a href="#对标题的操作" class="headerlink" title="对标题的操作"></a>对标题的操作</h3><ul>
-<li><code>&lt;M-S-down/up&gt;</code> <code>markdown-move-subtree-down/up</code> 向下或向上移动标题。</li>
-<li><code>&lt;M-S-left/right&gt;</code> <code>markdown-promote/demote-subtree</code> 标题升级或降级。<ul>
-<li>当标题为 <code># title #</code> 通过 <code>&lt;M-S-left&gt;</code> 得到 <code>title</code>；<code>&lt;M-S-right&gt;</code> 得到 <code>## title ##</code>。</li>
-<li>最低级数为第六级 <code>###### title ######</code>。</li>
-</ul>
-</li>
-<li><code>&lt;M-left/right&gt;</code> <code>markdown-promote/demote</code> 循环改变标题级数（升或降）。</li>
-<li><code>&lt;S-tab&gt;</code> <code>markdown-shifttab</code> 折叠标题内容</li>
-<li><code>C-c C-t 1/2/3/4/5/6</code> <code>markdown-insert-header-atx-1/2/3/4/5/6</code></li>
-</ul>
-<h3 id="跳转与移动"><a href="#跳转与移动" class="headerlink" title="跳转与移动"></a>跳转与移动</h3><p>跳转标题</p>
-<ul>
-<li><code>C-c C-b/f</code> <code>markdown-backward/forward-same-level</code> 同级跳转（后或前）。</li>
-<li><code>C-c C-n/p</code> <code>markdown-next/previous-visible-heading</code> 标题跳转（后或前）。</li>
-</ul>
-<p>跳转链接</p>
-<ul>
-<li><code>M-n/p</code> <code>markdown-next/previous-link</code></li>
-<li><code>M-{/}</code> <code>markdown-backward/forward-paragraph</code></li>
-</ul>
-<h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">列表</td>
-<td style="text-align:left"><code>&lt;M-RET&gt;</code> <code>C-c C-j</code></td>
-<td style="text-align:left"><code>markdown-insert-list-item</code></td>
-</tr>
-<tr>
-<td style="text-align:left">添分隔符</td>
-<td style="text-align:left"><code>C-c -</code></td>
-<td style="text-align:left"><code>markdown-insert-hr</code></td>
-</tr>
-<tr>
-<td style="text-align:left">添加行引用</td>
-<td style="text-align:left"><code>C-c C-s b</code></td>
-<td style="text-align:left"><code>markdown-insert-blockquote</code></td>
-</tr>
-<tr>
-<td style="text-align:left">块引用</td>
-<td style="text-align:left"><code>C-c C-s C-b</code></td>
-<td style="text-align:left"><code>markdown-blockquote-region</code></td>
-</tr>
-<tr>
-<td style="text-align:left">行代码</td>
-<td style="text-align:left"><code>C-c C-s c</code></td>
-<td style="text-align:left"><code>markdown-insert-code</code></td>
-</tr>
-<tr>
-<td style="text-align:left">代码块</td>
-<td style="text-align:left"><code>C-c C-s P</code></td>
-<td style="text-align:left"><code>markdown-insert-gfm-code-block</code></td>
-</tr>
-<tr>
-<td style="text-align:left">斜体</td>
-<td style="text-align:left"><code>C-c C-s e</code></td>
-<td style="text-align:left"><code>markdown-insert-italic</code></td>
-</tr>
-<tr>
-<td style="text-align:left">加粗</td>
-<td style="text-align:left"><code>C-c C-s s</code></td>
-<td style="text-align:left"><code>markdown-insert-bold</code></td>
-</tr>
-<tr>
-<td style="text-align:left">键盘</td>
-<td style="text-align:left"><code>C-c C-s k</code></td>
-<td style="text-align:left"><code>markdown-insert-kbd</code></td>
-</tr>
-<tr>
-<td style="text-align:left">行预排格式文本</td>
-<td style="text-align:left"><code>C-c C-s p</code></td>
-<td style="text-align:left"><code>markdown-insert-pre</code></td>
-</tr>
-<tr>
-<td style="text-align:left">块预排格式文本</td>
-<td style="text-align:left"><code>C-c C-s C-p</code></td>
-<td style="text-align:left"><code>markdown-pre-region</code></td>
-</tr>
-<tr>
-<td style="text-align:left">引用图片</td>
-<td style="text-align:left"><code>C-c TAB I</code></td>
-<td style="text-align:left"><code>markdown-insert-referent-image</code></td>
-</tr>
-<tr>
-<td style="text-align:left">图片</td>
-<td style="text-align:left"><code>C-c TAB i</code></td>
-<td style="text-align:left"><code>markdown-insert-image</code></td>
-</tr>
-<tr>
-<td style="text-align:left">脚注</td>
-<td style="text-align:left"><code>C-c C-a f</code></td>
-<td style="text-align:left"><code>markdown-insert-footnote</code></td>
-</tr>
-<tr>
-<td style="text-align:left">链接</td>
-<td style="text-align:left"><code>C-c C-a l</code></td>
-<td style="text-align:left"><code>markdown-insert-link</code></td>
-</tr>
-<tr>
-<td style="text-align:left">网址</td>
-<td style="text-align:left"><code>C-c C-a u</code></td>
-<td style="text-align:left"><code>markdown-insert-uri</code></td>
-</tr>
-<tr>
-<td style="text-align:left">wiki链接</td>
-<td style="text-align:left"><code>C-c C-a w</code></td>
-<td style="text-align:left"><code>markdown-insert-wiki-link</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="Emacs-help-mode"><a href="#Emacs-help-mode" class="headerlink" title="Emacs: help-mode"></a>Emacs: help-mode</h2><p>用于阅读帮助文档和跳转文档内引用的主要编辑模式（Major mode）</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>TAB</code></td>
-<td style="text-align:left">forward-button 下一个按钮/链接</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>S-TAB</code></td>
-<td style="text-align:left">backward-button 上一个按钮/链接</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>SPC</code></td>
-<td style="text-align:left">scroll-up-command 向下滚动内容</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DEL</code>/<code>S-SPC</code></td>
-<td style="text-align:left">scroll-down-command 向上滚动内容</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&lt;</code></td>
-<td style="text-align:left">beginning-of-buffer 缓冲区开始</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&gt;</code></td>
-<td style="text-align:left">end-of-buffer 缓冲区末尾</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>?</code>/<code>h</code></td>
-<td style="text-align:left">describe-mode 描述模式</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>g</code></td>
-<td style="text-align:left">revert-buffer 更新</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>l</code>/<code>C-c C-b</code></td>
-<td style="text-align:left">help-go-back 回退</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>r</code>/<code>C-c C-f</code></td>
-<td style="text-align:left">help-go-forward 前进</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>q</code></td>
-<td style="text-align:left">quit-window 推出帮助窗口</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>RET</code>/<code>C-c C-c</code></td>
-<td style="text-align:left">help-follow-symbol 跳转到光标处的符号</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Emacs-Dired-mode"><a href="#Emacs-Dired-mode" class="headerlink" title="Emacs: Dired mode"></a>Emacs: Dired mode</h2><p>用于编辑文件和路径列表的主要编辑模式（Major mode）。</p>
-<p>键前缀</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">key</th>
-<th style="text-align:left">bindings</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>%</code></td>
-<td style="text-align:left">高级正则表达式操作</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>*</code></td>
-<td style="text-align:left">高级选中操作</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>:</code></td>
-<td style="text-align:left">加密验证操作</td>
-</tr>
-</tbody>
-</table>
-<p>shell命令</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>!</code>/<code>X</code></td>
-<td style="text-align:left">dired-do-shell-command 执行shell命令</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&amp;</code></td>
-<td style="text-align:left">dired-do-async-shell-command 异步执行shell命令</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>A</code></td>
-<td style="text-align:left">dired-do-find-regexp 正则表达式查找</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Q</code></td>
-<td style="text-align:left">dired-do-find-regexp-and-replace</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>B</code></td>
-<td style="text-align:left">dired-do-byte-compile 字节编译</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>C</code></td>
-<td style="text-align:left">dired-do-copy 复制</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>D</code></td>
-<td style="text-align:left">dired-do-delete 删除</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>H</code></td>
-<td style="text-align:left">dired-do-hardlink 硬链接</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>S</code></td>
-<td style="text-align:left">dired-do-symlink</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>L</code></td>
-<td style="text-align:left">dired-do-load 加载</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>M</code></td>
-<td style="text-align:left">dired-do-chmod</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>O</code></td>
-<td style="text-align:left">dired-do-chown</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>G</code></td>
-<td style="text-align:left">dired-do-chgrp</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>P</code></td>
-<td style="text-align:left">dired-do-print</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>R</code></td>
-<td style="text-align:left">dired-do-rename</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>T</code></td>
-<td style="text-align:left">dired-do-touch</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Z</code></td>
-<td style="text-align:left">dired-do-compress 压缩</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>c</code></td>
-<td style="text-align:left">dired-do-compress-to 压缩至…</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>k</code></td>
-<td style="text-align:left">dired-do-kill-lines 删除行</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>l</code></td>
-<td style="text-align:left">dired-do-redisplay 重新显示</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>x</code></td>
-<td style="text-align:left">dired-do-flagged-delete 删除标记的项目</td>
-</tr>
-</tbody>
-</table>
-<p>对文件的操作</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>W</code></td>
-<td style="text-align:left">browse-url-of-dired-file 使用外部应用打开文件</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>a</code></td>
-<td style="text-align:left">dired-find-alternate-file 打开替代文件（默认关闭）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>j</code></td>
-<td style="text-align:left">dired-goto-file 去往文件</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>o</code></td>
-<td style="text-align:left">dired-find-file-other-window 从另一窗口打开</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>v</code></td>
-<td style="text-align:left">dired-view-file 阅读文件（只读）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>C-o</code></td>
-<td style="text-align:left">dired-display-file 显示文件内容（只读）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>RET</code>/<code>e</code>/<code>f</code></td>
-<td style="text-align:left">dired-find-file 打开文件（可写）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>y</code></td>
-<td style="text-align:left">dired-show-file-type 显示文件类型</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>w</code></td>
-<td style="text-align:left">dired-copy-filename-as-kill 复制文件名</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>s</code></td>
-<td style="text-align:left">dired-sort-toggle-or-edit 排序</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>=</code></td>
-<td style="text-align:left">dired-diff 比较差异</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>#</code></td>
-<td style="text-align:left">dired-flag-auto-save-files 标记自动保存文件</td>
-</tr>
-</tbody>
-</table>
-<p>对路径的操作</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>$</code></td>
-<td style="text-align:left">dired-hide-subdir 隐藏子路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>M-$</code></td>
-<td style="text-align:left">dired-hide-all 隐藏所有子路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>+</code></td>
-<td style="text-align:left">dired-create-directory 新创建路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>i</code></td>
-<td style="text-align:left">dired-maybe-insert-subdir 在当前窗口打开子路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>.</code></td>
-<td style="text-align:left">dired-clean-directory 清理路径</td>
-</tr>
-</tbody>
-</table>
-<p>标记与取消标记</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>d</code></td>
-<td style="text-align:left">dired-flag-file-deletion 标记要删除的对象</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>m</code></td>
-<td style="text-align:left">dired-mark 选中</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>u</code></td>
-<td style="text-align:left">dired-unmark 取消选中</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>M-{</code></td>
-<td style="text-align:left">dired-prev-marked-file 上一个选中</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>M-}</code></td>
-<td style="text-align:left">dired-next-marked-file 下一个选中</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>U</code>/<code>M-DEL</code></td>
-<td style="text-align:left">dired-unmark-all-marks 全部取消选中</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DEL</code></td>
-<td style="text-align:left">dired-unmark-backward 退回取消选中</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>t</code></td>
-<td style="text-align:left">dired-toggle-marks 选中取反</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>~</code></td>
-<td style="text-align:left">dired-flag-backup-files 标记备份文件</td>
-</tr>
-</tbody>
-</table>
-<p>导航快捷键</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>SPC</code>/<code>n</code></td>
-<td style="text-align:left">dired-next-line 下一行</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>S-SPC</code>/<code>p</code></td>
-<td style="text-align:left">dired-previous-line 上一行</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&lt;</code></td>
-<td style="text-align:left">dired-prev-dirline 上一行文件路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&gt;</code></td>
-<td style="text-align:left">dired-next-dirline 下一行文件路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>^</code></td>
-<td style="text-align:left">dired-up-directory 上一页路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>?</code></td>
-<td style="text-align:left">dired-summary 文件路径总结</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>C-M-d</code></td>
-<td style="text-align:left">dired-tree-down 下一级文件树</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>C-M-u</code></td>
-<td style="text-align:left">dired-tree-up 上一级文件树</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>C-M-n</code></td>
-<td style="text-align:left">dired-next-subdir 下一个子路径</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>C-M-p</code></td>
-<td style="text-align:left">dired-prev-subdir 上一个子路径</td>
-</tr>
-</tbody>
-</table>
-<p>其他</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Key</th>
-<th style="text-align:left">binding</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>g</code></td>
-<td style="text-align:left">revert-buffer 重载/更新</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>h</code></td>
-<td style="text-align:left">describe-mode 打开模式文档</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>q</code></td>
-<td style="text-align:left">quit-window 推出窗口</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>(</code></td>
-<td style="text-align:left">dired-hide-details-mode 细节隐藏模式切换</td>
-</tr>
-</tbody>
-</table>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>构建 Date 类型<br><code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
+        <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>构建 Date 类型<br><code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
 <p>两个方法：输出因浏览器而异。<br><code>Data.parse()</code> 接收日期的字符串参数然后返回时间戳。参数格式因本地语言设置有关。<br><code>Data.UTC()</code> 接收的参数分别为年、月（0开始）、日、时、分、秒、毫秒。返回时间戳。</p>
 <p>ECMAScript 5 新引入的方法<br><code>Data.now()</code> 调用该方式时的日期和时间的毫秒数。</p>
 <p>继承方法<br>Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code>valueOf()</code> 的方法，但输出值与其他类型的方法不同。</p>
@@ -1056,8 +543,6 @@
           
             <a href="/tags/jQuery/" rel="tag">#jQuery</a>
           
-            <a href="/tags/Emacs/" rel="tag">#Emacs</a>
-          
             <a href="/tags/Front-end/" rel="tag">#Front-end</a>
           
         </div>
@@ -1152,7 +637,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">55</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1160,7 +645,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1169,7 +654,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">100</span>
+                <span class="site-state-item-count">98</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1240,7 +725,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs"><span class="nav-number">1.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-markdown-mode"><span class="nav-number">1.1.</span> <span class="nav-text">Emacs: markdown mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对标题的操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">对标题的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转与移动"><span class="nav-number">1.1.2.</span> <span class="nav-text">跳转与移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加内容"><span class="nav-number">1.1.3.</span> <span class="nav-text">添加内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-help-mode"><span class="nav-number">1.2.</span> <span class="nav-text">Emacs: help-mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emacs-Dired-mode"><span class="nav-number">1.3.</span> <span class="nav-text">Emacs: Dired mode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">2.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">2.2.</span> <span class="nav-text">RegExp 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-实例属性"><span class="nav-number">2.2.1.</span> <span class="nav-text">RegExp 实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-构造函数属性"><span class="nav-number">2.2.2.</span> <span class="nav-text">RegExp 构造函数属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的局限性"><span class="nav-number">2.2.3.</span> <span class="nav-text">模式的局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery"><span class="nav-number">3.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读：前端工程"><span class="nav-number">4.</span> <span class="nav-text">阅读：前端工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">4.1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">4.1.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">5.</span> <span class="nav-text">概念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">1.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">1.2.</span> <span class="nav-text">RegExp 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-实例属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">RegExp 实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-构造函数属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">RegExp 构造函数属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的局限性"><span class="nav-number">1.2.3.</span> <span class="nav-text">模式的局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery"><span class="nav-number">2.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读：前端工程"><span class="nav-number">3.</span> <span class="nav-text">阅读：前端工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">3.1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">3.1.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">4.</span> <span class="nav-text">概念</span></a></li></ol></div>
             
           </div>
         </section>

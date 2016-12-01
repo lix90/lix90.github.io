@@ -1,0 +1,915 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 语言个人参考">
+<meta property="og:url" content="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。">
+<meta property="og:updated_time" content="2016-12-01T06:54:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R 语言个人参考">
+<meta name="twitter:description" content="在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/"/>
+
+
+  <title> R 语言个人参考 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R 语言个人参考
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-01T00:00:00+08:00" content="2016-12-01">
+              2016-12-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Wiki/" itemprop="url" rel="index">
+                    <span itemprop="name">Wiki</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/01/2016-12-01-wiki-r/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/01/2016-12-01-wiki-r/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:left">中文描述</th>
+<th style="text-align:left">用法</th>
+<th style="text-align:left">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Axis (axis)</td>
+<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
+<td style="text-align:left">``</td>
+</tr>
+<tr>
+<td style="text-align:left">axis.POSIXct</td>
+<td style="text-align:left">Date and Date-time Plotting Functions</td>
+</tr>
+<tr>
+<td style="text-align:left">abline</td>
+<td style="text-align:left">添加垂直线至图形</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">arrows</td>
+<td style="text-align:left">添加箭头</td>
+</tr>
+<tr>
+<td style="text-align:left">box</td>
+<td style="text-align:left">绘制线框</td>
+</tr>
+<tr>
+<td style="text-align:left">grid</td>
+<td style="text-align:left">添加网格线</td>
+</tr>
+<tr>
+<td style="text-align:left">legend</td>
+<td style="text-align:left">添加图例</td>
+</tr>
+<tr>
+<td style="text-align:left">lines</td>
+<td style="text-align:left">Add Connected Line Segments to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">segments</td>
+<td style="text-align:left">Add Line Segments to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">mtext</td>
+<td style="text-align:left">Write Text into the Margins of a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">points</td>
+<td style="text-align:left">Add Points to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">rect</td>
+<td style="text-align:left">Draw One or More Rectangles</td>
+</tr>
+<tr>
+<td style="text-align:left">rug</td>
+<td style="text-align:left">Add a Rug to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">Add Text to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">绘制标题</td>
+</tr>
+<tr>
+<td style="text-align:left">polygon</td>
+<td style="text-align:left">绘制多边形</td>
+</tr>
+<tr>
+<td style="text-align:left">polypath</td>
+<td style="text-align:left">绘制路径</td>
+</tr>
+<tr>
+<td style="text-align:left">symbols</td>
+<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
+</tr>
+<tr>
+<td style="text-align:left">xspline</td>
+<td style="text-align:left">Draw an X-spline</td>
+</tr>
+</tbody>
+</table>
+<p>contour                 Display Contours<br>image                   Display a Color Image<br>rasterImage             Draw One or More Raster Images<br>strwidth                Plotting Dimensions of Character Strings and Math Expressions</p>
+<p>par                     Set or Query Graphical Parameters<br>axTicks                 Compute Axis Tickmark Locations<br>clip                    Set Clipping Region<br>filled.contour          Level (Contour) Plots<br>frame                   Create / Start a New Plot Frame<br>grconvertX              Convert between Graphics Coordinate Systems<br>identify                Identify Points in a Scatter Plot<br>layout                  Specifying Complex Plot Arrangements<br>locator                 Graphical Input<br>screen                  Creating and Controlling Multiple Screens on a Single Device<br>xinch                   Graphical Units</p>
+<p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>plot                    Generic X-Y Plotting<br>plot.data.frame         Plot Method for Data Frames<br>plot.default            The Default Scatterplot Function<br>plot.design             Plot Univariate Effects of a Design or Model<br>plot.factor             Plotting Factor Variables<br>plot.formula            Formula Notation for Scatterplots<br>plot.histogram          Plot Histograms<br>plot.raster             Plotting Raster Images<br>plot.table              Plot Methods for ‘table’ Objects<br>plot.window             Set up World Coordinates for Graphics Window<br>plot.xy                 Basic Internal Plot Function<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
+<h1 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h1><h2 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+<ul>
+<li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
+<li><code>X11</code> 在 X11 视窗系统下支持</li>
+<li><code>svg</code> 基于 cairo 图形的 SVG 设备</li>
+<li>位图 <code>png</code> <code>jpeg</code> <code>bmp</code> <code>tiff</code></li>
+<li><code>quartz</code> 仅在 macOS 上支持</li>
+</ul>
+<p>如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 <code>options(&quot;device&quot;)</code> 指定。 返回。默认的设备为初始化设置为当前平台最合适的设备。</p>
+<p>在 R 中，只允许存在一个“活动（active）”的设备，所有图形操作均在活动设备之上。只要 R 在运行，就有一个“空设备”一直处于开启状态，但仅仅作为占位，任何使用这个空设备的尝试将会打开一个新的设备。设备与一个名称和数字编号关联，数字编号范围为1到63。空设备为编号1。一旦设备被打开，空设备将变成非活动的设备。可以通过 <code>dev.next</code> 和 <code>dev.prev</code> 选择一列开启的设备中，活动的设备的上一个或者下一个设备。</p>
+<p>可以通过 <code>dev.off</code> 关闭指定的设备。如果未指定编号，默认关闭当前活动的设备。如果当前活动设备被关闭，那么下一个设备会被当作活动设备。编号1的设备不能关闭。正常结束一个对话可以执行 <code>graphics.off()</code>。</p>
+<p><code>dev.set</code> 将指定设备更改为活动设备。<code>dev.cur</code> 返回当前活动设备。<code>dev.list</code> 列出所有开启的设备，如果不存在开启的设备，那么返回空设备。如果不存在指定编号的设备，那么默认将 <code>dev.next</code> 所得到的设备当作活动设备。如果指定编号1设备，那么将开启新的设备，并将其设置为活动设备。</p>
+<p><code>dev.new</code> 将开启新的设备。正常情况下，需要时 R 会自动开启新的设备，但这是<strong>让你开启独立于平台的设备</strong>(?疑问：原文”this enables you to open further devices in a platform-indenpendent way.”)。当基于文件的设备（<code>pdf</code>等），文件名将依次命名为 <code>Rplots&lt;1~99&gt;.pdf</code>。对于标准位图设备，如果未指定单位和分辨率，默认强制设置为 <code>units = &quot;in&quot;, res = 72</code>。</p>
+<p>图形设备相关参数：</p>
+<ul>
+<li><code>title</code> 标题</li>
+<li><code>width</code> 宽度</li>
+<li><code>height</code> 高度</li>
+<li><code>pointsize</code> 点尺寸</li>
+<li><code>family</code> 字体</li>
+<li><code>antialias</code> 是否抗锯齿</li>
+<li><code>type</code> 类型</li>
+<li><code>file</code> 文件名</li>
+<li><code>bg</code> 背景色</li>
+<li><code>canvas</code> 画布</li>
+<li><code>dpi</code> 分辨率（每英寸点数）</li>
+</ul>
+<p>PDF 设备参数：</p>
+<ul>
+<li><code>paper</code> 纸张类型，<code>&quot;a4&quot;,&quot;letter&quot;,&quot;legal&quot;,...</code></li>
+<li><code>bg</code> 背景色，默认为 <code>&quot;transparent&quot;</code></li>
+<li><code>fg</code> 前景色，默认为 <code>&quot;black&quot;</code></li>
+<li><code>pointsize</code> 默认为 <code>12</code>，1/72英寸为一个点</li>
+<li><code>colormodel</code> 颜色模式 <code>&quot;srgb&quot;,&quot;gray&quot;,&quot;cmyk&quot;</code>，默认为 <code>&quot;srgb&quot;</code></li>
+</ul>
+<p>PDF 设备并不嵌入字体到 PDF 文件中，所以建议使用常见的字体例如：<code>&quot;Times&quot;(=&quot;serif&quot;),&quot;Helvetica&quot;(=&quot;sans&quot;),&quot;Courier&quot;(=&quot;mono&quot;)</code>。</p>
+<ul>
+<li>默认设备尺寸为 7 英寸的正方形。</li>
+<li>字体大小为 “big points”。</li>
+<li>默认字体为 Helvetica。</li>
+<li>线宽为1/96英寸的倍数，最小为 0.01。</li>
+<li>可支持任意弧度的圆形。</li>
+<li>颜色模式默认为 sRGB。</li>
+<li>如果线宽特别细，线型默认强制为实线。</li>
+</ul>
+<p>位图设备参数：</p>
+<ul>
+<li>默认宽高均为 <code>480px</code></li>
+<li>默认单位为 <code>px</code></li>
+<li>默认点大小为 <code>12</code></li>
+<li>默认背景色为 <code>&quot;white&quot;</code></li>
+<li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag">#R</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-wiki-emacs/" rel="next" title="Emacs 个人参考">
+                <i class="fa fa-chevron-left"></i> Emacs 个人参考
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-wiki-shell/" rel="prev" title="shell 命令整理">
+                shell 命令整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">98</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#graphics"><span class="nav-number">1.</span> <span class="nav-text">graphics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grDevices"><span class="nav-number">2.</span> <span class="nav-text">grDevices</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图形设备-Devices"><span class="nav-number">2.1.</span> <span class="nav-text">图形设备 Devices</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016/12/01/2016-12-01-wiki-r/';
+      var disqus_title = "R 语言个人参考";
+      var disqus_url = 'http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

@@ -2,16 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lix90.github.io/2016/11/30/2016-11-30-daily/</loc>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</loc>
     
-    <lastmod>2016-12-01T01:14:08.000Z</lastmod>
+    <lastmod>2016-12-01T06:57:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/16/2016-11-16-daily/</loc>
+    
+    <lastmod>2016-12-01T06:55:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</loc>
+    
+    <lastmod>2016-12-01T06:54:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</loc>
+    
+    <lastmod>2016-12-01T06:54:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</loc>
+    
+    <lastmod>2016-12-01T03:38:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://lix90.github.io/2016/11/29/2016-11-29-daily/</loc>
     
-    <lastmod>2016-11-30T07:36:05.000Z</lastmod>
+    <lastmod>2016-12-01T03:37:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/28/2016-11-28-daily/</loc>
+    
+    <lastmod>2016-12-01T03:37:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/</loc>
+    
+    <lastmod>2016-12-01T03:37:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</loc>
+    
+    <lastmod>2016-12-01T03:14:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/13/wiki/</loc>
+    
+    <lastmod>2016-12-01T01:42:32.000Z</lastmod>
     
   </url>
   
@@ -19,13 +75,6 @@
     <loc>http://lix90.github.io/2016/11/22/2016-11-22-daily/</loc>
     
     <lastmod>2016-11-29T02:26:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/28/2016-11-28-daily/</loc>
-    
-    <lastmod>2016-11-28T13:43:48.000Z</lastmod>
     
   </url>
   
@@ -177,13 +226,6 @@
   </url>
   
   <url>
-    <loc>http://lix90.github.io/2016/11/16/2016-11-16-daily/</loc>
-    
-    <lastmod>2016-11-19T03:32:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://lix90.github.io/2016/11/15/2016-11-15-daily/</loc>
     
     <lastmod>2016-11-19T03:32:41.000Z</lastmod>
@@ -201,13 +243,6 @@
     <loc>http://lix90.github.io/2016/11/14/2016-11-14-daily/</loc>
     
     <lastmod>2016-11-19T03:32:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/13/2016-11-13-wiki/</loc>
-    
-    <lastmod>2016-11-19T03:32:13.000Z</lastmod>
     
   </url>
   
