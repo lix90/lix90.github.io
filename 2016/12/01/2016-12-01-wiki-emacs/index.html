@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="使用 Emacs 过程中的记录。">
-<meta property="og:updated_time" content="2016-12-01T03:37:01.000Z">
+<meta property="og:updated_time" content="2016-12-03T08:08:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Emacs 个人参考">
 <meta name="twitter:description" content="使用 Emacs 过程中的记录。">
@@ -351,9 +351,9 @@
       
 
       
-        <h1 id="Major-Mode"><a href="#Major-Mode" class="headerlink" title="Major Mode"></a>Major Mode</h1><h2 id="markdown-mode"><a href="#markdown-mode" class="headerlink" title="markdown-mode"></a>markdown-mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
+        <h1 id="markdown-mode"><a href="#markdown-mode" class="headerlink" title="markdown-mode"></a>markdown-mode</h1><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
 <p>在 markdown-mode 下，打开帮助文档 <kbd>C-h m</kbd>（我自己将 <kbd>C-h</kbd> 改为了 <kbd>f1</kbd>）。markdown-mode 的 key-map 的前缀命令为 <kbd>C-c</kbd>，也就是按这个键能调出与 markdown-mode 有关的一些命令的快捷键。</p>
-<h3 id="对标题的操作"><a href="#对标题的操作" class="headerlink" title="对标题的操作"></a>对标题的操作</h3><ul>
+<h2 id="对标题的操作"><a href="#对标题的操作" class="headerlink" title="对标题的操作"></a>对标题的操作</h2><ul>
 <li><code>&lt;M-S-down/up&gt;</code> <code>markdown-move-subtree-down/up</code> 向下或向上移动标题。</li>
 <li><code>&lt;M-S-left/right&gt;</code> <code>markdown-promote/demote-subtree</code> 标题升级或降级。<ul>
 <li>当标题为 <code># title #</code> 通过 <code>&lt;M-S-left&gt;</code> 得到 <code>title</code>；<code>&lt;M-S-right&gt;</code> 得到 <code>## title ##</code>。</li>
@@ -364,7 +364,7 @@
 <li><code>&lt;S-tab&gt;</code> <code>markdown-shifttab</code> 折叠标题内容</li>
 <li><code>C-c C-t 1/2/3/4/5/6</code> <code>markdown-insert-header-atx-1/2/3/4/5/6</code></li>
 </ul>
-<h3 id="跳转与移动"><a href="#跳转与移动" class="headerlink" title="跳转与移动"></a>跳转与移动</h3><p>跳转标题</p>
+<h2 id="跳转与移动"><a href="#跳转与移动" class="headerlink" title="跳转与移动"></a>跳转与移动</h2><p>跳转标题</p>
 <ul>
 <li><code>C-c C-b/f</code> <code>markdown-backward/forward-same-level</code> 同级跳转（后或前）。</li>
 <li><code>C-c C-n/p</code> <code>markdown-next/previous-visible-heading</code> 标题跳转（后或前）。</li>
@@ -374,7 +374,7 @@
 <li><code>M-n/p</code> <code>markdown-next/previous-link</code></li>
 <li><code>M-{/}</code> <code>markdown-backward/forward-paragraph</code></li>
 </ul>
-<h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><table>
+<h2 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h2><table>
 <thead>
 <tr>
 <th style="text-align:left"></th>
@@ -470,7 +470,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="help-mode"><a href="#help-mode" class="headerlink" title="help-mode"></a>help-mode</h2><p>用于阅读帮助文档和跳转文档内引用的主要编辑模式（Major mode）</p>
+<h1 id="help-mode"><a href="#help-mode" class="headerlink" title="help-mode"></a>help-mode</h1><p>用于阅读帮助文档和跳转文档内引用的主要编辑模式（Major mode）</p>
 <table>
 <thead>
 <tr>
@@ -529,7 +529,79 @@
 </tr>
 </tbody>
 </table>
-<h2 id="dired-mode"><a href="#dired-mode" class="headerlink" title="dired-mode"></a>dired-mode</h2><p>用于编辑文件和路径列表的主要编辑模式（Major mode）。</p>
+<h1 id="ess-help-mode"><a href="#ess-help-mode" class="headerlink" title="ess-help-mode"></a>ess-help-mode</h1><h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">移动到 buffer 顶端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">移动到 buffer 末端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RET</code></td>
+<td style="text-align:left">移动到下一行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SPC</code></td>
+<td style="text-align:left">向下滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S-SPC</code></td>
+<td style="text-align:left">向上滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>n</code></td>
+<td style="text-align:left">跳转到下一小节</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>p</code></td>
+<td style="text-align:left">跳转到上一小节</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-c C-y</code></td>
+<td style="text-align:left">跳转到 ess</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-c C-z</code></td>
+<td style="text-align:left">跳转到 ess 的命令行末端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>s</code></td>
+<td style="text-align:left">prefix command, 跳转</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>0 .. 9          digit-argument<br>C-c             Prefix Command<br>ESC             Prefix Command</p>
+<ul>
+<li>negative-argument<br>/               isearch-forward<br>0 .. 9          digit-argument</li>
+</ul>
+<p>a | ess-display-help-apropos<br>h | ess-display-help-on-object<br>i | ess-display-package-index<br>v | ess-display-vignettes<br>w | ess-display-help-in-browser</p>
+<p>f               ess-eval-function-or-paragraph-and-step<br>l               ess-eval-line-and-step<br>r               ess-eval-region-and-go</p>
+<p><c-return>      ess-eval-region-or-line-and-step</c-return></p>
+<p>g               revert-buffer<br>q               quit-window<br>k               kill-this-buffer<br>?               ess-describe-help-mode<br>x               ess-kill-buffer-and-go</p>
+<p>s               Prefix Command</p>
+<p><remap>         Prefix Command</remap></p>
+<p>C-c C-c         ess-eval-region-or-function-or-paragraph-and-step<br>C-c C-d         ess-doc-map<br>C-c C-e         ess-extra-map</p>
+<p>C-c C-f         ess-eval-function<br>C-c C-j         ess-eval-line<br>C-c C-n         ess-eval-line-and-step<br>C-c C-r         ess-eval-region</p>
+<p>C-c C-k         ess-request-a-process<br>C-c C-l         ess-load-file</p>
+<p>C-c C-s         ess-switch-process<br>C-c C-t         ess-dev-map<br>C-c C-v         ess-display-help-on-object</p>
+<p>C-c ESC         Prefix Command<br>C-c h           ess-handy-commands</p>
+<p>C-M-a           ess-goto-beginning-of-function-or-para<br>C-M-e           ess-goto-end-of-function-or-para<br>C-M-x           ess-eval-function</p>
+<p>s &lt;             beginning-of-buffer<br>s &gt;             end-of-buffer<br>s ?             ess-describe-sec-map<br>s D             ess-skip-to-help-section<br>s a             ess-skip-to-help-section<br>s d .. s e      ess-skip-to-help-section<br>s n             ess-skip-to-help-section<br>s r .. s v      ess-skip-to-help-section</p>
+<p>C-c C-t C-b     ess-bp-set<br>C-c C-t C-d     ess-debug-flag-for-debugging<br>C-c C-t C-e     ess-debug-toggle-error-action<br>C-c C-t C-k     ess-bp-kill-all<br>C-c C-t C-l     ess-bp-set-logger<br>C-c C-t C-n     ess-bp-next<br>C-c C-t C-o     ess-bp-toggle-state<br>C-c C-t C-p     ess-bp-previous<br>C-c C-t C-s     ess-r-set-evaluation-env<br>C-c C-t C-u     ess-debug-unflag-for-debugging<br>C-c C-t C-w     ess-watch<br>C-c C-t 0 .. C-c C-t 9          ess-electric-selection<br>C-c C-t ?       ess-tracebug-show-help<br>C-c C-t B       ess-bp-set-conditional<br>C-c C-t I       ess-debug-goto-input-event-marker<br>C-c C-t K       ess-bp-kill-all<br>C-c C-t L       ess-bp-set-logger<br>C-c C-t T       ess-toggle-tracebug<br>C-c C-t `       ess-show-traceback<br>C-c C-t b       ess-bp-set<br>C-c C-t d       ess-debug-flag-for-debugging<br>C-c C-t e       ess-debug-toggle-error-action<br>C-c C-t i       ess-debug-goto-input-event-marker<br>C-c C-t k       ess-bp-kill<br>C-c C-t l       ess-r-devtools-load-package<br>C-c C-t n       ess-bp-next<br>C-c C-t o       ess-bp-toggle-state<br>C-c C-t p       ess-bp-previous<br>C-c C-t s       ess-r-set-evaluation-env<br>C-c C-t u       ess-debug-unflag-for-debugging<br>C-c C-t w       ess-watch<br>C-c C-t ~       ess-show-call-stack<br>C-c C-t C-S-b   ess-bp-set-conditional<br>C-c C-t C-S-d   ess-debug-unflag-for-debugging</p>
+<p>C-c C-e C-d     ess-dump-object-into-edit-buffer<br>C-c C-e C-e     ess-execute<br>C-c C-e TAB     ess-install-library<br>C-c C-e C-l     ess-load-library<br>C-c C-e C-s     ess-set-style<br>C-c C-e C-t     ess-build-tags-for-directory<br>C-c C-e C-w     ess-execute-screen-options<br>C-c C-e /       ess-set-working-directory<br>C-c C-e d       ess-dump-object-into-edit-buffer<br>C-c C-e e       ess-execute<br>C-c C-e i       ess-install-library<br>C-c C-e l       ess-load-library<br>C-c C-e s       ess-set-style<br>C-c C-e t       ess-build-tags-for-directory<br>C-c C-e w       ess-execute-screen-options</p>
+<p>C-c C-d C-a     ess-display-help-apropos<br>C-c C-d C-d     ess-display-help-on-object<br>C-c C-d C-e     ess-describe-object-at-point<br>C-c C-d TAB     ess-display-package-index<br>C-c C-d RET     ess-manual-lookup<br>C-c C-d C-o     ess-display-demos<br>C-c C-d C-r     ess-reference-lookup<br>C-c C-d C-v     ess-display-vignettes<br>C-c C-d C-w     ess-help-web-search<br>C-c C-d a       ess-display-help-apropos<br>C-c C-d d       ess-display-help-on-object<br>C-c C-d e       ess-describe-object-at-point<br>C-c C-d i       ess-display-package-index<br>C-c C-d m       ess-manual-lookup<br>C-c C-d o       ess-display-demos<br>C-c C-d r       ess-reference-lookup<br>C-c C-d v       ess-display-vignettes<br>C-c C-d w       ess-help-web-search</p>
+<p>C-c M-f         ess-eval-function-and-go<br>C-c M-j         ess-eval-line-and-go<br>C-c M-l         ess-load-file<br>C-c M-r         ess-eval-region-and-g</p>
+<h1 id="dired-mode"><a href="#dired-mode" class="headerlink" title="dired-mode"></a>dired-mode</h1><p>用于编辑文件和路径列表的主要编辑模式（Major mode）。</p>
 <p>键前缀</p>
 <table>
 <thead>
@@ -863,6 +935,286 @@
 </tr>
 </tbody>
 </table>
+<h1 id="evil-mode"><a href="#evil-mode" class="headerlink" title="evil-mode"></a>evil-mode</h1><h2 id="evil-window-map"><a href="#evil-window-map" class="headerlink" title="evil-window-map"></a>evil-window-map</h2><p>Keymap for window-related commands.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C-b</td>
+<td style="text-align:left">evil-window-bottom-right</td>
+</tr>
+<tr>
+<td style="text-align:left">C-c</td>
+<td style="text-align:left">evil-window-delete</td>
+</tr>
+<tr>
+<td style="text-align:left">C-f</td>
+<td style="text-align:left">ffap-other-window</td>
+</tr>
+<tr>
+<td style="text-align:left">C-n</td>
+<td style="text-align:left">evil-window-new</td>
+</tr>
+<tr>
+<td style="text-align:left">C-o</td>
+<td style="text-align:left">delete-other-windows</td>
+</tr>
+<tr>
+<td style="text-align:left">C-p</td>
+<td style="text-align:left">evil-window-mru</td>
+</tr>
+<tr>
+<td style="text-align:left">C-r</td>
+<td style="text-align:left">evil-window-rotate-downwards</td>
+</tr>
+</tbody>
+</table>
+<p>C-s    | evil-window-split<br>C-v    | evil-window-vsplit</p>
+<p>C-t    | evil-window-top-left</p>
+<p>C-w    | evil-window-next<br>C-_    | evil-window-set-height</p>
+<ul>
+<li>| evil-window-increase-height</li>
+</ul>
+<ul>
+<li>| evil-window-decrease-height<br>&lt;      | evil-window-decrease-width<br>=      | balance-windows<blockquote>
+<pre><code>| evil-window-increase-width
+</code></pre><p>H      | evil-window-move-far-left<br>J      | evil-window-move-very-bottom<br>K      | evil-window-move-very-top<br>L      | evil-window-move-far-right<br>R      | evil-window-rotate-upwards<br>S      | evil-window-split<br>W      | evil-window-prev<br>_      | evil-window-set-height<br>b      | evil-window-bottom-right<br>c      | evil-window-delete<br>h      | evil-window-left<br>j      | evil-window-down<br>k      | evil-window-up<br>l      | evil-window-right<br>n      | evil-window-new<br>o      | delete-other-windows<br>p      | evil-window-mru<br>r      | evil-window-rotate-downwards<br>s      | evil-window-split<br>t      | evil-window-top-left<br>v      | evil-window-vsplit<br>w      | evil-window-next<br>| | evil-window-set-width<br>C-S-h  | evil-window-move-far-left<br>C-S-j  | evil-window-move-very-bottom<br>C-S-k  | evil-window-move-very-top<br>C-S-l  | evil-window-move-far-right<br>C-S-r  | evil-window-rotate-upwards<br>C-S-s  | evil-window-split<br>C-S-w  | evil-window-prev</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="evil-insert-state-map"><a href="#evil-insert-state-map" class="headerlink" title="evil-insert-state-map"></a>evil-insert-state-map</h2><p>Keymap for Insert state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C-a</td>
+<td style="text-align:left">evil-paste-last-insertion</td>
+</tr>
+<tr>
+<td style="text-align:left">C-d</td>
+<td style="text-align:left">evil-shift-left-line</td>
+</tr>
+<tr>
+<td style="text-align:left">C-e</td>
+<td style="text-align:left">evil-copy-from-below</td>
+</tr>
+<tr>
+<td style="text-align:left">C-k</td>
+<td style="text-align:left">evil-insert-digraph</td>
+</tr>
+<tr>
+<td style="text-align:left">C-n</td>
+<td style="text-align:left">evil-complete-next</td>
+</tr>
+<tr>
+<td style="text-align:left">C-o</td>
+<td style="text-align:left">evil-execute-in-normal-state</td>
+</tr>
+<tr>
+<td style="text-align:left">C-p</td>
+<td style="text-align:left">evil-complete-previous</td>
+</tr>
+<tr>
+<td style="text-align:left">C-r</td>
+<td style="text-align:left">evil-paste-from-register</td>
+</tr>
+<tr>
+<td style="text-align:left">C-t</td>
+<td style="text-align:left">evil-shift-right-line</td>
+</tr>
+<tr>
+<td style="text-align:left">C-v</td>
+<td style="text-align:left">quoted-insert</td>
+</tr>
+<tr>
+<td style="text-align:left">C-w</td>
+<td style="text-align:left">evil-delete-backward-word</td>
+</tr>
+<tr>
+<td style="text-align:left">C-y</td>
+<td style="text-align:left">evil-copy-from-above</td>
+</tr>
+<tr>
+<td style="text-align:left">C-z</td>
+<td style="text-align:left">evil-emacs-state</td>
+</tr>
+<tr>
+<td style="text-align:left"><delete></delete></td>
+<td style="text-align:left">delete-char</td>
+</tr>
+<tr>
+<td style="text-align:left"><escape></escape></td>
+<td style="text-align:left">evil-normal-state</td>
+</tr>
+<tr>
+<td style="text-align:left"><mouse-2></mouse-2></td>
+<td style="text-align:left">mouse-yank-primary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="evil-motion-state-map"><a href="#evil-motion-state-map" class="headerlink" title="evil-motion-state-map"></a>evil-motion-state-map</h2><p>Keymap for Motion state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">h/l</td>
+<td style="text-align:left">evil-backward/forward-char 向后/前移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">j/k</td>
+<td style="text-align:left">evil-next/previous-line 想下/上移动一行</td>
+</tr>
+<tr>
+<td style="text-align:left">B/W</td>
+<td style="text-align:left">evil-backward/forward-WORD-begin 向后/前移动到 WORD 前</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">evil-forward-WORD-end 向前移动到 WORD 后</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">evil-forward-word-begin 向前移动到 word 前</td>
+</tr>
+<tr>
+<td style="text-align:left">C-b/C-f</td>
+<td style="text-align:left">evil-scroll-page-up/down 向上/下滚动页面</td>
+</tr>
+<tr>
+<td style="text-align:left">C-d</td>
+<td style="text-align:left">evil-scroll-down 向下滚动</td>
+</tr>
+<tr>
+<td style="text-align:left">C-y/C-e</td>
+<td style="text-align:left">evil-scroll-line-up/down 向上/下滚动一行</td>
+</tr>
+<tr>
+<td style="text-align:left">TAB/C-o</td>
+<td style="text-align:left">evil-jump-forward/backward 前/后跳</td>
+</tr>
+<tr>
+<td style="text-align:left">RET</td>
+<td style="text-align:left">evil-ret</td>
+</tr>
+<tr>
+<td style="text-align:left">C-z</td>
+<td style="text-align:left">evil-emacs-state 切换 emacs 和 vim 模式</td>
+</tr>
+<tr>
+<td style="text-align:left">C-v</td>
+<td style="text-align:left">evil-visual-block</td>
+</tr>
+<tr>
+<td style="text-align:left">C-w</td>
+<td style="text-align:left">evil-window-map</td>
+</tr>
+<tr>
+<td style="text-align:left">C-]</td>
+<td style="text-align:left">evil-jump-to-tag</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>%</code></td>
+<td style="text-align:left">evil-jump-item</td>
+</tr>
+<tr>
+<td style="text-align:left">C-^</td>
+<td style="text-align:left">evil-buffer</td>
+</tr>
+<tr>
+<td style="text-align:left">SPC</td>
+<td style="text-align:left">evil-forward-char</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>!</code></td>
+<td style="text-align:left">evil-shell-command</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>#</code></td>
+<td style="text-align:left">evil-search-word-backward</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>$</code></td>
+<td style="text-align:left">evil-end-of-line</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&#39;</code></td>
+<td style="text-align:left">evil-goto-mark-line</td>
+</tr>
+<tr>
+<td style="text-align:left">```</td>
+<td style="text-align:left">evil-goto-mark</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>G</code></td>
+<td style="text-align:left">evil-goto-line</td>
+</tr>
+</tbody>
+</table>
+<p>( |    evil-backward-sentence-begin<br>) |    evil-forward-sentence-begin</p>
+<p>K |    evil-lookup</p>
+<ul>
+<li>|    evil-search-word-forward<br><code>/</code>/<code>?</code> |    evil-search-forward/backward<br>N/n |    evil-search-previous/next<br>, |    evil-repeat-find-char-reverse<br>; |    evil-repeat-find-char<br>F |    evil-find-char-backward<br>T |    evil-find-char-to-backward</li>
+</ul>
+<ul>
+<li>|    evil-next-line-first-non-blank</li>
+</ul>
+<ul>
+<li>|    evil-previous-line-first-non-blank</li>
+</ul>
+<p>0 |    evil-digit-argument-or-evil-beginning-of-line<br>1 .. 9  | digit-argument<br>: |    evil-ex</p>
+<p>H |    evil-window-top<br>L |    evil-window-bottom<br>M |    evil-window-middle</p>
+<p>V |    evil-visual-line</p>
+<p>Y |    evil-yank-line<br>y |    evil-yank</p>
+<p>[ |    Prefix Command<br>\ |    evil-execute-in-emacs-state<br>] |    Prefix Command<br>^ |    evil-first-non-blank<br>_ |    evil-next-line-1-first-non-blank</p>
+<p><code>|</code> |    evil-goto-column<br>b |    evil-backward-word-begin<br>e |    evil-forward-word-end<br>f |    evil-find-char<br>g |    Prefix Command</p>
+<p>t |    evil-find-char-to<br>v |    evil-visual-char</p>
+<p>z |    Prefix Command<br><code>{</code> |    evil-backward-paragraph</p>
+<p><code>}</code> |    evil-forward-paragraph<br>C-6 |  evil-switch-to-windows-last-buffer</p>
+<p><down> | evil-next-line</down></p>
+<p><down-mouse-1>  | evil-mouse-drag-region</down-mouse-1></p>
+<p><left> | evil-backward-char</left></p>
+<p><remap> | Prefix Command</remap></p>
+<p><right> | evil-forward-char</right></p>
+<p><up> | evil-previous-line</up></p>
+<p><remap> <ace-jump-char-mode>    evil-ace-jump-char-mode</ace-jump-char-mode></remap></p>
+<p><remap> <ace-jump-line-mode>    evil-ace-jump-line-mode</ace-jump-line-mode></remap></p>
+<p><remap> <ace-jump-word-mode>    evil-ace-jump-word-mode</ace-jump-word-mode></remap></p>
+<p><remap> <avy-goto-char>         evil-avy-goto-char</avy-goto-char></remap></p>
+<p><remap> <avy-goto-char-2>       evil-avy-goto-char-2</avy-goto-char-2></remap></p>
+<p><remap> <avy-goto-char-2-above> evil-avy-goto-char-2-above</avy-goto-char-2-above></remap></p>
+<p><remap> <avy-goto-char-2-below> evil-avy-goto-char-2-below</avy-goto-char-2-below></remap></p>
+<p><remap> <avy-goto-char-in-line> evil-avy-goto-char-in-line</avy-goto-char-in-line></remap></p>
+<p><remap> <avy-goto-line>         evil-avy-goto-line</avy-goto-line></remap></p>
+<p><remap> <avy-goto-subword-0>    evil-avy-goto-subword-0</avy-goto-subword-0></remap></p>
+<p><remap> <avy-goto-subword-1>    evil-avy-goto-subword-1</avy-goto-subword-1></remap></p>
+<p><remap> <avy-goto-word-0>       evil-avy-goto-word-0</avy-goto-word-0></remap></p>
+<p><remap> <avy-goto-word-1>       evil-avy-goto-word-1</avy-goto-word-1></remap></p>
+<p><remap> <avy-goto-word-1-above> evil-avy-goto-word-1-above</avy-goto-word-1-above></remap></p>
+<p><remap> <avy-goto-word-1-below> evil-avy-goto-word-1-below</avy-goto-word-1-below></remap></p>
+<p><remap> <avy-goto-word-or-subword-1> evil-avy-goto-word-or-subword-1</avy-goto-word-or-subword-1></remap></p>
+<p>z RET | Keyboard Macro<br>z + |  evil-scroll-bottom-line-to-top<br>z - |  Keyboard Macro<br>z . |  Keyboard Macro<br>z H |  evil-scroll-left<br>z L |  evil-scroll-right<br>z ^ |  evil-scroll-top-line-to-bottom<br>z b |  evil-scroll-line-to-bottom<br>z h |  evil-scroll-column-left<br>z l |  evil-scroll-column-right<br>z t |  evil-scroll-line-to-top<br>z z |  evil-scroll-line-to-center<br>z <left>  | Keyboard Macro<br>z <return> | Keyboard Macro<br>z <right> | Keyboard Macro</right></return></left></p>
+<p>C-w C-b |  evil-window-bottom-right<br>C-w C-c |  evil-window-delete<br>C-w C-f |  ffap-other-window<br>C-w C-n |  evil-window-new<br>C-w C-o |  delete-other-windows<br>C-w C-p |  evil-window-mru<br>C-w C-r |  evil-window-rotate-downwards<br>C-w C-s |  evil-window-split<br>C-w C-t |  evil-window-top-left<br>C-w C-v |  evil-window-vsplit<br>C-w C-w |  evil-window-next<br>C-w C-<em> |  evil-window-set-height<br>C-w + | evil-window-increase-height<br>C-w - | evil-window-decrease-height<br>C-w &lt; | evil-window-decrease-width<br>C-w = | balance-windows<br>C-w &gt; | evil-window-increase-width<br>C-w H | evil-window-move-far-left<br>C-w J | evil-window-move-very-bottom<br>C-w K | evil-window-move-very-top<br>C-w L | evil-window-move-far-right<br>C-w R | evil-window-rotate-upwards<br>C-w S | evil-window-split<br>C-w W | evil-window-prev<br>C-w </em> | evil-window-set-height<br>C-w b | evil-window-bottom-right<br>C-w c | evil-window-delete<br>C-w h | evil-window-left<br>C-w j | evil-window-down<br>C-w k | evil-window-up<br>C-w l | evil-window-right<br>C-w n | evil-window-new<br>C-w o | delete-other-windows<br>C-w p | evil-window-mru<br>C-w r | evil-window-rotate-downwards<br>C-w s | evil-window-split<br>C-w t | evil-window-top-left<br>C-w v | evil-window-vsplit<br>C-w w | evil-window-next<br>C-w | | evil-window-set-width<br>C-w C-S-h | evil-window-move-far-left<br>C-w C-S-j |  evil-window-move-very-bottom<br>C-w C-S-k |  evil-window-move-very-top<br>C-w C-S-l |  evil-window-move-far-right<br>C-w C-S-r |  evil-window-rotate-upwards<br>C-w C-S-s |  evil-window-split<br>C-w C-S-w |  evil-window-prev</p>
+<p>[ ( |   evil-previous-open-paren<br>[ [ |   evil-backward-section-begin<br>[ ] |   evil-backward-section-end<br>[ { |   evil-previous-open-brace</p>
+<p>] ) |   evil-next-close-paren<br>] [ |   evil-forward-section-end<br>] ] |   evil-forward-section-begin<br>] } |   evil-next-close-brace</p>
+<p>g C-] | find-tag<br>g # |   evil-search-unbounded-word-backward<br>g $ |   evil-end-of-visual-line<br>g * |   evil-search-unbounded-word-forward<br>g 0 |   evil-beginning-of-visual-line<br>g E |   evil-backward-WORD-end<br>g N |   evil-previous-match<br>g ^ |   evil-first-non-blank-of-visual-line<br>g _ |   evil-last-non-blank<br>g d |   evil-goto-definition<br>g e |   evil-backward-word-end<br>g g |   evil-goto-first-line<br>g j |   evil-next-visual-line<br>g k |   evil-previous-visual-line<br>g m |   evil-middle-of-visual-line<br>g n |   evil-next-match<br>g v |   evil-visual-restore</p>
+<h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><p><a href="https://github.com/emacs-china/emacs-lisp-style-guide/blob/master/README-zhCN.md" target="_blank" rel="external">emacs lisp 风格指南</a></p>
+<h1 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h1><h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><p>正在使用<br><a href="https://github.com/bbatsov/solarized-emacs" target="_blank" rel="external">solarized-theme</a><br><a href="https://github.com/Malabarba/smart-mode-line/" target="_blank" rel="external">smart-mode-line</a><br><a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio</a> 自动调整 window 的大小比例，将当前活动 buffer 所在的 window 调大，非活动窗口调小。</p>
+<p>以前用过<br><a href="https://github.com/oneKelvinSmith/monokai-emacs" target="_blank" rel="external">monokai-theme</a> 对比度有些高不太适应，后来改为了 solarized-theme。<br><a href="https://github.com/kuanyui/moe-theme.el" target="_blank" rel="external">moe-theme</a><br>[powerline]<br>[spaceline]</p>
 
       
     </div>
@@ -894,16 +1246,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/01/2016-12-01-r-graphics/" rel="next" title="R：graphics 包">
-                <i class="fa fa-chevron-left"></i> R：graphics 包
+              <a href="/2016/12/01/2016-12-01-wiki-r/" rel="next" title="R 语言个人参考">
+                <i class="fa fa-chevron-left"></i> R 语言个人参考
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/2016-12-01-wiki-r/" rel="prev" title="R 语言个人参考">
-                R 语言个人参考 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/01/2016-12-01-wiki-error/" rel="prev" title="报错问题解决记录">
+                报错问题解决记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -979,7 +1331,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -996,7 +1348,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">98</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1067,7 +1419,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Major-Mode"><span class="nav-number">1.</span> <span class="nav-text">Major Mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-mode"><span class="nav-number">1.1.</span> <span class="nav-text">markdown-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对标题的操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">对标题的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转与移动"><span class="nav-number">1.1.2.</span> <span class="nav-text">跳转与移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加内容"><span class="nav-number">1.1.3.</span> <span class="nav-text">添加内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#help-mode"><span class="nav-number">1.2.</span> <span class="nav-text">help-mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dired-mode"><span class="nav-number">1.3.</span> <span class="nav-text">dired-mode</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown-mode"><span class="nav-number">1.</span> <span class="nav-text">markdown-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对标题的操作"><span class="nav-number">1.1.</span> <span class="nav-text">对标题的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转与移动"><span class="nav-number">1.2.</span> <span class="nav-text">跳转与移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加内容"><span class="nav-number">1.3.</span> <span class="nav-text">添加内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#help-mode"><span class="nav-number">2.</span> <span class="nav-text">help-mode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ess-help-mode"><span class="nav-number">3.</span> <span class="nav-text">ess-help-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导航"><span class="nav-number">3.1.</span> <span class="nav-text">导航</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dired-mode"><span class="nav-number">4.</span> <span class="nav-text">dired-mode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#evil-mode"><span class="nav-number">5.</span> <span class="nav-text">evil-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#evil-window-map"><span class="nav-number">5.1.</span> <span class="nav-text">evil-window-map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evil-insert-state-map"><span class="nav-number">5.2.</span> <span class="nav-text">evil-insert-state-map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evil-motion-state-map"><span class="nav-number">5.3.</span> <span class="nav-text">evil-motion-state-map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习"><span class="nav-number">6.</span> <span class="nav-text">学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用包"><span class="nav-number">7.</span> <span class="nav-text">常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#外观"><span class="nav-number">7.1.</span> <span class="nav-text">外观</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

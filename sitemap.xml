@@ -2,9 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lix90.github.io/2016/12/05/2016-12-05-daily/</loc>
+    
+    <lastmod>2016-12-05T08:33:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</loc>
+    
+    <lastmod>2016-12-05T07:20:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/04/2016-12-04-daily/</loc>
+    
+    <lastmod>2016-12-04T11:19:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</loc>
+    
+    <lastmod>2016-12-03T13:32:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/</loc>
+    
+    <lastmod>2016-12-03T08:08:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/03/2016-12-03-daily/</loc>
+    
+    <lastmod>2016-12-03T05:43:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/11/13/wiki/</loc>
+    
+    <lastmod>2016-12-03T02:04:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/02/2016-12-02-daily/</loc>
+    
+    <lastmod>2016-12-03T02:02:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</loc>
+    
+    <lastmod>2016-12-02T11:28:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</loc>
+    
+    <lastmod>2016-12-01T12:59:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</loc>
     
-    <lastmod>2016-12-01T06:57:16.000Z</lastmod>
+    <lastmod>2016-12-01T11:43:27.000Z</lastmod>
     
   </url>
   
@@ -12,20 +82,6 @@
     <loc>http://lix90.github.io/2016/11/16/2016-11-16-daily/</loc>
     
     <lastmod>2016-12-01T06:55:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</loc>
-    
-    <lastmod>2016-12-01T06:54:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</loc>
-    
-    <lastmod>2016-12-01T06:54:03.000Z</lastmod>
     
   </url>
   
@@ -47,27 +103,6 @@
     <loc>http://lix90.github.io/2016/11/28/2016-11-28-daily/</loc>
     
     <lastmod>2016-12-01T03:37:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/</loc>
-    
-    <lastmod>2016-12-01T03:37:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</loc>
-    
-    <lastmod>2016-12-01T03:14:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/13/wiki/</loc>
-    
-    <lastmod>2016-12-01T01:42:32.000Z</lastmod>
     
   </url>
   
@@ -215,13 +250,6 @@
     <loc>http://lix90.github.io/2016/11/17/2016-11-17-daily/</loc>
     
     <lastmod>2016-11-19T03:33:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</loc>
-    
-    <lastmod>2016-11-19T03:33:01.000Z</lastmod>
     
   </url>
   

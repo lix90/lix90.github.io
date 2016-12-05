@@ -282,6 +282,592 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/08/2016-10-08-r-source-code/" itemprop="url">
+                  R：查看源代码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T22:23:57+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/2016-10-08-r-source-code/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/08/2016-10-08-r-source-code/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&gt;<br>Updated in 2016-11-11</p>
+<p>为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：</p>
+<ul>
+<li>in-built 函数</li>
+<li>S3 范型函数</li>
+<li>S4 范型函数</li>
+<li>non-visible functions 隐藏函数</li>
+<li>unexported functions</li>
+<li>compiled code</li>
+<li>infix operators</li>
+</ul>
+<p>不同类型函数获取源代码的方式不同。要获取源代码，首先直接执行函数（不带括号），观察返回结果。一般来说，普通函数会直接返回源代码。</p>
+<p>如果返回的结果包含 <code>UseMethod(&quot;function&quot;)</code>，则表示该函数为 S3 范型函数，它根据对象类型的不同调用不同的方法。然后使用 <code>methods()</code> 列出特定的范型函数和与类有关的函数 <code>methods(function)</code> <code>methods(class=&quot;classname&quot;)</code>。我们可以看到返回一些带 <code>*</code> 的函数，这类函数为 <code>Non-visible functions</code>，即隐藏的函数，表示这类函数没有从语言包的命名空间导出。但是我们仍然可以查看隐藏函数的源代码，可通过 <code>:::</code> 函数查看，即 <code>pkgname:::function</code>。另外，还可以使用 <code>getAnywhere()</code> 获取。<code>getAnywhere()</code> 并不需要知道函数来自于哪个语言包。对于没有 <code>*</code> 的方法，直接运行即可获得源代码。另外，S3 范型函数还可以通过 <code>getS3method(function, class)</code> 获取源代码。</p>
+<p>如果返回的结果包含 <code>standardGeneric(&quot;function&quot;)</code>，意味着该函数为 S4 范型函数。对于这类函数，先通过 <code>showMethods(function)</code> 获得方法对应的 <code>signature</code>（不知道是神马东西）。例如：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; showMethods(chol2inv)</div><div class="line">Function: chol2inv (package base)</div><div class="line">x=<span class="string">"ANY"</span></div><div class="line">x=<span class="string">"CHMfactor"</span></div><div class="line">x=<span class="string">"denseMatrix"</span></div><div class="line">x=<span class="string">"diagonalMatrix"</span></div><div class="line">x=<span class="string">"dtrMatrix"</span></div><div class="line">x=<span class="string">"sparseMatrix"</span></div></pre></td></tr></table></figure></p>
+<p>其中 <code>x=&quot;ANY&quot;</code> 就是 signature。那么，可以通过 <code>getMethod(&quot;function&quot;, &quot;signature&quot;)</code> 获取源代码。<br>有一些方法具有更复杂的 <code>signature</code>，例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(raster)</div><div class="line">showMethods(extract)</div><div class="line">Function: extract (package raster)</div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"data.frame"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"Extent"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"matrix"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialLines"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPoints"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPolygons"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"vector"</span></div></pre></td></tr></table></figure>
+<p>那么，可以通过 <code>getMethod(&quot;function&quot;, signature = c(x = &quot;Raster&quot;, y = &quot;SpatialPolygons&quot;))</code> 获取源代码。</p>
+<p>对于 <code>unexported functions</code>，可以使用和隐藏函数一样的方法获取源代码，即 <code>:::</code> 或 <code>getAnywhere()</code>。对于 <code>compiled code</code>，即返回内容中有 <code>&lt;bytecode:0x294e410&gt;</code> 的函数，仍然可以从 R 命令行查阅源代码。但是对于函数中调用的 <code>.C</code> <code>.Call</code> <code>.Fortran</code> <code>.External</code> <code>.Internal</code> <code>.Primitive</code>，无法从命令行获取源代码，需要直接查看编译前的源代码。函数 <code>pryr::show_c_source</code> 可以直接在 Github 中找到 <code>.Internal</code> 和 <code>.Primitive</code> 调用的内容。</p>
+<p>对于无法直接从命令行获取源代码的函数，可以直接下载原始语言包。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## from CRAN</span></div><div class="line">download.packages(pkgs = <span class="string">"Matrix"</span>,</div><div class="line">                  destdir = <span class="string">"."</span>,</div><div class="line">                  type = <span class="string">"source"</span>)</div><div class="line"><span class="comment">## uncompressing and untaring</span></div><div class="line">untar(download.packages(pkgs = <span class="string">"Matrix"</span>,</div><div class="line">                        destdir = <span class="string">"."</span>,</div><div class="line">                        type = <span class="string">"source"</span>)[,<span class="number">2</span>])</div></pre></td></tr></table></figure>
+<p>基本包的源代码，可以通过查阅 R 语言源代码： <a href="http://svn.r-project.org/R/trunk/" target="_blank" rel="external">Subversion repository</a> 或者 <a href="https://github.com/wch/r-source/tree/trunk" target="_blank" rel="external">Winston Chang’s github mirror</a>。对于其他来源的包，直接从相应网站获取。</p>
+<p>最后，可以通过 <code>edit(getAnywhere(&quot;function&quot;), file = &quot;source_function.r&quot;)</code> 或者 <code>capture.output(getAnywhere(&quot;function&quot;), file = &quot;source_function.r&quot;)</code> 获得源代码的文本内容。</p>
+<p>另外，还可以通过代码调试方法获得源代码 <code>debugonce(function)</code>，使用 <code>debug(function)</code> 需要使用 <code>undebug()</code> 结束调试。</p>
+<p>对于 infix operators，即 <code>%%</code> <code>%*%</code> <code>%in%</code>，可以通过 <code>getAnywhere</code> 或者 使用 backticks ‘`’ 包裹然后执行即可返回源代码。</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function" target="_blank" rel="external">How can I view the source code for a function?</a> 主要参考资料</li>
+<li><a href="http://stackoverflow.com/questions/6583265/what-does-s3-methods-mean-in-r/6583639#6583639" target="_blank" rel="external">What does “S3 methods” mean in R?</a></li>
+<li><a href="http://yusung.blogspot.jp/2007/08/get-invisible-functions-or-internal.html" target="_blank" rel="external">Get source codes for invisible functions or internal functions in R</a></li>
+<li><a href="http://stackoverflow.com/questions/5937832/how-do-i-show-the-source-code-of-an-s4-function-in-a-package" target="_blank" rel="external">How do I show the source code of an S4 function in a package?</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/03/2016-10-03-r-regex/" itemprop="url">
+                  R：正则表达式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-03T00:46:15+08:00" content="2016-10-03">
+              2016-10-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/03/2016-10-03-r-regex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/03/2016-10-03-r-regex/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>A ‘regular expression’ is a pattern that describes a set of strings.</p>
+</blockquote>
+<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。<br>在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
+<h1 id="Extended-Regular-Expressions"><a href="#Extended-Regular-Expressions" class="headerlink" title="Extended Regular Expressions"></a>Extended Regular Expressions</h1><ul>
+<li>字母和数字本身就是正则表达式，可用来匹配自身。</li>
+<li>具有特殊含义的元字符需要通过反斜杠（backslash，<code>\</code>）逃逸其所代表的特殊含义。</li>
+</ul>
+<p>元字符包括：<code>. \ | ( ) [ { ^ $ * + ?</code></p>
+<blockquote>
+<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.<br>A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.<br>A range of characters may be specified by giving the first and last characters, separated by a hyphen.<br>Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
+</blockquote>
+<p><code>[:alnum:]</code> = <code>[:alpha:]</code> + <code>[:digit:]</code><br><code>[:alpha:]</code> = <code>[:lower:]</code> + <code>[:upper:]</code><br><code>[:blank:]</code> 空白符，如空格、tab<br><code>[:cntrl:]</code> Control characters<br><code>[:digit:]</code> 数字<br><code>[:graph:]</code> = <code>[:alnum:]</code> + <code>[:punct:]</code><br><code>[:lower:]</code> 小写字母<br><code>[:print:]</code> 可打印的字符 <code>[:alnum:]</code> <code>[:punct:]</code> 空格<br><code>[:punct:]</code> 标点符号<br><code>[:space:]</code> 空格符：tab, newline, vertical tab, form feed, carriage return, space, and possibly other locale-dependent characters<br><code>[:upper:]</code> 大写字母<br><code>[:xdigit:]</code> 十六进制数字</p>
+<p>元字符</p>
+<p><code>.</code> 匹配其他任何单字符<br><code>\w</code> 匹配单词 = <code>[[:alnum:]_]</code> <code>\W</code> = <code>[^[:alnum:]_]</code><br><code>\s</code> 空白符 <code>\S</code> 非空白符<br><code>\d</code> 数字 <code>\D</code> 非数字<br><code>^</code> 匹配首空字符（line）<br><code>$</code> 匹配尾空字符（line）<br><code>\&lt;</code> 匹配首空字符（word）<br><code>\&gt;</code> 匹配尾空字符（word）<br><code>\b</code> 匹配位于边缘的空字符（word）<br><code>\B</code> 匹配非边缘字符（word）</p>
+<p>匹配频率有关的元字符</p>
+<p><code>?</code> 匹配 1 次<br><code>*</code> 匹配 0 或多次<br><code>+</code> 匹配 1 或多次<br><code>{n}</code> 匹配 n 次<br><code>{n,}</code> 匹配 n 或更多次<br><code>{n,m}</code> 匹配 n 至 m 次</p>
+<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
+<h1 id="正则表达式函数实例"><a href="#正则表达式函数实例" class="headerlink" title="正则表达式函数实例"></a>正则表达式函数实例</h1><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><hr>
+<p>未完待续</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/25/2016-09-25-php-config/" itemprop="url">
+                  PHP 安装与配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-25T21:00:45+08:00" content="2016-09-25">
+              2016-09-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/Config/" itemprop="url" rel="index">
+                    <span itemprop="name">Config</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/25/2016-09-25-php-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/2016-09-25-php-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p>
+<p>因为系统是 Mac OSX，所以直接使用 <code>brew install php56</code> 来安装。但是并未找到 php56 。于是 <code>brew search php</code>，发现 php 相关安装包位于 <code>/homebrew/php/*</code>，于是用 <code>brew install homebrew/php/php56</code> 安装。但是出现报错 <code>undefined method rebuild</code> 的错误。尝试 <code>brew cleanup &amp;&amp; brew update</code>，仍然不起作用，依旧报错。后来查询到可以更新下 homebrew 的仓库。于是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $(brew --repo)</div><div class="line">git fetch</div><div class="line">git reset --hard origin/master</div><div class="line">brew update</div></pre></td></tr></table></figure>
+<p>然后再尝试安装 <code>brew install homebrew/php/php56</code>。</p>
+<p>其实也可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew tap homebrew/dupes</div><div class="line">brew tap homebrew/versions</div><div class="line">brew tap homebrew/homebrew-php</div><div class="line">brew install php56</div></pre></td></tr></table></figure>
+<p>然后安装了包管理工具 composer</p>
+<blockquote>
+<p>PHP 世界的包管理工具Composer</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install homebrew/php/composer</div></pre></td></tr></table></figure>
+<p>并且安装了 psySH</p>
+<blockquote>
+<p>A runtime developer console, interactive debugger and REPL for PHP.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer g require psy/psysh:@stable</div></pre></td></tr></table></figure>
+<p>psySH 的二进制文件位于 <code>~/.composer/vendor/psysh</code><br>也可以通过这个来运行 <code>~/.composer/vendor/bin/psysh</code><br>为了方便，我将其添加到 PATH <code>export $PATH:/Users/lix/.composer/vendor/bin</code></p>
+<p>配置 emacs 的 php 环境<br>先安装 ac-php 的依赖 <code>brew install cscope</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">;;; php mode</div><div class="line">(use-package php-mode</div><div class="line">  :ensure t</div><div class="line">  :mode &quot;\\.php\\&apos;&quot;</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">    (add-hook &apos;php-mode-hook &apos;smartparens-mode)</div><div class="line">    (use-package ac-php</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook</div><div class="line">                &apos;(lambda ()</div><div class="line">                   (use-package company-php :ensure t)</div><div class="line">                   (company-mode t)</div><div class="line">                   (add-to-list &apos;company-backends &apos;company-ac-php-backend))))</div><div class="line">    (use-package php-eldoc</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook &apos;php-eldoc-enable))))</div><div class="line"></div><div class="line">;;; php REPL</div><div class="line">(use-package psysh</div><div class="line">  :if (executable-find &quot;psysh&quot;)</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :config</div><div class="line">  (add-hook &apos;psysh-mode-hook &apos;smartparens-mode))</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/22/2016-09-22-decision-tree/" itemprop="url">
+                  从零学机器学习之决策树
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-22T10:10:09+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/Data-science/" itemprop="url" rel="index">
+                    <span itemprop="name">Data science</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/2016-09-22-decision-tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/2016-09-22-decision-tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。</p>
+<p>决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。</p>
+<p>《机器学习实战》这本书中描述，决策树的 <strong>计算复杂度</strong> 不高，输出结果易于理解（可以用直观来理解），对 <strong>中间值</strong> 的缺失不敏感（这里没懂，中间值是啥？），可以处理不相关特征数据（对数据要求不严格？）。但是，决策树虽简单，但容易产生过度匹配问题。为什么会产生过度匹配问题呢？也许是因为分类的标准太“粗糙”或者“武断”吧？？？。其适用数据类型包括 <strong>数值型</strong> 和 <strong>标称型</strong>。</p>
+<p>决策树是通过对数据集的特征按照某种标准进行分类，分成若干个子数据集，子数据集又可以按照新的标准对子数据集进行分类。这里有个疑问，到底要分多少次呢？明白了，如果“决策”次数越多，决策树模型越复杂，模型越复杂，是不是就计算复杂度越高呢？这个又与“过度拟合”有关吗？直觉去看，一个数据集可以有许多特征，但是有些特征对分类并无太大的作用。举个例子，把人和动物进行区分，到底是“使用和制造工具的能力”还是“语言”？对决策树就是这样一个过程。挑选出最能够区分出类别的一批特征，然后对数据集进行分类。这样模型简单，精确度又越高。但是如何知道哪些特征最合适呢？<del>这就需要先验知识了，这里头就有了人为性。所以从这里也可以知道，决策树是一个监督学习。</del> 看到知乎里头一个问题 <a href="https://www.zhihu.com/question/19753084" target="_blank" rel="external">信息增益到底怎么理解呢？</a>，明白了，原来可以用 <strong>信息增益</strong> 来确定一个特征用于分类是不是合适。</p>
+<p>前面说到，决策树适用的数据类型包括了 <strong>数值型</strong>，但是，<strong>树构造算法只适用于标称型数据，数值型数据必须离散化</strong>。也就是说，要用“身高”和“体重”来区分男女，必须把这两个数值型数据转化为离散的，例如 <code>&gt;170cm</code>，<code>&lt;170cm</code>，体重 <code>&gt;60kg</code>，<code>&lt;60kg</code>。或者稍微精细一点，按照 10cm 和 5kg 的精度进行分割。</p>
+<p>阅读《机器学习实战》的过程中，有个概念很抽象，<strong>信息增益</strong>。我尝试去这样理解。如果没有 <strong>生物分类学</strong>，人对物种的认识和理解是杂乱的，可能每个人的主观分类都不一致，因为不同人关注于不同特征。但有了一个分类系统，本来看似乱套的系统，就有了规律，这样就有了标准，形成了可以共享的知识。在这里 “信息” 就是 “不同的生物”，“增益” 就是促进了对生物物种的认识，产生了可以交流和分享的知识。看起来，<strong>信息增益</strong> 是一个褒义词呀，信息增益越高越好。那怎么量化信息增益呢？这里又出现一个更加抽象难以理解的概念 <strong>熵</strong>。最开始见到这个词的时候，我竟担心自己读错。所以，顿时发现，隔行如隔山的罪魁祸首之一就是这些该死的专业术语了。越专业越不好好说话。不过，命名一些专业术语把知识简化，也是为了本专业内沟通的效率吧（活学活用，提高信息增益）。</p>
+<p>那么什么是 <strong>信息熵</strong>？看定义，熵为信息的期望值（期望值即平均值，高中数学的水平，平均值对我来说比较好理解）。在文科生眼里，<strong>信息</strong> 用公式定义真是碉堡了。好了，不想数学公式了。总之，这里把信息当作概率去看待了。我只想明白，熵的大小意味着什么。维基百科的信息熵词条里有几句话：1. 熵最好理解为不确定性的度量而不是确定性的度量，因为越随机的信源的熵越大；2. 比较不可能发生的事情，当它发生了，会提供更多的信息。拿自己所知道的一点点背景知识理解的话，也就是小概率事件发生了，熵就变大了，熵变大了，事情就越发不可预测了，因为越随机了。也就是说，我越懵逼，熵就越大？这个世界乱成一团遭，那么熵就越大了。看来，<strong>熵</strong> 是个贬义词呀，哈哈。像那些信息量大的话，还是不说为好，毕竟熵大，有些人难以理解，毕竟不是所有人都有那么有内涵。那么用熵来量化信息增益，就是，熵变得越小，信息增益就越大。我们为的把世界看清楚，就得让熵变小。但是现实很残酷，我们无法预测未来，熵是不以我们的意志为转移的，该死的熵跟房价一样，死也降不下来啊。不过提高自身实力，认清自我，未来就不那么迷茫了，重要的是脚踏实地嘛。熵自然而然就小了。好吧，扯远了。总之，熵和信息增益是个对立的关系。</p>
+<hr>
+<p>待续</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>《机器学习实战》</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA" target="_blank" rel="external">熵 (信息论)</a>)</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/17/2016-09-17-learn-new-lang/" itemprop="url">
                   零基础如何学习一门新的编程语言？
                 </a>
@@ -521,888 +1107,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/2016-09-17-sql/" itemprop="url">
-                  SQL 语言入门笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T09:46:39+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/Database/" itemprop="url" rel="index">
-                    <span itemprop="name">Database</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/17/2016-09-17-sql/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/2016-09-17-sql/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>《数据库系统概论》第三章笔记。</p>
-<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="SQL-历史"><a href="#SQL-历史" class="headerlink" title="SQL 历史"></a>SQL 历史</h2><ul>
-<li>1974 年，Boyce 和 Chamberlin 提出，Sequel</li>
-<li>1986 年 10 月，美国国家标准局（ANSI）的数据库委员会 X3H2 批准，同年公布 SQL 标准文本</li>
-<li>1987 年，国际化标准组织（ISO）通过这一标准</li>
-</ul>
-<p>没有一个数据库系统能够支持 SQL 标准的所有概念和特性。许多软件厂商对 SQL 的基本命令集进行了不同程度的扩充和修改，又可以支持标准以外的一些功能特性。</p>
-<h2 id="SQL-特点"><a href="#SQL-特点" class="headerlink" title="SQL 特点"></a>SQL 特点</h2><ul>
-<li>综合统一<ul>
-<li>SQL 集 <code>数据定义语言</code>、<code>数据操纵语言</code>、<code>数据控制语言</code> 的功能于一体，可以独立完成数据库生命周期中的全部活动。<ul>
-<li>定义和修改、删除关系模式，定义和删除视图，插入数据，建立数据库；</li>
-<li>对数据库中的数据进行查询和更新；</li>
-<li>数据库重构和维护；</li>
-<li>数据库安全性、完整性控制，以及事务控制；</li>
-<li>嵌入式 SQL 和动态 SQL 定义。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>高度非过程化</li>
-<li>面向集合的操作方式</li>
-<li>以同一种语法结构提供多种使用方式<ul>
-<li>既是独立语言，又是嵌入式语言</li>
-</ul>
-</li>
-<li>语言简洁，易学易用</li>
-</ul>
-<h2 id="SQL-基本概念"><a href="#SQL-基本概念" class="headerlink" title="SQL 基本概念"></a>SQL 基本概念</h2><p>三级模式结构</p>
-<ul>
-<li>外模式：若干视图、部分基本表</li>
-<li>模式：若干基本表</li>
-<li>内模式：若干存储文件</li>
-</ul>
-<hr>
-<h1 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h1><h2 id="模式的定义与删除"><a href="#模式的定义与删除" class="headerlink" title="模式的定义与删除"></a>模式的定义与删除</h2><h3 id="1-定义模式"><a href="#1-定义模式" class="headerlink" title="1. 定义模式"></a>1. 定义模式</h3><p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code></p>
-<p>进行该操作需具备数据库管理员权限，或者获得了数据库管理员授予的 CREATE SCHEMA 的权限。</p>
-<p>定义模式实际上定义了一个命名空间，在此可以进一步定义该模式包含的数据库对象。</p>
-<p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt; [&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]</code></p>
-<h3 id="2-删除模式"><a href="#2-删除模式" class="headerlink" title="2. 删除模式"></a>2. 删除模式</h3><p><code>DROP SCHEMA &lt;模式名&gt;&lt;CASCADE|RESTRICT&gt;</code></p>
-<ul>
-<li><code>CASCADE</code> 级联，表示在删除模式时把该模式中所有的数据库对象全部删除；</li>
-<li><code>RESTRICT</code> 限制，表示如果该模式中定义了下属的数据库对象（如表或视图），则拒绝该删除语句的执行。</li>
-</ul>
-<h2 id="基本表的定义、删除与修改"><a href="#基本表的定义、删除与修改" class="headerlink" title="基本表的定义、删除与修改"></a>基本表的定义、删除与修改</h2><h3 id="1-定义基本表"><a href="#1-定义基本表" class="headerlink" title="1. 定义基本表"></a>1. 定义基本表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;表名&gt;</div><div class="line">    (&lt;列名&gt;&lt;数据类型&gt; [列级完整性约束条件]</div><div class="line">    [,&lt;列名&gt;&lt;数据类型&gt; [列级完整性约束条件]]</div><div class="line">    ...</div><div class="line">    [,&lt;表级完整性约束条件&gt;]);</div></pre></td></tr></table></figure>
-<h3 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h3><p>在 SQL 中域的概念用数据类型来实现。定义表的各个属性时需要指明其数据类型及长度。选择数据类型从两方面考虑，一是取值范围，二是要做哪些运算。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">数据类型</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>CHAR(n)</code>,<code>CHARACTER(n)</code></td>
-<td style="text-align:left">长度为 n 的定长字符串</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>VARCHAR(n)</code>,<code>CHARACTERVARYING(n)</code></td>
-<td style="text-align:left">最大长度为 n 的变长字符串</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>CLOB</code></td>
-<td style="text-align:left">字符串大对象</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>BLOB</code></td>
-<td style="text-align:left">二进制大对象</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>INT</code>,<code>INTEGER</code></td>
-<td style="text-align:left">长整数（4字节）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>SMALLINT</code></td>
-<td style="text-align:left">短整数（2字节）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>BIGINT</code></td>
-<td style="text-align:left">大整数（8字节）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>NUMERIC(p,d)</code></td>
-<td style="text-align:left">定点数，由 p 位数字（不包括符号、小数点）组成，小数点后面有 d 位数字</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DECIMAL(p,d)</code>,<code>DEC(p,d)</code></td>
-<td style="text-align:left">同 NUMERIC</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>REAL</code></td>
-<td style="text-align:left">取决于机器精度的单精度浮点数</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DOUBLE PRECISION</code></td>
-<td style="text-align:left">取决于机器精度的双精度浮点数</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>FLOAT(n)</code></td>
-<td style="text-align:left">可选精度的浮点数，精度至少位 n 位数字</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>BOOLEAN</code></td>
-<td style="text-align:left">逻辑布尔量</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>DATE</code></td>
-<td style="text-align:left">日期，包含年、月、日，格式为 YYYY-MM-DD</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>TIME</code></td>
-<td style="text-align:left">时间，包含一日的时、分、秒，格式为 HH:MM:SS</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>TIMESTAMP</code></td>
-<td style="text-align:left">时间戳类型</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>INTERVAL</code></td>
-<td style="text-align:left">时间间隔类型</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-模式与表"><a href="#3-模式与表" class="headerlink" title="3. 模式与表"></a>3. 模式与表</h3><p>三种方法定义基本表所属的模式：</p>
-<ol>
-<li>在表名中明显地给出模式名；</li>
-<li>在创建模式语句中同时创建表；</li>
-<li>设置所属的模式，这样在创建表时表名中不必给出模式名。</li>
-</ol>
-<p>显示当前搜索路径：<code>SHOW search_path</code>;<br>设置搜索路径：<code>SET search_path &lt;模式名&gt;,PUBLIC</code>;</p>
-<h3 id="4-修改基本表"><a href="#4-修改基本表" class="headerlink" title="4. 修改基本表"></a>4. 修改基本表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt;</div><div class="line">[<span class="keyword">ADD</span> [<span class="keyword">COLUMN</span>] &lt;新列名&gt;&lt;数据类型&gt; [完整性约束]]</div><div class="line">[<span class="keyword">ADD</span> &lt;表级完整性约束&gt;]</div><div class="line">[<span class="keyword">DROP</span> [<span class="keyword">COLUMN</span>] &lt;列名&gt; [<span class="keyword">CASCADE</span>|RESTRICT]]</div><div class="line">[<span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> &lt;完整性约束&gt; [RESTRICT|<span class="keyword">CASCADE</span>]]</div><div class="line">[<span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> &lt;列名&gt;&lt;数据类型&gt;];</div></pre></td></tr></table></figure>
-<h3 id="5-删除基本表"><a href="#5-删除基本表" class="headerlink" title="5. 删除基本表"></a>5. 删除基本表</h3><p><code>DROP TABLE &lt;表名&gt; [RESTRICT|CASCADE]</code></p>
-<p>不同的数据库产品在遵循 SQL 标准的基础上具体实现细节和处理策略会与标准有差别。</p>
-<h2 id="索引的建立与删除"><a href="#索引的建立与删除" class="headerlink" title="索引的建立与删除"></a>索引的建立与删除</h2><p>建立索引时加快查询速度的有效手段。索引是关系数据库管理系统的内部实现技术，属于内模式范畴。用户不必也不能显式地选择索引。</p>
-<p>常见的数据库索引：</p>
-<ul>
-<li>顺序文件上的索引；</li>
-<li>B+树索引</li>
-<li>散列索引</li>
-<li>位图索引</li>
-</ul>
-<h3 id="1-建立索引"><a href="#1-建立索引" class="headerlink" title="1. 建立索引"></a>1. 建立索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> [<span class="keyword">UNIQUE</span>] [CLUSTER] <span class="keyword">INDEX</span> &lt;索引名&gt;</div><div class="line"><span class="keyword">ON</span> &lt;表名&gt;(&lt;列名&gt; [&lt;次序&gt;][,&lt;列名&gt; [&lt;次序&gt;]] ...);</div></pre></td></tr></table></figure>
-<h3 id="2-修改索引"><a href="#2-修改索引" class="headerlink" title="2. 修改索引"></a>2. 修改索引</h3><p><code>ALTER INDEX &lt;旧索引名&gt;RENAME TO&lt;新索引名&gt;</code></p>
-<h3 id="3-删除索引"><a href="#3-删除索引" class="headerlink" title="3. 删除索引"></a>3. 删除索引</h3><p><code>DROP INDEX &lt;索引名&gt;</code></p>
-<h2 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h2><blockquote>
-<p>数据字典时关系数据库管理系统内部的一组系统表，它记录了数据库中所有的定义信息，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典表中的相应信息。在进行查询优化和查询处理时，数据字典中的信息是其重要依据。</p>
-</blockquote>
-<hr>
-<h1 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> [ALL|<span class="keyword">DISTINCT</span>] &lt;目标列表达式&gt; [,&lt;目标列表达式&gt;]...</div><div class="line"><span class="keyword">FROM</span> &lt;表名或视图名&gt; [,&lt;表名或视图名&gt;]|(&lt;<span class="keyword">SELECT</span> 语句&gt;)[<span class="keyword">AS</span>]&lt;别名&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">HAVING</span> &lt;条件表达式&gt;]]</div><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;列名<span class="number">2</span>&gt; [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>]];</div></pre></td></tr></table></figure>
-<h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><ol>
-<li>选择表中若干列</li>
-<li>选择表中若干元组</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">查询条件</th>
-<th style="text-align:left">谓词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">比较</td>
-<td style="text-align:left"><code>=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>!&gt;</code>, <code>!&lt;</code>; <code>NOT+上述比较运算符</code></td>
-</tr>
-<tr>
-<td style="text-align:left">确定范围</td>
-<td style="text-align:left"><code>BETWEEN AND</code>, <code>NOT BETWEEN AND</code></td>
-</tr>
-<tr>
-<td style="text-align:left">确定集合</td>
-<td style="text-align:left"><code>IN</code>, <code>NOT IN</code></td>
-</tr>
-<tr>
-<td style="text-align:left">字符匹配</td>
-<td style="text-align:left"><code>LIKE</code>, <code>NOT LIKE</code></td>
-</tr>
-<tr>
-<td style="text-align:left">空值</td>
-<td style="text-align:left"><code>IS NULL</code>, <code>IS NOT NULL</code></td>
-</tr>
-<tr>
-<td style="text-align:left">多重条件（逻辑运算）</td>
-<td style="text-align:left"><code>AND</code>, <code>OR</code>, <code>NOT</code></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li><code>OBDER BY</code> 子句</li>
-<li>聚集函数</li>
-<li><code>GROUP BY</code> 子句</li>
-</ol>
-<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><p>连接查询：查询同时涉及两个以上的表。</p>
-<ol>
-<li>等值与非等值连接的查询</li>
-<li>自身连接</li>
-<li>外连接</li>
-<li>多表连接</li>
-</ol>
-<h2 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h2><blockquote>
-<p>在 SQL 语言中，一个 <code>SELECT-FROM-WHERE</code> 语句称为一个查询块。将一个查询块嵌套再另一个查询块的 <code>WHERE</code> 子句或 <code>HAVING</code> 短语的条件中的查询称为嵌套查询。</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> Sname <span class="comment">/*外层查询或父查询*/</span></div><div class="line"><span class="keyword">FROM</span> Student</div><div class="line"><span class="keyword">WHERE</span> Sno <span class="keyword">IN</span></div><div class="line">    (<span class="keyword">SELECT</span> Sno <span class="comment">/*内层查询或子查询*/</span></div><div class="line">    <span class="keyword">FROM</span> SC</div><div class="line">    <span class="keyword">WHERE</span> Cno=<span class="string">'2'</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>带有 <code>IN</code> 谓词的子查询</li>
-<li>带有比较运算符的子查询</li>
-<li>带有 <code>ANY (SOME)</code> 或 <code>ALL</code> 谓词的子查询</li>
-<li>带有 <code>EXISTS</code> 谓词的子查询</li>
-</ol>
-<h2 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h2><blockquote>
-<p>集合操作主要包括并操作 <code>UNION</code>、交操作 <code>INTERSECT</code> 和差操作 <code>EXCEPT</code>。参加集合操作的各查询结果的<strong>列数</strong>必须相同；对应项的<strong>数据类型</strong>也必须相同。</p>
-</blockquote>
-<h2 id="基于派生表的查询"><a href="#基于派生表的查询" class="headerlink" title="基于派生表的查询"></a>基于派生表的查询</h2><blockquote>
-<p>子查询不仅可以出现在 <code>WHERE</code> 子句中，还可以出现再 <code>FROM</code> 子句中，这时子查询生成的临时派生表称为主查询的查询对象。</p>
-</blockquote>
-<hr>
-<h1 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h1><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><ol>
-<li>插入元组</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line"><span class="keyword">VALUES</span> (&lt;常量 <span class="number">1</span>&gt; [,&lt;常量 <span class="number">2</span>&gt;]); <span class="comment">-- 字符串常量使用单引号括起来</span></div></pre></td></tr></table></figure>
-<ol>
-<li>插入子查询结果</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line">子查询;</div></pre></td></tr></table></figure>
-<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> &lt;<span class="keyword">TABLE</span>&gt;</div><div class="line"><span class="keyword">SET</span> &lt;<span class="keyword">column</span>&gt;=&lt;expression&gt; [,&lt;<span class="keyword">column</span>&gt;=&lt;expression&gt;]</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
-<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span></div><div class="line"><span class="keyword">FROM</span> &lt;<span class="keyword">table</span>&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h1><p>空值：不知道或者不存在或者无意义的值。</p>
-<p>以下条件取空值：</p>
-<ul>
-<li>该属性应该有一个值，但目前不知道；</li>
-<li>该属性不应该有值；</li>
-<li>由于某种原因不便于填写。</li>
-</ul>
-<p>空值的判断：<code>IS NULL</code> <code>IS NOT NULL</code>。</p>
-<hr>
-<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p><code>CREATE VIEW</code><br><code>ALTER VIEW</code><br><code>DROP VIEW</code><br><code>SHOW VIEW</code></p>
-<h2 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h2><ul>
-<li>简化用户操作</li>
-<li>使用户以多种角度看待同一数据</li>
-<li>对重构数据库提供了一定程度的逻辑独立性</li>
-<li>对机密数据提供安全保护</li>
-<li>适当利用视图可以更清晰地表达查询</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/13/2016-09-13-r-apply-family/" itemprop="url">
-                  R：向量化运算
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T22:50:21+08:00" content="2016-09-13">
-              2016-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/13/2016-09-13-r-apply-family/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-r-apply-family/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>Updated in 2016-11-12</p>
-</blockquote>
-<p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
-<h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h1><p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
-<p><code>apply(X, MARGIN, FUN, ...)</code></p>
-<ul>
-<li><code>X</code> 数组或矩阵</li>
-<li><code>MARGIN</code> 指定 <code>FUN</code> 作用的由下标组成的向量。若 <code>X</code> 为矩阵，1 表示行，2 表示列。<code>c(1,2)</code> 表示行和列。如果 <code>X</code> 包含 <code>dimnames</code>，那么也可以为字符向量。</li>
-<li><code>FUN</code> 使用的函数</li>
-</ul>
-<p>如果需要在行或者列上求均值和求和，则建议使用 <code>colMeans</code> <code>rowMeans</code> <code>colSums</code> <code>rowSums</code>。</p>
-<h1 id="tapply"><a href="#tapply" class="headerlink" title="tapply"></a><code>tapply</code></h1><p>需要对向量按组或者因素水平计算，类似于 <code>split-apply-combine</code>。</p>
-<h1 id="by"><a href="#by" class="headerlink" title="by"></a><code>by</code></h1><p>可替代 <code>tapply</code>，在无法使用 <code>tapply</code> 的情况下仍然可用。</p>
-<p><a href="http://stackoverflow.com/a/32262439/6469987" target="_blank" rel="external">参考</a></p>
-<h1 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a><code>aggregate</code></h1><p>跟 <code>tapply</code> 类似，不同的是，<code>aggregate</code> 的第二个参数必须为 list，输出为 data.frame。<code>aggregate</code> 的参数还可以为 formula。需要主要的是 <code>aggregate</code> 的 formula 方法默认 <code>na.action = na.omit</code>，所以需要手动设置参数 <code>na.rm = TRUE</code>。</p>
-<h1 id="lapply"><a href="#lapply" class="headerlink" title="lapply"></a><code>lapply</code></h1><p>输入和输出都为 list。其他 <code>*apply</code> 函数底层都是调用 <code>lapply</code> 函数。</p>
-<p><code>lapply(X, FUN, ...)</code></p>
-<p>返回与 <code>X</code> 等长度的 list，每个元素是由 <code>X</code> 中的元素经过 <code>FUN</code> 计算得到。</p>
-<h1 id="sapply"><a href="#sapply" class="headerlink" title="sapply"></a><code>sapply</code></h1><p>输入为 list，但输出为 vector。</p>
-<p><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></p>
-<p>比 <code>lapply</code> 更友好，虽然默认返回 vector，matrix，但是如果增加 <code>simplify = &quot;array&quot;</code> 的参数，将返回 array。<code>sapply(x, f, simplify=FALSE, USE.NAMES = FALSE)</code> 等同于 <code>lapply(x, f)</code>。</p>
-<h1 id="vapply"><a href="#vapply" class="headerlink" title="vapply"></a><code>vapply</code></h1><p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
-<p>类似与 <code>sapply</code>，但是返回值的类型是事先确定。</p>
-<h1 id="replicate"><a href="#replicate" class="headerlink" title="replicate"></a><code>replicate</code></h1><p>重复地执行表达式。</p>
-<h1 id="其他相关函数"><a href="#其他相关函数" class="headerlink" title="其他相关函数"></a>其他相关函数</h1><p><code>outer</code> <code>ave</code> <code>eapply</code></p>
-<h1 id="比较好的总结"><a href="#比较好的总结" class="headerlink" title="比较好的总结"></a>比较好的总结</h1><blockquote>
-<ul>
-<li><strong>lapply</strong> is a list apply which acts on a list or vector and returns a list.</li>
-<li><strong>sapply</strong> is a simple lapply (function defaults to returning a vector or matrix when possible)</li>
-<li><strong>vapply</strong> is a verified apply (allows the return object type to be prespecified)</li>
-<li><strong>rapply</strong> is a recursive apply for nested lists, i.e. lists within lists</li>
-<li><strong>tapply</strong> is a tagged apply where the tags identify the subsets</li>
-<li><strong>apply</strong> is generic: applies a function to a matrix’s rows or columns (or, more generally, to dimensions of an array)</li>
-</ul>
-</blockquote>
-<p><a href="http://stackoverflow.com/a/23282110/6469987" target="_blank" rel="external">参考</a></p>
-<hr>
-<p>参考资料</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega" target="_blank" rel="external">R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/13/2016-09-13-mysql-config/" itemprop="url">
-                  MySQL安装与配置（MacOS）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-13T20:59:16+08:00" content="2016-09-13">
-              2016-09-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/Config/" itemprop="url" rel="index">
-                    <span itemprop="name">Config</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/13/2016-09-13-mysql-config/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/2016-09-13-mysql-config/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
-<h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>在网上教程发现提到这三个文件</p>
-<ol>
-<li>mysql-*.pkg：MySql的主要程序包</li>
-<li>MySQL_StartupItem.pkg：MySql的启动项</li>
-<li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
-</ol>
-<p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
-<p>数据库访问密码的设置</p>
-<blockquote>
-<p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
-</blockquote>
-<h1 id="添加到-PATH"><a href="#添加到-PATH" class="headerlink" title="添加到 PATH"></a>添加到 <strong>PATH</strong></h1><p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br><code>Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39;</code></p>
-<p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
-<p><del>寻找 <code>mysql.sock</code> 文件：<code>find / -name &quot;mysql.sock&quot;</code> 得到 <code>/var/lib/mysql/mysql.sock</code><br>那么建立 <code>symbolic link</code>：<code>ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock</code></del></p>
-<p>后来发现，这个报错是因为 <code>MySQL Server</code> 没有运行。于是打开 <code>MySQL.prefPane</code>，打开 <code>MySQL Server</code>。</p>
-<p>又出现另外的报错 <code>ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: YES)</code>。</p>
-<p>检索相关问题发现导致这个报错的原因有以下三种：</p>
-<ol>
-<li>客户端远程访问的用户帐号并未创建；</li>
-<li>用户帐号存在，但未对其所在的客户端的 IP 进行远程访问授权允许；</li>
-<li>用户帐号授权访问的密码不正确。</li>
-</ol>
-<p>看到前面安装 GUI 工具的部分说到，必须重新设置账户密码，root 的密码为弱密码。</p>
-<p>MySQL 还有个配置文件 <code>my.cnf</code>，里面可以设置帐号密码。</p>
-<p><strong>最后发现</strong>，原来在安装 MySQL 时，弹出来一个临时密码的提醒，这个密码用于第一次登录 MySQL，并修改密码。现在终于想起来那个临时密码，但是已经忘了有没有保存。因为自己挖的坑，折腾了很久。</p>
-<p>于是为了图方便，先把 MySQL 完全卸载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># first stop the database server</div><div class="line">sudo rm /usr/local/mysql</div><div class="line">sudo rm -rf /usr/local/mysql*</div><div class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</div><div class="line">sudo rm -rf /Library/PreferencePanes/My*</div><div class="line"># edit /etc/hostconfig and remove the line MYSQLCOM=-YES-</div><div class="line">rm -rf ~/Library/PreferencePanes/My*</div><div class="line">sudo rm -rf /Library/Receipts/mysql*</div><div class="line">sudo rm -rf /Library/Receipts/MySQL*</div><div class="line">sudo rm -rf /private/var/db/receipts/*mysql*</div><div class="line">sudo rm -rf /var/db/receipts/com.mysql.*</div></pre></td></tr></table></figure>
-<p>然后再重新安装 MySQL。</p>
-<p>这次长记性保存了临时密码。</p>
-<p>接下来重新配置 MySQL。</p>
-<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
-<blockquote>
-<p>Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</p>
-</blockquote>
-<p>通过新修改的密码登录 MySQL：<code>mysql -u root -p</code>，提示输入密码，终于成功登录。</p>
-<p>吸取教训，<strong>一定不要完全按照网上的教程来安装配置应用程序，尽量根据官网文档</strong>。</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.cnblogs.com/macro-cheng/archive/2011/10/25/mysql-001.html" target="_blank" rel="external">MAC下安装与配置MySQL</a></li>
-<li><a href="http://blog.csdn.net/zzq900503/article/details/14163341" target="_blank" rel="external">Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’</a></li>
-<li><a href="https://segmentfault.com/q/1010000000094608" target="_blank" rel="external">Mac上MySQL报错</a></li>
-<li><a href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html" target="_blank" rel="external">Install MySQL on Mac OS X</a></li>
-<li><a href="http://blog.csdn.net/lioncode/article/details/7917310" target="_blank" rel="external">连接MySQL数据库时常见故障问题的分析与解决</a></li>
-<li><a href="http://stackoverflow.com/questions/1436425/how-do-you-uninstall-mysql-from-mac-os-x" target="_blank" rel="external">How do you uninstall MySQL from Mac OS X?</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html" target="_blank" rel="external">Installing MySQL on OS X Using Native Packages</a></li>
-<li><a href="http://community.jaspersoft.com/wiki/uninstall-mysql-mac-os-x" target="_blank" rel="external">Uninstall MySql on a Mac OS X</a></li>
-<li><a href="https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords" target="_blank" rel="external">Setting, Changing And Resetting MySQL Root Passwords</a></li>
-<li><a href="http://stackoverflow.com/questions/33387879/mysql-password-expired-cant-connect" target="_blank" rel="external">Mysql password expired. Can’t connect</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/11/2016-09-11-data-redundency/" itemprop="url">
-                  数据冗余
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-11T19:54:11+08:00" content="2016-09-11">
-              2016-09-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/11/2016-09-11-data-redundency/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/11/2016-09-11-data-redundency/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="数据冗余"><a href="#数据冗余" class="headerlink" title="数据冗余"></a>数据冗余</h1><h2 id="什么是数据冗余？"><a href="#什么是数据冗余？" class="headerlink" title="什么是数据冗余？"></a>什么是数据冗余？</h2><p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
-<p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
-<p>Q: 数据冗余会造成什么影响和后果？</p>
-<h2 id="数据冗余的类型"><a href="#数据冗余的类型" class="headerlink" title="数据冗余的类型"></a>数据冗余的类型</h2><ul>
-<li>空间冗余</li>
-<li>时间冗余</li>
-<li>结构冗余</li>
-<li>知识冗余</li>
-<li>视觉冗余</li>
-<li>信息熵冗余</li>
-</ul>
-<p>Q：数据冗余与文件压缩有什么样的关系？</p>
-<h2 id="什么时候增加数据冗余？"><a href="#什么时候增加数据冗余？" class="headerlink" title="什么时候增加数据冗余？"></a>什么时候增加数据冗余？</h2><p>虽然一般情况下，应尽量减少数据冗余，保证数据的一致性，但在某些情况下，也需要适当增加数据冗余度。数据冗余或者信息冗余是生产、生活所必然存在的行为，没有好与坏的总体倾向。</p>
-<ul>
-<li>重复存储或传输数据以<strong>防止数据丢失</strong>；</li>
-<li>对数据进行冗余性的编码来防止数据的丢失、错误，并提供<strong>对错误数据进行反变换</strong>得到原始数据的功能；</li>
-<li>为方便处理和使同一信息在不同地点有<strong>不同的表现形式</strong>；</li>
-<li>为了提高数据的<strong>检索速度</strong>。</li>
-</ul>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li>wiki.mbalib.com/wiki/数据冗余</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1443,7 +1152,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1460,7 +1169,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">98</span>
+                <span class="site-state-item-count">99</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

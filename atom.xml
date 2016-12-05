@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-12-01T06:54:54.000Z</updated>
+  <updated>2016-12-05T08:33:41.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -16,52 +16,223 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>环境和工具配置</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T06:54:54.000Z</updated>
+    <title>每日总结 2016-12-05</title>
+    <link href="http://lix90.github.io/2016/12/05/2016-12-05-daily/"/>
+    <id>http://lix90.github.io/2016/12/05/2016-12-05-daily/</id>
+    <published>2016-12-04T16:00:00.000Z</published>
+    <updated>2016-12-05T08:33:41.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
-<h2 id="PyPi"><a href="#PyPi" class="headerlink" title="PyPi"></a>PyPi</h2><h3 id="MacOS-配置-pip"><a href="#MacOS-配置-pip" class="headerlink" title="MacOS 配置 pip"></a>MacOS 配置 pip</h3><ol>
-<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
-<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
-</ol>
-<h3 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h3><p>pipy国内镜像目前有：</p>
-<p><a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a>  豆瓣<br><a href="http://pypi.hustunique.com/simple" target="_blank" rel="external">http://pypi.hustunique.com/simple</a>  华中理工大学<br><a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="external">http://pypi.sdutlinux.org/simple</a>  山东理工大学<br><a href="http://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/simple</a>  中国科学技术大学<br><a href="http://mirrors.aliyun.com/pypi/simple" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple</a> 阿里云<br>清华大学<br>公网：<a href="http://e.pypi.python.org/simple" target="_blank" rel="external">http://e.pypi.python.org/simple</a><br>教育网：<a href="http://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">http://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<p>Linux 和 MacOS 系统下配置文件位置: <code>$HOME/.pip/pip.conf</code><br>Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
-<p>设置环境变量 <code>PIP_CONFIG_FILE</code> 可以指定默认配置文件路径。</p>
-<p>修改配置文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">trusted-host = mirrors.aliyun.com</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple</div></pre></td></tr></table></figure></p>
-<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><p>另外还可以添加其他参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line"></div><div class="line">[freeze]</div><div class="line">timeout = 10</div><div class="line"></div><div class="line">[install]</div><div class="line">ignore-installed = true</div><div class="line">no-dependencies = no # or yes</div></pre></td></tr></table></figure>
-<p>对于 easy_install 可以修改 <code>$HOME/.pydistutils.cfg</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[easy_install]</div><div class="line">index_url = &lt;mirror&gt;</div></pre></td></tr></table></figure>
-<p>另外还可以创建别名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pip=&quot;pip -i &lt;mirror&gt;&quot;</div></pre></td></tr></table></figure>
-<h3 id="pip-常用命令"><a href="#pip-常用命令" class="headerlink" title="pip 常用命令"></a>pip 常用命令</h3><p>搜索模块<br><code>pip search &lt;pkg_name&gt;</code></p>
-<p>安装模块<br><code>pip install &lt;pkg_name&gt;</code><br><code>pip install &lt;pkg_name&gt;==&lt;version&gt;</code></p>
-<p>升级模块（如果不提供版本号，升级到最新版本）<br><code>pip install --upgrade &lt;pkg_name&gt;&gt;=&lt;version&gt;</code></p>
-<p>卸载模块<br><code>pip uninstall &lt;pkg_name&gt;</code></p>
-<p>显示当前环境中模块的清单<br><code>pip freeze</code><br>重定向到文本文件<br><code>pip freeze &gt; req.txt</code><br>使用清单<br><code>pip install -r req.txt</code></p>
-<h2 id="环境管理"><a href="#环境管理" class="headerlink" title="环境管理"></a>环境管理</h2><p>使用虚拟环境管理工具</p>
-<p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
-<p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
-<p>配置流程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div></pre></td></tr></table></figure>
-<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="镜像源-1"><a href="#镜像源-1" class="headerlink" title="镜像源"></a>镜像源</h2><p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br><a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br><a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
-<p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
+    <content type="html"><![CDATA[<h1 id="如何在-ESS-中调出-R-包对应的-Vignettes？"><a href="#如何在-ESS-中调出-R-包对应的-Vignettes？" class="headerlink" title="如何在 ESS 中调出 R 包对应的 Vignettes？"></a>如何在 ESS 中调出 R 包对应的 Vignettes？</h1><ul>
+<li>首先得加载包 <code>library(pkg)</code></li>
+<li><code>C-c C-d C-v</code> 查找已载入包的 Vignettes，含有 Vignettes 的包则会列出来</li>
+<li>光标移动到链接下，<code>enter/RET</code> 打开对应 Vignettes</li>
+</ul>
+<h1 id="如何阻止-R-打印启动信息（startup-message）"><a href="#如何阻止-R-打印启动信息（startup-message）" class="headerlink" title="如何阻止 R 打印启动信息（startup message）"></a>如何阻止 R 打印启动信息（startup message）</h1><ul>
+<li>命令行中，传给 R 参数即可 <code>R -q/--quiet/--silent</code></li>
+<li>ESS 中，设定变量 <code>inferior-R-args</code> 的值 <code>(setq inferior-R-args &quot;-q&quot;)</code></li>
+</ul>
+<h1 id="如何将-R-中的统计结果导出为发表格式（APA）？"><a href="#如何将-R-中的统计结果导出为发表格式（APA）？" class="headerlink" title="如何将 R 中的统计结果导出为发表格式（APA）？"></a>如何将 R 中的统计结果导出为发表格式（APA）？</h1><p>一般来说，用 R 统计之后导出的信息过于详细，直接复制并不能满足发表的格式要求。但是结果报告时只需要特定的指标，所以需要精简信息。两个包可以实现该需求，<code>schoRsch</code> 和 <code>apa</code>。</p>
+<blockquote>
+<p>apa generalizes this idea by providing formatters for different output formats (text, Markdown, RMarkdown, HTML, LaTeX, docx and R’s plotmath syntax).</p>
+<p>Currently supported tests are:</p>
+<ul>
+<li>t-test (<code>t.test</code> and <code>apa::t_test</code>)</li>
+<li>ANOVA (<code>ez::ezANOVA</code>, <code>afex::aov_car</code>, <code>afex::aov_ez</code>, and <code>afex::aov_4</code>)</li>
+<li>chi-squared test (<code>chisq.test</code>)</li>
+<li>test of a correlation (<code>cor.test</code>)</li>
+</ul>
+</blockquote>
+<p>apa 包可以支持多种常见的心理学使用的统计检验方法，对应函数为：<code>anova_apa</code> <code>chisq_apa</code> <code>cor_apa</code> <code>t_apa</code>。apa 比 schoRsch 强大的地方是可以导出为多种格式，例如 Rmarkdown，html，latex，docx，以及在 R 绘图时的数学表达式。这样就可以直接复制结果到论文中了。</p>
+<p>schoRsch 包中包含这几个导出结果的函数：<code>anova_out</code> <code>cor_out</code> <code>chi_out</code> <code>t_out</code>。</p>
+<p><code>apa::anova_apa</code></p>
+<ul>
+<li>x: 支持 <code>ez::ezANOVA</code> <code>afex::afex_ez</code> <code>afex::afex_car</code> <code>afex::afex_4</code> 的结果作为输入对象。</li>
+<li>effect: 字符串，指定效应名称；如果值为 ‘NULL’，所有效应均报告。</li>
+<li>sph_corr: 字符串，指定球形检验方法，包括 “greenhouse-geisser”(默认) “huynh-feldt” 或 “none”；或者使用简称 “gg” “hf”。</li>
+<li>es: 字符串，指定效应量类型，包括 “petasq”(partial eta squared) 或 “getasq”(generalized eta squared)；或者使用简称 “pes” 和 “ges”。</li>
+<li>format: 字符串，指定导出格式，包含 “text”, “markdown”, “rmarkdown”, “html”, “latex”, “docx”, “plotmath”。</li>
+</ul>
+<p><code>apa::t_apa</code></p>
+<ul>
+<li>x: 来自 <code>apa::t_test</code> 或 <code>t.test</code> 的结果。</li>
+<li>es: 字符串，指定效应量类型，包括 “cohens_d”(默认), “hedges_g”, 或 “glass_delta”（如何 x 为独立样本 t 检验的结果）。如果 x 为配对样本或者单样本 t 检验结果，报告 cohen’s d 值。</li>
+<li>format: 字符串，导出格式。</li>
+<li>info</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      记录各种开发环境和工具的配置过程。
+      几个使用 R 中遇到的问题：&lt;br&gt;- 如何在 ESS 中调出 R 包对应的 Vignettes？&lt;br&gt;- 如何阻止 R 打印启动信息（startup message）&lt;br&gt;- 如何将 R 中的统计结果导出为发表格式（APA）？
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="ESS" scheme="http://lix90.github.io/tags/ESS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-04</title>
+    <link href="http://lix90.github.io/2016/12/04/2016-12-04-daily/"/>
+    <id>http://lix90.github.io/2016/12/04/2016-12-04-daily/</id>
+    <published>2016-12-03T16:00:00.000Z</published>
+    <updated>2016-12-04T11:19:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="面向对象基础"><a href="#面向对象基础" class="headerlink" title="面向对象基础"></a>面向对象基础</h1><p>ECMAScript 没有类的概念。<br>对象就是无序属性的集合，一组名值对，值可为数据也可为函数。<br>ECMAScript 中有两种属性：数据属性和访问器属性。<br>数据属性有4个描述其行为的特性：</p>
+<ul>
+<li>[[Configurable]] 能否修改</li>
+<li>[[Enumerable]] 能否枚举</li>
+<li>[[Writable]] 能否修改属性的值</li>
+<li>[[Value]] 属性的数据值<br>修改属性默认的特性的方法 <code>Object.defineProperty()</code></li>
+</ul>
+<p>访问器属性<br>不包含数据值<br>包含两个函数：getter和setter<br>读取 getter<br>写入 setter<br>四个特性</p>
+<ul>
+<li>[[Configurable]]</li>
+<li>[[Enumerable]]</li>
+<li>[[Get]]</li>
+<li>[[Set]]</li>
+</ul>
+<p>定义多个属性 <code>Object.defineProperties()</code><br>读取属性的特性 <code>Object.getOwnPropertyDescriptor()</code></p>
+<p>创建对象<br>工厂模式：通过函数封装以特定接口创建对象的细节。<br>构造函数模式：原生构造函数或自定义的构造函数。<br>构造函数模式与工厂模式的区别：</p>
+<ul>
+<li>没有显式地创建对象</li>
+<li>直接将属性和方法赋给了 this 对象</li>
+<li>没有 return 语句</li>
+</ul>
+<p>构造函数以大写字母开头。</p>
+<p>使用构造函数创建新实例，必须使用 new 操作符。<br>经历 4 个步骤：</p>
+<ul>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给新对象，this 指向了这个新对象</li>
+<li>执行构造函数中的代码，为这个新对象添加属性</li>
+<li>返回新对象</li>
+</ul>
+<p>原型模式</p>
+<hr>
+<p>构造函数以大写字母开头。</p>
+<p>使用构造函数创建新实例，必须使用 new 操作符。<br>经历 4 个步骤：</p>
+<ul>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给新对象，this 指向了这个新对象</li>
+<li>执行构造函数中的代码，为这个新对象添加属性</li>
+<li>返回新对象</li>
+</ul>
+<p>原型模式<br>…</p>
+<hr>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">op &lt;- options(contrasts = c(<span class="string">"contr.helmert"</span>, <span class="string">"contr.poly"</span>))</div><div class="line"><span class="keyword">...</span></div><div class="line">par(op) <span class="comment"># 恢复默认</span></div><div class="line"></div><div class="line">parr &lt;- par(mar = c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</div><div class="line"><span class="keyword">...</span></div><div class="line">par(parr) <span class="comment"># 恢复默认</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>split-plot experiments 裂区实验设计<br>pseudoreplication 伪重复问题</p>
+]]></content>
+    
+    <summary type="html">
+    
+      js 面向对象编程基础&lt;br&gt;r 保存默认参数设置：options &amp; par
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-03</title>
+    <link href="http://lix90.github.io/2016/12/03/2016-12-03-daily/"/>
+    <id>http://lix90.github.io/2016/12/03/2016-12-03-daily/</id>
+    <published>2016-12-02T16:00:00.000Z</published>
+    <updated>2016-12-03T05:43:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>emacs sharp-quote for lambdas</p>
+<p>在<a href="http://endlessparentheses.com/get-in-the-habit-of-using-sharp-quote.html" target="_blank" rel="external">以前</a> sharp quote 对于 lambdas 是必要的，但是<a href="http://emacs.stackexchange.com/questions/3595/when-to-sharp-quote-a-lambda-expression" target="_blank" rel="external">现在</a> <code>(lambda (x) x)</code> 和 <code>#(lambda (x) x)</code> 在求值时是等同的。但是 <code>&#39;(lambda (x) x)</code> 仅仅是阻止被编译（byte compilation）。</p>
+<p>以下三种表达式都是等同的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(lambda (x) (* x x))</div><div class="line">(function (lambda (x) (* x x)))</div><div class="line">#&apos;(lambda (x) (* x x))</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/bbatsov/emacs-lisp-style-guide/issues/7" target="_blank" rel="external"><strong>prefer #’ (sharp quote) when quoting function names</strong></a> When quoting symbols to access their function definitions, prefer the use of sharp quotes. <strong>This allows the bytecompiler to check if the function exists</strong>, issuing a warning just like it would when calling an undefined function.</p>
+</blockquote>
+<hr>
+<p>lexical scoping 词法作用域</p>
+]]></content>
+    
+    <summary type="html">
+    
+      - emacs sharp quote&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-02</title>
+    <link href="http://lix90.github.io/2016/12/02/2016-12-02-daily/"/>
+    <id>http://lix90.github.io/2016/12/02/2016-12-02-daily/</id>
+    <published>2016-12-01T16:00:00.000Z</published>
+    <updated>2016-12-03T02:02:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>没有学习什么内容，听了个播客，“代码时间”的一期节目“Lisp入门”。自己使用 Emacs 编辑器，对 lisp 比较感兴趣。于是去了解下 lisp 的一个方言，clojure。在 <a href="https://learnxinyminutes.com/docs/zh-cn/clojure-cn/" target="_blank" rel="external">learnxinyminutes</a> 学了下 clojure 的基本语法。</p>
+<p>form：小括号里的由空格分开的一组语句。<br>clojure 是前置型语言，括号内第一个元素为函数或者宏，其余的为参数。<br>当创建一组数据字面量，用单引号(‘)来阻止form被解析和求值。<br>clojure 使用 java 的 object 来描述布尔值、字符串和数字。<br>集合 == 一组数据<br>List: <code>(list 1 2 3)</code> == <code>&#39;(1 2 3)</code><br>Vector: <code>[1 2 3]</code><br>序列（seqs）是数据列表的抽象描述。</p>
+<p>class<br>coll<br>seq<br>range<br>take<br>cons<br>conj<br>concat<br>map 映射<br>filter 过滤<br>reduce 规约</p>
+<p>fn 创建函数<br>def 定义变量<br>defn 定义函数</p>
+<p><a href="https://cider.readthedocs.io/en/latest/" target="_blank" rel="external">CIDER</a> CIDER is the Clojure(Script) Interactive Development Environment that Rocks!</p>
+<hr>
+<p>concurrency 并发<br>thread safe 线程安全</p>
+]]></content>
+    
+    <summary type="html">
+    
+      听了个播客，介绍 lisp 语言。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="clojure" scheme="http://lix90.github.io/tags/clojure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell 命令整理</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T11:43:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>@2016-11-16</p>
+<p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
+<p>@2016-12-01</p>
+<p>修改 MacOS 计算机名<br><code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
+<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br><code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>其他格式:</p>
+<ul>
+<li>FAT32: MS-DOS fat32</li>
+<li>HFS+: Mac OS Extended (HFS+)</li>
+<li>ExFAT</li>
+</ul>
+<p>lsof 列出已打开的文件以及对应的进程</p>
+]]></content>
+    
+    <summary type="html">
+    
+      使用 shell 过程中的笔记。
     
     </summary>
     
       <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
     
     
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
   </entry>
   
@@ -109,208 +280,15 @@
   </entry>
   
   <entry>
-    <title>shell 命令整理</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T06:57:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>@2016-11-16</p>
-<p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      使用 shell 过程中的笔记。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R 语言个人参考</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T06:54:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">函数名</th>
-<th style="text-align:left">中文描述</th>
-<th style="text-align:left">用法</th>
-<th style="text-align:left">实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Axis (axis)</td>
-<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
-<td style="text-align:left">``</td>
-</tr>
-<tr>
-<td style="text-align:left">axis.POSIXct</td>
-<td style="text-align:left">Date and Date-time Plotting Functions</td>
-</tr>
-<tr>
-<td style="text-align:left">abline</td>
-<td style="text-align:left">添加垂直线至图形</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">arrows</td>
-<td style="text-align:left">添加箭头</td>
-</tr>
-<tr>
-<td style="text-align:left">box</td>
-<td style="text-align:left">绘制线框</td>
-</tr>
-<tr>
-<td style="text-align:left">grid</td>
-<td style="text-align:left">添加网格线</td>
-</tr>
-<tr>
-<td style="text-align:left">legend</td>
-<td style="text-align:left">添加图例</td>
-</tr>
-<tr>
-<td style="text-align:left">lines</td>
-<td style="text-align:left">Add Connected Line Segments to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">segments</td>
-<td style="text-align:left">Add Line Segments to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">mtext</td>
-<td style="text-align:left">Write Text into the Margins of a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">points</td>
-<td style="text-align:left">Add Points to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">rect</td>
-<td style="text-align:left">Draw One or More Rectangles</td>
-</tr>
-<tr>
-<td style="text-align:left">rug</td>
-<td style="text-align:left">Add a Rug to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">text</td>
-<td style="text-align:left">Add Text to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">title</td>
-<td style="text-align:left">绘制标题</td>
-</tr>
-<tr>
-<td style="text-align:left">polygon</td>
-<td style="text-align:left">绘制多边形</td>
-</tr>
-<tr>
-<td style="text-align:left">polypath</td>
-<td style="text-align:left">绘制路径</td>
-</tr>
-<tr>
-<td style="text-align:left">symbols</td>
-<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
-</tr>
-<tr>
-<td style="text-align:left">xspline</td>
-<td style="text-align:left">Draw an X-spline</td>
-</tr>
-</tbody>
-</table>
-<p>contour                 Display Contours<br>image                   Display a Color Image<br>rasterImage             Draw One or More Raster Images<br>strwidth                Plotting Dimensions of Character Strings and Math Expressions</p>
-<p>par                     Set or Query Graphical Parameters<br>axTicks                 Compute Axis Tickmark Locations<br>clip                    Set Clipping Region<br>filled.contour          Level (Contour) Plots<br>frame                   Create / Start a New Plot Frame<br>grconvertX              Convert between Graphics Coordinate Systems<br>identify                Identify Points in a Scatter Plot<br>layout                  Specifying Complex Plot Arrangements<br>locator                 Graphical Input<br>screen                  Creating and Controlling Multiple Screens on a Single Device<br>xinch                   Graphical Units</p>
-<p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>plot                    Generic X-Y Plotting<br>plot.data.frame         Plot Method for Data Frames<br>plot.default            The Default Scatterplot Function<br>plot.design             Plot Univariate Effects of a Design or Model<br>plot.factor             Plotting Factor Variables<br>plot.formula            Formula Notation for Scatterplots<br>plot.histogram          Plot Histograms<br>plot.raster             Plotting Raster Images<br>plot.table              Plot Methods for ‘table’ Objects<br>plot.window             Set up World Coordinates for Graphics Window<br>plot.xy                 Basic Internal Plot Function<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
-<h1 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h1><h2 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
-<ul>
-<li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
-<li><code>X11</code> 在 X11 视窗系统下支持</li>
-<li><code>svg</code> 基于 cairo 图形的 SVG 设备</li>
-<li>位图 <code>png</code> <code>jpeg</code> <code>bmp</code> <code>tiff</code></li>
-<li><code>quartz</code> 仅在 macOS 上支持</li>
-</ul>
-<p>如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 <code>options(&quot;device&quot;)</code> 指定。 返回。默认的设备为初始化设置为当前平台最合适的设备。</p>
-<p>在 R 中，只允许存在一个“活动（active）”的设备，所有图形操作均在活动设备之上。只要 R 在运行，就有一个“空设备”一直处于开启状态，但仅仅作为占位，任何使用这个空设备的尝试将会打开一个新的设备。设备与一个名称和数字编号关联，数字编号范围为1到63。空设备为编号1。一旦设备被打开，空设备将变成非活动的设备。可以通过 <code>dev.next</code> 和 <code>dev.prev</code> 选择一列开启的设备中，活动的设备的上一个或者下一个设备。</p>
-<p>可以通过 <code>dev.off</code> 关闭指定的设备。如果未指定编号，默认关闭当前活动的设备。如果当前活动设备被关闭，那么下一个设备会被当作活动设备。编号1的设备不能关闭。正常结束一个对话可以执行 <code>graphics.off()</code>。</p>
-<p><code>dev.set</code> 将指定设备更改为活动设备。<code>dev.cur</code> 返回当前活动设备。<code>dev.list</code> 列出所有开启的设备，如果不存在开启的设备，那么返回空设备。如果不存在指定编号的设备，那么默认将 <code>dev.next</code> 所得到的设备当作活动设备。如果指定编号1设备，那么将开启新的设备，并将其设置为活动设备。</p>
-<p><code>dev.new</code> 将开启新的设备。正常情况下，需要时 R 会自动开启新的设备，但这是<strong>让你开启独立于平台的设备</strong>(?疑问：原文”this enables you to open further devices in a platform-indenpendent way.”)。当基于文件的设备（<code>pdf</code>等），文件名将依次命名为 <code>Rplots&lt;1~99&gt;.pdf</code>。对于标准位图设备，如果未指定单位和分辨率，默认强制设置为 <code>units = &quot;in&quot;, res = 72</code>。</p>
-<p>图形设备相关参数：</p>
-<ul>
-<li><code>title</code> 标题</li>
-<li><code>width</code> 宽度</li>
-<li><code>height</code> 高度</li>
-<li><code>pointsize</code> 点尺寸</li>
-<li><code>family</code> 字体</li>
-<li><code>antialias</code> 是否抗锯齿</li>
-<li><code>type</code> 类型</li>
-<li><code>file</code> 文件名</li>
-<li><code>bg</code> 背景色</li>
-<li><code>canvas</code> 画布</li>
-<li><code>dpi</code> 分辨率（每英寸点数）</li>
-</ul>
-<p>PDF 设备参数：</p>
-<ul>
-<li><code>paper</code> 纸张类型，<code>&quot;a4&quot;,&quot;letter&quot;,&quot;legal&quot;,...</code></li>
-<li><code>bg</code> 背景色，默认为 <code>&quot;transparent&quot;</code></li>
-<li><code>fg</code> 前景色，默认为 <code>&quot;black&quot;</code></li>
-<li><code>pointsize</code> 默认为 <code>12</code>，1/72英寸为一个点</li>
-<li><code>colormodel</code> 颜色模式 <code>&quot;srgb&quot;,&quot;gray&quot;,&quot;cmyk&quot;</code>，默认为 <code>&quot;srgb&quot;</code></li>
-</ul>
-<p>PDF 设备并不嵌入字体到 PDF 文件中，所以建议使用常见的字体例如：<code>&quot;Times&quot;(=&quot;serif&quot;),&quot;Helvetica&quot;(=&quot;sans&quot;),&quot;Courier&quot;(=&quot;mono&quot;)</code>。</p>
-<ul>
-<li>默认设备尺寸为 7 英寸的正方形。</li>
-<li>字体大小为 “big points”。</li>
-<li>默认字体为 Helvetica。</li>
-<li>线宽为1/96英寸的倍数，最小为 0.01。</li>
-<li>可支持任意弧度的圆形。</li>
-<li>颜色模式默认为 sRGB。</li>
-<li>如果线宽特别细，线型默认强制为实线。</li>
-</ul>
-<p>位图设备参数：</p>
-<ul>
-<li>默认宽高均为 <code>480px</code></li>
-<li>默认单位为 <code>px</code></li>
-<li>默认点大小为 <code>12</code></li>
-<li>默认背景色为 <code>&quot;white&quot;</code></li>
-<li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Emacs 个人参考</title>
     <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/"/>
     <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T03:37:01.000Z</updated>
+    <updated>2016-12-03T08:08:46.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Major-Mode"><a href="#Major-Mode" class="headerlink" title="Major Mode"></a>Major Mode</h1><h2 id="markdown-mode"><a href="#markdown-mode" class="headerlink" title="markdown-mode"></a>markdown-mode</h2><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
+    <content type="html"><![CDATA[<h1 id="markdown-mode"><a href="#markdown-mode" class="headerlink" title="markdown-mode"></a>markdown-mode</h1><p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
 <p>在 markdown-mode 下，打开帮助文档 <kbd>C-h m</kbd>（我自己将 <kbd>C-h</kbd> 改为了 <kbd>f1</kbd>）。markdown-mode 的 key-map 的前缀命令为 <kbd>C-c</kbd>，也就是按这个键能调出与 markdown-mode 有关的一些命令的快捷键。</p>
-<h3 id="对标题的操作"><a href="#对标题的操作" class="headerlink" title="对标题的操作"></a>对标题的操作</h3><ul>
+<h2 id="对标题的操作"><a href="#对标题的操作" class="headerlink" title="对标题的操作"></a>对标题的操作</h2><ul>
 <li><code>&lt;M-S-down/up&gt;</code> <code>markdown-move-subtree-down/up</code> 向下或向上移动标题。</li>
 <li><code>&lt;M-S-left/right&gt;</code> <code>markdown-promote/demote-subtree</code> 标题升级或降级。<ul>
 <li>当标题为 <code># title #</code> 通过 <code>&lt;M-S-left&gt;</code> 得到 <code>title</code>；<code>&lt;M-S-right&gt;</code> 得到 <code>## title ##</code>。</li>
@@ -321,7 +299,7 @@
 <li><code>&lt;S-tab&gt;</code> <code>markdown-shifttab</code> 折叠标题内容</li>
 <li><code>C-c C-t 1/2/3/4/5/6</code> <code>markdown-insert-header-atx-1/2/3/4/5/6</code></li>
 </ul>
-<h3 id="跳转与移动"><a href="#跳转与移动" class="headerlink" title="跳转与移动"></a>跳转与移动</h3><p>跳转标题</p>
+<h2 id="跳转与移动"><a href="#跳转与移动" class="headerlink" title="跳转与移动"></a>跳转与移动</h2><p>跳转标题</p>
 <ul>
 <li><code>C-c C-b/f</code> <code>markdown-backward/forward-same-level</code> 同级跳转（后或前）。</li>
 <li><code>C-c C-n/p</code> <code>markdown-next/previous-visible-heading</code> 标题跳转（后或前）。</li>
@@ -331,7 +309,7 @@
 <li><code>M-n/p</code> <code>markdown-next/previous-link</code></li>
 <li><code>M-{/}</code> <code>markdown-backward/forward-paragraph</code></li>
 </ul>
-<h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><table>
+<h2 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h2><table>
 <thead>
 <tr>
 <th style="text-align:left"></th>
@@ -427,7 +405,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="help-mode"><a href="#help-mode" class="headerlink" title="help-mode"></a>help-mode</h2><p>用于阅读帮助文档和跳转文档内引用的主要编辑模式（Major mode）</p>
+<h1 id="help-mode"><a href="#help-mode" class="headerlink" title="help-mode"></a>help-mode</h1><p>用于阅读帮助文档和跳转文档内引用的主要编辑模式（Major mode）</p>
 <table>
 <thead>
 <tr>
@@ -486,7 +464,79 @@
 </tr>
 </tbody>
 </table>
-<h2 id="dired-mode"><a href="#dired-mode" class="headerlink" title="dired-mode"></a>dired-mode</h2><p>用于编辑文件和路径列表的主要编辑模式（Major mode）。</p>
+<h1 id="ess-help-mode"><a href="#ess-help-mode" class="headerlink" title="ess-help-mode"></a>ess-help-mode</h1><h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">移动到 buffer 顶端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">移动到 buffer 末端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RET</code></td>
+<td style="text-align:left">移动到下一行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SPC</code></td>
+<td style="text-align:left">向下滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S-SPC</code></td>
+<td style="text-align:left">向上滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>n</code></td>
+<td style="text-align:left">跳转到下一小节</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>p</code></td>
+<td style="text-align:left">跳转到上一小节</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-c C-y</code></td>
+<td style="text-align:left">跳转到 ess</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-c C-z</code></td>
+<td style="text-align:left">跳转到 ess 的命令行末端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>s</code></td>
+<td style="text-align:left">prefix command, 跳转</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>0 .. 9          digit-argument<br>C-c             Prefix Command<br>ESC             Prefix Command</p>
+<ul>
+<li>negative-argument<br>/               isearch-forward<br>0 .. 9          digit-argument</li>
+</ul>
+<p>a | ess-display-help-apropos<br>h | ess-display-help-on-object<br>i | ess-display-package-index<br>v | ess-display-vignettes<br>w | ess-display-help-in-browser</p>
+<p>f               ess-eval-function-or-paragraph-and-step<br>l               ess-eval-line-and-step<br>r               ess-eval-region-and-go</p>
+<p><c-return>      ess-eval-region-or-line-and-step</c-return></p>
+<p>g               revert-buffer<br>q               quit-window<br>k               kill-this-buffer<br>?               ess-describe-help-mode<br>x               ess-kill-buffer-and-go</p>
+<p>s               Prefix Command</p>
+<p><remap>         Prefix Command</remap></p>
+<p>C-c C-c         ess-eval-region-or-function-or-paragraph-and-step<br>C-c C-d         ess-doc-map<br>C-c C-e         ess-extra-map</p>
+<p>C-c C-f         ess-eval-function<br>C-c C-j         ess-eval-line<br>C-c C-n         ess-eval-line-and-step<br>C-c C-r         ess-eval-region</p>
+<p>C-c C-k         ess-request-a-process<br>C-c C-l         ess-load-file</p>
+<p>C-c C-s         ess-switch-process<br>C-c C-t         ess-dev-map<br>C-c C-v         ess-display-help-on-object</p>
+<p>C-c ESC         Prefix Command<br>C-c h           ess-handy-commands</p>
+<p>C-M-a           ess-goto-beginning-of-function-or-para<br>C-M-e           ess-goto-end-of-function-or-para<br>C-M-x           ess-eval-function</p>
+<p>s &lt;             beginning-of-buffer<br>s &gt;             end-of-buffer<br>s ?             ess-describe-sec-map<br>s D             ess-skip-to-help-section<br>s a             ess-skip-to-help-section<br>s d .. s e      ess-skip-to-help-section<br>s n             ess-skip-to-help-section<br>s r .. s v      ess-skip-to-help-section</p>
+<p>C-c C-t C-b     ess-bp-set<br>C-c C-t C-d     ess-debug-flag-for-debugging<br>C-c C-t C-e     ess-debug-toggle-error-action<br>C-c C-t C-k     ess-bp-kill-all<br>C-c C-t C-l     ess-bp-set-logger<br>C-c C-t C-n     ess-bp-next<br>C-c C-t C-o     ess-bp-toggle-state<br>C-c C-t C-p     ess-bp-previous<br>C-c C-t C-s     ess-r-set-evaluation-env<br>C-c C-t C-u     ess-debug-unflag-for-debugging<br>C-c C-t C-w     ess-watch<br>C-c C-t 0 .. C-c C-t 9          ess-electric-selection<br>C-c C-t ?       ess-tracebug-show-help<br>C-c C-t B       ess-bp-set-conditional<br>C-c C-t I       ess-debug-goto-input-event-marker<br>C-c C-t K       ess-bp-kill-all<br>C-c C-t L       ess-bp-set-logger<br>C-c C-t T       ess-toggle-tracebug<br>C-c C-t `       ess-show-traceback<br>C-c C-t b       ess-bp-set<br>C-c C-t d       ess-debug-flag-for-debugging<br>C-c C-t e       ess-debug-toggle-error-action<br>C-c C-t i       ess-debug-goto-input-event-marker<br>C-c C-t k       ess-bp-kill<br>C-c C-t l       ess-r-devtools-load-package<br>C-c C-t n       ess-bp-next<br>C-c C-t o       ess-bp-toggle-state<br>C-c C-t p       ess-bp-previous<br>C-c C-t s       ess-r-set-evaluation-env<br>C-c C-t u       ess-debug-unflag-for-debugging<br>C-c C-t w       ess-watch<br>C-c C-t ~       ess-show-call-stack<br>C-c C-t C-S-b   ess-bp-set-conditional<br>C-c C-t C-S-d   ess-debug-unflag-for-debugging</p>
+<p>C-c C-e C-d     ess-dump-object-into-edit-buffer<br>C-c C-e C-e     ess-execute<br>C-c C-e TAB     ess-install-library<br>C-c C-e C-l     ess-load-library<br>C-c C-e C-s     ess-set-style<br>C-c C-e C-t     ess-build-tags-for-directory<br>C-c C-e C-w     ess-execute-screen-options<br>C-c C-e /       ess-set-working-directory<br>C-c C-e d       ess-dump-object-into-edit-buffer<br>C-c C-e e       ess-execute<br>C-c C-e i       ess-install-library<br>C-c C-e l       ess-load-library<br>C-c C-e s       ess-set-style<br>C-c C-e t       ess-build-tags-for-directory<br>C-c C-e w       ess-execute-screen-options</p>
+<p>C-c C-d C-a     ess-display-help-apropos<br>C-c C-d C-d     ess-display-help-on-object<br>C-c C-d C-e     ess-describe-object-at-point<br>C-c C-d TAB     ess-display-package-index<br>C-c C-d RET     ess-manual-lookup<br>C-c C-d C-o     ess-display-demos<br>C-c C-d C-r     ess-reference-lookup<br>C-c C-d C-v     ess-display-vignettes<br>C-c C-d C-w     ess-help-web-search<br>C-c C-d a       ess-display-help-apropos<br>C-c C-d d       ess-display-help-on-object<br>C-c C-d e       ess-describe-object-at-point<br>C-c C-d i       ess-display-package-index<br>C-c C-d m       ess-manual-lookup<br>C-c C-d o       ess-display-demos<br>C-c C-d r       ess-reference-lookup<br>C-c C-d v       ess-display-vignettes<br>C-c C-d w       ess-help-web-search</p>
+<p>C-c M-f         ess-eval-function-and-go<br>C-c M-j         ess-eval-line-and-go<br>C-c M-l         ess-load-file<br>C-c M-r         ess-eval-region-and-g</p>
+<h1 id="dired-mode"><a href="#dired-mode" class="headerlink" title="dired-mode"></a>dired-mode</h1><p>用于编辑文件和路径列表的主要编辑模式（Major mode）。</p>
 <p>键前缀</p>
 <table>
 <thead>
@@ -820,6 +870,286 @@
 </tr>
 </tbody>
 </table>
+<h1 id="evil-mode"><a href="#evil-mode" class="headerlink" title="evil-mode"></a>evil-mode</h1><h2 id="evil-window-map"><a href="#evil-window-map" class="headerlink" title="evil-window-map"></a>evil-window-map</h2><p>Keymap for window-related commands.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C-b</td>
+<td style="text-align:left">evil-window-bottom-right</td>
+</tr>
+<tr>
+<td style="text-align:left">C-c</td>
+<td style="text-align:left">evil-window-delete</td>
+</tr>
+<tr>
+<td style="text-align:left">C-f</td>
+<td style="text-align:left">ffap-other-window</td>
+</tr>
+<tr>
+<td style="text-align:left">C-n</td>
+<td style="text-align:left">evil-window-new</td>
+</tr>
+<tr>
+<td style="text-align:left">C-o</td>
+<td style="text-align:left">delete-other-windows</td>
+</tr>
+<tr>
+<td style="text-align:left">C-p</td>
+<td style="text-align:left">evil-window-mru</td>
+</tr>
+<tr>
+<td style="text-align:left">C-r</td>
+<td style="text-align:left">evil-window-rotate-downwards</td>
+</tr>
+</tbody>
+</table>
+<p>C-s    | evil-window-split<br>C-v    | evil-window-vsplit</p>
+<p>C-t    | evil-window-top-left</p>
+<p>C-w    | evil-window-next<br>C-_    | evil-window-set-height</p>
+<ul>
+<li>| evil-window-increase-height</li>
+</ul>
+<ul>
+<li>| evil-window-decrease-height<br>&lt;      | evil-window-decrease-width<br>=      | balance-windows<blockquote>
+<pre><code>| evil-window-increase-width
+</code></pre><p>H      | evil-window-move-far-left<br>J      | evil-window-move-very-bottom<br>K      | evil-window-move-very-top<br>L      | evil-window-move-far-right<br>R      | evil-window-rotate-upwards<br>S      | evil-window-split<br>W      | evil-window-prev<br>_      | evil-window-set-height<br>b      | evil-window-bottom-right<br>c      | evil-window-delete<br>h      | evil-window-left<br>j      | evil-window-down<br>k      | evil-window-up<br>l      | evil-window-right<br>n      | evil-window-new<br>o      | delete-other-windows<br>p      | evil-window-mru<br>r      | evil-window-rotate-downwards<br>s      | evil-window-split<br>t      | evil-window-top-left<br>v      | evil-window-vsplit<br>w      | evil-window-next<br>| | evil-window-set-width<br>C-S-h  | evil-window-move-far-left<br>C-S-j  | evil-window-move-very-bottom<br>C-S-k  | evil-window-move-very-top<br>C-S-l  | evil-window-move-far-right<br>C-S-r  | evil-window-rotate-upwards<br>C-S-s  | evil-window-split<br>C-S-w  | evil-window-prev</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="evil-insert-state-map"><a href="#evil-insert-state-map" class="headerlink" title="evil-insert-state-map"></a>evil-insert-state-map</h2><p>Keymap for Insert state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C-a</td>
+<td style="text-align:left">evil-paste-last-insertion</td>
+</tr>
+<tr>
+<td style="text-align:left">C-d</td>
+<td style="text-align:left">evil-shift-left-line</td>
+</tr>
+<tr>
+<td style="text-align:left">C-e</td>
+<td style="text-align:left">evil-copy-from-below</td>
+</tr>
+<tr>
+<td style="text-align:left">C-k</td>
+<td style="text-align:left">evil-insert-digraph</td>
+</tr>
+<tr>
+<td style="text-align:left">C-n</td>
+<td style="text-align:left">evil-complete-next</td>
+</tr>
+<tr>
+<td style="text-align:left">C-o</td>
+<td style="text-align:left">evil-execute-in-normal-state</td>
+</tr>
+<tr>
+<td style="text-align:left">C-p</td>
+<td style="text-align:left">evil-complete-previous</td>
+</tr>
+<tr>
+<td style="text-align:left">C-r</td>
+<td style="text-align:left">evil-paste-from-register</td>
+</tr>
+<tr>
+<td style="text-align:left">C-t</td>
+<td style="text-align:left">evil-shift-right-line</td>
+</tr>
+<tr>
+<td style="text-align:left">C-v</td>
+<td style="text-align:left">quoted-insert</td>
+</tr>
+<tr>
+<td style="text-align:left">C-w</td>
+<td style="text-align:left">evil-delete-backward-word</td>
+</tr>
+<tr>
+<td style="text-align:left">C-y</td>
+<td style="text-align:left">evil-copy-from-above</td>
+</tr>
+<tr>
+<td style="text-align:left">C-z</td>
+<td style="text-align:left">evil-emacs-state</td>
+</tr>
+<tr>
+<td style="text-align:left"><delete></delete></td>
+<td style="text-align:left">delete-char</td>
+</tr>
+<tr>
+<td style="text-align:left"><escape></escape></td>
+<td style="text-align:left">evil-normal-state</td>
+</tr>
+<tr>
+<td style="text-align:left"><mouse-2></mouse-2></td>
+<td style="text-align:left">mouse-yank-primary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="evil-motion-state-map"><a href="#evil-motion-state-map" class="headerlink" title="evil-motion-state-map"></a>evil-motion-state-map</h2><p>Keymap for Motion state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">h/l</td>
+<td style="text-align:left">evil-backward/forward-char 向后/前移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">j/k</td>
+<td style="text-align:left">evil-next/previous-line 想下/上移动一行</td>
+</tr>
+<tr>
+<td style="text-align:left">B/W</td>
+<td style="text-align:left">evil-backward/forward-WORD-begin 向后/前移动到 WORD 前</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">evil-forward-WORD-end 向前移动到 WORD 后</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">evil-forward-word-begin 向前移动到 word 前</td>
+</tr>
+<tr>
+<td style="text-align:left">C-b/C-f</td>
+<td style="text-align:left">evil-scroll-page-up/down 向上/下滚动页面</td>
+</tr>
+<tr>
+<td style="text-align:left">C-d</td>
+<td style="text-align:left">evil-scroll-down 向下滚动</td>
+</tr>
+<tr>
+<td style="text-align:left">C-y/C-e</td>
+<td style="text-align:left">evil-scroll-line-up/down 向上/下滚动一行</td>
+</tr>
+<tr>
+<td style="text-align:left">TAB/C-o</td>
+<td style="text-align:left">evil-jump-forward/backward 前/后跳</td>
+</tr>
+<tr>
+<td style="text-align:left">RET</td>
+<td style="text-align:left">evil-ret</td>
+</tr>
+<tr>
+<td style="text-align:left">C-z</td>
+<td style="text-align:left">evil-emacs-state 切换 emacs 和 vim 模式</td>
+</tr>
+<tr>
+<td style="text-align:left">C-v</td>
+<td style="text-align:left">evil-visual-block</td>
+</tr>
+<tr>
+<td style="text-align:left">C-w</td>
+<td style="text-align:left">evil-window-map</td>
+</tr>
+<tr>
+<td style="text-align:left">C-]</td>
+<td style="text-align:left">evil-jump-to-tag</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>%</code></td>
+<td style="text-align:left">evil-jump-item</td>
+</tr>
+<tr>
+<td style="text-align:left">C-^</td>
+<td style="text-align:left">evil-buffer</td>
+</tr>
+<tr>
+<td style="text-align:left">SPC</td>
+<td style="text-align:left">evil-forward-char</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>!</code></td>
+<td style="text-align:left">evil-shell-command</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>#</code></td>
+<td style="text-align:left">evil-search-word-backward</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>$</code></td>
+<td style="text-align:left">evil-end-of-line</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&#39;</code></td>
+<td style="text-align:left">evil-goto-mark-line</td>
+</tr>
+<tr>
+<td style="text-align:left">```</td>
+<td style="text-align:left">evil-goto-mark</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>G</code></td>
+<td style="text-align:left">evil-goto-line</td>
+</tr>
+</tbody>
+</table>
+<p>( |    evil-backward-sentence-begin<br>) |    evil-forward-sentence-begin</p>
+<p>K |    evil-lookup</p>
+<ul>
+<li>|    evil-search-word-forward<br><code>/</code>/<code>?</code> |    evil-search-forward/backward<br>N/n |    evil-search-previous/next<br>, |    evil-repeat-find-char-reverse<br>; |    evil-repeat-find-char<br>F |    evil-find-char-backward<br>T |    evil-find-char-to-backward</li>
+</ul>
+<ul>
+<li>|    evil-next-line-first-non-blank</li>
+</ul>
+<ul>
+<li>|    evil-previous-line-first-non-blank</li>
+</ul>
+<p>0 |    evil-digit-argument-or-evil-beginning-of-line<br>1 .. 9  | digit-argument<br>: |    evil-ex</p>
+<p>H |    evil-window-top<br>L |    evil-window-bottom<br>M |    evil-window-middle</p>
+<p>V |    evil-visual-line</p>
+<p>Y |    evil-yank-line<br>y |    evil-yank</p>
+<p>[ |    Prefix Command<br>\ |    evil-execute-in-emacs-state<br>] |    Prefix Command<br>^ |    evil-first-non-blank<br>_ |    evil-next-line-1-first-non-blank</p>
+<p><code>|</code> |    evil-goto-column<br>b |    evil-backward-word-begin<br>e |    evil-forward-word-end<br>f |    evil-find-char<br>g |    Prefix Command</p>
+<p>t |    evil-find-char-to<br>v |    evil-visual-char</p>
+<p>z |    Prefix Command<br><code>{</code> |    evil-backward-paragraph</p>
+<p><code>}</code> |    evil-forward-paragraph<br>C-6 |  evil-switch-to-windows-last-buffer</p>
+<p><down> | evil-next-line</down></p>
+<p><down-mouse-1>  | evil-mouse-drag-region</down-mouse-1></p>
+<p><left> | evil-backward-char</left></p>
+<p><remap> | Prefix Command</remap></p>
+<p><right> | evil-forward-char</right></p>
+<p><up> | evil-previous-line</up></p>
+<p><remap> <ace-jump-char-mode>    evil-ace-jump-char-mode</ace-jump-char-mode></remap></p>
+<p><remap> <ace-jump-line-mode>    evil-ace-jump-line-mode</ace-jump-line-mode></remap></p>
+<p><remap> <ace-jump-word-mode>    evil-ace-jump-word-mode</ace-jump-word-mode></remap></p>
+<p><remap> <avy-goto-char>         evil-avy-goto-char</avy-goto-char></remap></p>
+<p><remap> <avy-goto-char-2>       evil-avy-goto-char-2</avy-goto-char-2></remap></p>
+<p><remap> <avy-goto-char-2-above> evil-avy-goto-char-2-above</avy-goto-char-2-above></remap></p>
+<p><remap> <avy-goto-char-2-below> evil-avy-goto-char-2-below</avy-goto-char-2-below></remap></p>
+<p><remap> <avy-goto-char-in-line> evil-avy-goto-char-in-line</avy-goto-char-in-line></remap></p>
+<p><remap> <avy-goto-line>         evil-avy-goto-line</avy-goto-line></remap></p>
+<p><remap> <avy-goto-subword-0>    evil-avy-goto-subword-0</avy-goto-subword-0></remap></p>
+<p><remap> <avy-goto-subword-1>    evil-avy-goto-subword-1</avy-goto-subword-1></remap></p>
+<p><remap> <avy-goto-word-0>       evil-avy-goto-word-0</avy-goto-word-0></remap></p>
+<p><remap> <avy-goto-word-1>       evil-avy-goto-word-1</avy-goto-word-1></remap></p>
+<p><remap> <avy-goto-word-1-above> evil-avy-goto-word-1-above</avy-goto-word-1-above></remap></p>
+<p><remap> <avy-goto-word-1-below> evil-avy-goto-word-1-below</avy-goto-word-1-below></remap></p>
+<p><remap> <avy-goto-word-or-subword-1> evil-avy-goto-word-or-subword-1</avy-goto-word-or-subword-1></remap></p>
+<p>z RET | Keyboard Macro<br>z + |  evil-scroll-bottom-line-to-top<br>z - |  Keyboard Macro<br>z . |  Keyboard Macro<br>z H |  evil-scroll-left<br>z L |  evil-scroll-right<br>z ^ |  evil-scroll-top-line-to-bottom<br>z b |  evil-scroll-line-to-bottom<br>z h |  evil-scroll-column-left<br>z l |  evil-scroll-column-right<br>z t |  evil-scroll-line-to-top<br>z z |  evil-scroll-line-to-center<br>z <left>  | Keyboard Macro<br>z <return> | Keyboard Macro<br>z <right> | Keyboard Macro</right></return></left></p>
+<p>C-w C-b |  evil-window-bottom-right<br>C-w C-c |  evil-window-delete<br>C-w C-f |  ffap-other-window<br>C-w C-n |  evil-window-new<br>C-w C-o |  delete-other-windows<br>C-w C-p |  evil-window-mru<br>C-w C-r |  evil-window-rotate-downwards<br>C-w C-s |  evil-window-split<br>C-w C-t |  evil-window-top-left<br>C-w C-v |  evil-window-vsplit<br>C-w C-w |  evil-window-next<br>C-w C-<em> |  evil-window-set-height<br>C-w + | evil-window-increase-height<br>C-w - | evil-window-decrease-height<br>C-w &lt; | evil-window-decrease-width<br>C-w = | balance-windows<br>C-w &gt; | evil-window-increase-width<br>C-w H | evil-window-move-far-left<br>C-w J | evil-window-move-very-bottom<br>C-w K | evil-window-move-very-top<br>C-w L | evil-window-move-far-right<br>C-w R | evil-window-rotate-upwards<br>C-w S | evil-window-split<br>C-w W | evil-window-prev<br>C-w </em> | evil-window-set-height<br>C-w b | evil-window-bottom-right<br>C-w c | evil-window-delete<br>C-w h | evil-window-left<br>C-w j | evil-window-down<br>C-w k | evil-window-up<br>C-w l | evil-window-right<br>C-w n | evil-window-new<br>C-w o | delete-other-windows<br>C-w p | evil-window-mru<br>C-w r | evil-window-rotate-downwards<br>C-w s | evil-window-split<br>C-w t | evil-window-top-left<br>C-w v | evil-window-vsplit<br>C-w w | evil-window-next<br>C-w | | evil-window-set-width<br>C-w C-S-h | evil-window-move-far-left<br>C-w C-S-j |  evil-window-move-very-bottom<br>C-w C-S-k |  evil-window-move-very-top<br>C-w C-S-l |  evil-window-move-far-right<br>C-w C-S-r |  evil-window-rotate-upwards<br>C-w C-S-s |  evil-window-split<br>C-w C-S-w |  evil-window-prev</p>
+<p>[ ( |   evil-previous-open-paren<br>[ [ |   evil-backward-section-begin<br>[ ] |   evil-backward-section-end<br>[ { |   evil-previous-open-brace</p>
+<p>] ) |   evil-next-close-paren<br>] [ |   evil-forward-section-end<br>] ] |   evil-forward-section-begin<br>] } |   evil-next-close-brace</p>
+<p>g C-] | find-tag<br>g # |   evil-search-unbounded-word-backward<br>g $ |   evil-end-of-visual-line<br>g * |   evil-search-unbounded-word-forward<br>g 0 |   evil-beginning-of-visual-line<br>g E |   evil-backward-WORD-end<br>g N |   evil-previous-match<br>g ^ |   evil-first-non-blank-of-visual-line<br>g _ |   evil-last-non-blank<br>g d |   evil-goto-definition<br>g e |   evil-backward-word-end<br>g g |   evil-goto-first-line<br>g j |   evil-next-visual-line<br>g k |   evil-previous-visual-line<br>g m |   evil-middle-of-visual-line<br>g n |   evil-next-match<br>g v |   evil-visual-restore</p>
+<h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><p><a href="https://github.com/emacs-china/emacs-lisp-style-guide/blob/master/README-zhCN.md" target="_blank" rel="external">emacs lisp 风格指南</a></p>
+<h1 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h1><h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><p>正在使用<br><a href="https://github.com/bbatsov/solarized-emacs" target="_blank" rel="external">solarized-theme</a><br><a href="https://github.com/Malabarba/smart-mode-line/" target="_blank" rel="external">smart-mode-line</a><br><a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio</a> 自动调整 window 的大小比例，将当前活动 buffer 所在的 window 调大，非活动窗口调小。</p>
+<p>以前用过<br><a href="https://github.com/oneKelvinSmith/monokai-emacs" target="_blank" rel="external">monokai-theme</a> 对比度有些高不太适应，后来改为了 solarized-theme。<br><a href="https://github.com/kuanyui/moe-theme.el" target="_blank" rel="external">moe-theme</a><br>[powerline]<br>[spaceline]</p>
 ]]></content>
     
     <summary type="html">
@@ -836,18 +1166,354 @@
   </entry>
   
   <entry>
+    <title>R 语言个人参考</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-05T07:20:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="base"><a href="#base" class="headerlink" title="base"></a>base</h1><p><strong>Sys.</strong></p>
+<ul>
+<li><code>Sys.getenv()</code> 获取环境变量内容</li>
+<li><code>Sys.setenv()</code> 设置环境变量</li>
+<li><code>Sys.unsetenv()</code> 移除环境变量</li>
+<li><code>Sys.time()</code> <code>Sys.Date()</code> 获取当前日期和时间</li>
+</ul>
+<h2 id="Startup"><a href="#Startup" class="headerlink" title="Startup"></a>Startup</h2><p>步骤</p>
+<ol>
+<li><strong>设置环境变量</strong>：通过 site 和 user 文件</li>
+</ol>
+<ul>
+<li>site file 由环境变量 <code>R_ENVIRON</code> 指定；如果没有指定，那么使用系统默认 site file，<code>R_HOME/etc/Renviron.site</code>。</li>
+<li>user file 由环境变量 <code>R_ENVIRON_USER</code> 指定；如果没有指定，那么搜索当前工作路径或者用户的主路径（HOME directory）中的 <code>.Renviron</code> 文件。<br>此时 base package 被加载</li>
+</ul>
+<ol>
+<li>搜索 profile file，由<code>R_PROFILE</code>环境变量指定，若不存在，则使用 <code>R_HOME/etc/Rprofile.site</code>。</li>
+<li>搜索 user profile，有 <code>R_PROFILE_USER</code> 环境变量指定，如果不存在，调用 <code>.Rprofile</code>，source 到 workspace 中。</li>
+<li>如果存在 <code>.RData</code>，则加载</li>
+<li>如果存在 <code>.First</code> 函数，则执行，然后，<code>base::.First.sys()</code> 执行。<code>.First.sys()</code> 调用 <code>require</code> 加载默认的包。默认的 R 包由 <code>options(&quot;defaultPackages&quot;)</code> 指定。如果默认包中包含 methods package，那么通过函数 <code>.OptRequireMethods()</code> 先加载 methods 包。<code>.First()</code> 可以在 <code>.Rprofile</code> 和 <code>Profile.site</code> 中定义，也可以存储在 <code>.RData</code> 中。</li>
+</ol>
+<p>在 R 启动时，需要两种文件，设置环境变量的文件和包含 R 代码的 profile 文件。</p>
+<h1 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h1><h2 id="函数索引"><a href="#函数索引" class="headerlink" title="函数索引"></a>函数索引</h2><h3 id="常用底层函数"><a href="#常用底层函数" class="headerlink" title="常用底层函数"></a>常用底层函数</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:left">中文描述</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Axis (axis)</td>
+<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
+<td style="text-align:left">``</td>
+</tr>
+<tr>
+<td style="text-align:left">abline</td>
+<td style="text-align:left">添加直线（垂直、水平、斜线）</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">lines</td>
+<td style="text-align:left">添加连接线段</td>
+</tr>
+<tr>
+<td style="text-align:left">segments</td>
+<td style="text-align:left">一对点之间绘制线段</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>arrows</strong></td>
+<td style="text-align:left">一对点之间绘制箭头</td>
+<td style="text-align:left">添加注释，误差线</td>
+</tr>
+<tr>
+<td style="text-align:left">box</td>
+<td style="text-align:left">绘制线框</td>
+</tr>
+<tr>
+<td style="text-align:left">grid</td>
+<td style="text-align:left">添加网格线</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">绘制标题</td>
+</tr>
+<tr>
+<td style="text-align:left">legend</td>
+<td style="text-align:left">添加图例</td>
+</tr>
+<tr>
+<td style="text-align:left">mtext</td>
+<td style="text-align:left">在图形边距上添加文字</td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">添加文本内容</td>
+</tr>
+<tr>
+<td style="text-align:left">points</td>
+<td style="text-align:left">添加点</td>
+</tr>
+<tr>
+<td style="text-align:left">rect</td>
+<td style="text-align:left">绘制矩形</td>
+</tr>
+<tr>
+<td style="text-align:left">polygon</td>
+<td style="text-align:left">绘制多边形</td>
+</tr>
+<tr>
+<td style="text-align:left">polypath</td>
+<td style="text-align:left">绘制路径</td>
+</tr>
+<tr>
+<td style="text-align:left">symbols</td>
+<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
+</tr>
+<tr>
+<td style="text-align:left">xspline</td>
+<td style="text-align:left">Draw an X-spline</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>rug</strong></td>
+<td style="text-align:left">添加轴须图</td>
+<td style="text-align:left">散点图添加轴须图呈现分布特征</td>
+</tr>
+</tbody>
+</table>
+<p><strong>par</strong> | 设置和查询图形参数<br>axTicks                 Compute Axis Tickmark Locations<br>clip                    Set Clipping Region<br>filled.contour          Level (Contour) Plots<br>frame                   Create / Start a New Plot Frame<br>grconvertX              Convert between Graphics Coordinate Systems<br>identify                Identify Points in a Scatter Plot<br><strong>layout</strong>                  Specifying Complex Plot Arrangements<br>locator                 Graphical Input<br>screen                  Creating and Controlling Multiple Screens on a Single Device<br>xinch                   Graphical Units<br>strwidth/strheight | 计算字符串和数学表达式的宽/高</p>
+<p>plot                    Generic X-Y Plotting<br>plot.data.frame         Plot Method for Data Frames<br>plot.default            The Default Scatterplot Function<br>plot.design             Plot Univariate Effects of a Design or Model<br>plot.factor             Plotting Factor Variables<br>plot.formula            Formula Notation for Scatterplots<br>plot.histogram          Plot Histograms<br>plot.raster             Plotting Raster Images<br>plot.table              Plot Methods for ‘table’ Objects<br>plot.window             Set up World Coordinates for Graphics Window<br>plot.xy                 Basic Internal Plot Function</p>
+<p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
+<p>双变量</p>
+<p>contour | 绘制轮廓线/等高线图<br>image | 绘制二维图像<br>rasterImage | 绘制栅格图</p>
+<h2 id="par-graphical-parameters"><a href="#par-graphical-parameters" class="headerlink" title="par: graphical parameters"></a>par: graphical parameters</h2><p><strong>margins</strong>: (bottom, left, top, right)<br>mar (margins size in lines)<br>mai (margin size in inches)<br>mex (scale fator of line height of margins)<br>oma (out margins area)</p>
+<p><a href="http://research.stowers-institute.org/efg/R/Graphics/Basics/mar-oma/index.htm" target="_blank" rel="external">tutorials of margins and outer margins</a><br><a href="http://rgraphics.limnology.wisc.edu/index.php" target="_blank" rel="external">R graphics</a></p>
+<p><strong>multiple figures</strong><br>mlcol (multiple figures column)<br>mlrow (multiple figures row)</p>
+<p><strong>cex</strong>: scale factor of text and symbols<br>cex.axis: axis tick labels<br>cex.lab: x-y axis labels<br>cex.main: main title<br>cex.sub: subtitle</p>
+<p><strong>axis</strong></p>
+<p><strong>xaxs</strong>: x-axis style of interval calculation: R 语言仅支持 r 和 i 两种风格</p>
+<ul>
+<li>r = regular 会在原始数据的基础上有一个拓展，即原始数据点与边框之间有一段距离</li>
+<li>i = interval 按照原始数据的大小进行计算，原始数据点可能与边框重叠</li>
+</ul>
+<p><strong>xaxt</strong>: x-axis type</p>
+<ul>
+<li>n = no axis, 不绘制坐标轴</li>
+<li>s/l/t = plot, 绘制坐标轴</li>
+</ul>
+<p><strong>plot regions</strong><br><strong>plt</strong>: the coordinates of the plot region, (x1/left, x2/right, y1/bottom, y2/top), 每个值为 0 ~ 1 之间，为相对于 device 的长宽的比率。x1 为 device 左边缘至 plot region 左边缘的距离，x2 为 device 的左边缘至 plot region 的右边缘的距离。y1 为 device 的下边缘至 plot region 的下边缘的距离，y2 为 device 的下边缘至 plot region 的上边缘的距离。<br><strong>pin</strong>: specify the size of the plot region in inches, (width, height)<br><strong>pty</strong>: default “m”, 占据可用空间的所有空间；”s”，以正方形的形式占据可用空间的最大空间。</p>
+<p><strong>xpd</strong><br><code>par(xpd = NA)</code> clipped to device<br><code>par(xpd = TRUE)</code> clipped to the current figure region<br><code>par(xpd = FALSE)</code> clipped to the current plot region</p>
+<h1 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h1><h2 id="函数索引-1"><a href="#函数索引-1" class="headerlink" title="函数索引"></a>函数索引</h2><p>Devices                 List of Graphical Devices<br>Hershey                 Hershey Vector Fonts in R<br>Japanese                Japanese characters in R<br>Type1Font               Type 1 and CID Fonts<br>X11Fonts                X11 Fonts<br>as.graphicsAnnot        Coerce an Object for Graphics Annotation<br>as.raster               Create a Raster Object<br>axisTicks               Compute Pretty Axis Tick Scales<br>boxplot.stats           Box Plot Statistics<br>check.options           Set Options with Consistency Checks<br>chull                   Compute Convex Hull of a Set of Points<br>cm                      Unit Transformation<br>contourLines            Calculate Contour Lines<br>dev.capabilities        Query Capabilities of the Current Graphics Device<br>dev.capture             Capture device output as a raster image<br>dev.copy                Copy Graphics Between Multiple Devices<br>dev.cur                 Control Multiple Devices<br>dev.flush               Hold or Flush Output on an On-Screen Graphics Device.<br>dev.interactive         Is the Current Graphics Device Interactive?<br>dev.size                Find Size of Device Surface<br>dev2bitmap              Graphics Device for Bitmap Files via Ghostscript<br>devAskNewPage           Prompt before New Page<br>embedFonts              Embed Fonts in PostScript and PDF<br>extendrange             Extend a Numerical Range by a Small Percentage<br>getGraphicsEvent        Wait for a mouse or keyboard event from a graphics window<br>grDevices-package       The R Graphics Devices and Support for Colours and Fonts<br>grSoftVersion           Report Versions of Graphics Software<br>n2mfrow                 Compute Default mfrow From Number of Plots<br>nclass.Sturges          Compute the Number of Classes for a Histogram<br>pdf                     PDF Graphics Device<br>pdf.options             Auxiliary Function to Set/View Defaults for Arguments of pdf<br>pictex                  A PicTeX Graphics Driver<br>plotmath                Mathematical Annotation in R<br>png                     BMP, JPEG, PNG and TIFF graphics devices<br>postscript              PostScript Graphics<br>postscriptFonts         PostScript and PDF Font Families<br>pretty.Date             Pretty Breakpoints for Date-Time Classes<br>ps.options              Auxiliary Function to Set/View Defaults for Arguments of postscript<br>quartz                  macOS Quartz Device<br>quartzFonts             quartz Fonts<br>recordGraphics          Record Graphics Operations<br>recordPlot              Record and Replay Plots<br>savePlot                Save Cairo X11 Plot to File<br>svg                     Cairographics-based SVG, PDF and PostScript Graphics Devices<br>trans3d                 3D to 2D Transformation for Perspective Plots<br>x11                     X Window System Graphics<br>xfig                    XFig Graphics Device<br>xy.coords               Extracting Plotting Structures<br>xyTable                 Multiplicities of (x,y) Points, e.g., for a Sunflower Plot<br>xyz.coords              Extracting Plotting Structures</p>
+<p>设定颜色<br><code>rgb</code> | RGB 颜色设定 | <code>rgb(red, green, blue, alpha)</code><br>rgb2hsv                 RGB to HSV Conversion<br>gray                    Gray Level Specification<br>gray.colors             Gray Color Palette<br>hcl                     HCL Color Specification<br>hsv                     HSV Color Specification<br>make.rgb                Create colour spaces<br>rainbow                 Color Palettes<br>col2rgb                 Color to RGB Conversion<br>colorRamp               Color interpolation<br>colors                  Color Names<br>convertColor            Convert between Colour Spaces<br>densCols                Colors for Smooth Density Plots<br>adjustcolor             Adjust Colors in One or More Directions Conveniently.<br>palette                 Set or View the Graphics Palette</p>
+<h2 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+<ul>
+<li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
+<li><code>X11</code> 在 X11 视窗系统下支持</li>
+<li><code>svg</code> 基于 cairo 图形的 SVG 设备</li>
+<li>位图 <code>png</code> <code>jpeg</code> <code>bmp</code> <code>tiff</code></li>
+<li><code>quartz</code> 仅在 macOS 上支持</li>
+</ul>
+<p>如果未打开图形设备，高阶图形函数会自动打开设备，默认打开的设备通过 <code>options(&quot;device&quot;)</code> 指定。 返回。默认的设备为初始化设置为当前平台最合适的设备。</p>
+<p>在 R 中，只允许存在一个“活动（active）”的设备，所有图形操作均在活动设备之上。只要 R 在运行，就有一个“空设备”一直处于开启状态，但仅仅作为占位，任何使用这个空设备的尝试将会打开一个新的设备。设备与一个名称和数字编号关联，数字编号范围为1到63。空设备为编号1。一旦设备被打开，空设备将变成非活动的设备。可以通过 <code>dev.next</code> 和 <code>dev.prev</code> 选择一列开启的设备中，活动的设备的上一个或者下一个设备。</p>
+<p>可以通过 <code>dev.off</code> 关闭指定的设备。如果未指定编号，默认关闭当前活动的设备。如果当前活动设备被关闭，那么下一个设备会被当作活动设备。编号1的设备不能关闭。正常结束一个对话可以执行 <code>graphics.off()</code>。</p>
+<p><code>dev.set</code> 将指定设备更改为活动设备。<code>dev.cur</code> 返回当前活动设备。<code>dev.list</code> 列出所有开启的设备，如果不存在开启的设备，那么返回空设备。如果不存在指定编号的设备，那么默认将 <code>dev.next</code> 所得到的设备当作活动设备。如果指定编号1设备，那么将开启新的设备，并将其设置为活动设备。</p>
+<p><code>dev.new</code> 将开启新的设备。正常情况下，需要时 R 会自动开启新的设备，但这是<strong>让你开启独立于平台的设备</strong>(?疑问：原文”this enables you to open further devices in a platform-indenpendent way.”)。当基于文件的设备（<code>pdf</code>等），文件名将依次命名为 <code>Rplots&lt;1~99&gt;.pdf</code>。对于标准位图设备，如果未指定单位和分辨率，默认强制设置为 <code>units = &quot;in&quot;, res = 72</code>。</p>
+<p>图形设备相关参数：</p>
+<ul>
+<li><code>title</code> 标题</li>
+<li><code>width</code> 宽度</li>
+<li><code>height</code> 高度</li>
+<li><code>pointsize</code> 点尺寸</li>
+<li><code>family</code> 字体</li>
+<li><code>antialias</code> 是否抗锯齿</li>
+<li><code>type</code> 类型</li>
+<li><code>file</code> 文件名</li>
+<li><code>bg</code> 背景色</li>
+<li><code>canvas</code> 画布</li>
+<li><code>dpi</code> 分辨率（每英寸点数）</li>
+</ul>
+<p>PDF 设备参数：</p>
+<ul>
+<li><code>paper</code> 纸张类型，<code>&quot;a4&quot;,&quot;letter&quot;,&quot;legal&quot;,...</code></li>
+<li><code>bg</code> 背景色，默认为 <code>&quot;transparent&quot;</code></li>
+<li><code>fg</code> 前景色，默认为 <code>&quot;black&quot;</code></li>
+<li><code>pointsize</code> 默认为 <code>12</code>，1/72英寸为一个点</li>
+<li><code>colormodel</code> 颜色模式 <code>&quot;srgb&quot;,&quot;gray&quot;,&quot;cmyk&quot;</code>，默认为 <code>&quot;srgb&quot;</code></li>
+</ul>
+<p>PDF 设备并不嵌入字体到 PDF 文件中，所以建议使用常见的字体例如：<code>&quot;Times&quot;(=&quot;serif&quot;),&quot;Helvetica&quot;(=&quot;sans&quot;),&quot;Courier&quot;(=&quot;mono&quot;)</code>。</p>
+<ul>
+<li>默认设备尺寸为 7 英寸的正方形。</li>
+<li>字体大小为 “big points”。</li>
+<li>默认字体为 Helvetica。</li>
+<li>线宽为1/96英寸的倍数，最小为 0.01。</li>
+<li>可支持任意弧度的圆形。</li>
+<li>颜色模式默认为 sRGB。</li>
+<li>如果线宽特别细，线型默认强制为实线。</li>
+</ul>
+<p>位图设备参数：</p>
+<ul>
+<li>默认宽高均为 <code>480px</code></li>
+<li>默认单位为 <code>px</code></li>
+<li>默认点大小为 <code>12</code></li>
+<li>默认背景色为 <code>&quot;white&quot;</code></li>
+<li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
+</ul>
+<h1 id="plyr-the-split-apply-combine-paradigm"><a href="#plyr-the-split-apply-combine-paradigm" class="headerlink" title="plyr: the split-apply-combine paradigm"></a>plyr: the split-apply-combine paradigm</h1><p>split 分割：让复杂的问题分解成小块<br>apply 套用：对每一个小块进行计算<br>combine 组合：汇集每一小块的结果</p>
+<p>plyr 函数命名规律与输入对象类型和输出对象类型有关，有以下几种数据对象类型：</p>
+<ul>
+<li>a = array</li>
+<li>l = list</li>
+<li>d = data.frame</li>
+<li>m = multiple inputs</li>
+<li>r = repeat multiple times</li>
+<li>_ = nothing</li>
+</ul>
+<p>plyr 对于常见的数据分析问题提供了一系列辅助函数：</p>
+<ul>
+<li>arrange: 重新排序</li>
+<li>mutate: 增加新列，或者修改已存在的列，并将修改后的指派为新列</li>
+<li>summarise: 类似 mutate，但是新创建一个 data frame，不保存旧的 data frame 中的列</li>
+<li>join:</li>
+<li>match_df</li>
+<li>colwise</li>
+<li>rename: 修改 data frame 的列名</li>
+<li>round_any</li>
+<li>count: 快速计数，并返回 data frame<h1 id="统计检验"><a href="#统计检验" class="headerlink" title="统计检验"></a>统计检验</h1></li>
+</ul>
+<h2 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h2><h3 id="stats-aov"><a href="#stats-aov" class="headerlink" title="stats::aov"></a>stats::aov</h3><p><code>aov(formula, data, projections = FALSE, qr = TRUE, contrasts = NULL, ...)</code></p>
+<p>formula 中包含的 Error 项: 指定误差项，在重复测量方差分析、裂区设计中使用。</p>
+<blockquote>
+<p><strong>aov is designed for balanced designs, and the results can be hard to interpret without balance</strong>: beware that missing values in the response(s) will likely lose the balance. If there are two or more error strata, the methods used are statistically inefficient without balance, and <strong>it may be better to use lme in package nlme.</strong></p>
+<p>Balance can be checked with the replications function.</p>
+<p>The default ‘contrasts’ in R are not orthogonal contrasts, and aov and its helper functions will work better with such contrasts: see the examples for how to select these.</p>
+</blockquote>
+<p><code>aov</code> 只适用于平衡设计（没有缺失值）。当存在两个或更多的误差项时，该方法将在统计上失效。此时可以使用 <code>nlme::lme</code>。数据是否平衡可以通过 <code>replications()</code> 函数检测。</p>
+<p>默认的 ‘contrasts’ 为非正交对比，<code>aov</code> 及其辅助函数在正交对比下更有效。可以通过 <code>options(contrasts = c(&quot;contr.helmert&quot;, &quot;contr.poly&quot;))</code> 修改 ‘contrasts’。</p>
+<h3 id="car-Anova"><a href="#car-Anova" class="headerlink" title="car::Anova"></a>car::Anova</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## S3 method for class 'lm'</span></div><div class="line">Anova(mod, error, type=c(<span class="string">"ii"</span>, <span class="string">"iii"</span>, <span class="number">2</span>, <span class="number">3</span>),</div><div class="line">  white.adjust=c(<span class="literal">FALSE</span>, <span class="literal">TRUE</span>, <span class="string">"hc3"</span>, <span class="string">"hc0"</span>, <span class="string">"hc1"</span>, <span class="string">"hc2"</span>, <span class="string">"hc4"</span>),</div><div class="line">  vcov.=<span class="literal">NULL</span>, singular.ok, <span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+<p>用于计算模型对象（lm, glm, multinom, …）的 type-II 或者 type-III 方差分析表。</p>
+<p>问题：检验类型，type-I, type-II, type-III?</p>
+<blockquote>
+<p>The designations “type-II” and “type-III” are borrowed from SAS, but the definitions used here do not correspond precisely to those employed by SAS. <strong>Type-II tests are calculated according to the principle of marginality, testing each term after all others</strong>, except ignoring the term’s higher-order relatives; <strong>so-called type-III tests violate marginality, testing each term in the model after all of the others.</strong> This definition of Type-II tests corresponds to the tests produced by SAS for analysis-of-variance models, where all of the predictors are factors, but not more generally (i.e., when there are quantitative predictors). <strong>Be very careful in formulating the model for type-III tests, or the hypotheses tested will not make sense.</strong></p>
+<p>As implemented here, type-II Wald tests are a generalization of the linear hypotheses used to gen- erate these tests in linear models.</p>
+<p>The standard R anova function calculates sequential (“type-I”) tests. These rarely test interesting hypotheses in unbalanced designs.</p>
+</blockquote>
+<ul>
+<li><a href="http://myowelt.blogspot.de/2008/05/obtaining-same-anova-results-in-r-as-in.html" target="_blank" rel="external">btaining the same ANOVA results in R as in SPSS - the difficulties with Type II and Type III sums of squares</a></li>
+<li><a href="http://stats.stackexchange.com/questions/20452/how-to-interpret-type-i-type-ii-and-type-iii-anova-and-manova" target="_blank" rel="external">How to interpret type I, type II, and type III ANOVA and MANOVA?</a></li>
+<li><a href="http://stats.stackexchange.com/questions/60362/choice-between-type-i-type-ii-or-type-iii-anova" target="_blank" rel="external">Choice between Type-I, Type-II, or Type-III ANOVA</a></li>
+<li><a href="http://stats.stackexchange.com/questions/4544/how-does-one-do-a-type-iii-ss-anova-in-r-with-contrast-codes" target="_blank" rel="external">How does one do a Type-III SS ANOVA in R with contrast codes?</a></li>
+<li><a href="https://afni.nimh.nih.gov/sscc/gangc/SS.html" target="_blank" rel="external">Types of Sums of Squares</a></li>
+</ul>
+<p>进行重复测量方差分析的步骤：</p>
+<p><strong>0. 准备数据</strong></p>
+<p><code>car::Anova()</code>需要宽型数据，也就是数据横着排列。所以事先要将数据整理为宽型数据。另外，还需要构造一个矩阵（变量模型），用来表示实验设计中变量和变量水平。其中每一列为自变量，列中的每一项为数据中对应的处理。</p>
+<p>例如：<br>如下，有一批数据：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">subject   a.1  a.2  b.1  b.2</div><div class="line">      <span class="number">1</span>   <span class="number">2.3</span>  <span class="number">3.4</span>  <span class="number">3.2</span>  <span class="number">4.5</span></div><div class="line">      <span class="number">2</span>   <span class="number">2.4</span>  <span class="number">3.6</span>  <span class="number">3.0</span>  <span class="number">3.9</span></div><div class="line">    <span class="keyword">...</span>   <span class="keyword">...</span>  <span class="keyword">...</span>  <span class="keyword">...</span>  <span class="keyword">...</span></div></pre></td></tr></table></figure>
+<p>此时变量模型应该为：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var1  var2</div><div class="line">   a     <span class="number">1</span></div><div class="line">   a     <span class="number">2</span></div><div class="line">   b     <span class="number">1</span></div><div class="line">   b     <span class="number">2</span></div></pre></td></tr></table></figure>
+<p><strong>1. 将数组列组合称矩阵</strong><br>使用 <code>cbind()</code> 组合原始数据列。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dataBind &lt;- cbind(<span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+<p><strong>2. 定义模型</strong><br>使用 <code>lm()</code> 生成线性模型。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mod &lt;- lm(dataBind ~ <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p><strong>3. 方差分析</strong><br>使用 <code>car::Anova(mod, idata, idesign)</code> 进行方差分析。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">analysis &lt;- Anova(mod = mod,</div><div class="line">                  idata = idataTwoWayRepeatedMeasures,</div><div class="line">                  idesign = ~var1*var2)</div></pre></td></tr></table></figure>
+<p><strong>4. 呈现方差分析结果</strong><br><code>summary(analysis)</code></p>
+<p>计算效应量（偏eta方）</p>
+<p><code>heplots::etasq(mod, anova = TRUE)</code></p>
+<h3 id="ez-ezANOVA"><a href="#ez-ezANOVA" class="headerlink" title="ez::ezANOVA"></a>ez::ezANOVA</h3><p><code>ezANOVA()</code><br>计算效应量：<code>schoRsch::anova_out()</code></p>
+<h3 id="lme4-lmer"><a href="#lme4-lmer" class="headerlink" title="lme4::lmer"></a>lme4::lmer</h3><p><a href="http://psych.wisc.edu/moore/R_Analysis_of_Variance_Handouts_html.html" target="_blank" rel="external">doing Analysis of Variance in Psychology</a></p>
+<p>参考：<br><a href="https://egret.psychol.cam.ac.uk/statistics/R/index.html" target="_blank" rel="external">Local tips for R</a><br><a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a> Paul Gribble 课程内容，讲解如何使用 R 进行心理学研究中的统计分析。</p>
+<h1 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h1><h2 id="基本统计检验"><a href="#基本统计检验" class="headerlink" title="基本统计检验"></a>基本统计检验</h2><p>car<br>ez<br>schoRsch<br>apa</p>
+]]></content>
+    
+    <summary type="html">
+    
+      在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>环境和工具配置</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-02T11:28:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
+<h2 id="PyPi"><a href="#PyPi" class="headerlink" title="PyPi"></a>PyPi</h2><h3 id="MacOS-配置-pip"><a href="#MacOS-配置-pip" class="headerlink" title="MacOS 配置 pip"></a>MacOS 配置 pip</h3><ol>
+<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
+<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
+</ol>
+<h3 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h3><p>pipy国内镜像目前有：</p>
+<p><a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a>  豆瓣<br><a href="http://pypi.hustunique.com/simple" target="_blank" rel="external">http://pypi.hustunique.com/simple</a>  华中理工大学<br><a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="external">http://pypi.sdutlinux.org/simple</a>  山东理工大学<br><a href="http://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/simple</a>  中国科学技术大学<br><a href="http://mirrors.aliyun.com/pypi/simple" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple</a> 阿里云<br>清华大学<br>公网：<a href="http://e.pypi.python.org/simple" target="_blank" rel="external">http://e.pypi.python.org/simple</a><br>教育网：<a href="http://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">http://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>Linux 和 MacOS 系统下配置文件位置: <code>$HOME/.pip/pip.conf</code><br>Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
+<p>设置环境变量 <code>PIP_CONFIG_FILE</code> 可以指定默认配置文件路径。</p>
+<p>修改配置文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">trusted-host = mirrors.aliyun.com</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple</div></pre></td></tr></table></figure></p>
+<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><p>另外还可以添加其他参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line"></div><div class="line">[freeze]</div><div class="line">timeout = 10</div><div class="line"></div><div class="line">[install]</div><div class="line">ignore-installed = true</div><div class="line">no-dependencies = no # or yes</div></pre></td></tr></table></figure>
+<p>对于 easy_install 可以修改 <code>$HOME/.pydistutils.cfg</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[easy_install]</div><div class="line">index_url = &lt;mirror&gt;</div></pre></td></tr></table></figure>
+<p>另外还可以创建别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pip=&quot;pip -i &lt;mirror&gt;&quot;</div></pre></td></tr></table></figure>
+<h3 id="pip-常用命令"><a href="#pip-常用命令" class="headerlink" title="pip 常用命令"></a>pip 常用命令</h3><p>搜索模块<br><code>pip search &lt;pkg_name&gt;</code></p>
+<p>安装模块<br><code>pip install &lt;pkg_name&gt;</code><br><code>pip install &lt;pkg_name&gt;==&lt;version&gt;</code></p>
+<p>升级模块（如果不提供版本号，升级到最新版本）<br><code>pip install --upgrade &lt;pkg_name&gt;&gt;=&lt;version&gt;</code></p>
+<p>卸载模块<br><code>pip uninstall &lt;pkg_name&gt;</code></p>
+<p>显示当前环境中模块的清单<br><code>pip freeze</code><br>重定向到文本文件<br><code>pip freeze &gt; req.txt</code><br>使用清单<br><code>pip install -r req.txt</code></p>
+<h2 id="环境管理"><a href="#环境管理" class="headerlink" title="环境管理"></a>环境管理</h2><p>使用虚拟环境管理工具</p>
+<p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
+<p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
+<p>配置流程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div></pre></td></tr></table></figure>
+<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="镜像源-1"><a href="#镜像源-1" class="headerlink" title="镜像源"></a>镜像源</h2><p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br><a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br><a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
+<p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
+<h1 id="MacOS-配置"><a href="#MacOS-配置" class="headerlink" title="MacOS 配置"></a>MacOS 配置</h1><h2 id="Time-machine"><a href="#Time-machine" class="headerlink" title="Time machine"></a>Time machine</h2><ul>
+<li>准备移动硬盘，做好备份</li>
+<li>移动硬盘分出一个300GB左右的分区，格式化为 Mac OS Extened Journaled 格式。</li>
+<li>然后选择该分区作为备份空间，开始备份并且加密</li>
+</ul>
+<p>参考</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="external">Mac下移动硬盘的分区以及TimeMachine的备份</a></li>
+<li><a href="http://sspai.com/tag/Time%20Machine" target="_blank" rel="external">少数派 Time Machine 使用教程</a><h2 id="卸载-Rime-输入法"><a href="#卸载-Rime-输入法" class="headerlink" title="卸载 Rime 输入法"></a>卸载 Rime 输入法</h2></li>
+</ul>
+<p>这个所谓的“程序员”用的输入法，实在是没用习惯。@2016-12-02 喜欢能简则简的我，改用苹果系统自带中文输入法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ killall Squirrel</div><div class="line">$ sudo rm -Rf &quot;/Library/Input Methods/Squirrel.app&quot;</div><div class="line">$ rm -Rf ~/Library/Rime</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      记录各种开发环境和工具的配置过程。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：graphics 包</title>
     <link href="http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/"/>
     <id>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T03:14:40.000Z</updated>
+    <updated>2016-12-01T12:59:45.000Z</updated>
     
     <content type="html"><![CDATA[<table>
 <thead>
 <tr>
 <th style="text-align:left">函数名</th>
 <th style="text-align:left">中文描述</th>
-<th style="text-align:left">主要参数</th>
+<th style="text-align:left">用法</th>
 <th style="text-align:left">实例</th>
 </tr>
 </thead>
@@ -1053,11 +1719,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
-    
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -1344,15 +2010,15 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
-      <category term="Front-end" scheme="http://lix90.github.io/tags/Front-end/"/>
-    
       <category term="UX" scheme="http://lix90.github.io/tags/UX/"/>
+    
+      <category term="Front-end" scheme="http://lix90.github.io/tags/Front-end/"/>
     
       <category term="regex" scheme="http://lix90.github.io/tags/regex/"/>
     
@@ -1881,9 +2547,9 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -2086,6 +2752,52 @@
   </entry>
   
   <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-28T12:36:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
+    
+      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>西服保养建议</title>
     <link href="http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/"/>
     <id>http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/</id>
@@ -2147,52 +2859,6 @@
       <category term="Life style" scheme="http://lix90.github.io/tags/Life-style/"/>
     
       <category term="西服保养" scheme="http://lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-28T12:36:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
-    
-      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -2400,13 +3066,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
@@ -2499,60 +3165,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Cloud" scheme="http://lix90.github.io/tags/Cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -2654,6 +3273,53 @@
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-16</title>
     <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
     <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
@@ -2699,7 +3365,7 @@
     <link href="http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
     <id>http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
     <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:01.000Z</updated>
+    <updated>2016-12-03T13:32:49.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
@@ -2735,7 +3401,7 @@
 </ul>
 <p><strong>Plot region</strong> 绘制区域</p>
 <ul>
-<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标</li>
+<li><code>plt</code> 向量 <code>c(x1,x2,y1,y2)</code> 图形区域的坐标 (left, right, bottom, top)</li>
 <li><code>ply</code> 字符，指定图形区域类型，<code>&quot;s&quot;</code> 为正方形绘图区域，<code>&quot;m&quot;</code> 为最大绘图区域。</li>
 <li><code>pin</code> 尺寸，<code>c(width, height)</code></li>
 </ul>
@@ -2822,138 +3488,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-19T03:32:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
-    
-      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
     
   </entry>
   
@@ -3144,36 +3683,129 @@
   </entry>
   
   <entry>
-    <title>R：加载包</title>
-    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
-    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:56.000Z</updated>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-19T03:32:33.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
 <ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
     
     </summary>
     
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
     
     
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
     
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
     
   </entry>
   
@@ -3182,7 +3814,7 @@
     <link href="http://lix90.github.io/2016/11/13/wiki/"/>
     <id>http://lix90.github.io/2016/11/13/wiki/</id>
     <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-12-01T01:42:32.000Z</updated>
+    <updated>2016-12-03T02:04:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
 <h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><p>数据科学<br><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a> | <a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a> | <a href="http://cos.name/" target="_blank" rel="external">统计之都</a></p>
@@ -3199,7 +3831,8 @@
 </ul>
 <!-- ## 心理与行为科学 -->
 <!-- - [Babies Learning Language](http://babieslearninglanguage.blogspot.com/)：斯坦福大学发展心理学教授 [Michael Frank](http://langcog.stanford.edu/) 的个人博客。博客文章涵盖 `发展心理学`、`心理学研究方法`、`开放科学` 等主题。 -->
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>环境管理 <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">virtualenv</a> <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">virtualenvwrapper</a></p>
+<h1 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h1><h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>环境管理 <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">virtualenv</a> <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">virtualenvwrapper</a></p>
+<h2 id="Clojure"><a href="#Clojure" class="headerlink" title="Clojure"></a>Clojure</h2><p><a href="http://clojure-china.org/" target="_blank" rel="external">clojure-china</a></p>
 <h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><p>R<br><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a> | <a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880: Data Visualization with R</a> | <a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a> | <a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></p>
 <p>lisp/elisp</p>
 <ul>
@@ -3241,6 +3874,40 @@
       <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
       <category term="Wiki" scheme="http://lix90.github.io/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：加载包</title>
+    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
+    <published>2016-11-12T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
+<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
+<p>参考</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
+<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -3291,11 +3958,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
-    
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
@@ -3440,17 +4107,17 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
+      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Ruby" scheme="http://lix90.github.io/tags/Ruby/"/>
     
       <category term="Pandas" scheme="http://lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
-    
-      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -3601,6 +4268,55 @@
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
       <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:30:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -3787,55 +4503,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:30:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -4197,9 +4864,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
       <category term="Flexbox" scheme="http://lix90.github.io/tags/Flexbox/"/>
     
@@ -4585,9 +5252,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -4754,11 +5421,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
@@ -4769,8 +5438,6 @@
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
-    
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -4897,11 +5564,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="Machine Learning" scheme="http://lix90.github.io/tags/Machine-Learning/"/>
-    
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
   </entry>
   
