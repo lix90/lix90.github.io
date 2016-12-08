@@ -1,0 +1,854 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="Make contrasts in R^1两种应用 contrasts 的方式：
+
+添加 contrasts 到 data.frame 中，那么只要用到 data.frame 来构建模型，contrasts 将每次都将被使用。
+添加 contrasts 到 model 中，那么在检验模型时就会使用到它的 contrasts。
+
+
+By default, R uses traditional dum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日总结 2016-12-08">
+<meta property="og:url" content="http://lix90.github.io/2016/12/08/2016-12-08-daily/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="Make contrasts in R^1两种应用 contrasts 的方式：
+
+添加 contrasts 到 data.frame 中，那么只要用到 data.frame 来构建模型，contrasts 将每次都将被使用。
+添加 contrasts 到 model 中，那么在检验模型时就会使用到它的 contrasts。
+
+
+By default, R uses traditional dum">
+<meta property="og:updated_time" content="2016-12-08T06:54:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日总结 2016-12-08">
+<meta name="twitter:description" content="Make contrasts in R^1两种应用 contrasts 的方式：
+
+添加 contrasts 到 data.frame 中，那么只要用到 data.frame 来构建模型，contrasts 将每次都将被使用。
+添加 contrasts 到 model 中，那么在检验模型时就会使用到它的 contrasts。
+
+
+By default, R uses traditional dum">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://lix90.github.io/2016/12/08/2016-12-08-daily/"/>
+
+
+  <title> 每日总结 2016-12-08 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                每日总结 2016-12-08
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-08T00:00:00+08:00" content="2016-12-08">
+              2016-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/08/2016-12-08-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/08/2016-12-08-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Make-contrasts-in-R-1"><a href="#Make-contrasts-in-R-1" class="headerlink" title="Make contrasts in R^1"></a>Make contrasts in R<a href="[A" title="sort of) Complete Guide to Contrasts in R](http://rstudio-pubs-static.s3.amazonaws.com/65059_586f394d8eb84f84b1baaf56ffb6b47f.html">^1</a></h1><p>两种应用 contrasts 的方式：</p>
+<ul>
+<li>添加 contrasts 到 data.frame 中，那么只要用到 data.frame 来构建模型，contrasts 将每次都将被使用。</li>
+<li>添加 contrasts 到 model 中，那么在检验模型时就会使用到它的 contrasts。</li>
+</ul>
+<blockquote>
+<p>By default, R uses traditional dummy coding (called “treatment contrasts” in R) for any non- ordered factors, and polynomial trend contrasts for any ordered factors. That works out well if you intend to look at regression coefficients.</p>
+</blockquote>
+<p>R 中默认的 contrasts 为非等级因子使用 treatment contrasts，等级因子使用 polynomial trend contrasts。这在为了考察回归系数时有效。</p>
+<blockquote>
+<p>Note that traditional dummy coding is fine for regression coefficients, but since traditional dummy codes aren’t orthogonal, it messes things up when you’re just trying to partition variance (i.e. an ANOVA). (Also remember that the default R anova functions use type 1 sums of squares, which is generally not what you want. To get type 3 sums of squares, use the Anova() function from the car package.)</p>
+</blockquote>
+<p>但是，默认的 contrasts 并不适用于需要分解方差时，即方差分析。另外，R 的方差分析函数 <code>aov</code> 使用 Type-I 平方和，而一般来说，常用 Type-III 平方和。<code>car::Anova()</code> <code>ez::ezANOVA()</code> <code>afex::aov_ez()</code> 等均支持 Type-III 平方和。</p>
+<blockquote>
+<p>R is still using traditional dummy coding (treatment contrasts) behind the scenes here, unlike other stats software (like SPSS) that would switch to effects coding for an ANOVA.</p>
+<p>For an ANOVA, you should set your factors to use effects coding, rather than relying on the default treatment codes. You can do that with the <code>contr.sum()</code> function.</p>
+<p>As long as they’re orthogonal, they’ll work fine in an ANOVA.</p>
+<p>For ANOVAs, effects coding works great, orthogonal contrast coding works great, and traditional dummy coding not so much.</p>
+</blockquote>
+<p>如果进行方差分析，必须在进行分析之前将 contrasts 给改为 effects coding 或 orthogonal contrast coding。</p>
+<blockquote>
+<p>Anova() won’t show you the individual contrast results, just the overall effect of each factor. You can see the results of each contrast by using the summary() function on the model object.</p>
+</blockquote>
+<p>使用 <code>car::Anova()</code> 并不会显示出每个独立的比较，而仅仅显示出每个因子的总效应。可以把模型对象传入函数 <code>summary(modobj)</code>，这样就能显示出每个独立的比较的结果。</p>
+<blockquote>
+<p>If you use aov() instead of lm() to specify the original model, then you’ll need to add a split argument to the summary() call to see the contrast results.</p>
+</blockquote>
+<p>如果使用 <code>aov()</code> 建立模型，而不是 <code>lm()</code>，传入 <code>split</code> 参数到 <code>summary()</code> 才能看到比较的结果。<code>summary(..., split = list(var = list(...), ...))</code>。其中，split 参数中也可以不包含所有变量的所有水平。</p>
+<blockquote>
+<p>You need to be careful, though, because the contrasts() function is a sneaky little bastard, as noted above. To apply contrast weights, you’ll need to give it the inverse of your matrix of weights.</p>
+</blockquote>
+<p>在构建自定义的比较时，需要谨慎，因为 <code>contrasts()</code> 函数有一些小技巧，特别时当应用 contrast 权重时，需要对 contasts 矩阵进行求逆运算。</p>
+<p>以下为构建自定义比较的步骤：</p>
+<ol>
+<li>Specfiy the weights for your contrasts (and be sure to check the order of the levels of the factor, so your weights will line up properly). 首先指定 contrasts 的权重。</li>
+<li>Create a temporary matrix with each contrast as one row. The top row (for the constant) should be 1/j for j groups. 构建临时的矩阵，第一列每个元素为 1/j，如果 j 为水平数。使用 <code>rbind</code> 构建临时矩阵。</li>
+<li>Get the inverse of that temporary matrix. 使用 <code>solve</code> 函数对临时矩阵求逆。</li>
+<li>The first column of the inverse will be all 1’s. Drop that first column. The remaining columns are your contrast matrix. 求逆后的矩阵第一列每一个元素都为1，删除第一列，剩余的列即为最终的 contrast 矩阵。然后就可以在建立模型时传入 contrasts 参数 <code>contrasts = list(...)</code>。</li>
+</ol>
+<blockquote>
+<p>If you specify orthogonal contrasts, the regression coefficients for each contrast should just equal the difference between those group means.</p>
+</blockquote>
+<p>如果指定的 contrasts 为 orthogonal，每个比较的回归系数应该等于比较的组的均值的差值。</p>
+<blockquote>
+<p>So what happens if you try to run your own contrasts without doing the weird inverse thing? It depends. If your contrasts are orthogonal, then the t-tests and p-values you get for the regression coefficients will all be fine, but your contrast estimates (and corresponding SEs) might not match the difference between group means you expected. If your contrasts are nonorthogonal, then failing to do the weird inverse thing can result in totally garbage estimates and useless t-tests. So you MUST do this inverse thing if you specify nonorthogonal contrasts, but you should probably get in the habbit of doing it anyway for orthogonal ones as well.</p>
+</blockquote>
+<p>不进行矩阵求逆会出现什么结果呢？如果 contrasts 为正交的，那么对回归系数检验的 t 值和 p 值时没有问题的，但是 contrast estimate 以及对应的标准误可能不等于比较的组的均值的差值。如果 contrasts 不是正交的，那么所得到的结果是无效的。所以，最好是对所有 contasts 权重矩阵进行求逆。</p>
+<blockquote>
+<p>you can get j-1 orthogonal contrasts out of a factor with j levels.</p>
+<p>Yep. If you want to save time and only specify the contrast(s) you care about, you can do that, and R will come up with some orthogonal contrasts to fill in the rest. What you won’t be able to do is take the inverse of your contrast weights; you can only take the inverse of a square matrix, and if you have fewer than j-1 contrasts, your temporary matrix won’t be square. But remember: as long as your contrasts are orthogonal, your t-tests will all be fine even if you don’t do the inverse thing. So go ahead and just use the contrasts you want directly with the contrasts() function, and be aware that your contrast estimates may not accurately reflect the differences between group means.</p>
+</blockquote>
+<p>如果进行的比较次数少于 j-1，那么 R 会自动地计算出剩余的正交 contrasts。只不过，此时无法进行矩阵逆运算。不过只要 contrasts 是正交的，那么就不用担心检验的结果。需要考虑的是，contrast estimates 将可能不等于比较的组均值的差值。</p>
+<blockquote>
+<p>Note that if you add fewer than j-1 contrasts to the contrasts argument in lm(), it will NOT fill out the remaining contrasts for you. Rather, any group differences other than those represented in your contrast will get lumped into the error term!</p>
+</blockquote>
+<p>需要注意，如果 <code>lm()</code> 模型中 contrasts 少于 j-1 次，没有反映在 contrasts 中的组差异将被纳入到误差项中。</p>
+<p>问题：什么是正交的 contrasts？如何建立正交 contrasts？</p>
+<blockquote>
+<p>There are only k-1 orthogonal comparisons, where k is the number of factor levels.<br>Comparisons/contrasts orthogonal to each other are statistically independent.<br>Which of the possible comparisons should we conduct? Well, this very much depends on our hypothesis we have in mind.</p>
+<p>We need to specify a contrast matrix, showing which comparisons we want to make. A contrast matrix consists of so-called contrast coefficients that (in the end) all have to sum to zero. This means, those things we want to compare have to get the opposite sign (e.g. +1 and –1), while those things we don ́t want to compare will receive a value of zero.</p>
+<p>Orthogonal contrasts are planned, a priori tests that partition the experimental variance cleanly. They are a powerful tool for analyzing data, but they are not appropriate for all experiments. Less restrictive comparisons among treatment means can be performed using various means separation tests, or multiple comparison tests.</p>
+</blockquote>
+<ul>
+<li>两个比较的向量点对点相乘的和等于0的比较为正交比较。</li>
+<li>水平数为 k 的因子，最多有 k-1 次正交比较。</li>
+<li>正交比较之间在统计上相对独立。</li>
+<li>进行什么样的比较与研究假设相关。</li>
+<li>在一个比较中，相互比较的水平之间的比较矩阵中对应的数值和为0，两者符号相反，其它水平数值为0。</li>
+</ul>
+<p>问题：R 有哪些内置的构建 contrasts 的函数？</p>
+<p><code>contr.treatment()</code><br><code>contr.helmert()</code><br><code>contr.poly()</code><br><code>contr.sum()</code><br><code>contr.SAS</code></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag">#R</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/07/2016-12-07-daily/" rel="next" title="每日总结 2016-12-07">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-12-07
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">99</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Make-contrasts-in-R-1"><span class="nav-number">1.</span> <span class="nav-text">Make contrasts in R^1</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016/12/08/2016-12-08-daily/';
+      var disqus_title = "每日总结 2016-12-08";
+      var disqus_url = 'http://lix90.github.io/2016/12/08/2016-12-08-daily/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

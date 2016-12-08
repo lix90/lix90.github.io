@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-12-05T08:33:41.000Z</updated>
+  <updated>2016-12-08T06:54:28.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -16,16 +16,279 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>每日总结 2016-12-08</title>
+    <link href="http://lix90.github.io/2016/12/08/2016-12-08-daily/"/>
+    <id>http://lix90.github.io/2016/12/08/2016-12-08-daily/</id>
+    <published>2016-12-07T16:00:00.000Z</published>
+    <updated>2016-12-08T06:54:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Make-contrasts-in-R-1"><a href="#Make-contrasts-in-R-1" class="headerlink" title="Make contrasts in R^1"></a>Make contrasts in R<a href="[A" title="sort of) Complete Guide to Contrasts in R](http://rstudio-pubs-static.s3.amazonaws.com/65059_586f394d8eb84f84b1baaf56ffb6b47f.html">^1</a></h1><p>两种应用 contrasts 的方式：</p>
+<ul>
+<li>添加 contrasts 到 data.frame 中，那么只要用到 data.frame 来构建模型，contrasts 将每次都将被使用。</li>
+<li>添加 contrasts 到 model 中，那么在检验模型时就会使用到它的 contrasts。</li>
+</ul>
+<blockquote>
+<p>By default, R uses traditional dummy coding (called “treatment contrasts” in R) for any non- ordered factors, and polynomial trend contrasts for any ordered factors. That works out well if you intend to look at regression coefficients.</p>
+</blockquote>
+<p>R 中默认的 contrasts 为非等级因子使用 treatment contrasts，等级因子使用 polynomial trend contrasts。这在为了考察回归系数时有效。</p>
+<blockquote>
+<p>Note that traditional dummy coding is fine for regression coefficients, but since traditional dummy codes aren’t orthogonal, it messes things up when you’re just trying to partition variance (i.e. an ANOVA). (Also remember that the default R anova functions use type 1 sums of squares, which is generally not what you want. To get type 3 sums of squares, use the Anova() function from the car package.)</p>
+</blockquote>
+<p>但是，默认的 contrasts 并不适用于需要分解方差时，即方差分析。另外，R 的方差分析函数 <code>aov</code> 使用 Type-I 平方和，而一般来说，常用 Type-III 平方和。<code>car::Anova()</code> <code>ez::ezANOVA()</code> <code>afex::aov_ez()</code> 等均支持 Type-III 平方和。</p>
+<blockquote>
+<p>R is still using traditional dummy coding (treatment contrasts) behind the scenes here, unlike other stats software (like SPSS) that would switch to effects coding for an ANOVA.</p>
+<p>For an ANOVA, you should set your factors to use effects coding, rather than relying on the default treatment codes. You can do that with the <code>contr.sum()</code> function.</p>
+<p>As long as they’re orthogonal, they’ll work fine in an ANOVA.</p>
+<p>For ANOVAs, effects coding works great, orthogonal contrast coding works great, and traditional dummy coding not so much.</p>
+</blockquote>
+<p>如果进行方差分析，必须在进行分析之前将 contrasts 给改为 effects coding 或 orthogonal contrast coding。</p>
+<blockquote>
+<p>Anova() won’t show you the individual contrast results, just the overall effect of each factor. You can see the results of each contrast by using the summary() function on the model object.</p>
+</blockquote>
+<p>使用 <code>car::Anova()</code> 并不会显示出每个独立的比较，而仅仅显示出每个因子的总效应。可以把模型对象传入函数 <code>summary(modobj)</code>，这样就能显示出每个独立的比较的结果。</p>
+<blockquote>
+<p>If you use aov() instead of lm() to specify the original model, then you’ll need to add a split argument to the summary() call to see the contrast results.</p>
+</blockquote>
+<p>如果使用 <code>aov()</code> 建立模型，而不是 <code>lm()</code>，传入 <code>split</code> 参数到 <code>summary()</code> 才能看到比较的结果。<code>summary(..., split = list(var = list(...), ...))</code>。其中，split 参数中也可以不包含所有变量的所有水平。</p>
+<blockquote>
+<p>You need to be careful, though, because the contrasts() function is a sneaky little bastard, as noted above. To apply contrast weights, you’ll need to give it the inverse of your matrix of weights.</p>
+</blockquote>
+<p>在构建自定义的比较时，需要谨慎，因为 <code>contrasts()</code> 函数有一些小技巧，特别时当应用 contrast 权重时，需要对 contasts 矩阵进行求逆运算。</p>
+<p>以下为构建自定义比较的步骤：</p>
+<ol>
+<li>Specfiy the weights for your contrasts (and be sure to check the order of the levels of the factor, so your weights will line up properly). 首先指定 contrasts 的权重。</li>
+<li>Create a temporary matrix with each contrast as one row. The top row (for the constant) should be 1/j for j groups. 构建临时的矩阵，第一列每个元素为 1/j，如果 j 为水平数。使用 <code>rbind</code> 构建临时矩阵。</li>
+<li>Get the inverse of that temporary matrix. 使用 <code>solve</code> 函数对临时矩阵求逆。</li>
+<li>The first column of the inverse will be all 1’s. Drop that first column. The remaining columns are your contrast matrix. 求逆后的矩阵第一列每一个元素都为1，删除第一列，剩余的列即为最终的 contrast 矩阵。然后就可以在建立模型时传入 contrasts 参数 <code>contrasts = list(...)</code>。</li>
+</ol>
+<blockquote>
+<p>If you specify orthogonal contrasts, the regression coefficients for each contrast should just equal the difference between those group means.</p>
+</blockquote>
+<p>如果指定的 contrasts 为 orthogonal，每个比较的回归系数应该等于比较的组的均值的差值。</p>
+<blockquote>
+<p>So what happens if you try to run your own contrasts without doing the weird inverse thing? It depends. If your contrasts are orthogonal, then the t-tests and p-values you get for the regression coefficients will all be fine, but your contrast estimates (and corresponding SEs) might not match the difference between group means you expected. If your contrasts are nonorthogonal, then failing to do the weird inverse thing can result in totally garbage estimates and useless t-tests. So you MUST do this inverse thing if you specify nonorthogonal contrasts, but you should probably get in the habbit of doing it anyway for orthogonal ones as well.</p>
+</blockquote>
+<p>不进行矩阵求逆会出现什么结果呢？如果 contrasts 为正交的，那么对回归系数检验的 t 值和 p 值时没有问题的，但是 contrast estimate 以及对应的标准误可能不等于比较的组的均值的差值。如果 contrasts 不是正交的，那么所得到的结果是无效的。所以，最好是对所有 contasts 权重矩阵进行求逆。</p>
+<blockquote>
+<p>you can get j-1 orthogonal contrasts out of a factor with j levels.</p>
+<p>Yep. If you want to save time and only specify the contrast(s) you care about, you can do that, and R will come up with some orthogonal contrasts to fill in the rest. What you won’t be able to do is take the inverse of your contrast weights; you can only take the inverse of a square matrix, and if you have fewer than j-1 contrasts, your temporary matrix won’t be square. But remember: as long as your contrasts are orthogonal, your t-tests will all be fine even if you don’t do the inverse thing. So go ahead and just use the contrasts you want directly with the contrasts() function, and be aware that your contrast estimates may not accurately reflect the differences between group means.</p>
+</blockquote>
+<p>如果进行的比较次数少于 j-1，那么 R 会自动地计算出剩余的正交 contrasts。只不过，此时无法进行矩阵逆运算。不过只要 contrasts 是正交的，那么就不用担心检验的结果。需要考虑的是，contrast estimates 将可能不等于比较的组均值的差值。</p>
+<blockquote>
+<p>Note that if you add fewer than j-1 contrasts to the contrasts argument in lm(), it will NOT fill out the remaining contrasts for you. Rather, any group differences other than those represented in your contrast will get lumped into the error term!</p>
+</blockquote>
+<p>需要注意，如果 <code>lm()</code> 模型中 contrasts 少于 j-1 次，没有反映在 contrasts 中的组差异将被纳入到误差项中。</p>
+<p>问题：什么是正交的 contrasts？如何建立正交 contrasts？</p>
+<blockquote>
+<p>There are only k-1 orthogonal comparisons, where k is the number of factor levels.<br>Comparisons/contrasts orthogonal to each other are statistically independent.<br>Which of the possible comparisons should we conduct? Well, this very much depends on our hypothesis we have in mind.</p>
+<p>We need to specify a contrast matrix, showing which comparisons we want to make. A contrast matrix consists of so-called contrast coefficients that (in the end) all have to sum to zero. This means, those things we want to compare have to get the opposite sign (e.g. +1 and –1), while those things we don ́t want to compare will receive a value of zero.</p>
+<p>Orthogonal contrasts are planned, a priori tests that partition the experimental variance cleanly. They are a powerful tool for analyzing data, but they are not appropriate for all experiments. Less restrictive comparisons among treatment means can be performed using various means separation tests, or multiple comparison tests.</p>
+</blockquote>
+<ul>
+<li>两个比较的向量点对点相乘的和等于0的比较为正交比较。</li>
+<li>水平数为 k 的因子，最多有 k-1 次正交比较。</li>
+<li>正交比较之间在统计上相对独立。</li>
+<li>进行什么样的比较与研究假设相关。</li>
+<li>在一个比较中，相互比较的水平之间的比较矩阵中对应的数值和为0，两者符号相反，其它水平数值为0。</li>
+</ul>
+<p>问题：R 有哪些内置的构建 contrasts 的函数？</p>
+<p><code>contr.treatment()</code><br><code>contr.helmert()</code><br><code>contr.poly()</code><br><code>contr.sum()</code><br><code>contr.SAS</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Make-contrasts-in-R-1&quot;&gt;&lt;a href=&quot;#Make-contrasts-in-R-1&quot; class=&quot;headerlink&quot; title=&quot;Make contrasts in R^1&quot;&gt;&lt;/a&gt;Make contrasts in R&lt;a h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-07</title>
+    <link href="http://lix90.github.io/2016/12/07/2016-12-07-daily/"/>
+    <id>http://lix90.github.io/2016/12/07/2016-12-07-daily/</id>
+    <published>2016-12-06T16:00:00.000Z</published>
+    <updated>2016-12-08T02:21:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h1><h2 id="Five-different-“Cohen’s-d”-statistics-for-within-subject-designs-1"><a href="#Five-different-“Cohen’s-d”-statistics-for-within-subject-designs-1" class="headerlink" title="Five different “Cohen’s d” statistics for within-subject designs^1"></a>Five different “Cohen’s d” statistics for within-subject designs<a href="http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/" target="_blank" rel="external">^1</a></h2><blockquote>
+<p>within-subject designs tend to be powerful not because they lead to larger effect sizes—if anything, the reverse is probably true, in that people elect to use within-subject designs when Cohen’s d is particularly small, for example in many reaction time studies—but rather <strong>because they allow us to efficiently detect smaller effect sizes due to removing irrelevant sources of variation from the denominator of the test statistic. </strong></p>
+<p>One of the primary motivations for using standardized effect sizes at all is so that we can try to meaningfully compare effects from different studies, including studies that might use different designs. But all of the effect size candidates other than classical Cohen’s d are affected by the experimental design; that is, the “same” effect will have a larger or smaller effect size based on whether we used a between- or within-subjects design, how many responses we required each subject to make, and so on. Precisely because of this, we cannot meaningfully compare these effect sizes across different experimental designs. Because classical Cohen’s d deliberately ignores design information, it is at least in-principle possible to compare effect sizes across different designs.</p>
+<p>In my opinion, standardized effect sizes are generally a bad idea for data summary and meta-analytic purposes. It’s hard to imagine a cumulative science built on standardized effect sizes, rather than on effects expressed in terms of psychologically meaningful units. With that said, I do think standardized effect sizes can be useful for doing power analysis or for defining reasonably informative priors when you don’t have previous experimental data.</p>
+</blockquote>
+<h2 id="Why-I-don’t-like-standardised-effect-sizes-2"><a href="#Why-I-don’t-like-standardised-effect-sizes-2" class="headerlink" title="Why I don’t like standardised effect sizes^2"></a>Why I don’t like standardised effect sizes<a href="http://janhove.github.io/reporting/2015/02/05/standardised-vs-unstandardised-es" target="_blank" rel="external">^2</a></h2><blockquote>
+<p><strong>unstandardised effect sizes</strong> express the patterns found in the data in the units in which they were measured.<br><strong>Standardised effect sizes</strong>, by contrast, express these patterns by scaling the differences or trends by a measure of the variability within the sample.</p>
+<p><strong>the four reasons</strong> why I prefer unstandardised over standardised effect sizes.</p>
+<ul>
+<li>Unstandardised effect sizes are often <strong>interpretable</strong></li>
+<li>Standardised effect sizes are more sensitive to the research design (and that’s a bad thing)</li>
+<li>Apples and oranges (effects in any particular domain would change over time.)<ul>
+<li>Perhaps it’s more useful to think about how sources of extraneous variance can be brought under control in order to increase power (tighter design, more accurate measures, including covariates), rather than assuming that whatever yardstick out there also applies to one’s own study.</li>
+</ul>
+</li>
+<li>What about more complex models? … standardised effect sizes that I’ve come across assume that you have a comparatively easy statistical model.</li>
+</ul>
+</blockquote>
+<h2 id="What-data-patterns-can-lie-behind-a-correlation-coefficient-3"><a href="#What-data-patterns-can-lie-behind-a-correlation-coefficient-3" class="headerlink" title="What data patterns can lie behind a correlation coefficient?[^3]"></a>What data patterns can lie behind a correlation coefficient?[^3]</h2><blockquote>
+<p>One correlation coefficient can represent any number of patterns</p>
+<p>Correlation coefficients are popular among researchers because they allow them to summarise the relationship between two variables in a single number. However, a given correlation coefficient can represent any number of patterns between two variables, and without more information (ideally in the form of a scatterplot), the researchers themselves and their readers have no way of knowing which one.</p>
+</blockquote>
+<p>[^3]: <a href="http://janhove.github.io/teaching/2016/11/21/what-correlations-look-like" target="_blank" rel="external">链接</a>，该博主写了一个 R 函数，用来生成 15 种不同数据分布但是相关系数相同散点图。这说明，散点图对于相关系数的解释是相当重要的。</p>
+<h2 id="对于方差分析，推荐使用-eta-2-G-效应量指标-4"><a href="#对于方差分析，推荐使用-eta-2-G-效应量指标-4" class="headerlink" title="对于方差分析，推荐使用 $\eta^2_G$ 效应量指标[^4]"></a>对于方差分析，推荐使用 $\eta^2_G$ 效应量指标[^4]</h2><p>[^4]: Bakeman, R. (2005). Recommended effect size statistics for repeated measures designs. Behavior research methods, 37(3), 379-384.</p>
+<blockquote>
+<p>we present this method, explain that $\eta^2_G$ is preferred to eta squared and partial eta squared because <strong>it provides comparability across between-subjects and within-subjects designs</strong>, show that it can <strong>easily be computed from information provided by standard statistical packages</strong>, and recommend that investigators provide it routinely in their research reports when appropriate.</p>
+</blockquote>
+<h2 id="关于方差分析报告的记录"><a href="#关于方差分析报告的记录" class="headerlink" title="关于方差分析报告的记录"></a>关于方差分析报告的记录</h2><blockquote>
+<p>Throughout the manuscript degrees of freedom (df) are <strong>Greenhouse-Geisser corrected</strong> in ANOVAs for repeated-measures factors with more than two levels. Furthermore, we report $\eta^2_G$ as effect size measure for ANOVAs following Bakeman’s (2005) recommendations. <strong>Contrasts are obtained using the methods implemented in lsmeans (Lenth, 2015)</strong>. For ANOVAs, <strong>contrasts use uncorrected Satterthwaite approximated df.</strong> To control for multiple testing, p-values of follow-up contrasts are corrected using either <strong>the Bonferroni-Holm correction</strong> (Holm, 1979), denoted $p_H$ , or, in case all follow-up tests share the same df and do not involve one-tailed tests, a generalization of the Bonferroni-Holm method which takes the correlation among parameters into account (method free in package multcomp, Bretz, Hothorn, &amp; Westfall, 2011), denoted $p_F$ . Tests are one-tailed throughout the manuscript for the following hypotheses: (a) endorsements increase from knowledge phase to rule phase, (b) in particular, they increase for MP and MT, and (c) for AC and DA, (d) replicating the previous work, the increases in MP and MT are larger than those for AC and DA, (e) the effects of speaker expertise in Experiment 2. All other tests are two-tailed.</p>
+</blockquote>
+<p>这是这篇文章[^5]里对于统计结果报告的脚注，介绍了作者是如何对结果进行报告。该作者是 R 包 afex 的开发者。</p>
+<ul>
+<li>在重复测量的因子多于两个水平时，自由度使用 Greenhouse-Geisser 方法矫正。</li>
+<li>使用 lsmeans 包进行事后比较。</li>
+<li>使用 Bonferroni-Holm 进行多重比较检验的矫正</li>
+<li>如果每个检验都又相同的 df，使用的 multcomp 包中的 free 方法进行矫正。</li>
+</ul>
+<p>[^5]: Singmann, H. et al. (2016). Cognitive Psychology, 88, 61-87.</p>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="knitr-设置-6"><a href="#knitr-设置-6" class="headerlink" title="knitr 设置^6"></a>knitr 设置<a href="[user2016_knitr/Part1/3_Options/fruit_snacks.Rmd](https://raw.githubusercontent.com/ijlyttle/user2016_knitr/master/Part1/3_Options/fruit_snacks.Rmd)">^6</a></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">knitr::opts_chunk$set(fig.width=<span class="number">12</span>, fig.height=<span class="number">5</span>,</div><div class="line">                      echo=<span class="literal">FALSE</span>, results=<span class="string">"hide"</span>,</div><div class="line">                      message=<span class="literal">FALSE</span>, <span class="keyword">warning</span>=<span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<p>使用 <code>knitr::opts_chunk$set()</code></p>
+<h2 id="markdown-图片链接"><a href="#markdown-图片链接" class="headerlink" title="markdown 图片链接"></a>markdown 图片链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)</div></pre></td></tr></table></figure>
+<p>将图片标记语法包裹在超链接标记语法中。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="factorial-designs-因子设计-7"><a href="#factorial-designs-因子设计-7" class="headerlink" title="factorial designs 因子设计^7"></a>factorial designs 因子设计<a href="http://support.minitab.com/zh-cn/minitab/17/topic-library/modeling-statistics/doe/factorial-designs/factorial-designs/" target="_blank" rel="external">^7</a></h2><p>因子设计是一种设计试验类型，可以研究<strong>多个因子对响应的效应</strong>。进行试验时，同时改变所有因子的水平（而不是一次改变一个）可以研究因子之间的交互作用。</p>
+<p><strong>全因子设计</strong>是研究人员以因子水平的全部组合测量响应的设计。两水平全因子设计所需的运行次数为 $2^k$，其中 $k$ 为因子数。</p>
+<p><strong>部分因子设计</strong>是试验者仅执行全因子设计中的选定子集或“部分”试验的设计。当资源有限或设计中的因子数很大时，部分因子设计是一种很好的选择，因为它们比全因子设计使用的运行次数要少。部分因子设计使用全因子设计的子集，因此某些主效应与双因子交互作用相混杂，而<strong>无法与其他更高阶交互作用的效应相区分</strong>。通常，试验者想假定更高阶的效应可以忽略不计，以便通过更少的运行次数获得有关主效应和低阶交互作用的信息。</p>
+<p>在因子设计中，当因变量的值在一个因子的不同水平下具有显著差异时，并且该结论在其他因子的任何水平都成立时，说明该因子的主效应存在。主效应的判定是以假设因变量不随因子的水平变化而变化作为零假设或基准线的。<a href="[香港开放教科书：社会科学研究／实验研究／因子设计](http://www.opentextbooks.org.hk/ditatopic/36036)">^8</a></p>
+<h1 id="R-contrast-coding-system-9"><a href="#R-contrast-coding-system-9" class="headerlink" title="R contrast coding system[^9]"></a>R contrast coding system[^9]</h1><p>四种内置比较：</p>
+<ul>
+<li>dummy</li>
+<li>deviation</li>
+<li>helmert</li>
+<li><p>orthogonal polynomial</p>
+<p>Coding Scheme | Comparisons made<br>:————–|:—————-<br>Dummy Coding | Compares each level to the reference level, intercept being the cell mean of the reference group<br>Simple Coding | Compares each level to the reference level, intercept being the grand mean<br>Deviation Coding | Compares each level to the grand mean<br>Orthogonal Polynomial Coding | Orthogonal polynomial contrasts<br>Helmert Coding | Compare levels of a variable with the mean of the subsequent levels of the variable。helmert coding 将每个水平与其后续水平的均值进行比较。<br>Reverse Helmert Coding | Compares levels of a variable with the mean of the previous levels of the variable。与 helmert coding 相对，reverse helmert coding 将后一个水平与前面水平的均值进行比较。<code>contr.helmert()</code><br>Forward Difference Coding | Compares adjacent levels of a variable (each level minus the next level)。一个水平的均值与下一个邻近水平的均值进行比较。<br>Backward Difference Coding | Compares adjacent levels of a variable (each level minus the prior level)。与 forward difference coding 相反，将后一个水平与前一个邻近水平进行比较。<br>User-Defined Coding | User-defined contrast</p>
+</li>
+</ul>
+<blockquote>
+<p>No matter which coding system you select, you will always have a contrast matrix with one less column than levels of the original variable. 无论什么样的编码系统，你的比较矩阵的列数总是要比原来变量个数少一。</p>
+</blockquote>
+<h2 id="Dummy-coding"><a href="#Dummy-coding" class="headerlink" title="Dummy coding"></a>Dummy coding</h2><p>dummy coding 让你将变量的每个水平与一个固定的参照水平进行比较。</p>
+<p><code>contrasts(data$factor) = contr.treatment(4)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  2 3 4</div><div class="line">1 0 0 0</div><div class="line">2 1 0 0</div><div class="line">3 0 1 0</div><div class="line">4 0 0 1</div></pre></td></tr></table></figure>
+<p>所以，第2，3，4个水平均将与第1个水平比较。</p>
+<h2 id="Simple-coding"><a href="#Simple-coding" class="headerlink" title="Simple coding"></a>Simple coding</h2><p>simple coding 和 dummy coding 相似，都是与参照水平进行比较。不同之处在于，回归模型的结果上的截距。对于 dummy coding，截距为参照组的 cell mean；而对于 simple coding，截距为 mean of cell means，即所有 cell 均值的均值 (grand mean)。</p>
+<blockquote>
+<p>Essentially, the difference between the dummy coding scheme and the simple coding scheme is a constant matrix whose each element is 1/k if our categorical variable has k levels.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">c &lt;- contr.treatment(<span class="number">4</span>)</div><div class="line">my.coding &lt;- matrix(rep(<span class="number">1</span>/<span class="number">4</span>, <span class="number">12</span>), ncol = <span class="number">3</span>)</div><div class="line">my.simple.coding &lt;- c - my.coding</div><div class="line">my.simple</div><div class="line"></div><div class="line">      <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></div><div class="line"><span class="number">1</span> -<span class="number">0.25</span> -<span class="number">0.25</span> -<span class="number">0.25</span></div><div class="line"><span class="number">2</span>  <span class="number">0.75</span> -<span class="number">0.25</span> -<span class="number">0.25</span></div><div class="line"><span class="number">3</span> -<span class="number">0.25</span>  <span class="number">0.75</span> -<span class="number">0.25</span></div><div class="line"><span class="number">4</span> -<span class="number">0.25</span> -<span class="number">0.25</span>  <span class="number">0.75</span></div></pre></td></tr></table></figure>
+<h2 id="Deviation-coding"><a href="#Deviation-coding" class="headerlink" title="Deviation coding"></a>Deviation coding</h2><p>deviation coding 将指定水平与因变量的总均值进行比较。</p>
+<p><code>contr.sum(n)</code><br><code>contrasts(data$factor) = contr.sum(n)</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">contr.sum(<span class="number">4</span>)</div><div class="line">  [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line"><span class="number">1</span>    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span></div><div class="line"><span class="number">2</span>    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span></div><div class="line"><span class="number">3</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></div><div class="line"><span class="number">4</span>   -<span class="number">1</span>   -<span class="number">1</span>   -<span class="number">1</span></div></pre></td></tr></table></figure>
+<p>上面标记为1的水平将与总均值进行比较，而-1的水平不进行比较。</p>
+<blockquote>
+<p>Note that a -1 is assigned to level 4 for all three comparisons (because it is the level that is never compared to the other levels) and all other values are assigned a 0.</p>
+<p>However, this grand mean is not the mean of the dependent variable that is listed in the output of the means command above. Rather it is the mean of means of the dependent variable at each level of the categorical variable.</p>
+</blockquote>
+<h2 id="Orthogonal-polynomial-coding"><a href="#Orthogonal-polynomial-coding" class="headerlink" title="Orthogonal polynomial coding"></a>Orthogonal polynomial coding</h2><blockquote>
+<p>Orthogonal polynomial coding is a form of <strong>trend analysis</strong> in that it is looking for the linear, quadratic and cubic trends in the categorical variable. This type of coding system should be <strong>used only with an ordinal variable in which the levels are equally spaced.</strong></p>
+</blockquote>
+<p><code>contr.poly()</code></p>
+<p>[^9]: <a href="http://www.ats.ucla.edu/stat/r/library/contrast_coding.htm" target="_blank" rel="external">Contrast Coding Systems for categorical variables</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      - 关于统计学文章的一点儿阅读摘录。&lt;br&gt;- 关于 R 中 contrasts 矩阵的使用。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-06</title>
+    <link href="http://lix90.github.io/2016/12/06/2016-12-06-daily/"/>
+    <id>http://lix90.github.io/2016/12/06/2016-12-06-daily/</id>
+    <published>2016-12-05T16:00:00.000Z</published>
+    <updated>2016-12-06T09:13:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何使用-R-包进行方差分析？"><a href="#如何使用-R-包进行方差分析？" class="headerlink" title="如何使用 R 包进行方差分析？"></a>如何使用 R 包进行方差分析？</h1><ol>
+<li>数据整理：tidyr, dplyr, plyr 包</li>
+</ol>
+<ul>
+<li>缺失值处理：<code>na.omit()</code></li>
+<li>异常值处理：对数据进行 <code>subset()</code></li>
+<li>是否对数据进行裁剪：<code>!scale(x)&gt;3</code></li>
+<li>数据格式的长宽转换：<code>tidyr::spread()</code> <code>tidyr::gather()</code></li>
+</ul>
+<ol>
+<li>使用 afex 包建立方差分析模型</li>
+</ol>
+<p><code>afex::aov_ez()</code><br><code>afex::aov_car()</code><br><code>afex::aov_4()</code></p>
+<ol>
+<li><p>使用 lsmeans 包或 glht 包进行事后比较</p>
+</li>
+<li><p>使用 apa 包进行结果导出</p>
+</li>
+<li><p>数据结果呈现：绘制交互作用图</p>
+</li>
+</ol>
+<h1 id="使用-data-table-包进行数据整理"><a href="#使用-data-table-包进行数据整理" class="headerlink" title="使用 data.table 包进行数据整理"></a>使用 data.table 包进行数据整理</h1><p>data.table 包提供了一种增强版本的 data.frame。<br><code>data.table</code> <code>as.data.table</code></p>
+<ul>
+<li>data.table 中的字符串列默认不会被转换为因子。</li>
+<li>每一行会打印一个行号加<code>:</code>冒号。</li>
+<li>当行数大于100，则只打印前5行和后5行。</li>
+</ul>
+<p>数据导入：<code>fread()</code></p>
+<p>data.table 基本语法：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DT[i, j, by]</div><div class="line"></div><div class="line"><span class="comment">##   R:      i                 j        by</span></div><div class="line"><span class="comment">## SQL:  where   select | update  group by</span></div><div class="line"><span class="comment">## Take DT, subset rows using i, then calculate j, grouped by by.</span></div></pre></td></tr></table></figure>
+<h1 id="useR2016-会议上感兴趣的-tutorials"><a href="#useR2016-会议上感兴趣的-tutorials" class="headerlink" title="useR2016 会议上感兴趣的 tutorials"></a>useR2016 会议上感兴趣的 tutorials</h1><ul>
+<li><a href="http://user2016.org/tutorials/02.html" target="_blank" rel="external">Joe Cheng - Effective Shiny Programming</a> Shiny 编程</li>
+<li><a href="http://user2016.org/tutorials/03.html" target="_blank" rel="external">Missing Value Imputation with R</a> 缺失值处理</li>
+<li><a href="http://user2016.org/tutorials/04.html" target="_blank" rel="external">Extracting data from the web APIs and beyond</a> 从网络获取数据</li>
+<li><a href="http://user2016.org/tutorials/05.html" target="_blank" rel="external">Ninja Moves with data.table</a> data.table 包</li>
+<li><a href="http://user2016.org/tutorials/07.html" target="_blank" rel="external">Language Analytics in Finance with R</a> 文本分析</li>
+<li><a href="http://user2016.org/tutorials/13.html" target="_blank" rel="external">Understanding and Creating Interactive Graphics</a> 交互式图形</li>
+<li><a href="http://user2016.org/tutorials/17.html" target="_blank" rel="external">Dynamics Documents with R Markdown</a> 动态文档</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      使用 R 进行方差分析的流程。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-12-05</title>
     <link href="http://lix90.github.io/2016/12/05/2016-12-05-daily/"/>
     <id>http://lix90.github.io/2016/12/05/2016-12-05-daily/</id>
     <published>2016-12-04T16:00:00.000Z</published>
-    <updated>2016-12-05T08:33:41.000Z</updated>
+    <updated>2016-12-07T10:50:05.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="如何在-ESS-中调出-R-包对应的-Vignettes？"><a href="#如何在-ESS-中调出-R-包对应的-Vignettes？" class="headerlink" title="如何在 ESS 中调出 R 包对应的 Vignettes？"></a>如何在 ESS 中调出 R 包对应的 Vignettes？</h1><ul>
 <li>首先得加载包 <code>library(pkg)</code></li>
 <li><code>C-c C-d C-v</code> 查找已载入包的 Vignettes，含有 Vignettes 的包则会列出来</li>
 <li>光标移动到链接下，<code>enter/RET</code> 打开对应 Vignettes</li>
+</ul>
+<p>或者</p>
+<ul>
+<li>先搜索包的 vignette：<code>vignette(package = &quot;pkg_name&quot;)</code>，获得 vignette 主题名称</li>
+<li>然后再通过 <code>vignette(topic = &quot;topic_name&quot;, package = &quot;pkg_name&quot;)</code> 调出 vignette</li>
 </ul>
 <h1 id="如何阻止-R-打印启动信息（startup-message）"><a href="#如何阻止-R-打印启动信息（startup-message）" class="headerlink" title="如何阻止 R 打印启动信息（startup message）"></a>如何阻止 R 打印启动信息（startup message）</h1><ul>
 <li>命令行中，传给 R 参数即可 <code>R -q/--quiet/--silent</code></li>
@@ -57,7 +320,100 @@
 <li>x: 来自 <code>apa::t_test</code> 或 <code>t.test</code> 的结果。</li>
 <li>es: 字符串，指定效应量类型，包括 “cohens_d”(默认), “hedges_g”, 或 “glass_delta”（如何 x 为独立样本 t 检验的结果）。如果 x 为配对样本或者单样本 t 检验结果，报告 cohen’s d 值。</li>
 <li>format: 字符串，导出格式。</li>
-<li>info</li>
+</ul>
+<h1 id="统计检验力分析"><a href="#统计检验力分析" class="headerlink" title="统计检验力分析"></a>统计检验力分析</h1><h2 id="统计检验力"><a href="#统计检验力" class="headerlink" title="统计检验力"></a>统计检验力</h2><p>power 统计检验力：如果真实差异存在，统计检验能够检测到真实差异的能力。<br>$\beta$ 第二类错误概率：当虚无假设（null hypothesis）为假，没有能够拒绝虚无假设的概率。<br>$$power = 1 - \beta$$<br>所以统计检验力也就是在虚无假设为假时成功拒绝掉虚无假设的概率。</p>
+<h2 id="统计检验力的几个问题"><a href="#统计检验力的几个问题" class="headerlink" title="统计检验力的几个问题"></a>统计检验力的几个问题</h2><ul>
+<li>实验设计有多敏锐？</li>
+<li>当组间差异真实存在时，实验真实地发现差异有多大可能性？</li>
+<li>需要多大的样本量才能使得实验具有足够的统计检验力？</li>
+<li>每组需要包含多少个被试？</li>
+</ul>
+<h2 id="效应量"><a href="#效应量" class="headerlink" title="效应量"></a>效应量</h2><p>对于中等程度的效应量，组间标准差为 1/4 个组内标准差。</p>
+<h2 id="使用-R-进行统计检验力分析"><a href="#使用-R-进行统计检验力分析" class="headerlink" title="使用 R 进行统计检验力分析"></a>使用 R 进行统计检验力分析</h2><p><code>power.t.test</code><br><code>power.anova.test</code></p>
+<h2 id="power-分析的挑战"><a href="#power-分析的挑战" class="headerlink" title="power 分析的挑战"></a>power 分析的挑战</h2><ul>
+<li>你必须对期望的均值差异进行估计</li>
+<li>你必须对组内变异进行估计</li>
+<li>计算更复杂的实验设计的 power 是非常复杂的</li>
+</ul>
+<p><strong>omnibus test</strong> 综合检验只提供给我们进一步分析差异的权限。</p>
+<h1 id="多重比较"><a href="#多重比较" class="headerlink" title="多重比较"></a>多重比较</h1><p>两种多重比较方法</p>
+<h2 id="Planned-comparisons"><a href="#Planned-comparisons" class="headerlink" title="Planned comparisons"></a>Planned comparisons</h2><ul>
+<li>事先确定需要比较的组</li>
+<li>你只能受限于实现确定的比较</li>
+<li>比较之间必须是正交的（orthogonal）</li>
+</ul>
+<h2 id="post-hoc-comparisons"><a href="#post-hoc-comparisons" class="headerlink" title="post-hoc comparisons"></a>post-hoc comparisons</h2><ul>
+<li>根据结果选择比较（追求最显著的差异）</li>
+<li>可以进行任意多次比较</li>
+<li>较少的限制</li>
+<li>需要控制第一类错误率，所以每次比较的结果就将更保守</li>
+</ul>
+<h2 id="比较次数"><a href="#比较次数" class="headerlink" title="比较次数"></a>比较次数</h2><p>两个问题：</p>
+<ul>
+<li>正交性 orthogonality</li>
+<li>第一类错误的增加 inflation of Type-I error</li>
+</ul>
+<p>问题：可以进行多少次比较，而且不会带来冗余？</p>
+<h2 id="非冗余比较-Non-redundant-contrasts"><a href="#非冗余比较-Non-redundant-contrasts" class="headerlink" title="非冗余比较 Non-redundant contrasts"></a>非冗余比较 Non-redundant contrasts</h2><ul>
+<li>一般来说，对于 n 组数据，在不带来冗余的前提下，最多有 n-1 次比较。</li>
+<li>数学上，orthogonality 就代表没有冗余。</li>
+</ul>
+<h2 id="为什么要关注正交性？"><a href="#为什么要关注正交性？" class="headerlink" title="为什么要关注正交性？"></a>为什么要关注正交性？</h2><ul>
+<li>首要启示：正交比较能够提供关于组间差异的不重复的信息。</li>
+<li>正规表达：当两个比较为正交的，那么两个样本之间在统计上是独立的。</li>
+<li>每一个比较都能够提供关于组间差异的唯一的，不重复的信息。</li>
+<li>每一个比较问的关于数据的不同问题。</li>
+</ul>
+<h2 id="多重比较检验"><a href="#多重比较检验" class="headerlink" title="多重比较检验"></a>多重比较检验</h2><ul>
+<li>比较之间是独立的事件</li>
+<li>概率值不是简单的加总</li>
+<li>Pr(至少犯一次一类错误) = 1 - Pr(没有犯一类错误) = $1 - (1 - \alpha)^C$，C 为比较的次数。<ul>
+<li>如果 $\alpha = 0.05$, C = 3, 那么 p = 0.143。</li>
+<li>如果 C = 10, p = 0.40。</li>
+</ul>
+</li>
+</ul>
+<h2 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h2><ul>
+<li>error rate per contrast $\alpha_PC$<ul>
+<li>特定比较犯一类错误的概率（假阳性概率）</li>
+</ul>
+</li>
+<li>experiment-wise error rate $\alpha_EW$<ul>
+<li>在一次试验中，一次或多次比较犯一类错误的概率</li>
+</ul>
+</li>
+<li>family-wise error rate $\alpha_FW$<ul>
+<li>多个因素试验一次或多次比较犯一类错误的概率</li>
+</ul>
+</li>
+</ul>
+<p>那么，当 C = 3，$\alpha_PC = 0.05$，那么 $\alpha_EW = 0.143$。</p>
+<h2 id="比较方法"><a href="#比较方法" class="headerlink" title="比较方法"></a>比较方法</h2><h3 id="Bonferroni"><a href="#Bonferroni" class="headerlink" title="Bonferroni"></a>Bonferroni</h3><ul>
+<li>简单</li>
+<li>$\alpha_PC = \frac{\alpha}{C}$，C 为比较的总次数。</li>
+<li>适合比较次数少时</li>
+</ul>
+<h3 id="Holm-Bonferroni"><a href="#Holm-Bonferroni" class="headerlink" title="Holm-Bonferroni"></a>Holm-Bonferroni</h3><ul>
+<li>相比 bonferroni 没有那么保守</li>
+<li>p 值越小矫正越大</li>
+</ul>
+<h3 id="Keppel-等人的观点"><a href="#Keppel-等人的观点" class="headerlink" title="Keppel 等人的观点"></a>Keppel 等人的观点</h3><ul>
+<li>如果比较为 n-1 次正交的事前比较，不需要矫正显著性水平</li>
+<li>如果为事前比较，正交的，且次数小于等于 n-1，那么比较并不是数据驱动，那么不需要矫正显著性水平</li>
+</ul>
+<h2 id="事后成对比较"><a href="#事后成对比较" class="headerlink" title="事后成对比较"></a>事后成对比较</h2><p>Tukey 方法（<code>TukeyHSD()</code>）允许进行一个实验中所有可能的成对比较，然后保持 $\alpha_EW = 0.05$。如果样本方差不相同，或者样本量不同，需要使用修改的 Tukey 方法。</p>
+<p>Scheffe 方法也比较保守。</p>
+<p>其它方法：</p>
+<ul>
+<li>Dunnett</li>
+<li>Fisher’s LSD</li>
+<li>Newman-Keuls</li>
+</ul>
+<h2 id="如何应对多重比较问题？"><a href="#如何应对多重比较问题？" class="headerlink" title="如何应对多重比较问题？"></a>如何应对多重比较问题？</h2><ul>
+<li>决定那种方法最合理，提供数据和实验设计</li>
+<li>做好为自己的方法进行辩护的准备</li>
+<li>如果有必要，可能会换一种方法</li>
+<li>实验室、领域、期刊更推崇那种方法？</li>
 </ul>
 ]]></content>
     
@@ -203,79 +559,123 @@
   </entry>
   
   <entry>
-    <title>shell 命令整理</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
+    <title>R：graphics 包</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T11:43:27.000Z</updated>
+    <updated>2016-12-01T12:59:45.000Z</updated>
     
-    <content type="html"><![CDATA[<p>@2016-11-16</p>
-<p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
-<p>@2016-12-01</p>
-<p>修改 MacOS 计算机名<br><code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
-<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br><code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>其他格式:</p>
-<ul>
-<li>FAT32: MS-DOS fat32</li>
-<li>HFS+: Mac OS Extended (HFS+)</li>
-<li>ExFAT</li>
-</ul>
-<p>lsof 列出已打开的文件以及对应的进程</p>
+    <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:left">中文描述</th>
+<th style="text-align:left">用法</th>
+<th style="text-align:left">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Axis (axis)</td>
+<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
+<td style="text-align:left">``</td>
+</tr>
+<tr>
+<td style="text-align:left">axis.POSIXct</td>
+<td style="text-align:left">Date and Date-time Plotting Functions</td>
+</tr>
+<tr>
+<td style="text-align:left">abline</td>
+<td style="text-align:left">添加垂直线至图形</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">arrows</td>
+<td style="text-align:left">添加箭头</td>
+</tr>
+<tr>
+<td style="text-align:left">box</td>
+<td style="text-align:left">绘制线框</td>
+</tr>
+<tr>
+<td style="text-align:left">grid</td>
+<td style="text-align:left">添加网格线</td>
+</tr>
+<tr>
+<td style="text-align:left">legend</td>
+<td style="text-align:left">添加图例</td>
+</tr>
+<tr>
+<td style="text-align:left">lines</td>
+<td style="text-align:left">Add Connected Line Segments to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">segments</td>
+<td style="text-align:left">Add Line Segments to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">mtext</td>
+<td style="text-align:left">Write Text into the Margins of a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">points</td>
+<td style="text-align:left">Add Points to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">rect</td>
+<td style="text-align:left">Draw One or More Rectangles</td>
+</tr>
+<tr>
+<td style="text-align:left">rug</td>
+<td style="text-align:left">Add a Rug to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">Add Text to a Plot</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">绘制标题</td>
+</tr>
+<tr>
+<td style="text-align:left">polygon</td>
+<td style="text-align:left">绘制多边形</td>
+</tr>
+<tr>
+<td style="text-align:left">polypath</td>
+<td style="text-align:left">绘制路径</td>
+</tr>
+<tr>
+<td style="text-align:left">symbols</td>
+<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
+</tr>
+<tr>
+<td style="text-align:left">xspline</td>
+<td style="text-align:left">Draw an X-spline</td>
+</tr>
+</tbody>
+</table>
+<p>contour                 Display Contours<br>image                   Display a Color Image<br>rasterImage             Draw One or More Raster Images<br>strwidth                Plotting Dimensions of Character Strings and Math Expressions</p>
+<p>par                     Set or Query Graphical Parameters<br>axTicks                 Compute Axis Tickmark Locations<br>clip                    Set Clipping Region<br>filled.contour          Level (Contour) Plots<br>frame                   Create / Start a New Plot Frame<br>grconvertX              Convert between Graphics Coordinate Systems<br>identify                Identify Points in a Scatter Plot<br>layout                  Specifying Complex Plot Arrangements<br>locator                 Graphical Input<br>screen                  Creating and Controlling Multiple Screens on a Single Device<br>xinch                   Graphical Units</p>
+<p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>plot                    Generic X-Y Plotting<br>plot.data.frame         Plot Method for Data Frames<br>plot.default            The Default Scatterplot Function<br>plot.design             Plot Univariate Effects of a Design or Model<br>plot.factor             Plotting Factor Variables<br>plot.formula            Formula Notation for Scatterplots<br>plot.histogram          Plot Histograms<br>plot.raster             Plotting Raster Images<br>plot.table              Plot Methods for ‘table’ Objects<br>plot.window             Set up World Coordinates for Graphics Window<br>plot.xy                 Basic Internal Plot Function<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
 ]]></content>
     
     <summary type="html">
     
-      使用 shell 过程中的笔记。
+      R 语言 graphics 包中文参考。
     
     </summary>
     
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+      <category term="R" scheme="http://lix90.github.io/categories/Original/R/"/>
     
     
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-  </entry>
-  
-  <entry>
-    <title>报错问题解决记录</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T03:38:11.000Z</updated>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
-    <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="MacOS-下-XML包依赖-libxml2-冲突"><a href="#MacOS-下-XML包依赖-libxml2-冲突" class="headerlink" title="MacOS 下 XML包依赖 libxml2 冲突"></a>MacOS 下 XML包依赖 libxml2 冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
-<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。本身通过 homebrew 安装过 libxml2，发现 anaconda 也安装了 libxml2，出现冲突。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
-<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。报错信息提示可以定义环境变量到非默认的路径。</p>
-<blockquote>
-<p>If you have specified LIBXML_INCDIR, make certain to also specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the defaultdirectories.</p>
-</blockquote>
-<p>设置环境变量：</p>
-<ul>
-<li><code>export LIBXML_INCDIR=/usr/local/Cellar/libxml2/2.9.4</code></li>
-<li><code>export LIBXML_LIBDIR=/usr/local/Cellar/libxml2/2.9.4/lib</code></li>
-</ul>
-<p>继续安装仍然报错：提示无法找到 parser.h 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">You specified LIBXML_INCDIR, but we couldn&apos;t find parser.h</div><div class="line">Please specify it correctly and re-run the INSTALL&apos;ation.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
-<p><strong>Anaconda 与 Homebrew 冲突问题</strong></p>
-<p>运行 <code>brew doctor</code> 发现一个警告：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
-<p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
-<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
-<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="Terminating-active-homebrew-process"><a href="#Terminating-active-homebrew-process" class="headerlink" title="Terminating active homebrew process"></a>Terminating active homebrew process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># try</div><div class="line">/usr/bin/pkill ruby</div><div class="line"># try</div><div class="line">/usr/bin/pgrep ruby</div><div class="line"># do</div><div class="line">chown -R $(whoami) /usr/local/var/homebrew</div><div class="line"># do</div><div class="line">sudo rm -rf /usr/local/var/homebrew/locks</div></pre></td></tr></table></figure>
-<p>来源：<a href="https://github.com/Homebrew/homebrew-core/issues/5159" target="_blank" rel="external">Terminating active homebrew process #5159</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      记录遇到的所有报错的解决方法。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Error" scheme="http://lix90.github.io/tags/Error/"/>
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
   </entry>
   
@@ -1166,20 +1566,97 @@
   </entry>
   
   <entry>
+    <title>shell 命令整理</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T11:43:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>@2016-11-16</p>
+<p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
+<p>@2016-12-01</p>
+<p>修改 MacOS 计算机名<br><code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
+<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br><code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>其他格式:</p>
+<ul>
+<li>FAT32: MS-DOS fat32</li>
+<li>HFS+: Mac OS Extended (HFS+)</li>
+<li>ExFAT</li>
+</ul>
+<p>lsof 列出已打开的文件以及对应的进程</p>
+]]></content>
+    
+    <summary type="html">
+    
+      使用 shell 过程中的笔记。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>报错问题解决记录</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T03:38:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="MacOS-下-XML包依赖-libxml2-冲突"><a href="#MacOS-下-XML包依赖-libxml2-冲突" class="headerlink" title="MacOS 下 XML包依赖 libxml2 冲突"></a>MacOS 下 XML包依赖 libxml2 冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。本身通过 homebrew 安装过 libxml2，发现 anaconda 也安装了 libxml2，出现冲突。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
+<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。报错信息提示可以定义环境变量到非默认的路径。</p>
+<blockquote>
+<p>If you have specified LIBXML_INCDIR, make certain to also specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the defaultdirectories.</p>
+</blockquote>
+<p>设置环境变量：</p>
+<ul>
+<li><code>export LIBXML_INCDIR=/usr/local/Cellar/libxml2/2.9.4</code></li>
+<li><code>export LIBXML_LIBDIR=/usr/local/Cellar/libxml2/2.9.4/lib</code></li>
+</ul>
+<p>继续安装仍然报错：提示无法找到 parser.h 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">You specified LIBXML_INCDIR, but we couldn&apos;t find parser.h</div><div class="line">Please specify it correctly and re-run the INSTALL&apos;ation.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p><strong>Anaconda 与 Homebrew 冲突问题</strong></p>
+<p>运行 <code>brew doctor</code> 发现一个警告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
+<p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
+<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
+<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="Terminating-active-homebrew-process"><a href="#Terminating-active-homebrew-process" class="headerlink" title="Terminating active homebrew process"></a>Terminating active homebrew process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># try</div><div class="line">/usr/bin/pkill ruby</div><div class="line"># try</div><div class="line">/usr/bin/pgrep ruby</div><div class="line"># do</div><div class="line">chown -R $(whoami) /usr/local/var/homebrew</div><div class="line"># do</div><div class="line">sudo rm -rf /usr/local/var/homebrew/locks</div></pre></td></tr></table></figure>
+<p>来源：<a href="https://github.com/Homebrew/homebrew-core/issues/5159" target="_blank" rel="external">Terminating active homebrew process #5159</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      记录遇到的所有报错的解决方法。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Error" scheme="http://lix90.github.io/tags/Error/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R 语言个人参考</title>
     <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/"/>
     <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-05T07:20:59.000Z</updated>
+    <updated>2016-12-07T16:24:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="base"><a href="#base" class="headerlink" title="base"></a>base</h1><p><strong>Sys.</strong></p>
+    <content type="html"><![CDATA[<h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><h2 id="base"><a href="#base" class="headerlink" title="base"></a>base</h2><p><strong>Sys.</strong></p>
 <ul>
 <li><code>Sys.getenv()</code> 获取环境变量内容</li>
 <li><code>Sys.setenv()</code> 设置环境变量</li>
 <li><code>Sys.unsetenv()</code> 移除环境变量</li>
 <li><code>Sys.time()</code> <code>Sys.Date()</code> 获取当前日期和时间</li>
 </ul>
-<h2 id="Startup"><a href="#Startup" class="headerlink" title="Startup"></a>Startup</h2><p>步骤</p>
+<h3 id="Startup"><a href="#Startup" class="headerlink" title="Startup"></a>Startup</h3><p>步骤</p>
 <ol>
 <li><strong>设置环境变量</strong>：通过 site 和 user 文件</li>
 </ol>
@@ -1194,7 +1671,7 @@
 <li>如果存在 <code>.First</code> 函数，则执行，然后，<code>base::.First.sys()</code> 执行。<code>.First.sys()</code> 调用 <code>require</code> 加载默认的包。默认的 R 包由 <code>options(&quot;defaultPackages&quot;)</code> 指定。如果默认包中包含 methods package，那么通过函数 <code>.OptRequireMethods()</code> 先加载 methods 包。<code>.First()</code> 可以在 <code>.Rprofile</code> 和 <code>Profile.site</code> 中定义，也可以存储在 <code>.RData</code> 中。</li>
 </ol>
 <p>在 R 启动时，需要两种文件，设置环境变量的文件和包含 R 代码的 profile 文件。</p>
-<h1 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h1><h2 id="函数索引"><a href="#函数索引" class="headerlink" title="函数索引"></a>函数索引</h2><h3 id="常用底层函数"><a href="#常用底层函数" class="headerlink" title="常用底层函数"></a>常用底层函数</h3><table>
+<h2 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h2><h3 id="函数索引"><a href="#函数索引" class="headerlink" title="函数索引"></a>函数索引</h3><h4 id="常用底层函数"><a href="#常用底层函数" class="headerlink" title="常用底层函数"></a>常用底层函数</h4><table>
 <thead>
 <tr>
 <th style="text-align:left">函数名</th>
@@ -1286,7 +1763,7 @@
 <p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
 <p>双变量</p>
 <p>contour | 绘制轮廓线/等高线图<br>image | 绘制二维图像<br>rasterImage | 绘制栅格图</p>
-<h2 id="par-graphical-parameters"><a href="#par-graphical-parameters" class="headerlink" title="par: graphical parameters"></a>par: graphical parameters</h2><p><strong>margins</strong>: (bottom, left, top, right)<br>mar (margins size in lines)<br>mai (margin size in inches)<br>mex (scale fator of line height of margins)<br>oma (out margins area)</p>
+<h3 id="par-graphical-parameters"><a href="#par-graphical-parameters" class="headerlink" title="par: graphical parameters"></a>par: graphical parameters</h3><p><strong>margins</strong>: (bottom, left, top, right)<br>mar (margins size in lines)<br>mai (margin size in inches)<br>mex (scale fator of line height of margins)<br>oma (out margins area)</p>
 <p><a href="http://research.stowers-institute.org/efg/R/Graphics/Basics/mar-oma/index.htm" target="_blank" rel="external">tutorials of margins and outer margins</a><br><a href="http://rgraphics.limnology.wisc.edu/index.php" target="_blank" rel="external">R graphics</a></p>
 <p><strong>multiple figures</strong><br>mlcol (multiple figures column)<br>mlrow (multiple figures row)</p>
 <p><strong>cex</strong>: scale factor of text and symbols<br>cex.axis: axis tick labels<br>cex.lab: x-y axis labels<br>cex.main: main title<br>cex.sub: subtitle</p>
@@ -1303,9 +1780,9 @@
 </ul>
 <p><strong>plot regions</strong><br><strong>plt</strong>: the coordinates of the plot region, (x1/left, x2/right, y1/bottom, y2/top), 每个值为 0 ~ 1 之间，为相对于 device 的长宽的比率。x1 为 device 左边缘至 plot region 左边缘的距离，x2 为 device 的左边缘至 plot region 的右边缘的距离。y1 为 device 的下边缘至 plot region 的下边缘的距离，y2 为 device 的下边缘至 plot region 的上边缘的距离。<br><strong>pin</strong>: specify the size of the plot region in inches, (width, height)<br><strong>pty</strong>: default “m”, 占据可用空间的所有空间；”s”，以正方形的形式占据可用空间的最大空间。</p>
 <p><strong>xpd</strong><br><code>par(xpd = NA)</code> clipped to device<br><code>par(xpd = TRUE)</code> clipped to the current figure region<br><code>par(xpd = FALSE)</code> clipped to the current plot region</p>
-<h1 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h1><h2 id="函数索引-1"><a href="#函数索引-1" class="headerlink" title="函数索引"></a>函数索引</h2><p>Devices                 List of Graphical Devices<br>Hershey                 Hershey Vector Fonts in R<br>Japanese                Japanese characters in R<br>Type1Font               Type 1 and CID Fonts<br>X11Fonts                X11 Fonts<br>as.graphicsAnnot        Coerce an Object for Graphics Annotation<br>as.raster               Create a Raster Object<br>axisTicks               Compute Pretty Axis Tick Scales<br>boxplot.stats           Box Plot Statistics<br>check.options           Set Options with Consistency Checks<br>chull                   Compute Convex Hull of a Set of Points<br>cm                      Unit Transformation<br>contourLines            Calculate Contour Lines<br>dev.capabilities        Query Capabilities of the Current Graphics Device<br>dev.capture             Capture device output as a raster image<br>dev.copy                Copy Graphics Between Multiple Devices<br>dev.cur                 Control Multiple Devices<br>dev.flush               Hold or Flush Output on an On-Screen Graphics Device.<br>dev.interactive         Is the Current Graphics Device Interactive?<br>dev.size                Find Size of Device Surface<br>dev2bitmap              Graphics Device for Bitmap Files via Ghostscript<br>devAskNewPage           Prompt before New Page<br>embedFonts              Embed Fonts in PostScript and PDF<br>extendrange             Extend a Numerical Range by a Small Percentage<br>getGraphicsEvent        Wait for a mouse or keyboard event from a graphics window<br>grDevices-package       The R Graphics Devices and Support for Colours and Fonts<br>grSoftVersion           Report Versions of Graphics Software<br>n2mfrow                 Compute Default mfrow From Number of Plots<br>nclass.Sturges          Compute the Number of Classes for a Histogram<br>pdf                     PDF Graphics Device<br>pdf.options             Auxiliary Function to Set/View Defaults for Arguments of pdf<br>pictex                  A PicTeX Graphics Driver<br>plotmath                Mathematical Annotation in R<br>png                     BMP, JPEG, PNG and TIFF graphics devices<br>postscript              PostScript Graphics<br>postscriptFonts         PostScript and PDF Font Families<br>pretty.Date             Pretty Breakpoints for Date-Time Classes<br>ps.options              Auxiliary Function to Set/View Defaults for Arguments of postscript<br>quartz                  macOS Quartz Device<br>quartzFonts             quartz Fonts<br>recordGraphics          Record Graphics Operations<br>recordPlot              Record and Replay Plots<br>savePlot                Save Cairo X11 Plot to File<br>svg                     Cairographics-based SVG, PDF and PostScript Graphics Devices<br>trans3d                 3D to 2D Transformation for Perspective Plots<br>x11                     X Window System Graphics<br>xfig                    XFig Graphics Device<br>xy.coords               Extracting Plotting Structures<br>xyTable                 Multiplicities of (x,y) Points, e.g., for a Sunflower Plot<br>xyz.coords              Extracting Plotting Structures</p>
+<h2 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h2><h3 id="函数索引-1"><a href="#函数索引-1" class="headerlink" title="函数索引"></a>函数索引</h3><p>Devices                 List of Graphical Devices<br>Hershey                 Hershey Vector Fonts in R<br>Japanese                Japanese characters in R<br>Type1Font               Type 1 and CID Fonts<br>X11Fonts                X11 Fonts<br>as.graphicsAnnot        Coerce an Object for Graphics Annotation<br>as.raster               Create a Raster Object<br>axisTicks               Compute Pretty Axis Tick Scales<br>boxplot.stats           Box Plot Statistics<br>check.options           Set Options with Consistency Checks<br>chull                   Compute Convex Hull of a Set of Points<br>cm                      Unit Transformation<br>contourLines            Calculate Contour Lines<br>dev.capabilities        Query Capabilities of the Current Graphics Device<br>dev.capture             Capture device output as a raster image<br>dev.copy                Copy Graphics Between Multiple Devices<br>dev.cur                 Control Multiple Devices<br>dev.flush               Hold or Flush Output on an On-Screen Graphics Device.<br>dev.interactive         Is the Current Graphics Device Interactive?<br>dev.size                Find Size of Device Surface<br>dev2bitmap              Graphics Device for Bitmap Files via Ghostscript<br>devAskNewPage           Prompt before New Page<br>embedFonts              Embed Fonts in PostScript and PDF<br>extendrange             Extend a Numerical Range by a Small Percentage<br>getGraphicsEvent        Wait for a mouse or keyboard event from a graphics window<br>grDevices-package       The R Graphics Devices and Support for Colours and Fonts<br>grSoftVersion           Report Versions of Graphics Software<br>n2mfrow                 Compute Default mfrow From Number of Plots<br>nclass.Sturges          Compute the Number of Classes for a Histogram<br>pdf                     PDF Graphics Device<br>pdf.options             Auxiliary Function to Set/View Defaults for Arguments of pdf<br>pictex                  A PicTeX Graphics Driver<br>plotmath                Mathematical Annotation in R<br>png                     BMP, JPEG, PNG and TIFF graphics devices<br>postscript              PostScript Graphics<br>postscriptFonts         PostScript and PDF Font Families<br>pretty.Date             Pretty Breakpoints for Date-Time Classes<br>ps.options              Auxiliary Function to Set/View Defaults for Arguments of postscript<br>quartz                  macOS Quartz Device<br>quartzFonts             quartz Fonts<br>recordGraphics          Record Graphics Operations<br>recordPlot              Record and Replay Plots<br>savePlot                Save Cairo X11 Plot to File<br>svg                     Cairographics-based SVG, PDF and PostScript Graphics Devices<br>trans3d                 3D to 2D Transformation for Perspective Plots<br>x11                     X Window System Graphics<br>xfig                    XFig Graphics Device<br>xy.coords               Extracting Plotting Structures<br>xyTable                 Multiplicities of (x,y) Points, e.g., for a Sunflower Plot<br>xyz.coords              Extracting Plotting Structures</p>
 <p>设定颜色<br><code>rgb</code> | RGB 颜色设定 | <code>rgb(red, green, blue, alpha)</code><br>rgb2hsv                 RGB to HSV Conversion<br>gray                    Gray Level Specification<br>gray.colors             Gray Color Palette<br>hcl                     HCL Color Specification<br>hsv                     HSV Color Specification<br>make.rgb                Create colour spaces<br>rainbow                 Color Palettes<br>col2rgb                 Color to RGB Conversion<br>colorRamp               Color interpolation<br>colors                  Color Names<br>convertColor            Convert between Colour Spaces<br>densCols                Colors for Smooth Density Plots<br>adjustcolor             Adjust Colors in One or More Directions Conveniently.<br>palette                 Set or View the Graphics Palette</p>
-<h2 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+<h3 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h3><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
 <ul>
 <li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
 <li><code>X11</code> 在 X11 视窗系统下支持</li>
@@ -1358,7 +1835,7 @@
 <li>默认背景色为 <code>&quot;white&quot;</code></li>
 <li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
 </ul>
-<h1 id="plyr-the-split-apply-combine-paradigm"><a href="#plyr-the-split-apply-combine-paradigm" class="headerlink" title="plyr: the split-apply-combine paradigm"></a>plyr: the split-apply-combine paradigm</h1><p>split 分割：让复杂的问题分解成小块<br>apply 套用：对每一个小块进行计算<br>combine 组合：汇集每一小块的结果</p>
+<h2 id="plyr"><a href="#plyr" class="headerlink" title="plyr"></a>plyr</h2><p>split 分割：让复杂的问题分解成小块<br>apply 套用：对每一个小块进行计算<br>combine 组合：汇集每一小块的结果</p>
 <p>plyr 函数命名规律与输入对象类型和输出对象类型有关，有以下几种数据对象类型：</p>
 <ul>
 <li>a = array</li>
@@ -1378,9 +1855,34 @@
 <li>colwise</li>
 <li>rename: 修改 data frame 的列名</li>
 <li>round_any</li>
-<li>count: 快速计数，并返回 data frame<h1 id="统计检验"><a href="#统计检验" class="headerlink" title="统计检验"></a>统计检验</h1></li>
+<li>count: 快速计数，并返回 data frame</li>
 </ul>
-<h2 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h2><h3 id="stats-aov"><a href="#stats-aov" class="headerlink" title="stats::aov"></a>stats::aov</h3><p><code>aov(formula, data, projections = FALSE, qr = TRUE, contrasts = NULL, ...)</code></p>
+<hr>
+<h2 id="stats"><a href="#stats" class="headerlink" title="stats"></a>stats</h2><h3 id="p-adjust"><a href="#p-adjust" class="headerlink" title="p.adjust"></a>p.adjust</h3><p>使用特定方法对一系列 p 值进行矫正。方法包括：”holm”, “hochberg”, “hommel”, “bonferroni”, “BH”, “BY”, “fdr”, “none”。<br><code>p.adjust(p, method = p.adjust.methods)</code></p>
+<ul>
+<li>p 为数值类型的向量</li>
+<li>method 字符串，矫正方法</li>
+</ul>
+<blockquote>
+<p>The first four methods are designed to give strong control of the family-wise error rate.  There seems no reason to use the unmodified Bonferroni correction because it is dominated by Holm’s method, which is also valid under arbitrary assumptions.</p>
+</blockquote>
+<h2 id="afex"><a href="#afex" class="headerlink" title="afex"></a>afex</h2><p>round_ps: 根据 p 值大小的范围调整小数点位数。0.99-0.01 为两位小数点；p &lt; 0.01 为三位小数点；p &lt; 0.001 为四位小数点。</p>
+<p>contrast: 提供对 ref.grid 对象的分析，或对 lsmobj 对象的后续分析（follow-up analyses）。<br>pairs: 相当于 contrast 函数中传入 <code>method = &quot;pairwise&quot;</code>，即成对比较。</p>
+<h2 id="lsmeans"><a href="#lsmeans" class="headerlink" title="lsmeans"></a>lsmeans</h2><p>summary: Use these methods to summarize, print, plot, or examine objects of class ‘“ref.grid”’.</p>
+<ul>
+<li>adjust: <ul>
+<li>“tukey”: available for two-sided cases only</li>
+<li>“scheffe”</li>
+<li>“sidak”</li>
+<li>“bonferroni”</li>
+<li>“dunnettx”</li>
+<li>“mvt”</li>
+<li>“none”</li>
+</ul>
+</li>
+</ul>
+<h2 id="plotrix"><a href="#plotrix" class="headerlink" title="plotrix"></a>plotrix</h2><p>raw.means.plot: 用来绘制最多两因素实验设计结果的图形。该函数将原始数据绘制在背景上，将因子或者区组的均值绘制在前景。</p>
+<h1 id="统计检验"><a href="#统计检验" class="headerlink" title="统计检验"></a>统计检验</h1><h2 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h2><h3 id="stats-aov"><a href="#stats-aov" class="headerlink" title="stats::aov"></a>stats::aov</h3><p><code>aov(formula, data, projections = FALSE, qr = TRUE, contrasts = NULL, ...)</code></p>
 <p>formula 中包含的 Error 项: 指定误差项，在重复测量方差分析、裂区设计中使用。</p>
 <blockquote>
 <p><strong>aov is designed for balanced designs, and the results can be hard to interpret without balance</strong>: beware that missing values in the response(s) will likely lose the balance. If there are two or more error strata, the methods used are statistically inefficient without balance, and <strong>it may be better to use lme in package nlme.</strong></p>
@@ -1423,7 +1925,6 @@
 <h3 id="ez-ezANOVA"><a href="#ez-ezANOVA" class="headerlink" title="ez::ezANOVA"></a>ez::ezANOVA</h3><p><code>ezANOVA()</code><br>计算效应量：<code>schoRsch::anova_out()</code></p>
 <h3 id="lme4-lmer"><a href="#lme4-lmer" class="headerlink" title="lme4::lmer"></a>lme4::lmer</h3><p><a href="http://psych.wisc.edu/moore/R_Analysis_of_Variance_Handouts_html.html" target="_blank" rel="external">doing Analysis of Variance in Psychology</a></p>
 <p>参考：<br><a href="https://egret.psychol.cam.ac.uk/statistics/R/index.html" target="_blank" rel="external">Local tips for R</a><br><a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a> Paul Gribble 课程内容，讲解如何使用 R 进行心理学研究中的统计分析。</p>
-<h1 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h1><h2 id="基本统计检验"><a href="#基本统计检验" class="headerlink" title="基本统计检验"></a>基本统计检验</h2><p>car<br>ez<br>schoRsch<br>apa</p>
 ]]></content>
     
     <summary type="html">
@@ -1498,127 +1999,6 @@
     
     
       <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：graphics 包</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T12:59:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<table>
-<thead>
-<tr>
-<th style="text-align:left">函数名</th>
-<th style="text-align:left">中文描述</th>
-<th style="text-align:left">用法</th>
-<th style="text-align:left">实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Axis (axis)</td>
-<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
-<td style="text-align:left">``</td>
-</tr>
-<tr>
-<td style="text-align:left">axis.POSIXct</td>
-<td style="text-align:left">Date and Date-time Plotting Functions</td>
-</tr>
-<tr>
-<td style="text-align:left">abline</td>
-<td style="text-align:left">添加垂直线至图形</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">arrows</td>
-<td style="text-align:left">添加箭头</td>
-</tr>
-<tr>
-<td style="text-align:left">box</td>
-<td style="text-align:left">绘制线框</td>
-</tr>
-<tr>
-<td style="text-align:left">grid</td>
-<td style="text-align:left">添加网格线</td>
-</tr>
-<tr>
-<td style="text-align:left">legend</td>
-<td style="text-align:left">添加图例</td>
-</tr>
-<tr>
-<td style="text-align:left">lines</td>
-<td style="text-align:left">Add Connected Line Segments to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">segments</td>
-<td style="text-align:left">Add Line Segments to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">mtext</td>
-<td style="text-align:left">Write Text into the Margins of a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">points</td>
-<td style="text-align:left">Add Points to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">rect</td>
-<td style="text-align:left">Draw One or More Rectangles</td>
-</tr>
-<tr>
-<td style="text-align:left">rug</td>
-<td style="text-align:left">Add a Rug to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">text</td>
-<td style="text-align:left">Add Text to a Plot</td>
-</tr>
-<tr>
-<td style="text-align:left">title</td>
-<td style="text-align:left">绘制标题</td>
-</tr>
-<tr>
-<td style="text-align:left">polygon</td>
-<td style="text-align:left">绘制多边形</td>
-</tr>
-<tr>
-<td style="text-align:left">polypath</td>
-<td style="text-align:left">绘制路径</td>
-</tr>
-<tr>
-<td style="text-align:left">symbols</td>
-<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
-</tr>
-<tr>
-<td style="text-align:left">xspline</td>
-<td style="text-align:left">Draw an X-spline</td>
-</tr>
-</tbody>
-</table>
-<p>contour                 Display Contours<br>image                   Display a Color Image<br>rasterImage             Draw One or More Raster Images<br>strwidth                Plotting Dimensions of Character Strings and Math Expressions</p>
-<p>par                     Set or Query Graphical Parameters<br>axTicks                 Compute Axis Tickmark Locations<br>clip                    Set Clipping Region<br>filled.contour          Level (Contour) Plots<br>frame                   Create / Start a New Plot Frame<br>grconvertX              Convert between Graphics Coordinate Systems<br>identify                Identify Points in a Scatter Plot<br>layout                  Specifying Complex Plot Arrangements<br>locator                 Graphical Input<br>screen                  Creating and Controlling Multiple Screens on a Single Device<br>xinch                   Graphical Units</p>
-<p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>plot                    Generic X-Y Plotting<br>plot.data.frame         Plot Method for Data Frames<br>plot.default            The Default Scatterplot Function<br>plot.design             Plot Univariate Effects of a Design or Model<br>plot.factor             Plotting Factor Variables<br>plot.formula            Formula Notation for Scatterplots<br>plot.histogram          Plot Histograms<br>plot.raster             Plotting Raster Images<br>plot.table              Plot Methods for ‘table’ Objects<br>plot.window             Set up World Coordinates for Graphics Window<br>plot.xy                 Basic Internal Plot Function<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
-]]></content>
-    
-    <summary type="html">
-    
-      R 语言 graphics 包中文参考。
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-      <category term="R" scheme="http://lix90.github.io/categories/Original/R/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
     
   </entry>
   
@@ -1719,11 +2099,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -2010,9 +2390,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
@@ -2061,6 +2441,42 @@
     
     
       <category term="Chrome" scheme="http://lix90.github.io/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-24</title>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-28T12:29:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -2158,42 +2574,6 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-24</title>
-    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
-    <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-28T12:29:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
-<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
-<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
-<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
-<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
-<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
-<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
-<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
-<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
-<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
-    
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -2547,9 +2927,9 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -2752,52 +3132,6 @@
   </entry>
   
   <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-28T12:36:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
-    
-      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>西服保养建议</title>
     <link href="http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/"/>
     <id>http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/</id>
@@ -2859,6 +3193,52 @@
       <category term="Life style" scheme="http://lix90.github.io/tags/Life-style/"/>
     
       <category term="西服保养" scheme="http://lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-28T12:36:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
+    
+      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -3066,13 +3446,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
-      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
-      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -3165,9 +3545,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
@@ -3488,11 +3868,138 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-19T03:32:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：plot.ly, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
     
   </entry>
   
@@ -3683,129 +4190,36 @@
   </entry>
   
   <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-19T03:32:33.000Z</updated>
+    <title>R：加载包</title>
+    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
+    <published>2016-11-12T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
+    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
+<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
+<p>参考</p>
 <ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
+<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
+<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1 id=&quot;准备知识&quot;&gt;&lt;a href=&quot;#准备知识&quot; class=&quot;headerlink&quot; title=&quot;准备知识&quot;&gt;&lt;/a&gt;准备知识&lt;/h1&gt;&lt;h2 
+      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
     
     </summary>
     
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
     
     
-      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
-    
-      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -3814,7 +4228,7 @@
     <link href="http://lix90.github.io/2016/11/13/wiki/"/>
     <id>http://lix90.github.io/2016/11/13/wiki/</id>
     <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-12-03T02:04:42.000Z</updated>
+    <updated>2016-12-07T13:42:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
 <h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><p>数据科学<br><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a> | <a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a> | <a href="http://cos.name/" target="_blank" rel="external">统计之都</a></p>
@@ -3834,6 +4248,9 @@
 <h1 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h1><h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>环境管理 <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">virtualenv</a> <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">virtualenvwrapper</a></p>
 <h2 id="Clojure"><a href="#Clojure" class="headerlink" title="Clojure"></a>Clojure</h2><p><a href="http://clojure-china.org/" target="_blank" rel="external">clojure-china</a></p>
 <h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><p>R<br><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a> | <a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880: Data Visualization with R</a> | <a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a> | <a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></p>
+<p><a href="http://rcompanion.org/handbook/" target="_blank" rel="external">Summary and Analysis of Extension Program Evaluation in R</a><br><a href="http://rcompanion.org/rcompanion/" target="_blank" rel="external">An R Companion for the Handbook of Biological Statistics</a><br><a href="http://www.biostathandbook.com/" target="_blank" rel="external">Handbook of Biological Statistics</a><br><a href="https://egret.psychol.cam.ac.uk/statistics/R/index.html" target="_blank" rel="external">Local tips for R</a><br><a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a><br><a href="http://www.unc.edu/courses/2006spring/ecol/145/001/index.html" target="_blank" rel="external">Ecology 145—Statistical Analysis</a><br><a href="http://genomicsclass.github.io/book/" target="_blank" rel="external">PH525x series - Biomedical Data Science</a><br><a href="http://www.unh.edu/halelab/BIOL933/schedule.htm" target="_blank" rel="external">BIOL 933: Design, Analysis, and Interpretation of Experiments</a></p>
+<p><a href="http://user2016.org/" target="_blank" rel="external">The R User Conference 2016</a><br><a href="http://user2015.math.aau.dk/" target="_blank" rel="external">The R User Conference 2015</a><br><a href="http://user2014.stat.ucla.edu/" target="_blank" rel="external">The R User Conference 2014</a><br><a href="http://www.edii.uclm.es/~useR-2013/" target="_blank" rel="external">The R User Conference 2013</a></p>
+<hr>
 <p>lisp/elisp</p>
 <ul>
 <li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
@@ -3874,40 +4291,6 @@
       <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
       <category term="Wiki" scheme="http://lix90.github.io/tags/Wiki/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：加载包</title>
-    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
-    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
-    
-    </summary>
-    
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -3958,11 +4341,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
@@ -4107,17 +4490,17 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Ruby" scheme="http://lix90.github.io/tags/Ruby/"/>
     
       <category term="Pandas" scheme="http://lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+    
+      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -4864,9 +5247,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="http://lix90.github.io/tags/Flexbox/"/>
     
@@ -5252,9 +5635,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -5421,13 +5804,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
@@ -5438,6 +5819,8 @@
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -5564,11 +5947,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="Machine Learning" scheme="http://lix90.github.io/tags/Machine-Learning/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
   </entry>
   

@@ -282,6 +282,620 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/26/2016-10-26-daily/" itemprop="url">
+                  每日总结 2016-10-26
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-26T09:30:34+08:00" content="2016-10-26">
+              2016-10-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/26/2016-10-26-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/26/2016-10-26-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>Basic premise of learning</p>
+<blockquote>
+<p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
+</blockquote>
+<p>几种学习类型：</p>
+<ul>
+<li>Supervised learning: we get (input, correct output)</li>
+<li>Unsupervised learning: instead of (input, correct output), we get (input, ?)</li>
+<li>Reinforcement learning: instead of (input, correct output), we get (input, <em>some</em> output, <strong>grade for this output</strong>)</li>
+</ul>
+<p>什么是机器学习？</p>
+<blockquote>
+<p>Algorithms for inferring unknowns from knowns.<br>算法，推论，未知，已知</p>
+</blockquote>
+<h2 id="机器学习应用"><a href="#机器学习应用" class="headerlink" title="机器学习应用"></a>机器学习应用</h2><ul>
+<li>识别垃圾邮件</li>
+<li>识别手写字</li>
+<li>谷歌街道</li>
+<li>语音识别</li>
+<li>Netflix 推荐系统</li>
+<li>Navigation 导航</li>
+<li>气候模型：解释和预测</li>
+</ul>
+<h2 id="什么时候使用机器学习？"><a href="#什么时候使用机器学习？" class="headerlink" title="什么时候使用机器学习？"></a>什么时候使用机器学习？</h2><ul>
+<li>人类能力不可及：火星探测</li>
+<li>人类无法解释的问题：语音识别</li>
+<li>解决方案随着时间而变化：温度控制</li>
+<li>解决方案需要对个案进行调整</li>
+<li>问题大小超出了人类的合理能力范围</li>
+</ul>
+<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><ul>
+<li>分类问题</li>
+<li>回归问题</li>
+</ul>
+<p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>从二元分类到多元分类</p>
+<h2 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h2><ul>
+<li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
+<li>密度估计（Density estimation）</li>
+<li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
+</ul>
+<p>没有训练集也没有奖励与惩罚</p>
+<h2 id="监督学习与非监督学习的变式"><a href="#监督学习与非监督学习的变式" class="headerlink" title="监督学习与非监督学习的变式"></a>监督学习与非监督学习的变式</h2><p>Semi-supervised learning<br>Active learning<br>Decision theory<br>Reinforcement learning 增强学习</p>
+<ul>
+<li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
+<li>目标：奖励最大化</li>
+</ul>
+<hr>
+<h2 id="学习的成分"><a href="#学习的成分" class="headerlink" title="学习的成分"></a>学习的成分</h2><ul>
+<li>未知的目标函数 f: x —&gt; y；</li>
+<li>X 的分布 P；</li>
+<li>训练集 D；</li>
+<li>学习算法 A；</li>
+<li>假设集 H。</li>
+</ul>
+<h2 id="机器学习的本质"><a href="#机器学习的本质" class="headerlink" title="机器学习的本质"></a>机器学习的本质</h2><ul>
+<li>A pattern exists; 有规律存在（学习的对象）</li>
+<li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
+<li>We have data on it. 有足够的数据（学习的基础）</li>
+</ul>
+<hr>
+<p>Hoeffding’s inequality<br>PAC: probability approximately correct</p>
+<p>通过概率论的方法来表示对未知的学习。<br>什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。<br><strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。<br>在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。<br><strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。<br>如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a>Margin</h2><p>关于 Margin：</p>
+<blockquote>
+<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
+</blockquote>
+<p>垂直 margin 合并的好处：</p>
+<ul>
+<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
+<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
+<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
+</ul>
+<h2 id="CSS-浮动"><a href="#CSS-浮动" class="headerlink" title="CSS 浮动"></a>CSS 浮动</h2><ul>
+<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
+<li>不出现外边距合并</li>
+<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
+<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
+<li>一般来说浮动元素会成为块级盒</li>
+</ul>
+<blockquote>
+<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
+</blockquote>
+<h2 id="常见清除浮动的办法"><a href="#常见清除浮动的办法" class="headerlink" title="常见清除浮动的办法"></a>常见清除浮动的办法</h2><ol>
+<li>clear 属性</li>
+<li>空 DIV 法：不如何“结构与表现分离原则”</li>
+<li>Overflow 法：可能有副作用</li>
+<li>Clearfix 法</li>
+</ol>
+<blockquote>
+<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
+</blockquote>
+<h2 id="CSS3-提供了几种新的处理布局的方法"><a href="#CSS3-提供了几种新的处理布局的方法" class="headerlink" title="CSS3 提供了几种新的处理布局的方法"></a>CSS3 提供了几种新的处理布局的方法</h2><ol>
+<li>Flexbox 弹性盒子</li>
+<li>Multi-column layout 多栏布局</li>
+<li>Grid layout 格子布局</li>
+</ol>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>解决 Git push 冲突</p>
+<ul>
+<li>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log –graph命令可以看到分支合并图。</li>
+</ul>
+<p>Helvetica 纪录片：字体设计<br>Code Rush 纪录片：代码奔腾 Firefox 的诞生<br>Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/22/2016-10-22-http/" itemprop="url">
+                  HTTP 学习记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-22T19:45:33+08:00" content="2016-10-22">
+              2016-10-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/22/2016-10-22-http/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/22/2016-10-22-http/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>HTTP/0.9 —&gt; HTTP/1.0 —&gt; HTTP/1.1 —&gt; SPDY 协议 —&gt; HTTP/2</p>
+<h1 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP/1.0"></a>HTTP/1.0</h1><p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
+<h1 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP/1.1"></a>HTTP/1.1</h1><p>目前是最流行的版本。该版本最大的变化是，引入了<strong>持久连接（persistent connection）</strong>，即 TCP 连接默认不关闭，可被多个请求复用，无须申明 <code>Connection: keep-alive</code>。当客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。更规范的做法是，在客户端最后一次请求时，发送 <code>Connection: close</code>，明确要求服务器关闭 TCP 连接。</p>
+<p>引入管道机制：在同一个 TCP 连接里面，客户端可以同时发送多个请求。</p>
+<p>缺点：虽然1.1版允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着。这就会出现”队头堵塞”（Head-of-line blocking）。</p>
+<h1 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h1><ul>
+<li>二进制协议：头信息和数据体都是二进制，并且统称为”帧”（frame）：头信息帧和数据帧。<br>多工：双向的、实时的通信。</li>
+<li>数据流：HTTP/2 将每个请求或回应的所有数据包，称为一个数据流（stream）。每个数据流都有一个独一无二的编号。数据包发送的时候，都必须标记数据流 ID，用来区分它属于哪个数据流。另外还规定，客户端发出的数据流，ID 一律为奇数，服务器发出的，ID 为偶数。</li>
+<li>头信息压缩机制（header compression）</li>
+<li>服务器推送</li>
+</ul>
+<p>问题：</p>
+<ol>
+<li>HTTP/1.0 相对于 HTTP/0.9 有哪些新标准？HTTP/1.0 有什么缺点？</li>
+<li>HTTP/1.1 相对于 HTTP/1.0 有哪些新标准？HTTP/1.1 有什么缺点？</li>
+<li>HTTP/2 相对于 HTTP/1.1 有哪些新标准？</li>
+<li>HTTPS 是什么？与 HTTP/2 有什么差别？</li>
+</ol>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/08/http.html" target="_blank" rel="external">阮一峰：HTTP 协议入门</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/17/2016-10-17-d3js-intro/" itemprop="url">
+                  D3.js 入门学习记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-17T16:23:07+08:00" content="2016-10-17">
+              2016-10-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/17/2016-10-17-d3js-intro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/17/2016-10-17-d3js-intro/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Dashingd3js.com 上的 D3.js 教程学习笔记。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>使用 D3.js 进行数据可视化需要了解以下内容：</p>
+<ul>
+<li>现代浏览器</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>DOM</li>
+<li>SVG</li>
+<li>网页元素审查器（Web Inspecter）</li>
+</ul>
+<h1 id="添加-DOM-元素"><a href="#添加-DOM-元素" class="headerlink" title="添加 DOM 元素"></a>添加 DOM 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
+<p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
+<p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
+<h1 id="添加-SVG-元素"><a href="#添加-SVG-元素" class="headerlink" title="添加 SVG 元素"></a>添加 SVG 元素</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
+<p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
+<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
+<h1 id="捆绑数据到-DOM-元素中"><a href="#捆绑数据到-DOM-元素中" class="headerlink" title="捆绑数据到 DOM 元素中"></a>捆绑数据到 DOM 元素中</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
+<p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
+<p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
+<p><code>.append()</code> 在占位符上添加 DOM 元素。</p>
+<p><code>.text()</code> 文本方法添加文本到对于 DOM 元素上。</p>
+<p>其中，数据被保存在 <code>__data__</code> 属性中。</p>
+<p>如何将捆绑的数据提取出来呢？</p>
+<p><code>.text( function(d) { return d; } )</code> 其中，匿名函数会对遍历所有元素的数据，分别返回对于的值。<code>d</code> 变量在 D3.js 被用来指代当前元素的 <code>__data__</code> 属性。另外，D3.js 还提供了两个变量 <code>this</code> 和 <code>i</code>。<code>this</code> 指代当前 DOM 元素。<code>i</code> 指代当前选中的元素的下标，<code>i</code> 从0开始计数。所有数据是按顺序分别处理。</p>
+<h1 id="根据数据创建-SVG-元素"><a href="#根据数据创建-SVG-元素" class="headerlink" title="根据数据创建 SVG 元素"></a>根据数据创建 SVG 元素</h1><p>建立数组：<code>var newArray = [10, 20, 30];</code><br>将数据指派给 SVG 元素的属性值 <code>.attr(&#39;r&#39;, function (d) { return d; }</code></p>
+<h1 id="使用-SVG-坐标空间"><a href="#使用-SVG-坐标空间" class="headerlink" title="使用 SVG 坐标空间"></a>使用 SVG 坐标空间</h1><p>SVG 的坐标空间与数学中的坐标空间有两点差异：</p>
+<ul>
+<li>SVG 的坐标空间的零点位于左上角；</li>
+<li>SVG 的坐标空间的 Y 轴由上至下延伸。</li>
+</ul>
+<h1 id="D3-js-支持的数据结构"><a href="#D3-js-支持的数据结构" class="headerlink" title="D3.js 支持的数据结构"></a>D3.js 支持的数据结构</h1><p>数组（Array）：<code>var newArray = [30, 70, 110];</code> 数组可以包含任何对象，包括数字，对象，字符串，数组，HTML元素，DOM元素等。</p>
+<p><code>d3.select()</code> 所得到的也是数组。</p>
+<p>D3.js 可以支持以下数据来源：</p>
+<ul>
+<li>XMLHttpRequest</li>
+<li>文本文件</li>
+<li>JSON blob</li>
+<li>HTML 文档块</li>
+<li>XML 文档块</li>
+<li>CSV 文件</li>
+<li>TSV 文件</li>
+</ul>
+<p>数组甚至可以包含 JSON 数据结构。</p>
+<h1 id="使用-JSON-对象"><a href="#使用-JSON-对象" class="headerlink" title="使用 JSON 对象"></a>使用 JSON 对象</h1><p>使用 JSON 数据结构可以简化代码，使用起来更方便。</p>
+<h1 id="使用-D3-js-绘制-SVG-基本形状的图形"><a href="#使用-D3-js-绘制-SVG-基本形状的图形" class="headerlink" title="使用 D3.js 绘制 SVG 基本形状的图形"></a>使用 D3.js 绘制 SVG 基本形状的图形</h1><p>只要知道相关图形元素的属性，那么就可以通过 D3.js 的算子进行操作了。</p>
+<p>绘制一个圆</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"50"</span> <span class="attr">height</span>=<span class="string">"50"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"25"</span> <span class="attr">cy</span>=<span class="string">"25"</span> <span class="attr">r</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"purple"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonCircle = [ &#123; <span class="string">"x_axis"</span>: <span class="number">30</span>, <span class="string">"y_axis"</span>: <span class="number">30</span>, <span class="string">"radius"</span>: <span class="number">20</span>, <span class="string">"color"</span>: <span class="string">"green"</span>&#125; ];</div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">    .attr(<span class="string">"height"</span>, <span class="number">200</span>)</div><div class="line"><span class="keyword">var</span> circles = svgContainer.selectAll(<span class="string">"circle"</span>)</div><div class="line">    .data(jsonCircles)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"circle"</span>)</div><div class="line"><span class="keyword">var</span> circleAttributes = circles</div><div class="line">    .attr(<span class="string">"cx"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x_axis &#125;)</div><div class="line">    .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y_axis &#125;)</div><div class="line">    .attr(<span class="string">"r"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.radius&#125;)</div><div class="line">    .style(<span class="string">"fill"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.color &#125;);</div></pre></td></tr></table></figure>
+<p>其他简单图形都差不多，只是属性不一样。以此类推。</p>
+<h1 id="SVG-路径"><a href="#SVG-路径" class="headerlink" title="SVG 路径"></a>SVG 路径</h1><p>SVG 路径为一个图形的轮廓。可以使用 SVG 的路径绘制任意形状。路径可以比作钢笔落笔绘制轮廓的过程。路径由属性 <code>d</code> 表示，其语法包括一下几个部分：</p>
+<ul>
+<li>moveto：设置一个新的点</li>
+<li>lineto：绘制一条直线</li>
+<li>curveto：绘制一条曲线（贝塞尔曲线）</li>
+<li>arc：椭圆或者圆弧</li>
+<li>closepath：通过绘制线条封闭当前的图形</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">" M 10 25</span></span></div><div class="line">              L 10 75</div><div class="line">              L 60 75</div><div class="line">              L 10 25"</div><div class="line">              <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"none"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中，路径中的字母是大小写有区分的，大写为绝对定位，小写为相对定位。<br>要绘制更复杂的图形，使用 SVG 是相当难的。所以 D3.js 可以拯救这部分需求的用户。</p>
+<p>使用 D3.js 提供的绘制 SVG 路径的方法要方便许多。</p>
+<p>绘制直线：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//The data for our line</span></div><div class="line"><span class="keyword">var</span> lineData = [ &#123; <span class="string">"x"</span>: <span class="number">1</span>,   <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">20</span>,  <span class="string">"y"</span>: <span class="number">20</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">40</span>,  <span class="string">"y"</span>: <span class="number">10</span>&#125;, &#123; <span class="string">"x"</span>: <span class="number">60</span>,  <span class="string">"y"</span>: <span class="number">40</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">80</span>,  <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">100</span>, <span class="string">"y"</span>: <span class="number">60</span>&#125;];</div><div class="line"></div><div class="line"><span class="comment">//This is the accessor function we talked about above</span></div><div class="line"><span class="keyword">var</span> lineFunction = d3.svg.line()</div><div class="line">                         .x(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x; &#125;)</div><div class="line">                         .y(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y; &#125;)</div><div class="line">                         .interpolate(<span class="string">"linear"</span>);</div><div class="line"></div><div class="line"><span class="comment">//The SVG Container</span></div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"></div><div class="line"><span class="comment">//The line SVG Path we draw</span></div><div class="line"><span class="keyword">var</span> lineGraph = svgContainer.append(<span class="string">"path"</span>)</div><div class="line">                            .attr(<span class="string">"d"</span>, lineFunction(lineData))</div><div class="line">                            .attr(<span class="string">"stroke"</span>, <span class="string">"blue"</span>)</div><div class="line">                            .attr(<span class="string">"stroke-width"</span>, <span class="number">2</span>)</div><div class="line">                            .attr(<span class="string">"fill"</span>, <span class="string">"none"</span>);</div></pre></td></tr></table></figure>
+<p><code>.attr(&quot;d&quot;, lineFunction(lineData))</code> 将数据传递给数据寄存器，然后把数据返回给 SVG 路径命令。</p>
+<p>D3.js 提供了 11 中不同的内插线形：</p>
+<ul>
+<li>linear</li>
+<li>step-before</li>
+<li>step-after</li>
+<li>basis</li>
+<li>basis-open</li>
+<li>basis-closed</li>
+<li>bundle</li>
+<li>cardinal</li>
+<li>cardinal-open</li>
+<li>cardinal-closed</li>
+<li>monotone</li>
+</ul>
+<p>D3.js 提供了多种路径数据产生器（Path data generators），它既是对象又是函数。</p>
+<ul>
+<li>d3.svg.line</li>
+<li>d3.svg.line.radial</li>
+<li>d3.svg.area</li>
+<li>d3.svg.area.radial</li>
+<li>d3.svg.arc</li>
+<li>d3.svg.symbol</li>
+<li>d3.svg.chord</li>
+<li>d3.svg.diagonal</li>
+<li>d3.svg.diagonal.radial</li>
+</ul>
+<h1 id="SVG-动态坐标空间"><a href="#SVG-动态坐标空间" class="headerlink" title="SVG 动态坐标空间"></a>SVG 动态坐标空间</h1><p>如果使坐标根据数据进行调整？当 SVG 容器空间的大小比其中的图形元素坐标要小，那会出现容器空间上无法显式出图形的问题。这个时候需要动态的 SVG 坐标空间。这个时候需要做的是，让容器空间的宽高随着数据而进行伸缩。</p>
+<h1 id="D3-js-标尺（scales）"><a href="#D3-js-标尺（scales）" class="headerlink" title="D3.js 标尺（scales）"></a>D3.js 标尺（scales）</h1><p>与其让 SVG 容器大小适应数据，不如让数据适应容器。因为有的时候，数据的大小尺寸远远大于浏览器显示尺度。这个时候需要对数据进行伸缩变换以便适应空间。</p>
+<p>D3.js 提供了一些方法进行数据的变换。</p>
+<p>例如 <code>d3.scale.linear()</code> 线性变换</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> linearScale = d3.scale.linear()</div><div class="line">                    .domain([<span class="number">0</span>, <span class="number">10000</span>])</div><div class="line">                    .range([<span class="number">0</span>, <span class="number">100</span>])</div></pre></td></tr></table></figure>
+<p><code>.domain()</code> 里输入的范围为原始数据的范围。<br><code>.range()</code> 里输入的范围为变换后的范围。</p>
+<p>提供了计算最大值和最小值的方法：<code>d3.max()</code> <code>d3.min()</code></p>
+<p>D3.js 的标尺类型有以下几种：</p>
+<ul>
+<li>Identity 1:1 的变换，适用于像素值</li>
+<li>Linear 线性的变换</li>
+<li>Power 和 Logarithmic 指数和对数变换</li>
+<li>Quantize 和 Quantile 针对离散数据</li>
+<li>Ordinal 针对非量化的数据，如名称，类别</li>
+</ul>
+<h1 id="SVG-组元素"><a href="#SVG-组元素" class="headerlink" title="SVG 组元素"></a>SVG 组元素</h1><p>SVG 组元素是一个包裹其他子元素的的容器，通过 <code>&lt;g&gt;...&lt;/g&gt;</code> 定义。组元素内可以包含任意组元素。任何对组元素的变换，都将影响其所包含的子元素。</p>
+<p>组元素的作用：</p>
+<ul>
+<li>创建分组，可以使一组元素共享相同的属性</li>
+<li>变换，对一组元素进行同样的变换</li>
+</ul>
+<p>在 D3.js 中构建组元素并增加变换属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"><span class="keyword">var</span> circleGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                              .attr(<span class="string">"transform"</span>, <span class="string">"translate(80, 0)"</span>);</div></pre></td></tr></table></figure>
+<h1 id="SVG-文本元素"><a href="#SVG-文本元素" class="headerlink" title="SVG 文本元素"></a>SVG 文本元素</h1><p>添加 SVG 文本元素跟添加图形类型，只是该元素有一些特殊的属性。同样，使用 D3.js 添加文本和添加图形一样，操纵文本元素的属性和值就可以了。</p>
+<h1 id="SVG-坐标轴（Axes）"><a href="#SVG-坐标轴（Axes）" class="headerlink" title="SVG 坐标轴（Axes）"></a>SVG 坐标轴（Axes）</h1><p>使用 D3.js 绘制坐标轴和坐标刻度。</p>
+<p>创建坐标轴对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis();</div></pre></td></tr></table></figure>
+<p>传递尺度信息给坐标轴对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> axisScale = d3.scale.linear()</div><div class="line">                        .domain([<span class="number">0</span>, <span class="number">100</span>])</div><div class="line">                        .range([<span class="number">0</span>, <span class="number">100</span>]);</div><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis()</div><div class="line">                  .scale(axisScale);</div></pre></td></tr></table></figure>
+<p>创建坐标轴组元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxisGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                             .call(xAxis);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/2016-10-08-r-source-code/" itemprop="url">
                   R：查看源代码
                 </a>
@@ -551,567 +1165,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/25/2016-09-25-php-config/" itemprop="url">
-                  PHP 安装与配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-25T21:00:45+08:00" content="2016-09-25">
-              2016-09-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/Config/" itemprop="url" rel="index">
-                    <span itemprop="name">Config</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/25/2016-09-25-php-config/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/25/2016-09-25-php-config/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>为了了解 PHP 这门所谓的“世界上最好的语言”，特意安装和配置了 PHP 环境。</p>
-<p>因为系统是 Mac OSX，所以直接使用 <code>brew install php56</code> 来安装。但是并未找到 php56 。于是 <code>brew search php</code>，发现 php 相关安装包位于 <code>/homebrew/php/*</code>，于是用 <code>brew install homebrew/php/php56</code> 安装。但是出现报错 <code>undefined method rebuild</code> 的错误。尝试 <code>brew cleanup &amp;&amp; brew update</code>，仍然不起作用，依旧报错。后来查询到可以更新下 homebrew 的仓库。于是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd $(brew --repo)</div><div class="line">git fetch</div><div class="line">git reset --hard origin/master</div><div class="line">brew update</div></pre></td></tr></table></figure>
-<p>然后再尝试安装 <code>brew install homebrew/php/php56</code>。</p>
-<p>其实也可以这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew tap homebrew/dupes</div><div class="line">brew tap homebrew/versions</div><div class="line">brew tap homebrew/homebrew-php</div><div class="line">brew install php56</div></pre></td></tr></table></figure>
-<p>然后安装了包管理工具 composer</p>
-<blockquote>
-<p>PHP 世界的包管理工具Composer</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install homebrew/php/composer</div></pre></td></tr></table></figure>
-<p>并且安装了 psySH</p>
-<blockquote>
-<p>A runtime developer console, interactive debugger and REPL for PHP.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer g require psy/psysh:@stable</div></pre></td></tr></table></figure>
-<p>psySH 的二进制文件位于 <code>~/.composer/vendor/psysh</code><br>也可以通过这个来运行 <code>~/.composer/vendor/bin/psysh</code><br>为了方便，我将其添加到 PATH <code>export $PATH:/Users/lix/.composer/vendor/bin</code></p>
-<p>配置 emacs 的 php 环境<br>先安装 ac-php 的依赖 <code>brew install cscope</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">;;; php mode</div><div class="line">(use-package php-mode</div><div class="line">  :ensure t</div><div class="line">  :mode &quot;\\.php\\&apos;&quot;</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">    (add-hook &apos;php-mode-hook &apos;smartparens-mode)</div><div class="line">    (use-package ac-php</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook</div><div class="line">                &apos;(lambda ()</div><div class="line">                   (use-package company-php :ensure t)</div><div class="line">                   (company-mode t)</div><div class="line">                   (add-to-list &apos;company-backends &apos;company-ac-php-backend))))</div><div class="line">    (use-package php-eldoc</div><div class="line">      :ensure t</div><div class="line">      :config</div><div class="line">      (add-hook &apos;php-mode-hook &apos;php-eldoc-enable))))</div><div class="line"></div><div class="line">;;; php REPL</div><div class="line">(use-package psysh</div><div class="line">  :if (executable-find &quot;psysh&quot;)</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :config</div><div class="line">  (add-hook &apos;psysh-mode-hook &apos;smartparens-mode))</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/22/2016-09-22-decision-tree/" itemprop="url">
-                  从零学机器学习之决策树
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T10:10:09+08:00" content="2016-09-22">
-              2016-09-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/Data-science/" itemprop="url" rel="index">
-                    <span itemprop="name">Data science</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/22/2016-09-22-decision-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/22/2016-09-22-decision-tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>以一名数学只有普通高中水平的非理工科人的视角尝试理解机器学习之<strong>决策树</strong>。</p>
-<p>决策树是一种比较好理解的分类算法，望文就能生意，而且意思还不会出现大的偏差。把这个算法的过程想像成一棵树或者根毛的生长过程，决策层越低，分支越丰富。决策树的优点之一也就在于此，容易理解，像我这样的非专业领域的人可以直接脑补。</p>
-<p>《机器学习实战》这本书中描述，决策树的 <strong>计算复杂度</strong> 不高，输出结果易于理解（可以用直观来理解），对 <strong>中间值</strong> 的缺失不敏感（这里没懂，中间值是啥？），可以处理不相关特征数据（对数据要求不严格？）。但是，决策树虽简单，但容易产生过度匹配问题。为什么会产生过度匹配问题呢？也许是因为分类的标准太“粗糙”或者“武断”吧？？？。其适用数据类型包括 <strong>数值型</strong> 和 <strong>标称型</strong>。</p>
-<p>决策树是通过对数据集的特征按照某种标准进行分类，分成若干个子数据集，子数据集又可以按照新的标准对子数据集进行分类。这里有个疑问，到底要分多少次呢？明白了，如果“决策”次数越多，决策树模型越复杂，模型越复杂，是不是就计算复杂度越高呢？这个又与“过度拟合”有关吗？直觉去看，一个数据集可以有许多特征，但是有些特征对分类并无太大的作用。举个例子，把人和动物进行区分，到底是“使用和制造工具的能力”还是“语言”？对决策树就是这样一个过程。挑选出最能够区分出类别的一批特征，然后对数据集进行分类。这样模型简单，精确度又越高。但是如何知道哪些特征最合适呢？<del>这就需要先验知识了，这里头就有了人为性。所以从这里也可以知道，决策树是一个监督学习。</del> 看到知乎里头一个问题 <a href="https://www.zhihu.com/question/19753084" target="_blank" rel="external">信息增益到底怎么理解呢？</a>，明白了，原来可以用 <strong>信息增益</strong> 来确定一个特征用于分类是不是合适。</p>
-<p>前面说到，决策树适用的数据类型包括了 <strong>数值型</strong>，但是，<strong>树构造算法只适用于标称型数据，数值型数据必须离散化</strong>。也就是说，要用“身高”和“体重”来区分男女，必须把这两个数值型数据转化为离散的，例如 <code>&gt;170cm</code>，<code>&lt;170cm</code>，体重 <code>&gt;60kg</code>，<code>&lt;60kg</code>。或者稍微精细一点，按照 10cm 和 5kg 的精度进行分割。</p>
-<p>阅读《机器学习实战》的过程中，有个概念很抽象，<strong>信息增益</strong>。我尝试去这样理解。如果没有 <strong>生物分类学</strong>，人对物种的认识和理解是杂乱的，可能每个人的主观分类都不一致，因为不同人关注于不同特征。但有了一个分类系统，本来看似乱套的系统，就有了规律，这样就有了标准，形成了可以共享的知识。在这里 “信息” 就是 “不同的生物”，“增益” 就是促进了对生物物种的认识，产生了可以交流和分享的知识。看起来，<strong>信息增益</strong> 是一个褒义词呀，信息增益越高越好。那怎么量化信息增益呢？这里又出现一个更加抽象难以理解的概念 <strong>熵</strong>。最开始见到这个词的时候，我竟担心自己读错。所以，顿时发现，隔行如隔山的罪魁祸首之一就是这些该死的专业术语了。越专业越不好好说话。不过，命名一些专业术语把知识简化，也是为了本专业内沟通的效率吧（活学活用，提高信息增益）。</p>
-<p>那么什么是 <strong>信息熵</strong>？看定义，熵为信息的期望值（期望值即平均值，高中数学的水平，平均值对我来说比较好理解）。在文科生眼里，<strong>信息</strong> 用公式定义真是碉堡了。好了，不想数学公式了。总之，这里把信息当作概率去看待了。我只想明白，熵的大小意味着什么。维基百科的信息熵词条里有几句话：1. 熵最好理解为不确定性的度量而不是确定性的度量，因为越随机的信源的熵越大；2. 比较不可能发生的事情，当它发生了，会提供更多的信息。拿自己所知道的一点点背景知识理解的话，也就是小概率事件发生了，熵就变大了，熵变大了，事情就越发不可预测了，因为越随机了。也就是说，我越懵逼，熵就越大？这个世界乱成一团遭，那么熵就越大了。看来，<strong>熵</strong> 是个贬义词呀，哈哈。像那些信息量大的话，还是不说为好，毕竟熵大，有些人难以理解，毕竟不是所有人都有那么有内涵。那么用熵来量化信息增益，就是，熵变得越小，信息增益就越大。我们为的把世界看清楚，就得让熵变小。但是现实很残酷，我们无法预测未来，熵是不以我们的意志为转移的，该死的熵跟房价一样，死也降不下来啊。不过提高自身实力，认清自我，未来就不那么迷茫了，重要的是脚踏实地嘛。熵自然而然就小了。好吧，扯远了。总之，熵和信息增益是个对立的关系。</p>
-<hr>
-<p>待续</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li>《机器学习实战》</li>
-<li><a href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA" target="_blank" rel="external">熵 (信息论)</a>)</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/2016-09-17-learn-new-lang/" itemprop="url">
-                  零基础如何学习一门新的编程语言？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T14:48:43+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Learning</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/17/2016-09-17-learn-new-lang/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/2016-09-17-learn-new-lang/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在正式读研之前，我几乎没有编程基础。本科在一所不知名的民办二本院校的第一届人力资源班。只在省二级计算机考试中接触了丁点儿编程（好像是VFOX）。也没有考国家计算机二级证书。从刚读研开始，需要在 MATLAB 环境下工作，才正式学起了一门程序语言。所以学习一门编程语言并没有想象中的困难。</p>
-<p>借这个地儿，分享<strong>如何从零基础菜鸟开始入门到熟悉并且掌握一门程序语言</strong>的一些经验，希望能够给同样零基础，或者畏惧编程的朋友（特别是从事科学研究的人）一些启发。</p>
-<p>P.S. 内容较为简洁，后续再补充。</p>
-<h1 id="为什么科研人员要至少学一门编程语言？"><a href="#为什么科研人员要至少学一门编程语言？" class="headerlink" title="为什么科研人员要至少学一门编程语言？"></a>为什么科研人员要至少学一门编程语言？</h1><ul>
-<li>提高生产效率（productivity）</li>
-<li>培养抽象逻辑思维（abstract thinking）</li>
-<li>提高研究的可重复性，拥抱开放科学（<a href="https://en.wikipedia.org/wiki/Open_science" target="_blank" rel="external">open science</a>）</li>
-<li>促进同行交流（communication）</li>
-<li>……</li>
-</ul>
-<h1 id="对于科研工作者有哪些编程语言和工具值得一学？"><a href="#对于科研工作者有哪些编程语言和工具值得一学？" class="headerlink" title="对于科研工作者有哪些编程语言和工具值得一学？"></a>对于科研工作者有哪些编程语言和工具值得一学？</h1><ul>
-<li><code>R</code> <code>Python</code> <code>Matlab</code></li>
-<li><code>Linux</code> <code>Shell</code> <code>Git</code></li>
-</ul>
-<p>为什么要学习这些东西，搜索引擎检索：<code>why learn x as y</code> 或者 <code>Y 为什么学 X</code>，X 为对应的语言和工具，Y 为职业或者领域。</p>
-<hr>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="1-科学上网"><a href="#1-科学上网" class="headerlink" title="1. 科学上网"></a>1. 科学上网</h2><p><a href="https://zh.wikipedia.org/zh/防火长城" target="_blank" rel="external">GFW</a> 阻断了国人许多获取信息和知识的渠道。所以，要想借助互联网进行学习，首要解决的问题就是突破 GFW 的限制。</p>
-<ul>
-<li>Chrome/Firefox: 请用帐号登录浏览器，已便于同步书签；若希望跨浏览器同步书签，请使用搜索引擎检索“跨浏览器同步书签”</li>
-<li><a href="https://shadowsocks.com/client.html" target="_blank" rel="external">shadowsocks</a>，请从网上获取免费或者付费帐号，不会使用请检索“如何使用shadowsocks科学上网”</li>
-</ul>
-<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><p>要想舒服的学习程序语言，那么就要配置舒服的语言环境。就好像，学外语一样，得有一个很好的语言环境，学习起来才自然。初学者一定不要忽视编程环境的重要性，一定要让自己舒舒服服地写代码，编程的过程才不是枯燥乏味的，惹人烦的。所以，一定要扎扎实实把环境给配置好了，再开始系统地学。如果在进行配置上有困难，那就请教其他懂行的人，或者再多花一些时间。如果仅仅是在面对环境的配置就进行不下去了，那的确可以不用学编程了。</p>
-<p>配置语言环境从以下三个方面进行。</p>
-<ul>
-<li>操作系统<ul>
-<li>Ubuntu</li>
-<li>MacOS</li>
-<li>Windows 下虚拟机运行 Ubuntu</li>
-<li>（Windows 下进行配置本人没有尝试过）</li>
-</ul>
-</li>
-<li>编辑器<ul>
-<li>较容易：<a href="https://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a>，<a href="https://atom.io/" target="_blank" rel="external">Atom</a></li>
-<li>较难：<a href="https://www.gnu.org/software/emacs/" target="_blank" rel="external">Emacs</a>，<a href="http://www.vim.org/" target="_blank" rel="external">Vim</a></li>
-</ul>
-</li>
-<li>集成开发环境 IDE (Integrated development environment)<ul>
-<li>R: <a href="https://www.rstudio.com/" target="_blank" rel="external">Rstudio</a>, Emacs (ESS)</li>
-<li>Python: <a href="https://ipython.org/" target="_blank" rel="external">IPython</a>, <a href="https://github.com/spyder-ide/spyder" target="_blank" rel="external">Spyder</a>, <a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda</a>, Emacs (Elpy)</li>
-<li>Matlab: Matlab GUI, Emacs (matlab-mode)</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h1><h2 id="1-官方文档-Documentations"><a href="#1-官方文档-Documentations" class="headerlink" title="1. 官方文档 Documentations"></a>1. 官方文档 Documentations</h2><ul>
-<li><a href="https://www.r-project.org/" target="_blank" rel="external">R</a>, <a href="https://support.rstudio.com/hc/en-us/categories/200035113-Documentation" target="_blank" rel="external">Rstudio</a>, <a href="http://www.rdocumentation.org/" target="_blank" rel="external">Rdocumentation</a>, <a href="http://rseek.org/" target="_blank" rel="external">Rseek</a>,</li>
-<li><a href="http://docs.python.org/2/" target="_blank" rel="external">Python2.x</a>, <a href="http://docs.python.org/3/" target="_blank" rel="external">Python3.x</a></li>
-<li><a href="http://cn.mathworks.com/help/" target="_blank" rel="external">Matlab Documentation</a></li>
-</ul>
-<h2 id="2-搜索引擎-Search-Engines"><a href="#2-搜索引擎-Search-Engines" class="headerlink" title="2. 搜索引擎 Search Engines"></a>2. 搜索引擎 Search Engines</h2><ul>
-<li><strong>Google Search</strong>：<a href="https://www.zhihu.com/question/20161362" target="_blank" rel="external">谷歌学术检索技巧</a></li>
-<li>DuckDuckGo</li>
-<li>Bing</li>
-<li>Baidu</li>
-</ul>
-<h2 id="3-社区-Community"><a href="#3-社区-Community" class="headerlink" title="3. 社区 Community"></a>3. 社区 Community</h2><ul>
-<li>综合：<a href="https://github.com/" target="_blank" rel="external">Github</a>, <a href="http://stackoverflow.com/" target="_blank" rel="external">StackOverflow</a></li>
-<li>R: <a href="http://cos.name/" target="_blank" rel="external">统计之都</a>, <a href="https://www.r-bloggers.com/" target="_blank" rel="external">R-bloggers</a>, <a href="https://github.com/qinwf/awesome-R" target="_blank" rel="external">Awesome-R</a></li>
-<li>Python: <a href="http://python-china.org/" target="_blank" rel="external">Python China</a>, <a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">Awesome-Python</a></li>
-<li>MATLAB: <a href="http://www.mathworks.com/matlabcentral/fileexchange/" target="_blank" rel="external">File Exchange</a>, <a href="http://cn.mathworks.com/matlabcentral/answers/index" target="_blank" rel="external">MATLAB Answers</a> <a href="https://github.com/mikecroucher/awesome-MATLAB" target="_blank" rel="external">Awesome-MATLAB</a></li>
-</ul>
-<h2 id="4-练习项目-Toy-Projects"><a href="#4-练习项目-Toy-Projects" class="headerlink" title="4. 练习项目 Toy Projects"></a>4. 练习项目 Toy Projects</h2><ul>
-<li>个人研究项目</li>
-<li>网上公开项目（去 Google 检索或者直接去 Github 搜）</li>
-</ul>
-<p>需要提及的是，R 语言有一个公益项目 <a href="https://github.com/swirldev/swirl" target="_blank" rel="external">Swirl</a> 可以在 R 的命令窗口通过交互式的方式学习 R。具体请查看 Swirl 的相关文档介绍。</p>
-<h2 id="5-书籍-Books"><a href="#5-书籍-Books" class="headerlink" title="5. 书籍 Books"></a>5. 书籍 Books</h2><p>准备两三本书来系统地了解一门编程语言。网上有许多免费书籍，请看 <strong>其他线上学习资料</strong>。</p>
-<h2 id="6-其他线上学习资料（待更新）"><a href="#6-其他线上学习资料（待更新）" class="headerlink" title="6. 其他线上学习资料（待更新）"></a>6. 其他线上学习资料（待更新）</h2><p>前面提到的 <code>Awesome</code> 项目已经囊括了各种编程语言和其他领域的学习资源，这里仅仅提一些我看过的。</p>
-<ul>
-<li>General: <a href="http://programming-motherfucker.com/become.html" target="_blank" rel="external">Become a Programmer, Motherfucker</a></li>
-<li>R: <a href="http://www.cookbook-r.com/" target="_blank" rel="external">Cookbook for R</a>，<a href="http://adv-r.had.co.nz/" target="_blank" rel="external">Advanced R</a>，<a href="https://csgillespie.github.io/efficientR/" target="_blank" rel="external">Efficient R programming</a>, <a href="http://health.adelaide.edu.au/psychology/ccs/teaching/lsr/" target="_blank" rel="external">Learning Statistics with R</a>,<a href="http://r4ds.had.co.nz/" target="_blank" rel="external">R for Data Science</a>, <a href="http://www.psych.upenn.edu/~baron/rpsych/rpsych.html" target="_blank" rel="external">Notes on the use of R for psychology experiments and questionnaires</a></li>
-<li>Python: <a href="http://codingpy.com/books/thinkpython2/index.html" target="_blank" rel="external">Think Python 第二版</a>, <a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="external">Python Cookbook 第三版</a>, <a href="http://gael-varoquaux.info/stats_in_python_tutorial/" target="_blank" rel="external">Statistics in Python</a></li>
-<li>MATLAB：<a href="http://mirlab.org/jang/books/matlabProgramming4beginner/" target="_blank" rel="external">MATLAB程式設計：入門篇</a>，<a href="http://mirlab.org/jang/books/matlabProgramming4guru/" target="_blank" rel="external">MATLAB程式設計：進階篇</a>，<a href="http://www.matlab-cookbook.com/" target="_blank" rel="external">MATLAB Cookbook</a></li>
-</ul>
-<hr>
-<h1 id="如何学习"><a href="#如何学习" class="headerlink" title="如何学习"></a>如何学习</h1><h2 id="第一步：从整体上了解某种语言功能、特点以及优缺点"><a href="#第一步：从整体上了解某种语言功能、特点以及优缺点" class="headerlink" title="第一步：从整体上了解某种语言功能、特点以及优缺点"></a>第一步：从整体上了解某种语言功能、特点以及优缺点</h2><p>这一步可以通过慕课或者书籍来对一门编程语言有一个大概的了解，知道它适合做什么，不适合做什么。</p>
-<p>相关慕课请通过搜索引擎进行检索。个人不太喜欢看视频学一门编程语言，相对来说比较喜欢看书。习惯看电子书的可以访问前面提到的免费电子书。习惯看纸质书的借一本翻翻就行了。也许其他人比较喜欢看视频教学。</p>
-<h2 id="第二步：弄明白如何查询和获取帮助文档-Getting-Help"><a href="#第二步：弄明白如何查询和获取帮助文档-Getting-Help" class="headerlink" title="第二步：弄明白如何查询和获取帮助文档 Getting Help"></a>第二步：弄明白如何查询和获取帮助文档 Getting Help</h2><p>以下是一些获取帮助的命令，先熟练这几个命令的用法，对后面学习其他函数和命令有非常大的帮助。并不是任何时候都需要查谷歌搜百度。通过这些命令也可以对相关编程语言进行学习。</p>
-<ul>
-<li>R: <code>?function</code> <code>help(function)</code> <code>help.search()</code> <code>apropos()</code></li>
-<li>Python: <code>?</code> <code>??</code> <code>help()</code> <code>dir()</code> <code>__doc__</code></li>
-<li>Matlab: <code>help</code> <code>doc</code> <code>lookfor</code></li>
-</ul>
-<h2 id="第三步：熟悉基本语法和编码规范-Grammar-amp-Style"><a href="#第三步：熟悉基本语法和编码规范-Grammar-amp-Style" class="headerlink" title="第三步：熟悉基本语法和编码规范 Grammar &amp; Style"></a>第三步：熟悉基本语法和编码规范 Grammar &amp; Style</h2><ul>
-<li><a href="https://learnxinyminutes.com/" target="_blank" rel="external">Learn X in Y Minutes</a><ul>
-<li><a href="https://learnxinyminutes.com/docs/zh-cn/r-cn/" target="_blank" rel="external">X 分钟速成 R</a></li>
-<li><a href="https://learnxinyminutes.com/docs/zh-cn/python-cn/" target="_blank" rel="external">X 分钟速成 Python</a></li>
-<li><a href="https://learnxinyminutes.com/docs/zh-cn/matlab-cn/" target="_blank" rel="external">X 分钟速成 MATLAB</a></li>
-</ul>
-</li>
-<li>通过 <strong>Cheat Sheet</strong> 来快速了解基本语法<ul>
-<li><a href="https://www.cheatography.com/" target="_blank" rel="external">Cheatography</a></li>
-<li><a href="http://www.cheat-sheets.org/" target="_blank" rel="external">Cheat-Sheets.org</a></li>
-<li>或者谷歌检索 <code>cheat sheet r/python/matlab filetype:pdf</code> 或者 <code>quick reference r/python/matlab filetype:pdf</code></li>
-</ul>
-</li>
-<li>代码规范 Coding Style<ul>
-<li>R: <a href="https://google.github.io/styleguide/Rguide.xml" target="_blank" rel="external">Google’s R Style Guide</a>, <a href="http://adv-r.had.co.nz/Style.html" target="_blank" rel="external">R Style guide</a></li>
-<li>Python: <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">PEP 8 – Style Guide for Python Code</a>, <a href="https://google.github.io/styleguide/pyguide.html" target="_blank" rel="external">Google Python Style Guide</a></li>
-<li>MATLAB: <a href="https://cn.mathworks.com/matlabcentral/fileexchange/46056-matlab-style-guidelines-2-0" target="_blank" rel="external">MATLAB Style Guidelines 2.0</a>, <a href="www.cs.cornell.edu/courses/cs321/2003fa/Matlab%20Coding%20Style.pdf">Matlab Coding Style</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation"><a href="#第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation" class="headerlink" title="第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation"></a>第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation</h2><p>在学习和使用编程语言的过程中，不可避免的遇到各种报错信息。这并不是不好的信号，而正式掌握一个函数或者语法时候。有时候可以故意“犯错”，看看出现什么样的报错信息。总之，多去根据文档里头的例子或者自己编个例子尝试尝试一个函数的用法。</p>
-<h2 id="第五步：阅读书籍和源码-Books-amp-Source-code"><a href="#第五步：阅读书籍和源码-Books-amp-Source-code" class="headerlink" title="第五步：阅读书籍和源码 Books &amp; Source code"></a>第五步：阅读书籍和源码 Books &amp; Source code</h2><p>一般来说，不做程序员，就没必要学得太深入。但是如果感兴趣，要进一步提高，那就要多阅读经典技术书籍和源代码咯。</p>
-<hr>
-<h1 id="Linux-Shell-amp-Git-学习资源"><a href="#Linux-Shell-amp-Git-学习资源" class="headerlink" title="Linux, Shell, &amp; Git 学习资源"></a>Linux, Shell, &amp; Git 学习资源</h1><p>Linux</p>
-<ul>
-<li><a href="http://linux.vbird.org/linux_basic/" target="_blank" rel="external">鸟哥的 Linux 私房菜</a></li>
-<li><a href="https://github.com/aleksandar-todorovic/awesome-linux" target="_blank" rel="external">Awesome Linux</a></li>
-</ul>
-<p>Shell</p>
-<ul>
-<li><a href="http://billie66.github.io/TLCL/index.html" target="_blank" rel="external">快乐的 Linux 命令行</a></li>
-<li><a href="https://github.com/alebcay/awesome-shell" target="_blank" rel="external">Awesome Shell</a></li>
-</ul>
-<p>Git</p>
-<ul>
-<li><a href="https://git-scm.com/documentation" target="_blank" rel="external">Git Documentation</a></li>
-<li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">Git 简明指南</a></li>
-<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a></li>
-</ul>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
-<li>在科学上网的前提下，善用<strong>搜索引擎</strong>；</li>
-<li>学会查询和阅读<strong>文档</strong>；</li>
-<li>在最开始就养成良好的<strong>编程规范</strong>；</li>
-<li>探索性地<strong>边做边学</strong>。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1152,7 +1210,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

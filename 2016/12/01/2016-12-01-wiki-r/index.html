@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。">
-<meta property="og:updated_time" content="2016-12-05T07:20:59.000Z">
+<meta property="og:updated_time" content="2016-12-07T16:24:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R 语言个人参考">
 <meta name="twitter:description" content="在使用 R 语言过程中的全部记录，包括常用包和函数的用法记录。">
@@ -351,14 +351,14 @@
       
 
       
-        <h1 id="base"><a href="#base" class="headerlink" title="base"></a>base</h1><p><strong>Sys.</strong></p>
+        <h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><h2 id="base"><a href="#base" class="headerlink" title="base"></a>base</h2><p><strong>Sys.</strong></p>
 <ul>
 <li><code>Sys.getenv()</code> 获取环境变量内容</li>
 <li><code>Sys.setenv()</code> 设置环境变量</li>
 <li><code>Sys.unsetenv()</code> 移除环境变量</li>
 <li><code>Sys.time()</code> <code>Sys.Date()</code> 获取当前日期和时间</li>
 </ul>
-<h2 id="Startup"><a href="#Startup" class="headerlink" title="Startup"></a>Startup</h2><p>步骤</p>
+<h3 id="Startup"><a href="#Startup" class="headerlink" title="Startup"></a>Startup</h3><p>步骤</p>
 <ol>
 <li><strong>设置环境变量</strong>：通过 site 和 user 文件</li>
 </ol>
@@ -373,7 +373,7 @@
 <li>如果存在 <code>.First</code> 函数，则执行，然后，<code>base::.First.sys()</code> 执行。<code>.First.sys()</code> 调用 <code>require</code> 加载默认的包。默认的 R 包由 <code>options(&quot;defaultPackages&quot;)</code> 指定。如果默认包中包含 methods package，那么通过函数 <code>.OptRequireMethods()</code> 先加载 methods 包。<code>.First()</code> 可以在 <code>.Rprofile</code> 和 <code>Profile.site</code> 中定义，也可以存储在 <code>.RData</code> 中。</li>
 </ol>
 <p>在 R 启动时，需要两种文件，设置环境变量的文件和包含 R 代码的 profile 文件。</p>
-<h1 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h1><h2 id="函数索引"><a href="#函数索引" class="headerlink" title="函数索引"></a>函数索引</h2><h3 id="常用底层函数"><a href="#常用底层函数" class="headerlink" title="常用底层函数"></a>常用底层函数</h3><table>
+<h2 id="graphics"><a href="#graphics" class="headerlink" title="graphics"></a>graphics</h2><h3 id="函数索引"><a href="#函数索引" class="headerlink" title="函数索引"></a>函数索引</h3><h4 id="常用底层函数"><a href="#常用底层函数" class="headerlink" title="常用底层函数"></a>常用底层函数</h4><table>
 <thead>
 <tr>
 <th style="text-align:left">函数名</th>
@@ -465,7 +465,7 @@
 <p>assocplot               Association Plots<br>barplot                 Bar Plots<br>boxplot                 Box Plots<br>boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>bxp                     Draw Box Plots from Summaries<br>cdplot                  Conditional Density Plots<br>coplot                  Conditioning Plots<br>curve                   Draw Function Plots<br>dotchart                Cleveland’s Dot Plots<br>fourfoldplot            Fourfold Plots<br>hist                    Histograms<br>hist.POSIXt             Histogram of a Date or Date-Time Object<br>matplot                 Plot Columns of Matrices<br>mosaicplot              Mosaic Plots<br>pairs                   Scatterplot Matrices<br>panel.smooth            Simple Panel Plot<br>persp                   Perspective Plots<br>pie                     Pie Charts<br>smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>spineplot               Spine Plots and Spinograms<br>stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>stem                    Stem-and-Leaf Plots<br>stripchart              1-D Scatter Plots<br>sunflowerplot           Produce a Sunflower Scatter Plot</p>
 <p>双变量</p>
 <p>contour | 绘制轮廓线/等高线图<br>image | 绘制二维图像<br>rasterImage | 绘制栅格图</p>
-<h2 id="par-graphical-parameters"><a href="#par-graphical-parameters" class="headerlink" title="par: graphical parameters"></a>par: graphical parameters</h2><p><strong>margins</strong>: (bottom, left, top, right)<br>mar (margins size in lines)<br>mai (margin size in inches)<br>mex (scale fator of line height of margins)<br>oma (out margins area)</p>
+<h3 id="par-graphical-parameters"><a href="#par-graphical-parameters" class="headerlink" title="par: graphical parameters"></a>par: graphical parameters</h3><p><strong>margins</strong>: (bottom, left, top, right)<br>mar (margins size in lines)<br>mai (margin size in inches)<br>mex (scale fator of line height of margins)<br>oma (out margins area)</p>
 <p><a href="http://research.stowers-institute.org/efg/R/Graphics/Basics/mar-oma/index.htm" target="_blank" rel="external">tutorials of margins and outer margins</a><br><a href="http://rgraphics.limnology.wisc.edu/index.php" target="_blank" rel="external">R graphics</a></p>
 <p><strong>multiple figures</strong><br>mlcol (multiple figures column)<br>mlrow (multiple figures row)</p>
 <p><strong>cex</strong>: scale factor of text and symbols<br>cex.axis: axis tick labels<br>cex.lab: x-y axis labels<br>cex.main: main title<br>cex.sub: subtitle</p>
@@ -482,9 +482,9 @@
 </ul>
 <p><strong>plot regions</strong><br><strong>plt</strong>: the coordinates of the plot region, (x1/left, x2/right, y1/bottom, y2/top), 每个值为 0 ~ 1 之间，为相对于 device 的长宽的比率。x1 为 device 左边缘至 plot region 左边缘的距离，x2 为 device 的左边缘至 plot region 的右边缘的距离。y1 为 device 的下边缘至 plot region 的下边缘的距离，y2 为 device 的下边缘至 plot region 的上边缘的距离。<br><strong>pin</strong>: specify the size of the plot region in inches, (width, height)<br><strong>pty</strong>: default “m”, 占据可用空间的所有空间；”s”，以正方形的形式占据可用空间的最大空间。</p>
 <p><strong>xpd</strong><br><code>par(xpd = NA)</code> clipped to device<br><code>par(xpd = TRUE)</code> clipped to the current figure region<br><code>par(xpd = FALSE)</code> clipped to the current plot region</p>
-<h1 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h1><h2 id="函数索引-1"><a href="#函数索引-1" class="headerlink" title="函数索引"></a>函数索引</h2><p>Devices                 List of Graphical Devices<br>Hershey                 Hershey Vector Fonts in R<br>Japanese                Japanese characters in R<br>Type1Font               Type 1 and CID Fonts<br>X11Fonts                X11 Fonts<br>as.graphicsAnnot        Coerce an Object for Graphics Annotation<br>as.raster               Create a Raster Object<br>axisTicks               Compute Pretty Axis Tick Scales<br>boxplot.stats           Box Plot Statistics<br>check.options           Set Options with Consistency Checks<br>chull                   Compute Convex Hull of a Set of Points<br>cm                      Unit Transformation<br>contourLines            Calculate Contour Lines<br>dev.capabilities        Query Capabilities of the Current Graphics Device<br>dev.capture             Capture device output as a raster image<br>dev.copy                Copy Graphics Between Multiple Devices<br>dev.cur                 Control Multiple Devices<br>dev.flush               Hold or Flush Output on an On-Screen Graphics Device.<br>dev.interactive         Is the Current Graphics Device Interactive?<br>dev.size                Find Size of Device Surface<br>dev2bitmap              Graphics Device for Bitmap Files via Ghostscript<br>devAskNewPage           Prompt before New Page<br>embedFonts              Embed Fonts in PostScript and PDF<br>extendrange             Extend a Numerical Range by a Small Percentage<br>getGraphicsEvent        Wait for a mouse or keyboard event from a graphics window<br>grDevices-package       The R Graphics Devices and Support for Colours and Fonts<br>grSoftVersion           Report Versions of Graphics Software<br>n2mfrow                 Compute Default mfrow From Number of Plots<br>nclass.Sturges          Compute the Number of Classes for a Histogram<br>pdf                     PDF Graphics Device<br>pdf.options             Auxiliary Function to Set/View Defaults for Arguments of pdf<br>pictex                  A PicTeX Graphics Driver<br>plotmath                Mathematical Annotation in R<br>png                     BMP, JPEG, PNG and TIFF graphics devices<br>postscript              PostScript Graphics<br>postscriptFonts         PostScript and PDF Font Families<br>pretty.Date             Pretty Breakpoints for Date-Time Classes<br>ps.options              Auxiliary Function to Set/View Defaults for Arguments of postscript<br>quartz                  macOS Quartz Device<br>quartzFonts             quartz Fonts<br>recordGraphics          Record Graphics Operations<br>recordPlot              Record and Replay Plots<br>savePlot                Save Cairo X11 Plot to File<br>svg                     Cairographics-based SVG, PDF and PostScript Graphics Devices<br>trans3d                 3D to 2D Transformation for Perspective Plots<br>x11                     X Window System Graphics<br>xfig                    XFig Graphics Device<br>xy.coords               Extracting Plotting Structures<br>xyTable                 Multiplicities of (x,y) Points, e.g., for a Sunflower Plot<br>xyz.coords              Extracting Plotting Structures</p>
+<h2 id="grDevices"><a href="#grDevices" class="headerlink" title="grDevices"></a>grDevices</h2><h3 id="函数索引-1"><a href="#函数索引-1" class="headerlink" title="函数索引"></a>函数索引</h3><p>Devices                 List of Graphical Devices<br>Hershey                 Hershey Vector Fonts in R<br>Japanese                Japanese characters in R<br>Type1Font               Type 1 and CID Fonts<br>X11Fonts                X11 Fonts<br>as.graphicsAnnot        Coerce an Object for Graphics Annotation<br>as.raster               Create a Raster Object<br>axisTicks               Compute Pretty Axis Tick Scales<br>boxplot.stats           Box Plot Statistics<br>check.options           Set Options with Consistency Checks<br>chull                   Compute Convex Hull of a Set of Points<br>cm                      Unit Transformation<br>contourLines            Calculate Contour Lines<br>dev.capabilities        Query Capabilities of the Current Graphics Device<br>dev.capture             Capture device output as a raster image<br>dev.copy                Copy Graphics Between Multiple Devices<br>dev.cur                 Control Multiple Devices<br>dev.flush               Hold or Flush Output on an On-Screen Graphics Device.<br>dev.interactive         Is the Current Graphics Device Interactive?<br>dev.size                Find Size of Device Surface<br>dev2bitmap              Graphics Device for Bitmap Files via Ghostscript<br>devAskNewPage           Prompt before New Page<br>embedFonts              Embed Fonts in PostScript and PDF<br>extendrange             Extend a Numerical Range by a Small Percentage<br>getGraphicsEvent        Wait for a mouse or keyboard event from a graphics window<br>grDevices-package       The R Graphics Devices and Support for Colours and Fonts<br>grSoftVersion           Report Versions of Graphics Software<br>n2mfrow                 Compute Default mfrow From Number of Plots<br>nclass.Sturges          Compute the Number of Classes for a Histogram<br>pdf                     PDF Graphics Device<br>pdf.options             Auxiliary Function to Set/View Defaults for Arguments of pdf<br>pictex                  A PicTeX Graphics Driver<br>plotmath                Mathematical Annotation in R<br>png                     BMP, JPEG, PNG and TIFF graphics devices<br>postscript              PostScript Graphics<br>postscriptFonts         PostScript and PDF Font Families<br>pretty.Date             Pretty Breakpoints for Date-Time Classes<br>ps.options              Auxiliary Function to Set/View Defaults for Arguments of postscript<br>quartz                  macOS Quartz Device<br>quartzFonts             quartz Fonts<br>recordGraphics          Record Graphics Operations<br>recordPlot              Record and Replay Plots<br>savePlot                Save Cairo X11 Plot to File<br>svg                     Cairographics-based SVG, PDF and PostScript Graphics Devices<br>trans3d                 3D to 2D Transformation for Perspective Plots<br>x11                     X Window System Graphics<br>xfig                    XFig Graphics Device<br>xy.coords               Extracting Plotting Structures<br>xyTable                 Multiplicities of (x,y) Points, e.g., for a Sunflower Plot<br>xyz.coords              Extracting Plotting Structures</p>
 <p>设定颜色<br><code>rgb</code> | RGB 颜色设定 | <code>rgb(red, green, blue, alpha)</code><br>rgb2hsv                 RGB to HSV Conversion<br>gray                    Gray Level Specification<br>gray.colors             Gray Color Palette<br>hcl                     HCL Color Specification<br>hsv                     HSV Color Specification<br>make.rgb                Create colour spaces<br>rainbow                 Color Palettes<br>col2rgb                 Color to RGB Conversion<br>colorRamp               Color interpolation<br>colors                  Color Names<br>convertColor            Convert between Colour Spaces<br>densCols                Colors for Smooth Density Plots<br>adjustcolor             Adjust Colors in One or More Directions Conveniently.<br>palette                 Set or View the Graphics Palette</p>
-<h2 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h2><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
+<h3 id="图形设备-Devices"><a href="#图形设备-Devices" class="headerlink" title="图形设备 Devices"></a>图形设备 Devices</h3><p><code>grDevices::Devices</code> R 绘图时支持的图形设备。</p>
 <ul>
 <li><code>pdf</code> <code>postscript</code> <code>xfig</code> <code>bitmap</code> <code>pictex</code></li>
 <li><code>X11</code> 在 X11 视窗系统下支持</li>
@@ -537,7 +537,7 @@
 <li>默认背景色为 <code>&quot;white&quot;</code></li>
 <li>默认分辨率为 <code>res = 72</code> 单位为 ppi</li>
 </ul>
-<h1 id="plyr-the-split-apply-combine-paradigm"><a href="#plyr-the-split-apply-combine-paradigm" class="headerlink" title="plyr: the split-apply-combine paradigm"></a>plyr: the split-apply-combine paradigm</h1><p>split 分割：让复杂的问题分解成小块<br>apply 套用：对每一个小块进行计算<br>combine 组合：汇集每一小块的结果</p>
+<h2 id="plyr"><a href="#plyr" class="headerlink" title="plyr"></a>plyr</h2><p>split 分割：让复杂的问题分解成小块<br>apply 套用：对每一个小块进行计算<br>combine 组合：汇集每一小块的结果</p>
 <p>plyr 函数命名规律与输入对象类型和输出对象类型有关，有以下几种数据对象类型：</p>
 <ul>
 <li>a = array</li>
@@ -557,9 +557,34 @@
 <li>colwise</li>
 <li>rename: 修改 data frame 的列名</li>
 <li>round_any</li>
-<li>count: 快速计数，并返回 data frame<h1 id="统计检验"><a href="#统计检验" class="headerlink" title="统计检验"></a>统计检验</h1></li>
+<li>count: 快速计数，并返回 data frame</li>
 </ul>
-<h2 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h2><h3 id="stats-aov"><a href="#stats-aov" class="headerlink" title="stats::aov"></a>stats::aov</h3><p><code>aov(formula, data, projections = FALSE, qr = TRUE, contrasts = NULL, ...)</code></p>
+<hr>
+<h2 id="stats"><a href="#stats" class="headerlink" title="stats"></a>stats</h2><h3 id="p-adjust"><a href="#p-adjust" class="headerlink" title="p.adjust"></a>p.adjust</h3><p>使用特定方法对一系列 p 值进行矫正。方法包括：”holm”, “hochberg”, “hommel”, “bonferroni”, “BH”, “BY”, “fdr”, “none”。<br><code>p.adjust(p, method = p.adjust.methods)</code></p>
+<ul>
+<li>p 为数值类型的向量</li>
+<li>method 字符串，矫正方法</li>
+</ul>
+<blockquote>
+<p>The first four methods are designed to give strong control of the family-wise error rate.  There seems no reason to use the unmodified Bonferroni correction because it is dominated by Holm’s method, which is also valid under arbitrary assumptions.</p>
+</blockquote>
+<h2 id="afex"><a href="#afex" class="headerlink" title="afex"></a>afex</h2><p>round_ps: 根据 p 值大小的范围调整小数点位数。0.99-0.01 为两位小数点；p &lt; 0.01 为三位小数点；p &lt; 0.001 为四位小数点。</p>
+<p>contrast: 提供对 ref.grid 对象的分析，或对 lsmobj 对象的后续分析（follow-up analyses）。<br>pairs: 相当于 contrast 函数中传入 <code>method = &quot;pairwise&quot;</code>，即成对比较。</p>
+<h2 id="lsmeans"><a href="#lsmeans" class="headerlink" title="lsmeans"></a>lsmeans</h2><p>summary: Use these methods to summarize, print, plot, or examine objects of class ‘“ref.grid”’.</p>
+<ul>
+<li>adjust: <ul>
+<li>“tukey”: available for two-sided cases only</li>
+<li>“scheffe”</li>
+<li>“sidak”</li>
+<li>“bonferroni”</li>
+<li>“dunnettx”</li>
+<li>“mvt”</li>
+<li>“none”</li>
+</ul>
+</li>
+</ul>
+<h2 id="plotrix"><a href="#plotrix" class="headerlink" title="plotrix"></a>plotrix</h2><p>raw.means.plot: 用来绘制最多两因素实验设计结果的图形。该函数将原始数据绘制在背景上，将因子或者区组的均值绘制在前景。</p>
+<h1 id="统计检验"><a href="#统计检验" class="headerlink" title="统计检验"></a>统计检验</h1><h2 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h2><h3 id="stats-aov"><a href="#stats-aov" class="headerlink" title="stats::aov"></a>stats::aov</h3><p><code>aov(formula, data, projections = FALSE, qr = TRUE, contrasts = NULL, ...)</code></p>
 <p>formula 中包含的 Error 项: 指定误差项，在重复测量方差分析、裂区设计中使用。</p>
 <blockquote>
 <p><strong>aov is designed for balanced designs, and the results can be hard to interpret without balance</strong>: beware that missing values in the response(s) will likely lose the balance. If there are two or more error strata, the methods used are statistically inefficient without balance, and <strong>it may be better to use lme in package nlme.</strong></p>
@@ -602,7 +627,6 @@
 <h3 id="ez-ezANOVA"><a href="#ez-ezANOVA" class="headerlink" title="ez::ezANOVA"></a>ez::ezANOVA</h3><p><code>ezANOVA()</code><br>计算效应量：<code>schoRsch::anova_out()</code></p>
 <h3 id="lme4-lmer"><a href="#lme4-lmer" class="headerlink" title="lme4::lmer"></a>lme4::lmer</h3><p><a href="http://psych.wisc.edu/moore/R_Analysis_of_Variance_Handouts_html.html" target="_blank" rel="external">doing Analysis of Variance in Psychology</a></p>
 <p>参考：<br><a href="https://egret.psychol.cam.ac.uk/statistics/R/index.html" target="_blank" rel="external">Local tips for R</a><br><a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a> Paul Gribble 课程内容，讲解如何使用 R 进行心理学研究中的统计分析。</p>
-<h1 id="常用包"><a href="#常用包" class="headerlink" title="常用包"></a>常用包</h1><h2 id="基本统计检验"><a href="#基本统计检验" class="headerlink" title="基本统计检验"></a>基本统计检验</h2><p>car<br>ez<br>schoRsch<br>apa</p>
 
       
     </div>
@@ -642,8 +666,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/2016-12-01-wiki-emacs/" rel="prev" title="Emacs 个人参考">
-                Emacs 个人参考 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/01/2016-12-01-wiki-error/" rel="prev" title="报错问题解决记录">
+                报错问题解决记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -719,7 +743,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -807,7 +831,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#base"><span class="nav-number">1.</span> <span class="nav-text">base</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Startup"><span class="nav-number">1.1.</span> <span class="nav-text">Startup</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#graphics"><span class="nav-number">2.</span> <span class="nav-text">graphics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数索引"><span class="nav-number">2.1.</span> <span class="nav-text">函数索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用底层函数"><span class="nav-number">2.1.1.</span> <span class="nav-text">常用底层函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#par-graphical-parameters"><span class="nav-number">2.2.</span> <span class="nav-text">par: graphical parameters</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grDevices"><span class="nav-number">3.</span> <span class="nav-text">grDevices</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数索引-1"><span class="nav-number">3.1.</span> <span class="nav-text">函数索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形设备-Devices"><span class="nav-number">3.2.</span> <span class="nav-text">图形设备 Devices</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#plyr-the-split-apply-combine-paradigm"><span class="nav-number">4.</span> <span class="nav-text">plyr: the split-apply-combine paradigm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计检验"><span class="nav-number">5.</span> <span class="nav-text">统计检验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方差分析"><span class="nav-number">5.1.</span> <span class="nav-text">方差分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stats-aov"><span class="nav-number">5.1.1.</span> <span class="nav-text">stats::aov</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#car-Anova"><span class="nav-number">5.1.2.</span> <span class="nav-text">car::Anova</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ez-ezANOVA"><span class="nav-number">5.1.3.</span> <span class="nav-text">ez::ezANOVA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lme4-lmer"><span class="nav-number">5.1.4.</span> <span class="nav-text">lme4::lmer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用包"><span class="nav-number">6.</span> <span class="nav-text">常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本统计检验"><span class="nav-number">6.1.</span> <span class="nav-text">基本统计检验</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Packages"><span class="nav-number">1.</span> <span class="nav-text">Packages</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#base"><span class="nav-number">1.1.</span> <span class="nav-text">base</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Startup"><span class="nav-number">1.1.1.</span> <span class="nav-text">Startup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#graphics"><span class="nav-number">1.2.</span> <span class="nav-text">graphics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数索引"><span class="nav-number">1.2.1.</span> <span class="nav-text">函数索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用底层函数"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">常用底层函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#par-graphical-parameters"><span class="nav-number">1.2.2.</span> <span class="nav-text">par: graphical parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grDevices"><span class="nav-number">1.3.</span> <span class="nav-text">grDevices</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数索引-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">函数索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形设备-Devices"><span class="nav-number">1.3.2.</span> <span class="nav-text">图形设备 Devices</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plyr"><span class="nav-number">1.4.</span> <span class="nav-text">plyr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stats"><span class="nav-number">1.5.</span> <span class="nav-text">stats</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#p-adjust"><span class="nav-number">1.5.1.</span> <span class="nav-text">p.adjust</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#afex"><span class="nav-number">1.6.</span> <span class="nav-text">afex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsmeans"><span class="nav-number">1.7.</span> <span class="nav-text">lsmeans</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plotrix"><span class="nav-number">1.8.</span> <span class="nav-text">plotrix</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计检验"><span class="nav-number">2.</span> <span class="nav-text">统计检验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方差分析"><span class="nav-number">2.1.</span> <span class="nav-text">方差分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stats-aov"><span class="nav-number">2.1.1.</span> <span class="nav-text">stats::aov</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#car-Anova"><span class="nav-number">2.1.2.</span> <span class="nav-text">car::Anova</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ez-ezANOVA"><span class="nav-number">2.1.3.</span> <span class="nav-text">ez::ezANOVA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lme4-lmer"><span class="nav-number">2.1.4.</span> <span class="nav-text">lme4::lmer</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

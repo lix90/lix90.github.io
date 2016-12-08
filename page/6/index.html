@@ -282,6 +282,530 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/18/2016-11-18-daily/" itemprop="url">
+                  每日总结 2016-11-18
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-18T00:00:00+08:00" content="2016-11-18">
+              2016-11-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/18/2016-11-18-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/18/2016-11-18-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h1><p>中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》</p>
+<blockquote>
+<p>容器的技术生态主要分为<strong>核心容器技术</strong>、<strong>分布式容器技术</strong>、<strong>容器平台技术</strong>，以及<strong>容器原生辅助支持技术</strong>四部分。</p>
+</blockquote>
+<p>容器技术应用面临多个问题：</p>
+<ul>
+<li>技术多样化多平台，缺乏统一标准；</li>
+<li>传统服务较难与容器平台整合；</li>
+<li>容器技术快速传播，但尚未形成较好的盈利模式；</li>
+<li>容器技术本身在稳定性、安全性、监控成熟度、管理平台、网络和存储方面的成熟度还需提高。</li>
+</ul>
+<p>来源：<a href="http://blog.dataman-inc.com/shurenyun-news-1110/" target="_blank" rel="external">数人云博客</a></p>
+<hr>
+<p>云计算目前分为：IaaS、SaaS、PaaS<br>IaaS 和 PaaS 的区别：</p>
+<ul>
+<li>IaaS 层指用户无需购置存储、网络设备等，例如云主机，使用者为运维/研发等。</li>
+<li>PaaS 层主要提供 SDK、API，用户不必自己购买专用的开发软件、测试软件、服务器等，实现软件的轻松快速发布，多为软件开发商。</li>
+</ul>
+<p>来源：<a href="http://blog.qiniu.com/archives/7442" target="_blank" rel="external">七牛云博客</a></p>
+<hr>
+<p>云能解决哪些问题？</p>
+<ul>
+<li>降低采购周期，提高资源利用率</li>
+<li>降低研发、运维难度<blockquote>
+<ul>
+<li>购买技术和对应的一些服务来降低开发难度，提高开发效率，让你的产品能够更快的出来，能让你在互联网时代更敏捷一些。</li>
+<li>引入这个层面的服务，最大的好处是什么呢？是能够把你的最好的研发人员从底层系统挪到你的业务层系统，让你最有价值的业务层能够比较快速的发展。</li>
+<li>将控制流和数据流分开，使用不同的云服务来解决不同的问题</li>
+</ul>
+</blockquote>
+</li>
+<li>改善服务治理</li>
+</ul>
+<p>来源：<a href="http://blog.qiniu.com/archives/7403" target="_blank" rel="external">七牛云博客</a></p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="静态-UI-组件重构"><a href="#静态-UI-组件重构" class="headerlink" title="静态 UI 组件重构"></a>静态 UI 组件重构</h2><p>CSS color 属性驱动的静态 UI 组件实现策略</p>
+<ul>
+<li>提取专门的颜色类名 <code>.dark { color: #33373d; }</code></li>
+<li>静态 UI 组件所有动态颜色全部走原生变量（即颜色值直接缺省）</li>
+<li>颜色类名既扮演状态类名角色又扮演颜色控制角色</li>
+<li>构建基础类名和基础样式<ul>
+<li>currentColor 变量</li>
+<li><code>.btn-normal::first-line { color: #fff}</code></li>
+</ul>
+</li>
+</ul>
+<p>兼容性限制：currentColor 只在IE9+浏览器下支持，目前适用于移动端开发，以及一些不需考虑低版本 IE 的项目。<br>不适用于开源项目</p>
+<p>代码结构：基本按钮 &gt;&gt;&gt; 特殊按钮 &gt;&gt;&gt; 基础颜色</p>
+<p>来源：<a href="http://www.zhangxinxu.com/wordpress/2016/11/development-ui-component-based-on-css-color/" target="_blank" rel="external">张鑫旭博客</a></p>
+<h2 id="CSS-原生变量"><a href="#CSS-原生变量" class="headerlink" title="CSS 原生变量"></a>CSS 原生变量</h2><p>CSS 变量即 CSS 自定义属性。以前原生 CSS 没有变量，只能借助 SASS 或者 LESS 预编译器。新草案发布，包含了在 CSS 中定义和使用变量。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables" target="_blank" rel="external">MDN–使用CSS变量</a></li>
+<li><a href="https://philipwalton.com/articles/why-im-excited-about-native-css-variables/" target="_blank" rel="external">Why I’m Excited About Native CSS Variables</a></li>
+</ul>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git-commit"></a>git-commit</h2><p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br><code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
+<p><strong>git 跟踪的是内容不是文件</strong></p>
+<h1 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h1><p><strong>应该使用 Yes/No 或者 Ok/Cancel 在消息框中吗？</strong><br>一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
+<p>参考：<a href="http://ux.stackexchange.com/questions/9946/should-i-use-yes-no-or-ok-cancel-on-my-message-box?newsletter=1&amp;nlcode=678926%7caee7" target="_blank" rel="external">stackexchange: user experience</a></p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><ol>
+<li>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</li>
+<li>新创刊期刊影响因子多久出来？3-5年，第4年出第三年的影响因子。所以第一年和第二年没有影响因子。</li>
+</ol>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
+<li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
+<li>SaaS - Software as a Service <a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">软件即服务</a>，通俗可以称为“即需即用软件”，是一种软件交互模式。在这种交互模式中云端集中式托管软件及相关的数据，软件仅需透过互联网，而不须透过安装即可使用。用户通常使用精简客户端经由一个网页浏览器来访问软件即服务。</li>
+<li>IoT - Internet of Things <a href="https://zh.wikipedia.org/wiki/%E7%89%A9%E8%81%94%E7%BD%91" target="_blank" rel="external">物联网</a>，让所有能行使独立功能的普通物体实现互联互通的网络。</li>
+<li>SOA - Service-oriented architecture <a href="https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9E%B6%E6%9E%84" target="_blank" rel="external">面向服务的体系结构</a>，是构造分布式计算的应用程序的方法，它将应用程序功能作为服务发送给最终用户或者其他服务。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/17/2016-11-17-r-tidyr/" itemprop="url">
+                  R：使用 tidyr 进行数据操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/17/2016-11-17-r-tidyr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/17/2016-11-17-r-tidyr/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>data</code> 数据框</li>
+<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
+<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
+<li><code>-z</code> 排除 z 变量</li>
+<li><code>x,y,z</code> 选择 x y z 三个变量</li>
+<li><code>2:4</code> 选择第2到4列</li>
+</ul>
+</li>
+<li><code>na.rm</code> 是否去除缺失值</li>
+<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
+<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
+</ul>
+<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>key</code> 该列的因子转换为多个列的列名</li>
+<li><code>value</code> 该列的内容将分配到多个列中</li>
+<li><code>fill</code> 指定填充缺失值的值</li>
+<li><code>convert</code> 数据类型转换</li>
+<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
+<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
+</ul>
+<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 列名（不需要引号）</li>
+<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
+<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
+</ul>
+</li>
+<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
+<li><code>convert</code> 数据类型转换。</li>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
+<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
+<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
+</ul>
+</li>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
+<li><code>&quot;right&quot;</code> 在右侧填充</li>
+<li><code>&quot;left&quot;</code> 在左侧填充</li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
+<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 将要合并得到的列名</li>
+<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
+<li><code>sep</code> 分隔符</li>
+<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>长转宽</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>宽转长</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
+<p>合并列与分割列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
+<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/17/2016-11-17-daily/" itemprop="url">
+                  每日总结 2016-11-17
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/17/2016-11-17-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/17/2016-11-17-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/16/2016-11-16-daily/" itemprop="url">
                   每日总结 2016-11-16
                 </a>
@@ -567,636 +1091,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/15/2016-11-15-daily/" itemprop="url">
-                  每日总结 2016-11-15
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-15T00:00:00+08:00" content="2016-11-15">
-              2016-11-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/15/2016-11-15-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/2016-11-15-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="CSS-和-JS-加载顺序和位置问题"><a href="#CSS-和-JS-加载顺序和位置问题" class="headerlink" title="CSS 和 JS 加载顺序和位置问题"></a>CSS 和 JS 加载顺序和位置问题</h1><h2 id="为什么要把-CSS-样式表放在头部（Head）"><a href="#为什么要把-CSS-样式表放在头部（Head）" class="headerlink" title="为什么要把 CSS 样式表放在头部（Head）"></a>为什么要把 CSS 样式表放在头部（Head）</h2><p>如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。</p>
-<p>如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页面元素进行重绘。这样会出现一段时间的白屏。影响用户体验。</p>
-<h2 id="为什么要把-JS-脚本放在底端（the-Bottom-of-Body）"><a href="#为什么要把-JS-脚本放在底端（the-Bottom-of-Body）" class="headerlink" title="为什么要把 JS 脚本放在底端（the Bottom of Body）"></a>为什么要把 JS 脚本放在底端（the Bottom of Body）</h2><p>脚本文件的加载会阻塞并行下载。HTTP/1.1 规定浏览器对于同一个主机的并行下载请求不能超过两个。如果网站图片资源放在多个主机上，那么可以同时超过两个下载请求。但是脚本文件会使浏览器停止其他数据的下载，不同主机的下载都会停止。</p>
-<p>但是在某些情况下，并不能将 JS 脚本放在底端。例如，脚本中包含有使用 <code>document.write</code> 插入部分页面内容，这就不能放在后面加载。</p>
-<p>替代的做法是，使用 <code>defer</code> 加载脚本，这样就可以放在头部了。<code>defer</code> 属性表明了脚本并不包含 <code>document.write</code>，在加载脚本的同时，页面也一同渲染。Firefox 并不支持 <code>defer</code> 属性。</p>
-<h2 id="如果-script-和-link-都在头部，谁在前，谁在后？"><a href="#如果-script-和-link-都在头部，谁在前，谁在后？" class="headerlink" title="如果 script 和 link 都在头部，谁在前，谁在后？"></a>如果 script 和 link 都在头部，谁在前，谁在后？</h2><p>对于现代<strong>桌面</strong>浏览器来说，CSS 在 JS 前声明对性能并没有显著提高。甚至，CSS 在 JS 之后，不但不影响性能，反而在特定情况下还能提升性能。不过，这仅限于现代桌面浏览器。对于老式浏览器，仍然需要在 JS 之前声明 CSS 的外部链接。这归功于现代桌面浏览器使用了“推测渲染技术”（speculative parsing），这种技术能够让浏览器往前一步看，总是在脚本下载和执行之前下载其他资源。老式浏览器并不支持该技术，所以把脚本放在前面会影响性能。</p>
-<p>目前，85% 的桌面浏览器均支持推测渲染技术。把脚本放在样式表之前仍然可能会影响 15% 的用户。对于移动端的浏览器，无法获得一个明确的支持该技术的比例。WebKit 内核的移动浏览器已支持该技术。但是即便是最新的 WebKit 内核浏览器，<a href="http://stackoverflow.com/users/201952/josh3736" target="_blank" rel="external">josh3736</a>仍然发现 JS 在 CSS 之前会影响性能，这可能与移动设备在 CPU，内存以及网络上的限制而关闭了限制了该功能。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/6625773/where-should-i-put-the-css-and-javascript-code-in-an-html-webpage" target="_blank" rel="external">stackoverflow: Where should I put the CSS and Javascript code in an HTML webpage?</a></li>
-<li><a href="http://stackoverflow.com/questions/9271276/is-the-recommendation-to-include-css-before-javascript-invalid" target="_blank" rel="external">stackoverflow: Is the recommendation to include CSS before JavaScript invalid?</a></li>
-<li><a href="http://stackoverflow.com/questions/7120801/group-of-css-and-js-files-import-at-html" target="_blank" rel="external">stackoverflow: Group of CSS and JS files import at HTML?</a></li>
-<li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo! Best Practices for Speeding Up Your Web Site</a></li>
-</ul>
-<hr>
-<h1 id="CSS：-import-vs-Link"><a href="#CSS：-import-vs-Link" class="headerlink" title="CSS：@import vs Link"></a>CSS：@import vs Link</h1><blockquote>
-<p>The bottomline is: use LINK instead of @import if you want stylesheets to download in parallel resulting in a faster page.</p>
-<ul>
-<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
-<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
-</ul>
-</blockquote>
-<p>避免使用 <code>@import</code> 能够提升性能。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">SteveSounders: don’t use @import</a></li>
-</ul>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><blockquote>
-<p><a href="https://github.com/rushter/MLAlgorithms" target="_blank" rel="external">rushter/MLAlgorithms</a><br>A collection of minimal and clean implementations of machine learning algorithms.</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/2016-11-14-daily/" itemprop="url">
-                  每日总结 2016-11-14
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/2016-11-14-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><p>Mode &amp; Type</p>
-<p>Mode 由 <code>mode</code> 获得<br>Type 由 <code>typeof</code> 获得</p>
-<p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
-<ul>
-<li>类型 <code>integer</code> 和 <code>double</code> 的模式均为 <code>numeric</code></li>
-<li>类型 <code>special</code> <code>builtin</code> 的模式均为 <code>function</code></li>
-<li>类型 <code>symbol</code> 返回模式 <code>name</code></li>
-<li>类型 <code>language</code> 返回为 <code>(</code> 或 <code>call</code></li>
-</ul>
-<hr>
-<h1 id="鸟哥-Linux-私房菜学习记录"><a href="#鸟哥-Linux-私房菜学习记录" class="headerlink" title="鸟哥 Linux 私房菜学习记录"></a>鸟哥 Linux 私房菜学习记录</h1><h2 id="计算机概论"><a href="#计算机概论" class="headerlink" title="计算机概论"></a>计算机概论</h2><p>三大部分：输入单元、主机、输出单元。<br>五大部分：输入、输出、CPU 控制单元、CPU 算数逻辑单元与内存。</p>
-<p>中央处理器（Central Processing Unit, CPU），含有微指令集。主机的功能与 CPU 是否具有相关内置的微指令集。<br>CPU 内分为两个主要单元：</p>
-<ul>
-<li>算数逻辑单元：负责程序运算与逻辑判断</li>
-<li>控制单元：协调各周边元件与各单元间的工作</li>
-</ul>
-<p>CPU 从内存中读取数据，内存中的数据从输入单元传入。CPU 处理完毕的数据必须先写回内存，然后才从内存传输到输出单元。</p>
-<p>五大单元：输入单元+{系统单元：[CPU：(控制单元+算数逻辑单元)]+内存}+输出单元+外部储存装置</p>
-<p>以上所有单元均由 CPU 内部的控制单元负责协调。</p>
-<p>两种 CPU 架构：</p>
-<ul>
-<li>精简指令集（Reduced Instruction Set Computer, RISC）</li>
-<li>复杂指令集（Complex Instruction Set Computer, CISC）</li>
-</ul>
-<p>RISC：较为精简，每个指令的执行时间都很短，完成动作很单纯，执行性能较佳。若要做复杂的事情，则需多个指令来完成。<br>CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目多且复杂，每条指令的长度不相同。由于指令执行较为复杂，所以每条指令花费时间较长，但每条指令可以处理的工作较为丰富。大量使用于个人电脑中。</p>
-<p>位：CPU 一次数据读取的最大量。64位 CPU 表示一次读写 64bits 的数据，32位则读取 32bits。一般32位 CPU 能读写的最大数据量为 4GB 左右。</p>
-<hr>
-<h1 id="Git-学习记录"><a href="#Git-学习记录" class="headerlink" title="Git 学习记录"></a>Git 学习记录</h1><h2 id="SHA"><a href="#SHA" class="headerlink" title="SHA"></a>SHA</h2><p>表示项目历史信息的文件由40个字符的“对象名（SHA）”来索引。不同内容的两个对象不可能有相同的对象名。</p>
-<ul>
-<li>快速判断两个对象是否相同；</li>
-<li>不同仓库的同样内容存在相同的对象名下；</li>
-<li>通过检查对象内容的哈希值和对象名来判断对象内容是否正确。</li>
-</ul>
-<h2 id="四种类型的对象"><a href="#四种类型的对象" class="headerlink" title="四种类型的对象"></a>四种类型的对象</h2><ul>
-<li>blob：存储文件数据</li>
-<li>tree：类似文件目录，管理 tree 或 blob</li>
-<li>commit：标记项目某一个特定时间点的状态，包括一些关于时间点的元数据</li>
-<li>tag：标记某一次提交的方法</li>
-</ul>
-<h2 id="Git-与-SVN-的区别"><a href="#Git-与-SVN-的区别" class="headerlink" title="Git 与 SVN 的区别"></a>Git 与 SVN 的区别</h2><p>SVN 使用增量文件系统（Delta storage systems），它们存储每次提交的差异。Git 把每次提交的文件的全部内容（snapshot）都会记录下来。</p>
-<hr>
-<h1 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a>Emacs</h1><h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><p>四种类型的快捷键设置：</p>
-<ul>
-<li>全局快捷键：<code>(global-set-key (kbd &quot;A&quot;) &#39;your-command&#39;)</code></li>
-<li>全局映射键：<code>(define-key key-translation-map (kbd &quot;A&quot;) (kbd &quot;B&quot;))</code></li>
-<li>基于 Major-Mode 的局部快捷键：<code>(local-set-key (kbd &quot;A&quot;) &#39;your-command)</code></li>
-<li>基于 Minor-Mode 的局部快捷键：<code>(define-key your-minor-mode-map (kbd &quot;A&quot;) &#39;your-command)</code></li>
-</ul>
-<p>删除或禁用键：<code>(global/local-unset-key (kbd &quot;A&quot;))</code> <code>(global/local-set-key (kbd &quot;A&quot;) &#39;ignore/nil)</code></p>
-<p>解决键冲突</p>
-<ul>
-<li>暴力映射：<code>define-key key-translation-map</code></li>
-<li>映射到新的 prefix 键上，再全局或者局部设置键。</li>
-</ul>
-<p>宏与函数的区别：函数的参数是在传入时 eval，而宏则是传入并展开后再 eval。<br>快捷键的优先级：<code>key-translation-map &gt; minor-mode-map &gt; local-set-key &gt; global-set-key</code><br>在设置局部键时，需写出相应的代理映射键（prefix）。</p>
-<p>说明：整理自Emacs（微信公众号）文章《那就从妖艳酷炫的快捷键开始吧！（一）》</p>
-<h2 id="amp-符号"><a href="#amp-符号" class="headerlink" title=": &amp; 符号"></a>: &amp; 符号</h2><ul>
-<li><code>:foo</code> 在 Emacs Lisp 中是 <code>keyword symbol</code></li>
-<li>在 <code>use-package</code> 中被用作 <code>keyword arguments</code></li>
-<li><code>&amp;optional</code> 指定的形参是可选的，如果没有指定，则当作 <code>nil</code></li>
-<li><code>&amp;rest</code> 指定的形参是可变</li>
-</ul>
-<blockquote>
-<p>宏的实参不会在宏被求值的时候立刻求值，而是会被当做数据直接传递给宏。因此宏可以自己决定那些代码在什么时候被求值。</p>
-</blockquote>
-<p>参考 emacs-china 社区<a href="https://emacs-china.org/t/emacslisp/1566" target="_blank" rel="external">问答</a></p>
-<hr>
-<h1 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h1><p>在数据挖掘中，理解数据、检查数据，对数据进行预处理至关重要。</p>
-<h2 id="数据理解"><a href="#数据理解" class="headerlink" title="数据理解"></a>数据理解</h2><ul>
-<li>明确数据记录的详细程度</li>
-<li>确定研究群体：用户群，受众；“群体”可以是事物，如电影。</li>
-<li>理解每个变量的含义：与业务目标无关的变量可直接剔除（冗余变量）。</li>
-</ul>
-<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
-<li>分类变量：名义变量和定序变量。</li>
-<li>数值变量：只有在代数运算下有意义的变量才是数值型变量。</li>
-</ul>
-<p>许多数据挖掘模型不能直接处理分类自变量，此时需要将分类变量转换成数值变量。对于名义自变量，常用的转换方法是构造0-1型哑变量。当名义变量有 K 个类别取值时，需要构造 K-1 个哑变量。<strong>名义变量取值过多会生成太多的哑变量，此时可能造成模型的过度拟合。</strong></p>
-<p>在有些情况下，数值变量需要转换成分类变量，此时需要用到“数据分箱”的方法。</p>
-<p><strong>数据分箱</strong></p>
-<ul>
-<li>通过取值范围转换成不同类别可以有效平滑数据，降低误差；</li>
-<li>对于某些算法（如决策树），数据分箱可以提高算法效率；</li>
-<li>有些模型算法（如关联规则）只能处理分类型自变量。</li>
-</ul>
-<p>数据分箱可以使用每个分箱内的均值、中位数、临界值等作为这个类别的代表值，也可以直接将不同取值范围定义成不同的类别。</p>
-<p><strong>常见的数据分箱方法</strong></p>
-<ul>
-<li>等宽分箱：将变量取值范围划分成等宽的几个区间。</li>
-<li>等频分箱：按变量取值的分位数进行划分。</li>
-<li>基于k均值聚类的分箱：将所有数据进行k均值聚类，所得类别即为不同的分箱。</li>
-<li>其他分箱：如使分箱后的结果达到最小熵或最小描述长度等。</li>
-</ul>
-<h2 id="质量检查"><a href="#质量检查" class="headerlink" title="质量检查"></a>质量检查</h2><p>一般来说，质量检查包括检查每个变量的缺失程度和取值范围的合理性。</p>
-<h3 id="缺失检查"><a href="#缺失检查" class="headerlink" title="缺失检查"></a>缺失检查</h3><ul>
-<li><strong>有些缺失是合理的</strong>，但是对于这种缺失值，很难判断缺失的原因。</li>
-<li><strong>对于不允许缺失的变量，必须进行相应处理。</strong>如果缺失率过高，例如达到70%，可以考虑剔除。如果比例可以接受，可以尝试插补。</li>
-<li><strong>插补的目的是使插补值最大可能接近真实的取值</strong>，如果能从其他途径得到真实值，那么优先选择这种方法。</li>
-</ul>
-<p>插补方法</p>
-<ul>
-<li>数值变量可用已观测值的均值、中位数、众数等。</li>
-<li>分类变量可用已观测值中比例最高的类别取值进行插补。</li>
-<li>还可以选择更复杂的模型插补方法：对被插补变量和其他自变量之间的关系建立统计模型，将模型预测值作为插补值。</li>
-</ul>
-<h3 id="变量取值合理性检查"><a href="#变量取值合理性检查" class="headerlink" title="变量取值合理性检查"></a>变量取值合理性检查</h3><ul>
-<li>通过判断变量的取值是否超出它应有的取值范围，可以简单的对异常值进行甄别。</li>
-<li>根据变量之间的相互关系进行判断。</li>
-</ul>
-<p>说明：整理自狗熊会（微信公众号）文章《灰常数据挖掘|数据理解和预处理》</p>
-<hr>
-<h1 id="交互设计：按钮"><a href="#交互设计：按钮" class="headerlink" title="交互设计：按钮"></a>交互设计：按钮</h1><h2 id="让按钮看起来像按钮"><a href="#让按钮看起来像按钮" class="headerlink" title="让按钮看起来像按钮"></a>让按钮看起来像按钮</h2><p>视觉线索让人确定部件的可点击特性。在可点击的元素上使用合适的视觉线索使得它们看起来想按钮。</p>
-<h3 id="形状"><a href="#形状" class="headerlink" title="形状"></a>形状</h3><ul>
-<li>比较保险的是使用方形，圆角方形。</li>
-<li>在使用其他特别的形状，例如圆形、三角形，或者其他图形时，得确保用户能将其当作按钮。</li>
-<li>无论使用什么形状，<strong>确保界面控件的一致性</strong>，这样用户才能识别处所有的元素为按钮。</li>
-</ul>
-<h3 id="阴影和高光"><a href="#阴影和高光" class="headerlink" title="阴影和高光"></a>阴影和高光</h3><p>阴影可以让元素从背景中凸显出来，更容易识别为可点击的元素，看起来像真实的可以被按下去的按钮。</p>
-<h2 id="清晰地标记按钮"><a href="#清晰地标记按钮" class="headerlink" title="清晰地标记按钮"></a>清晰地标记按钮</h2><p>用户容易忽视没有清晰的含义的界面元素。所以，界面中的按钮应该有合适的标签或者图标。但是，需遵循最小装饰原则。</p>
-<h3 id="清晰的标签"><a href="#清晰的标签" class="headerlink" title="清晰的标签"></a>清晰的标签</h3><p>按钮上的标签应该与用户将要执行的动作有关联，告知用户点击按钮所要执行的行为。<br>动作按钮应该向用户声明当前任务是什么，这样用户在点击按钮时知道会发生什么。</p>
-<h2 id="将按钮放置到用户容易找到的地方"><a href="#将按钮放置到用户容易找到的地方" class="headerlink" title="将按钮放置到用户容易找到的地方"></a>将按钮放置到用户容易找到的地方</h2><h3 id="位置和顺序"><a href="#位置和顺序" class="headerlink" title="位置和顺序"></a>位置和顺序</h3><ul>
-<li>如果开发原生 app，则需遵循开发平台的图形界面指南。</li>
-<li>如果是基于网页的 app，应该思考哪个位置对用户使用起来最有效。</li>
-<li>如果设计移动导航栏，有必要关注下按钮位置的最佳实践。&gt;&gt;&gt; <a href="https://www.smashingmagazine.com/2016/11/the-golden-rules-of-mobile-navigation-design/" target="_blank" rel="external">The Golden Rules Of Bottom Navigation Design</a></li>
-</ul>
-<h2 id="让用户轻而易举地点击按钮"><a href="#让用户轻而易举地点击按钮" class="headerlink" title="让用户轻而易举地点击按钮"></a>让用户轻而易举地点击按钮</h2><h3 id="尺寸和内边距"><a href="#尺寸和内边距" class="headerlink" title="尺寸和内边距"></a>尺寸和内边距</h3><p>需要考虑相对页面上其他元素来确定按钮的尺寸。</p>
-<blockquote>
-<p>When a tap is used as a primary input method for your app or site, you can rely on the <a href="http://touchlab.mit.edu/publications/2003_009.pdf" target="_blank" rel="external">MIT Touch Lab</a> study to choose a proper size for your buttons. This study found that the average size of finger pads are between 10–14mm and fingertips are 8–10mm, making 10mm x 10mm a good minimum touch target size. When a mouse and keyboard are the primary input methods, button measurements can be slightly reduced to accommodate dense UIs.</p>
-</blockquote>
-<h3 id="提供视觉反馈"><a href="#提供视觉反馈" class="headerlink" title="提供视觉反馈"></a>提供视觉反馈</h3><p>按钮具有多个状态，通过提供视觉反馈来提示用户按钮的当前状态。<a href="">Material Design</a> 清晰展示了不同的按钮状态：Normal, Focused, Pressed, Disabled。</p>
-<h2 id="在视觉上强调最重要的按钮"><a href="#在视觉上强调最重要的按钮" class="headerlink" title="在视觉上强调最重要的按钮"></a>在视觉上强调最重要的按钮</h2><p>确保在设计中，对主要的或者最重要的动作进行了强调。使用颜色和对比度可以让用户聚焦于动作之上，并且将按钮放置于最显眼的位置。</p>
-<h3 id="Call-to-Action-Button"><a href="#Call-to-Action-Button" class="headerlink" title="Call-to-Action Button"></a>Call-to-Action Button</h3><p>Call-to-Action Button：吸引用户注意力并且引诱用户去点击的按钮。创建一个有效的 call-to-action 按钮，需要使用与背景有高对比度的颜色，并且将按钮放置于用户使用路径上。</p>
-<h3 id="让首要的和次要的按钮具有视觉区分度"><a href="#让首要的和次要的按钮具有视觉区分度" class="headerlink" title="让首要的和次要的按钮具有视觉区分度"></a>让首要的和次要的按钮具有视觉区分度</h3><ul>
-<li>首要的与积极事件/动作关联的按钮应该有较强的视觉权重。</li>
-<li>次要的事件/动作，例如“取消”或“退回”，应该具有较弱的视觉权重。</li>
-</ul>
-<h2 id="按钮设计清单"><a href="#按钮设计清单" class="headerlink" title="按钮设计清单"></a>按钮设计清单</h2><ul>
-<li>用户将元素识别为按钮了吗？</li>
-<li>按钮的标签传递了清晰的含义了吗？</li>
-<li>用户能容易地找到按钮吗？</li>
-<li>如果在界面中有两个或多个按钮，最重要的是否具有最强的视觉权重？</li>
-</ul>
-<p>说明：笔记整理来自<a href="https://www.smashingmagazine.com/2016/11/a-quick-guide-for-designing-better-buttons/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=rss" target="_blank" rel="external">Smashing Magazine: A Quick Guide For Designing Better Buttons</a></p>
-<hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><ul>
-<li><a href="http://webpro.github.io/programming-principles/" target="_blank" rel="external">Programming Principles</a> 编程原则</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/2016-11-14-img-output/" itemprop="url">
-                  实验室内部分享一：绘制和编辑可发表的图形
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/2016-11-14-img-output/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-img-output/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本文为实验室内部分享内容提纲。<br>分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><h2 id="颜色模式"><a href="#颜色模式" class="headerlink" title="颜色模式"></a>颜色模式</h2><ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式"><a href="#图形格式" class="headerlink" title="图形格式"></a>图形格式</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率"><a href="#图形分辨率" class="headerlink" title="图形分辨率"></a>图形分辨率</h2><p>分辨率：两侧或者显示系统对细节的分辨能力。<br>PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1 id="图形编辑软件使用"><a href="#图形编辑软件使用" class="headerlink" title="图形编辑软件使用"></a>图形编辑软件使用</h1><ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面"><a href="#基本界面" class="headerlink" title="基本界面"></a>基本界面</h2><ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念"><a href="#常用工具与概念" class="headerlink" title="常用工具与概念"></a>常用工具与概念</h2><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层"><a href="#图层" class="headerlink" title="图层"></a>图层</h3><ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作"><a href="#其他重要操作" class="headerlink" title="其他重要操作"></a>其他重要操作</h3><ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1 id="绘制图表"><a href="#绘制图表" class="headerlink" title="绘制图表"></a>绘制图表</h1><ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：plot.ly, …</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1237,7 +1136,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
