@@ -353,7 +353,7 @@
       
         <h1>Python</h1>
 <p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
-<h2 id="pypi"><a class="header-anchor" href="#pypi">¶</a>PyPi</h2>
+<h2>PyPi</h2>
 <h3 id="macos-配置-pip"><a class="header-anchor" href="#macos-配置-pip">¶</a>MacOS 配置 pip</h3>
 <ol>
 <li>安装 easy_install<br>
@@ -401,7 +401,7 @@ Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
 <code>pip freeze &gt; req.txt</code><br>
 使用清单<br>
 <code>pip install -r req.txt</code></p>
-<h2 id="环境管理"><a class="header-anchor" href="#环境管理">¶</a>环境管理</h2>
+<h2>环境管理</h2>
 <p>使用虚拟环境管理工具</p>
 <p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>
 virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
@@ -409,13 +409,13 @@ virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" 
 <p>配置流程</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div></pre></td></tr></table></figure>
 <h1>Homebrew</h1>
-<h2 id="镜像源-v2"><a class="header-anchor" href="#镜像源-v2">¶</a>镜像源</h2>
+<h2>镜像源</h2>
 <p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br>
 <a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br>
 <a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
 <p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
 <h1>MacOS 配置</h1>
-<h2 id="time-machine"><a class="header-anchor" href="#time-machine">¶</a>Time machine</h2>
+<h2>Time machine</h2>
 <ul>
 <li>准备移动硬盘，做好备份</li>
 <li>移动硬盘分出一个300GB左右的分区，格式化为 Mac OS Extened Journaled 格式。</li>
@@ -426,7 +426,7 @@ virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" 
 <li><a href="http://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="external">Mac下移动硬盘的分区以及TimeMachine的备份</a></li>
 <li><a href="http://sspai.com/tag/Time%20Machine" target="_blank" rel="external">少数派 Time Machine 使用教程</a></li>
 </ul>
-<h2 id="卸载-rime-输入法"><a class="header-anchor" href="#卸载-rime-输入法">¶</a>卸载 Rime 输入法</h2>
+<h2>卸载 Rime 输入法</h2>
 <p>这个所谓的“程序员”用的输入法，实在是没用习惯。@2016-12-02 喜欢能简则简的我，改用苹果系统自带中文输入法。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ killall Squirrel</div><div class="line">$ sudo rm -Rf &quot;/Library/Input Methods/Squirrel.app&quot;</div><div class="line">$ rm -Rf ~/Library/Rime</div></pre></td></tr></table></figure>
 
@@ -468,8 +468,8 @@ virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" 
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/2016-12-01-wiki-error/" rel="prev" title="报错问题解决记录">
-                报错问题解决记录 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/01/2016-12-01-wiki-emacs/" rel="prev" title="Emacs 个人参考">
+                Emacs 个人参考 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -633,7 +633,7 @@ virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pypi"><span class="nav-number">1.1.</span> <span class="nav-text">¶PyPi</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#macos-配置-pip"><span class="nav-number">1.1.1.</span> <span class="nav-text">¶MacOS 配置 pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像源"><span class="nav-number">1.1.2.</span> <span class="nav-text">¶镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他配置"><span class="nav-number">1.1.3.</span> <span class="nav-text">¶其他配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-常用命令"><span class="nav-number">1.1.4.</span> <span class="nav-text">¶pip 常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境管理"><span class="nav-number">1.2.</span> <span class="nav-text">¶环境管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Homebrew</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像源-v2"><span class="nav-number">2.1.</span> <span class="nav-text">¶镜像源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">MacOS 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#time-machine"><span class="nav-number">3.1.</span> <span class="nav-text">¶Time machine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载-rime-输入法"><span class="nav-number">3.2.</span> <span class="nav-text">¶卸载 Rime 输入法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">PyPi</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#macos-配置-pip"><span class="nav-number">1.1.1.</span> <span class="nav-text">¶MacOS 配置 pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像源"><span class="nav-number">1.1.2.</span> <span class="nav-text">¶镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他配置"><span class="nav-number">1.1.3.</span> <span class="nav-text">¶其他配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-常用命令"><span class="nav-number">1.1.4.</span> <span class="nav-text">¶pip 常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">环境管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Homebrew</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">镜像源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">MacOS 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">Time machine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">卸载 Rime 输入法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

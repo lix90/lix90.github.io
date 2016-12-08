@@ -353,7 +353,7 @@
         
           
             <h1>R</h1>
-<h2 id="detach-attach"><a class="header-anchor" href="#detach-attach">¶</a><code>detach</code> &amp; <code>attach</code></h2>
+<h2><code>detach</code> &amp; <code>attach</code></h2>
 <p><code>attach</code></p>
 <p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
 <p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
@@ -364,7 +364,7 @@
 <li>应该避免在函数中使用 <code>detach/attach</code>。</li>
 <li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
 </ul>
-<h2 id="整数型数值"><a class="header-anchor" href="#整数型数值">¶</a>整数型数值</h2>
+<h2>整数型数值</h2>
 <p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
 <h1>杂项</h1>
 <p>JavaScript：DOM &amp; BOM</p>
@@ -504,7 +504,7 @@
           
             <p>临近求职，即将从学生狗迈入“社会”，需要关注下着装和生活品味。个人喜欢将看起来不严肃的事情也当做很“正经”的事情学习研究一番，这篇笔记便是最好的见证。</p>
 <h1>男士衬衫穿搭技巧</h1>
-<h2 id="正装衬衫"><a class="header-anchor" href="#正装衬衫">¶</a>正装衬衫</h2>
+<h2>正装衬衫</h2>
 <h3 id="挑选技巧"><a class="header-anchor" href="#挑选技巧">¶</a>挑选技巧</h3>
 <ol>
 <li>合身：首要条件务必合身。</li>
@@ -524,7 +524,7 @@
 <li>搭配灰色或海军蓝的西装：黑色适合场合较少，比较沉闷和老气。</li>
 <li>正装衬衫也可以在非正式场合穿：例如，搭配不沉闷的领带。也可以把休闲商务内搭换成正装衬衫。</li>
 </ol>
-<h2 id="牛津纺衬衫"><a class="header-anchor" href="#牛津纺衬衫">¶</a>牛津纺衬衫</h2>
+<h2>牛津纺衬衫</h2>
 <blockquote>
 <p>牛津纺一般由白色和其他颜色的纱线交织而成。白色的加入，会在视觉上弱化了另一颜色的色度，形成的特殊“点状肌理”，使整体的色调更加柔和，这也是牛津纺最吸引人之处。<br>
 牛津纺衬衫的适用性非常强，既可上班，亦可休闲，并往往能体现穿着者儒雅、斯文的一面。</p>
@@ -540,7 +540,7 @@
 <li>牛津纺色调较柔和，可以尝试多种颜色：白蓝为百搭；粉红色适合偏瘦的人；马卡龙绿、桃红适合沙滩、度假等休闲场合。</li>
 <li>无敌内搭单品：虽百搭，但与之绝配的是针织衫/毛衣。还可以搭配外套或夹克。</li>
 </ol>
-<h2 id="格子衬衫"><a class="header-anchor" href="#格子衬衫">¶</a>格子衬衫</h2>
+<h2>格子衬衫</h2>
 <h3 id="挑选原则"><a class="header-anchor" href="#挑选原则">¶</a>挑选原则</h3>
 <ol>
 <li>小格子：大格子衬衫是屌丝感的罪魁祸首。</li>
@@ -568,7 +568,7 @@
 </li>
 <li>如何化解深色大格子衬衫的屌丝既视感：搭配牛仔外套，将衬衫内搭，其他单品遵循同色系、simple两个原则。</li>
 </ol>
-<h2 id="牛仔衬衫"><a class="header-anchor" href="#牛仔衬衫">¶</a>牛仔衬衫</h2>
+<h2>牛仔衬衫</h2>
 <p>牛仔衬衫包括两种风格：</p>
 <ol>
 <li>阳刚不羁：牛仔布厚实、织纹清晰，加上洗水工艺</li>
@@ -585,7 +585,7 @@
 <li>内搭：可搭配棒球外套、皮衣和针织衫。</li>
 <li>搭配军绿色单品：军绿色风格与天然有着硬朗感的牛仔衬衫风格匹配。</li>
 </ol>
-<h2 id="个人总结"><a class="header-anchor" href="#个人总结">¶</a>个人总结</h2>
+<h2>个人总结</h2>
 <ul>
 <li>正式场合颜色和面料宜淡雅</li>
 <li>分清主配角</li>
@@ -855,17 +855,17 @@
             <p>由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。</p>
 <h1>缺失值处理</h1>
 <p><code>mice</code> 包是专门用来处理缺失值的 R 语言包。可以通过 <code>mice::md.pattern()</code> 查看缺失值的“数据模式”。</p>
-<h2 id="删除记录-样本"><a class="header-anchor" href="#删除记录-样本">¶</a>删除记录/样本</h2>
+<h2>删除记录/样本</h2>
 <p>在 R 中，通过 <code>na.action = na.omit</code> 删除包含有缺失值的观测行。但需要满足两个条件：</p>
 <ul>
 <li>有足够的样本点；</li>
 <li>不会引入偏差。</li>
 </ul>
-<h2 id="删除变量-属性"><a class="header-anchor" href="#删除变量-属性">¶</a>删除变量/属性</h2>
+<h2>删除变量/属性</h2>
 <p>如果数据集中某个特定变量包含较多的缺失值，并且删除这个变量能够保留更多的观测值。如果该变量不太重要，那么可以删除它。该方法需要权衡变量的重要性和观测值数量。</p>
-<h2 id="使用均值-中位数-众数进行插补"><a class="header-anchor" href="#使用均值-中位数-众数进行插补">¶</a>使用均值/中位数/众数进行插补</h2>
+<h2>使用均值/中位数/众数进行插补</h2>
 <p>这是一种比较简单粗暴的方法，如果该变量对因变量的影响较小，该方法是可以接受的。但是，很可能人为增加噪音。</p>
-<h2 id="预测法"><a class="header-anchor" href="#预测法">¶</a>预测法</h2>
+<h2>预测法</h2>
 <p>可使用的方法包括：KNN差值，rpart包，mice包。</p>
 <h3 id="knn-差值法"><a class="header-anchor" href="#knn-差值法">¶</a>kNN 差值法</h3>
 <p><code>DMwR::knnImputation()</code> 函数使用 k 近邻方法来填充缺失值。</p>

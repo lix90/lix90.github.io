@@ -394,14 +394,14 @@ CSS
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(use-package polymode</div><div class="line">  :ensure t</div><div class="line">  :mode ((&quot;\\.[SR]nw\\&apos;&quot; . poly-noweb+r-mode)</div><div class="line">         (&quot;\\.Rmd\\&apos;&quot; . Rmd-mode))</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">    (defun Rmd-mode ()</div><div class="line">      &quot;ESS Markdown mode for Rmd files.&quot;</div><div class="line">      (interactive)</div><div class="line">      (require &apos;poly-R)</div><div class="line">      (require &apos;poly-markdown)</div><div class="line">      (R-mode)</div><div class="line">      (poly-markdown+r-mode))))</div><div class="line"></div><div class="line">(defun ess-rmarkdown-to-html ()</div><div class="line">  (interactive)</div><div class="line">  &quot;Run kintr::knit2html on the current file.&quot;</div><div class="line">  &quot;https://gist.github.com/kohske/9128031&quot;</div><div class="line">  (shell-command</div><div class="line">   (format &quot;Rscript -e \&quot;kintr::knit2html (&apos;%s&apos;)\&quot;&quot;</div><div class="line">           (shell-quote-argument (buffer-file-name)))))</div></pre></td></tr></table></figure>
 <p>参考：<a href="http://futurismo.biz/archives/2982" target="_blank" rel="external">http://futurismo.biz/archives/2982</a></p>
 <h1>杂项</h1>
-<h2 id="在-terminal-中使用-socks5-代理"><a class="header-anchor" href="#在-terminal-中使用-socks5-代理">¶</a>在 Terminal 中使用 socks5 代理</h2>
+<h2>在 Terminal 中使用 socks5 代理</h2>
 <p>前提当然是需要有 socks5 代理了。个人使用 <code>shodowsocks</code>。</p>
 <p>在终端使用代理，可以通过 proxychains，MacOS 下叫 proxychains-ng。</p>
 <p>修改配置：<code>/usr/local/Cellar/proxychains-ng/&lt;version&gt;/etc</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ProxyList]</div><div class="line">socks5 127.0.0.1 1080</div></pre></td></tr></table></figure>
 <p>然后绑定个别名啦</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias fq=&quot;/usr/local/Cellar/proxychains-ng/4.11/bin/proxychains4&quot;</div></pre></td></tr></table></figure>
-<h2 id="png-图片压缩"><a class="header-anchor" href="#png-图片压缩">¶</a>PNG 图片压缩</h2>
+<h2>PNG 图片压缩</h2>
 <p>一些常用压缩工具的对比：<a href="http://jamiemason.github.io/ImageOptim-CLI/" target="_blank" rel="external">http://jamiemason.github.io/ImageOptim-CLI/</a></p>
 <ul>
 <li><a href="https://github.com/ImageOptim/ImageOptim" target="_blank" rel="external">ImageOptim</a></li>
@@ -410,14 +410,14 @@ CSS
 <li><a href="http://www.smushit.com/ysmush.it/" target="_blank" rel="external">Smush.it</a></li>
 </ul>
 <p>参考：<a href="http://johnwong.github.io/showcase/2015/02/19/png-compress.html" target="_blank" rel="external">PNG图片极限压缩</a></p>
-<h2 id="命令行直接调用-chrome-进行谷歌检索"><a class="header-anchor" href="#命令行直接调用-chrome-进行谷歌检索">¶</a>命令行直接调用 Chrome 进行谷歌检索</h2>
+<h2>命令行直接调用 Chrome 进行谷歌检索</h2>
 <p>在 bash_profile 里头添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function gg() &#123; open /Applications/Google\ Chrome.app/ &quot;http://www.google.com/search?q= $1&quot;; &#125;</div></pre></td></tr></table></figure>
 <p>在 zshrc 里头添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gg() &#123; open -a &quot;Google Chrome&quot; &quot;http://www.google.com/search?q=$1&quot;; &#125;</div></pre></td></tr></table></figure>
-<h2 id="windows-下包管理器神器：chocolatey"><a class="header-anchor" href="#windows-下包管理器神器：chocolatey">¶</a>Windows 下包管理器神器：<a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a></h2>
+<h2>Windows 下包管理器神器：<a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a></h2>
 <p>参考：<a href="http://ju.outofmemory.cn/entry/141470" target="_blank" rel="external">Chocolatey, 我爱你</a></p>
-<h2 id="macos-访问-windows-中的共享文件夹"><a class="header-anchor" href="#macos-访问-windows-中的共享文件夹">¶</a>MacOS 访问 Windows 中的共享文件夹</h2>
+<h2>MacOS 访问 Windows 中的共享文件夹</h2>
 <ol>
 <li>进入 Finder</li>
 <li>前往 &gt;&gt;&gt; 连接服务器（Command + K）</li>
@@ -642,7 +642,7 @@ CSS
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Emacs 中使用 Rmarkdown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在-terminal-中使用-socks5-代理"><span class="nav-number">3.1.</span> <span class="nav-text">¶在 Terminal 中使用 socks5 代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#png-图片压缩"><span class="nav-number">3.2.</span> <span class="nav-text">¶PNG 图片压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行直接调用-chrome-进行谷歌检索"><span class="nav-number">3.3.</span> <span class="nav-text">¶命令行直接调用 Chrome 进行谷歌检索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-下包管理器神器：chocolatey"><span class="nav-number">3.4.</span> <span class="nav-text">¶Windows 下包管理器神器：Chocolatey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macos-访问-windows-中的共享文件夹"><span class="nav-number">3.5.</span> <span class="nav-text">¶MacOS 访问 Windows 中的共享文件夹</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Emacs 中使用 Rmarkdown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">在 Terminal 中使用 socks5 代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">PNG 图片压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">命令行直接调用 Chrome 进行谷歌检索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">Windows 下包管理器神器：Chocolatey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.5.</span> <span class="nav-text">MacOS 访问 Windows 中的共享文件夹</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

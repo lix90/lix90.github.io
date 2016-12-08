@@ -89,7 +89,7 @@
 
 
 <meta name="description" content="Bash
-¶环境
+环境
 查看环境变量 echo $VAR
 设置新的环境变量 export VAR=&amp;quot;fool!&amp;quot;
 显示所有环境变量 env
@@ -97,13 +97,13 @@
 清除环境变量 unset $VAR
 设置环境变量为只读 readonly VAR
 
-The export and declare -x commands allow parameters and fu">
+The export and declare -x commands allow parameters and fun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-08">
 <meta property="og:url" content="http://lix90.github.io/2016/11/08/2016-11-08-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="Bash
-¶环境
+环境
 查看环境变量 echo $VAR
 设置新的环境变量 export VAR=&amp;quot;fool!&amp;quot;
 显示所有环境变量 env
@@ -111,12 +111,12 @@ The export and declare -x commands allow parameters and fu">
 清除环境变量 unset $VAR
 设置环境变量为只读 readonly VAR
 
-The export and declare -x commands allow parameters and fu">
+The export and declare -x commands allow parameters and fun">
 <meta property="og:updated_time" content="2016-11-19T03:30:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-08">
 <meta name="twitter:description" content="Bash
-¶环境
+环境
 查看环境变量 echo $VAR
 设置新的环境变量 export VAR=&amp;quot;fool!&amp;quot;
 显示所有环境变量 env
@@ -124,7 +124,7 @@ The export and declare -x commands allow parameters and fu">
 清除环境变量 unset $VAR
 设置环境变量为只读 readonly VAR
 
-The export and declare -x commands allow parameters and fu">
+The export and declare -x commands allow parameters and fun">
 
 
 
@@ -379,7 +379,7 @@ The export and declare -x commands allow parameters and fu">
 
       
         <h1>Bash</h1>
-<h2 id="环境"><a class="header-anchor" href="#环境">¶</a>环境</h2>
+<h2>环境</h2>
 <p>查看环境变量 <code>echo $VAR</code><br>
 设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>
 显示所有环境变量 <code>env</code><br>
@@ -392,7 +392,7 @@ The export and declare -x commands allow parameters and fu">
 <h1>R: 如何一次性加载多个 package？</h1>
 <p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a class="header-anchor" href="#使用-lapply">¶</a>使用 <code>lapply</code></h2>
+<h2>使用 <code>lapply</code></h2>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
 <p>或者简写方式：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
@@ -400,7 +400,7 @@ The export and declare -x commands allow parameters and fu">
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
 <p>如果 package 没有安装呢？</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a class="header-anchor" href="#使用-package-pacman">¶</a>使用 package <code>pacman</code></h2>
+<h2>使用 package <code>pacman</code></h2>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
 <p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
 <ul>
@@ -454,8 +454,8 @@ The export and declare -x commands allow parameters and fu">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/08/2016-11-08-r-desc-stats/" rel="prev" title="R：描述性统计">
-                R：描述性统计 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/08/2016-11-08-r-basic-vis/" rel="prev" title="R：基本数据可视化">
+                R：基本数据可视化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,7 +619,7 @@ The export and declare -x commands allow parameters and fu">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Bash</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">¶环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">R: 如何一次性加载多个 package？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-lapply"><span class="nav-number">2.1.</span> <span class="nav-text">¶使用 lapply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-package-pacman"><span class="nav-number">2.2.</span> <span class="nav-text">¶使用 package pacman</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Bash</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">R: 如何一次性加载多个 package？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">使用 lapply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">使用 package pacman</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

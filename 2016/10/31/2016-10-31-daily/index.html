@@ -89,9 +89,9 @@
 
 
 <meta name="description" content="Python
-¶with 语句
+with 语句
 with expression as target:
-¶open 函数
+open 函数
 open(name[, mode[, buffering]])
 打开文件，并返回 file 类型的对象。如果无法打开，将抛出 IOError 错误。
 
@@ -101,15 +101,15 @@ mode 为字符串，指定文件如何打开
 r 读取（默认）
 w 写入，如果文件存在，则删掉文件
 a 添加到文件末尾
-b">
+b 二进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-10-31">
 <meta property="og:url" content="http://lix90.github.io/2016/10/31/2016-10-31-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="Python
-¶with 语句
+with 语句
 with expression as target:
-¶open 函数
+open 函数
 open(name[, mode[, buffering]])
 打开文件，并返回 file 类型的对象。如果无法打开，将抛出 IOError 错误。
 
@@ -119,14 +119,14 @@ mode 为字符串，指定文件如何打开
 r 读取（默认）
 w 写入，如果文件存在，则删掉文件
 a 添加到文件末尾
-b">
+b 二进">
 <meta property="og:updated_time" content="2016-11-19T03:30:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-10-31">
 <meta name="twitter:description" content="Python
-¶with 语句
+with 语句
 with expression as target:
-¶open 函数
+open 函数
 open(name[, mode[, buffering]])
 打开文件，并返回 file 类型的对象。如果无法打开，将抛出 IOError 错误。
 
@@ -136,7 +136,7 @@ mode 为字符串，指定文件如何打开
 r 读取（默认）
 w 写入，如果文件存在，则删掉文件
 a 添加到文件末尾
-b">
+b 二进">
 
 
 
@@ -391,9 +391,9 @@ b">
 
       
         <h1>Python</h1>
-<h2 id="with-语句"><a class="header-anchor" href="#with-语句">¶</a>with 语句</h2>
+<h2>with 语句</h2>
 <p><code>with expression as target:</code></p>
-<h2 id="open-函数"><a class="header-anchor" href="#open-函数">¶</a>open 函数</h2>
+<h2>open 函数</h2>
 <p><code>open(name[, mode[, buffering]])</code></p>
 <p>打开文件，并返回 <code>file</code> 类型的对象。如果无法打开，将抛出 <code>IOError</code> 错误。</p>
 <ul>
@@ -424,7 +424,7 @@ b">
 <li><code>tempfile</code> 创建临时文件和路径</li>
 <li><code>shutil</code> high-level 文件和路径的操作</li>
 </ul>
-<h2 id="csv-模块"><a class="header-anchor" href="#csv-模块">¶</a>csv 模块</h2>
+<h2>csv 模块</h2>
 <p>csv 文件的读写（2.3版不支持 Unicode 的输入）。</p>
 <ul>
 <li><code>csv.reader(csvfile, dialect='excel', **fmtparams)</code> 返回 reader 对象，按行迭代</li>
@@ -432,7 +432,7 @@ b">
 <li><code>csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect='excel', *args, **kwds)</code> 返回与 reader 类似的对象，但是将信息读取为词典形式</li>
 <li><code>csv.DictWriter(csvfile, fieldnames, restval='', extrasaction='raise', dialect='excel', *args, **kwds)</code> 返回与 writer 类似的对象，但是将词典数据写入到行</li>
 </ul>
-<h2 id="datetime-模块"><a class="header-anchor" href="#datetime-模块">¶</a>datetime 模块</h2>
+<h2>datetime 模块</h2>
 <p>提供基本的用于操作日期和时间的类和函数。</p>
 <p>在此有两类日期和时间对象：</p>
 <ul>
@@ -466,7 +466,7 @@ b">
 <li><code>locale</code> 模块</li>
 </ul>
 <h1>Emacs</h1>
-<h2 id="谷歌翻译插件-google-translate"><a class="header-anchor" href="#谷歌翻译插件-google-translate">¶</a>谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2>
+<h2>谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2>
 <p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
 <h1>杂项</h1>
@@ -685,7 +685,7 @@ b">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#with-语句"><span class="nav-number">1.1.</span> <span class="nav-text">¶with 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-函数"><span class="nav-number">1.2.</span> <span class="nav-text">¶open 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csv-模块"><span class="nav-number">1.3.</span> <span class="nav-text">¶csv 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime-模块"><span class="nav-number">1.4.</span> <span class="nav-text">¶datetime 模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌翻译插件-google-translate"><span class="nav-number">2.1.</span> <span class="nav-text">¶谷歌翻译插件 google-translate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">with 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">open 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">csv 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">datetime 模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">谷歌翻译插件 google-translate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
             
           </div>
         </section>

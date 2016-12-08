@@ -282,334 +282,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/08/2016-11-08-r-basic-vis/" itemprop="url">
-                  R：基本数据可视化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T00:00:00+08:00" content="2016-11-08">
-              2016-11-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/08/2016-11-08-r-basic-vis/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-basic-vis/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近需要分析毕业论文数据，借机温习一下常见的统计图形，并且熟悉下如何在 R 下进行数据可视化。</p>
-<h1>箱图 Boxplot</h1>
-<h2 id="什么是箱图？"><a class="header-anchor" href="#什么是箱图？">¶</a>什么是箱图？</h2>
-<p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
-<h2 id="箱形图的用处"><a class="header-anchor" href="#箱形图的用处">¶</a>箱形图的用处</h2>
-<ul>
-<li>粗略估计数据的<strong>对称性</strong>：由上下箱须和箱高度的长短差异表现出来</li>
-<li>粗略观察数据的<strong>离散程度</strong>和<strong>集中程度</strong>：由上下箱须距离和箱的高度表现出来</li>
-<li>粗略比较样本之间的特征</li>
-</ul>
-<h2 id="箱形图的不足"><a class="header-anchor" href="#箱形图的不足">¶</a>箱形图的不足</h2>
-<ul>
-<li>无法精确度量数据分布的偏态和尾重程度：可通过偏态值</li>
-<li>对于较大的数据集，反映的信息较为模糊</li>
-<li>中位数代表总体集中程度存在局限性</li>
-</ul>
-<h2 id="绘制过程"><a class="header-anchor" href="#绘制过程">¶</a>绘制过程</h2>
-<p><img src="/img/boxplot.jpg" alt="箱形图"></p>
-<ul>
-<li>计算上四分位数，中位数，下四分位数。</li>
-<li>计算上四分位数和下四分位数之间的差值，即四分位数差（IQR，interquantile range）。</li>
-<li>绘制箱线图的上下范围，上限为上四分位数，下限为下四分位数。在箱子内部中位数的位置绘制横线。</li>
-<li>大于上四分位数1.5倍四分位数差的值，或者小于下四分位数1.5倍四分位数差的值，划为异常值（outliers）。</li>
-<li>异常值之外，最靠近上边缘和下边缘的两个值处，画横线，作为箱线图的触须。</li>
-<li>极端异常值，即超出四分位数差3倍距离的异常值，用实心点表示；较为温和的异常值，即处于1.5倍-3倍四分位数差之间的异常值，用空心点表示。</li>
-<li>为箱线图添加名称，数轴等。</li>
-</ul>
-<p>参考：</p>
-<ul>
-<li><a href="http://blog.sciencenet.cn/blog-255662-239993.html" target="_blank" rel="external">科学网：什么是箱线图</a></li>
-<li><a href="http://web.pdx.edu/~stipakb/download/PA551/boxplot.html" target="_blank" rel="external">http://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a></li>
-</ul>
-<h2 id="使用-r-绘制箱图"><a class="header-anchor" href="#使用-r-绘制箱图">¶</a>使用 R 绘制箱图</h2>
-<h3 id="基本包函数-boxplot"><a class="header-anchor" href="#基本包函数-boxplot">¶</a>基本包函数 <code>boxplot</code></h3>
-<p>基本用法：<code>boxplot(x)</code> 或者 <code>boxplot(x~y, data)</code></p>
-<p>常用参数：</p>
-<ul>
-<li><code>formula</code> <code>y ~ grp</code> <code>y</code> 为数值型向量，<code>grp</code> 为组或者因素水平。</li>
-<li><code>range</code> 设定箱须的长度，默认为 1.5 个箱高，即 1.5 倍四分位数差。</li>
-<li><code>width</code></li>
-<li><code>varwidth</code></li>
-<li><code>notch</code></li>
-<li><code>outline</code> 是否绘制异常值</li>
-<li><code>names</code> 组标签</li>
-<li><code>boxwex</code> 缩放参数</li>
-<li><code>staplewex</code> 须顶端的横线的宽度（按盒宽比例）</li>
-<li><code>outwex</code></li>
-<li><code>border</code> 边框颜色</li>
-<li><code>col</code> 箱体的颜色</li>
-<li><code>log</code> 对数坐标</li>
-<li><code>pars</code> 更多绘图参数列表</li>
-<li><code>add</code> 添加到当前图中</li>
-<li><code>at</code> 绘制的位置</li>
-</ul>
-<h3 id="ggplot2"><a class="header-anchor" href="#ggplot2">¶</a>ggplot2</h3>
-<p><code>ggplot</code> 的绘图语法是以添加图层的形式绘制图形。虽然语法上与 <code>boxplot()</code> 存在差异，但是参数都几乎一样。</p>
-<p>首先通过 <code>ggplot()</code> 创建图形（初始化一个 ggplot 的对象），声明输入数据和一般的图形视觉参数（aesthetic mapping，例如线形，颜色等）：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- ggplot(data, aes(x, y, <span class="keyword">...</span>))</div></pre></td></tr></table></figure>
-<p>然后添加 <code>geom_boxplot</code> 图层（layers）：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- box_plot + geom_boxplot(<span class="keyword">...</span>)</div></pre></td></tr></table></figure>
-<p><code>geom_boxplot()</code> 函数有以下一些参数：</p>
-<ul>
-<li><code>mapping</code> 和 <code>data</code> 跟 <code>ggplot()</code> 的一样，当没有声明时，直接继承 <code>ggplot</code>。</li>
-<li>位置：<code>position</code></li>
-<li>设置异常值的样式：<code>outlier.colour</code> <code>outlier.shape</code> <code>outlier.size</code> <code>outlier.stroke</code></li>
-<li>槽的样式：<code>notch</code> <code>notchwidth</code></li>
-<li><code>show.legend</code> 显示图例</li>
-<li><code>coef</code> 等同于 <code>boxplot</code> 中的 <code>range</code></li>
-</ul>
-<h3 id="lattice"><a class="header-anchor" href="#lattice">¶</a>lattice</h3>
-<blockquote>
-<p>The lattice package, written by Deepayan Sarkar, attempts to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships. In particular, the package supports the creation of trellis graphs - graphs that display a variable or the relationship between variables, conditioned on one or more other variables.</p>
-</blockquote>
-<p><code>lattice</code> 的特长在于展示多变量关系。</p>
-<p>变量的关系通过 <code>formula</code> 表示，例如：</p>
-<ul>
-<li><code>~x|A</code> 表示在因素 <code>A</code> 的所有水平下绘制相应的数值变量 <code>x</code> 的图形</li>
-<li><code>y~x | A*B</code> <code>A</code> 和 <code>B</code> 两个因素混合条件下的 <code>y</code> 和 <code>x</code> 的关系</li>
-</ul>
-<p>参考 <a href="http://www.statmethods.net/advgraphs/trellis.html" target="_blank" rel="external">Quick-R: Lattice Graphs</a></p>
-<p><code>lattice</code> 中绘制箱图的函数为 <code>bwplot()</code></p>
-<h2 id="与箱图类似的图"><a class="header-anchor" href="#与箱图类似的图">¶</a>与箱图类似的图</h2>
-<ul>
-<li>Violin Plots <code>vioplot</code> 包
-<ul>
-<li>呈现出了分布特征</li>
-</ul>
-</li>
-<li>Tufte boxplot</li>
-</ul>
-<h1>散点图 Scatterplot</h1>
-<h2 id="什么是散点图？"><a class="header-anchor" href="#什么是散点图？">¶</a>什么是散点图？</h2>
-<blockquote>
-<p>散点图对于绘制多变量数据非常有用。它们可帮助您确定各刻度变量之间的潜在关系。简单散点图使用二维坐标系绘制两个变量。三维散点图使用三维坐标系绘制三个变量。如果需要绘制更多的变量，则可以尝试重叠散点图和散点图矩阵 (SPLOM)。重叠散点图显示 x-y 变量的重叠对，其中每一对都以颜色或形状加以区分。SPLOM 创建一个二维散点图的矩阵，在 SPLOM 中每个变量都参照另外一个变量进行绘制。</p>
-</blockquote>
-<ul>
-<li>保留了原始数据信息</li>
-<li>展示多变量关系</li>
-</ul>
-<h2 id="在-r-中绘制基本的散点图"><a class="header-anchor" href="#在-r-中绘制基本的散点图">¶</a>在 R 中绘制基本的散点图</h2>
-<ul>
-<li>基本包 <code>plot</code> 顶层绘图函数：<code>plot(x, type=&quot;p&quot;, pch=1)</code></li>
-<li><code>ggplot2::geom_point()</code></li>
-</ul>
-<h2 id="散点图矩阵"><a class="header-anchor" href="#散点图矩阵">¶</a>散点图矩阵</h2>
-<blockquote>
-<p>散点图矩阵是散点图的高维扩展，它从一定程度上克服了在平面上展示高维数据的困难，在展示多维数据的两两关系时有着不可替代的作用。— <a href="http://cos.name/2009/03/scatterplot-matrix-visualization/" target="_blank" rel="external">统计之都</a></p>
-</blockquote>
-<ul>
-<li><code>graphics::pairs()</code> 是 R 中绘制散点图矩阵的经典函数</li>
-<li><code>car::scatterplot.matrix()</code> 或者简写 <code>car::spm()</code>：可以直接指定散点图中主对角线上的绘图元素（密度图、箱线图、直方图、QQ图等）。</li>
-<li><code>YaleToolkit::gpairs()</code></li>
-<li><code>lattice::splom()</code> 可以按类别绘制散点图矩阵。</li>
-<li><code>GGally::ggpairs()</code> Hadley 推荐的绘制散点图矩阵的函数，用于替代 <code>ggplot2::plotmatrix()</code></li>
-</ul>
-<h2 id="散点图变式或类似的图形"><a class="header-anchor" href="#散点图变式或类似的图形">¶</a>散点图变式或类似的图形</h2>
-<p>热图</p>
-<ul>
-<li><code>gplots::heatmap.2()</code></li>
-<li><code>ggplot2::geom_raster()</code> <code>ggplot2::geom_tile()</code></li>
-</ul>
-<p>hexbin plot</p>
-<blockquote>
-<p>We can use the hexbin package in case we have multiple points in the same place (overplotting). Hexagon binning is a form of bivariate histogram useful for visualizing the structure in datasets with large n.</p>
-</blockquote>
-<ul>
-<li>
-<p><code>Hexbin::hexbinplot()</code></p>
-</li>
-<li>
-<p><code>ggplot2</code>: <code>stat_binhex()</code> <code>geom_bin2d()</code></p>
-</li>
-<li>
-<p>在散点图上添加等高线：<code>ggplot2::geom_density2d()</code></p>
-</li>
-<li>
-<p>对散点图进行平滑 <code>graphics::smoothScatter()</code></p>
-</li>
-<li>
-<p>在散点图上加上分布图或者直方图</p>
-<ul>
-<li>使用 <code>ggplot2</code> 分别绘制散点图和直方图，然后用 <code>gridExtra</code> 把图拼接在一起。</li>
-<li>使用 <code>ggplot2</code> 中的 <code>geom_rug()</code> 图层（rug plots）</li>
-<li>使用 <code>ggExtra::ggMarginal()</code> 添加直方图到 <code>ggplot</code> 图层上。</li>
-<li>在这里可能需要对齐图，可以用到 <code>gtable</code> 包，可以将不同的 <code>ggplot</code> 图拼接时对齐。</li>
-</ul>
-</li>
-</ul>
-<p>参考: <a href="http://stackoverflow.com/questions/7714677/r-scatterplot-with-too-many-points" target="_blank" rel="external">StackOverflow: Scatterplot with too many points</a></p>
-<h1>直方图 Histogram</h1>
-<p>直方图用来展示数值型数据的分布，可以用来估计连续性数据的概率分布。直方图的纵轴为频率或者相对频率。</p>
-<p>使用 R 绘制直方图：</p>
-<p><code>graphics::hist()</code><br>
-<code>graphics::plot.histogram()</code><br>
-<code>lattice::histogram()</code><br>
-<code>MASS::hist.scott()</code> 可以自动指派 bin 宽度。<br>
-<code>MASS::truehist()</code><br>
-<code>ggplot2::geom_histogram()</code><br>
-<code>ggplot2::geom_freqpoly()</code><br>
-<code>plotrix::histStack()</code><br>
-<code>plotrix::multhist()</code><br>
-<code>plotrix::plotH()</code><br>
-<code>plotrix::weighted.hist()</code><br>
-<code>psych::multi.hist()</code><br>
-<code>psych::pairs.panels()</code><br>
-<code>psych::scatter.hist()</code></p>
-<p>等等</p>
-<h1>其他统计图</h1>
-<p>Mosaic Plot 类别数据，面积大小相对比例<br>
-Heat Map 多变量关系，通过色彩深浅区分频率、密度和大小<br>
-Pareto chart 条形图+累加线图，质量控制<br>
-Sparkline 时间序列，气候，金融<br>
-Radar chart 雷达图<br>
-Line Chart 连续数据，趋势，时间序列数据<br>
-Bar Chart 类别数据，大小比较<br>
-Correlogram 相关图，展示相关矩阵</p>
-<p>参考：<a href="https://en.wikipedia.org/wiki/List_of_graphical_methods" target="_blank" rel="external">Wikipedia: List of graphical methods</a></p>
-<h1>数据可视化的几点原则</h1>
-<blockquote>
-<p>Graphical displays should:</p>
-<ul>
-<li>show the data 显示原始数据</li>
-<li>induce the viewer to think about the substance rather than about methodology, graphic design, the technology of graphic production or something else 引导观察者思考内容而非其他</li>
-<li>avoid distorting what the data has to say 避免扭曲真实数据要展现的东西</li>
-<li>present many numbers in a small space 在较小的空间展现大量的数据</li>
-<li>make large data sets coherent 让大数据集具有一致性（清晰明了）？</li>
-<li>encourage the eye to compare different pieces of data 鼓励用眼睛去比较数据之间的差异</li>
-<li>reveal the data at several levels of detail, from a broad overview to the fine structure 从宏观到微观揭示数据表达的信息</li>
-<li>serve a reasonably clear purpose: description, exploration, tabulation or decoration 服务于合理清晰的目标：描述，探索，制表或者装饰？</li>
-<li>be closely integrated with the statistical and verbal descriptions of a data set. 紧密整合统计和言语上对数据集的描述</li>
-</ul>
-<p>— The Visual Display of Quantitative Information, Edward Tufte</p>
-</blockquote>
-<h1>统计图表所要展示的一些定量信息</h1>
-<p>参考：<a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" rel="external">Wikipedia: Data Visualization</a></p>
-<blockquote>
-<p>Quantitative messages</p>
-<p>Author Stephen Few described eight types of quantitative messages that users may attempt to understand or communicate from a set of data and the associated graphs used to help communicate the message:</p>
-<ul>
-<li><strong>Time-series</strong>: A single variable is captured over a period of time. A line chart may be used to demonstrate the trend. 时序，随着时间发展而变化</li>
-<li><strong>Ranking</strong>: Categorical subdivisions are ranked in ascending or descending order. A bar chart may be used to show the comparison across the sales persons. 顺序，类别之间的大小顺序</li>
-<li><strong>Part-to-whole</strong>: Categorical subdivisions are measured as a ratio to the whole. A bar chart can show the comparison of ratios. 部分相对于整体的比例</li>
-<li><strong>Deviation</strong>: Categorical subdivisions are compared against a reference. A bar chart can show comparison of the actual versus the reference amount. 变异，与参考对象进行比较</li>
-<li><strong>Frequency distribution</strong>: Shows the number of observations of a particular variable for given interval. A histogram, a type of bar chart, may be used for this analysis. A boxplot helps visualize key statistics about the distribution, such as median, quartiles, outliers, etc. 频率分布</li>
-<li><strong>Correlation</strong>: Comparison between observations represented by two variables (X,Y) to determine if they tend to move in the same or opposite directions. A scatter plot is typically used for this message. 相关性</li>
-<li><strong>Nominal comparison</strong>: Comparing categorical subdivisions in no particular order. A bar chart may be used for this comparison. 类别比较，无特定顺序</li>
-<li><strong>Geographic or geospatial</strong>: Comparison of a variable across a map or layout. A cartogram is a typical graphic used. 地理和空间信息</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/11/08/2016-11-08-r-desc-stats/" itemprop="url">
                   R：描述性统计
                 </a>
@@ -767,6 +439,334 @@ Correlogram 相关图，展示相关矩阵</p>
             
               
                 
+                <a class="post-title-link" href="/2016/11/08/2016-11-08-r-basic-vis/" itemprop="url">
+                  R：基本数据可视化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T00:00:00+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/08/2016-11-08-r-basic-vis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/08/2016-11-08-r-basic-vis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近需要分析毕业论文数据，借机温习一下常见的统计图形，并且熟悉下如何在 R 下进行数据可视化。</p>
+<h1>箱图 Boxplot</h1>
+<h2>什么是箱图？</h2>
+<p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
+<h2>箱形图的用处</h2>
+<ul>
+<li>粗略估计数据的<strong>对称性</strong>：由上下箱须和箱高度的长短差异表现出来</li>
+<li>粗略观察数据的<strong>离散程度</strong>和<strong>集中程度</strong>：由上下箱须距离和箱的高度表现出来</li>
+<li>粗略比较样本之间的特征</li>
+</ul>
+<h2>箱形图的不足</h2>
+<ul>
+<li>无法精确度量数据分布的偏态和尾重程度：可通过偏态值</li>
+<li>对于较大的数据集，反映的信息较为模糊</li>
+<li>中位数代表总体集中程度存在局限性</li>
+</ul>
+<h2>绘制过程</h2>
+<p><img src="/img/boxplot.jpg" alt="箱形图"></p>
+<ul>
+<li>计算上四分位数，中位数，下四分位数。</li>
+<li>计算上四分位数和下四分位数之间的差值，即四分位数差（IQR，interquantile range）。</li>
+<li>绘制箱线图的上下范围，上限为上四分位数，下限为下四分位数。在箱子内部中位数的位置绘制横线。</li>
+<li>大于上四分位数1.5倍四分位数差的值，或者小于下四分位数1.5倍四分位数差的值，划为异常值（outliers）。</li>
+<li>异常值之外，最靠近上边缘和下边缘的两个值处，画横线，作为箱线图的触须。</li>
+<li>极端异常值，即超出四分位数差3倍距离的异常值，用实心点表示；较为温和的异常值，即处于1.5倍-3倍四分位数差之间的异常值，用空心点表示。</li>
+<li>为箱线图添加名称，数轴等。</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.sciencenet.cn/blog-255662-239993.html" target="_blank" rel="external">科学网：什么是箱线图</a></li>
+<li><a href="http://web.pdx.edu/~stipakb/download/PA551/boxplot.html" target="_blank" rel="external">http://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a></li>
+</ul>
+<h2>使用 R 绘制箱图</h2>
+<h3 id="基本包函数-boxplot"><a class="header-anchor" href="#基本包函数-boxplot">¶</a>基本包函数 <code>boxplot</code></h3>
+<p>基本用法：<code>boxplot(x)</code> 或者 <code>boxplot(x~y, data)</code></p>
+<p>常用参数：</p>
+<ul>
+<li><code>formula</code> <code>y ~ grp</code> <code>y</code> 为数值型向量，<code>grp</code> 为组或者因素水平。</li>
+<li><code>range</code> 设定箱须的长度，默认为 1.5 个箱高，即 1.5 倍四分位数差。</li>
+<li><code>width</code></li>
+<li><code>varwidth</code></li>
+<li><code>notch</code></li>
+<li><code>outline</code> 是否绘制异常值</li>
+<li><code>names</code> 组标签</li>
+<li><code>boxwex</code> 缩放参数</li>
+<li><code>staplewex</code> 须顶端的横线的宽度（按盒宽比例）</li>
+<li><code>outwex</code></li>
+<li><code>border</code> 边框颜色</li>
+<li><code>col</code> 箱体的颜色</li>
+<li><code>log</code> 对数坐标</li>
+<li><code>pars</code> 更多绘图参数列表</li>
+<li><code>add</code> 添加到当前图中</li>
+<li><code>at</code> 绘制的位置</li>
+</ul>
+<h3 id="ggplot2"><a class="header-anchor" href="#ggplot2">¶</a>ggplot2</h3>
+<p><code>ggplot</code> 的绘图语法是以添加图层的形式绘制图形。虽然语法上与 <code>boxplot()</code> 存在差异，但是参数都几乎一样。</p>
+<p>首先通过 <code>ggplot()</code> 创建图形（初始化一个 ggplot 的对象），声明输入数据和一般的图形视觉参数（aesthetic mapping，例如线形，颜色等）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- ggplot(data, aes(x, y, <span class="keyword">...</span>))</div></pre></td></tr></table></figure>
+<p>然后添加 <code>geom_boxplot</code> 图层（layers）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- box_plot + geom_boxplot(<span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+<p><code>geom_boxplot()</code> 函数有以下一些参数：</p>
+<ul>
+<li><code>mapping</code> 和 <code>data</code> 跟 <code>ggplot()</code> 的一样，当没有声明时，直接继承 <code>ggplot</code>。</li>
+<li>位置：<code>position</code></li>
+<li>设置异常值的样式：<code>outlier.colour</code> <code>outlier.shape</code> <code>outlier.size</code> <code>outlier.stroke</code></li>
+<li>槽的样式：<code>notch</code> <code>notchwidth</code></li>
+<li><code>show.legend</code> 显示图例</li>
+<li><code>coef</code> 等同于 <code>boxplot</code> 中的 <code>range</code></li>
+</ul>
+<h3 id="lattice"><a class="header-anchor" href="#lattice">¶</a>lattice</h3>
+<blockquote>
+<p>The lattice package, written by Deepayan Sarkar, attempts to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships. In particular, the package supports the creation of trellis graphs - graphs that display a variable or the relationship between variables, conditioned on one or more other variables.</p>
+</blockquote>
+<p><code>lattice</code> 的特长在于展示多变量关系。</p>
+<p>变量的关系通过 <code>formula</code> 表示，例如：</p>
+<ul>
+<li><code>~x|A</code> 表示在因素 <code>A</code> 的所有水平下绘制相应的数值变量 <code>x</code> 的图形</li>
+<li><code>y~x | A*B</code> <code>A</code> 和 <code>B</code> 两个因素混合条件下的 <code>y</code> 和 <code>x</code> 的关系</li>
+</ul>
+<p>参考 <a href="http://www.statmethods.net/advgraphs/trellis.html" target="_blank" rel="external">Quick-R: Lattice Graphs</a></p>
+<p><code>lattice</code> 中绘制箱图的函数为 <code>bwplot()</code></p>
+<h2>与箱图类似的图</h2>
+<ul>
+<li>Violin Plots <code>vioplot</code> 包
+<ul>
+<li>呈现出了分布特征</li>
+</ul>
+</li>
+<li>Tufte boxplot</li>
+</ul>
+<h1>散点图 Scatterplot</h1>
+<h2>什么是散点图？</h2>
+<blockquote>
+<p>散点图对于绘制多变量数据非常有用。它们可帮助您确定各刻度变量之间的潜在关系。简单散点图使用二维坐标系绘制两个变量。三维散点图使用三维坐标系绘制三个变量。如果需要绘制更多的变量，则可以尝试重叠散点图和散点图矩阵 (SPLOM)。重叠散点图显示 x-y 变量的重叠对，其中每一对都以颜色或形状加以区分。SPLOM 创建一个二维散点图的矩阵，在 SPLOM 中每个变量都参照另外一个变量进行绘制。</p>
+</blockquote>
+<ul>
+<li>保留了原始数据信息</li>
+<li>展示多变量关系</li>
+</ul>
+<h2>在 R 中绘制基本的散点图</h2>
+<ul>
+<li>基本包 <code>plot</code> 顶层绘图函数：<code>plot(x, type=&quot;p&quot;, pch=1)</code></li>
+<li><code>ggplot2::geom_point()</code></li>
+</ul>
+<h2>散点图矩阵</h2>
+<blockquote>
+<p>散点图矩阵是散点图的高维扩展，它从一定程度上克服了在平面上展示高维数据的困难，在展示多维数据的两两关系时有着不可替代的作用。— <a href="http://cos.name/2009/03/scatterplot-matrix-visualization/" target="_blank" rel="external">统计之都</a></p>
+</blockquote>
+<ul>
+<li><code>graphics::pairs()</code> 是 R 中绘制散点图矩阵的经典函数</li>
+<li><code>car::scatterplot.matrix()</code> 或者简写 <code>car::spm()</code>：可以直接指定散点图中主对角线上的绘图元素（密度图、箱线图、直方图、QQ图等）。</li>
+<li><code>YaleToolkit::gpairs()</code></li>
+<li><code>lattice::splom()</code> 可以按类别绘制散点图矩阵。</li>
+<li><code>GGally::ggpairs()</code> Hadley 推荐的绘制散点图矩阵的函数，用于替代 <code>ggplot2::plotmatrix()</code></li>
+</ul>
+<h2>散点图变式或类似的图形</h2>
+<p>热图</p>
+<ul>
+<li><code>gplots::heatmap.2()</code></li>
+<li><code>ggplot2::geom_raster()</code> <code>ggplot2::geom_tile()</code></li>
+</ul>
+<p>hexbin plot</p>
+<blockquote>
+<p>We can use the hexbin package in case we have multiple points in the same place (overplotting). Hexagon binning is a form of bivariate histogram useful for visualizing the structure in datasets with large n.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>Hexbin::hexbinplot()</code></p>
+</li>
+<li>
+<p><code>ggplot2</code>: <code>stat_binhex()</code> <code>geom_bin2d()</code></p>
+</li>
+<li>
+<p>在散点图上添加等高线：<code>ggplot2::geom_density2d()</code></p>
+</li>
+<li>
+<p>对散点图进行平滑 <code>graphics::smoothScatter()</code></p>
+</li>
+<li>
+<p>在散点图上加上分布图或者直方图</p>
+<ul>
+<li>使用 <code>ggplot2</code> 分别绘制散点图和直方图，然后用 <code>gridExtra</code> 把图拼接在一起。</li>
+<li>使用 <code>ggplot2</code> 中的 <code>geom_rug()</code> 图层（rug plots）</li>
+<li>使用 <code>ggExtra::ggMarginal()</code> 添加直方图到 <code>ggplot</code> 图层上。</li>
+<li>在这里可能需要对齐图，可以用到 <code>gtable</code> 包，可以将不同的 <code>ggplot</code> 图拼接时对齐。</li>
+</ul>
+</li>
+</ul>
+<p>参考: <a href="http://stackoverflow.com/questions/7714677/r-scatterplot-with-too-many-points" target="_blank" rel="external">StackOverflow: Scatterplot with too many points</a></p>
+<h1>直方图 Histogram</h1>
+<p>直方图用来展示数值型数据的分布，可以用来估计连续性数据的概率分布。直方图的纵轴为频率或者相对频率。</p>
+<p>使用 R 绘制直方图：</p>
+<p><code>graphics::hist()</code><br>
+<code>graphics::plot.histogram()</code><br>
+<code>lattice::histogram()</code><br>
+<code>MASS::hist.scott()</code> 可以自动指派 bin 宽度。<br>
+<code>MASS::truehist()</code><br>
+<code>ggplot2::geom_histogram()</code><br>
+<code>ggplot2::geom_freqpoly()</code><br>
+<code>plotrix::histStack()</code><br>
+<code>plotrix::multhist()</code><br>
+<code>plotrix::plotH()</code><br>
+<code>plotrix::weighted.hist()</code><br>
+<code>psych::multi.hist()</code><br>
+<code>psych::pairs.panels()</code><br>
+<code>psych::scatter.hist()</code></p>
+<p>等等</p>
+<h1>其他统计图</h1>
+<p>Mosaic Plot 类别数据，面积大小相对比例<br>
+Heat Map 多变量关系，通过色彩深浅区分频率、密度和大小<br>
+Pareto chart 条形图+累加线图，质量控制<br>
+Sparkline 时间序列，气候，金融<br>
+Radar chart 雷达图<br>
+Line Chart 连续数据，趋势，时间序列数据<br>
+Bar Chart 类别数据，大小比较<br>
+Correlogram 相关图，展示相关矩阵</p>
+<p>参考：<a href="https://en.wikipedia.org/wiki/List_of_graphical_methods" target="_blank" rel="external">Wikipedia: List of graphical methods</a></p>
+<h1>数据可视化的几点原则</h1>
+<blockquote>
+<p>Graphical displays should:</p>
+<ul>
+<li>show the data 显示原始数据</li>
+<li>induce the viewer to think about the substance rather than about methodology, graphic design, the technology of graphic production or something else 引导观察者思考内容而非其他</li>
+<li>avoid distorting what the data has to say 避免扭曲真实数据要展现的东西</li>
+<li>present many numbers in a small space 在较小的空间展现大量的数据</li>
+<li>make large data sets coherent 让大数据集具有一致性（清晰明了）？</li>
+<li>encourage the eye to compare different pieces of data 鼓励用眼睛去比较数据之间的差异</li>
+<li>reveal the data at several levels of detail, from a broad overview to the fine structure 从宏观到微观揭示数据表达的信息</li>
+<li>serve a reasonably clear purpose: description, exploration, tabulation or decoration 服务于合理清晰的目标：描述，探索，制表或者装饰？</li>
+<li>be closely integrated with the statistical and verbal descriptions of a data set. 紧密整合统计和言语上对数据集的描述</li>
+</ul>
+<p>— The Visual Display of Quantitative Information, Edward Tufte</p>
+</blockquote>
+<h1>统计图表所要展示的一些定量信息</h1>
+<p>参考：<a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" rel="external">Wikipedia: Data Visualization</a></p>
+<blockquote>
+<p>Quantitative messages</p>
+<p>Author Stephen Few described eight types of quantitative messages that users may attempt to understand or communicate from a set of data and the associated graphs used to help communicate the message:</p>
+<ul>
+<li><strong>Time-series</strong>: A single variable is captured over a period of time. A line chart may be used to demonstrate the trend. 时序，随着时间发展而变化</li>
+<li><strong>Ranking</strong>: Categorical subdivisions are ranked in ascending or descending order. A bar chart may be used to show the comparison across the sales persons. 顺序，类别之间的大小顺序</li>
+<li><strong>Part-to-whole</strong>: Categorical subdivisions are measured as a ratio to the whole. A bar chart can show the comparison of ratios. 部分相对于整体的比例</li>
+<li><strong>Deviation</strong>: Categorical subdivisions are compared against a reference. A bar chart can show comparison of the actual versus the reference amount. 变异，与参考对象进行比较</li>
+<li><strong>Frequency distribution</strong>: Shows the number of observations of a particular variable for given interval. A histogram, a type of bar chart, may be used for this analysis. A boxplot helps visualize key statistics about the distribution, such as median, quartiles, outliers, etc. 频率分布</li>
+<li><strong>Correlation</strong>: Comparison between observations represented by two variables (X,Y) to determine if they tend to move in the same or opposite directions. A scatter plot is typically used for this message. 相关性</li>
+<li><strong>Nominal comparison</strong>: Comparing categorical subdivisions in no particular order. A bar chart may be used for this comparison. 类别比较，无特定顺序</li>
+<li><strong>Geographic or geospatial</strong>: Comparison of a variable across a map or layout. A cartogram is a typical graphic used. 地理和空间信息</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/08/2016-11-08-daily/" itemprop="url">
                   每日总结 2016-11-08
                 </a>
@@ -838,7 +838,7 @@ Correlogram 相关图，展示相关矩阵</p>
         
           
             <h1>Bash</h1>
-<h2 id="环境"><a class="header-anchor" href="#环境">¶</a>环境</h2>
+<h2>环境</h2>
 <p>查看环境变量 <code>echo $VAR</code><br>
 设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>
 显示所有环境变量 <code>env</code><br>
@@ -851,7 +851,7 @@ Correlogram 相关图，展示相关矩阵</p>
 <h1>R: 如何一次性加载多个 package？</h1>
 <p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a class="header-anchor" href="#使用-lapply">¶</a>使用 <code>lapply</code></h2>
+<h2>使用 <code>lapply</code></h2>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
 <p>或者简写方式：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
@@ -859,7 +859,7 @@ Correlogram 相关图，展示相关矩阵</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
 <p>如果 package 没有安装呢？</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a class="header-anchor" href="#使用-package-pacman">¶</a>使用 package <code>pacman</code></h2>
+<h2>使用 package <code>pacman</code></h2>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
 <p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
 <ul>
@@ -1010,14 +1010,14 @@ Correlogram 相关图，展示相关矩阵</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(use-package polymode</div><div class="line">  :ensure t</div><div class="line">  :mode ((&quot;\\.[SR]nw\\&apos;&quot; . poly-noweb+r-mode)</div><div class="line">         (&quot;\\.Rmd\\&apos;&quot; . Rmd-mode))</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">    (defun Rmd-mode ()</div><div class="line">      &quot;ESS Markdown mode for Rmd files.&quot;</div><div class="line">      (interactive)</div><div class="line">      (require &apos;poly-R)</div><div class="line">      (require &apos;poly-markdown)</div><div class="line">      (R-mode)</div><div class="line">      (poly-markdown+r-mode))))</div><div class="line"></div><div class="line">(defun ess-rmarkdown-to-html ()</div><div class="line">  (interactive)</div><div class="line">  &quot;Run kintr::knit2html on the current file.&quot;</div><div class="line">  &quot;https://gist.github.com/kohske/9128031&quot;</div><div class="line">  (shell-command</div><div class="line">   (format &quot;Rscript -e \&quot;kintr::knit2html (&apos;%s&apos;)\&quot;&quot;</div><div class="line">           (shell-quote-argument (buffer-file-name)))))</div></pre></td></tr></table></figure>
 <p>参考：<a href="http://futurismo.biz/archives/2982" target="_blank" rel="external">http://futurismo.biz/archives/2982</a></p>
 <h1>杂项</h1>
-<h2 id="在-terminal-中使用-socks5-代理"><a class="header-anchor" href="#在-terminal-中使用-socks5-代理">¶</a>在 Terminal 中使用 socks5 代理</h2>
+<h2>在 Terminal 中使用 socks5 代理</h2>
 <p>前提当然是需要有 socks5 代理了。个人使用 <code>shodowsocks</code>。</p>
 <p>在终端使用代理，可以通过 proxychains，MacOS 下叫 proxychains-ng。</p>
 <p>修改配置：<code>/usr/local/Cellar/proxychains-ng/&lt;version&gt;/etc</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ProxyList]</div><div class="line">socks5 127.0.0.1 1080</div></pre></td></tr></table></figure>
 <p>然后绑定个别名啦</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias fq=&quot;/usr/local/Cellar/proxychains-ng/4.11/bin/proxychains4&quot;</div></pre></td></tr></table></figure>
-<h2 id="png-图片压缩"><a class="header-anchor" href="#png-图片压缩">¶</a>PNG 图片压缩</h2>
+<h2>PNG 图片压缩</h2>
 <p>一些常用压缩工具的对比：<a href="http://jamiemason.github.io/ImageOptim-CLI/" target="_blank" rel="external">http://jamiemason.github.io/ImageOptim-CLI/</a></p>
 <ul>
 <li><a href="https://github.com/ImageOptim/ImageOptim" target="_blank" rel="external">ImageOptim</a></li>
@@ -1026,14 +1026,14 @@ Correlogram 相关图，展示相关矩阵</p>
 <li><a href="http://www.smushit.com/ysmush.it/" target="_blank" rel="external">Smush.it</a></li>
 </ul>
 <p>参考：<a href="http://johnwong.github.io/showcase/2015/02/19/png-compress.html" target="_blank" rel="external">PNG图片极限压缩</a></p>
-<h2 id="命令行直接调用-chrome-进行谷歌检索"><a class="header-anchor" href="#命令行直接调用-chrome-进行谷歌检索">¶</a>命令行直接调用 Chrome 进行谷歌检索</h2>
+<h2>命令行直接调用 Chrome 进行谷歌检索</h2>
 <p>在 bash_profile 里头添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function gg() &#123; open /Applications/Google\ Chrome.app/ &quot;http://www.google.com/search?q= $1&quot;; &#125;</div></pre></td></tr></table></figure>
 <p>在 zshrc 里头添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gg() &#123; open -a &quot;Google Chrome&quot; &quot;http://www.google.com/search?q=$1&quot;; &#125;</div></pre></td></tr></table></figure>
-<h2 id="windows-下包管理器神器：chocolatey"><a class="header-anchor" href="#windows-下包管理器神器：chocolatey">¶</a>Windows 下包管理器神器：<a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a></h2>
+<h2>Windows 下包管理器神器：<a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a></h2>
 <p>参考：<a href="http://ju.outofmemory.cn/entry/141470" target="_blank" rel="external">Chocolatey, 我爱你</a></p>
-<h2 id="macos-访问-windows-中的共享文件夹"><a class="header-anchor" href="#macos-访问-windows-中的共享文件夹">¶</a>MacOS 访问 Windows 中的共享文件夹</h2>
+<h2>MacOS 访问 Windows 中的共享文件夹</h2>
 <ol>
 <li>进入 Finder</li>
 <li>前往 &gt;&gt;&gt; 连接服务器（Command + K）</li>
@@ -1162,7 +1162,7 @@ Correlogram 相关图，展示相关矩阵</p>
         
           
             <h1>JavaScript</h1>
-<h2 id="js-对象"><a class="header-anchor" href="#js-对象">¶</a>JS 对象</h2>
+<h2>JS 对象</h2>
 <p>JS 的对象是一种<strong>无序的集合数据类型</strong>，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。</p>
 <p>对象属性的访问：</p>
 <ul>
@@ -1174,7 +1174,7 @@ Correlogram 相关图，展示相关矩阵</p>
 <li><code>in</code>： 但是继承所得到的属性 <code>in</code> 也会返回真的结果</li>
 <li><code>hasOwnProperty</code> 判断自身具有的属性</li>
 </ul>
-<h2 id="map-与-set"><a class="header-anchor" href="#map-与-set">¶</a>Map 与 Set</h2>
+<h2>Map 与 Set</h2>
 <p><code>Map</code> 和 <code>Set</code> 为 ES6 规范引入的新数据类型。</p>
 <p><code>Map</code> 是一组<strong>键值对</strong>的结构，具有极快的查找速度。一个 <code>key</code> 只能对应一个 <code>value</code>。初始化 <code>Map</code> 需要一个二维数组。初始化空 <code>Map</code>：<code>var m = new Map()</code>。<code>Map</code> 类型有以下方法：</p>
 <ul>
@@ -1190,7 +1190,7 @@ Correlogram 相关图，展示相关矩阵</p>
 <li><code>has</code> 是否存在键</li>
 <li><code>clear</code> 清除所有键</li>
 </ul>
-<h2 id="iterable-类型"><a class="header-anchor" href="#iterable-类型">¶</a>iterable 类型</h2>
+<h2>iterable 类型</h2>
 <p>遍历 <code>Array</code> 可以采用下标循环，遍历 <code>Map</code> 和 <code>Set</code> 就无法使用下标。为了统一集合类型，ES6 标准引入了新的 <code>iterable</code> 类型，<code>Array</code>、<code>Map</code> 和 <code>Set</code> 都属于 <code>iterable</code> 类型。</p>
 <p>具有 <code>iterable</code> 类型的集合可以通过新的 <code>for ... of</code> 循环来遍历。</p>
 <p><code>for ... in</code> 和 <code>for ... of</code> 有什么差别？</p>
@@ -1201,7 +1201,7 @@ Correlogram 相关图，展示相关矩阵</p>
 <p>遍历集合更好的方式是直接使用 <code>iterable</code> 内置的 <code>forEach</code> 方法，它接收一个函数，每次迭代就自动回调该函数。<code>arr.forEach(function(element, index, array) {});</code></p>
 <p><code>Set</code> 与 <code>Array</code> 类似，但 <code>Set</code> 没有索引，因此回调函数的前两个参数都是元素本身。</p>
 <p><code>Map</code> 的回调函数参数依次为 <code>value</code>、<code>key</code> 和 <code>map</code> 本身。</p>
-<h2 id="函数"><a class="header-anchor" href="#函数">¶</a>函数</h2>
+<h2>函数</h2>
 <p>在 JavaScript 里，函数是“头等公民”，而且可以像变量一样使用，具有非常强大的抽象能力。</p>
 <p>抽象：借助抽象，可以不用关心底层的具体计算过程，而直接在更高的层次上思考问题。写计算机程序也是一样，函数就是最基本的一种代码抽象的方式。</p>
 <p>函数体内部的语句在执行时，一旦执行到 <code>return</code> 时，函数就执行完毕，并将结果返回。如果没有 <code>return</code> 语句，函数执行完毕后也会返回结果，只是结果为 <code>undefined</code>。</p>
@@ -1317,7 +1317,7 @@ ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> �
 <p>If the name denotes a valid class attribute that is a function object, a method object is created by packing (pointers to) the instance object and the function object just found together in an abstract object: this is the method object.</p>
 </blockquote>
 <p>—&gt; 未完</p>
-<h2 id="bash"><a class="header-anchor" href="#bash">¶</a>Bash</h2>
+<h2>Bash</h2>
 <p>关于引号：单引号内变量名会被当作字符串，双引号则会被当作变量处理。</p>
 <p>算术运算：<code>expr</code> <code>$(())</code> <code>$[]</code> <code>+</code> <code>-</code> <code>/</code> <code>%</code> <code>**</code></p>
 <p>条件控制:</p>
@@ -1342,7 +1342,7 @@ ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> �
 <h1>Hackerrank 笔记</h1>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in &#123;1..100..2&#125;</div><div class="line">do</div><div class="line">    echo $i</div><div class="line">done</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 1 2 99</div></pre></td></tr></table></figure>
-<h2 id="来自于纪录片-helvetica"><a class="header-anchor" href="#来自于纪录片-helvetica">¶</a>来自于纪录片《Helvetica》</h2>
+<h2>来自于纪录片《Helvetica》</h2>
 <blockquote>
 <ul>
 <li>别把易读性和信息传达混为一谈。某样东西清晰易读，并不说明它能传达信息。更重要的是，并不意味着它传达了正确的信息。反过来说，某个东西或许开始的时候很难辨识，但它传达了一种全然不同的信息。同时又切合主题。那么，或许它就是需要读者多花点时间和心思的。这种方式表达的效果往往要更为强烈。如果有条非常重要的信息用一种平凡无聊的方式排出来。这条消息很可能就被忽略了。</li>

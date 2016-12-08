@@ -89,24 +89,24 @@
 
 
 <meta name="description" content="R
-¶detach &amp;amp; attach
+detach &amp;amp; attach
 attach
-将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data fram">
+将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-12">
 <meta property="og:url" content="http://lix90.github.io/2016/11/12/2016-11-12-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="R
-¶detach &amp;amp; attach
+detach &amp;amp; attach
 attach
-将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data fram">
+将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame">
 <meta property="og:updated_time" content="2016-11-19T03:31:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-12">
 <meta name="twitter:description" content="R
-¶detach &amp;amp; attach
+detach &amp;amp; attach
 attach
-将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data fram">
+将数据或对象加载到 search path 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 search 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 attach 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame">
 
 
 
@@ -361,7 +361,7 @@ attach
 
       
         <h1>R</h1>
-<h2 id="detach-attach"><a class="header-anchor" href="#detach-attach">¶</a><code>detach</code> &amp; <code>attach</code></h2>
+<h2><code>detach</code> &amp; <code>attach</code></h2>
 <p><code>attach</code></p>
 <p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
 <p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
@@ -372,7 +372,7 @@ attach
 <li>应该避免在函数中使用 <code>detach/attach</code>。</li>
 <li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
 </ul>
-<h2 id="整数型数值"><a class="header-anchor" href="#整数型数值">¶</a>整数型数值</h2>
+<h2>整数型数值</h2>
 <p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
 <h1>杂项</h1>
 <p>JavaScript：DOM &amp; BOM</p>
@@ -607,7 +607,7 @@ attach
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#detach-attach"><span class="nav-number">1.1.</span> <span class="nav-text">¶detach & attach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数型数值"><span class="nav-number">1.2.</span> <span class="nav-text">¶整数型数值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">detach & attach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">整数型数值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">杂项</span></a></li></ol></div>
             
           </div>
         </section>
