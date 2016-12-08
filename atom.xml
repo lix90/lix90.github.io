@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-12-08T06:54:28.000Z</updated>
+  <updated>2016-12-08T09:05:00.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lix90.github.io/2016/12/08/2016-12-08-daily/"/>
     <id>http://lix90.github.io/2016/12/08/2016-12-08-daily/</id>
     <published>2016-12-07T16:00:00.000Z</published>
-    <updated>2016-12-08T06:54:28.000Z</updated>
+    <updated>2016-12-08T09:05:00.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Make-contrasts-in-R-1"><a href="#Make-contrasts-in-R-1" class="headerlink" title="Make contrasts in R^1"></a>Make contrasts in R<a href="[A" title="sort of) Complete Guide to Contrasts in R](http://rstudio-pubs-static.s3.amazonaws.com/65059_586f394d8eb84f84b1baaf56ffb6b47f.html">^1</a></h1><p>两种应用 contrasts 的方式：</p>
 <ul>
@@ -78,8 +78,9 @@
 <p>Note that if you add fewer than j-1 contrasts to the contrasts argument in lm(), it will NOT fill out the remaining contrasts for you. Rather, any group differences other than those represented in your contrast will get lumped into the error term!</p>
 </blockquote>
 <p>需要注意，如果 <code>lm()</code> 模型中 contrasts 少于 j-1 次，没有反映在 contrasts 中的组差异将被纳入到误差项中。</p>
-<p>问题：什么是正交的 contrasts？如何建立正交 contrasts？</p>
+<p><strong>问题：什么是正交的 contrasts？如何建立正交 contrasts？</strong></p>
 <blockquote>
+<p><strong>Orthogonal contrasts</strong> are a set of contrasts in which, for any distinct pair, <strong>the sum of the cross-products of the coefficients is zero</strong> (assume sample sizes are equal). Although there are potentially infinite sets of orthogonal contrasts, within any given set there will always be a maximum of exactly k – 1 possible orthogonal contrasts (where k is the number of group means available).</p>
 <p>There are only k-1 orthogonal comparisons, where k is the number of factor levels.<br>Comparisons/contrasts orthogonal to each other are statistically independent.<br>Which of the possible comparisons should we conduct? Well, this very much depends on our hypothesis we have in mind.</p>
 <p>We need to specify a contrast matrix, showing which comparisons we want to make. A contrast matrix consists of so-called contrast coefficients that (in the end) all have to sum to zero. This means, those things we want to compare have to get the opposite sign (e.g. +1 and –1), while those things we don ́t want to compare will receive a value of zero.</p>
 <p>Orthogonal contrasts are planned, a priori tests that partition the experimental variance cleanly. They are a powerful tool for analyzing data, but they are not appropriate for all experiments. Less restrictive comparisons among treatment means can be performed using various means separation tests, or multiple comparison tests.</p>
@@ -91,8 +92,17 @@
 <li>进行什么样的比较与研究假设相关。</li>
 <li>在一个比较中，相互比较的水平之间的比较矩阵中对应的数值和为0，两者符号相反，其它水平数值为0。</li>
 </ul>
-<p>问题：R 有哪些内置的构建 contrasts 的函数？</p>
+<p><strong>问题：R 有哪些内置的构建 contrasts 的函数？</strong></p>
 <p><code>contr.treatment()</code><br><code>contr.helmert()</code><br><code>contr.poly()</code><br><code>contr.sum()</code><br><code>contr.SAS</code></p>
+<hr>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><blockquote>
+<p>calculating post-hoc power are flawed and can produce misleading conclusions. Once a confidence interval has been computed, there is no additional information that a post hoc power calculation can provide. (Hoenig &amp; Heisey 2001)</p>
+</blockquote>
+<h1 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h1><blockquote>
+<p>We have empirically assessed the distribution of published effect sizes and estimated power by extracting more than 100,000 statistical records from about 10,000 cognitive neuroscience and psychology papers published during the past 5 years. The reported median effect size was d=0.93 (inter-quartile range: 0.64-1.46) for nominally statistically significant results and d=0.24 (0.11-0.42) for non-significant results. Median power to detect small, medium and large effects was 0.12, 0.44 and 0.73, reflecting no improvement through the past half-century. Power was lowest for cognitive neuroscience journals. 14% of papers reported some statistically significant results, although the respective F statistic and degrees of freedom proved that these were non-significant; p value errors positively correlated with journal impact factors. False report probability is likely to exceed 50% for the whole literature. In light of our findings the recently reported low replication success in psychology is realistic and worse performance may be expected for cognitive neuroscience.^[2][]</p>
+</blockquote>
+<p>我们从10,000篇近五年的认知神经科学和心理学已发表的期刊论文中提取了100,000份统计学记录，评估了发表的效应量 (effect sizes) 和估计的统计检验力 (power) 的统计分布。对于名义上达到统计显著性的结果中报告的效应量中位数为 d=0.93（四分位数范围为：0.64-1.46），而对于未达到统计显著性的结果，报告效应量中位数为 d=0.24 (四分位数范围：0.11-0.42)。检测到较弱，中等、较强的效应的统计检验力中位数分别为0.12，0.44，以及0.73。这表面在这几个领域内统计检验力在近半个世纪没有任何提高。其中，认知神经科学期刊论文的统计检验力最低（研究者考察了医学、心理学和认知神经科学）。14% 的论文报告了一些统计上显著的结果，然而这些结果中对应的 F 统计量和自由度均证明了这些结果并未达到显著。（有意思的是）p值的错误报告与期刊的影响因子呈正相关关系。在所有文献范围内，错误报告概率（False report probability）超过了50%。我们的结果提示，近来报告的心理学领域的低重复率问题是确实存在的，而且在认知神经科学领域可能预示着更严重的低重复率问题。</p>
+<p>[2]: Szucs, D., &amp; Ioannidis, J. P. (2016). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. bioRxiv, 071530.</p>
 ]]></content>
     
     <summary type="html">
@@ -676,6 +686,49 @@
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>报错问题解决记录</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T03:38:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="MacOS-下-XML包依赖-libxml2-冲突"><a href="#MacOS-下-XML包依赖-libxml2-冲突" class="headerlink" title="MacOS 下 XML包依赖 libxml2 冲突"></a>MacOS 下 XML包依赖 libxml2 冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。本身通过 homebrew 安装过 libxml2，发现 anaconda 也安装了 libxml2，出现冲突。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
+<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。报错信息提示可以定义环境变量到非默认的路径。</p>
+<blockquote>
+<p>If you have specified LIBXML_INCDIR, make certain to also specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the defaultdirectories.</p>
+</blockquote>
+<p>设置环境变量：</p>
+<ul>
+<li><code>export LIBXML_INCDIR=/usr/local/Cellar/libxml2/2.9.4</code></li>
+<li><code>export LIBXML_LIBDIR=/usr/local/Cellar/libxml2/2.9.4/lib</code></li>
+</ul>
+<p>继续安装仍然报错：提示无法找到 parser.h 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">You specified LIBXML_INCDIR, but we couldn&apos;t find parser.h</div><div class="line">Please specify it correctly and re-run the INSTALL&apos;ation.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p><strong>Anaconda 与 Homebrew 冲突问题</strong></p>
+<p>运行 <code>brew doctor</code> 发现一个警告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
+<p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
+<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
+<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="Terminating-active-homebrew-process"><a href="#Terminating-active-homebrew-process" class="headerlink" title="Terminating active homebrew process"></a>Terminating active homebrew process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># try</div><div class="line">/usr/bin/pkill ruby</div><div class="line"># try</div><div class="line">/usr/bin/pgrep ruby</div><div class="line"># do</div><div class="line">chown -R $(whoami) /usr/local/var/homebrew</div><div class="line"># do</div><div class="line">sudo rm -rf /usr/local/var/homebrew/locks</div></pre></td></tr></table></figure>
+<p>来源：<a href="https://github.com/Homebrew/homebrew-core/issues/5159" target="_blank" rel="external">Terminating active homebrew process #5159</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      记录遇到的所有报错的解决方法。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Error" scheme="http://lix90.github.io/tags/Error/"/>
     
   </entry>
   
@@ -1566,79 +1619,64 @@
   </entry>
   
   <entry>
-    <title>shell 命令整理</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
+    <title>环境和工具配置</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T11:43:27.000Z</updated>
+    <updated>2016-12-02T11:28:15.000Z</updated>
     
-    <content type="html"><![CDATA[<p>@2016-11-16</p>
-<p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
-<p>@2016-12-01</p>
-<p>修改 MacOS 计算机名<br><code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
-<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br><code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>其他格式:</p>
-<ul>
-<li>FAT32: MS-DOS fat32</li>
-<li>HFS+: Mac OS Extended (HFS+)</li>
-<li>ExFAT</li>
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
+<h2 id="PyPi"><a href="#PyPi" class="headerlink" title="PyPi"></a>PyPi</h2><h3 id="MacOS-配置-pip"><a href="#MacOS-配置-pip" class="headerlink" title="MacOS 配置 pip"></a>MacOS 配置 pip</h3><ol>
+<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
+<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
+</ol>
+<h3 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h3><p>pipy国内镜像目前有：</p>
+<p><a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a>  豆瓣<br><a href="http://pypi.hustunique.com/simple" target="_blank" rel="external">http://pypi.hustunique.com/simple</a>  华中理工大学<br><a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="external">http://pypi.sdutlinux.org/simple</a>  山东理工大学<br><a href="http://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/simple</a>  中国科学技术大学<br><a href="http://mirrors.aliyun.com/pypi/simple" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple</a> 阿里云<br>清华大学<br>公网：<a href="http://e.pypi.python.org/simple" target="_blank" rel="external">http://e.pypi.python.org/simple</a><br>教育网：<a href="http://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">http://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>Linux 和 MacOS 系统下配置文件位置: <code>$HOME/.pip/pip.conf</code><br>Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
+<p>设置环境变量 <code>PIP_CONFIG_FILE</code> 可以指定默认配置文件路径。</p>
+<p>修改配置文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">trusted-host = mirrors.aliyun.com</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple</div></pre></td></tr></table></figure></p>
+<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><p>另外还可以添加其他参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line"></div><div class="line">[freeze]</div><div class="line">timeout = 10</div><div class="line"></div><div class="line">[install]</div><div class="line">ignore-installed = true</div><div class="line">no-dependencies = no # or yes</div></pre></td></tr></table></figure>
+<p>对于 easy_install 可以修改 <code>$HOME/.pydistutils.cfg</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[easy_install]</div><div class="line">index_url = &lt;mirror&gt;</div></pre></td></tr></table></figure>
+<p>另外还可以创建别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pip=&quot;pip -i &lt;mirror&gt;&quot;</div></pre></td></tr></table></figure>
+<h3 id="pip-常用命令"><a href="#pip-常用命令" class="headerlink" title="pip 常用命令"></a>pip 常用命令</h3><p>搜索模块<br><code>pip search &lt;pkg_name&gt;</code></p>
+<p>安装模块<br><code>pip install &lt;pkg_name&gt;</code><br><code>pip install &lt;pkg_name&gt;==&lt;version&gt;</code></p>
+<p>升级模块（如果不提供版本号，升级到最新版本）<br><code>pip install --upgrade &lt;pkg_name&gt;&gt;=&lt;version&gt;</code></p>
+<p>卸载模块<br><code>pip uninstall &lt;pkg_name&gt;</code></p>
+<p>显示当前环境中模块的清单<br><code>pip freeze</code><br>重定向到文本文件<br><code>pip freeze &gt; req.txt</code><br>使用清单<br><code>pip install -r req.txt</code></p>
+<h2 id="环境管理"><a href="#环境管理" class="headerlink" title="环境管理"></a>环境管理</h2><p>使用虚拟环境管理工具</p>
+<p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
+<p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
+<p>配置流程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div></pre></td></tr></table></figure>
+<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="镜像源-1"><a href="#镜像源-1" class="headerlink" title="镜像源"></a>镜像源</h2><p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br><a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br><a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
+<p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
+<h1 id="MacOS-配置"><a href="#MacOS-配置" class="headerlink" title="MacOS 配置"></a>MacOS 配置</h1><h2 id="Time-machine"><a href="#Time-machine" class="headerlink" title="Time machine"></a>Time machine</h2><ul>
+<li>准备移动硬盘，做好备份</li>
+<li>移动硬盘分出一个300GB左右的分区，格式化为 Mac OS Extened Journaled 格式。</li>
+<li>然后选择该分区作为备份空间，开始备份并且加密</li>
 </ul>
-<p>lsof 列出已打开的文件以及对应的进程</p>
+<p>参考</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="external">Mac下移动硬盘的分区以及TimeMachine的备份</a></li>
+<li><a href="http://sspai.com/tag/Time%20Machine" target="_blank" rel="external">少数派 Time Machine 使用教程</a><h2 id="卸载-Rime-输入法"><a href="#卸载-Rime-输入法" class="headerlink" title="卸载 Rime 输入法"></a>卸载 Rime 输入法</h2></li>
+</ul>
+<p>这个所谓的“程序员”用的输入法，实在是没用习惯。@2016-12-02 喜欢能简则简的我，改用苹果系统自带中文输入法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ killall Squirrel</div><div class="line">$ sudo rm -Rf &quot;/Library/Input Methods/Squirrel.app&quot;</div><div class="line">$ rm -Rf ~/Library/Rime</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      使用 shell 过程中的笔记。
+      记录各种开发环境和工具的配置过程。
     
     </summary>
     
       <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
     
     
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>报错问题解决记录</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T03:38:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="MacOS-下-XML包依赖-libxml2-冲突"><a href="#MacOS-下-XML包依赖-libxml2-冲突" class="headerlink" title="MacOS 下 XML包依赖 libxml2 冲突"></a>MacOS 下 XML包依赖 libxml2 冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
-<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。本身通过 homebrew 安装过 libxml2，发现 anaconda 也安装了 libxml2，出现冲突。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
-<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。报错信息提示可以定义环境变量到非默认的路径。</p>
-<blockquote>
-<p>If you have specified LIBXML_INCDIR, make certain to also specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the defaultdirectories.</p>
-</blockquote>
-<p>设置环境变量：</p>
-<ul>
-<li><code>export LIBXML_INCDIR=/usr/local/Cellar/libxml2/2.9.4</code></li>
-<li><code>export LIBXML_LIBDIR=/usr/local/Cellar/libxml2/2.9.4/lib</code></li>
-</ul>
-<p>继续安装仍然报错：提示无法找到 parser.h 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">You specified LIBXML_INCDIR, but we couldn&apos;t find parser.h</div><div class="line">Please specify it correctly and re-run the INSTALL&apos;ation.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
-<p><strong>Anaconda 与 Homebrew 冲突问题</strong></p>
-<p>运行 <code>brew doctor</code> 发现一个警告：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
-<p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
-<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
-<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="Terminating-active-homebrew-process"><a href="#Terminating-active-homebrew-process" class="headerlink" title="Terminating active homebrew process"></a>Terminating active homebrew process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># try</div><div class="line">/usr/bin/pkill ruby</div><div class="line"># try</div><div class="line">/usr/bin/pgrep ruby</div><div class="line"># do</div><div class="line">chown -R $(whoami) /usr/local/var/homebrew</div><div class="line"># do</div><div class="line">sudo rm -rf /usr/local/var/homebrew/locks</div></pre></td></tr></table></figure>
-<p>来源：<a href="https://github.com/Homebrew/homebrew-core/issues/5159" target="_blank" rel="external">Terminating active homebrew process #5159</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      记录遇到的所有报错的解决方法。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Error" scheme="http://lix90.github.io/tags/Error/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
   </entry>
   
@@ -1647,7 +1685,7 @@
     <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/"/>
     <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-r/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-07T16:24:43.000Z</updated>
+    <updated>2016-12-08T07:11:29.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><h2 id="base"><a href="#base" class="headerlink" title="base"></a>base</h2><p><strong>Sys.</strong></p>
 <ul>
@@ -1866,6 +1904,10 @@
 <blockquote>
 <p>The first four methods are designed to give strong control of the family-wise error rate.  There seems no reason to use the unmodified Bonferroni correction because it is dominated by Holm’s method, which is also valid under arbitrary assumptions.</p>
 </blockquote>
+<h3 id="contrasts"><a href="#contrasts" class="headerlink" title="contrasts"></a>contrasts</h3><p>设置和查看因子的 contrasts。</p>
+<ul>
+<li>如果因子并未显式地设置 contrasts，那么使用默认的 contrasts。<code>options(&quot;contrasts&quot;)</code></li>
+</ul>
 <h2 id="afex"><a href="#afex" class="headerlink" title="afex"></a>afex</h2><p>round_ps: 根据 p 值大小的范围调整小数点位数。0.99-0.01 为两位小数点；p &lt; 0.01 为三位小数点；p &lt; 0.001 为四位小数点。</p>
 <p>contrast: 提供对 ref.grid 对象的分析，或对 lsmobj 对象的后续分析（follow-up analyses）。<br>pairs: 相当于 contrast 函数中传入 <code>method = &quot;pairwise&quot;</code>，即成对比较。</p>
 <h2 id="lsmeans"><a href="#lsmeans" class="headerlink" title="lsmeans"></a>lsmeans</h2><p>summary: Use these methods to summarize, print, plot, or examine objects of class ‘“ref.grid”’.</p>
@@ -1941,64 +1983,36 @@
   </entry>
   
   <entry>
-    <title>环境和工具配置</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
+    <title>shell 命令整理</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-02T11:28:15.000Z</updated>
+    <updated>2016-12-01T11:43:27.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
-<h2 id="PyPi"><a href="#PyPi" class="headerlink" title="PyPi"></a>PyPi</h2><h3 id="MacOS-配置-pip"><a href="#MacOS-配置-pip" class="headerlink" title="MacOS 配置 pip"></a>MacOS 配置 pip</h3><ol>
-<li>安装 easy_install<br><code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
-<li>安装 pip<br><code>sudo easy_install pip</code><br>或通过 Homebrew 安装 python，会一同安装 pip<br>或直接使用 Anaconda 等发行版，自带 pip</li>
-</ol>
-<h3 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h3><p>pipy国内镜像目前有：</p>
-<p><a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a>  豆瓣<br><a href="http://pypi.hustunique.com/simple" target="_blank" rel="external">http://pypi.hustunique.com/simple</a>  华中理工大学<br><a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="external">http://pypi.sdutlinux.org/simple</a>  山东理工大学<br><a href="http://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/simple</a>  中国科学技术大学<br><a href="http://mirrors.aliyun.com/pypi/simple" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple</a> 阿里云<br>清华大学<br>公网：<a href="http://e.pypi.python.org/simple" target="_blank" rel="external">http://e.pypi.python.org/simple</a><br>教育网：<a href="http://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">http://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<p>Linux 和 MacOS 系统下配置文件位置: <code>$HOME/.pip/pip.conf</code><br>Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
-<p>设置环境变量 <code>PIP_CONFIG_FILE</code> 可以指定默认配置文件路径。</p>
-<p>修改配置文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">trusted-host = mirrors.aliyun.com</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple</div></pre></td></tr></table></figure></p>
-<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><p>另外还可以添加其他参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line"></div><div class="line">[freeze]</div><div class="line">timeout = 10</div><div class="line"></div><div class="line">[install]</div><div class="line">ignore-installed = true</div><div class="line">no-dependencies = no # or yes</div></pre></td></tr></table></figure>
-<p>对于 easy_install 可以修改 <code>$HOME/.pydistutils.cfg</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[easy_install]</div><div class="line">index_url = &lt;mirror&gt;</div></pre></td></tr></table></figure>
-<p>另外还可以创建别名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pip=&quot;pip -i &lt;mirror&gt;&quot;</div></pre></td></tr></table></figure>
-<h3 id="pip-常用命令"><a href="#pip-常用命令" class="headerlink" title="pip 常用命令"></a>pip 常用命令</h3><p>搜索模块<br><code>pip search &lt;pkg_name&gt;</code></p>
-<p>安装模块<br><code>pip install &lt;pkg_name&gt;</code><br><code>pip install &lt;pkg_name&gt;==&lt;version&gt;</code></p>
-<p>升级模块（如果不提供版本号，升级到最新版本）<br><code>pip install --upgrade &lt;pkg_name&gt;&gt;=&lt;version&gt;</code></p>
-<p>卸载模块<br><code>pip uninstall &lt;pkg_name&gt;</code></p>
-<p>显示当前环境中模块的清单<br><code>pip freeze</code><br>重定向到文本文件<br><code>pip freeze &gt; req.txt</code><br>使用清单<br><code>pip install -r req.txt</code></p>
-<h2 id="环境管理"><a href="#环境管理" class="headerlink" title="环境管理"></a>环境管理</h2><p>使用虚拟环境管理工具</p>
-<p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
-<p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
-<p>配置流程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div></pre></td></tr></table></figure>
-<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="镜像源-1"><a href="#镜像源-1" class="headerlink" title="镜像源"></a>镜像源</h2><p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br><a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br><a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
-<p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
-<h1 id="MacOS-配置"><a href="#MacOS-配置" class="headerlink" title="MacOS 配置"></a>MacOS 配置</h1><h2 id="Time-machine"><a href="#Time-machine" class="headerlink" title="Time machine"></a>Time machine</h2><ul>
-<li>准备移动硬盘，做好备份</li>
-<li>移动硬盘分出一个300GB左右的分区，格式化为 Mac OS Extened Journaled 格式。</li>
-<li>然后选择该分区作为备份空间，开始备份并且加密</li>
-</ul>
-<p>参考</p>
+    <content type="html"><![CDATA[<p>@2016-11-16</p>
+<p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
+<p>@2016-12-01</p>
+<p>修改 MacOS 计算机名<br><code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
+<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br><code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>其他格式:</p>
 <ul>
-<li><a href="http://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="external">Mac下移动硬盘的分区以及TimeMachine的备份</a></li>
-<li><a href="http://sspai.com/tag/Time%20Machine" target="_blank" rel="external">少数派 Time Machine 使用教程</a><h2 id="卸载-Rime-输入法"><a href="#卸载-Rime-输入法" class="headerlink" title="卸载 Rime 输入法"></a>卸载 Rime 输入法</h2></li>
+<li>FAT32: MS-DOS fat32</li>
+<li>HFS+: Mac OS Extended (HFS+)</li>
+<li>ExFAT</li>
 </ul>
-<p>这个所谓的“程序员”用的输入法，实在是没用习惯。@2016-12-02 喜欢能简则简的我，改用苹果系统自带中文输入法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ killall Squirrel</div><div class="line">$ sudo rm -Rf &quot;/Library/Input Methods/Squirrel.app&quot;</div><div class="line">$ rm -Rf ~/Library/Rime</div></pre></td></tr></table></figure>
+<p>lsof 列出已打开的文件以及对应的进程</p>
 ]]></content>
     
     <summary type="html">
     
-      记录各种开发环境和工具的配置过程。
+      使用 shell 过程中的笔记。
     
     </summary>
     
       <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
     
     
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
   </entry>
   
@@ -2099,11 +2113,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
-    
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -2390,15 +2404,15 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
-      <category term="UX" scheme="http://lix90.github.io/tags/UX/"/>
-    
       <category term="Front-end" scheme="http://lix90.github.io/tags/Front-end/"/>
+    
+      <category term="UX" scheme="http://lix90.github.io/tags/UX/"/>
     
       <category term="regex" scheme="http://lix90.github.io/tags/regex/"/>
     
@@ -2441,42 +2455,6 @@
     
     
       <category term="Chrome" scheme="http://lix90.github.io/tags/Chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-24</title>
-    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
-    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
-    <published>2016-11-23T16:00:00.000Z</published>
-    <updated>2016-11-28T12:29:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
-<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
-<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
-<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
-<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
-<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
-<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
-<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
-<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
-<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
-    
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -2574,6 +2552,42 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-24</title>
+    <link href="http://lix90.github.io/2016/11/24/2016-11-24-daily/"/>
+    <id>http://lix90.github.io/2016/11/24/2016-11-24-daily/</id>
+    <published>2016-11-23T16:00:00.000Z</published>
+    <updated>2016-11-28T12:29:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="25-个公开数据网站"><a href="#25-个公开数据网站" class="headerlink" title="25 个公开数据网站"></a>25 个公开数据网站</h1><p><strong>一般类型的数据</strong><br><a href="https://www.data.gov/" target="_blank" rel="external">data.gov</a> 美国政府公开数据，数据涉及气候、教育、能源、金融等其他领域。<br><a href="https://data.gov.in/" target="_blank" rel="external">data.gov.in</a> 印度政府公开数据，涉及不同行业，气候，健康医疗等。<br><a href="http://data.worldbank.org/" target="_blank" rel="external">World Bank</a> 世界银行公开数据，提供了 Open Data Catalog，世界发展指数，教育指数等。<br><a href="https://rbi.org.in/Scripts/Statistics.aspx" target="_blank" rel="external">RBI</a> 印度储备银行数据<br><a href="https://github.com/fivethirtyeight/data" target="_blank" rel="external">Five Thirty Eight Datasets</a> FiveThirtyEight 用过的数据集。</p>
+<p><strong>大数据集</strong><br><a href="https://aws.amazon.com/datasets/" target="_blank" rel="external">Amazon Web Services (AWS) datasets</a><br><a href="https://cloud.google.com/bigquery/public-data/" target="_blank" rel="external">Google datasets</a><br><a href="https://research.google.com/youtube8m/" target="_blank" rel="external">Youtube labeled Video Dataset</a></p>
+<p><strong>用于预测模型和机器学习的数据集</strong><br><a href="https://archive.ics.uci.edu/ml/datasets.html" target="_blank" rel="external">UCI Machine Learning Repository</a><br><a href="https://www.kaggle.com/datasets" target="_blank" rel="external">Kaggle</a><br><a href="https://datahack.analyticsvidhya.com/contest/all/" target="_blank" rel="external">Analytics Vidhya</a><br><a href="https://www.quandl.com/" target="_blank" rel="external">Quandl</a> 金融，经济，以及其他。<br><a href="http://www.kdd.org/kdd-cup" target="_blank" rel="external">Past KDD Cups</a><br><a href="https://www.drivendata.org/" target="_blank" rel="external">Driven Data</a></p>
+<p><strong>图片分类数据集</strong><br><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="external">The MNIST Database</a><br><a href="http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/" target="_blank" rel="external">Chars74K</a><br><a href="http://vasc.ri.cmu.edu//idb/html/face/frontal_images/index.html" target="_blank" rel="external">Frontal Face Images</a><br><a href="http://image-net.org/" target="_blank" rel="external">ImageNet</a></p>
+<p><strong>文本分类数据集</strong><br><a href="http://www.esp.uem.es/jmgomez/smsspamcorpus/" target="_blank" rel="external">Spam – Non Spam</a><br><a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/" target="_blank" rel="external">Twitter Sentiment Analysis</a><br><a href="http://www.cs.cornell.edu/People/pabo/movie-review-data/" target="_blank" rel="external">Movie Review Data</a></p>
+<p><strong>推荐引擎数据集</strong><br><a href="http://grouplens.org/" target="_blank" rel="external">MovieLens</a><br><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/" target="_blank" rel="external">Jester</a></p>
+<p><strong>其他数据集</strong><br><a href="http://www.kdnuggets.com/datasets/index.html" target="_blank" rel="external">KNDuggets</a><br><a href="https://github.com/caesar0301/awesome-public-datasets" target="_blank" rel="external">Awesome Public Datasets</a><br><a href="https://www.reddit.com/r/datasets/" target="_blank" rel="external">Reddit Datasets Subreddit</a></p>
+<p>来源：<a href="https://www.analyticsvidhya.com/blog/2016/11/25-websites-to-find-datasets-for-data-science-projects/" target="_blank" rel="external">Analytics Vidhya</a></p>
+<h1 id="Emacs-手册阅读"><a href="#Emacs-手册阅读" class="headerlink" title="Emacs 手册阅读"></a>Emacs 手册阅读</h1><p><code>C-x =</code> <code>what-cursor-position</code> 打印光标位置信息，并且描述光标之后的字符的信息，提供字符码。</p>
+<p><strong>反馈区（echo area）</strong>显示的信息都将保存在 <code>*Messages*</code> 缓存区，但是 <code>*Messages*</code> 缓存区储存的信息的行数在一定限度以内，可以通过指定变量 <code>message-log-max</code> 值来调整存储行数。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Open data" scheme="http://lix90.github.io/tags/Open-data/"/>
     
   </entry>
   
@@ -2927,9 +2941,9 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -3132,6 +3146,52 @@
   </entry>
   
   <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
+    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2016-11-28T12:36:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
+    
+      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>西服保养建议</title>
     <link href="http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/"/>
     <id>http://lix90.github.io/2016/11/21/2016-11-21-clean-suit/</id>
@@ -3193,52 +3253,6 @@
       <category term="Life style" scheme="http://lix90.github.io/tags/Life-style/"/>
     
       <category term="西服保养" scheme="http://lix90.github.io/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/"/>
-    <id>http://lix90.github.io/2016/11/21/2016-11-21-eeg-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-28T12:36:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h1><p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件"><a href="#电极位置文件" class="headerlink" title="电极位置文件"></a>电极位置文件</h1><p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-      <category term="EEG" scheme="http://lix90.github.io/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="http://lix90.github.io/tags/EEG/"/>
-    
-      <category term="EGI" scheme="http://lix90.github.io/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="http://lix90.github.io/tags/EEGLAB/"/>
     
   </entry>
   
@@ -3446,13 +3460,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
   </entry>
   
@@ -3545,13 +3559,60 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Cloud" scheme="http://lix90.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -3653,53 +3714,6 @@
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;h2 id=&quot;Git-branch-分支操作&quot;&gt;&lt;a href=&quot;#Git-branch-分支操作&quot; class=&quot;headerlink
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-16</title>
     <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
     <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
@@ -3730,9 +3744,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
@@ -3868,9 +3882,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -4190,45 +4204,11 @@
   </entry>
   
   <entry>
-    <title>R：加载包</title>
-    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
-    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
-<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
-<p>参考</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
-<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
-    
-    </summary>
-    
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>个人资源长期整理</title>
     <link href="http://lix90.github.io/2016/11/13/wiki/"/>
     <id>http://lix90.github.io/2016/11/13/wiki/</id>
     <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-12-07T13:42:56.000Z</updated>
+    <updated>2016-12-08T07:42:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
 <h1 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h1><p>数据科学<br><a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a> | <a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a> | <a href="http://cos.name/" target="_blank" rel="external">统计之都</a></p>
@@ -4250,6 +4230,7 @@
 <h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><p>R<br><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a> | <a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880: Data Visualization with R</a> | <a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a> | <a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></p>
 <p><a href="http://rcompanion.org/handbook/" target="_blank" rel="external">Summary and Analysis of Extension Program Evaluation in R</a><br><a href="http://rcompanion.org/rcompanion/" target="_blank" rel="external">An R Companion for the Handbook of Biological Statistics</a><br><a href="http://www.biostathandbook.com/" target="_blank" rel="external">Handbook of Biological Statistics</a><br><a href="https://egret.psychol.cam.ac.uk/statistics/R/index.html" target="_blank" rel="external">Local tips for R</a><br><a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a><br><a href="http://www.unc.edu/courses/2006spring/ecol/145/001/index.html" target="_blank" rel="external">Ecology 145—Statistical Analysis</a><br><a href="http://genomicsclass.github.io/book/" target="_blank" rel="external">PH525x series - Biomedical Data Science</a><br><a href="http://www.unh.edu/halelab/BIOL933/schedule.htm" target="_blank" rel="external">BIOL 933: Design, Analysis, and Interpretation of Experiments</a></p>
 <p><a href="http://user2016.org/" target="_blank" rel="external">The R User Conference 2016</a><br><a href="http://user2015.math.aau.dk/" target="_blank" rel="external">The R User Conference 2015</a><br><a href="http://user2014.stat.ucla.edu/" target="_blank" rel="external">The R User Conference 2014</a><br><a href="http://www.edii.uclm.es/~useR-2013/" target="_blank" rel="external">The R User Conference 2013</a></p>
+<p><a href="https://onlinecourses.science.psu.edu/stat505/" target="_blank" rel="external">STAT 505 - Applied Multivariate Statistical Analysis</a></p>
 <hr>
 <p>lisp/elisp</p>
 <ul>
@@ -4291,6 +4272,40 @@
       <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
     
       <category term="Wiki" scheme="http://lix90.github.io/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：加载包</title>
+    <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
+    <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
+    <published>2016-11-12T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="R-library-amp-require"><a href="#R-library-amp-require" class="headerlink" title="R: library &amp; require"></a>R: library &amp; require</h1><p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">value &lt;- <span class="keyword">tryCatch</span>(<span class="keyword">library</span>(package, lib.loc = lib.loc, </div><div class="line">                          character.only = <span class="literal">TRUE</span>, logical.return = <span class="literal">TRUE</span>, warn.conflicts = warn.conflicts, </div><div class="line">                          quietly = quietly), error = <span class="keyword">function</span>(e) e)</div></pre></td></tr></table></figure>
+<p>对于加载函数，谢老大在<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">那篇博文</a>中的评论中提到了一点经验，对于仅仅使用一个包中的一两个函数适合于使用 <code>pkg::func</code> 的形式调用函数。因为加载太多包会“污染”命名空间。</p>
+<p>参考</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/5595512/what-is-the-difference-between-require-and-library" target="_blank" rel="external">StackOverflow: What is the difference between require() and library()?</a></li>
+<li><a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">Yihui: library() vs require() in R</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;R-library-amp-require&quot;&gt;&lt;a href=&quot;#R-library-amp-require&quot; class=&quot;headerlink&quot; title=&quot;R: library &amp;amp; require&quot;&gt;&lt;/a&gt;R: library &amp;amp; req
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -4341,11 +4356,11 @@
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
-    
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
@@ -4490,17 +4505,17 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
+      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Ruby" scheme="http://lix90.github.io/tags/Ruby/"/>
     
       <category term="Pandas" scheme="http://lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
-    
-      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -4651,55 +4666,6 @@
       <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
       <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-08</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:30:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
-<blockquote>
-<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
-</blockquote>
-<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
-<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
-<p>或者简写方式：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
-<p>或者配上 <code>do.call()</code>：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
-<p>如果 package 没有安装呢？</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
-<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
-<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
-<ul>
-<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
-<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
-<li><code>p_install_gh</code> 从 Github 来源安装包</li>
-<li><code>p_temp</code> 安装临时包</li>
-<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
-<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
-<li><code>p_delete/p_del</code> 从库中永久删除包</li>
-</ul>
-<p>此外，该包还可以方便地获取包信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -4886,6 +4852,55 @@
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-08</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-daily/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-daily/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:30:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>查看环境变量 <code>echo $VAR</code><br>设置新的环境变量 <code>export VAR=&quot;fool!&quot;</code><br>显示所有环境变量 <code>env</code><br>显示所有本地定义的 Shell 变量 <code>set</code><br>清除环境变量 <code>unset $VAR</code><br>设置环境变量为只读 <code>readonly VAR</code></p>
+<blockquote>
+<p>The <code>export</code> and <code>declare -x</code> commands allow parameters and functions to be added to and deleted from the environment. If the value of a parameter in the environment is modified, the new value becomes part of the environment, replacing the old. The environment inherited by any executed command consists of the shell’s initial environment, whose values may be modified in the shell, less any pairs removed by the <code>unset</code> and <code>export -n</code> commands, plus any additions via the <code>export</code> and <code>declare -x</code> commands.</p>
+</blockquote>
+<h1 id="R-如何一次性加载多个-package？"><a href="#R-如何一次性加载多个-package？" class="headerlink" title="R: 如何一次性加载多个 package？"></a>R: 如何一次性加载多个 package？</h1><p>参考：<a href="http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once" target="_blank" rel="external">Stackoverflow: Load multiple packages at once</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x &lt;- c(<span class="string">"pkg1"</span>, <span class="string">"pkg2"</span>, <span class="string">"pkg3"</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用-lapply"><a href="#使用-lapply" class="headerlink" title="使用 lapply"></a>使用 <code>lapply</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, character.only = <span class="literal">TRUE</span>)</div></pre></td></tr></table></figure>
+<p>或者简写方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">require</span>, c = <span class="literal">T</span>)</div></pre></td></tr></table></figure>
+<p>或者配上 <code>do.call()</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, FUN = <span class="keyword">function</span>(X) &#123; do.call(<span class="string">"require"</span>, list(X)) &#125;)</div></pre></td></tr></table></figure>
+<p>如果 package 没有安装呢？</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lapply(x, <span class="keyword">function</span>(x) &#123;<span class="keyword">if</span> (!<span class="keyword">require</span>(x, character.only=<span class="literal">T</span>)) &#123;install.packages(x);<span class="keyword">require</span>(x)&#125;&#125;)</div></pre></td></tr></table></figure>
+<h2 id="使用-package-pacman"><a href="#使用-package-pacman" class="headerlink" title="使用 package pacman"></a>使用 package <code>pacman</code></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## install.packages("pacman")</span></div><div class="line">pacman::p_load(pkg1, pkg2, pkg3)</div></pre></td></tr></table></figure>
+<p><a href="http://trinker.github.io/pacman_dev/" target="_blank" rel="external">pacman</a> 是一个包管理工具，除了可以同时加载多个包之外，还有以下一些方便的函数：</p>
+<ul>
+<li><code>p_install</code> 等同于 <code>install.packages</code> 从 CRAN 安装包</li>
+<li><code>p_load_gh</code> 加载和安装 Github 上的包</li>
+<li><code>p_install_gh</code> 从 Github 来源安装包</li>
+<li><code>p_temp</code> 安装临时包</li>
+<li><code>p_unload</code> 等于 <code>detach</code> 卸载包</li>
+<li><code>p_update/p_up</code> 等于 <code>update.packages</code> 更新包</li>
+<li><code>p_delete/p_del</code> 从库中永久删除包</li>
+</ul>
+<p>此外，该包还可以方便地获取包信息。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bash&quot;&gt;&lt;a href=&quot;#Bash&quot; class=&quot;headerlink&quot; title=&quot;Bash&quot;&gt;&lt;/a&gt;Bash&lt;/h1&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Bash" scheme="http://lix90.github.io/tags/Bash/"/>
     
   </entry>
   
@@ -5247,9 +5262,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
       <category term="Flexbox" scheme="http://lix90.github.io/tags/Flexbox/"/>
     
@@ -5635,9 +5650,9 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
@@ -5804,11 +5819,13 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+      <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
@@ -5819,8 +5836,6 @@
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
-    
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -5947,11 +5962,11 @@
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="Machine Learning" scheme="http://lix90.github.io/tags/Machine-Learning/"/>
-    
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
   </entry>
   
