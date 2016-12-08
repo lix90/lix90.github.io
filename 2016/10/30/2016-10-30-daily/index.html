@@ -88,25 +88,28 @@
 
 
 
-<meta name="description" content="搞不懂的 callbackJS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
+<meta name="description" content="搞不懂的 callback
+JS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
 JS 三个异步支持阶段：callback —&amp;gt; promise —&amp;gt; generator
 
-Generators by themselves do not provide any sort of asynchronous support: they rely on either">
+Generators by themselves do not provide any sort of asynchronous support: they rely on eithe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-10-30">
 <meta property="og:url" content="http://lix90.github.io/2016/10/30/2016-10-30-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="搞不懂的 callbackJS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
+<meta property="og:description" content="搞不懂的 callback
+JS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
 JS 三个异步支持阶段：callback —&amp;gt; promise —&amp;gt; generator
 
-Generators by themselves do not provide any sort of asynchronous support: they rely on either">
+Generators by themselves do not provide any sort of asynchronous support: they rely on eithe">
 <meta property="og:updated_time" content="2016-11-19T03:30:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-10-30">
-<meta name="twitter:description" content="搞不懂的 callbackJS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
+<meta name="twitter:description" content="搞不懂的 callback
+JS 单线程 :—&amp;gt; 性能 :—&amp;gt; 异步思维（不仅限于针对用户输入时）
 JS 三个异步支持阶段：callback —&amp;gt; promise —&amp;gt; generator
 
-Generators by themselves do not provide any sort of asynchronous support: they rely on either">
+Generators by themselves do not provide any sort of asynchronous support: they rely on eithe">
 
 
 
@@ -360,7 +363,8 @@ Generators by themselves do not provide any sort of asynchronous support: they r
       
 
       
-        <h1 id="搞不懂的-callback"><a href="#搞不懂的-callback" class="headerlink" title="搞不懂的 callback"></a>搞不懂的 callback</h1><p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
+        <h1>搞不懂的 callback</h1>
+<p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
 <p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
 <blockquote>
 <p>Generators by themselves do not provide any sort of asynchronous support: they rely on either promises or a special type of callback to provide asynchronous behavior. 事实上，generator 本身并未提供异步支持，它依赖于 promise 或特殊类型的 callback 来提供异步行为。</p>
@@ -378,8 +382,14 @@ Generators by themselves do not provide any sort of asynchronous support: they r
 <p><code>回调函数</code> <code>登记回调函数</code> <code>触发回调关联事件</code> <code>调用回调函数</code> <code>响应回调事件</code> <code>回调地狱</code></p>
 <blockquote>
 <p>在js里函数都是对象，这表示它们可以作为参数传递给其他的函数。举例：当函数b()作为参数传递给函数a()，那么在某一时刻函数a()可能会执行或者调用函数b()。这种情况下，函数b()就被称为回调函数，也可以简称叫做回调。</p>
+</blockquote>
+<blockquote>
 <p>you have to be mindful of the scope your callbacks are declared in: they will have access to everything in that scope (closure). And because of that, the value may be different when the callback actually executes. This principle applies to all asynchronous techniques, not just callbacks. 需要特别注意回调函数的作用域。</p>
+</blockquote>
+<blockquote>
 <p>在传入一个回调函数之前，中间函数是不完整的。换句话说，程序可以在运行时，通过登记不同的回调函数，来决定、改变中间函数的行为。这就比简单的函数调用要灵活太多了。</p>
+</blockquote>
+<blockquote>
 <p>回调实际上有两种：阻塞式回调和延迟式回调。两者的区别在于：阻塞式回调里，回调函数的调用一定发生在起始函数返回之前；而延迟式回调里，回调函数的调用有可能是在起始函数返回之后。</p>
 </blockquote>
 <p>关于回调等 JS 学到一定地步再来总结吧。</p>
@@ -392,13 +402,16 @@ Generators by themselves do not provide any sort of asynchronous support: they r
 <li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
 </ul>
 <hr>
-<h1 id="SCSS-amp-SASS"><a href="#SCSS-amp-SASS" class="headerlink" title="SCSS &amp; SASS"></a><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1><p>SCSS 源自 SASS。</p>
+<h1><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1>
+<p>SCSS 源自 SASS。</p>
 <ul>
 <li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
 <li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
 </ul>
 <hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="语义化版本控制规范（SemVer）"><a href="#语义化版本控制规范（SemVer）" class="headerlink" title="语义化版本控制规范（SemVer）"></a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2><p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<h1>杂项</h1>
+<h2 id="语义化版本控制规范-semver"><a class="header-anchor" href="#语义化版本控制规范-semver">¶</a><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2>
+<p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
 <blockquote>
 <p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
 <ol>
@@ -408,7 +421,8 @@ Generators by themselves do not provide any sort of asynchronous support: they r
 </ol>
 <p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
 </blockquote>
-<h2 id="Notes-out-of-youtube"><a href="#Notes-out-of-youtube" class="headerlink" title="Notes out of youtube"></a>Notes out of youtube</h2><p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
+<h2 id="notes-out-of-youtube"><a class="header-anchor" href="#notes-out-of-youtube">¶</a>Notes out of youtube</h2>
+<p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
 <p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
 <p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
 <ul>
@@ -420,7 +434,8 @@ Generators by themselves do not provide any sort of asynchronous support: they r
 <li>footer: information in general</li>
 <li>no flash</li>
 </ul>
-<h2 id="D3-js"><a href="#D3-js" class="headerlink" title="D3.js"></a>D3.js</h2><p>数据标准：</p>
+<h2 id="d3-js"><a class="header-anchor" href="#d3-js">¶</a>D3.js</h2>
+<p>数据标准：</p>
 <ul>
 <li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
 <li>嵌套数据（Nested data）</li>
@@ -429,7 +444,8 @@ Generators by themselves do not provide any sort of asynchronous support: they r
 <li>原始数据（Raw data）：文本、图片、视频</li>
 <li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
 </ul>
-<h2 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h2><p><code>Geometric primitives</code></p>
+<h2 id="专业术语"><a class="header-anchor" href="#专业术语">¶</a>专业术语</h2>
+<p><code>Geometric primitives</code></p>
 
       
     </div>
@@ -640,7 +656,7 @@ Generators by themselves do not provide any sort of asynchronous support: they r
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搞不懂的-callback"><span class="nav-number">1.</span> <span class="nav-text">搞不懂的 callback</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SCSS-amp-SASS"><span class="nav-number">2.</span> <span class="nav-text">SCSS & SASS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语义化版本控制规范（SemVer）"><span class="nav-number">3.1.</span> <span class="nav-text">语义化版本控制规范（SemVer）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes-out-of-youtube"><span class="nav-number">3.2.</span> <span class="nav-text">Notes out of youtube</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D3-js"><span class="nav-number">3.3.</span> <span class="nav-text">D3.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专业术语"><span class="nav-number">3.4.</span> <span class="nav-text">专业术语</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">搞不懂的 callback</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">SCSS & SASS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语义化版本控制规范-semver"><span class="nav-number">3.1.</span> <span class="nav-text">¶语义化版本控制规范（SemVer）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notes-out-of-youtube"><span class="nav-number">3.2.</span> <span class="nav-text">¶Notes out of youtube</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d3-js"><span class="nav-number">3.3.</span> <span class="nav-text">¶D3.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专业术语"><span class="nav-number">3.4.</span> <span class="nav-text">¶专业术语</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

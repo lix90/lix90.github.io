@@ -88,22 +88,25 @@
 
 
 
-<meta name="description" content="Layout 布局layout 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 mat 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。
+<meta name="description" content="Layout 布局
+layout 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 mat 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。
 123layout(mat, widths = rep.int(1, ncol(mat)),    heights = rep.int(1, nrow(mat)),    respect = FALSE)
-layout.show(n) 显示">
+layout.show(n) 显">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R：使用基本包进行多图布局">
 <meta property="og:url" content="http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="Layout 布局layout 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 mat 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。
+<meta property="og:description" content="Layout 布局
+layout 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 mat 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。
 123layout(mat, widths = rep.int(1, ncol(mat)),    heights = rep.int(1, nrow(mat)),    respect = FALSE)
-layout.show(n) 显示">
+layout.show(n) 显">
 <meta property="og:updated_time" content="2016-12-03T13:32:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：使用基本包进行多图布局">
-<meta name="twitter:description" content="Layout 布局layout 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 mat 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。
+<meta name="twitter:description" content="Layout 布局
+layout 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 mat 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。
 123layout(mat, widths = rep.int(1, ncol(mat)),    heights = rep.int(1, nrow(mat)),    respect = FALSE)
-layout.show(n) 显示">
+layout.show(n) 显">
 
 
 
@@ -357,9 +360,11 @@ layout.show(n) 显示">
       
 
       
-        <h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
+        <h1>Layout 布局</h1>
+<p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
+<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br>
+<code>layout</code> 返回的值为图形的个数。</p>
 <p>参数：</p>
 <ul>
 <li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
@@ -369,8 +374,11 @@ layout.show(n) 显示">
 <li><code>n</code>：绘制的图形个数。</li>
 </ul>
 <p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
+<h1>Par 的 mfrow 和 mfcol 参数布局</h1>
+<p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>
+在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
+<h2 id="par-关于布局的参数"><a class="header-anchor" href="#par-关于布局的参数">¶</a>par 关于布局的参数</h2>
+<p><strong>Outer margin</strong> 外边缘</p>
 <p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
 <ul>
 <li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
@@ -400,7 +408,11 @@ layout.show(n) 显示">
 <li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
 <li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
 </ul>
-<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
+<h1>Split.screen 布局</h1>
+<p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br>
+<code>screen</code> 用于选择哪一个 screen 绘制图形。<br>
+<code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br>
+<code>close.screen</code> 移除指定的 screen。</p>
 <p><code>split.screen</code> 参数：</p>
 <ul>
 <li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>
@@ -618,7 +630,7 @@ layout.show(n) 显示">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Layout-布局"><span class="nav-number">1.</span> <span class="nav-text">Layout 布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Par-的-mfrow-和-mfcol-参数布局"><span class="nav-number">2.</span> <span class="nav-text">Par 的 mfrow 和 mfcol 参数布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#par-关于布局的参数"><span class="nav-number">2.1.</span> <span class="nav-text">par 关于布局的参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Split-screen-布局"><span class="nav-number">3.</span> <span class="nav-text">Split.screen 布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Layout 布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Par 的 mfrow 和 mfcol 参数布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#par-关于布局的参数"><span class="nav-number">2.1.</span> <span class="nav-text">¶par 关于布局的参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Split.screen 布局</span></a></li></ol></div>
             
           </div>
         </section>

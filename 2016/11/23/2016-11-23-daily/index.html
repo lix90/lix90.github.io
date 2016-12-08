@@ -351,8 +351,13 @@
       
 
       
-        <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="grid-布局"><a href="#grid-布局" class="headerlink" title="grid 布局"></a>grid 布局</h2><p>来源：<a href="https://www.villainhr.com/page/2016/10/12/%E4%BA%8C%E7%BB%B4%20grid%20%E5%B8%83%E5%B1%80" target="_blank" rel="external">VillainHR: 二维 grid 布局</a></p>
-<p>flexbox &gt;&gt;&gt; 一维布局<br><strong>grid &gt;&gt;&gt; 二维布局</strong><br>absolute &gt;&gt;&gt; 性能损耗？<br>grid 浏览器还未全面支持，需要额外开启实验特性。在 Chrome 中打开 <code>chrome://flags</code> 开启实验特性。</p>
+        <h1>CSS</h1>
+<h2 id="grid-布局"><a class="header-anchor" href="#grid-布局">¶</a>grid 布局</h2>
+<p>来源：<a href="https://www.villainhr.com/page/2016/10/12/%E4%BA%8C%E7%BB%B4%20grid%20%E5%B8%83%E5%B1%80" target="_blank" rel="external">VillainHR: 二维 grid 布局</a></p>
+<p>flexbox &gt;&gt;&gt; 一维布局<br>
+<strong>grid &gt;&gt;&gt; 二维布局</strong><br>
+absolute &gt;&gt;&gt; 性能损耗？<br>
+grid 浏览器还未全面支持，需要额外开启实验特性。在 Chrome 中打开 <code>chrome://flags</code> 开启实验特性。</p>
 <p>grid 相当于 table 和 flexbox 两者结合的产物。直接通过 <code>display: grid</code> 使用。最基本格式为：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">style</span>=<span class="string">"display:grid;"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item item-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><strong>container 与 items</strong></p>
@@ -376,7 +381,8 @@
 </ul>
 <p><strong>grid 标签</strong></p>
 <ul>
-<li><p>container</p>
+<li>
+<p>container</p>
 <ul>
 <li><code>grid-template-*</code></li>
 <li><code>grid-auto-*</code></li>
@@ -387,7 +393,8 @@
 <li><code>justify/align-content</code> 控制整个 container 水平/垂直布局</li>
 </ul>
 </li>
-<li><p>items</p>
+<li>
+<p>items</p>
 <ul>
 <li><code>grid-column-*</code></li>
 <li><code>grid-row-*</code></li>
@@ -397,23 +404,36 @@
 </ul>
 </li>
 </ul>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="在一个-JS-脚本文件中导入另一个-JS-脚本文件"><a href="#在一个-JS-脚本文件中导入另一个-JS-脚本文件" class="headerlink" title="在一个 JS 脚本文件中导入另一个 JS 脚本文件"></a>在一个 JS 脚本文件中导入另一个 JS 脚本文件</h2><p>来源：<a href="http://stackoverflow.com/questions/950087/how-to-include-a-javascript-file-in-another-javascript-file" target="_blank" rel="external">stackoverflow: How to include a JavaScript file in another JavaScript file?</a></p>
+<h1>JavaScript</h1>
+<h2 id="在一个-js-脚本文件中导入另一个-js-脚本文件"><a class="header-anchor" href="#在一个-js-脚本文件中导入另一个-js-脚本文件">¶</a>在一个 JS 脚本文件中导入另一个 JS 脚本文件</h2>
+<p>来源：<a href="http://stackoverflow.com/questions/950087/how-to-include-a-javascript-file-in-another-javascript-file" target="_blank" rel="external">stackoverflow: How to include a JavaScript file in another JavaScript file?</a></p>
 <p>JS 没有 import, include, 或 require（在 ES6 Modules 中已支持）。</p>
 <p><strong>通过 AJAX 导入</strong></p>
 <ul>
-<li>但有一定的限制，可能会引入 bugs 和 hacks<br><strong>通过 jQuery 导入</strong>：<code>jQuery.getScript()</code> <a href="http://api.jquery.com/jQuery.getScript/" target="_blank" rel="external">see</a><br><strong>动态加载（Dynamic script loading）</strong>：通过 <code>script</code> 标签导入。<a href="http://unixpapa.com/js/dyna.html" target="_blank" rel="external">JavaScript Madness: Dynamic Script Loading</a><br><strong>将多个文件合并为一个文件，然后单独加载</strong>：<a href="http://stackoverflow.com/questions/5511989/combine-multiple-javascript-files-into-one-js-file" target="_blank" rel="external">Combine multiple JavaScript files into one JS file</a></li>
+<li>但有一定的限制，可能会引入 bugs 和 hacks<br>
+<strong>通过 jQuery 导入</strong>：<code>jQuery.getScript()</code> <a href="http://api.jquery.com/jQuery.getScript/" target="_blank" rel="external">see</a><br>
+<strong>动态加载（Dynamic script loading）</strong>：通过 <code>script</code> 标签导入。<a href="http://unixpapa.com/js/dyna.html" target="_blank" rel="external">JavaScript Madness: Dynamic Script Loading</a><br>
+<strong>将多个文件合并为一个文件，然后单独加载</strong>：<a href="http://stackoverflow.com/questions/5511989/combine-multiple-javascript-files-into-one-js-file" target="_blank" rel="external">Combine multiple JavaScript files into one JS file</a></li>
 </ul>
 <p><strong>如何检测脚本何时执行？</strong></p>
-<h2 id="如何从-JS-数组中删除特定元素？"><a href="#如何从-JS-数组中删除特定元素？" class="headerlink" title="如何从 JS 数组中删除特定元素？"></a>如何从 JS 数组中删除特定元素？</h2><p>来源：<a href="http://stackoverflow.com/questions/5767325/how-to-remove-a-particular-element-from-an-array-in-javascript" target="_blank" rel="external">stackoverflow: How to remove a particular element from an array in JavaScript?</a></p>
+<h2 id="如何从-js-数组中删除特定元素？"><a class="header-anchor" href="#如何从-js-数组中删除特定元素？">¶</a>如何从 JS 数组中删除特定元素？</h2>
+<p>来源：<a href="http://stackoverflow.com/questions/5767325/how-to-remove-a-particular-element-from-an-array-in-javascript" target="_blank" rel="external">stackoverflow: How to remove a particular element from an array in JavaScript?</a></p>
 <p>寻找数组中要删除的元素的索引（index）。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>];</div><div class="line"><span class="keyword">var</span> index = array.indexOf(<span class="number">5</span>); <span class="comment">// indexOf 在 IE7/8 下不支持</span></div></pre></td></tr></table></figure>
 <p>通过 <code>splice</code> 删除索引对应的元素。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (index &gt; <span class="number">-1</span>) &#123;</div><div class="line">    array.splice(index, <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>splice</code> 的第二个参数为删除的元素的个数。</p>
 <hr>
-<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="解释-lm-的输出结果"><a href="#解释-lm-的输出结果" class="headerlink" title="解释 lm() 的输出结果"></a>解释 <code>lm()</code> 的输出结果</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mod &lt;- lm(iris$Sepal.Width ~ iris$Petal.Width)</div><div class="line">summary(mod)</div><div class="line"></div><div class="line">Call:</div><div class="line">lm(formula = iris$Sepal.Width ~ iris$Petal.Width)</div><div class="line"></div><div class="line">Residuals:</div><div class="line">     Min       1Q   Median       3Q      Max</div><div class="line">-<span class="number">1.09907</span> -<span class="number">0.23626</span> -<span class="number">0.01064</span>  <span class="number">0.23345</span>  <span class="number">1.17532</span></div><div class="line"></div><div class="line">Coefficients:</div><div class="line">                 Estimate Std. Error t value Pr(&gt;|t|)</div><div class="line">(Intercept)       <span class="number">3.30843</span>    <span class="number">0.06210</span>  <span class="number">53.278</span>  &lt; <span class="number">2e-16</span> ***</div><div class="line">iris$Petal.Width -<span class="number">0.20936</span>    <span class="number">0.04374</span>  -<span class="number">4.786</span> <span class="number">4.07e-06</span> ***</div><div class="line">---</div><div class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></div><div class="line"></div><div class="line">Residual standard error: <span class="number">0.407</span> on <span class="number">148</span> degrees of freedom</div><div class="line">Multiple R-squared:  <span class="number">0.134</span>,	Adjusted R-squared:  <span class="number">0.1282</span></div><div class="line"><span class="literal">F</span>-statistic: <span class="number">22.91</span> on <span class="number">1</span> and <span class="number">148</span> DF,  p-value: <span class="number">4.073e-06</span></div></pre></td></tr></table></figure>
-<p><strong>Five point summary of Residuals</strong><br>对残差（residuals）的快速总结。残差为所要预测的变量的实际值与模型预测的值的差值，即 $y - \hat{y}$。对于大多数回归模型，我们都希望残差的图看起来想正态分布。残差应该相对于均值对称分布，即中位数（Median）应该接近0，1Q 和 3Q 的值应该最好具有差不多的绝对值。</p>
-<p><strong>Coefficients</strong><br>模型中的每个系数均为（标准）高斯随机变量。<br>$\hat{\beta_i}$ 为该随机变量的分布的均值的估计。<br>标准误为该分布的方差的平方根，它是 $\hat{\beta_i}$ 的估计的可能性指标。<br>$t$ 统计量为 $t_i = \frac{\hat{\beta_i}}{\hat{\sigma_i}}$</p>
+<h1>R</h1>
+<h2 id="解释-lm-的输出结果"><a class="header-anchor" href="#解释-lm-的输出结果">¶</a>解释 <code>lm()</code> 的输出结果</h2>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mod &lt;- lm(iris$Sepal.Width ~ iris$Petal.Width)</div><div class="line">summary(mod)</div><div class="line"></div><div class="line">Call:</div><div class="line">lm(formula = iris$Sepal.Width ~ iris$Petal.Width)</div><div class="line"></div><div class="line">Residuals:</div><div class="line">     Min       1Q   Median       3Q      Max</div><div class="line">-<span class="number">1.09907</span> -<span class="number">0.23626</span> -<span class="number">0.01064</span>  <span class="number">0.23345</span>  <span class="number">1.17532</span></div><div class="line"></div><div class="line">Coefficients:</div><div class="line">                 Estimate Std. Error t value Pr(&gt;|t|)</div><div class="line">(Intercept)       <span class="number">3.30843</span>    <span class="number">0.06210</span>  <span class="number">53.278</span>  &lt; <span class="number">2e-16</span> ***</div><div class="line">iris$Petal.Width -<span class="number">0.20936</span>    <span class="number">0.04374</span>  -<span class="number">4.786</span> <span class="number">4.07e-06</span> ***</div><div class="line">---</div><div class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></div><div class="line"></div><div class="line">Residual standard error: <span class="number">0.407</span> on <span class="number">148</span> degrees of freedom</div><div class="line">Multiple R-squared:  <span class="number">0.134</span>,	Adjusted R-squared:  <span class="number">0.1282</span></div><div class="line"><span class="literal">F</span>-statistic: <span class="number">22.91</span> on <span class="number">1</span> and <span class="number">148</span> DF,  p-value: <span class="number">4.073e-06</span></div></pre></td></tr></table></figure>
+<p><strong>Five point summary of Residuals</strong><br>
+对残差（residuals）的快速总结。残差为所要预测的变量的实际值与模型预测的值的差值，即 $y - \hat{y}$。对于大多数回归模型，我们都希望残差的图看起来想正态分布。残差应该相对于均值对称分布，即中位数（Median）应该接近0，1Q 和 3Q 的值应该最好具有差不多的绝对值。</p>
+<p><strong>Coefficients</strong><br>
+模型中的每个系数均为（标准）高斯随机变量。<br>
+$\hat{\beta_i}$ 为该随机变量的分布的均值的估计。<br>
+标准误为该分布的方差的平方根，它是 $\hat{\beta_i}$ 的估计的可能性指标。<br>
+$t$ 统计量为 $t_i = \frac{\hat{\beta_i}}{\hat{\sigma_i}}$</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tstats &lt;- coef(mod) / sqrt(diag(vcov(mod))))</div></pre></td></tr></table></figure>
 <ul>
 <li><code>coef(mod)</code> 为 $\hat{\beta_i}$</li>
@@ -421,7 +441,7 @@
 </ul>
 <p>p-value 为当虚无假设为真时，获得当前 $t$ 的概率。计算 p-value：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">2</span> * pt(abs(tstats), df = df.residual(mod), lower.tail = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><strong>残差标准误（the residual standard error）</strong>为参数 $\sigma$ 的估计。</p>
+<p>**残差标准误（the residual standard error）**为参数 $\sigma$ 的估计。</p>
 <blockquote>
 <p>The assumption in ordinary least squares（普通最小二乘） is that the residuals are individually described by a Gaussian (normal) distribution with mean 0 and standard deviation $\sigma$. The $\sigma$ relates to the constant variance assumption（方差恒定）; each residual has the same variance and that variance is equal to $\sigma^2$.</p>
 </blockquote>
@@ -437,11 +457,35 @@
 </blockquote>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">anova(mod)</div><div class="line"></div><div class="line">Analysis of Variance Table</div><div class="line"></div><div class="line">Response: Sepal.Width</div><div class="line">             Df  Sum Sq Mean Sq <span class="literal">F</span> value    Pr(&gt;<span class="literal">F</span>)</div><div class="line">Petal.Width   <span class="number">1</span>  <span class="number">3.7945</span>  <span class="number">3.7945</span>   <span class="number">22.91</span> <span class="number">4.073e-06</span> ***</div><div class="line">Residuals   <span class="number">148</span> <span class="number">24.5124</span>  <span class="number">0.1656</span></div><div class="line">---</div><div class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></div></pre></td></tr></table></figure>
 <p>ANOVA 输出结果中的 F 值与 <code>summary(mod)</code> 中输出的 F 值是一样的。F 值由 <code>Mean Sq</code> 列中的数值计算得到：$3.7945 / 0.1656 = 22.91$。可以通过 F 分布和预测变量和残差的自由度来计算当虚无假设为真时获得当前 F 值的概率。对于<strong>单个连续的预测变量</strong>，F 值等于 t 值的平方。$F = t_{\mathrm{Petal.Width}}^2$。</p>
-<p>来源：<a href="http://stats.stackexchange.com/questions/5135/interpretation-of-rs-lm-output" target="_blank" rel="external">stackexchange - cross validated</a><br>拓展阅读：<a href="http://blog.yhat.com/posts/r-lm-summary.html" target="_blank" rel="external">Fitting &amp; Interpreting Linear Models in R</a></p>
-<h2 id="作用于模型对象的范型函数"><a href="#作用于模型对象的范型函数" class="headerlink" title="作用于模型对象的范型函数"></a>作用于模型对象的范型函数</h2><p><code>coef/coefficients(obj, ...)</code> 返回拟合模型对象的模型系数<br><code>vcov(obj, ...)</code> 计算拟合模型对象的参数的方差-协方差矩阵<br><code>resid/residuals(obj, ...)</code> 返回模型对象的残差值<br><code>fitted/fitted.values(obj, ...)</code> 返回模型对象的拟合值<br><code>df.residual(obj, ...)</code> 返回拟合模型对象的残差自由度<br><code>deviance(obj, ...)</code> 返回拟合模型对象的偏差<br><code>extractAIC(fit, scale, k = 2, ...)</code> 对拟合参数模型对象计算 Akaike’s An Information Criterion<br><code>AIC(obj, ..., k = 2)</code> <code>BIC(obj, ...)</code> 计算模型拟合指标<br><code>logLik(obj, ...)</code><br><code>anova(obj, ...)</code> 对一个或多个拟合模型对象计算方差分析表<br><code>effects(obj, ...)</code> 返回拟合模型的（正交）效应，一般用于线性模型（<code>lm</code> <code>glm</code>）<br><code>drop1</code> <code>add1</code> 剔除或者增加模型参数<br><code>step</code> 通过 AIC 值选择模型</p>
-<h2 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h2><h3 id="F-分布函数"><a href="#F-分布函数" class="headerlink" title="F 分布函数"></a>F 分布函数</h3><p><code>df(x, df1, df2, ncp, log = FALSE)</code> 密度函数<br><code>pf(q, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)</code> 分布函数，可用来计算 F 值的 p-value<br><code>qf(p, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)</code> 分位数函数<br><code>rf(n, df1, df2, ncp)</code> 随机数</p>
-<h3 id="t-分布函数"><a href="#t-分布函数" class="headerlink" title="t 分布函数"></a>t 分布函数</h3><p><code>dt(x, df, ncp, log = FALSE)</code><br><code>pt(q, df, ncp, lower.tail = TRUE, log.p = FALSE)</code><br><code>qt(p, df, ncp, lower.tail = TRUE, log.p = FALSE)</code><br><code>rt(n, df, ncp)</code></p>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<p>来源：<a href="http://stats.stackexchange.com/questions/5135/interpretation-of-rs-lm-output" target="_blank" rel="external">stackexchange - cross validated</a><br>
+拓展阅读：<a href="http://blog.yhat.com/posts/r-lm-summary.html" target="_blank" rel="external">Fitting &amp; Interpreting Linear Models in R</a></p>
+<h2 id="作用于模型对象的范型函数"><a class="header-anchor" href="#作用于模型对象的范型函数">¶</a>作用于模型对象的范型函数</h2>
+<p><code>coef/coefficients(obj, ...)</code> 返回拟合模型对象的模型系数<br>
+<code>vcov(obj, ...)</code> 计算拟合模型对象的参数的方差-协方差矩阵<br>
+<code>resid/residuals(obj, ...)</code> 返回模型对象的残差值<br>
+<code>fitted/fitted.values(obj, ...)</code> 返回模型对象的拟合值<br>
+<code>df.residual(obj, ...)</code> 返回拟合模型对象的残差自由度<br>
+<code>deviance(obj, ...)</code> 返回拟合模型对象的偏差<br>
+<code>extractAIC(fit, scale, k = 2, ...)</code> 对拟合参数模型对象计算 Akaike’s An Information Criterion<br>
+<code>AIC(obj, ..., k = 2)</code> <code>BIC(obj, ...)</code> 计算模型拟合指标<br>
+<code>logLik(obj, ...)</code><br>
+<code>anova(obj, ...)</code> 对一个或多个拟合模型对象计算方差分析表<br>
+<code>effects(obj, ...)</code> 返回拟合模型的（正交）效应，一般用于线性模型（<code>lm</code> <code>glm</code>）<br>
+<code>drop1</code> <code>add1</code> 剔除或者增加模型参数<br>
+<code>step</code> 通过 AIC 值选择模型</p>
+<h2 id="分布函数"><a class="header-anchor" href="#分布函数">¶</a>分布函数</h2>
+<h3 id="f-分布函数"><a class="header-anchor" href="#f-分布函数">¶</a>F 分布函数</h3>
+<p><code>df(x, df1, df2, ncp, log = FALSE)</code> 密度函数<br>
+<code>pf(q, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)</code> 分布函数，可用来计算 F 值的 p-value<br>
+<code>qf(p, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)</code> 分位数函数<br>
+<code>rf(n, df1, df2, ncp)</code> 随机数</p>
+<h3 id="t-分布函数"><a class="header-anchor" href="#t-分布函数">¶</a>t 分布函数</h3>
+<p><code>dt(x, df, ncp, log = FALSE)</code><br>
+<code>pt(q, df, ncp, lower.tail = TRUE, log.p = FALSE)</code><br>
+<code>qt(p, df, ncp, lower.tail = TRUE, log.p = FALSE)</code><br>
+<code>rt(n, df, ncp)</code></p>
+<h3 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h3>
+<ul>
 <li>x, q：百分位数组成的向量</li>
 <li>p：概率值组成的向量</li>
 <li>n：观察数目</li>
@@ -450,7 +494,8 @@
 <li>log, log.p：逻辑值，若为 <code>TRUE</code>，概率值取对数 <code>log(p)</code></li>
 <li>lower.tail：逻辑值，若为 <code>TRUE</code>，概率为 P[X &lt;= x] 否则为 P[X &gt; x]</li>
 </ul>
-<h2 id="数据模拟"><a href="#数据模拟" class="headerlink" title="数据模拟"></a>数据模拟</h2><p><strong>为什么要进行模拟？</strong></p>
+<h2 id="数据模拟"><a class="header-anchor" href="#数据模拟">¶</a>数据模拟</h2>
+<p><strong>为什么要进行模拟？</strong></p>
 <blockquote>
 <p>According to Mooney (1997) Monte Carlo simulations are useful to:</p>
 <ul>
@@ -544,23 +589,38 @@
 </tr>
 </tbody>
 </table>
-<p><code>d*</code> density function<br><code>p*</code> distribution function<br><code>q*</code> quantile function<br><code>r*</code> random generation function</p>
+<p><code>d*</code> density function<br>
+<code>p*</code> distribution function<br>
+<code>q*</code> quantile function<br>
+<code>r*</code> random generation function</p>
 <p><strong>可重复的随机数生成</strong>：使用 <code>set.seed()</code> 命令设置随机数生成的起始点。使用同一个种子点，能够获得同一批随机数。（注意：有的时候并非如此）</p>
 <p><code>sample(x, size, replace = FALSE, prob = NULL)</code></p>
 <ul>
-<li><code>sample(x)</code> 随机置换 x 向量</li>
-<li><code>sample(x, size)</code> 从 x 向量中不放回的随机抽取 size 大小的向量</li>
-<li><code>sample(x, size, replace = TRUE)</code> 放回的随机抽样</li>
-<li><p><code>prob</code> 参数指定一个抽样的概率权重</p>
+<li>
+<p><code>sample(x)</code> 随机置换 x 向量</p>
 </li>
-<li><p>从已知分布中生成随机数：<code>r*</code>前缀的分布函数</p>
+<li>
+<p><code>sample(x, size)</code> 从 x 向量中不放回的随机抽取 size 大小的向量</p>
 </li>
-<li>重复表达式：<code>replicate</code><ul>
+<li>
+<p><code>sample(x, size, replace = TRUE)</code> 放回的随机抽样</p>
+</li>
+<li>
+<p><code>prob</code> 参数指定一个抽样的概率权重</p>
+</li>
+<li>
+<p>从已知分布中生成随机数：<code>r*</code>前缀的分布函数</p>
+</li>
+<li>
+<p>重复表达式：<code>replicate</code></p>
+<ul>
 <li><code>replicate(n, expression)</code></li>
 <li><code>replicate(10, mean(rnorm(100)))</code></li>
 </ul>
 </li>
-<li>针对参数的不同元素重复执行表达式：<code>sapply</code><ul>
+<li>
+<p>针对参数的不同元素重复执行表达式：<code>sapply</code></p>
+<ul>
 <li><code>sapply(1:10, sum)</code></li>
 <li><code>sapply(1:10, function(n))</code></li>
 </ul>
@@ -571,19 +631,23 @@
 <li><a href="http://www.esg.montana.edu/R/rsimul.pdf" target="_blank" rel="external">http://www.esg.montana.edu/R/rsimul.pdf</a></li>
 <li><a href="http://had.co.nz/stat480/lectures/15-simulation.pdf" target="_blank" rel="external">http://had.co.nz/stat480/lectures/15-simulation.pdf</a></li>
 </ul>
-<h2 id="rep-amp-seq"><a href="#rep-amp-seq" class="headerlink" title="rep &amp; seq"></a>rep &amp; seq</h2><p><code>rep(x, ...)</code> 复制 <code>x</code> 中的元素</p>
+<h2 id="rep-seq"><a class="header-anchor" href="#rep-seq">¶</a>rep &amp; seq</h2>
+<p><code>rep(x, ...)</code> 复制 <code>x</code> 中的元素</p>
 <ul>
 <li><code>rep(x)</code> 返回 <code>x</code> 自身，等同于 <code>rep(x, times = 1, length.out = NA, each = 1)</code></li>
-<li><code>rep(x, times)</code><ul>
+<li><code>rep(x, times)</code>
+<ul>
 <li>如果 <code>times</code> 为正整数，将 <code>x</code> 整体复制 <code>n</code> 次。</li>
 <li>如果 <code>times</code> 为与<code>x</code>等长的向量，那么对<code>x</code>的元素复制在<code>times</code>中对应的次数。</li>
 </ul>
 </li>
-<li><code>rep(x, each = n)</code> 对 <code>x</code> 中的每个元素复制 <code>n</code> 次。<ul>
+<li><code>rep(x, each = n)</code> 对 <code>x</code> 中的每个元素复制 <code>n</code> 次。
+<ul>
 <li><code>each</code> 只能传入长度为1的向量，当传入的向量长度大于1，取向量的第一个元素当作实参。</li>
 </ul>
 </li>
-<li><code>rep(x, length.out = n)</code> 根据 <code>x</code> 返回长度为 <code>n</code> 的对象。<ul>
+<li><code>rep(x, length.out = n)</code> 根据 <code>x</code> 返回长度为 <code>n</code> 的对象。
+<ul>
 <li>如果 <code>n &lt; length(x)</code> 那么丢弃 <code>n</code> 之外的元素。</li>
 <li>如果 <code>n &gt; length(x)</code> 那么复制 <code>x</code> 直到输出对象的长度为 <code>n</code> 为止。</li>
 <li>当 <code>length.out</code> 与 <code>each</code> 或者 <code>times</code> 同时使用，最后输出的对象的长度受制于 <code>length.out</code>。</li>
@@ -610,7 +674,8 @@
 <li><code>seq(length.out = )</code> 此时 <code>from = 1</code> <code>to = length.out</code> <code>by = 1</code></li>
 </ul>
 <p><code>:</code> 也可以生成数列，用法为 <code>from:to</code>；<code>:</code> 还有另外一个用法，表示交互作用 <code>a:b</code> 等同于 <code>interaction(a, b)</code>。</p>
-<h2 id="sort-amp-order"><a href="#sort-amp-order" class="headerlink" title="sort &amp; order"></a>sort &amp; order</h2><p><code>sort(x, decreasing = FALSE, na.last = NA, ...)</code> 将一个向量或因子增序或者降序排列。对于数据框，使用 <code>order</code> 来排序。</p>
+<h2 id="sort-order"><a class="header-anchor" href="#sort-order">¶</a>sort &amp; order</h2>
+<p><code>sort(x, decreasing = FALSE, na.last = NA, ...)</code> 将一个向量或因子增序或者降序排列。对于数据框，使用 <code>order</code> 来排序。</p>
 <ul>
 <li><code>decreasing</code> 是否为降序</li>
 <li><code>na.last</code> 若为 <code>TRUE</code> 缺失值被排到最后；若为 <code>FALSE</code> 排到最前；若为 <code>NA</code> 剔除缺失值。</li>
@@ -623,11 +688,13 @@
 <ul>
 <li>实际上，<code>sort</code> 调用了 <code>order</code> 来对向量进行排序。<code>sort(x)</code> 等同于 <code>x[order(x)]</code>。</li>
 </ul>
-<h1 id="Statistics"><a href="#Statistics" class="headerlink" title="Statistics"></a>Statistics</h1><p><strong>标准差是否有好坏之分？</strong></p>
+<h1>Statistics</h1>
+<p><strong>标准差是否有好坏之分？</strong></p>
 <ul>
 <li>标准差并无好坏之分，有的时候需要较大的标准差，有时候需要较少的标准差，应该关注统计检验的目的，样本特征。</li>
 </ul>
-<h1 id="MySQL-索引"><a href="#MySQL-索引" class="headerlink" title="MySQL 索引"></a>MySQL 索引</h1><p>索引有何用？</p>
+<h1>MySQL 索引</h1>
+<p>索引有何用？</p>
 <ul>
 <li>加速数据库数据读取</li>
 <li>强制约束（唯一索引 UNIQUE，外键 FOREIGN KEY）</li>
@@ -647,7 +714,8 @@
 <li>开合间查询：查询所有 KEY &gt; 5 的记录</li>
 <li>闭合间查询：查询所有 5 &lt; KEY &lt; 10 的记录</li>
 </ul>
-<p>字符索引<br>联合索引</p>
+<p>字符索引<br>
+联合索引</p>
 <p>索引的开销</p>
 <ul>
 <li>不要添加多余的索引：多数情况下，扩展索引比添加一个新的索引要好</li>
@@ -663,20 +731,27 @@
 <ul>
 <li><a href="https://segmentfault.com/a/1190000007494097" target="_blank" rel="external">MYSQL索引最佳实践</a><a href="https://www.percona.com/files/presentations/WEBINAR-MySQL-Indexing-Best-Practices.pdf" target="_blank" rel="external">原文</a></li>
 </ul>
-<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>三个命令：<code>repeat</code> <code>watch</code> <code>sleep</code></p>
-<p><code>repeat 5 echo &quot;Repeat the line 5 times.&quot;</code> 重复执行5次<br><code>watch -n 1 echo &quot;Repeat the line every second, forever.&quot;</code> 每隔1秒执行重复执行</p>
+<h1>Shell</h1>
+<p>三个命令：<code>repeat</code> <code>watch</code> <code>sleep</code></p>
+<p><code>repeat 5 echo &quot;Repeat the line 5 times.&quot;</code> 重复执行5次<br>
+<code>watch -n 1 echo &quot;Repeat the line every second, forever.&quot;</code> 每隔1秒执行重复执行</p>
 <p>MacOS 下默认未安装 <code>watch</code> 可从 Mac Ports 或者 Homebrew 获取 <code>brew install watch</code></p>
 <p>通过 <code>while</code> 和 <code>sleep</code> 也可以实现按固定周期重复命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">while true</div><div class="line">do</div><div class="line">    echo &quot;Repeat me every one second.&quot;</div><div class="line">    sleep 1</div><div class="line">done</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">while sleep 1; do echo &quot;Repeat me every one second.&quot;; done</div></pre></td></tr></table></figure>
 <p>来源：<a href="http://unix.stackexchange.com/questions/10646/repeat-a-unix-command-every-x-seconds-forever" target="_blank" rel="external">stackexchange - Unix &amp; Linux</a></p>
-<p><code>fdisk -l</code> 查看硬盘分区<br><code>mount -t ntfs /dev/sda1 /mnt/</code> 挂载 ntfs 分区 sda1 至 mnt 下</p>
-<h1 id="Emacs-lisp"><a href="#Emacs-lisp" class="headerlink" title="Emacs lisp"></a>Emacs lisp</h1><h2 id="添加镜像"><a href="#添加镜像" class="headerlink" title="添加镜像"></a>添加镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(add-to-list</div><div class="line">    &apos;package-archives &apos;(&quot;melpa&quot; . &quot;https://elpa.zilongshanren.com/melpa/&quot;))</div></pre></td></tr></table></figure>
+<p><code>fdisk -l</code> 查看硬盘分区<br>
+<code>mount -t ntfs /dev/sda1 /mnt/</code> 挂载 ntfs 分区 sda1 至 mnt 下</p>
+<h1>Emacs lisp</h1>
+<h2 id="添加镜像"><a class="header-anchor" href="#添加镜像">¶</a>添加镜像</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(add-to-list</div><div class="line">    &apos;package-archives &apos;(&quot;melpa&quot; . &quot;https://elpa.zilongshanren.com/melpa/&quot;))</div></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(setq package-archives &apos;((&quot;gnu&quot; . &quot;http://elpa.zilongshanren.com/gnu/&quot;)</div><div class="line">                         (&quot;melpa&quot; . &quot;http://elpa.zilongshanren.com/melpa/&quot;))</div></pre></td></tr></table></figure>
-<h2 id="list-循环添加镜像"><a href="#list-循环添加镜像" class="headerlink" title="list 循环添加镜像"></a>list 循环添加镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(dolist (i &apos;((&quot;melpa-cn&quot; . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/&quot;)</div><div class="line">             (&quot;org-cn&quot;   . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/org/&quot;)</div><div class="line">             (&quot;gnu-cn&quot;   . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/&quot;)))</div><div class="line">  (add-to-list &apos;package-archives i))</div></pre></td></tr></table></figure>
+<h2 id="list-循环添加镜像"><a class="header-anchor" href="#list-循环添加镜像">¶</a>list 循环添加镜像</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(dolist (i &apos;((&quot;melpa-cn&quot; . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/&quot;)</div><div class="line">             (&quot;org-cn&quot;   . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/org/&quot;)</div><div class="line">             (&quot;gnu-cn&quot;   . &quot;http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/&quot;)))</div><div class="line">  (add-to-list &apos;package-archives i))</div></pre></td></tr></table></figure>
 <p>来源：<a href="https://emacs-china.org/t/emacs-china-archive/1656/1" target="_blank" rel="external">Emacs-china</a></p>
-<h1 id="没来得及看"><a href="#没来得及看" class="headerlink" title="没来得及看"></a>没来得及看</h1><ul>
+<h1>没来得及看</h1>
+<ul>
 <li><a href="https://github.com/liuchengxu/git-commit-emoji-cn" target="_blank" rel="external">git commit emoji 使用指南</a></li>
 <li><a href="https://www.h5jun.com/post/gitmoji.html" target="_blank" rel="external">程序员提交代码的 emoji 指南</a></li>
 <li><a href="https://forum.freecodecamp.com/t/testing-your-own-code-using-mocha-and-chai-simple-example/44149/1" target="_blank" rel="external">FreeCodeCamp: Mocha 和 Chai 测试入门</a></li>
@@ -736,8 +811,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/24/2016-11-24-daily/" rel="prev" title="每日总结 2016-11-24">
-                每日总结 2016-11-24 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/24/2016-11-24-r-data-type/" rel="prev" title="R：基本数据对象">
+                R：基本数据对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -901,7 +976,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-布局"><span class="nav-number">1.1.</span> <span class="nav-text">grid 布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在一个-JS-脚本文件中导入另一个-JS-脚本文件"><span class="nav-number">2.1.</span> <span class="nav-text">在一个 JS 脚本文件中导入另一个 JS 脚本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何从-JS-数组中删除特定元素？"><span class="nav-number">2.2.</span> <span class="nav-text">如何从 JS 数组中删除特定元素？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解释-lm-的输出结果"><span class="nav-number">3.1.</span> <span class="nav-text">解释 lm() 的输出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用于模型对象的范型函数"><span class="nav-number">3.2.</span> <span class="nav-text">作用于模型对象的范型函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布函数"><span class="nav-number">3.3.</span> <span class="nav-text">分布函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-分布函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">F 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#t-分布函数"><span class="nav-number">3.3.2.</span> <span class="nav-text">t 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.3.3.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据模拟"><span class="nav-number">3.4.</span> <span class="nav-text">数据模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rep-amp-seq"><span class="nav-number">3.5.</span> <span class="nav-text">rep & seq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-amp-order"><span class="nav-number">3.6.</span> <span class="nav-text">sort & order</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Statistics"><span class="nav-number">4.</span> <span class="nav-text">Statistics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL-索引"><span class="nav-number">5.</span> <span class="nav-text">MySQL 索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-number">6.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Emacs-lisp"><span class="nav-number">7.</span> <span class="nav-text">Emacs lisp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加镜像"><span class="nav-number">7.1.</span> <span class="nav-text">添加镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-循环添加镜像"><span class="nav-number">7.2.</span> <span class="nav-text">list 循环添加镜像</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#没来得及看"><span class="nav-number">8.</span> <span class="nav-text">没来得及看</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-布局"><span class="nav-number">1.1.</span> <span class="nav-text">¶grid 布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在一个-js-脚本文件中导入另一个-js-脚本文件"><span class="nav-number">2.1.</span> <span class="nav-text">¶在一个 JS 脚本文件中导入另一个 JS 脚本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何从-js-数组中删除特定元素？"><span class="nav-number">2.2.</span> <span class="nav-text">¶如何从 JS 数组中删除特定元素？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解释-lm-的输出结果"><span class="nav-number">3.1.</span> <span class="nav-text">¶解释 lm() 的输出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用于模型对象的范型函数"><span class="nav-number">3.2.</span> <span class="nav-text">¶作用于模型对象的范型函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布函数"><span class="nav-number">3.3.</span> <span class="nav-text">¶分布函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#f-分布函数"><span class="nav-number">3.3.1.</span> <span class="nav-text">¶F 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#t-分布函数"><span class="nav-number">3.3.2.</span> <span class="nav-text">¶t 分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.3.3.</span> <span class="nav-text">¶参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据模拟"><span class="nav-number">3.4.</span> <span class="nav-text">¶数据模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rep-seq"><span class="nav-number">3.5.</span> <span class="nav-text">¶rep & seq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-order"><span class="nav-number">3.6.</span> <span class="nav-text">¶sort & order</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Statistics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">MySQL 索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Emacs lisp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加镜像"><span class="nav-number">7.1.</span> <span class="nav-text">¶添加镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-循环添加镜像"><span class="nav-number">7.2.</span> <span class="nav-text">¶list 循环添加镜像</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">没来得及看</span></a></li></ol></div>
             
           </div>
         </section>

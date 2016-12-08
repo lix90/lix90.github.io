@@ -352,11 +352,16 @@
 
       
         <p>内容来源：<a href="https://zhuanlan.zhihu.com/p/23713529" target="_blank" rel="external">知乎专栏-学习编程：常见面试题整理–数据库篇</a></p>
-<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>什么是存储过程？优缺点？</p>
-<p>存储过程：一个预编译的代码块（T-SQL），实现一系列功能（对表单或多表增删改查），然后方便调用。<br>优点：执行效率较高；降低网络通信量，提高通信效率；一定程度上确保数据安全。</p>
+<h1>存储过程</h1>
+<p>什么是存储过程？优缺点？</p>
+<p>存储过程：一个预编译的代码块（T-SQL），实现一系列功能（对表单或多表增删改查），然后方便调用。<br>
+优点：执行效率较高；降低网络通信量，提高通信效率；一定程度上确保数据安全。</p>
 <p>我的问题：如何编写存储过程代码？</p>
-<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>什么是索引？作用？优缺点？使用索引查询一定能提高查询的性能吗？</p>
-<p>索引：对数据库表中一或多个列的值进行<strong>排序</strong>的结构，能够<strong>加快数据检索</strong>，允许数据库程序迅速找到表中数据，而不必扫描整个数据库。<br>MySQL中几个基本的索引：普通索引、唯一索引、主键索引、全文索引。<br>优缺点：</p>
+<h1>索引</h1>
+<p>什么是索引？作用？优缺点？使用索引查询一定能提高查询的性能吗？</p>
+<p>索引：对数据库表中一或多个列的值进行<strong>排序</strong>的结构，能够<strong>加快数据检索</strong>，允许数据库程序迅速找到表中数据，而不必扫描整个数据库。<br>
+MySQL中几个基本的索引：普通索引、唯一索引、主键索引、全文索引。<br>
+优缺点：</p>
 <ul>
 <li>加快数据检索速度</li>
 <li>降低增删改等维护任务的速度</li>
@@ -371,14 +376,17 @@
 <li><strong>基于非唯一性索引的检索</strong>。</li>
 </ul>
 <p>我的问题：如何创建索引？</p>
-<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>事务（Transaction）：并发控制的基本单位。它是一个操作序列，要么执行，要么都不执行，是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，保持数据一致性。</p>
-<h1 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h1><p>乐观锁与悲观锁</p>
+<h1>事务</h1>
+<p>事务（Transaction）：并发控制的基本单位。它是一个操作序列，要么执行，要么都不执行，是一个不可分割的工作单位。事务是数据库维护数据一致性的单位，在每个事务结束时，保持数据一致性。</p>
+<h1>并发控制</h1>
+<p>乐观锁与悲观锁</p>
 <p><strong>并发控制</strong>确保多个事务在同时存取数据库中同一数据时，不破坏事务的隔离性和统一性，以及数据库的统一性。乐观锁和悲观锁为并发控制的主要技术手段。</p>
 <ul>
 <li>悲观锁为悲观并发控制，它假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作；</li>
 <li>乐观锁为乐观并发控制，它假定不会发生并发冲突，只在提交操作时检查是否违反数据完整性。</li>
 </ul>
-<h1 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h1><p>drop, delete, truncate 的区别？分别在什么场景下使用？</p>
+<h1>删除操作</h1>
+<p>drop, delete, truncate 的区别？分别在什么场景下使用？</p>
 <ul>
 <li>三者均为删除操作；</li>
 <li>delete 和 truncate 只删除表的数据不删除表的结构</li>
@@ -391,15 +399,21 @@
 <li>删除部分数据行，用 delete，带上 where 子句；</li>
 <li>保留表而删除所有数据，用 truncate。</li>
 </ul>
-<h1 id="键"><a href="#键" class="headerlink" title="键"></a>键</h1><p>超键、候选键、主键、外键是什么？</p>
-<p>超键：在关系中<strong>能唯一标识元组的属性集</strong>称为关系模式的超键。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含<strong>候选键</strong>和<strong>主键</strong>。<br>候选键：最小超键，即没有冗余元素的超键。<br>主键：数据库表中对储存数据对象予以<strong>唯一和完整标识</strong>的数据列或属性的组合。<strong>一个数据列只能有一个主键</strong>，且主键的取值不能缺失，即不能为空值（Null）。<br>外键：在一个表中存在的另一个表的主键称此表的外键。</p>
-<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>什么是视图？视图的使用场景？</p>
+<h1>键</h1>
+<p>超键、候选键、主键、外键是什么？</p>
+<p>超键：在关系中<strong>能唯一标识元组的属性集</strong>称为关系模式的超键。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含<strong>候选键</strong>和<strong>主键</strong>。<br>
+候选键：最小超键，即没有冗余元素的超键。<br>
+主键：数据库表中对储存数据对象予以<strong>唯一和完整标识</strong>的数据列或属性的组合。<strong>一个数据列只能有一个主键</strong>，且主键的取值不能缺失，即不能为空值（Null）。<br>
+外键：在一个表中存在的另一个表的主键称此表的外键。</p>
+<h1>视图</h1>
+<p>什么是视图？视图的使用场景？</p>
 <p>视图是一种虚拟的表，具有和物理表相同的功能，可对视图进行增，改，查的操作。视图通常是一个表或者多个表的行或列的子集。相比多表查询，使得我们获取数据更容易。对视图的修改不影响基本表。</p>
 <ul>
 <li>只暴露部分字段给访问者；</li>
 <li>查询的数据来源于不同的表，而查询者希望以统一的方式查询，创建视图能把多个表查询结果联合起来，查询者只需要直接从视图中获取数据，不必考虑数据来源于不同表所带来的差异</li>
 </ul>
-<h1 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h1><p>范式（Normal Form）：符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。通俗地讲，就是一张数据表的表结构所符合的某种设计标准的级别。符合高一级范式的设计，必定符合低一级范式。范式作为设计的标准范式，其最大的意义就是为了避免数据的冗余和插入/删除/更新的异常。</p>
+<h1>范式</h1>
+<p>范式（Normal Form）：符合某一种级别的关系模式的集合，表示一个关系内部各属性之间的联系的合理化程度。通俗地讲，就是一张数据表的表结构所符合的某种设计标准的级别。符合高一级范式的设计，必定符合低一级范式。范式作为设计的标准范式，其最大的意义就是为了避免数据的冗余和插入/删除/更新的异常。</p>
 <p>第一范式 1NF：符合 1NF 关系中的每个属性都不可再分。也就是说，一个属性不能有子属性。1NF 是所有关系型数据库（RDB）的最基本要求。只要在关系型数据库管理系统中已经存在的数据表，一定是符合 1NF 的。如果仅仅符合 1NF 的设计，会存在数据冗余过大，插入异常，删除异常，修改异常等问题。故需要提高设计标准，解决导致上述问题的因素，使其符合更高一级范式，这就是所谓的“规范化”。</p>
 <p>第二范式 2NF：2NF 在 1NF 的基础上，消除了非主属性对于码的部分函数依赖。2NF 要求，如果依赖于主键，则需要依赖于所有主键，不能存在依赖部分主键的情况。通俗说，就是不要把不相关的东西放到一个表中。不相关的东西不要放在一起，用多个小表连接来代替大表，减少修改时候的负担。</p>
 <ul>
@@ -467,16 +481,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/19/2016-11-19-daily/" rel="next" title="每日总结 2016-11-19">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-19
+              <a href="/2016/11/18/2016-11-18-daily/" rel="next" title="每日总结 2016-11-18">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-18
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/21/2016-11-21-clean-suit/" rel="prev" title="西服保养建议">
-                西服保养建议 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/19/2016-11-19-daily/" rel="prev" title="每日总结 2016-11-19">
+                每日总结 2016-11-19 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +654,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#存储过程"><span class="nav-number">1.</span> <span class="nav-text">存储过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#索引"><span class="nav-number">2.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事务"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并发控制"><span class="nav-number">4.</span> <span class="nav-text">并发控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除操作"><span class="nav-number">5.</span> <span class="nav-text">删除操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键"><span class="nav-number">6.</span> <span class="nav-text">键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视图"><span class="nav-number">7.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#范式"><span class="nav-number">8.</span> <span class="nav-text">范式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">存储过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">并发控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">删除操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">范式</span></a></li></ol></div>
             
           </div>
         </section>

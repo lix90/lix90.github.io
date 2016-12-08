@@ -88,43 +88,49 @@
 
 
 
-<meta name="description" content="JavaScriptJS 对象JS 的对象是一种无序的集合数据类型，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。
+<meta name="description" content="JavaScript
+¶JS 对象
+JS 的对象是一种无序的集合数据类型，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。
 对象属性的访问：
 
 object.property 通过 . 号
-object[&amp;#39;property&amp;#39;]
+object[&apos;property&apos;]
 
 检测是否拥有某一属性：
 
 in： 但是继承所得到的属性 in 也会返回真的结果
-hasOwnPrope">
+hasOwnProperty 判">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-01">
 <meta property="og:url" content="http://lix90.github.io/2016/11/02/2016-11-01-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="JavaScriptJS 对象JS 的对象是一种无序的集合数据类型，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。
+<meta property="og:description" content="JavaScript
+¶JS 对象
+JS 的对象是一种无序的集合数据类型，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。
 对象属性的访问：
 
 object.property 通过 . 号
-object[&amp;#39;property&amp;#39;]
+object[&apos;property&apos;]
 
 检测是否拥有某一属性：
 
 in： 但是继承所得到的属性 in 也会返回真的结果
-hasOwnPrope">
+hasOwnProperty 判">
 <meta property="og:updated_time" content="2016-11-19T03:30:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-01">
-<meta name="twitter:description" content="JavaScriptJS 对象JS 的对象是一种无序的集合数据类型，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。
+<meta name="twitter:description" content="JavaScript
+¶JS 对象
+JS 的对象是一种无序的集合数据类型，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。
 对象属性的访问：
 
 object.property 通过 . 号
-object[&amp;#39;property&amp;#39;]
+object[&apos;property&apos;]
 
 检测是否拥有某一属性：
 
 in： 但是继承所得到的属性 in 也会返回真的结果
-hasOwnPrope">
+hasOwnProperty 判">
 
 
 
@@ -378,18 +384,21 @@ hasOwnPrope">
       
 
       
-        <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="JS-对象"><a href="#JS-对象" class="headerlink" title="JS 对象"></a>JS 对象</h2><p>JS 的对象是一种<strong>无序的集合数据类型</strong>，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。</p>
+        <h1>JavaScript</h1>
+<h2 id="js-对象"><a class="header-anchor" href="#js-对象">¶</a>JS 对象</h2>
+<p>JS 的对象是一种<strong>无序的集合数据类型</strong>，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。</p>
 <p>对象属性的访问：</p>
 <ul>
 <li><code>object.property</code> 通过 <code>.</code> 号</li>
-<li><code>object[&#39;property&#39;]</code></li>
+<li><code>object['property']</code></li>
 </ul>
 <p>检测是否拥有某一属性：</p>
 <ul>
 <li><code>in</code>： 但是继承所得到的属性 <code>in</code> 也会返回真的结果</li>
 <li><code>hasOwnProperty</code> 判断自身具有的属性</li>
 </ul>
-<h2 id="Map-与-Set"><a href="#Map-与-Set" class="headerlink" title="Map 与 Set"></a>Map 与 Set</h2><p><code>Map</code> 和 <code>Set</code> 为 ES6 规范引入的新数据类型。</p>
+<h2 id="map-与-set"><a class="header-anchor" href="#map-与-set">¶</a>Map 与 Set</h2>
+<p><code>Map</code> 和 <code>Set</code> 为 ES6 规范引入的新数据类型。</p>
 <p><code>Map</code> 是一组<strong>键值对</strong>的结构，具有极快的查找速度。一个 <code>key</code> 只能对应一个 <code>value</code>。初始化 <code>Map</code> 需要一个二维数组。初始化空 <code>Map</code>：<code>var m = new Map()</code>。<code>Map</code> 类型有以下方法：</p>
 <ul>
 <li><code>set(key, value)</code> 添加新的键值对</li>
@@ -404,7 +413,8 @@ hasOwnPrope">
 <li><code>has</code> 是否存在键</li>
 <li><code>clear</code> 清除所有键</li>
 </ul>
-<h2 id="iterable-类型"><a href="#iterable-类型" class="headerlink" title="iterable 类型"></a>iterable 类型</h2><p>遍历 <code>Array</code> 可以采用下标循环，遍历 <code>Map</code> 和 <code>Set</code> 就无法使用下标。为了统一集合类型，ES6 标准引入了新的 <code>iterable</code> 类型，<code>Array</code>、<code>Map</code> 和 <code>Set</code> 都属于 <code>iterable</code> 类型。</p>
+<h2 id="iterable-类型"><a class="header-anchor" href="#iterable-类型">¶</a>iterable 类型</h2>
+<p>遍历 <code>Array</code> 可以采用下标循环，遍历 <code>Map</code> 和 <code>Set</code> 就无法使用下标。为了统一集合类型，ES6 标准引入了新的 <code>iterable</code> 类型，<code>Array</code>、<code>Map</code> 和 <code>Set</code> 都属于 <code>iterable</code> 类型。</p>
 <p>具有 <code>iterable</code> 类型的集合可以通过新的 <code>for ... of</code> 循环来遍历。</p>
 <p><code>for ... in</code> 和 <code>for ... of</code> 有什么差别？</p>
 <ul>
@@ -414,7 +424,8 @@ hasOwnPrope">
 <p>遍历集合更好的方式是直接使用 <code>iterable</code> 内置的 <code>forEach</code> 方法，它接收一个函数，每次迭代就自动回调该函数。<code>arr.forEach(function(element, index, array) {});</code></p>
 <p><code>Set</code> 与 <code>Array</code> 类似，但 <code>Set</code> 没有索引，因此回调函数的前两个参数都是元素本身。</p>
 <p><code>Map</code> 的回调函数参数依次为 <code>value</code>、<code>key</code> 和 <code>map</code> 本身。</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>在 JavaScript 里，函数是“头等公民”，而且可以像变量一样使用，具有非常强大的抽象能力。</p>
+<h2 id="函数"><a class="header-anchor" href="#函数">¶</a>函数</h2>
+<p>在 JavaScript 里，函数是“头等公民”，而且可以像变量一样使用，具有非常强大的抽象能力。</p>
 <p>抽象：借助抽象，可以不用关心底层的具体计算过程，而直接在更高的层次上思考问题。写计算机程序也是一样，函数就是最基本的一种代码抽象的方式。</p>
 <p>函数体内部的语句在执行时，一旦执行到 <code>return</code> 时，函数就执行完毕，并将结果返回。如果没有 <code>return</code> 语句，函数执行完毕后也会返回结果，只是结果为 <code>undefined</code>。</p>
 <p>两种等价的函数定义方式：</p>
@@ -440,18 +451,24 @@ hasOwnPrope">
 <p>命名空间</p>
 <p>全局变量会绑定到 window 上，不同的 JavaScript 文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突，并且很难被发现。<strong>减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中</strong>。</p>
 <p>局部作用域</p>
-<p>在 for 循环等语句块中无法定义具有局部作用域的变量。<br>为了解决块级作用域，ES6 引入了新的关键字 <code>let</code>，用 <code>let</code> 替代 <code>var</code> 可以申明一个块级作用域的变量。</p>
+<p>在 for 循环等语句块中无法定义具有局部作用域的变量。<br>
+为了解决块级作用域，ES6 引入了新的关键字 <code>let</code>，用 <code>let</code> 替代 <code>var</code> 可以申明一个块级作用域的变量。</p>
 <p>常量</p>
-<p>由于 <code>var</code> 和 <code>let</code> 申明的是变量，如果要申明一个常量，在 ES6 之前是不行的，我们通常用<strong>全部大写的变量</strong>来表示常量。<br>ES6 标准引入了新的关键字 <code>const</code> 来定义常量，<code>const</code> 与 <code>let</code> 都具有块级作用域。</p>
+<p>由于 <code>var</code> 和 <code>let</code> 申明的是变量，如果要申明一个常量，在 ES6 之前是不行的，我们通常用<strong>全部大写的变量</strong>来表示常量。<br>
+ES6 标准引入了新的关键字 <code>const</code> 来定义常量，<code>const</code> 与 <code>let</code> 都具有块级作用域。</p>
 <p>方法</p>
-<p>在一个对象中绑定的函数就是这个对象的方法。<br>在一个方法内部，<code>this</code> 是一个特殊变量，它始终指向当前对象。</p>
+<p>在一个对象中绑定的函数就是这个对象的方法。<br>
+在一个方法内部，<code>this</code> 是一个特殊变量，它始终指向当前对象。</p>
 <p>JavaScript 的函数内部如果调用了 <code>this</code>，那么这个 <code>this</code> 到底指向谁？视情况而定。</p>
 <ul>
 <li>如果以对象的方法形式调用，该函数的 <code>this</code> 指向被调用的对象；</li>
 <li>如果单独调用函数，此时，该函数的 <code>this</code> 指向全局对象，也就是 <code>window</code>。</li>
 </ul>
-<p>要保证 <code>this</code> 指向正确，必须用 <code>obj.xxx()</code> 的形式调用！<br>ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> 指向 <code>undefined</code>。<br>用 <code>var that = this;</code>，你就可以放心地在方法内部定义其他函数，而不是把所有语句都堆到一个方法中。</p>
-<p><code>apply</code> 方法：它接收两个参数，第一个参数就是需要绑定的 <code>this</code> 变量，第二个参数是 <code>Array</code>，表示函数本身的参数。<br><code>apply</code>和<code>call</code>方法：</p>
+<p>要保证 <code>this</code> 指向正确，必须用 <code>obj.xxx()</code> 的形式调用！<br>
+ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> 指向 <code>undefined</code>。<br>
+用 <code>var that = this;</code>，你就可以放心地在方法内部定义其他函数，而不是把所有语句都堆到一个方法中。</p>
+<p><code>apply</code> 方法：它接收两个参数，第一个参数就是需要绑定的 <code>this</code> 变量，第二个参数是 <code>Array</code>，表示函数本身的参数。<br>
+<code>apply</code>和<code>call</code>方法：</p>
 <ul>
 <li><code>apply()</code> 把参数打包成 <code>Array</code> 再传入；</li>
 <li><code>call()</code> 把参数按顺序传入；</li>
@@ -467,9 +484,12 @@ hasOwnPrope">
 <li><code>sort</code>：<code>sort</code> 方法会直接对 <code>Array</code> 进行修改，它返回的结果仍是当前 <code>Array</code>。</li>
 </ul>
 <p>闭包</p>
-<p>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。<br>返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来。</p>
+<p>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。<br>
+返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。<br>
+闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来。</p>
 <p>箭头函数</p>
-<p>箭头函数内部的 <code>this</code> 是词法作用域，由上下文确定。<br>箭头函数完全修复了 <code>this</code> 的指向，<code>this</code> 总是指向词法作用域，也就是外层调用者 <code>obj</code>。</p>
+<p>箭头函数内部的 <code>this</code> 是词法作用域，由上下文确定。<br>
+箭头函数完全修复了 <code>this</code> 的指向，<code>this</code> 总是指向词法作用域，也就是外层调用者 <code>obj</code>。</p>
 <p>generator 生成器</p>
 <p>ES6 标准引入的新的数据类型。一个 <code>generator</code> 看上去像一个函数，但可以返回多次。</p>
 <p>小结：</p>
@@ -486,7 +506,8 @@ hasOwnPrope">
 <ul>
 <li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">廖雪峰的官方网站</a></li>
 </ul>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>生成器</p>
+<h1>Python</h1>
+<p>生成器</p>
 <p>在 Python 中，这种一边循环一边计算的机制，称为生成器：<code>generator</code>。</p>
 <ul>
 <li><code>generator</code> 保存的是算法</li>
@@ -519,7 +540,8 @@ hasOwnPrope">
 <p>If the name denotes a valid class attribute that is a function object, a method object is created by packing (pointers to) the instance object and the function object just found together in an abstract object: this is the method object.</p>
 </blockquote>
 <p>—&gt; 未完</p>
-<h2 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h2><p>关于引号：单引号内变量名会被当作字符串，双引号则会被当作变量处理。</p>
+<h2 id="bash"><a class="header-anchor" href="#bash">¶</a>Bash</h2>
+<p>关于引号：单引号内变量名会被当作字符串，双引号则会被当作变量处理。</p>
 <p>算术运算：<code>expr</code> <code>$(())</code> <code>$[]</code> <code>+</code> <code>-</code> <code>/</code> <code>%</code> <code>**</code></p>
 <p>条件控制:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if 命令为真</div><div class="line">then</div><div class="line">    命令</div><div class="line">fi</div><div class="line"># 或者</div><div class="line">if 命令为真; then</div><div class="line">    命令</div><div class="line">fi</div></pre></td></tr></table></figure>
@@ -539,9 +561,12 @@ hasOwnPrope">
 <p>循环语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for ((i=1; i&lt;=10; i++))</div><div class="line">do</div><div class="line">    echo &quot;$i&quot;</div><div class="line">done</div><div class="line"></div><div class="line"># 或者</div><div class="line"></div><div class="line">for var in &#123;1..10&#125;</div><div class="line">do</div><div class="line">    echo &quot;$var&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
 <hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h1 id="Hackerrank-笔记"><a href="#Hackerrank-笔记" class="headerlink" title="Hackerrank 笔记"></a>Hackerrank 笔记</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in &#123;1..100..2&#125;</div><div class="line">do</div><div class="line">    echo $i</div><div class="line">done</div></pre></td></tr></table></figure>
+<h1>杂项</h1>
+<h1>Hackerrank 笔记</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in &#123;1..100..2&#125;</div><div class="line">do</div><div class="line">    echo $i</div><div class="line">done</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 1 2 99</div></pre></td></tr></table></figure>
-<h2 id="来自于纪录片《Helvetica》"><a href="#来自于纪录片《Helvetica》" class="headerlink" title="来自于纪录片《Helvetica》"></a>来自于纪录片《Helvetica》</h2><blockquote>
+<h2 id="来自于纪录片-helvetica"><a class="header-anchor" href="#来自于纪录片-helvetica">¶</a>来自于纪录片《Helvetica》</h2>
+<blockquote>
 <ul>
 <li>别把易读性和信息传达混为一谈。某样东西清晰易读，并不说明它能传达信息。更重要的是，并不意味着它传达了正确的信息。反过来说，某个东西或许开始的时候很难辨识，但它传达了一种全然不同的信息。同时又切合主题。那么，或许它就是需要读者多花点时间和心思的。这种方式表达的效果往往要更为强烈。如果有条非常重要的信息用一种平凡无聊的方式排出来。这条消息很可能就被忽略了。</li>
 <li>“简洁有力” 和 “空洞乏味” 之间的界限其实很模糊。</li>
@@ -549,7 +574,10 @@ hasOwnPrope">
 <li>你越是接近它，对它看得越多，就越能够欣赏它的优秀。</li>
 </ul>
 </blockquote>
-<h1 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h1><p>recursive invocation 递归调用<br>unqualified reference 没有资格的引用 or 无授权的引用？<br>wrapper 封装</p>
+<h1>词汇</h1>
+<p>recursive invocation 递归调用<br>
+unqualified reference 没有资格的引用 or 无授权的引用？<br>
+wrapper 封装</p>
 
       
     </div>
@@ -760,7 +788,7 @@ hasOwnPrope">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-对象"><span class="nav-number">1.1.</span> <span class="nav-text">JS 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-与-Set"><span class="nav-number">1.2.</span> <span class="nav-text">Map 与 Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iterable-类型"><span class="nav-number">1.3.</span> <span class="nav-text">iterable 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.4.</span> <span class="nav-text">函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bash"><span class="nav-number">2.1.</span> <span class="nav-text">Bash</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hackerrank-笔记"><span class="nav-number">4.</span> <span class="nav-text">Hackerrank 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#来自于纪录片《Helvetica》"><span class="nav-number">4.1.</span> <span class="nav-text">来自于纪录片《Helvetica》</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#词汇"><span class="nav-number">5.</span> <span class="nav-text">词汇</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-对象"><span class="nav-number">1.1.</span> <span class="nav-text">¶JS 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-与-set"><span class="nav-number">1.2.</span> <span class="nav-text">¶Map 与 Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iterable-类型"><span class="nav-number">1.3.</span> <span class="nav-text">¶iterable 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.4.</span> <span class="nav-text">¶函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bash"><span class="nav-number">2.1.</span> <span class="nav-text">¶Bash</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Hackerrank 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#来自于纪录片-helvetica"><span class="nav-number">4.1.</span> <span class="nav-text">¶来自于纪录片《Helvetica》</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">词汇</span></a></li></ol></div>
             
           </div>
         </section>

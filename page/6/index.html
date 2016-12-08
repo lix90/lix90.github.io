@@ -352,7 +352,8 @@
       
         
           
-            <h1 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h1><p>中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》</p>
+            <h1>云计算</h1>
+<p>中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》</p>
 <blockquote>
 <p>容器的技术生态主要分为<strong>核心容器技术</strong>、<strong>分布式容器技术</strong>、<strong>容器平台技术</strong>，以及<strong>容器原生辅助支持技术</strong>四部分。</p>
 </blockquote>
@@ -365,7 +366,8 @@
 </ul>
 <p>来源：<a href="http://blog.dataman-inc.com/shurenyun-news-1110/" target="_blank" rel="external">数人云博客</a></p>
 <hr>
-<p>云计算目前分为：IaaS、SaaS、PaaS<br>IaaS 和 PaaS 的区别：</p>
+<p>云计算目前分为：IaaS、SaaS、PaaS<br>
+IaaS 和 PaaS 的区别：</p>
 <ul>
 <li>IaaS 层指用户无需购置存储、网络设备等，例如云主机，使用者为运维/研发等。</li>
 <li>PaaS 层主要提供 SDK、API，用户不必自己购买专用的开发软件、测试软件、服务器等，实现软件的轻松快速发布，多为软件开发商。</li>
@@ -375,7 +377,8 @@
 <p>云能解决哪些问题？</p>
 <ul>
 <li>降低采购周期，提高资源利用率</li>
-<li>降低研发、运维难度<blockquote>
+<li>降低研发、运维难度
+<blockquote>
 <ul>
 <li>购买技术和对应的一些服务来降低开发难度，提高开发效率，让你的产品能够更快的出来，能让你在互联网时代更敏捷一些。</li>
 <li>引入这个层面的服务，最大的好处是什么呢？是能够把你的最好的研发人员从底层系统挪到你的业务层系统，让你最有价值的业务层能够比较快速的发展。</li>
@@ -386,35 +389,48 @@
 <li>改善服务治理</li>
 </ul>
 <p>来源：<a href="http://blog.qiniu.com/archives/7403" target="_blank" rel="external">七牛云博客</a></p>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="静态-UI-组件重构"><a href="#静态-UI-组件重构" class="headerlink" title="静态 UI 组件重构"></a>静态 UI 组件重构</h2><p>CSS color 属性驱动的静态 UI 组件实现策略</p>
+<h1>CSS</h1>
+<h2 id="静态-ui-组件重构"><a class="header-anchor" href="#静态-ui-组件重构">¶</a>静态 UI 组件重构</h2>
+<p>CSS color 属性驱动的静态 UI 组件实现策略</p>
 <ul>
 <li>提取专门的颜色类名 <code>.dark { color: #33373d; }</code></li>
 <li>静态 UI 组件所有动态颜色全部走原生变量（即颜色值直接缺省）</li>
 <li>颜色类名既扮演状态类名角色又扮演颜色控制角色</li>
-<li>构建基础类名和基础样式<ul>
+<li>构建基础类名和基础样式
+<ul>
 <li>currentColor 变量</li>
 <li><code>.btn-normal::first-line { color: #fff}</code></li>
 </ul>
 </li>
 </ul>
-<p>兼容性限制：currentColor 只在IE9+浏览器下支持，目前适用于移动端开发，以及一些不需考虑低版本 IE 的项目。<br>不适用于开源项目</p>
+<p>兼容性限制：currentColor 只在IE9+浏览器下支持，目前适用于移动端开发，以及一些不需考虑低版本 IE 的项目。<br>
+不适用于开源项目</p>
 <p>代码结构：基本按钮 &gt;&gt;&gt; 特殊按钮 &gt;&gt;&gt; 基础颜色</p>
 <p>来源：<a href="http://www.zhangxinxu.com/wordpress/2016/11/development-ui-component-based-on-css-color/" target="_blank" rel="external">张鑫旭博客</a></p>
-<h2 id="CSS-原生变量"><a href="#CSS-原生变量" class="headerlink" title="CSS 原生变量"></a>CSS 原生变量</h2><p>CSS 变量即 CSS 自定义属性。以前原生 CSS 没有变量，只能借助 SASS 或者 LESS 预编译器。新草案发布，包含了在 CSS 中定义和使用变量。</p>
+<h2 id="css-原生变量"><a class="header-anchor" href="#css-原生变量">¶</a>CSS 原生变量</h2>
+<p>CSS 变量即 CSS 自定义属性。以前原生 CSS 没有变量，只能借助 SASS 或者 LESS 预编译器。新草案发布，包含了在 CSS 中定义和使用变量。</p>
 <p>拓展阅读：</p>
 <ul>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables" target="_blank" rel="external">MDN–使用CSS变量</a></li>
 <li><a href="https://philipwalton.com/articles/why-im-excited-about-native-css-variables/" target="_blank" rel="external">Why I’m Excited About Native CSS Variables</a></li>
 </ul>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git-commit"></a>git-commit</h2><p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br><code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
+<h1>Git</h1>
+<h2 id="git-commit"><a class="header-anchor" href="#git-commit">¶</a>git-commit</h2>
+<p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br>
+<code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
 <p><strong>git 跟踪的是内容不是文件</strong></p>
-<h1 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h1><p><strong>应该使用 Yes/No 或者 Ok/Cancel 在消息框中吗？</strong><br>一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
+<h1>交互设计</h1>
+<p><strong>应该使用 Yes/No 或者 Ok/Cancel 在消息框中吗？</strong><br>
+一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
 <p>参考：<a href="http://ux.stackexchange.com/questions/9946/should-i-use-yes-no-or-ok-cancel-on-my-message-box?newsletter=1&amp;nlcode=678926%7caee7" target="_blank" rel="external">stackexchange: user experience</a></p>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><ol>
+<h1>杂项</h1>
+<h2 id="问题解决"><a class="header-anchor" href="#问题解决">¶</a>问题解决</h2>
+<ol>
 <li>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</li>
 <li>新创刊期刊影响因子多久出来？3-5年，第4年出第三年的影响因子。所以第一年和第二年没有影响因子。</li>
 </ol>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<h2 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h2>
+<ul>
 <li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
 <li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
 <li>SaaS - Software as a Service <a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">软件即服务</a>，通俗可以称为“即需即用软件”，是一种软件交互模式。在这种交互模式中云端集中式托管软件及相关的数据，软件仅需透过互联网，而不须透过安装即可使用。用户通常使用精简客户端经由一个网页浏览器来访问软件即服务。</li>
@@ -540,13 +556,15 @@
       
         
           
-            <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+            <h1>宽转长 Wide2Long</h1>
+<p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>data</code> 数据框</li>
 <li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
 <li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
-<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：
+<ul>
 <li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
 <li><code>-z</code> 排除 z 变量</li>
 <li><code>x,y,z</code> 选择 x y z 三个变量</li>
@@ -557,7 +575,8 @@
 <li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
 <li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
 </ul>
-<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<h1>长转宽 Long2Wide</h1>
+<p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>key</code> 该列的因子转换为多个列的列名</li>
@@ -567,25 +586,29 @@
 <li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
 <li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
 </ul>
-<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<h1>分割单列为多列</h1>
+<p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>col</code> 列名（不需要引号）</li>
 <li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
-<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。
+<ul>
 <li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
 <li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
 </ul>
 </li>
 <li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
 <li><code>convert</code> 数据类型转换。</li>
-<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果
+<ul>
 <li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
 <li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
 <li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
 </ul>
 </li>
-<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果
+<ul>
 <li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
 <li><code>&quot;right&quot;</code> 在右侧填充</li>
 <li><code>&quot;left&quot;</code> 在左侧填充</li>
@@ -593,7 +616,8 @@
 </li>
 </ul>
 <p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
-<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<h1>合并多列为单列</h1>
+<p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>col</code> 将要合并得到的列名</li>
@@ -601,7 +625,8 @@
 <li><code>sep</code> 分隔符</li>
 <li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
 </ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<h1>实例</h1>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
 <p>长转宽</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
 <p>宽转长</p>
@@ -732,7 +757,9 @@
       
         
           
-            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="Git-branch-分支操作"><a href="#Git-branch-分支操作" class="headerlink" title="Git branch 分支操作"></a>Git branch 分支操作</h2><p><code>git branch</code> 列出，新建，或者删除分支</p>
+            <h1>Git</h1>
+<h2 id="git-branch-分支操作"><a class="header-anchor" href="#git-branch-分支操作">¶</a>Git branch 分支操作</h2>
+<p><code>git branch</code> 列出，新建，或者删除分支</p>
 <ul>
 <li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
 <li><code>git branch -r</code> 列出远程跟踪的分支</li>
@@ -741,12 +768,14 @@
 <li><code>git branch -rd</code> 删除远程分析</li>
 <li><code>git branch -m|-M</code> 重命名分支</li>
 </ul>
-<h2 id="Git-checkout-切换分支"><a href="#Git-checkout-切换分支" class="headerlink" title="Git checkout 切换分支"></a>Git checkout 切换分支</h2><p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<h2 id="git-checkout-切换分支"><a class="header-anchor" href="#git-checkout-切换分支">¶</a>Git checkout 切换分支</h2>
+<p><code>git checkout</code> 切换分支或者修复工作树文件</p>
 <ul>
 <li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
 <li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
 </ul>
-<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><blockquote>
+<h2 id="head"><a class="header-anchor" href="#head">¶</a>HEAD</h2>
+<blockquote>
 <p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
 </blockquote>
 <p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
@@ -876,19 +905,30 @@
       
         
           
-            <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p><code>ps</code> 返回正在运行的进程的信息<br><code>ps aux</code> 列出所有运行进程<br><code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>使用 <code>type -p</code> 替代 <code>which</code></p>
-<h2 id="统计学"><a href="#统计学" class="headerlink" title="统计学"></a>统计学</h2><h3 id="标准差"><a href="#标准差" class="headerlink" title="标准差"></a>标准差</h3><p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
+            <h1>杂项</h1>
+<h2 id="shell"><a class="header-anchor" href="#shell">¶</a>Shell</h2>
+<p><code>ps</code> 返回正在运行的进程的信息<br>
+<code>ps aux</code> 列出所有运行进程<br>
+<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
+使用 <code>type -p</code> 替代 <code>which</code></p>
+<h2 id="统计学"><a class="header-anchor" href="#统计学">¶</a>统计学</h2>
+<h3 id="标准差"><a class="header-anchor" href="#标准差">¶</a>标准差</h3>
+<p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>
+当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
 <blockquote>
 <p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
 </blockquote>
 <p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
-<h3 id="循环变量"><a href="#循环变量" class="headerlink" title="循环变量"></a>循环变量</h3><p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
+<h3 id="循环变量"><a class="header-anchor" href="#循环变量">¶</a>循环变量</h3>
+<p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
 <p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
-<h2 id="CSS：利用偏移垂直居中"><a href="#CSS：利用偏移垂直居中" class="headerlink" title="CSS：利用偏移垂直居中"></a>CSS：利用偏移垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="css：利用偏移垂直居中"><a class="header-anchor" href="#css：利用偏移垂直居中">¶</a>CSS：利用偏移垂直居中</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
 <p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
+<h2 id="todo"><a class="header-anchor" href="#todo">¶</a>TODO</h2>
+<p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
 
           
         
@@ -1008,9 +1048,11 @@
       
         
           
-            <h1 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h1><p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
+            <h1>Layout 布局</h1>
+<p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
-<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br><code>layout</code> 返回的值为图形的个数。</p>
+<p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br>
+<code>layout</code> 返回的值为图形的个数。</p>
 <p>参数：</p>
 <ul>
 <li><code>mat</code>：矩阵对象，指定接下来的 N 个图形的位置。矩阵中的值必须为 0 或者正整数。</li>
@@ -1020,8 +1062,11 @@
 <li><code>n</code>：绘制的图形个数。</li>
 </ul>
 <p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h1 id="Par-的-mfrow-和-mfcol-参数布局"><a href="#Par-的-mfrow-和-mfcol-参数布局" class="headerlink" title="Par 的 mfrow 和 mfcol 参数布局"></a>Par 的 mfrow 和 mfcol 参数布局</h1><p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h2 id="par-关于布局的参数"><a href="#par-关于布局的参数" class="headerlink" title="par 关于布局的参数"></a>par 关于布局的参数</h2><p><strong>Outer margin</strong> 外边缘</p>
+<h1>Par 的 mfrow 和 mfcol 参数布局</h1>
+<p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>
+在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
+<h2 id="par-关于布局的参数"><a class="header-anchor" href="#par-关于布局的参数">¶</a>par 关于布局的参数</h2>
+<p><strong>Outer margin</strong> 外边缘</p>
 <p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
 <ul>
 <li><code>oma</code> 向量 <code>c(bottom, left, top, right)</code>，外边缘尺寸，行高</li>
@@ -1051,7 +1096,11 @@
 <li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
 <li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
 </ul>
-<h1 id="Split-screen-布局"><a href="#Split-screen-布局" class="headerlink" title="Split.screen 布局"></a>Split.screen 布局</h1><p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br><code>screen</code> 用于选择哪一个 screen 绘制图形。<br><code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br><code>close.screen</code> 移除指定的 screen。</p>
+<h1>Split.screen 布局</h1>
+<p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br>
+<code>screen</code> 用于选择哪一个 screen 绘制图形。<br>
+<code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br>
+<code>close.screen</code> 移除指定的 screen。</p>
 <p><code>split.screen</code> 参数：</p>
 <ul>
 <li><code>figs</code> 两个元素的向量，描述了在一个屏幕矩阵中的行和列的数目，或者一个4列矩阵。如果是矩阵，那么每一行描述了一个屏幕的左、右、下和上端的值，为 NDC 单位，即0为最左下角，1为最右上角。</li>

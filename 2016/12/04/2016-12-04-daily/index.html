@@ -351,29 +351,44 @@
       
 
       
-        <h1 id="面向对象基础"><a href="#面向对象基础" class="headerlink" title="面向对象基础"></a>面向对象基础</h1><p>ECMAScript 没有类的概念。<br>对象就是无序属性的集合，一组名值对，值可为数据也可为函数。<br>ECMAScript 中有两种属性：数据属性和访问器属性。<br>数据属性有4个描述其行为的特性：</p>
+        <h1>面向对象基础</h1>
+<p>ECMAScript 没有类的概念。<br>
+对象就是无序属性的集合，一组名值对，值可为数据也可为函数。<br>
+ECMAScript 中有两种属性：数据属性和访问器属性。<br>
+数据属性有4个描述其行为的特性：</p>
 <ul>
 <li>[[Configurable]] 能否修改</li>
 <li>[[Enumerable]] 能否枚举</li>
 <li>[[Writable]] 能否修改属性的值</li>
-<li>[[Value]] 属性的数据值<br>修改属性默认的特性的方法 <code>Object.defineProperty()</code></li>
+<li>[[Value]] 属性的数据值<br>
+修改属性默认的特性的方法 <code>Object.defineProperty()</code></li>
 </ul>
-<p>访问器属性<br>不包含数据值<br>包含两个函数：getter和setter<br>读取 getter<br>写入 setter<br>四个特性</p>
+<p>访问器属性<br>
+不包含数据值<br>
+包含两个函数：getter和setter<br>
+读取 getter<br>
+写入 setter<br>
+四个特性</p>
 <ul>
 <li>[[Configurable]]</li>
 <li>[[Enumerable]]</li>
 <li>[[Get]]</li>
 <li>[[Set]]</li>
 </ul>
-<p>定义多个属性 <code>Object.defineProperties()</code><br>读取属性的特性 <code>Object.getOwnPropertyDescriptor()</code></p>
-<p>创建对象<br>工厂模式：通过函数封装以特定接口创建对象的细节。<br>构造函数模式：原生构造函数或自定义的构造函数。<br>构造函数模式与工厂模式的区别：</p>
+<p>定义多个属性 <code>Object.defineProperties()</code><br>
+读取属性的特性 <code>Object.getOwnPropertyDescriptor()</code></p>
+<p>创建对象<br>
+工厂模式：通过函数封装以特定接口创建对象的细节。<br>
+构造函数模式：原生构造函数或自定义的构造函数。<br>
+构造函数模式与工厂模式的区别：</p>
 <ul>
 <li>没有显式地创建对象</li>
 <li>直接将属性和方法赋给了 this 对象</li>
 <li>没有 return 语句</li>
 </ul>
 <p>构造函数以大写字母开头。</p>
-<p>使用构造函数创建新实例，必须使用 new 操作符。<br>经历 4 个步骤：</p>
+<p>使用构造函数创建新实例，必须使用 new 操作符。<br>
+经历 4 个步骤：</p>
 <ul>
 <li>创建一个新对象</li>
 <li>将构造函数的作用域赋给新对象，this 指向了这个新对象</li>
@@ -383,18 +398,23 @@
 <p>原型模式</p>
 <hr>
 <p>构造函数以大写字母开头。</p>
-<p>使用构造函数创建新实例，必须使用 new 操作符。<br>经历 4 个步骤：</p>
+<p>使用构造函数创建新实例，必须使用 new 操作符。<br>
+经历 4 个步骤：</p>
 <ul>
 <li>创建一个新对象</li>
 <li>将构造函数的作用域赋给新对象，this 指向了这个新对象</li>
 <li>执行构造函数中的代码，为这个新对象添加属性</li>
 <li>返回新对象</li>
 </ul>
-<p>原型模式<br>…</p>
+<p>原型模式<br>
+…</p>
 <hr>
-<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">op &lt;- options(contrasts = c(<span class="string">"contr.helmert"</span>, <span class="string">"contr.poly"</span>))</div><div class="line"><span class="keyword">...</span></div><div class="line">par(op) <span class="comment"># 恢复默认</span></div><div class="line"></div><div class="line">parr &lt;- par(mar = c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</div><div class="line"><span class="keyword">...</span></div><div class="line">par(parr) <span class="comment"># 恢复默认</span></div></pre></td></tr></table></figure>
+<h1>R</h1>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">op &lt;- options(contrasts = c(<span class="string">"contr.helmert"</span>, <span class="string">"contr.poly"</span>))</div><div class="line"><span class="keyword">...</span></div><div class="line">par(op) <span class="comment"># 恢复默认</span></div><div class="line"></div><div class="line">parr &lt;- par(mar = c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</div><div class="line"><span class="keyword">...</span></div><div class="line">par(parr) <span class="comment"># 恢复默认</span></div></pre></td></tr></table></figure>
 <hr>
-<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>split-plot experiments 裂区实验设计<br>pseudoreplication 伪重复问题</p>
+<h1>杂项</h1>
+<p>split-plot experiments 裂区实验设计<br>
+pseudoreplication 伪重复问题</p>
 
       
     </div>
@@ -599,7 +619,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象基础"><span class="nav-number">1.</span> <span class="nav-text">面向对象基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">2.</span> <span class="nav-text">R</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">面向对象基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">R</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
             
           </div>
         </section>

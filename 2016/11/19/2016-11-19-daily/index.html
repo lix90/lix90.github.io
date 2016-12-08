@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,前端开发,Python,How-to-learn," />
+  <meta name="keywords" content="JavaScript,Python,前端开发,How-to-learn," />
 
 
 
@@ -88,28 +88,40 @@
 
 
 
-<meta name="description" content="Python日期时间处理参考：知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？
-时间日期处理的三个库：time, datetime, Calenderdatetime 的三个类：datetime.date, datatime.time, datetime.datetime时间模式：时间戳、本地时间、UTC 时间（世界标准时间）
+<meta name="description" content="Python
+¶日期时间处理
+参考：知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？
+时间日期处理的三个库：time, datetime, Calender
+datetime 的三个类：datetime.date, datatime.time, datetime.datetime
+时间模式：时间戳、本地时间、UTC 时间（世界标准时间）
 三种时间表现形式：
 
-时间戳，一般指 Unix 时">
+时间戳，一般指 U">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日总结 2016-11-19">
 <meta property="og:url" content="http://lix90.github.io/2016/11/19/2016-11-19-daily/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="Python日期时间处理参考：知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？
-时间日期处理的三个库：time, datetime, Calenderdatetime 的三个类：datetime.date, datatime.time, datetime.datetime时间模式：时间戳、本地时间、UTC 时间（世界标准时间）
+<meta property="og:description" content="Python
+¶日期时间处理
+参考：知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？
+时间日期处理的三个库：time, datetime, Calender
+datetime 的三个类：datetime.date, datatime.time, datetime.datetime
+时间模式：时间戳、本地时间、UTC 时间（世界标准时间）
 三种时间表现形式：
 
-时间戳，一般指 Unix 时">
+时间戳，一般指 U">
 <meta property="og:updated_time" content="2016-11-22T07:40:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日总结 2016-11-19">
-<meta name="twitter:description" content="Python日期时间处理参考：知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？
-时间日期处理的三个库：time, datetime, Calenderdatetime 的三个类：datetime.date, datatime.time, datetime.datetime时间模式：时间戳、本地时间、UTC 时间（世界标准时间）
+<meta name="twitter:description" content="Python
+¶日期时间处理
+参考：知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？
+时间日期处理的三个库：time, datetime, Calender
+datetime 的三个类：datetime.date, datatime.time, datetime.datetime
+时间模式：时间戳、本地时间、UTC 时间（世界标准时间）
 三种时间表现形式：
 
-时间戳，一般指 Unix 时">
+时间戳，一般指 U">
 
 
 
@@ -363,61 +375,77 @@
       
 
       
-        <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="日期时间处理"><a href="#日期时间处理" class="headerlink" title="日期时间处理"></a>日期时间处理</h2><p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+        <h1>Python</h1>
+<h2 id="日期时间处理"><a class="header-anchor" href="#日期时间处理">¶</a>日期时间处理</h2>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>
+datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>
+时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
 <p>三种时间表现形式：</p>
 <ul>
 <li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
 <li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
 <li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
 </ul>
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="2016-JavaScript-发展现状"><a href="#2016-JavaScript-发展现状" class="headerlink" title="2016 JavaScript 发展现状"></a>2016 JavaScript 发展现状</h2><ul>
-<li>代码风格<ul>
+<h1>JavaScript</h1>
+<h2 id="2016-javascript-发展现状"><a class="header-anchor" href="#2016-javascript-发展现状">¶</a>2016 JavaScript 发展现状</h2>
+<ul>
+<li>代码风格
+<ul>
 <li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
 <li>CoffeeScript 正过时</li>
 </ul>
 </li>
-<li>前端框架<ul>
+<li>前端框架
+<ul>
 <li>React 强势</li>
 <li>Vue 崛起</li>
 <li>Angular 2 &gt; Angular 1</li>
 </ul>
 </li>
-<li>状态管理<ul>
+<li>状态管理
+<ul>
 <li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
 </ul>
 </li>
-<li>API 层<ul>
+<li>API 层
+<ul>
 <li>GraphQL 有前途？</li>
 <li>REST APIs 广泛适用</li>
 </ul>
 </li>
-<li>全栈框架<ul>
+<li>全栈框架
+<ul>
 <li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
 <li>“一体化”框架并没有期待的那么受欢迎</li>
 </ul>
 </li>
-<li>测试框架<ul>
+<li>测试框架
+<ul>
 <li>Mocha 和 Jasmine 较主流</li>
 <li>开发者总体对 JS 的测试不太满意</li>
 </ul>
 </li>
-<li>CSS 构建工具/预处理器<ul>
+<li>CSS 构建工具/预处理器
+<ul>
 <li>SASS/SCSS 主导</li>
 <li>CSS Modules</li>
 </ul>
 </li>
-<li>构建工具<ul>
+<li>构建工具
+<ul>
 <li>Webpack 和 Gulp 最受欢迎</li>
 <li>Grunt 已过气</li>
 </ul>
 </li>
-<li>移动端框架<ul>
+<li>移动端框架
+<ul>
 <li>原生应用最主流</li>
 <li>React Native 较为受欢迎</li>
 </ul>
 </li>
-<li>新特性<ul>
+<li>新特性
+<ul>
 <li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
 <li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
 <li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
@@ -430,7 +458,8 @@
 </li>
 </ul>
 <p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容"><a href="#前端自学内容" class="headerlink" title="前端自学内容"></a>前端自学内容</h2><ul>
+<h2 id="前端自学内容"><a class="header-anchor" href="#前端自学内容">¶</a>前端自学内容</h2>
+<ul>
 <li>扎实的 HTML5/CSS3/JavaScript 基础</li>
 <li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
 <li>熟练掌握盒模型、常用布局</li>
@@ -466,9 +495,9 @@
           
             <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
-            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
-          
             <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
           
             <a href="/tags/How-to-learn/" rel="tag">#How-to-learn</a>
           
@@ -479,16 +508,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/18/2016-11-18-daily/" rel="next" title="每日总结 2016-11-18">
-                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-18
+              <a href="/2016/11/19/2016-11-19-sql-interview/" rel="next" title="数据库面试题解答">
+                <i class="fa fa-chevron-left"></i> 数据库面试题解答
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/19/2016-11-19-sql-interview/" rel="prev" title="数据库面试题解答">
-                数据库面试题解答 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/2016-11-21-eeg-egi/" rel="prev" title="关于 EEGLAB 分析 EGI 数据">
+                关于 EEGLAB 分析 EGI 数据 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -652,7 +681,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日期时间处理"><span class="nav-number">1.1.</span> <span class="nav-text">日期时间处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2016-JavaScript-发展现状"><span class="nav-number">2.1.</span> <span class="nav-text">2016 JavaScript 发展现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端自学内容"><span class="nav-number">2.2.</span> <span class="nav-text">前端自学内容</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日期时间处理"><span class="nav-number">1.1.</span> <span class="nav-text">¶日期时间处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2016-javascript-发展现状"><span class="nav-number">2.1.</span> <span class="nav-text">¶2016 JavaScript 发展现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端自学内容"><span class="nav-number">2.2.</span> <span class="nav-text">¶前端自学内容</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

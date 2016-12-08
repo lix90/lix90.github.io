@@ -88,34 +88,37 @@
 
 
 
-<meta name="description" content="宽转长 Wide2Longtidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
+<meta name="description" content="宽转长 Wide2Long
+tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
 参数：
 
 data 数据框
 key 键，新生成的因子列名（不需要加引号）
 value 值，新生成的数值列名（不需要加引号）
-... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构">
+... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R：使用 tidyr 进行数据操作">
 <meta property="og:url" content="http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="宽转长 Wide2Longtidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
+<meta property="og:description" content="宽转长 Wide2Long
+tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
 参数：
 
 data 数据框
 key 键，新生成的因子列名（不需要加引号）
 value 值，新生成的数值列名（不需要加引号）
-... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构">
+... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将">
 <meta property="og:updated_time" content="2016-11-19T03:33:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：使用 tidyr 进行数据操作">
-<meta name="twitter:description" content="宽转长 Wide2Longtidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
+<meta name="twitter:description" content="宽转长 Wide2Long
+tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
 参数：
 
 data 数据框
 key 键，新生成的因子列名（不需要加引号）
 value 值，新生成的数值列名（不需要加引号）
-... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构">
+... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将">
 
 
 
@@ -369,13 +372,15 @@ value 值，新生成的数值列名（不需要加引号）
       
 
       
-        <h1 id="宽转长-Wide2Long"><a href="#宽转长-Wide2Long" class="headerlink" title="宽转长 Wide2Long"></a>宽转长 Wide2Long</h1><p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+        <h1>宽转长 Wide2Long</h1>
+<p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>data</code> 数据框</li>
 <li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
 <li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
-<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：<ul>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：
+<ul>
 <li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
 <li><code>-z</code> 排除 z 变量</li>
 <li><code>x,y,z</code> 选择 x y z 三个变量</li>
@@ -386,7 +391,8 @@ value 值，新生成的数值列名（不需要加引号）
 <li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
 <li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
 </ul>
-<h1 id="长转宽-Long2Wide"><a href="#长转宽-Long2Wide" class="headerlink" title="长转宽 Long2Wide"></a>长转宽 Long2Wide</h1><p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<h1>长转宽 Long2Wide</h1>
+<p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>key</code> 该列的因子转换为多个列的列名</li>
@@ -396,25 +402,29 @@ value 值，新生成的数值列名（不需要加引号）
 <li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
 <li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
 </ul>
-<h1 id="分割单列为多列"><a href="#分割单列为多列" class="headerlink" title="分割单列为多列"></a>分割单列为多列</h1><p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<h1>分割单列为多列</h1>
+<p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>col</code> 列名（不需要引号）</li>
 <li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
-<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。<ul>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。
+<ul>
 <li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
 <li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
 </ul>
 </li>
 <li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
 <li><code>convert</code> 数据类型转换。</li>
-<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果<ul>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果
+<ul>
 <li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
 <li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
 <li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
 </ul>
 </li>
-<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果<ul>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果
+<ul>
 <li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
 <li><code>&quot;right&quot;</code> 在右侧填充</li>
 <li><code>&quot;left&quot;</code> 在左侧填充</li>
@@ -422,7 +432,8 @@ value 值，新生成的数值列名（不需要加引号）
 </li>
 </ul>
 <p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
-<h1 id="合并多列为单列"><a href="#合并多列为单列" class="headerlink" title="合并多列为单列"></a>合并多列为单列</h1><p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<h1>合并多列为单列</h1>
+<p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
 <p>参数：</p>
 <ul>
 <li><code>col</code> 将要合并得到的列名</li>
@@ -430,7 +441,8 @@ value 值，新生成的数值列名（不需要加引号）
 <li><code>sep</code> 分隔符</li>
 <li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
 </ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<h1>实例</h1>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
 <p>长转宽</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
 <p>宽转长</p>
@@ -648,7 +660,7 @@ value 值，新生成的数值列名（不需要加引号）
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#宽转长-Wide2Long"><span class="nav-number">1.</span> <span class="nav-text">宽转长 Wide2Long</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长转宽-Long2Wide"><span class="nav-number">2.</span> <span class="nav-text">长转宽 Long2Wide</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割单列为多列"><span class="nav-number">3.</span> <span class="nav-text">分割单列为多列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并多列为单列"><span class="nav-number">4.</span> <span class="nav-text">合并多列为单列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">宽转长 Wide2Long</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">长转宽 Long2Wide</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">分割单列为多列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">合并多列为单列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
             
           </div>
         </section>

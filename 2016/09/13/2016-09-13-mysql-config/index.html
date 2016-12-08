@@ -88,40 +88,46 @@
 
 
 
-<meta name="description" content="下载 MySQL从官方网站下载 MySQL Community Server。
-安装 MySQL在网上教程发现提到这三个文件
+<meta name="description" content="下载 MySQL
+从官方网站下载 MySQL Community Server。
+安装 MySQL
+在网上教程发现提到这三个文件
 
 mysql-*.pkg：MySql的主要程序包
 MySQL_StartupItem.pkg：MySql的启动项
 MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
 
 但是打开 dmg 文件，仅仅发现一个 mysql-.pkg 文件
-安装 MyS">
+安装 M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL安装与配置（MacOS）">
 <meta property="og:url" content="http://lix90.github.io/2016/09/13/2016-09-13-mysql-config/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="下载 MySQL从官方网站下载 MySQL Community Server。
-安装 MySQL在网上教程发现提到这三个文件
+<meta property="og:description" content="下载 MySQL
+从官方网站下载 MySQL Community Server。
+安装 MySQL
+在网上教程发现提到这三个文件
 
 mysql-*.pkg：MySql的主要程序包
 MySQL_StartupItem.pkg：MySql的启动项
 MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
 
 但是打开 dmg 文件，仅仅发现一个 mysql-.pkg 文件
-安装 MyS">
+安装 M">
 <meta property="og:updated_time" content="2016-11-28T12:42:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL安装与配置（MacOS）">
-<meta name="twitter:description" content="下载 MySQL从官方网站下载 MySQL Community Server。
-安装 MySQL在网上教程发现提到这三个文件
+<meta name="twitter:description" content="下载 MySQL
+从官方网站下载 MySQL Community Server。
+安装 MySQL
+在网上教程发现提到这三个文件
 
 mysql-*.pkg：MySql的主要程序包
 MySQL_StartupItem.pkg：MySql的启动项
 MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
 
 但是打开 dmg 文件，仅仅发现一个 mysql-.pkg 文件
-安装 MyS">
+安装 M">
 
 
 
@@ -387,27 +393,35 @@ MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
       
 
       
-        <h1 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h1><p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
-<h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>在网上教程发现提到这三个文件</p>
+        <h1>下载 MySQL</h1>
+<p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
+<h1>安装 MySQL</h1>
+<p>在网上教程发现提到这三个文件</p>
 <ol>
 <li>mysql-*.pkg：MySql的主要程序包</li>
 <li>MySQL_StartupItem.pkg：MySql的启动项</li>
 <li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
 </ol>
 <p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<h1 id="安装-MySQL-Workbench（GUI-Tool）"><a href="#安装-MySQL-Workbench（GUI-Tool）" class="headerlink" title="安装 MySQL Workbench（GUI Tool）"></a>安装 MySQL Workbench（GUI Tool）</h1><p>仍然从官网下载。下载后安装然后进行配置。</p>
+<h1>安装 MySQL Workbench（GUI Tool）</h1>
+<p>仍然从官网下载。下载后安装然后进行配置。</p>
 <p>数据库访问密码的设置</p>
 <blockquote>
 <p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
 </blockquote>
-<h1 id="添加到-PATH"><a href="#添加到-PATH" class="headerlink" title="添加到 PATH"></a>添加到 <strong>PATH</strong></h1><p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
+<h1>添加到 <strong>PATH</strong></h1>
+<p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>
+编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
 <p>或者</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br><code>Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39;</code></p>
+<h1>报错</h1>
+<p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br>
+<code>Can't connect to local MySQL server through socket '/tmp/mysql.sock'</code></p>
 <p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
-<p><del>寻找 <code>mysql.sock</code> 文件：<code>find / -name &quot;mysql.sock&quot;</code> 得到 <code>/var/lib/mysql/mysql.sock</code><br>那么建立 <code>symbolic link</code>：<code>ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock</code></del></p>
+<p><s>寻找 <code>mysql.sock</code> 文件：<code>find / -name &quot;mysql.sock&quot;</code> 得到 <code>/var/lib/mysql/mysql.sock</code><br>
+那么建立 <code>symbolic link</code>：<code>ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock</code></s></p>
 <p>后来发现，这个报错是因为 <code>MySQL Server</code> 没有运行。于是打开 <code>MySQL.prefPane</code>，打开 <code>MySQL Server</code>。</p>
-<p>又出现另外的报错 <code>ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: YES)</code>。</p>
+<p>又出现另外的报错 <code>ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)</code>。</p>
 <p>检索相关问题发现导致这个报错的原因有以下三种：</p>
 <ol>
 <li>客户端远程访问的用户帐号并未创建；</li>
@@ -422,7 +436,8 @@ MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
 <p>然后再重新安装 MySQL。</p>
 <p>这次长记性保存了临时密码。</p>
 <p>接下来重新配置 MySQL。</p>
-<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
+<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>
+提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
 <blockquote>
 <p>Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</p>
 </blockquote>
@@ -650,7 +665,7 @@ MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载-MySQL"><span class="nav-number">1.</span> <span class="nav-text">下载 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-MySQL"><span class="nav-number">2.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-MySQL-Workbench（GUI-Tool）"><span class="nav-number">3.</span> <span class="nav-text">安装 MySQL Workbench（GUI Tool）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加到-PATH"><span class="nav-number">4.</span> <span class="nav-text">添加到 PATH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错"><span class="nav-number">5.</span> <span class="nav-text">报错</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">下载 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装 MySQL Workbench（GUI Tool）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">添加到 PATH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">报错</span></a></li></ol></div>
             
           </div>
         </section>

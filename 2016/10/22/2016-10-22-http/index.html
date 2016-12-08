@@ -89,18 +89,21 @@
 
 
 <meta name="description" content="HTTP/0.9 —&amp;gt; HTTP/1.0 —&amp;gt; HTTP/1.1 —&amp;gt; SPDY 协议 —&amp;gt; HTTP/2
-HTTP/1.0主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 Connection 字段：Connection: keep-alive，要求服务器不要关闭">
+HTTP/1.0
+主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 Connection 字段：Connection: keep-alive，要求服务器不要关闭">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP 学习记录">
 <meta property="og:url" content="http://lix90.github.io/2016/10/22/2016-10-22-http/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="HTTP/0.9 —&amp;gt; HTTP/1.0 —&amp;gt; HTTP/1.1 —&amp;gt; SPDY 协议 —&amp;gt; HTTP/2
-HTTP/1.0主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 Connection 字段：Connection: keep-alive，要求服务器不要关闭">
+HTTP/1.0
+主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 Connection 字段：Connection: keep-alive，要求服务器不要关闭">
 <meta property="og:updated_time" content="2016-11-28T12:44:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP 学习记录">
 <meta name="twitter:description" content="HTTP/0.9 —&amp;gt; HTTP/1.0 —&amp;gt; HTTP/1.1 —&amp;gt; SPDY 协议 —&amp;gt; HTTP/2
-HTTP/1.0主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 Connection 字段：Connection: keep-alive，要求服务器不要关闭">
+HTTP/1.0
+主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 Connection 字段：Connection: keep-alive，要求服务器不要关闭">
 
 
 
@@ -367,12 +370,16 @@ HTTP/1.0主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的
 
       
         <p>HTTP/0.9 —&gt; HTTP/1.0 —&gt; HTTP/1.1 —&gt; SPDY 协议 —&gt; HTTP/2</p>
-<h1 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP/1.0"></a>HTTP/1.0</h1><p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
-<h1 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP/1.1"></a>HTTP/1.1</h1><p>目前是最流行的版本。该版本最大的变化是，引入了<strong>持久连接（persistent connection）</strong>，即 TCP 连接默认不关闭，可被多个请求复用，无须申明 <code>Connection: keep-alive</code>。当客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。更规范的做法是，在客户端最后一次请求时，发送 <code>Connection: close</code>，明确要求服务器关闭 TCP 连接。</p>
+<h1>HTTP/1.0</h1>
+<p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
+<h1>HTTP/1.1</h1>
+<p>目前是最流行的版本。该版本最大的变化是，引入了<strong>持久连接（persistent connection）</strong>，即 TCP 连接默认不关闭，可被多个请求复用，无须申明 <code>Connection: keep-alive</code>。当客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。更规范的做法是，在客户端最后一次请求时，发送 <code>Connection: close</code>，明确要求服务器关闭 TCP 连接。</p>
 <p>引入管道机制：在同一个 TCP 连接里面，客户端可以同时发送多个请求。</p>
-<p>缺点：虽然1.1版允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着。这就会出现”队头堵塞”（Head-of-line blocking）。</p>
-<h1 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h1><ul>
-<li>二进制协议：头信息和数据体都是二进制，并且统称为”帧”（frame）：头信息帧和数据帧。<br>多工：双向的、实时的通信。</li>
+<p>缺点：虽然1.1版允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着。这就会出现&quot;队头堵塞&quot;（Head-of-line blocking）。</p>
+<h1>HTTP/2</h1>
+<ul>
+<li>二进制协议：头信息和数据体都是二进制，并且统称为&quot;帧&quot;（frame）：头信息帧和数据帧。<br>
+多工：双向的、实时的通信。</li>
 <li>数据流：HTTP/2 将每个请求或回应的所有数据包，称为一个数据流（stream）。每个数据流都有一个独一无二的编号。数据包发送的时候，都必须标记数据流 ID，用来区分它属于哪个数据流。另外还规定，客户端发出的数据流，ID 一律为奇数，服务器发出的，ID 为偶数。</li>
 <li>头信息压缩机制（header compression）</li>
 <li>服务器推送</li>
@@ -594,7 +601,7 @@ HTTP/1.0主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-1-0"><span class="nav-number">1.</span> <span class="nav-text">HTTP/1.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">2.</span> <span class="nav-text">HTTP/1.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-2"><span class="nav-number">3.</span> <span class="nav-text">HTTP/2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">HTTP/1.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">HTTP/1.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">HTTP/2</span></a></li></ol></div>
             
           </div>
         </section>

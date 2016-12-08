@@ -89,36 +89,42 @@
 
 
 <meta name="description" content="由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。
-缺失值处理mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
-删除记录/样本在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
+缺失值处理
+mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
+¶删除记录/样本
+在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
 
 有足够的样本点；
 不会引入偏差。
 
-删除变量/属性如">
+¶删除变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R：处理缺失值">
 <meta property="og:url" content="http://lix90.github.io/2016/11/09/2016-11-09-r-missing-value-outlier/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。
-缺失值处理mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
-删除记录/样本在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
+缺失值处理
+mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
+¶删除记录/样本
+在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
 
 有足够的样本点；
 不会引入偏差。
 
-删除变量/属性如">
+¶删除变量">
 <meta property="og:updated_time" content="2016-11-19T03:31:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：处理缺失值">
 <meta name="twitter:description" content="由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。
-缺失值处理mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
-删除记录/样本在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
+缺失值处理
+mice 包是专门用来处理缺失值的 R 语言包。可以通过 mice::md.pattern() 查看缺失值的“数据模式”。
+¶删除记录/样本
+在 R 中，通过 na.action = na.omit 删除包含有缺失值的观测行。但需要满足两个条件：
 
 有足够的样本点；
 不会引入偏差。
 
-删除变量/属性如">
+¶删除变量">
 
 
 
@@ -373,21 +379,29 @@
 
       
         <p>由于最近在分析毕业论文数据，顺便复习和学习新的数据分析方法，本文纯属搬运和整理他人的分享。</p>
-<h1 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h1><p><code>mice</code> 包是专门用来处理缺失值的 R 语言包。可以通过 <code>mice::md.pattern()</code> 查看缺失值的“数据模式”。</p>
-<h2 id="删除记录-样本"><a href="#删除记录-样本" class="headerlink" title="删除记录/样本"></a>删除记录/样本</h2><p>在 R 中，通过 <code>na.action = na.omit</code> 删除包含有缺失值的观测行。但需要满足两个条件：</p>
+<h1>缺失值处理</h1>
+<p><code>mice</code> 包是专门用来处理缺失值的 R 语言包。可以通过 <code>mice::md.pattern()</code> 查看缺失值的“数据模式”。</p>
+<h2 id="删除记录-样本"><a class="header-anchor" href="#删除记录-样本">¶</a>删除记录/样本</h2>
+<p>在 R 中，通过 <code>na.action = na.omit</code> 删除包含有缺失值的观测行。但需要满足两个条件：</p>
 <ul>
 <li>有足够的样本点；</li>
 <li>不会引入偏差。</li>
 </ul>
-<h2 id="删除变量-属性"><a href="#删除变量-属性" class="headerlink" title="删除变量/属性"></a>删除变量/属性</h2><p>如果数据集中某个特定变量包含较多的缺失值，并且删除这个变量能够保留更多的观测值。如果该变量不太重要，那么可以删除它。该方法需要权衡变量的重要性和观测值数量。</p>
-<h2 id="使用均值-中位数-众数进行插补"><a href="#使用均值-中位数-众数进行插补" class="headerlink" title="使用均值/中位数/众数进行插补"></a>使用均值/中位数/众数进行插补</h2><p>这是一种比较简单粗暴的方法，如果该变量对因变量的影响较小，该方法是可以接受的。但是，很可能人为增加噪音。</p>
-<h2 id="预测法"><a href="#预测法" class="headerlink" title="预测法"></a>预测法</h2><p>可使用的方法包括：KNN差值，rpart包，mice包。</p>
-<h3 id="kNN-差值法"><a href="#kNN-差值法" class="headerlink" title="kNN 差值法"></a>kNN 差值法</h3><p><code>DMwR::knnImputation()</code> 函数使用 k 近邻方法来填充缺失值。</p>
+<h2 id="删除变量-属性"><a class="header-anchor" href="#删除变量-属性">¶</a>删除变量/属性</h2>
+<p>如果数据集中某个特定变量包含较多的缺失值，并且删除这个变量能够保留更多的观测值。如果该变量不太重要，那么可以删除它。该方法需要权衡变量的重要性和观测值数量。</p>
+<h2 id="使用均值-中位数-众数进行插补"><a class="header-anchor" href="#使用均值-中位数-众数进行插补">¶</a>使用均值/中位数/众数进行插补</h2>
+<p>这是一种比较简单粗暴的方法，如果该变量对因变量的影响较小，该方法是可以接受的。但是，很可能人为增加噪音。</p>
+<h2 id="预测法"><a class="header-anchor" href="#预测法">¶</a>预测法</h2>
+<p>可使用的方法包括：KNN差值，rpart包，mice包。</p>
+<h3 id="knn-差值法"><a class="header-anchor" href="#knn-差值法">¶</a>kNN 差值法</h3>
+<p><code>DMwR::knnImputation()</code> 函数使用 k 近邻方法来填充缺失值。</p>
 <blockquote>
 <p>具体过程如下：对于需要插值的记录，基于欧氏距离计算k个和它最近的观测。接着将这k个近邻的数据利用距离逆加权算出填充值，最后用该值替代缺失值。</p>
 </blockquote>
-<h3 id="rpart"><a href="#rpart" class="headerlink" title="rpart"></a>rpart</h3><p>kNN 插值法的缺点对因子类变量的插补效果不好。rpart 的优点是只需一个未缺失值就可以填充整个数据样本。</p>
-<h3 id="mice"><a href="#mice" class="headerlink" title="mice"></a>mice</h3><blockquote>
+<h3 id="rpart"><a class="header-anchor" href="#rpart">¶</a>rpart</h3>
+<p>kNN 插值法的缺点对因子类变量的插补效果不好。rpart 的优点是只需一个未缺失值就可以填充整个数据样本。</p>
+<h3 id="mice"><a class="header-anchor" href="#mice">¶</a>mice</h3>
+<blockquote>
 <p>mice 是链式方程多元插值的简写（Multivariate Imputation by Chained Equations）。mice包提供了多种先进的缺失值处理方法。它使用一种不同寻常的方法来进行两步插值：首先利用mice函数建模再用complete函数生成完整数据。mice(df)会返回df的多个完整副本，每个副本都对缺失的数据插补了不同的值。complete()函数则会返回这些数据集中的一个（默认）或多个。</p>
 </blockquote>
 <p>参考资料：</p>
@@ -433,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/08/2016-11-08-r-basic-vis/" rel="next" title="R：基本数据可视化">
-                <i class="fa fa-chevron-left"></i> R：基本数据可视化
+              <a href="/2016/11/08/2016-11-08-r-desc-stats/" rel="next" title="R：描述性统计">
+                <i class="fa fa-chevron-left"></i> R：描述性统计
               </a>
             
           </div>
@@ -606,7 +620,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缺失值处理"><span class="nav-number">1.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除记录-样本"><span class="nav-number">1.1.</span> <span class="nav-text">删除记录/样本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除变量-属性"><span class="nav-number">1.2.</span> <span class="nav-text">删除变量/属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用均值-中位数-众数进行插补"><span class="nav-number">1.3.</span> <span class="nav-text">使用均值/中位数/众数进行插补</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预测法"><span class="nav-number">1.4.</span> <span class="nav-text">预测法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kNN-差值法"><span class="nav-number">1.4.1.</span> <span class="nav-text">kNN 差值法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpart"><span class="nav-number">1.4.2.</span> <span class="nav-text">rpart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mice"><span class="nav-number">1.4.3.</span> <span class="nav-text">mice</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除记录-样本"><span class="nav-number">1.1.</span> <span class="nav-text">¶删除记录/样本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除变量-属性"><span class="nav-number">1.2.</span> <span class="nav-text">¶删除变量/属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用均值-中位数-众数进行插补"><span class="nav-number">1.3.</span> <span class="nav-text">¶使用均值/中位数/众数进行插补</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预测法"><span class="nav-number">1.4.</span> <span class="nav-text">¶预测法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#knn-差值法"><span class="nav-number">1.4.1.</span> <span class="nav-text">¶kNN 差值法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rpart"><span class="nav-number">1.4.2.</span> <span class="nav-text">¶rpart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mice"><span class="nav-number">1.4.3.</span> <span class="nav-text">¶mice</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

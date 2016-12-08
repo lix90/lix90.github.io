@@ -352,7 +352,7 @@
 
       
         <p>emacs sharp-quote for lambdas</p>
-<p>在<a href="http://endlessparentheses.com/get-in-the-habit-of-using-sharp-quote.html" target="_blank" rel="external">以前</a> sharp quote 对于 lambdas 是必要的，但是<a href="http://emacs.stackexchange.com/questions/3595/when-to-sharp-quote-a-lambda-expression" target="_blank" rel="external">现在</a> <code>(lambda (x) x)</code> 和 <code>#(lambda (x) x)</code> 在求值时是等同的。但是 <code>&#39;(lambda (x) x)</code> 仅仅是阻止被编译（byte compilation）。</p>
+<p>在<a href="http://endlessparentheses.com/get-in-the-habit-of-using-sharp-quote.html" target="_blank" rel="external">以前</a> sharp quote 对于 lambdas 是必要的，但是<a href="http://emacs.stackexchange.com/questions/3595/when-to-sharp-quote-a-lambda-expression" target="_blank" rel="external">现在</a> <code>(lambda (x) x)</code> 和 <code>#(lambda (x) x)</code> 在求值时是等同的。但是 <code>'(lambda (x) x)</code> 仅仅是阻止被编译（byte compilation）。</p>
 <p>以下三种表达式都是等同的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(lambda (x) (* x x))</div><div class="line">(function (lambda (x) (* x x)))</div><div class="line">#&apos;(lambda (x) (* x x))</div></pre></td></tr></table></figure>
 <blockquote>

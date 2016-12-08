@@ -369,40 +369,48 @@
         <p>在正式读研之前，我几乎没有编程基础。本科在一所不知名的民办二本院校的第一届人力资源班。只在省二级计算机考试中接触了丁点儿编程（好像是VFOX）。也没有考国家计算机二级证书。从刚读研开始，需要在 MATLAB 环境下工作，才正式学起了一门程序语言。所以学习一门编程语言并没有想象中的困难。</p>
 <p>借这个地儿，分享<strong>如何从零基础菜鸟开始入门到熟悉并且掌握一门程序语言</strong>的一些经验，希望能够给同样零基础，或者畏惧编程的朋友（特别是从事科学研究的人）一些启发。</p>
 <p>P.S. 内容较为简洁，后续再补充。</p>
-<h1 id="为什么科研人员要至少学一门编程语言？"><a href="#为什么科研人员要至少学一门编程语言？" class="headerlink" title="为什么科研人员要至少学一门编程语言？"></a>为什么科研人员要至少学一门编程语言？</h1><ul>
+<h1>为什么科研人员要至少学一门编程语言？</h1>
+<ul>
 <li>提高生产效率（productivity）</li>
 <li>培养抽象逻辑思维（abstract thinking）</li>
 <li>提高研究的可重复性，拥抱开放科学（<a href="https://en.wikipedia.org/wiki/Open_science" target="_blank" rel="external">open science</a>）</li>
 <li>促进同行交流（communication）</li>
-<li>……</li>
+<li>…</li>
 </ul>
-<h1 id="对于科研工作者有哪些编程语言和工具值得一学？"><a href="#对于科研工作者有哪些编程语言和工具值得一学？" class="headerlink" title="对于科研工作者有哪些编程语言和工具值得一学？"></a>对于科研工作者有哪些编程语言和工具值得一学？</h1><ul>
+<h1>对于科研工作者有哪些编程语言和工具值得一学？</h1>
+<ul>
 <li><code>R</code> <code>Python</code> <code>Matlab</code></li>
 <li><code>Linux</code> <code>Shell</code> <code>Git</code></li>
 </ul>
 <p>为什么要学习这些东西，搜索引擎检索：<code>why learn x as y</code> 或者 <code>Y 为什么学 X</code>，X 为对应的语言和工具，Y 为职业或者领域。</p>
 <hr>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="1-科学上网"><a href="#1-科学上网" class="headerlink" title="1. 科学上网"></a>1. 科学上网</h2><p><a href="https://zh.wikipedia.org/zh/防火长城" target="_blank" rel="external">GFW</a> 阻断了国人许多获取信息和知识的渠道。所以，要想借助互联网进行学习，首要解决的问题就是突破 GFW 的限制。</p>
+<h1>准备工作</h1>
+<h2 id="1-科学上网"><a class="header-anchor" href="#1-科学上网">¶</a>1. 科学上网</h2>
+<p><a href="https://zh.wikipedia.org/zh/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E" target="_blank" rel="external">GFW</a> 阻断了国人许多获取信息和知识的渠道。所以，要想借助互联网进行学习，首要解决的问题就是突破 GFW 的限制。</p>
 <ul>
 <li>Chrome/Firefox: 请用帐号登录浏览器，已便于同步书签；若希望跨浏览器同步书签，请使用搜索引擎检索“跨浏览器同步书签”</li>
 <li><a href="https://shadowsocks.com/client.html" target="_blank" rel="external">shadowsocks</a>，请从网上获取免费或者付费帐号，不会使用请检索“如何使用shadowsocks科学上网”</li>
 </ul>
-<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h2><p>要想舒服的学习程序语言，那么就要配置舒服的语言环境。就好像，学外语一样，得有一个很好的语言环境，学习起来才自然。初学者一定不要忽视编程环境的重要性，一定要让自己舒舒服服地写代码，编程的过程才不是枯燥乏味的，惹人烦的。所以，一定要扎扎实实把环境给配置好了，再开始系统地学。如果在进行配置上有困难，那就请教其他懂行的人，或者再多花一些时间。如果仅仅是在面对环境的配置就进行不下去了，那的确可以不用学编程了。</p>
+<h2 id="2-环境配置"><a class="header-anchor" href="#2-环境配置">¶</a>2. 环境配置</h2>
+<p>要想舒服的学习程序语言，那么就要配置舒服的语言环境。就好像，学外语一样，得有一个很好的语言环境，学习起来才自然。初学者一定不要忽视编程环境的重要性，一定要让自己舒舒服服地写代码，编程的过程才不是枯燥乏味的，惹人烦的。所以，一定要扎扎实实把环境给配置好了，再开始系统地学。如果在进行配置上有困难，那就请教其他懂行的人，或者再多花一些时间。如果仅仅是在面对环境的配置就进行不下去了，那的确可以不用学编程了。</p>
 <p>配置语言环境从以下三个方面进行。</p>
 <ul>
-<li>操作系统<ul>
+<li>操作系统
+<ul>
 <li>Ubuntu</li>
 <li>MacOS</li>
 <li>Windows 下虚拟机运行 Ubuntu</li>
 <li>（Windows 下进行配置本人没有尝试过）</li>
 </ul>
 </li>
-<li>编辑器<ul>
+<li>编辑器
+<ul>
 <li>较容易：<a href="https://www.sublimetext.com/" target="_blank" rel="external">Sublime Text</a>，<a href="https://atom.io/" target="_blank" rel="external">Atom</a></li>
 <li>较难：<a href="https://www.gnu.org/software/emacs/" target="_blank" rel="external">Emacs</a>，<a href="http://www.vim.org/" target="_blank" rel="external">Vim</a></li>
 </ul>
 </li>
-<li>集成开发环境 IDE (Integrated development environment)<ul>
+<li>集成开发环境 IDE (Integrated development environment)
+<ul>
 <li>R: <a href="https://www.rstudio.com/" target="_blank" rel="external">Rstudio</a>, Emacs (ESS)</li>
 <li>Python: <a href="https://ipython.org/" target="_blank" rel="external">IPython</a>, <a href="https://github.com/spyder-ide/spyder" target="_blank" rel="external">Spyder</a>, <a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda</a>, Emacs (Elpy)</li>
 <li>Matlab: Matlab GUI, Emacs (matlab-mode)</li>
@@ -410,30 +418,37 @@
 </li>
 </ul>
 <hr>
-<h1 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h1><h2 id="1-官方文档-Documentations"><a href="#1-官方文档-Documentations" class="headerlink" title="1. 官方文档 Documentations"></a>1. 官方文档 Documentations</h2><ul>
+<h1>学习资料</h1>
+<h2 id="1-官方文档-documentations"><a class="header-anchor" href="#1-官方文档-documentations">¶</a>1. 官方文档 Documentations</h2>
+<ul>
 <li><a href="https://www.r-project.org/" target="_blank" rel="external">R</a>, <a href="https://support.rstudio.com/hc/en-us/categories/200035113-Documentation" target="_blank" rel="external">Rstudio</a>, <a href="http://www.rdocumentation.org/" target="_blank" rel="external">Rdocumentation</a>, <a href="http://rseek.org/" target="_blank" rel="external">Rseek</a>,</li>
 <li><a href="http://docs.python.org/2/" target="_blank" rel="external">Python2.x</a>, <a href="http://docs.python.org/3/" target="_blank" rel="external">Python3.x</a></li>
 <li><a href="http://cn.mathworks.com/help/" target="_blank" rel="external">Matlab Documentation</a></li>
 </ul>
-<h2 id="2-搜索引擎-Search-Engines"><a href="#2-搜索引擎-Search-Engines" class="headerlink" title="2. 搜索引擎 Search Engines"></a>2. 搜索引擎 Search Engines</h2><ul>
+<h2 id="2-搜索引擎-search-engines"><a class="header-anchor" href="#2-搜索引擎-search-engines">¶</a>2. 搜索引擎 Search Engines</h2>
+<ul>
 <li><strong>Google Search</strong>：<a href="https://www.zhihu.com/question/20161362" target="_blank" rel="external">谷歌学术检索技巧</a></li>
 <li>DuckDuckGo</li>
 <li>Bing</li>
 <li>Baidu</li>
 </ul>
-<h2 id="3-社区-Community"><a href="#3-社区-Community" class="headerlink" title="3. 社区 Community"></a>3. 社区 Community</h2><ul>
+<h2 id="3-社区-community"><a class="header-anchor" href="#3-社区-community">¶</a>3. 社区 Community</h2>
+<ul>
 <li>综合：<a href="https://github.com/" target="_blank" rel="external">Github</a>, <a href="http://stackoverflow.com/" target="_blank" rel="external">StackOverflow</a></li>
 <li>R: <a href="http://cos.name/" target="_blank" rel="external">统计之都</a>, <a href="https://www.r-bloggers.com/" target="_blank" rel="external">R-bloggers</a>, <a href="https://github.com/qinwf/awesome-R" target="_blank" rel="external">Awesome-R</a></li>
 <li>Python: <a href="http://python-china.org/" target="_blank" rel="external">Python China</a>, <a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">Awesome-Python</a></li>
 <li>MATLAB: <a href="http://www.mathworks.com/matlabcentral/fileexchange/" target="_blank" rel="external">File Exchange</a>, <a href="http://cn.mathworks.com/matlabcentral/answers/index" target="_blank" rel="external">MATLAB Answers</a> <a href="https://github.com/mikecroucher/awesome-MATLAB" target="_blank" rel="external">Awesome-MATLAB</a></li>
 </ul>
-<h2 id="4-练习项目-Toy-Projects"><a href="#4-练习项目-Toy-Projects" class="headerlink" title="4. 练习项目 Toy Projects"></a>4. 练习项目 Toy Projects</h2><ul>
+<h2 id="4-练习项目-toy-projects"><a class="header-anchor" href="#4-练习项目-toy-projects">¶</a>4. 练习项目 Toy Projects</h2>
+<ul>
 <li>个人研究项目</li>
 <li>网上公开项目（去 Google 检索或者直接去 Github 搜）</li>
 </ul>
 <p>需要提及的是，R 语言有一个公益项目 <a href="https://github.com/swirldev/swirl" target="_blank" rel="external">Swirl</a> 可以在 R 的命令窗口通过交互式的方式学习 R。具体请查看 Swirl 的相关文档介绍。</p>
-<h2 id="5-书籍-Books"><a href="#5-书籍-Books" class="headerlink" title="5. 书籍 Books"></a>5. 书籍 Books</h2><p>准备两三本书来系统地了解一门编程语言。网上有许多免费书籍，请看 <strong>其他线上学习资料</strong>。</p>
-<h2 id="6-其他线上学习资料（待更新）"><a href="#6-其他线上学习资料（待更新）" class="headerlink" title="6. 其他线上学习资料（待更新）"></a>6. 其他线上学习资料（待更新）</h2><p>前面提到的 <code>Awesome</code> 项目已经囊括了各种编程语言和其他领域的学习资源，这里仅仅提一些我看过的。</p>
+<h2 id="5-书籍-books"><a class="header-anchor" href="#5-书籍-books">¶</a>5. 书籍 Books</h2>
+<p>准备两三本书来系统地了解一门编程语言。网上有许多免费书籍，请看 <strong>其他线上学习资料</strong>。</p>
+<h2 id="6-其他线上学习资料-待更新"><a class="header-anchor" href="#6-其他线上学习资料-待更新">¶</a>6. 其他线上学习资料（待更新）</h2>
+<p>前面提到的 <code>Awesome</code> 项目已经囊括了各种编程语言和其他领域的学习资源，这里仅仅提一些我看过的。</p>
 <ul>
 <li>General: <a href="http://programming-motherfucker.com/become.html" target="_blank" rel="external">Become a Programmer, Motherfucker</a></li>
 <li>R: <a href="http://www.cookbook-r.com/" target="_blank" rel="external">Cookbook for R</a>，<a href="http://adv-r.had.co.nz/" target="_blank" rel="external">Advanced R</a>，<a href="https://csgillespie.github.io/efficientR/" target="_blank" rel="external">Efficient R programming</a>, <a href="http://health.adelaide.edu.au/psychology/ccs/teaching/lsr/" target="_blank" rel="external">Learning Statistics with R</a>,<a href="http://r4ds.had.co.nz/" target="_blank" rel="external">R for Data Science</a>, <a href="http://www.psych.upenn.edu/~baron/rpsych/rpsych.html" target="_blank" rel="external">Notes on the use of R for psychology experiments and questionnaires</a></li>
@@ -441,38 +456,48 @@
 <li>MATLAB：<a href="http://mirlab.org/jang/books/matlabProgramming4beginner/" target="_blank" rel="external">MATLAB程式設計：入門篇</a>，<a href="http://mirlab.org/jang/books/matlabProgramming4guru/" target="_blank" rel="external">MATLAB程式設計：進階篇</a>，<a href="http://www.matlab-cookbook.com/" target="_blank" rel="external">MATLAB Cookbook</a></li>
 </ul>
 <hr>
-<h1 id="如何学习"><a href="#如何学习" class="headerlink" title="如何学习"></a>如何学习</h1><h2 id="第一步：从整体上了解某种语言功能、特点以及优缺点"><a href="#第一步：从整体上了解某种语言功能、特点以及优缺点" class="headerlink" title="第一步：从整体上了解某种语言功能、特点以及优缺点"></a>第一步：从整体上了解某种语言功能、特点以及优缺点</h2><p>这一步可以通过慕课或者书籍来对一门编程语言有一个大概的了解，知道它适合做什么，不适合做什么。</p>
+<h1>如何学习</h1>
+<h2 id="第一步：从整体上了解某种语言功能-特点以及优缺点"><a class="header-anchor" href="#第一步：从整体上了解某种语言功能-特点以及优缺点">¶</a>第一步：从整体上了解某种语言功能、特点以及优缺点</h2>
+<p>这一步可以通过慕课或者书籍来对一门编程语言有一个大概的了解，知道它适合做什么，不适合做什么。</p>
 <p>相关慕课请通过搜索引擎进行检索。个人不太喜欢看视频学一门编程语言，相对来说比较喜欢看书。习惯看电子书的可以访问前面提到的免费电子书。习惯看纸质书的借一本翻翻就行了。也许其他人比较喜欢看视频教学。</p>
-<h2 id="第二步：弄明白如何查询和获取帮助文档-Getting-Help"><a href="#第二步：弄明白如何查询和获取帮助文档-Getting-Help" class="headerlink" title="第二步：弄明白如何查询和获取帮助文档 Getting Help"></a>第二步：弄明白如何查询和获取帮助文档 Getting Help</h2><p>以下是一些获取帮助的命令，先熟练这几个命令的用法，对后面学习其他函数和命令有非常大的帮助。并不是任何时候都需要查谷歌搜百度。通过这些命令也可以对相关编程语言进行学习。</p>
+<h2 id="第二步：弄明白如何查询和获取帮助文档-getting-help"><a class="header-anchor" href="#第二步：弄明白如何查询和获取帮助文档-getting-help">¶</a>第二步：弄明白如何查询和获取帮助文档 Getting Help</h2>
+<p>以下是一些获取帮助的命令，先熟练这几个命令的用法，对后面学习其他函数和命令有非常大的帮助。并不是任何时候都需要查谷歌搜百度。通过这些命令也可以对相关编程语言进行学习。</p>
 <ul>
 <li>R: <code>?function</code> <code>help(function)</code> <code>help.search()</code> <code>apropos()</code></li>
 <li>Python: <code>?</code> <code>??</code> <code>help()</code> <code>dir()</code> <code>__doc__</code></li>
 <li>Matlab: <code>help</code> <code>doc</code> <code>lookfor</code></li>
 </ul>
-<h2 id="第三步：熟悉基本语法和编码规范-Grammar-amp-Style"><a href="#第三步：熟悉基本语法和编码规范-Grammar-amp-Style" class="headerlink" title="第三步：熟悉基本语法和编码规范 Grammar &amp; Style"></a>第三步：熟悉基本语法和编码规范 Grammar &amp; Style</h2><ul>
-<li><a href="https://learnxinyminutes.com/" target="_blank" rel="external">Learn X in Y Minutes</a><ul>
+<h2 id="第三步：熟悉基本语法和编码规范-grammar-style"><a class="header-anchor" href="#第三步：熟悉基本语法和编码规范-grammar-style">¶</a>第三步：熟悉基本语法和编码规范 Grammar &amp; Style</h2>
+<ul>
+<li><a href="https://learnxinyminutes.com/" target="_blank" rel="external">Learn X in Y Minutes</a>
+<ul>
 <li><a href="https://learnxinyminutes.com/docs/zh-cn/r-cn/" target="_blank" rel="external">X 分钟速成 R</a></li>
 <li><a href="https://learnxinyminutes.com/docs/zh-cn/python-cn/" target="_blank" rel="external">X 分钟速成 Python</a></li>
 <li><a href="https://learnxinyminutes.com/docs/zh-cn/matlab-cn/" target="_blank" rel="external">X 分钟速成 MATLAB</a></li>
 </ul>
 </li>
-<li>通过 <strong>Cheat Sheet</strong> 来快速了解基本语法<ul>
+<li>通过 <strong>Cheat Sheet</strong> 来快速了解基本语法
+<ul>
 <li><a href="https://www.cheatography.com/" target="_blank" rel="external">Cheatography</a></li>
 <li><a href="http://www.cheat-sheets.org/" target="_blank" rel="external">Cheat-Sheets.org</a></li>
 <li>或者谷歌检索 <code>cheat sheet r/python/matlab filetype:pdf</code> 或者 <code>quick reference r/python/matlab filetype:pdf</code></li>
 </ul>
 </li>
-<li>代码规范 Coding Style<ul>
+<li>代码规范 Coding Style
+<ul>
 <li>R: <a href="https://google.github.io/styleguide/Rguide.xml" target="_blank" rel="external">Google’s R Style Guide</a>, <a href="http://adv-r.had.co.nz/Style.html" target="_blank" rel="external">R Style guide</a></li>
 <li>Python: <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">PEP 8 – Style Guide for Python Code</a>, <a href="https://google.github.io/styleguide/pyguide.html" target="_blank" rel="external">Google Python Style Guide</a></li>
 <li>MATLAB: <a href="https://cn.mathworks.com/matlabcentral/fileexchange/46056-matlab-style-guidelines-2-0" target="_blank" rel="external">MATLAB Style Guidelines 2.0</a>, <a href="www.cs.cornell.edu/courses/cs321/2003fa/Matlab%20Coding%20Style.pdf">Matlab Coding Style</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation"><a href="#第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation" class="headerlink" title="第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation"></a>第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation</h2><p>在学习和使用编程语言的过程中，不可避免的遇到各种报错信息。这并不是不好的信号，而正式掌握一个函数或者语法时候。有时候可以故意“犯错”，看看出现什么样的报错信息。总之，多去根据文档里头的例子或者自己编个例子尝试尝试一个函数的用法。</p>
-<h2 id="第五步：阅读书籍和源码-Books-amp-Source-code"><a href="#第五步：阅读书籍和源码-Books-amp-Source-code" class="headerlink" title="第五步：阅读书籍和源码 Books &amp; Source code"></a>第五步：阅读书籍和源码 Books &amp; Source code</h2><p>一般来说，不做程序员，就没必要学得太深入。但是如果感兴趣，要进一步提高，那就要多阅读经典技术书籍和源代码咯。</p>
+<h2 id="第四步：在练习或实践中探索性地学习-practice-experimentation"><a class="header-anchor" href="#第四步：在练习或实践中探索性地学习-practice-experimentation">¶</a>第四步：在练习或实践中探索性地学习 Practice &amp; Experimentation</h2>
+<p>在学习和使用编程语言的过程中，不可避免的遇到各种报错信息。这并不是不好的信号，而正式掌握一个函数或者语法时候。有时候可以故意“犯错”，看看出现什么样的报错信息。总之，多去根据文档里头的例子或者自己编个例子尝试尝试一个函数的用法。</p>
+<h2 id="第五步：阅读书籍和源码-books-source-code"><a class="header-anchor" href="#第五步：阅读书籍和源码-books-source-code">¶</a>第五步：阅读书籍和源码 Books &amp; Source code</h2>
+<p>一般来说，不做程序员，就没必要学得太深入。但是如果感兴趣，要进一步提高，那就要多阅读经典技术书籍和源代码咯。</p>
 <hr>
-<h1 id="Linux-Shell-amp-Git-学习资源"><a href="#Linux-Shell-amp-Git-学习资源" class="headerlink" title="Linux, Shell, &amp; Git 学习资源"></a>Linux, Shell, &amp; Git 学习资源</h1><p>Linux</p>
+<h1>Linux, Shell, &amp; Git 学习资源</h1>
+<p>Linux</p>
 <ul>
 <li><a href="http://linux.vbird.org/linux_basic/" target="_blank" rel="external">鸟哥的 Linux 私房菜</a></li>
 <li><a href="https://github.com/aleksandar-todorovic/awesome-linux" target="_blank" rel="external">Awesome Linux</a></li>
@@ -489,7 +514,8 @@
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a></li>
 </ul>
 <hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<h1>总结</h1>
+<ul>
 <li>在科学上网的前提下，善用<strong>搜索引擎</strong>；</li>
 <li>学会查询和阅读<strong>文档</strong>；</li>
 <li>在最开始就养成良好的<strong>编程规范</strong>；</li>
@@ -701,7 +727,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么科研人员要至少学一门编程语言？"><span class="nav-number">1.</span> <span class="nav-text">为什么科研人员要至少学一门编程语言？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对于科研工作者有哪些编程语言和工具值得一学？"><span class="nav-number">2.</span> <span class="nav-text">对于科研工作者有哪些编程语言和工具值得一学？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-科学上网"><span class="nav-number">3.1.</span> <span class="nav-text">1. 科学上网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境配置"><span class="nav-number">3.2.</span> <span class="nav-text">2. 环境配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习资料"><span class="nav-number">4.</span> <span class="nav-text">学习资料</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-官方文档-Documentations"><span class="nav-number">4.1.</span> <span class="nav-text">1. 官方文档 Documentations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-搜索引擎-Search-Engines"><span class="nav-number">4.2.</span> <span class="nav-text">2. 搜索引擎 Search Engines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-社区-Community"><span class="nav-number">4.3.</span> <span class="nav-text">3. 社区 Community</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-练习项目-Toy-Projects"><span class="nav-number">4.4.</span> <span class="nav-text">4. 练习项目 Toy Projects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-书籍-Books"><span class="nav-number">4.5.</span> <span class="nav-text">5. 书籍 Books</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-其他线上学习资料（待更新）"><span class="nav-number">4.6.</span> <span class="nav-text">6. 其他线上学习资料（待更新）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何学习"><span class="nav-number">5.</span> <span class="nav-text">如何学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：从整体上了解某种语言功能、特点以及优缺点"><span class="nav-number">5.1.</span> <span class="nav-text">第一步：从整体上了解某种语言功能、特点以及优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：弄明白如何查询和获取帮助文档-Getting-Help"><span class="nav-number">5.2.</span> <span class="nav-text">第二步：弄明白如何查询和获取帮助文档 Getting Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：熟悉基本语法和编码规范-Grammar-amp-Style"><span class="nav-number">5.3.</span> <span class="nav-text">第三步：熟悉基本语法和编码规范 Grammar & Style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：在练习或实践中探索性地学习-Practice-amp-Experimentation"><span class="nav-number">5.4.</span> <span class="nav-text">第四步：在练习或实践中探索性地学习 Practice & Experimentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：阅读书籍和源码-Books-amp-Source-code"><span class="nav-number">5.5.</span> <span class="nav-text">第五步：阅读书籍和源码 Books & Source code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-Shell-amp-Git-学习资源"><span class="nav-number">6.</span> <span class="nav-text">Linux, Shell, & Git 学习资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">为什么科研人员要至少学一门编程语言？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">对于科研工作者有哪些编程语言和工具值得一学？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-科学上网"><span class="nav-number">3.1.</span> <span class="nav-text">¶1. 科学上网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境配置"><span class="nav-number">3.2.</span> <span class="nav-text">¶2. 环境配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">学习资料</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-官方文档-documentations"><span class="nav-number">4.1.</span> <span class="nav-text">¶1. 官方文档 Documentations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-搜索引擎-search-engines"><span class="nav-number">4.2.</span> <span class="nav-text">¶2. 搜索引擎 Search Engines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-社区-community"><span class="nav-number">4.3.</span> <span class="nav-text">¶3. 社区 Community</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-练习项目-toy-projects"><span class="nav-number">4.4.</span> <span class="nav-text">¶4. 练习项目 Toy Projects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-书籍-books"><span class="nav-number">4.5.</span> <span class="nav-text">¶5. 书籍 Books</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-其他线上学习资料-待更新"><span class="nav-number">4.6.</span> <span class="nav-text">¶6. 其他线上学习资料（待更新）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">如何学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：从整体上了解某种语言功能-特点以及优缺点"><span class="nav-number">5.1.</span> <span class="nav-text">¶第一步：从整体上了解某种语言功能、特点以及优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：弄明白如何查询和获取帮助文档-getting-help"><span class="nav-number">5.2.</span> <span class="nav-text">¶第二步：弄明白如何查询和获取帮助文档 Getting Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：熟悉基本语法和编码规范-grammar-style"><span class="nav-number">5.3.</span> <span class="nav-text">¶第三步：熟悉基本语法和编码规范 Grammar & Style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：在练习或实践中探索性地学习-practice-experimentation"><span class="nav-number">5.4.</span> <span class="nav-text">¶第四步：在练习或实践中探索性地学习 Practice & Experimentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：阅读书籍和源码-books-source-code"><span class="nav-number">5.5.</span> <span class="nav-text">¶第五步：阅读书籍和源码 Books & Source code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Linux, Shell, & Git 学习资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

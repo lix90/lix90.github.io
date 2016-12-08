@@ -90,20 +90,23 @@
 
 <meta name="description" content="A ‘regular expression’ is a pattern that describes a set of strings.
 
-按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 perl =">
+按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。
+在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 perl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R：正则表达式">
 <meta property="og:url" content="http://lix90.github.io/2016/10/03/2016-10-03-r-regex/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
 <meta property="og:description" content="A ‘regular expression’ is a pattern that describes a set of strings.
 
-按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 perl =">
+按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。
+在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 perl">
 <meta property="og:updated_time" content="2016-11-19T03:29:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R：正则表达式">
 <meta name="twitter:description" content="A ‘regular expression’ is a pattern that describes a set of strings.
 
-按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 perl =">
+按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。
+在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 perl">
 
 
 
@@ -360,22 +363,57 @@
         <blockquote>
 <p>A ‘regular expression’ is a pattern that describes a set of strings.</p>
 </blockquote>
-<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。<br>在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
-<h1 id="Extended-Regular-Expressions"><a href="#Extended-Regular-Expressions" class="headerlink" title="Extended Regular Expressions"></a>Extended Regular Expressions</h1><ul>
+<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。<br>
+在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>
+支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>
+正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
+<h1>Extended Regular Expressions</h1>
+<ul>
 <li>字母和数字本身就是正则表达式，可用来匹配自身。</li>
 <li>具有特殊含义的元字符需要通过反斜杠（backslash，<code>\</code>）逃逸其所代表的特殊含义。</li>
 </ul>
 <p>元字符包括：<code>. \ | ( ) [ { ^ $ * + ?</code></p>
 <blockquote>
-<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.<br>A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.<br>A range of characters may be specified by giving the first and last characters, separated by a hyphen.<br>Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
+<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.<br>
+A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.<br>
+A range of characters may be specified by giving the first and last characters, separated by a hyphen.<br>
+Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
 </blockquote>
-<p><code>[:alnum:]</code> = <code>[:alpha:]</code> + <code>[:digit:]</code><br><code>[:alpha:]</code> = <code>[:lower:]</code> + <code>[:upper:]</code><br><code>[:blank:]</code> 空白符，如空格、tab<br><code>[:cntrl:]</code> Control characters<br><code>[:digit:]</code> 数字<br><code>[:graph:]</code> = <code>[:alnum:]</code> + <code>[:punct:]</code><br><code>[:lower:]</code> 小写字母<br><code>[:print:]</code> 可打印的字符 <code>[:alnum:]</code> <code>[:punct:]</code> 空格<br><code>[:punct:]</code> 标点符号<br><code>[:space:]</code> 空格符：tab, newline, vertical tab, form feed, carriage return, space, and possibly other locale-dependent characters<br><code>[:upper:]</code> 大写字母<br><code>[:xdigit:]</code> 十六进制数字</p>
+<p><code>[:alnum:]</code> = <code>[:alpha:]</code> + <code>[:digit:]</code><br>
+<code>[:alpha:]</code> = <code>[:lower:]</code> + <code>[:upper:]</code><br>
+<code>[:blank:]</code> 空白符，如空格、tab<br>
+<code>[:cntrl:]</code> Control characters<br>
+<code>[:digit:]</code> 数字<br>
+<code>[:graph:]</code> = <code>[:alnum:]</code> + <code>[:punct:]</code><br>
+<code>[:lower:]</code> 小写字母<br>
+<code>[:print:]</code> 可打印的字符 <code>[:alnum:]</code> <code>[:punct:]</code> 空格<br>
+<code>[:punct:]</code> 标点符号<br>
+<code>[:space:]</code> 空格符：tab, newline, vertical tab, form feed, carriage return, space, and possibly other locale-dependent characters<br>
+<code>[:upper:]</code> 大写字母<br>
+<code>[:xdigit:]</code> 十六进制数字</p>
 <p>元字符</p>
-<p><code>.</code> 匹配其他任何单字符<br><code>\w</code> 匹配单词 = <code>[[:alnum:]_]</code> <code>\W</code> = <code>[^[:alnum:]_]</code><br><code>\s</code> 空白符 <code>\S</code> 非空白符<br><code>\d</code> 数字 <code>\D</code> 非数字<br><code>^</code> 匹配首空字符（line）<br><code>$</code> 匹配尾空字符（line）<br><code>\&lt;</code> 匹配首空字符（word）<br><code>\&gt;</code> 匹配尾空字符（word）<br><code>\b</code> 匹配位于边缘的空字符（word）<br><code>\B</code> 匹配非边缘字符（word）</p>
+<p><code>.</code> 匹配其他任何单字符<br>
+<code>\w</code> 匹配单词 = <code>[[:alnum:]_]</code> <code>\W</code> = <code>[^[:alnum:]_]</code><br>
+<code>\s</code> 空白符 <code>\S</code> 非空白符<br>
+<code>\d</code> 数字 <code>\D</code> 非数字<br>
+<code>^</code> 匹配首空字符（line）<br>
+<code>$</code> 匹配尾空字符（line）<br>
+<code>\&lt;</code> 匹配首空字符（word）<br>
+<code>\&gt;</code> 匹配尾空字符（word）<br>
+<code>\b</code> 匹配位于边缘的空字符（word）<br>
+<code>\B</code> 匹配非边缘字符（word）</p>
 <p>匹配频率有关的元字符</p>
-<p><code>?</code> 匹配 1 次<br><code>*</code> 匹配 0 或多次<br><code>+</code> 匹配 1 或多次<br><code>{n}</code> 匹配 n 次<br><code>{n,}</code> 匹配 n 或更多次<br><code>{n,m}</code> 匹配 n 至 m 次</p>
-<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
-<h1 id="正则表达式函数实例"><a href="#正则表达式函数实例" class="headerlink" title="正则表达式函数实例"></a>正则表达式函数实例</h1><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><hr>
+<p><code>?</code> 匹配 1 次<br>
+<code>*</code> 匹配 0 或多次<br>
+<code>+</code> 匹配 1 或多次<br>
+<code>{n}</code> 匹配 n 次<br>
+<code>{n,}</code> 匹配 n 或更多次<br>
+<code>{n,m}</code> 匹配 n 至 m 次</p>
+<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>
+正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
+<h1>正则表达式函数实例</h1>
+<h2 id="grep"><a class="header-anchor" href="#grep">¶</a>grep</h2>
+<hr>
 <p>未完待续</p>
 
       
@@ -583,7 +621,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Extended-Regular-Expressions"><span class="nav-number">1.</span> <span class="nav-text">Extended Regular Expressions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式函数实例"><span class="nav-number">2.</span> <span class="nav-text">正则表达式函数实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep"><span class="nav-number">2.1.</span> <span class="nav-text">grep</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Extended Regular Expressions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">正则表达式函数实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep"><span class="nav-number">2.1.</span> <span class="nav-text">¶grep</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

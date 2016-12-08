@@ -351,86 +351,168 @@
       
 
       
-        <h1 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h1><h2 id="Five-different-“Cohen’s-d”-statistics-for-within-subject-designs-1"><a href="#Five-different-“Cohen’s-d”-statistics-for-within-subject-designs-1" class="headerlink" title="Five different “Cohen’s d” statistics for within-subject designs^1"></a>Five different “Cohen’s d” statistics for within-subject designs<a href="http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/" target="_blank" rel="external">^1</a></h2><blockquote>
-<p>within-subject designs tend to be powerful not because they lead to larger effect sizes—if anything, the reverse is probably true, in that people elect to use within-subject designs when Cohen’s d is particularly small, for example in many reaction time studies—but rather <strong>because they allow us to efficiently detect smaller effect sizes due to removing irrelevant sources of variation from the denominator of the test statistic. </strong></p>
+        <h1>Reading</h1>
+<h2 id="five-different-cohen-s-d-statistics-for-within-subject-designs"><a class="header-anchor" href="#five-different-cohen-s-d-statistics-for-within-subject-designs">¶</a>Five different “Cohen’s d” statistics for within-subject designs<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2>
+<blockquote>
+<p>within-subject designs tend to be powerful not because they lead to larger effect sizes—if anything, the reverse is probably true, in that people elect to use within-subject designs when Cohen’s d is particularly small, for example in many reaction time studies—but rather **because they allow us to efficiently detect smaller effect sizes due to removing irrelevant sources of variation from the denominator of the test statistic. **</p>
 <p>One of the primary motivations for using standardized effect sizes at all is so that we can try to meaningfully compare effects from different studies, including studies that might use different designs. But all of the effect size candidates other than classical Cohen’s d are affected by the experimental design; that is, the “same” effect will have a larger or smaller effect size based on whether we used a between- or within-subjects design, how many responses we required each subject to make, and so on. Precisely because of this, we cannot meaningfully compare these effect sizes across different experimental designs. Because classical Cohen’s d deliberately ignores design information, it is at least in-principle possible to compare effect sizes across different designs.</p>
 <p>In my opinion, standardized effect sizes are generally a bad idea for data summary and meta-analytic purposes. It’s hard to imagine a cumulative science built on standardized effect sizes, rather than on effects expressed in terms of psychologically meaningful units. With that said, I do think standardized effect sizes can be useful for doing power analysis or for defining reasonably informative priors when you don’t have previous experimental data.</p>
 </blockquote>
-<h2 id="Why-I-don’t-like-standardised-effect-sizes-2"><a href="#Why-I-don’t-like-standardised-effect-sizes-2" class="headerlink" title="Why I don’t like standardised effect sizes^2"></a>Why I don’t like standardised effect sizes<a href="http://janhove.github.io/reporting/2015/02/05/standardised-vs-unstandardised-es" target="_blank" rel="external">^2</a></h2><blockquote>
-<p><strong>unstandardised effect sizes</strong> express the patterns found in the data in the units in which they were measured.<br><strong>Standardised effect sizes</strong>, by contrast, express these patterns by scaling the differences or trends by a measure of the variability within the sample.</p>
+<h2 id="why-i-don-t-like-standardised-effect-sizes"><a class="header-anchor" href="#why-i-don-t-like-standardised-effect-sizes">¶</a>Why I don’t like standardised effect sizes<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
+<blockquote>
+<p><strong>unstandardised effect sizes</strong> express the patterns found in the data in the units in which they were measured.<br>
+<strong>Standardised effect sizes</strong>, by contrast, express these patterns by scaling the differences or trends by a measure of the variability within the sample.</p>
 <p><strong>the four reasons</strong> why I prefer unstandardised over standardised effect sizes.</p>
 <ul>
 <li>Unstandardised effect sizes are often <strong>interpretable</strong></li>
 <li>Standardised effect sizes are more sensitive to the research design (and that’s a bad thing)</li>
-<li>Apples and oranges (effects in any particular domain would change over time.)<ul>
+<li>Apples and oranges (effects in any particular domain would change over time.)
+<ul>
 <li>Perhaps it’s more useful to think about how sources of extraneous variance can be brought under control in order to increase power (tighter design, more accurate measures, including covariates), rather than assuming that whatever yardstick out there also applies to one’s own study.</li>
 </ul>
 </li>
 <li>What about more complex models? … standardised effect sizes that I’ve come across assume that you have a comparatively easy statistical model.</li>
 </ul>
 </blockquote>
-<h2 id="What-data-patterns-can-lie-behind-a-correlation-coefficient-3"><a href="#What-data-patterns-can-lie-behind-a-correlation-coefficient-3" class="headerlink" title="What data patterns can lie behind a correlation coefficient?[^3]"></a>What data patterns can lie behind a correlation coefficient?[^3]</h2><blockquote>
+<h2 id="what-data-patterns-can-lie-behind-a-correlation-coefficient"><a class="header-anchor" href="#what-data-patterns-can-lie-behind-a-correlation-coefficient">¶</a>What data patterns can lie behind a correlation coefficient?<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2>
+<blockquote>
 <p>One correlation coefficient can represent any number of patterns</p>
 <p>Correlation coefficients are popular among researchers because they allow them to summarise the relationship between two variables in a single number. However, a given correlation coefficient can represent any number of patterns between two variables, and without more information (ideally in the form of a scatterplot), the researchers themselves and their readers have no way of knowing which one.</p>
 </blockquote>
-<p>[^3]: <a href="http://janhove.github.io/teaching/2016/11/21/what-correlations-look-like" target="_blank" rel="external">链接</a>，该博主写了一个 R 函数，用来生成 15 种不同数据分布但是相关系数相同散点图。这说明，散点图对于相关系数的解释是相当重要的。</p>
-<h2 id="对于方差分析，推荐使用-eta-2-G-效应量指标-4"><a href="#对于方差分析，推荐使用-eta-2-G-效应量指标-4" class="headerlink" title="对于方差分析，推荐使用 $\eta^2_G$ 效应量指标[^4]"></a>对于方差分析，推荐使用 $\eta^2_G$ 效应量指标[^4]</h2><p>[^4]: Bakeman, R. (2005). Recommended effect size statistics for repeated measures designs. Behavior research methods, 37(3), 379-384.</p>
+<h2 id="对于方差分析-推荐使用-eta-2-g-效应量指标"><a class="header-anchor" href="#对于方差分析-推荐使用-eta-2-g-效应量指标">¶</a>对于方差分析，推荐使用 $\eta^2_G$ 效应量指标<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></h2>
 <blockquote>
 <p>we present this method, explain that $\eta^2_G$ is preferred to eta squared and partial eta squared because <strong>it provides comparability across between-subjects and within-subjects designs</strong>, show that it can <strong>easily be computed from information provided by standard statistical packages</strong>, and recommend that investigators provide it routinely in their research reports when appropriate.</p>
 </blockquote>
-<h2 id="关于方差分析报告的记录"><a href="#关于方差分析报告的记录" class="headerlink" title="关于方差分析报告的记录"></a>关于方差分析报告的记录</h2><blockquote>
-<p>Throughout the manuscript degrees of freedom (df) are <strong>Greenhouse-Geisser corrected</strong> in ANOVAs for repeated-measures factors with more than two levels. Furthermore, we report $\eta^2_G$ as effect size measure for ANOVAs following Bakeman’s (2005) recommendations. <strong>Contrasts are obtained using the methods implemented in lsmeans (Lenth, 2015)</strong>. For ANOVAs, <strong>contrasts use uncorrected Satterthwaite approximated df.</strong> To control for multiple testing, p-values of follow-up contrasts are corrected using either <strong>the Bonferroni-Holm correction</strong> (Holm, 1979), denoted $p_H$ , or, in case all follow-up tests share the same df and do not involve one-tailed tests, a generalization of the Bonferroni-Holm method which takes the correlation among parameters into account (method free in package multcomp, Bretz, Hothorn, &amp; Westfall, 2011), denoted $p_F$ . Tests are one-tailed throughout the manuscript for the following hypotheses: (a) endorsements increase from knowledge phase to rule phase, (b) in particular, they increase for MP and MT, and (c) for AC and DA, (d) replicating the previous work, the increases in MP and MT are larger than those for AC and DA, (e) the effects of speaker expertise in Experiment 2. All other tests are two-tailed.</p>
+<h2 id="关于方差分析报告的记录"><a class="header-anchor" href="#关于方差分析报告的记录">¶</a>关于方差分析报告的记录</h2>
+<blockquote>
+<p>Throughout the manuscript degrees of freedom (df) are <strong>Greenhouse-Geisser corrected</strong> in ANOVAs for repeated-measures factors with more than two levels. Furthermore, we report $\eta^2_G$ as effect size measure for ANOVAs following Bakeman’s (2005) recommendations. <strong>Contrasts are obtained using the methods implemented in lsmeans (Lenth, 2015)</strong>. For ANOVAs, <strong>contrasts use uncorrected Satterthwaite approximated df.</strong> To control for multiple testing, p-values of follow-up contrasts are corrected using either <strong>the Bonferroni-Holm correction</strong> (Holm, 1979), denoted $p_H$ , or, in case all follow-up tests share the same df and do not involve one-tailed tests, a generalization of the Bonferroni-Holm method which takes the correlation among parameters into account (method free in package multcomp, Bretz, Hothorn, &amp; Westfall, 2011), denoted $p_F$ . Tests are one-tailed throughout the manuscript for the following hypotheses: (a) endorsements increase from knowledge phase to rule phase, (b) in particular, they increase for MP and MT, and © for AC and DA, (d) replicating the previous work, the increases in MP and MT are larger than those for AC and DA, (e) the effects of speaker expertise in Experiment 2. All other tests are two-tailed.</p>
 </blockquote>
-<p>这是这篇文章[^5]里对于统计结果报告的脚注，介绍了作者是如何对结果进行报告。该作者是 R 包 afex 的开发者。</p>
+<p>这是这篇文章<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>里对于统计结果报告的脚注，介绍了作者是如何对结果进行报告。该作者是 R 包 afex 的开发者。</p>
 <ul>
 <li>在重复测量的因子多于两个水平时，自由度使用 Greenhouse-Geisser 方法矫正。</li>
 <li>使用 lsmeans 包进行事后比较。</li>
 <li>使用 Bonferroni-Holm 进行多重比较检验的矫正</li>
 <li>如果每个检验都又相同的 df，使用的 multcomp 包中的 free 方法进行矫正。</li>
 </ul>
-<p>[^5]: Singmann, H. et al. (2016). Cognitive Psychology, 88, 61-87.</p>
-<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="knitr-设置-6"><a href="#knitr-设置-6" class="headerlink" title="knitr 设置^6"></a>knitr 设置<a href="[user2016_knitr/Part1/3_Options/fruit_snacks.Rmd](https://raw.githubusercontent.com/ijlyttle/user2016_knitr/master/Part1/3_Options/fruit_snacks.Rmd)">^6</a></h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">knitr::opts_chunk$set(fig.width=<span class="number">12</span>, fig.height=<span class="number">5</span>,</div><div class="line">                      echo=<span class="literal">FALSE</span>, results=<span class="string">"hide"</span>,</div><div class="line">                      message=<span class="literal">FALSE</span>, <span class="keyword">warning</span>=<span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
+<h1>R</h1>
+<h2 id="knitr-设置"><a class="header-anchor" href="#knitr-设置">¶</a>knitr 设置<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></h2>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">knitr::opts_chunk$set(fig.width=<span class="number">12</span>, fig.height=<span class="number">5</span>,</div><div class="line">                      echo=<span class="literal">FALSE</span>, results=<span class="string">"hide"</span>,</div><div class="line">                      message=<span class="literal">FALSE</span>, <span class="keyword">warning</span>=<span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
 <p>使用 <code>knitr::opts_chunk$set()</code></p>
-<h2 id="markdown-图片链接"><a href="#markdown-图片链接" class="headerlink" title="markdown 图片链接"></a>markdown 图片链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)</div></pre></td></tr></table></figure>
+<h2 id="markdown-图片链接"><a class="header-anchor" href="#markdown-图片链接">¶</a>markdown 图片链接</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)</div></pre></td></tr></table></figure>
 <p>将图片标记语法包裹在超链接标记语法中。</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="factorial-designs-因子设计-7"><a href="#factorial-designs-因子设计-7" class="headerlink" title="factorial designs 因子设计^7"></a>factorial designs 因子设计<a href="http://support.minitab.com/zh-cn/minitab/17/topic-library/modeling-statistics/doe/factorial-designs/factorial-designs/" target="_blank" rel="external">^7</a></h2><p>因子设计是一种设计试验类型，可以研究<strong>多个因子对响应的效应</strong>。进行试验时，同时改变所有因子的水平（而不是一次改变一个）可以研究因子之间的交互作用。</p>
+<h1>概念</h1>
+<h2 id="factorial-designs-因子设计"><a class="header-anchor" href="#factorial-designs-因子设计">¶</a>factorial designs 因子设计<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></h2>
+<p>因子设计是一种设计试验类型，可以研究<strong>多个因子对响应的效应</strong>。进行试验时，同时改变所有因子的水平（而不是一次改变一个）可以研究因子之间的交互作用。</p>
 <p><strong>全因子设计</strong>是研究人员以因子水平的全部组合测量响应的设计。两水平全因子设计所需的运行次数为 $2^k$，其中 $k$ 为因子数。</p>
 <p><strong>部分因子设计</strong>是试验者仅执行全因子设计中的选定子集或“部分”试验的设计。当资源有限或设计中的因子数很大时，部分因子设计是一种很好的选择，因为它们比全因子设计使用的运行次数要少。部分因子设计使用全因子设计的子集，因此某些主效应与双因子交互作用相混杂，而<strong>无法与其他更高阶交互作用的效应相区分</strong>。通常，试验者想假定更高阶的效应可以忽略不计，以便通过更少的运行次数获得有关主效应和低阶交互作用的信息。</p>
-<p>在因子设计中，当因变量的值在一个因子的不同水平下具有显著差异时，并且该结论在其他因子的任何水平都成立时，说明该因子的主效应存在。主效应的判定是以假设因变量不随因子的水平变化而变化作为零假设或基准线的。<a href="[香港开放教科书：社会科学研究／实验研究／因子设计](http://www.opentextbooks.org.hk/ditatopic/36036)">^8</a></p>
-<h1 id="R-contrast-coding-system-9"><a href="#R-contrast-coding-system-9" class="headerlink" title="R contrast coding system[^9]"></a>R contrast coding system[^9]</h1><p>四种内置比较：</p>
+<p>在因子设计中，当因变量的值在一个因子的不同水平下具有显著差异时，并且该结论在其他因子的任何水平都成立时，说明该因子的主效应存在。主效应的判定是以假设因变量不随因子的水平变化而变化作为零假设或基准线的。<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></p>
+<h1>R contrast coding system<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></h1>
+<p>四种内置比较：</p>
 <ul>
 <li>dummy</li>
 <li>deviation</li>
 <li>helmert</li>
-<li><p>orthogonal polynomial</p>
-<p>Coding Scheme | Comparisons made<br>:————–|:—————-<br>Dummy Coding | Compares each level to the reference level, intercept being the cell mean of the reference group<br>Simple Coding | Compares each level to the reference level, intercept being the grand mean<br>Deviation Coding | Compares each level to the grand mean<br>Orthogonal Polynomial Coding | Orthogonal polynomial contrasts<br>Helmert Coding | Compare levels of a variable with the mean of the subsequent levels of the variable。helmert coding 将每个水平与其后续水平的均值进行比较。<br>Reverse Helmert Coding | Compares levels of a variable with the mean of the previous levels of the variable。与 helmert coding 相对，reverse helmert coding 将后一个水平与前面水平的均值进行比较。<code>contr.helmert()</code><br>Forward Difference Coding | Compares adjacent levels of a variable (each level minus the next level)。一个水平的均值与下一个邻近水平的均值进行比较。<br>Backward Difference Coding | Compares adjacent levels of a variable (each level minus the prior level)。与 forward difference coding 相反，将后一个水平与前一个邻近水平进行比较。<br>User-Defined Coding | User-defined contrast</p>
-</li>
+<li>orthogonal polynomial</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Coding Scheme</th>
+<th style="text-align:left">Comparisons made</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Dummy Coding</td>
+<td style="text-align:left">Compares each level to the reference level, intercept being the cell mean of the reference group</td>
+</tr>
+<tr>
+<td style="text-align:left">Simple Coding</td>
+<td style="text-align:left">Compares each level to the reference level, intercept being the grand mean</td>
+</tr>
+<tr>
+<td style="text-align:left">Deviation Coding</td>
+<td style="text-align:left">Compares each level to the grand mean</td>
+</tr>
+<tr>
+<td style="text-align:left">Orthogonal Polynomial Coding</td>
+<td style="text-align:left">Orthogonal polynomial contrasts</td>
+</tr>
+<tr>
+<td style="text-align:left">Helmert Coding</td>
+<td style="text-align:left">Compare levels of a variable with the mean of the subsequent levels of the variable。helmert coding 将每个水平与其后续水平的均值进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">Reverse Helmert Coding</td>
+<td style="text-align:left">Compares levels of a variable with the mean of the previous levels of the variable。与 helmert coding 相对，reverse helmert coding 将后一个水平与前面水平的均值进行比较。<code>contr.helmert()</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Forward Difference Coding</td>
+<td style="text-align:left">Compares adjacent levels of a variable (each level minus the next level)。一个水平的均值与下一个邻近水平的均值进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">Backward Difference Coding</td>
+<td style="text-align:left">Compares adjacent levels of a variable (each level minus the prior level)。与 forward difference coding 相反，将后一个水平与前一个邻近水平进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">User-Defined Coding</td>
+<td style="text-align:left">User-defined contrast</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>No matter which coding system you select, you will always have a contrast matrix with one less column than levels of the original variable. 无论什么样的编码系统，你的比较矩阵的列数总是要比原来变量个数少一。</p>
 </blockquote>
-<h2 id="Dummy-coding"><a href="#Dummy-coding" class="headerlink" title="Dummy coding"></a>Dummy coding</h2><p>dummy coding 让你将变量的每个水平与一个固定的参照水平进行比较。</p>
+<h2 id="dummy-coding"><a class="header-anchor" href="#dummy-coding">¶</a>Dummy coding</h2>
+<p>dummy coding 让你将变量的每个水平与一个固定的参照水平进行比较。</p>
 <p><code>contrasts(data$factor) = contr.treatment(4)</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  2 3 4</div><div class="line">1 0 0 0</div><div class="line">2 1 0 0</div><div class="line">3 0 1 0</div><div class="line">4 0 0 1</div></pre></td></tr></table></figure>
 <p>所以，第2，3，4个水平均将与第1个水平比较。</p>
-<h2 id="Simple-coding"><a href="#Simple-coding" class="headerlink" title="Simple coding"></a>Simple coding</h2><p>simple coding 和 dummy coding 相似，都是与参照水平进行比较。不同之处在于，回归模型的结果上的截距。对于 dummy coding，截距为参照组的 cell mean；而对于 simple coding，截距为 mean of cell means，即所有 cell 均值的均值 (grand mean)。</p>
+<h2 id="simple-coding"><a class="header-anchor" href="#simple-coding">¶</a>Simple coding</h2>
+<p>simple coding 和 dummy coding 相似，都是与参照水平进行比较。不同之处在于，回归模型的结果上的截距。对于 dummy coding，截距为参照组的 cell mean；而对于 simple coding，截距为 mean of cell means，即所有 cell 均值的均值 (grand mean)。</p>
 <blockquote>
 <p>Essentially, the difference between the dummy coding scheme and the simple coding scheme is a constant matrix whose each element is 1/k if our categorical variable has k levels.</p>
 </blockquote>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">c &lt;- contr.treatment(<span class="number">4</span>)</div><div class="line">my.coding &lt;- matrix(rep(<span class="number">1</span>/<span class="number">4</span>, <span class="number">12</span>), ncol = <span class="number">3</span>)</div><div class="line">my.simple.coding &lt;- c - my.coding</div><div class="line">my.simple</div><div class="line"></div><div class="line">      <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span></div><div class="line"><span class="number">1</span> -<span class="number">0.25</span> -<span class="number">0.25</span> -<span class="number">0.25</span></div><div class="line"><span class="number">2</span>  <span class="number">0.75</span> -<span class="number">0.25</span> -<span class="number">0.25</span></div><div class="line"><span class="number">3</span> -<span class="number">0.25</span>  <span class="number">0.75</span> -<span class="number">0.25</span></div><div class="line"><span class="number">4</span> -<span class="number">0.25</span> -<span class="number">0.25</span>  <span class="number">0.75</span></div></pre></td></tr></table></figure>
-<h2 id="Deviation-coding"><a href="#Deviation-coding" class="headerlink" title="Deviation coding"></a>Deviation coding</h2><p>deviation coding 将指定水平与因变量的总均值进行比较。</p>
-<p><code>contr.sum(n)</code><br><code>contrasts(data$factor) = contr.sum(n)</code></p>
+<h2 id="deviation-coding"><a class="header-anchor" href="#deviation-coding">¶</a>Deviation coding</h2>
+<p>deviation coding 将指定水平与因变量的总均值进行比较。</p>
+<p><code>contr.sum(n)</code><br>
+<code>contrasts(data$factor) = contr.sum(n)</code></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">contr.sum(<span class="number">4</span>)</div><div class="line">  [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</div><div class="line"><span class="number">1</span>    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span></div><div class="line"><span class="number">2</span>    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span></div><div class="line"><span class="number">3</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></div><div class="line"><span class="number">4</span>   -<span class="number">1</span>   -<span class="number">1</span>   -<span class="number">1</span></div></pre></td></tr></table></figure>
 <p>上面标记为1的水平将与总均值进行比较，而-1的水平不进行比较。</p>
 <blockquote>
 <p>Note that a -1 is assigned to level 4 for all three comparisons (because it is the level that is never compared to the other levels) and all other values are assigned a 0.</p>
 <p>However, this grand mean is not the mean of the dependent variable that is listed in the output of the means command above. Rather it is the mean of means of the dependent variable at each level of the categorical variable.</p>
 </blockquote>
-<h2 id="Orthogonal-polynomial-coding"><a href="#Orthogonal-polynomial-coding" class="headerlink" title="Orthogonal polynomial coding"></a>Orthogonal polynomial coding</h2><blockquote>
+<h2 id="orthogonal-polynomial-coding"><a class="header-anchor" href="#orthogonal-polynomial-coding">¶</a>Orthogonal polynomial coding</h2>
+<blockquote>
 <p>Orthogonal polynomial coding is a form of <strong>trend analysis</strong> in that it is looking for the linear, quadratic and cubic trends in the categorical variable. This type of coding system should be <strong>used only with an ordinal variable in which the levels are equally spaced.</strong></p>
 </blockquote>
 <p><code>contr.poly()</code></p>
-<p>[^9]: <a href="http://www.ats.ucla.edu/stat/r/library/contrast_coding.htm" target="_blank" rel="external">Contrast Coding Systems for categorical variables</a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/" target="_blank" rel="external">http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="http://janhove.github.io/reporting/2015/02/05/standardised-vs-unstandardised-es" target="_blank" rel="external">http://janhove.github.io/reporting/2015/02/05/standardised-vs-unstandardised-es</a> <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="http://janhove.github.io/teaching/2016/11/21/what-correlations-look-like" target="_blank" rel="external">链接</a>，该博主写了一个 R 函数，用来生成 15 种不同数据分布但是相关系数相同散点图。这说明，散点图对于相关系数的解释是相当重要的。 <a href="#fnref3" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Bakeman, R. (2005). Recommended effect size statistics for repeated measures designs. Behavior research methods, 37(3), 379-384. <a href="#fnref4" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Singmann, H. et al. (2016). Cognitive Psychology, 88, 61-87. <a href="#fnref5" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a href="https://raw.githubusercontent.com/ijlyttle/user2016_knitr/master/Part1/3_Options/fruit_snacks.Rmd" target="_blank" rel="external">user2016_knitr/Part1/3_Options/fruit_snacks.Rmd</a> <a href="#fnref6" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a href="http://support.minitab.com/zh-cn/minitab/17/topic-library/modeling-statistics/doe/factorial-designs/factorial-designs/" target="_blank" rel="external">http://support.minitab.com/zh-cn/minitab/17/topic-library/modeling-statistics/doe/factorial-designs/factorial-designs/</a> <a href="#fnref7" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a href="http://www.opentextbooks.org.hk/ditatopic/36036" target="_blank" rel="external">香港开放教科书：社会科学研究／实验研究／因子设计</a> <a href="#fnref8" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p><a href="http://www.ats.ucla.edu/stat/r/library/contrast_coding.htm" target="_blank" rel="external">Contrast Coding Systems for categorical variables</a> <a href="#fnref9" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
 
       
     </div>
@@ -637,7 +719,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Reading"><span class="nav-number">1.</span> <span class="nav-text">Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Five-different-“Cohen’s-d”-statistics-for-within-subject-designs-1"><span class="nav-number">1.1.</span> <span class="nav-text">Five different “Cohen’s d” statistics for within-subject designs^1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-I-don’t-like-standardised-effect-sizes-2"><span class="nav-number">1.2.</span> <span class="nav-text">Why I don’t like standardised effect sizes^2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-data-patterns-can-lie-behind-a-correlation-coefficient-3"><span class="nav-number">1.3.</span> <span class="nav-text">What data patterns can lie behind a correlation coefficient?[^3]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于方差分析，推荐使用-eta-2-G-效应量指标-4"><span class="nav-number">1.4.</span> <span class="nav-text">对于方差分析，推荐使用 $\eta^2_G$ 效应量指标[^4]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于方差分析报告的记录"><span class="nav-number">1.5.</span> <span class="nav-text">关于方差分析报告的记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">2.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#knitr-设置-6"><span class="nav-number">2.1.</span> <span class="nav-text">knitr 设置^6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-图片链接"><span class="nav-number">2.2.</span> <span class="nav-text">markdown 图片链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">3.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#factorial-designs-因子设计-7"><span class="nav-number">3.1.</span> <span class="nav-text">factorial designs 因子设计^7</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R-contrast-coding-system-9"><span class="nav-number">4.</span> <span class="nav-text">R contrast coding system[^9]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dummy-coding"><span class="nav-number">4.1.</span> <span class="nav-text">Dummy coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-coding"><span class="nav-number">4.2.</span> <span class="nav-text">Simple coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deviation-coding"><span class="nav-number">4.3.</span> <span class="nav-text">Deviation coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Orthogonal-polynomial-coding"><span class="nav-number">4.4.</span> <span class="nav-text">Orthogonal polynomial coding</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#five-different-cohen-s-d-statistics-for-within-subject-designs"><span class="nav-number">1.1.</span> <span class="nav-text">¶Five different “Cohen’s d” statistics for within-subject designs[1]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#why-i-don-t-like-standardised-effect-sizes"><span class="nav-number">1.2.</span> <span class="nav-text">¶Why I don’t like standardised effect sizes[2]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-data-patterns-can-lie-behind-a-correlation-coefficient"><span class="nav-number">1.3.</span> <span class="nav-text">¶What data patterns can lie behind a correlation coefficient?[3]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于方差分析-推荐使用-eta-2-g-效应量指标"><span class="nav-number">1.4.</span> <span class="nav-text">¶对于方差分析，推荐使用 $\eta^2_G$ 效应量指标[4]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于方差分析报告的记录"><span class="nav-number">1.5.</span> <span class="nav-text">¶关于方差分析报告的记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#knitr-设置"><span class="nav-number">2.1.</span> <span class="nav-text">¶knitr 设置[6]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown-图片链接"><span class="nav-number">2.2.</span> <span class="nav-text">¶markdown 图片链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#factorial-designs-因子设计"><span class="nav-number">3.1.</span> <span class="nav-text">¶factorial designs 因子设计[7]</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">R contrast coding system[9]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dummy-coding"><span class="nav-number">4.1.</span> <span class="nav-text">¶Dummy coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simple-coding"><span class="nav-number">4.2.</span> <span class="nav-text">¶Simple coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deviation-coding"><span class="nav-number">4.3.</span> <span class="nav-text">¶Deviation coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orthogonal-polynomial-coding"><span class="nav-number">4.4.</span> <span class="nav-text">¶Orthogonal polynomial coding</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

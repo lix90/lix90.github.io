@@ -351,18 +351,24 @@
       
 
       
-        <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h2><p>ECMAScript 提供了3个特殊的引用类型：Boolean、Number 和 String。<br>引用类型与基本包装类型的主要区别就是<strong>对象的生存期</strong>。</p>
+        <h1>JavaScript</h1>
+<h2 id="基本包装类型"><a class="header-anchor" href="#基本包装类型">¶</a>基本包装类型</h2>
+<p>ECMAScript 提供了3个特殊的引用类型：Boolean、Number 和 String。<br>
+引用类型与基本包装类型的主要区别就是<strong>对象的生存期</strong>。</p>
 <blockquote>
 <p>使用 new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。这意味着不能在运行时为基本类型值添加属性和方法。</p>
 </blockquote>
-<p>使用 new 调用基本包装类型的构造函数，与直接调用同名的转型函数不一样。使用转型函数得到的对象仍然为基本类型。<br>不建议显式地创建基本包装类型的对象。</p>
-<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>基本类型与引用类型的布尔值的区别：</p>
+<p>使用 new 调用基本包装类型的构造函数，与直接调用同名的转型函数不一样。使用转型函数得到的对象仍然为基本类型。<br>
+不建议显式地创建基本包装类型的对象。</p>
+<h3 id="boolean-类型"><a class="header-anchor" href="#boolean-类型">¶</a>Boolean 类型</h3>
+<p>基本类型与引用类型的布尔值的区别：</p>
 <ul>
 <li>布尔表达式中的所有对象都会被转换为 true，所以即便 Boolean 对象的值为 false，在布尔表达式中仍然为 true。</li>
 <li>typeof 操作符对基本类型返回 “boolean”，而对引用类型返回 “object”。</li>
 <li>由于 Boolean 对象是 Boolean 类型的实例，所以使用 instanceof 操作符测试 Boolean 对象会返回 true，而测试基本类型的布尔值则返回 false。</li>
 </ul>
-<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><p>Number 类型提供了操作数值的方法。</p>
+<h3 id="number-类型"><a class="header-anchor" href="#number-类型">¶</a>Number 类型</h3>
+<p>Number 类型提供了操作数值的方法。</p>
 <ul>
 <li><code>toExponential</code> 返回指数（科学记数法）表示方法的数值的字符串。</li>
 <li><code>toFixed()</code> 返回固定小数点位数表示方法的数值的字符串。</li>
@@ -370,18 +376,39 @@
 <li><code>valueOf()</code> 返回基本类型值</li>
 <li><code>toLocaleString()</code> <code>toString()</code> 返回数值的字符串表示。</li>
 </ul>
-<h3 id="String-类型"><a href="#String-类型" class="headerlink" title="String 类型"></a>String 类型</h3><p>String 类型实例同样继承了 <code>valueOf()</code> <code>toLocaleString()</code> <code>toString()</code> 方法，都返回对象所表示的基本字符串值。</p>
-<p><strong>字符方法</strong><br>两个用于访问字符串中特定字符的方法：<code>charAt()</code> 和 <code>charCodeAt()</code>，两个方法都接收一个参数，即基于0的字符位置。<br>ECMAScript 5定义了另一个访问个别字符的方法，在支持此方法的浏览器中，可以使用方括号加数字索引来反问字符串中的特定字符。</p>
-<p><strong>字符串操作方法</strong><br>拼接字符串 <code>concat()</code>，该方法可以接受任意多个参数。<br>三个基于子字符串创建新字符串的方法：<code>slice()</code> <code>substr()</code> <code>substring()</code>。<br>字符串位置方法：<code>indexOf()</code> <code>lastIndexOf()</code><br><code>trim()</code> 方法：删除前置及后缀的所有空格。<br>大小写转换方法：<code>toLowerCase()</code> <code>toLocaleLowerCase()</code> <code>toUpperCase()</code> <code>toLocaleUpperCase()</code><br>模式匹配方法：<code>match()</code> <code>search()</code> <code>replace()</code> <code>split()</code><br><code>localeCompare()</code>：比较两个字符串，并返回-1，0，或1。<br><code>fromCharCode()</code>：接收一或多个字符编码，然后将它们转换成一个字符串。</p>
-<h2 id="单体内置对象"><a href="#单体内置对象" class="headerlink" title="单体内置对象"></a>单体内置对象</h2><p><strong>内置对象</strong>：由 ECMAScript 实现提供的、不依赖于宿主环境的对象，这些对象在 ECMAScript 程序执行之前就已经存在了。开发者不必显式地实例化内置对象，因为它们已经被实例化了。</p>
-<h3 id="Global-对象"><a href="#Global-对象" class="headerlink" title="Global 对象"></a>Global 对象</h3><p>不属于任何其他对象的属性和方法，最终都是 Global 对象的属性和方法。事实上，没有全局变量或全局函数；所有在全局作用域中定义的属性和函数，都是 Global 对象的属性。</p>
-<p>URI 编码方法<br><code>encodeURI()</code> <code>encodeURIComponent()</code> 方法可以对 URI (Uniform Resource Identifiers, 通用资源标识符) 进行编码，以便发送给浏览器。有效的 URI 中不能包含某些字符，于是这两个方法就对 URI 进行编码，使用特殊的 UTF-8 编码替换掉所有无效的字符，从而让浏览器能够接受和理解。</p>
+<h3 id="string-类型"><a class="header-anchor" href="#string-类型">¶</a>String 类型</h3>
+<p>String 类型实例同样继承了 <code>valueOf()</code> <code>toLocaleString()</code> <code>toString()</code> 方法，都返回对象所表示的基本字符串值。</p>
+<p><strong>字符方法</strong><br>
+两个用于访问字符串中特定字符的方法：<code>charAt()</code> 和 <code>charCodeAt()</code>，两个方法都接收一个参数，即基于0的字符位置。<br>
+ECMAScript 5定义了另一个访问个别字符的方法，在支持此方法的浏览器中，可以使用方括号加数字索引来反问字符串中的特定字符。</p>
+<p><strong>字符串操作方法</strong><br>
+拼接字符串 <code>concat()</code>，该方法可以接受任意多个参数。<br>
+三个基于子字符串创建新字符串的方法：<code>slice()</code> <code>substr()</code> <code>substring()</code>。<br>
+字符串位置方法：<code>indexOf()</code> <code>lastIndexOf()</code><br>
+<code>trim()</code> 方法：删除前置及后缀的所有空格。<br>
+大小写转换方法：<code>toLowerCase()</code> <code>toLocaleLowerCase()</code> <code>toUpperCase()</code> <code>toLocaleUpperCase()</code><br>
+模式匹配方法：<code>match()</code> <code>search()</code> <code>replace()</code> <code>split()</code><br>
+<code>localeCompare()</code>：比较两个字符串，并返回-1，0，或1。<br>
+<code>fromCharCode()</code>：接收一或多个字符编码，然后将它们转换成一个字符串。</p>
+<h2 id="单体内置对象"><a class="header-anchor" href="#单体内置对象">¶</a>单体内置对象</h2>
+<p><strong>内置对象</strong>：由 ECMAScript 实现提供的、不依赖于宿主环境的对象，这些对象在 ECMAScript 程序执行之前就已经存在了。开发者不必显式地实例化内置对象，因为它们已经被实例化了。</p>
+<h3 id="global-对象"><a class="header-anchor" href="#global-对象">¶</a>Global 对象</h3>
+<p>不属于任何其他对象的属性和方法，最终都是 Global 对象的属性和方法。事实上，没有全局变量或全局函数；所有在全局作用域中定义的属性和函数，都是 Global 对象的属性。</p>
+<p>URI 编码方法<br>
+<code>encodeURI()</code> <code>encodeURIComponent()</code> 方法可以对 URI (Uniform Resource Identifiers, 通用资源标识符) 进行编码，以便发送给浏览器。有效的 URI 中不能包含某些字符，于是这两个方法就对 URI 进行编码，使用特殊的 UTF-8 编码替换掉所有无效的字符，从而让浏览器能够接受和理解。</p>
 <p><code>decodeURI()</code> <code>decodeURIComponent()</code> 解码方法和编码方法相对应。</p>
 <p><code>eval()</code> 方法像是一个完整的 ECMAScript 解析器，只接受一个参数，即要执行的 ECMAScript 字符串。</p>
-<h3 id="Math-对象"><a href="#Math-对象" class="headerlink" title="Math 对象"></a>Math 对象</h3><p>Math 对象的属性，大多是数学计算中可能会用到的一些特殊值。<br><code>min()</code> 和 <code>max()</code> 方法<br>舍入方法：<code>Math.ceil()</code> <code>Math.floor()</code> <code>Math.round()</code><br><code>random()</code> 方法返回大于等于0小于1的一个随机数。<br>要得到特定范围的随机值 <code>值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)</code></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学习 JavaScript 编程基础已有一段时间，觉得 JavaScript 的难点在于几个难以理解的抽象概念和应对一些语言设计上的“坑”。理解了 JS 语言中的这几个概念，例如，对象，类，原型，原型链，作用域，闭包，继承等，也就算是入门了吧。实际上，这些概念也就是面向对象和函数式编程语言对于初学编程的人来说难以理解的点。只不过在 JS 上，有其特殊性。</p>
+<h3 id="math-对象"><a class="header-anchor" href="#math-对象">¶</a>Math 对象</h3>
+<p>Math 对象的属性，大多是数学计算中可能会用到的一些特殊值。<br>
+<code>min()</code> 和 <code>max()</code> 方法<br>
+舍入方法：<code>Math.ceil()</code> <code>Math.floor()</code> <code>Math.round()</code><br>
+<code>random()</code> 方法返回大于等于0小于1的一个随机数。<br>
+要得到特定范围的随机值 <code>值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)</code></p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p>学习 JavaScript 编程基础已有一段时间，觉得 JavaScript 的难点在于几个难以理解的抽象概念和应对一些语言设计上的“坑”。理解了 JS 语言中的这几个概念，例如，对象，类，原型，原型链，作用域，闭包，继承等，也就算是入门了吧。实际上，这些概念也就是面向对象和函数式编程语言对于初学编程的人来说难以理解的点。只不过在 JS 上，有其特殊性。</p>
 <hr>
-<h1 id="JavaScript-作用域"><a href="#JavaScript-作用域" class="headerlink" title="JavaScript 作用域"></a>JavaScript 作用域</h1><p>来源：你不知道的 JS 上 — 作用域</p>
+<h1>JavaScript 作用域</h1>
+<p>来源：你不知道的 JS 上 — 作用域</p>
 <p>传统编译语言的流程中，源码在执行前会经历三个步骤（编译）：</p>
 <ul>
 <li><strong>分词/词法分析（Tokenizing/Lexing）</strong>：将由字符组成的字符串分解成有意义的代码块（词法单元）。</li>
@@ -402,32 +429,40 @@
 <li><strong>RHS 查询</strong>，取到它的源值，意味着得到某某的值。谁是赋值操作的源头？</li>
 </ul>
 <p>当变量出现在赋值操作的左侧时，进行 LHS 查询，出现在右侧（非左侧）则进行 RHS 查询。RHS 查询与简单地查找某个变量的值别无二致，而 LHS 查询则是视图找到变量的容器本身，从而可以对其赋值。</p>
-<p>当一个块或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。<br><strong>遍历嵌套作用域链</strong>：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到与否，查找过程都会停止。</p>
-<p><strong>ReferenceError</strong><br>如果 RHS 查询在所有嵌套的作用域中遍寻不到所需的变量，引擎就会抛出 ReferenceError 异常。但是，当引擎执行 LHS 查询时，如果在顶层中也无法找到目标变量，全局作用域中就会创建一个具有该名称的变量，并将其返还给引擎，前提是程序运行在非“严格模式”下。在严格模式下，会禁止自动或隐式地创建全局变量。因此，在严格模式中 LHS 查询失败时，并不会创建并返回一个全局变量，引擎同样抛出 ReferenceError 异常。</p>
-<p><strong>TypeError</strong><br>如果 RHS 查询找到了一个变量，但是你尝试对这个变量的值进行不合理的操作，比如视图对一个非函数类型的值进行函数调用，或者引用 null 或 undefined 类型的值中的属性，那么引擎会抛出另外一种类型的异常，叫作 TypeError。</p>
+<p>当一个块或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。<br>
+<strong>遍历嵌套作用域链</strong>：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到与否，查找过程都会停止。</p>
+<p><strong>ReferenceError</strong><br>
+如果 RHS 查询在所有嵌套的作用域中遍寻不到所需的变量，引擎就会抛出 ReferenceError 异常。但是，当引擎执行 LHS 查询时，如果在顶层中也无法找到目标变量，全局作用域中就会创建一个具有该名称的变量，并将其返还给引擎，前提是程序运行在非“严格模式”下。在严格模式下，会禁止自动或隐式地创建全局变量。因此，在严格模式中 LHS 查询失败时，并不会创建并返回一个全局变量，引擎同样抛出 ReferenceError 异常。</p>
+<p><strong>TypeError</strong><br>
+如果 RHS 查询找到了一个变量，但是你尝试对这个变量的值进行不合理的操作，比如视图对一个非函数类型的值进行函数调用，或者引用 null 或 undefined 类型的值中的属性，那么引擎会抛出另外一种类型的异常，叫作 TypeError。</p>
 <p>总结：作用域是学习编程过程中需要着重理解的概念之一。</p>
-<h1 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h1><h2 id="R-地理信息可视化"><a href="#R-地理信息可视化" class="headerlink" title="R 地理信息可视化"></a>R 地理信息可视化</h2><p>看了 REmap 包的开发者<a href="http://lchiffon.github.io/about/" target="_blank" rel="external">郎大为</a>在<a href="http://www.xueqing.tv/" target="_blank" rel="external">雪晴数据网</a>上所做的 REmap 基本教程。了解了一些地理信息可视化包。</p>
+<h1>数据科学</h1>
+<h2 id="r-地理信息可视化"><a class="header-anchor" href="#r-地理信息可视化">¶</a>R 地理信息可视化</h2>
+<p>看了 REmap 包的开发者<a href="http://lchiffon.github.io/about/" target="_blank" rel="external">郎大为</a>在<a href="http://www.xueqing.tv/" target="_blank" rel="external">雪晴数据网</a>上所做的 REmap 基本教程。了解了一些地理信息可视化包。</p>
 <p>静态地理信息：</p>
 <ul>
 <li>maps：较老</li>
 <li>ggmap：需科学上网</li>
-<li>choroplethr：国外比较火<br>交互地理信息：</li>
+<li>choroplethr：国外比较火<br>
+交互地理信息：</li>
 <li>leaflet</li>
-<li>googleVis<br>辅助的 R 包：</li>
+<li>googleVis<br>
+辅助的 R 包：</li>
 <li>RgoogleMaps</li>
 <li>mapdata</li>
 <li>mapproj</li>
 <li>baidumap：与 ggplot2 结合</li>
 </ul>
 <p><a href="https://github.com/lchiffon/REmap" target="_blank" rel="external">REmap</a> 是一个基于 Echarts 的 R 包，提供了一个简便，可交互的地图数据可视化工具。</p>
-<p>安装：<code>devtools::install_github(&#39;lchiffon/REmap&#39;)</code></p>
+<p>安装：<code>devtools::install_github('lchiffon/REmap')</code></p>
 <p>关于数据产品</p>
 <ul>
 <li>数据驱动</li>
 <li>建模预测</li>
 <li>较好的可视化</li>
 </ul>
-<h2 id="数据工程师"><a href="#数据工程师" class="headerlink" title="数据工程师"></a>数据工程师</h2><p>在学晴网上还报了个免费的数据工程师入门系列教程—<a href="http://www.xueqing.tv/course/73" target="_blank" rel="external">全栈数据工程师养成攻略</a>，可以稍微走一个整体的简单数据挖掘的流程，特别是我还未实际操作过的领域，比如爬虫，与数据库交互，交互式数据可视化，Processing 可视化等。</p>
+<h2 id="数据工程师"><a class="header-anchor" href="#数据工程师">¶</a>数据工程师</h2>
+<p>在学晴网上还报了个免费的数据工程师入门系列教程—<a href="http://www.xueqing.tv/course/73" target="_blank" rel="external">全栈数据工程师养成攻略</a>，可以稍微走一个整体的简单数据挖掘的流程，特别是我还未实际操作过的领域，比如爬虫，与数据库交互，交互式数据可视化，Processing 可视化等。</p>
 
       
     </div>
@@ -473,8 +508,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/2016-12-01-wiki-error/" rel="prev" title="报错问题解决记录">
-                报错问题解决记录 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/01/2016-12-01-r-graphics/" rel="prev" title="R：graphics 包">
+                R：graphics 包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -638,7 +673,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本包装类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean-类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">Boolean 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">Number 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">String 类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单体内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">单体内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Global 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math-对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">Math 对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-作用域"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据科学"><span class="nav-number">3.</span> <span class="nav-text">数据科学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#R-地理信息可视化"><span class="nav-number">3.1.</span> <span class="nav-text">R 地理信息可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据工程师"><span class="nav-number">3.2.</span> <span class="nav-text">数据工程师</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本包装类型"><span class="nav-number">1.1.</span> <span class="nav-text">¶基本包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">¶Boolean 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#number-类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">¶Number 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">¶String 类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单体内置对象"><span class="nav-number">1.2.</span> <span class="nav-text">¶单体内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#global-对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">¶Global 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#math-对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">¶Math 对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">¶总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">数据科学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#r-地理信息可视化"><span class="nav-number">3.1.</span> <span class="nav-text">¶R 地理信息可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据工程师"><span class="nav-number">3.2.</span> <span class="nav-text">¶数据工程师</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
