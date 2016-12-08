@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-12-08T09:05:00.000Z</updated>
+  <updated>2016-12-08T09:37:16.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lix90.github.io/2016/12/08/2016-12-08-daily/"/>
     <id>http://lix90.github.io/2016/12/08/2016-12-08-daily/</id>
     <published>2016-12-07T16:00:00.000Z</published>
-    <updated>2016-12-08T09:05:00.000Z</updated>
+    <updated>2016-12-08T09:37:16.000Z</updated>
     
     <content type="html"><![CDATA[<h1>Make contrasts in R<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
 <p>两种应用 contrasts 的方式：</p>
@@ -114,7 +114,7 @@ Which of the possible comparisons should we conduct? Well, this very much depend
 </blockquote>
 <h1>翻译</h1>
 <blockquote>
-<p>We have empirically assessed the distribution of published effect sizes and estimated power by extracting more than 100,000 statistical records from about 10,000 cognitive neuroscience and psychology papers published during the past 5 years. The reported median effect size was d=0.93 (inter-quartile range: 0.64-1.46) for nominally statistically significant results and d=0.24 (0.11-0.42) for non-significant results. Median power to detect small, medium and large effects was 0.12, 0.44 and 0.73, reflecting no improvement through the past half-century. Power was lowest for cognitive neuroscience journals. 14% of papers reported some statistically significant results, although the respective F statistic and degrees of freedom proved that these were non-significant; p value errors positively correlated with journal impact factors. False report probability is likely to exceed 50% for the whole literature. In light of our findings the recently reported low replication success in psychology is realistic and worse performance may be expected for cognitive neuroscience.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>[]</p>
+<p>We have empirically assessed the distribution of published effect sizes and estimated power by extracting more than 100,000 statistical records from about 10,000 cognitive neuroscience and psychology papers published during the past 5 years. The reported median effect size was d=0.93 (inter-quartile range: 0.64-1.46) for nominally statistically significant results and d=0.24 (0.11-0.42) for non-significant results. Median power to detect small, medium and large effects was 0.12, 0.44 and 0.73, reflecting no improvement through the past half-century. Power was lowest for cognitive neuroscience journals. 14% of papers reported some statistically significant results, although the respective F statistic and degrees of freedom proved that these were non-significant; p value errors positively correlated with journal impact factors. False report probability is likely to exceed 50% for the whole literature. In light of our findings the recently reported low replication success in psychology is realistic and worse performance may be expected for cognitive neuroscience.[^2]</p>
 </blockquote>
 <p>我们从10,000篇近五年的认知神经科学和心理学已发表的期刊论文中提取了100,000份统计学记录，评估了发表的效应量 (effect sizes) 和估计的统计检验力 (power) 的统计分布。对于名义上达到统计显著性的结果中报告的效应量中位数为 d=0.93（四分位数范围为：0.64-1.46），而对于未达到统计显著性的结果，报告效应量中位数为 d=0.24 (四分位数范围：0.11-0.42)。检测到较弱，中等、较强的效应的统计检验力中位数分别为0.12，0.44，以及0.73。这表面在这几个领域内统计检验力在近半个世纪没有任何提高。其中，认知神经科学期刊论文的统计检验力最低（研究者考察了医学、心理学和认知神经科学）。14% 的论文报告了一些统计上显著的结果，然而这些结果中对应的 F 统计量和自由度均证明了这些结果并未达到显著。（有意思的是）p值的错误报告与期刊的影响因子呈正相关关系。在所有文献范围内，错误报告概率（False report probability）超过了50%。我们的结果提示，近来报告的心理学领域的低重复率问题是确实存在的，而且在认知神经科学领域可能预示着更严重的低重复率问题。</p>
 <p>[2]: Szucs, D., &amp; Ioannidis, J. P. (2016). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. bioRxiv, 071530.</p>
@@ -122,8 +122,6 @@ Which of the possible comparisons should we conduct? Well, this very much depend
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a href="http://rstudio-pubs-static.s3.amazonaws.com/65059_586f394d8eb84f84b1baaf56ffb6b47f.html" target="_blank" rel="external">A (sort of) Complete Guide to Contrasts in R</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>2 <a href="#fnref2" class="footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>
@@ -754,6 +752,46 @@ thread safe 线程安全</p>
     
     
       <category term="clojure" scheme="http://lix90.github.io/tags/clojure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell 命令整理</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T11:43:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>@2016-11-16</p>
+<p><code>ps</code> 返回正在运行的进程的信息<br>
+<code>ps aux</code> 列出所有运行进程<br>
+<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
+使用 <code>type -p</code> 替代 <code>which</code></p>
+<p>@2016-12-01</p>
+<p>修改 MacOS 计算机名<br>
+<code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
+<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br>
+<code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>
+其他格式:</p>
+<ul>
+<li>FAT32: MS-DOS fat32</li>
+<li>HFS+: Mac OS Extended (HFS+)</li>
+<li>ExFAT</li>
+</ul>
+<p>lsof 列出已打开的文件以及对应的进程</p>
+]]></content>
+    
+    <summary type="html">
+    
+      使用 shell 过程中的笔记。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
   </entry>
   
@@ -1892,46 +1930,6 @@ g v |   evil-visual-restore</p>
     
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell 命令整理</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T11:43:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>@2016-11-16</p>
-<p><code>ps</code> 返回正在运行的进程的信息<br>
-<code>ps aux</code> 列出所有运行进程<br>
-<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
-使用 <code>type -p</code> 替代 <code>which</code></p>
-<p>@2016-12-01</p>
-<p>修改 MacOS 计算机名<br>
-<code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
-<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br>
-<code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>
-其他格式:</p>
-<ul>
-<li>FAT32: MS-DOS fat32</li>
-<li>HFS+: Mac OS Extended (HFS+)</li>
-<li>ExFAT</li>
-</ul>
-<p>lsof 列出已打开的文件以及对应的进程</p>
-]]></content>
-    
-    <summary type="html">
-    
-      使用 shell 过程中的笔记。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
   </entry>
   
@@ -5886,75 +5884,6 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
   </entry>
   
   <entry>
-    <title>R：描述性统计</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>
-如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：基本数据可视化</title>
     <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/"/>
     <id>http://lix90.github.io/2016/11/08/2016-11-08-r-basic-vis/</id>
@@ -6186,6 +6115,75 @@ Correlogram 相关图，展示相关矩阵</p>
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>
+如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
