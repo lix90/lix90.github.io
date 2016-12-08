@@ -353,9 +353,9 @@
         
           
             <h1>Python</h1>
-<h2>with 语句</h2>
+<h2 id="with-语句">with 语句</h2>
 <p><code>with expression as target:</code></p>
-<h2>open 函数</h2>
+<h2 id="open-函数">open 函数</h2>
 <p><code>open(name[, mode[, buffering]])</code></p>
 <p>打开文件，并返回 <code>file</code> 类型的对象。如果无法打开，将抛出 <code>IOError</code> 错误。</p>
 <ul>
@@ -386,7 +386,7 @@
 <li><code>tempfile</code> 创建临时文件和路径</li>
 <li><code>shutil</code> high-level 文件和路径的操作</li>
 </ul>
-<h2>csv 模块</h2>
+<h2 id="csv-模块">csv 模块</h2>
 <p>csv 文件的读写（2.3版不支持 Unicode 的输入）。</p>
 <ul>
 <li><code>csv.reader(csvfile, dialect='excel', **fmtparams)</code> 返回 reader 对象，按行迭代</li>
@@ -394,7 +394,7 @@
 <li><code>csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect='excel', *args, **kwds)</code> 返回与 reader 类似的对象，但是将信息读取为词典形式</li>
 <li><code>csv.DictWriter(csvfile, fieldnames, restval='', extrasaction='raise', dialect='excel', *args, **kwds)</code> 返回与 writer 类似的对象，但是将词典数据写入到行</li>
 </ul>
-<h2>datetime 模块</h2>
+<h2 id="datetime-模块">datetime 模块</h2>
 <p>提供基本的用于操作日期和时间的类和函数。</p>
 <p>在此有两类日期和时间对象：</p>
 <ul>
@@ -428,7 +428,7 @@
 <li><code>locale</code> 模块</li>
 </ul>
 <h1>Emacs</h1>
-<h2>谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2>
+<h2 id="谷歌翻译插件-google-translate">谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2>
 <p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
 <h1>杂项</h1>
@@ -603,7 +603,7 @@
 </ul>
 <hr>
 <h1>杂项</h1>
-<h2><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2>
+<h2 id="语义化版本控制规范-semver"><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2>
 <p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
 <blockquote>
 <p>版本格式为：主板本号.次版本号.修订号，版本号递增规则如下：</p>
@@ -614,7 +614,7 @@
 </ol>
 <p>先行版本号及版本编译信息可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</p>
 </blockquote>
-<h2>Notes out of youtube</h2>
+<h2 id="notes-out-of-youtube">Notes out of youtube</h2>
 <p><a href="https://www.youtube.com/watch?v=lfiopzfE5-0" target="_blank" rel="external">The Three Most Important Skills Of A Web Designer</a></p>
 <p><code>empathy</code> <code>awareness</code> <code>grit</code></p>
 <p><a href="https://www.youtube.com/watch?v=t14MwuWH_ts" target="_blank" rel="external">How to desing a killer home page</a></p>
@@ -627,7 +627,7 @@
 <li>footer: information in general</li>
 <li>no flash</li>
 </ul>
-<h2>D3.js</h2>
+<h2 id="d3-js">D3.js</h2>
 <p>数据标准：</p>
 <ul>
 <li>表格数据（Tabular data）：D3 提供了三种抓取数据的方法 <code>d3.dsv</code> <code>d3.tsv</code> <code>d3.csv</code></li>
@@ -637,7 +637,7 @@
 <li>原始数据（Raw data）：文本、图片、视频</li>
 <li>JS 对象（JavaScripit Object Notation，JSON），<code>d3.json</code></li>
 </ul>
-<h2>专业术语</h2>
+<h2 id="专业术语">专业术语</h2>
 <p><code>Geometric primitives</code></p>
 
           
@@ -779,7 +779,7 @@
 <p>在模板中，透过 __ 或 _p 辅助函数，即可取得翻译后的字符串，前者用于一般使用；而后者用于复数字符串。</p>
 </blockquote>
 <h1><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1>
-<h2>构建自动化</h2>
+<h2 id="构建自动化">构建自动化</h2>
 <p>谈 Grunt，就要谈到“构建自动化”。</p>
 <blockquote>
 <p><strong>Build automation</strong> is the process of automating the creation of a software build and the associated processes including: compiling computer source code into binary code, packaging binary code, and running automated tests.</p>
@@ -797,7 +797,7 @@
 <li>Save time and money - because of the reasons listed above 节省时间和财力</li>
 </ul>
 </blockquote>
-<h2>使用 Grunt</h2>
+<h2 id="使用-grunt">使用 Grunt</h2>
 <p>使用 Grunt 可以加快开发和自动构建。可以帮助开发者将压缩、编译、单元测试、代码检查等工作自动化。</p>
 <p>三步使用 grunt：</p>
 <blockquote>
@@ -810,7 +810,7 @@
 <p><code>package.json</code> 保存项目元数据；<br>
 <code>Gruntfile.js</code> 配置或定义任务、加载 Grunt 插件。<br>
 <code>npm install &lt;module&gt; --save-dev</code> 本地安装并将依赖写入 <code>package.json</code> 中 <code>devDependencies</code>。</p>
-<h2><code>Gruntfile.js</code> 配置文件</h2>
+<h2 id="gruntfile-js-配置文件"><code>Gruntfile.js</code> 配置文件</h2>
 <p>Gruntfile.js 包括下面四个部分：</p>
 <blockquote>
 <ul>
@@ -1052,7 +1052,7 @@ JavaScript 的静态缓存<br>
 <blockquote>
 <p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
 </blockquote>
-<h2>HTML</h2>
+<h2 id="html">HTML</h2>
 <ul>
 <li>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言；</li>
 <li>在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性；</li>
@@ -1062,7 +1062,7 @@ JavaScript 的静态缓存<br>
 <li>尽量避免多余的父元素；</li>
 <li>尽量避免 JS 生成的标签。</li>
 </ul>
-<h2>CSS</h2>
+<h2 id="css">CSS</h2>
 <ul>
 <li>用两个空格来代替制表符；</li>
 <li>为选择器分组时，将单独的选择器单独放在一行；</li>
@@ -1079,7 +1079,7 @@ JavaScript 的静态缓存<br>
 <li>为选择器中的属性添加双引号；</li>
 <li>避免为 0 值指定单位。</li>
 </ul>
-<h3 id="声明顺序"><a class="header-anchor" href="#声明顺序">¶</a>声明顺序</h3>
+<h3 id="声明顺序">声明顺序</h3>
 <p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
 <ul>
 <li>Positioning</li>
@@ -1090,7 +1090,7 @@ JavaScript 的静态缓存<br>
 <blockquote>
 <p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
 </blockquote>
-<h3 id="不要使用-import"><a class="header-anchor" href="#不要使用-import">¶</a>不要使用 @import</h3>
+<h3 id="不要使用-import">不要使用 @import</h3>
 <blockquote>
 <p>与 <code>&lt;link&gt;</code> 标签相比，<code>@import</code> 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：</p>
 </blockquote>
@@ -1101,25 +1101,25 @@ JavaScript 的静态缓存<br>
 <li>通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能</li>
 </ul>
 </blockquote>
-<h3 id="媒体查询的位置"><a class="header-anchor" href="#媒体查询的位置">¶</a>媒体查询的位置</h3>
+<h3 id="媒体查询的位置">媒体查询的位置</h3>
 <blockquote>
 <p>将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。</p>
 </blockquote>
-<h3 id="单行规则声明"><a class="header-anchor" href="#单行规则声明">¶</a>单行规则声明</h3>
+<h3 id="单行规则声明">单行规则声明</h3>
 <blockquote>
 <p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
 </blockquote>
-<h3 id="简写形式的属性声明"><a class="header-anchor" href="#简写形式的属性声明">¶</a>简写形式的属性声明</h3>
+<h3 id="简写形式的属性声明">简写形式的属性声明</h3>
 <blockquote>
 <p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
 </blockquote>
-<h3 id="less-和-sass-中的嵌套"><a class="header-anchor" href="#less-和-sass-中的嵌套">¶</a>Less 和 Sass 中的嵌套</h3>
+<h3 id="less-和-sass-中的嵌套">Less 和 Sass 中的嵌套</h3>
 <p>避免非必要的嵌套。</p>
-<h3 id="注释"><a class="header-anchor" href="#注释">¶</a>注释</h3>
+<h3 id="注释">注释</h3>
 <blockquote>
 <p>请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
 </blockquote>
-<h3 id="class-命名"><a class="header-anchor" href="#class-命名">¶</a>class 命名</h3>
+<h3 id="class-命名">class 命名</h3>
 <ul>
 <li>class 名称中只能出现小写字符和破折号（dashe）；</li>
 <li>破折号应当用于相关 class 的命名（类似于命名空间）；</li>
@@ -1129,7 +1129,7 @@ JavaScript 的静态缓存<br>
 <li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
 <li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
 </ul>
-<h3 id="选择器"><a class="header-anchor" href="#选择器">¶</a>选择器</h3>
+<h3 id="选择器">选择器</h3>
 <ul>
 <li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
 <li>对于经常出现的组件，避免使用属性选择器（例如，[class^=&quot;…&quot;]）。浏览器的性能会受到这些因素的影响。</li>
@@ -1137,7 +1137,7 @@ JavaScript 的静态缓存<br>
 <li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）。</li>
 </ul>
 <p><code>合理使用标签</code> <code>降低选择器复杂度</code></p>
-<h3 id="代码组织"><a class="header-anchor" href="#代码组织">¶</a>代码组织</h3>
+<h3 id="代码组织">代码组织</h3>
 <ul>
 <li>以组件为单位组织代码段。</li>
 <li>制定一致的<strong>注释规范</strong>。</li>
@@ -1145,7 +1145,7 @@ JavaScript 的静态缓存<br>
 <li>如果使用了多个 CSS 文件，将其<strong>按照组件而非页面的形式分拆</strong>，因为页面会被重组，而组件只会被移动。</li>
 </ul>
 <p><code>组件化</code> <code>块状</code></p>
-<h3 id="编辑器配置"><a class="header-anchor" href="#编辑器配置">¶</a>编辑器配置</h3>
+<h3 id="编辑器配置">编辑器配置</h3>
 <p>将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：</p>
 <ul>
 <li>用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。</li>
@@ -1157,7 +1157,7 @@ JavaScript 的静态缓存<br>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
 <hr>
 <h1>Emacs</h1>
-<h2>golden-ratio-mode</h2>
+<h2 id="golden-ratio-mode">golden-ratio-mode</h2>
 <p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
 
@@ -1280,7 +1280,7 @@ JavaScript 的静态缓存<br>
         
           
             <h1>Javascript</h1>
-<h2>数组 Array</h2>
+<h2 id="数组-array">数组 Array</h2>
 <p>可包含任意数据类型，并通过索引来访问每个元素。<br>
 Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>
 在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
@@ -1296,7 +1296,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br>
 <code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br>
 <code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
-<h2>jQuery</h2>
+<h2 id="jquery">jQuery</h2>
 <p>jQuery 可以做许多事情：</p>
 <ul>
 <li>selectors 选择器 <code>$('*').css('property', 'values');</code></li>
@@ -1320,17 +1320,17 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li>event binding 事件绑定 <code>.bind('event', ...)</code></li>
 </ul>
 <p>@ 2016-10-20 15:36:55</p>
-<h2>Optimizing the DOM</h2>
+<h2 id="optimizing-the-dom">Optimizing the DOM</h2>
 <ol>
 <li>minify 最小化</li>
 <li>compress 压缩</li>
 <li>cache 缓存</li>
 </ol>
-<h3 id="onblocking-css"><a class="header-anchor" href="#onblocking-css">¶</a>onblocking css</h3>
+<h3 id="onblocking-css">onblocking css</h3>
 <p>将不同媒体的样式分离为单独的样式表，然后根据媒体类型进行加载。</p>
-<h3 id="optimization-js"><a class="header-anchor" href="#optimization-js">¶</a>Optimization JS</h3>
+<h3 id="optimization-js">Optimization JS</h3>
 <p>JS 阻碍网页的解析</p>
-<h3 id="async-js"><a class="header-anchor" href="#async-js">¶</a>Async JS</h3>
+<h3 id="async-js">Async JS</h3>
 <ol>
 <li>Does not block DOM construction</li>
 <li>Does not block on CSSOM</li>
@@ -1349,7 +1349,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 </ul>
 <hr>
 <h1>CSS</h1>
-<h2>zoom 属性</h2>
+<h2 id="zoom-属性">zoom 属性</h2>
 <p><code>zoom: auto | &lt;number&gt; | &lt;percentage&gt;;</code></p>
 <blockquote>
 <p>The zoom property in CSS allows you to scale your content. It is non-standard, and was originally implemented only in Internet Explorer. Although several other browsers now support zoom, it isn’t recommended for production sites.</p>
@@ -1375,7 +1375,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li><a href="https://css-tricks.com/almanac/properties/z/zoom/" target="_blank" rel="external">CSS-tricks: zoom</a></li>
 <li><a href="http://www.useragentman.com/IETransformsTranslator/" target="_blank" rel="external">IE’s CSS3 Transforms Translator</a></li>
 </ul>
-<h2>BFC 块级格式化上下文</h2>
+<h2 id="bfc-块级格式化上下文">BFC 块级格式化上下文</h2>
 <p>BFC 决定盒子的布局及浮动元素相互影响的一个因素。</p>
 <p>下列情况可以创建一个块格式化上下文：</p>
 <ul>
@@ -1392,7 +1392,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 块格式化上下文对定位与清除浮动很重要。定位和清除浮动的样式规则只适用于处于同一块格式化上下文内的元素。浮动不会影响其它块格式化上下文中元素的布局，并且清除浮动只能清除 同一块格式化上下文中 在它前面的元素的浮动。</p>
 <p>参考资料：</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">块级格式化上下文</a></p>
-<h2>如何通过 CSS 动画提升用户体验？</h2>
+<h2 id="如何通过-css-动画提升用户体验？">如何通过 CSS 动画提升用户体验？</h2>
 <p>什么时候使用动画？</p>
 <ul>
 <li>指明方向 orientation: where am i now</li>
@@ -1404,7 +1404,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 </ul>
 <hr>
 <h1>HTML</h1>
-<h2>HTML 语义化</h2>
+<h2 id="html-语义化">HTML 语义化</h2>
 <p>语义化：让机器读懂内容。</p>
 <p>Web 规模扩大 —&gt; 机器处理内容 —&gt; 机器读懂内容？—&gt; 语义化</p>
 <blockquote>
@@ -1432,7 +1432,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li><a href="http://chenhaizhou.github.io/2015/12/09/html-sense.html" target="_blank" rel="external">谈谈对HTML语义化的理解</a></li>
 </ul>
 <h1>HTTP</h1>
-<h2>GET 与 POST</h2>
+<h2 id="get-与-post">GET 与 POST</h2>
 <p>HTTP 协议中的两种发送请求的方法。</p>
 <p>HTTP 是基于 TCP/IP 的关于数据如何在万维网中如何通信的协议。</p>
 <blockquote>
@@ -1450,7 +1450,7 @@ GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数�
 <ul>
 <li><a href="http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/" target="_blank" rel="external">Configure the Scratch Buffer’s Mode</a></li>
 </ul>
-<h2>lisp and elisp 小记</h2>
+<h2 id="lisp-and-elisp-小记">lisp and elisp 小记</h2>
 <p><code>when</code>: <code>(when COND BODY ...)</code> 当 COND 为真，eval BODY；按顺序 eval BODY 中的项，返回最后一项的值。<br>
 <code>and</code>: <code>(and CONDITIONS ...)</code> 当 CONDITIONS 全部为 non-nil 时返回最后一个 arg 的值；如果一个为 nil，后面的都不用 eval，直接返回 nil。<br>
 <code>listp</code>: <code>(listp OBJECT)</code> 当 OBJECT 为 list 返回 t，否则返回 nil。<br>

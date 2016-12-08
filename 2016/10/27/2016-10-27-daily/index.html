@@ -373,7 +373,7 @@ slice 截取 Array 的部分元素，返回新的 Array；注意 sli">
 
       
         <h1>Javascript</h1>
-<h2>数组 Array</h2>
+<h2 id="数组-array">数组 Array</h2>
 <p>可包含任意数据类型，并通过索引来访问每个元素。<br>
 Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>
 在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
@@ -389,7 +389,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br>
 <code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br>
 <code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
-<h2>jQuery</h2>
+<h2 id="jquery">jQuery</h2>
 <p>jQuery 可以做许多事情：</p>
 <ul>
 <li>selectors 选择器 <code>$('*').css('property', 'values');</code></li>
@@ -413,17 +413,17 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li>event binding 事件绑定 <code>.bind('event', ...)</code></li>
 </ul>
 <p>@ 2016-10-20 15:36:55</p>
-<h2>Optimizing the DOM</h2>
+<h2 id="optimizing-the-dom">Optimizing the DOM</h2>
 <ol>
 <li>minify 最小化</li>
 <li>compress 压缩</li>
 <li>cache 缓存</li>
 </ol>
-<h3 id="onblocking-css"><a class="header-anchor" href="#onblocking-css">¶</a>onblocking css</h3>
+<h3 id="onblocking-css">onblocking css</h3>
 <p>将不同媒体的样式分离为单独的样式表，然后根据媒体类型进行加载。</p>
-<h3 id="optimization-js"><a class="header-anchor" href="#optimization-js">¶</a>Optimization JS</h3>
+<h3 id="optimization-js">Optimization JS</h3>
 <p>JS 阻碍网页的解析</p>
-<h3 id="async-js"><a class="header-anchor" href="#async-js">¶</a>Async JS</h3>
+<h3 id="async-js">Async JS</h3>
 <ol>
 <li>Does not block DOM construction</li>
 <li>Does not block on CSSOM</li>
@@ -442,7 +442,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 </ul>
 <hr>
 <h1>CSS</h1>
-<h2>zoom 属性</h2>
+<h2 id="zoom-属性">zoom 属性</h2>
 <p><code>zoom: auto | &lt;number&gt; | &lt;percentage&gt;;</code></p>
 <blockquote>
 <p>The zoom property in CSS allows you to scale your content. It is non-standard, and was originally implemented only in Internet Explorer. Although several other browsers now support zoom, it isn’t recommended for production sites.</p>
@@ -468,7 +468,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li><a href="https://css-tricks.com/almanac/properties/z/zoom/" target="_blank" rel="external">CSS-tricks: zoom</a></li>
 <li><a href="http://www.useragentman.com/IETransformsTranslator/" target="_blank" rel="external">IE’s CSS3 Transforms Translator</a></li>
 </ul>
-<h2>BFC 块级格式化上下文</h2>
+<h2 id="bfc-块级格式化上下文">BFC 块级格式化上下文</h2>
 <p>BFC 决定盒子的布局及浮动元素相互影响的一个因素。</p>
 <p>下列情况可以创建一个块格式化上下文：</p>
 <ul>
@@ -485,7 +485,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 块格式化上下文对定位与清除浮动很重要。定位和清除浮动的样式规则只适用于处于同一块格式化上下文内的元素。浮动不会影响其它块格式化上下文中元素的布局，并且清除浮动只能清除 同一块格式化上下文中 在它前面的元素的浮动。</p>
 <p>参考资料：</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">块级格式化上下文</a></p>
-<h2>如何通过 CSS 动画提升用户体验？</h2>
+<h2 id="如何通过-css-动画提升用户体验？">如何通过 CSS 动画提升用户体验？</h2>
 <p>什么时候使用动画？</p>
 <ul>
 <li>指明方向 orientation: where am i now</li>
@@ -497,7 +497,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 </ul>
 <hr>
 <h1>HTML</h1>
-<h2>HTML 语义化</h2>
+<h2 id="html-语义化">HTML 语义化</h2>
 <p>语义化：让机器读懂内容。</p>
 <p>Web 规模扩大 —&gt; 机器处理内容 —&gt; 机器读懂内容？—&gt; 语义化</p>
 <blockquote>
@@ -525,7 +525,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li><a href="http://chenhaizhou.github.io/2015/12/09/html-sense.html" target="_blank" rel="external">谈谈对HTML语义化的理解</a></li>
 </ul>
 <h1>HTTP</h1>
-<h2>GET 与 POST</h2>
+<h2 id="get-与-post">GET 与 POST</h2>
 <p>HTTP 协议中的两种发送请求的方法。</p>
 <p>HTTP 是基于 TCP/IP 的关于数据如何在万维网中如何通信的协议。</p>
 <blockquote>
@@ -543,7 +543,7 @@ GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数�
 <ul>
 <li><a href="http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/" target="_blank" rel="external">Configure the Scratch Buffer’s Mode</a></li>
 </ul>
-<h2>lisp and elisp 小记</h2>
+<h2 id="lisp-and-elisp-小记">lisp and elisp 小记</h2>
 <p><code>when</code>: <code>(when COND BODY ...)</code> 当 COND 为真，eval BODY；按顺序 eval BODY 中的项，返回最后一项的值。<br>
 <code>and</code>: <code>(and CONDITIONS ...)</code> 当 CONDITIONS 全部为 non-nil 时返回最后一个 arg 的值；如果一个为 nil，后面的都不用 eval，直接返回 nil。<br>
 <code>listp</code>: <code>(listp OBJECT)</code> 当 OBJECT 为 list 返回 t，否则返回 nil。<br>
@@ -786,7 +786,7 @@ GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">数组 Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">Optimizing the DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onblocking-css"><span class="nav-number">1.3.1.</span> <span class="nav-text">¶onblocking css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimization-js"><span class="nav-number">1.3.2.</span> <span class="nav-text">¶Optimization JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#async-js"><span class="nav-number">1.3.3.</span> <span class="nav-text">¶Async JS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Vuejs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">zoom 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">BFC 块级格式化上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">如何通过 CSS 动画提升用户体验？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">HTML 语义化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">GET 与 POST</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">lisp and elisp 小记</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Python</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组-array"><span class="nav-number">1.1.</span> <span class="nav-text">数组 Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jquery"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optimizing-the-dom"><span class="nav-number">1.3.</span> <span class="nav-text">Optimizing the DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onblocking-css"><span class="nav-number">1.3.1.</span> <span class="nav-text">onblocking css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimization-js"><span class="nav-number">1.3.2.</span> <span class="nav-text">Optimization JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#async-js"><span class="nav-number">1.3.3.</span> <span class="nav-text">Async JS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Vuejs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zoom-属性"><span class="nav-number">3.1.</span> <span class="nav-text">zoom 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bfc-块级格式化上下文"><span class="nav-number">3.2.</span> <span class="nav-text">BFC 块级格式化上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何通过-css-动画提升用户体验？"><span class="nav-number">3.3.</span> <span class="nav-text">如何通过 CSS 动画提升用户体验？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-语义化"><span class="nav-number">4.1.</span> <span class="nav-text">HTML 语义化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#get-与-post"><span class="nav-number">5.1.</span> <span class="nav-text">GET 与 POST</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lisp-and-elisp-小记"><span class="nav-number">6.1.</span> <span class="nav-text">lisp and elisp 小记</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Python</span></a></li></ol></div>
             
           </div>
         </section>

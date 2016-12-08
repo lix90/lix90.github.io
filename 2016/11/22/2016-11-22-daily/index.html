@@ -352,7 +352,7 @@
 
       
         <h1>JavaScript：函数</h1>
-<h2>函数声明与函数表达式</h2>
+<h2 id="函数声明与函数表达式">函数声明与函数表达式</h2>
 <p><strong>函数是对象，函数名是指针。</strong><br>
 使用不带圆括号的函数名是访问函数指针，而非调用函数。<br>
 函数表达式最后有分号 <code>;</code>。<br>
@@ -364,7 +364,7 @@ Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名
 <p><strong>匿名函数</strong>：<code>function</code> 关键字后面没有标识符。匿名函数的 <code>name</code> 属性为空字符串。<br>
 <strong>函数名本身就是变量</strong>，所以函数也可以作为值来使用。函数既可作为参数传递给另一个函数，又可以将一个函数作为结果返回。<br>
 <strong>两个特殊对象</strong>：arguments 和 this。</p>
-<h2>apply &amp; call</h2>
+<h2 id="apply-call">apply &amp; call</h2>
 <p>可在特定的作用域中调用函数，等同于设置函数体内 this 对象的值。</p>
 <ul>
 <li><code>apply()</code> 方法接受两个参数：一个是在其中运行函数的作用域，另一个是<strong>参数数组</strong>。第二个参数可以为 Array 实例，也可以为 arguments 对象。</li>
@@ -374,27 +374,27 @@ Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名
 <p>传递函数并非 apply 和 call 真正的用武之地；他们真正强大的地方是能够<strong>扩充函数赖以运行的作用域</strong>。使用 call 和 apply 来扩充作用域的最大好处，就是<strong>对象不需要与方法有任何耦合关系</strong>。</p>
 </blockquote>
 <p>ECMAScript 5 定义了一个新方法：<code>bind()</code>。该方法会创建一个函数的实例，其 this 值会被绑定到传给 bind 函数的值。</p>
-<h2>递归</h2>
+<h2 id="递归">递归</h2>
 <p><strong>递归函数</strong>：一个函数通过名字调用自身。<code>arguments.callee</code> 是一个指向正在执行的函数的指针，可以用它来实现对函数的递归调用。在编写递归函数时，使用 <code>arguments.callee</code> 总比使用函数名更保险。但在严格模式下，不能通过脚本访问 <code>arguments.callee</code>，访问这个属性会导致错误。此时可以通过命名函数表达式来实现对当前执行的函数的引用。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> factorial = (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>&#123; <span class="comment">// 命名函数表达式</span></div><div class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> num * f(num<span class="number">-1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2>闭包</h2>
+<h2 id="闭包">闭包</h2>
 <p>匿名函数 vs 闭包</p>
 <p><strong>闭包</strong>：有权访问<strong>另一个函数作用域</strong>中的<strong>变量</strong>的函数。在一个函数内部创建另一个函数，即可创建闭包。<br>
 理解闭包需要先理解作用域链。作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</p>
 <p>一般来讲，当函数执行完毕后，局部活动对象就会被销毁，内存中仅保存全局作用域。但是<strong>闭包函数在执行完毕后仍然携带包含它的函数的作用域</strong>，因此会比其他函数占用更多的内存。过度使用闭包可能会导致内存占用过多，所以<strong>只在绝对必要时考虑使用闭包</strong>。</p>
 <p>作用域链的这种配置机制引出了一个值得注意的副作用，即<strong>闭包只能取得包含函数中任何变量的最后一个值</strong>。</p>
-<h3 id="this-对象"><a class="header-anchor" href="#this-对象">¶</a>this 对象</h3>
+<h3 id="this-对象">this 对象</h3>
 <p><code>this</code> 对象是在运行时基于函数的执行环境绑定的：在全局函数中，<code>this</code> 等于 window，而当函数被作为某个对象的方法调用时，<code>this</code> 等于那个对象。匿名函数的执行环境具有全局性，因此其 <code>this</code> 对象通常指向 <code>window</code>。</p>
 <p>每个函数在被调用时都会自动取得两个特殊变量：<code>this</code> 和 <code>arguments</code>。内部函数在搜索这两个变量时，只会搜索到其活动对象为止。因此永远不可能直接访问外部函数中的这两个变量。不过，把外部作用域中的 <code>this</code> 对象保存在一个闭包能够访问到的变量里，就可以让闭包访问该对象了。如果想访问作用域中的 <code>arguments</code> 对象，必须将对该对象的引用保存到另一个闭包能够访问的变量中。</p>
 <p><strong>即使是细微的变化，都有可能意外改变 <code>this</code> 的值。</strong></p>
-<h3 id="内存泄漏"><a class="header-anchor" href="#内存泄漏">¶</a>内存泄漏</h3>
+<h3 id="内存泄漏">内存泄漏</h3>
 <p>闭包在 IE9 之前的版本中会导致一些特殊的问题。如果闭包的作用域链中保存着一个 HTML 元素，那么意味着该元素将无法被销毁。 &gt;&gt;&gt; 内存泄漏</p>
-<h2>模仿块级作用域</h2>
+<h2 id="模仿块级作用域">模仿块级作用域</h2>
 <p>JS 没有块级作用域的概念。JS 从不会告诉你是否多次声明了同一个变量，它只会读后续的声明视而不见（但是它会执行后续声明中的变量初始化）。<strong>匿名函数</strong>可以用来模仿块级作用域并避免这个问题。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 这里是块级作用域</span></div><div class="line">&#125;)();</div><div class="line"><span class="comment">// 这种做法可以减少闭包占用的内存问题，因为没有指向匿名函数的引用。只要函数执行完毕，就可以立即销毁其作用域链了。</span></div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 这里是块级作用域</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>一般来说，我们都应该尽量少向全局作用域中添加变量和函数。在一个由很多开发人员共同参与的大型应用程序中，过多的全局变量和函数很容易导致命名冲突。</p>
-<h2>私有变量</h2>
+<h2 id="私有变量">私有变量</h2>
 <p>严格来讲，JS 中没有私有成员的概念；所有对象属性都是公有的。</p>
 <p>私有变量</p>
 <ul>
@@ -498,7 +498,7 @@ Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名
 <ul>
 <li><a href="http://web.jobbole.com/88909/" target="_blank" rel="external">伯乐在线：编写可维护的 JS 代码</a></li>
 </ul>
-<h2>个人总结</h2>
+<h2 id="个人总结">个人总结</h2>
 <ul>
 <li>了解和分析项目</li>
 <li>建立代码规范</li>
@@ -510,7 +510,7 @@ Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名
 <li>良好的版本控制流程习惯</li>
 </ul>
 <h1>阅读</h1>
-<h2>Chrome Dev Summit 2016</h2>
+<h2 id="chrome-dev-summit-2016">Chrome Dev Summit 2016</h2>
 <p>Progressive Web Apps (PWA)，能够提供类似 Native app 一样体验的 Web app。主要有几个特点：</p>
 <ul>
 <li>可添加至桌面（可安装）</li>
@@ -762,7 +762,7 @@ Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript：函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">apply & call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">¶this 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.4.2.</span> <span class="nav-text">¶内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">模仿块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">私有变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">JavaScript: 编写可维护的 JS 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">个人总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">Chrome Dev Summit 2016</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript：函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-call"><span class="nav-number">1.2.</span> <span class="nav-text">apply & call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">1.3.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.4.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">this 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.4.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模仿块级作用域"><span class="nav-number">1.5.</span> <span class="nav-text">模仿块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有变量"><span class="nav-number">1.6.</span> <span class="nav-text">私有变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">JavaScript: 编写可维护的 JS 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人总结"><span class="nav-number">2.1.</span> <span class="nav-text">个人总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome-dev-summit-2016"><span class="nav-number">3.1.</span> <span class="nav-text">Chrome Dev Summit 2016</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

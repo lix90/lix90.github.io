@@ -390,7 +390,7 @@ IaaS 和 PaaS 的区别：</p>
 </ul>
 <p>来源：<a href="http://blog.qiniu.com/archives/7403" target="_blank" rel="external">七牛云博客</a></p>
 <h1>CSS</h1>
-<h2>静态 UI 组件重构</h2>
+<h2 id="静态-ui-组件重构">静态 UI 组件重构</h2>
 <p>CSS color 属性驱动的静态 UI 组件实现策略</p>
 <ul>
 <li>提取专门的颜色类名 <code>.dark { color: #33373d; }</code></li>
@@ -407,7 +407,7 @@ IaaS 和 PaaS 的区别：</p>
 不适用于开源项目</p>
 <p>代码结构：基本按钮 &gt;&gt;&gt; 特殊按钮 &gt;&gt;&gt; 基础颜色</p>
 <p>来源：<a href="http://www.zhangxinxu.com/wordpress/2016/11/development-ui-component-based-on-css-color/" target="_blank" rel="external">张鑫旭博客</a></p>
-<h2>CSS 原生变量</h2>
+<h2 id="css-原生变量">CSS 原生变量</h2>
 <p>CSS 变量即 CSS 自定义属性。以前原生 CSS 没有变量，只能借助 SASS 或者 LESS 预编译器。新草案发布，包含了在 CSS 中定义和使用变量。</p>
 <p>拓展阅读：</p>
 <ul>
@@ -415,7 +415,7 @@ IaaS 和 PaaS 的区别：</p>
 <li><a href="https://philipwalton.com/articles/why-im-excited-about-native-css-variables/" target="_blank" rel="external">Why I’m Excited About Native CSS Variables</a></li>
 </ul>
 <h1>Git</h1>
-<h2>git-commit</h2>
+<h2 id="git-commit">git-commit</h2>
 <p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br>
 <code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
 <p><strong>git 跟踪的是内容不是文件</strong></p>
@@ -424,12 +424,12 @@ IaaS 和 PaaS 的区别：</p>
 一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
 <p>参考：<a href="http://ux.stackexchange.com/questions/9946/should-i-use-yes-no-or-ok-cancel-on-my-message-box?newsletter=1&amp;nlcode=678926%7caee7" target="_blank" rel="external">stackexchange: user experience</a></p>
 <h1>杂项</h1>
-<h2>问题解决</h2>
+<h2 id="问题解决">问题解决</h2>
 <ol>
 <li>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</li>
 <li>新创刊期刊影响因子多久出来？3-5年，第4年出第三年的影响因子。所以第一年和第二年没有影响因子。</li>
 </ol>
-<h2>概念</h2>
+<h2 id="概念">概念</h2>
 <ul>
 <li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
 <li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
@@ -557,7 +557,7 @@ IaaS 和 PaaS 的区别：</p>
         
           
             <h1>Git</h1>
-<h2>Git branch 分支操作</h2>
+<h2 id="git-branch-分支操作">Git branch 分支操作</h2>
 <p><code>git branch</code> 列出，新建，或者删除分支</p>
 <ul>
 <li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
@@ -567,13 +567,13 @@ IaaS 和 PaaS 的区别：</p>
 <li><code>git branch -rd</code> 删除远程分析</li>
 <li><code>git branch -m|-M</code> 重命名分支</li>
 </ul>
-<h2>Git checkout 切换分支</h2>
+<h2 id="git-checkout-切换分支">Git checkout 切换分支</h2>
 <p><code>git checkout</code> 切换分支或者修复工作树文件</p>
 <ul>
 <li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
 <li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
 </ul>
-<h2>HEAD</h2>
+<h2 id="head">HEAD</h2>
 <blockquote>
 <p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
 </blockquote>
@@ -922,7 +922,7 @@ IaaS 和 PaaS 的区别：</p>
 <h1>Par 的 mfrow 和 mfcol 参数布局</h1>
 <p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>
 在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
-<h2>par 关于布局的参数</h2>
+<h2 id="par-关于布局的参数">par 关于布局的参数</h2>
 <p><strong>Outer margin</strong> 外边缘</p>
 <p>默认没有外边缘。可以通过 <code>oma</code> 增加外边缘，其单位为线宽，即一行文字的空间。还有 <code>omi</code> 和 <code>omd</code> 设置外边缘宽度，单位分别为英寸和 NDC 归一化坐标。</p>
 <ul>
@@ -1089,28 +1089,28 @@ IaaS 和 PaaS 的区别：</p>
         
           
             <h1>杂项</h1>
-<h2>Shell</h2>
+<h2 id="shell">Shell</h2>
 <p><code>ps</code> 返回正在运行的进程的信息<br>
 <code>ps aux</code> 列出所有运行进程<br>
 <code>ps aux | grep string</code> 列出匹配字符串的进程</p>
 <p>使用 <code>$HOME</code> 替代 <code>~</code><br>
 使用 <code>type -p</code> 替代 <code>which</code></p>
-<h2>统计学</h2>
-<h3 id="标准差"><a class="header-anchor" href="#标准差">¶</a>标准差</h3>
+<h2 id="统计学">统计学</h2>
+<h3 id="标准差">标准差</h3>
 <p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>
 当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
 <blockquote>
 <p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
 </blockquote>
 <p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
-<h3 id="循环变量"><a class="header-anchor" href="#循环变量">¶</a>循环变量</h3>
+<h3 id="循环变量">循环变量</h3>
 <p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
 <p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
-<h2>CSS：利用偏移垂直居中</h2>
+<h2 id="css：利用偏移垂直居中">CSS：利用偏移垂直居中</h2>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
 <p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
-<h2>TODO</h2>
+<h2 id="todo">TODO</h2>
 <p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
 
           

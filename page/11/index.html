@@ -368,7 +368,7 @@
 <p>Algorithms for inferring unknowns from knowns.<br>
 算法，推论，未知，已知</p>
 </blockquote>
-<h2>机器学习应用</h2>
+<h2 id="机器学习应用">机器学习应用</h2>
 <ul>
 <li>识别垃圾邮件</li>
 <li>识别手写字</li>
@@ -378,7 +378,7 @@
 <li>Navigation 导航</li>
 <li>气候模型：解释和预测</li>
 </ul>
-<h2>什么时候使用机器学习？</h2>
+<h2 id="什么时候使用机器学习？">什么时候使用机器学习？</h2>
 <ul>
 <li>人类能力不可及：火星探测</li>
 <li>人类无法解释的问题：语音识别</li>
@@ -386,21 +386,21 @@
 <li>解决方案需要对个案进行调整</li>
 <li>问题大小超出了人类的合理能力范围</li>
 </ul>
-<h2>监督学习</h2>
+<h2 id="监督学习">监督学习</h2>
 <ul>
 <li>分类问题</li>
 <li>回归问题</li>
 </ul>
 <p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>
 从二元分类到多元分类</p>
-<h2>非监督学习</h2>
+<h2 id="非监督学习">非监督学习</h2>
 <ul>
 <li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
 <li>密度估计（Density estimation）</li>
 <li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
 </ul>
 <p>没有训练集也没有奖励与惩罚</p>
-<h2>监督学习与非监督学习的变式</h2>
+<h2 id="监督学习与非监督学习的变式">监督学习与非监督学习的变式</h2>
 <p>Semi-supervised learning<br>
 Active learning<br>
 Decision theory<br>
@@ -410,7 +410,7 @@ Reinforcement learning 增强学习</p>
 <li>目标：奖励最大化</li>
 </ul>
 <hr>
-<h2>学习的成分</h2>
+<h2 id="学习的成分">学习的成分</h2>
 <ul>
 <li>未知的目标函数 f: x —&gt; y；</li>
 <li>X 的分布 P；</li>
@@ -418,7 +418,7 @@ Reinforcement learning 增强学习</p>
 <li>学习算法 A；</li>
 <li>假设集 H。</li>
 </ul>
-<h2>机器学习的本质</h2>
+<h2 id="机器学习的本质">机器学习的本质</h2>
 <ul>
 <li>A pattern exists; 有规律存在（学习的对象）</li>
 <li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
@@ -434,7 +434,7 @@ PAC: probability approximately correct</p>
 <strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。<br>
 如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
 <h1>CSS</h1>
-<h2>Margin</h2>
+<h2 id="margin">Margin</h2>
 <p>关于 Margin：</p>
 <blockquote>
 <p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
@@ -445,7 +445,7 @@ PAC: probability approximately correct</p>
 <li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
 <li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
 </ul>
-<h2>CSS 浮动</h2>
+<h2 id="css-浮动">CSS 浮动</h2>
 <ul>
 <li><strong>脱离</strong>文档的常规流（Normal flow）</li>
 <li>不出现外边距合并</li>
@@ -456,7 +456,7 @@ PAC: probability approximately correct</p>
 <blockquote>
 <p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
 </blockquote>
-<h2>常见清除浮动的办法</h2>
+<h2 id="常见清除浮动的办法">常见清除浮动的办法</h2>
 <ol>
 <li>clear 属性</li>
 <li>空 DIV 法：不如何“结构与表现分离原则”</li>
@@ -466,7 +466,7 @@ PAC: probability approximately correct</p>
 <blockquote>
 <p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
 </blockquote>
-<h2>CSS3 提供了几种新的处理布局的方法</h2>
+<h2 id="css3-提供了几种新的处理布局的方法">CSS3 提供了几种新的处理布局的方法</h2>
 <ol>
 <li>Flexbox 弹性盒子</li>
 <li>Multi-column layout 多栏布局</li>
@@ -1221,7 +1221,7 @@ Certain named classes of characters are predefined. Their interpretation depends
 <p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>
 正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
 <h1>正则表达式函数实例</h1>
-<h2>grep</h2>
+<h2 id="grep">grep</h2>
 <hr>
 <p>未完待续</p>
 

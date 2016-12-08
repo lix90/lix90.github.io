@@ -352,7 +352,7 @@
 
       
         <h1>JavaScript</h1>
-<h2>Date</h2>
+<h2 id="date">Date</h2>
 <p>构建 Date 类型<br>
 <code>var now = new Data()</code> 为传入参数将自动返回当前的日期和时间，为距 UTC 1970-1-1午夜零时的时间戳（毫秒）。若需创建特定日期和时间创建日期对象，需传入时间戳。</p>
 <p>两个方法：输出因浏览器而异。<br>
@@ -369,7 +369,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
 <code>toLocaleTimeString()</code><br>
 <code>toUTCString()</code></p>
 <p>日期/时间组件方法：直接取得和设置日期值中特定部分的方法 <code>get/set*</code>。</p>
-<h2>RegExp 类型</h2>
+<h2 id="regexp-类型">RegExp 类型</h2>
 <p>字面量 <code>/pattern/flags</code><br>
 构造函数 <code>new RegExp(pattern[, flags])</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/ab+c/i;</div><div class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ab+c'</span>, <span class="string">'i'</span>);</div><div class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/ab+c/</span>, <span class="string">'i'</span>);</div></pre></td></tr></table></figure>
@@ -381,7 +381,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
 <li>m：多行模式。</li>
 </ul>
 <p>元字符：模式中所有元字符都必须转义，包括 <code>( [ { \ ^ $ | ) ? * + . ] }</code>。</p>
-<h3 id="regexp-实例属性"><a class="header-anchor" href="#regexp-实例属性">¶</a>RegExp 实例属性</h3>
+<h3 id="regexp-实例属性">RegExp 实例属性</h3>
 <p>RegExp 实例属性可以取得有关模式的各种信息：</p>
 <ul>
 <li><strong>global</strong> 布尔值，是否设置了 g 标志。</li>
@@ -390,7 +390,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
 <li><strong>multiline</strong> 布尔值，是否设置了 m 标志。</li>
 <li><strong>source</strong> 正则表达式的字符串表示，按照<strong>字面量形式</strong>返回。</li>
 </ul>
-<h3 id="regexp-构造函数属性"><a class="header-anchor" href="#regexp-构造函数属性">¶</a>RegExp 构造函数属性</h3>
+<h3 id="regexp-构造函数属性">RegExp 构造函数属性</h3>
 <p>RegExp 构造函数包含的一些属性适用于作用域中的所有正则表达式，并且基于所执行的最近一次正则表达式操作而变化。这些属性分别有一个长属性名和一个短属性名。短属性名大都不是有效的 ECMAScript 标识符，因此必须通过方括号语法来访问它们。除此之外还有用9个用于存储捕获组的构造函数属性。访问这些属性的语法是 <code>RegExp.$1/2/.../9</code>。</p>
 <table>
 <thead>
@@ -433,7 +433,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
 </tr>
 </tbody>
 </table>
-<h3 id="模式的局限性"><a class="header-anchor" href="#模式的局限性">¶</a>模式的局限性</h3>
+<h3 id="模式的局限性">模式的局限性</h3>
 <p>不支持的正则表达式特性：</p>
 <ul>
 <li>匹配字符串开始和结尾的 <code>\A</code> 和 <code>\Z</code> 锚。（支持 <code>^</code> 和 <code>$</code> 匹配）</li>
@@ -465,7 +465,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
 </ul>
 <p>来源：《锋利的 jQeury 第二版》</p>
 <h1>阅读：前端工程</h1>
-<h2>笔记</h2>
+<h2 id="笔记">笔记</h2>
 <blockquote>
 <p>从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。</p>
 </blockquote>
@@ -526,7 +526,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
 <blockquote>
 <p>资源表是非常通用的数据结构，无论什么业务场景，其业务代码最终都可以被扫描为相同结构的表数据，并标记资源间的依赖关系，有了表之后我们只需根据不同的业务场景定制不同的资源加载框架就行了，从此彻底告别一个团队维护一套工具的时代！！！</p>
 </blockquote>
-<h3 id="结论"><a class="header-anchor" href="#结论">¶</a>结论</h3>
+<h3 id="结论">结论</h3>
 <p>作为初学者，无须把目标设为掌握前端工程话，但必须得提前<strong>了解前端工程化</strong>。从 fouber 这篇文章，有一些关键概念和理念。</p>
 <p><strong>关键概念</strong></p>
 <ul>
@@ -763,7 +763,7 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">RegExp 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#regexp-实例属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">¶RegExp 实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regexp-构造函数属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">¶RegExp 构造函数属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的局限性"><span class="nav-number">1.2.3.</span> <span class="nav-text">¶模式的局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">阅读：前端工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">3.1.1.</span> <span class="nav-text">¶结论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">概念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#date"><span class="nav-number">1.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regexp-类型"><span class="nav-number">1.2.</span> <span class="nav-text">RegExp 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#regexp-实例属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">RegExp 实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regexp-构造函数属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">RegExp 构造函数属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的局限性"><span class="nav-number">1.2.3.</span> <span class="nav-text">模式的局限性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">阅读：前端工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">3.1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">3.1.1.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">概念</span></a></li></ol></div>
             
           </div>
         </section>
