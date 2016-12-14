@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-12-08T09:41:37.000Z</updated>
+  <updated>2016-12-14T10:04:23.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -16,11 +16,173 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>谷歌学术文献检索技巧</title>
+    <link href="http://lix90.github.io/2016/12/14/2016-12-14-google-scholar/"/>
+    <id>http://lix90.github.io/2016/12/14/2016-12-14-google-scholar/</id>
+    <published>2016-12-13T16:00:00.000Z</published>
+    <updated>2016-12-14T10:04:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Google Scholar 谷歌学术文献检索技巧</h1>
+<p>这是我个人总结的谷歌学术检索文献的技巧，用于实验室内部分享。</p>
+<h2 id="谷歌学术适合什么样的文献检索需求？">谷歌学术适合什么样的文献检索需求？</h2>
+<ul>
+<li>部分全文获取</li>
+<li>初步或探索性地查询相关领域文献</li>
+<li>查询作者/研究者的相关文献</li>
+<li>快速查找少量相关文献</li>
+<li>查找文献被引频次：也包含peer-reviewed以外的文献的引用</li>
+<li>查找一篇文献有关联的文章</li>
+<li>订阅研究者的新文献</li>
+<li>…</li>
+</ul>
+<h2 id="谷歌学术不适合什么样的文献检索？">谷歌学术不适合什么样的文献检索？</h2>
+<ul>
+<li>进行系统地文献检索：例如写元分析和综述时所需要的文献检索</li>
+<li>根据机构检索文献</li>
+<li>一部分未公开的文献的全文</li>
+<li>对引文查询结果进行统计分析</li>
+<li>…</li>
+</ul>
+<h2 id="如何确定关键词">如何确定关键词</h2>
+<p>检索用到的关键词一般为实词。为了提高检索效率，在检索前必须确定明确的关键词，请勿直接使用“句子”进行检索。在确定关键词前，请考虑同义词和词性的问题。虽然谷歌学术会帮你拓展同义词和词性，但是在头脑中形成这样的信息检索思路有助于你获取信息。</p>
+<h2 id="普通检索">普通检索</h2>
+<p>普通的检索直接输入关键词就可以了。这种检索比较简单，适合探索性地检索，即没有特定的目的，仅仅粗略地获取信息。但是，通过这种检索方式获取信息较为低效。建议使用限定词和检索符进行检索。</p>
+<h2 id="高级检索">高级检索</h2>
+<ul>
+<li>时间：年份，年份范围</li>
+<li>排序：相关性和日期排序</li>
+<li>标题</li>
+<li>作者</li>
+<li>期刊</li>
+</ul>
+<h2 id="如何定位作者？">如何定位作者？</h2>
+<ul>
+<li>英文文献使用拉丁字母，中文文献使用中文</li>
+<li>可以使用全称，也可以使用简称，全称更准确，简称较模糊</li>
+<li>添加限定词：<code>author:</code></li>
+<li>使用双引号（英文半角引号）包括姓名：<code>author:&quot;james gross&quot;</code> 或者简称 <code>author:&quot;j gross&quot;</code></li>
+<li>或者手动使用搜索选项：搜索框右侧倒三角形按钮</li>
+</ul>
+<h2 id="如何限定标题？">如何限定标题？</h2>
+<ul>
+<li>使用限定词：<code>intitle:</code> 只搜索标题中出现关键字的条目</li>
+<li>使用双引号：<code>intitle:&quot;emotion regulation&quot;</code></li>
+</ul>
+<h2 id="如何限定期刊？">如何限定期刊？</h2>
+<p>谷歌学术没有针对期刊的限定词，但是可以在高级搜索框中在期刊输入框中输入对应的期刊进行检索。需要检索多个期刊时使用双引号包裹期刊名，使用 <code>OR</code> 逻辑符来分隔多个由双引号包裹的期刊名。例如：<code>&quot;emotion&quot; OR &quot;cognition &amp; emotion&quot;</code>。或者直接搜索框中输入 <code>(&quot;emotion&quot; OR &quot;cognition &amp; emotion&quot;)</code>，记得用括号包裹为一个整体。</p>
+<h2 id="如何限定年份">如何限定年份</h2>
+<ul>
+<li>直接通过左边栏的年份选项去选择。</li>
+<li>在搜索框输入年份检索（不推荐）。</li>
+</ul>
+<h2 id="如何检索多个并列的关键词">如何检索多个并列的关键词</h2>
+<p>使用 <code>OR</code> <code>()</code> <code>&quot; &quot;</code> 来构建多个并列检索词，例如：<code>(emotion OR mood OR affect)</code>。其实这个时候并不需要 <code>()</code> 来进行包括，也同样有效。</p>
+<h2 id="如何使用-and-逻辑符">如何使用 AND 逻辑符</h2>
+<p>通过 <code>AND</code> 可以设定必须出现的关键词，加上 <code>OR</code> 就可以进行更为强大的检索。例如：<code>(emotion OR mood OR affect) AND (erp OR eeg OR meg OR fmri OR &quot;functional MRI&quot;)</code>。</p>
+<h2 id="如何限定支持全文获取的文献">如何限定支持全文获取的文献</h2>
+<ul>
+<li>如果条目右侧没有出现 <code>pdf</code> 字样，不要认为就没有全文链接。点击进入 <code>所有 n 个版本</code> 链接查看是否有全文链接。</li>
+<li>仅限定可获取全文的条目：使用限定词 <code>filetype:pdf</code>。例如：<code>emotion filetype:pdf</code>。</li>
+</ul>
+<h1>最后来一个更复杂的例子</h1>
+<p><code>filetype:pdf 2015 (&quot;emotion&quot; OR &quot;emotion review&quot; OR &quot;cognition and emotion&quot; OR &quot;motivation and emotion&quot;) (&quot;emotion regulation&quot; OR &quot;emotion control&quot; OR &quot;cognitive reappraisal&quot; OR &quot;emotion suppression&quot;) AND (&quot;erp&quot; OR &quot;eeg&quot; OR &quot;meg&quot; OR &quot;fmri&quot; OR &quot;functional MRI&quot; OR &quot;electroencephalography&quot; OR &quot;event related potential&quot; OR &quot;magnetoencephalography&quot;)</code></p>
+<p>说明：获取特定情绪有关的期刊在2015年的文中所有地方出现相关关键词的全文条目。</p>
+<p>欢迎分享与转载，但请注明出处 :)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      个人总结的谷歌学术文献检索技巧。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="google scholar" scheme="http://lix90.github.io/tags/google-scholar/"/>
+    
+      <category term="文献检索" scheme="http://lix90.github.io/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/"/>
+    
+      <category term="labs" scheme="http://lix90.github.io/tags/labs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-09</title>
+    <link href="http://lix90.github.io/2016/12/09/2016-12-09-daily/"/>
+    <id>http://lix90.github.io/2016/12/09/2016-12-09-daily/</id>
+    <published>2016-12-08T16:00:00.000Z</published>
+    <updated>2016-12-09T14:02:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>翻译</h1>
+<h2 id="random-effects-structure-for-confirmatory-hypothesis-testing">Random effects structure for confirmatory hypothesis testing<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>##</h2>
+<blockquote>
+<p>Linear mixed-effects models (LMEMs) have become increasingly prominent in psycholinguistics and related areas. However, many researchers do not seem to appreciate how random effects structures affect the generalizability of an analysis. Here, we argue that researchers using LMEMs for confirmatory hypothesis testing should minimally adhere to the standards that have been in place for many decades. Through theoretical arguments and Monte Carlo simulation, we show that LMEMs generalize best when they include the maximal random effects structure justified by the design. The generalization performance of LMEMs including data-driven random effects structures strongly depends upon modeling criteria and sample size, yielding reasonable results on moderately-sized samples when conservative criteria are used, but with little or no power advantage over maximal models. Finally, random-intercepts-only LMEMs used on within-subjects and/or within-items data from populations where subjects and/or items vary in their sensitivity to experimental manipulations always generalize worse than separate $F_1$ and $F_2$ tests, and in many cases, even worse than $F_1$ alone. Maximal LMEMs should be the ‘gold standard’ for confirmatory hypothesis testing in psycholinguistics and beyond.</p>
+</blockquote>
+<p>译：线性混合效益模型（LMEMs）在心理语言学以及其相关领域变得日益重要。然而，许多研究者看起来并未充分理解随机效应结构（random effect structure）如何影响分析的可推广度。在本篇文章中，我们认为在使用 LMEMs 来进行验证性的假设检验时应该最低程度地遵循几十年的标准（传统的分析方法存在缺陷）。通过理论论证和蒙特卡洛模拟，我们发现，当最大限度地包含被实验设计验证过的随机效应结构时，LMEMs 具有最佳的推广度。包含数据驱动的随机效应结构的 LMEMs 的推广度表现对建模标准以及样本量有很强的依赖。当使用了保守的标准时，中等大小的样本量具有合理的结果，但是相比最大化模型（maximal models）并无统计检验力（power）的优势。最后，使用来自对实验操纵的敏感性存在变异的被试与/或项目的总体的被试内与/或项目内（within-items）数据的仅随机截距的 LMEMs，总是比分别进行 $F_1$ 与 $F_2$ 检验的推广度要差，并且在许多案例中，甚至比单独的 $F_1$ 检验要差。最大化的 LMEMs 应该作为心理语言学以及其它领域内进行验证性假设检验的黄金标准。</p>
+<p>Linear mixed-effects models (LMEMs):</p>
+<blockquote>
+<p>when fixed effects, random effects, and trial-level noise contribute linearly to the dependent variable, and random effects and trial-level error are both normally distributed and independent for differing clusters or tri- als, it is a linear mixed-effects model (LMEM).</p>
+</blockquote>
+<p>Random effect structure:</p>
+<blockquote>
+<p>the random effect structure one uses in an analysis encodes the assumptions that one makes about <strong>how sampling units (subjects and items) vary, and the structure of dependency that this variation creates in one’s data.</strong></p>
+</blockquote>
+<p>Confirmatory hypothesis TESTING:</p>
+<blockquote>
+<p>By confirmatory hypothesis testing we mean the situation in which the researcher has identified a specific set of theory-critical hypotheses in advance and attempts to measure the evidence for or against them as accurately as pos- sible</p>
+</blockquote>
+<h2 id="web-server">Web server<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
+<blockquote>
+<p>The primary function of a web server is to store, process and deliver web pages to clients. The communication between client and server takes place using the Hypertext Transfer Protocol (HTTP). Pages delivered are most frequently HTML documents, which may include images, style sheets and scripts in addition to text content.</p>
+</blockquote>
+<p>网站服务器的主要功能是存储，处理，和传输网页至客户端。客户端和服务器之间的通信是通过超文本传输协议（HTTP）来进行。服务器所传输的页面主要是 HTML 文档，除了文本内容之外，还包含了图片，样式表，以及脚本文件。</p>
+<blockquote>
+<p>A user agent, commonly a web browser or web crawler, initiates communication by making a request for a specific resource using HTTP and the server responds with the content of that resource or an error message if unable to do so. The resource is typically a real file on the server’s secondary storage, but this is not necessarily the case and depends on how the web server is implemented.</p>
+</blockquote>
+<p>用户代理软件，通常为网页浏览器或者网页爬虫，通过实用 HTTP 来提交一次对特定资源的请求来与服务器建立通信。服务器返回浏览器请求的资源作为响应，如果无法实现请求那么就返回错误信息。所请求的资源一般是服务器的二级存储中的真实的文件。不过并不必如此，这与网站服务器如何部署有关。</p>
+<blockquote>
+<p>While the primary function is to serve content, a full implementation of HTTP also includes ways of receiving content from clients. This feature is used for submitting web forms, including uploading of files.</p>
+</blockquote>
+<p>虽然主要功能是提供内容，HTTP 的完整实现过程还包含了从客户端接收内容。这一功能用于提交网页表单，包括上传文件。</p>
+<blockquote>
+<p>Many generic web servers also support server-side scripting using Active Server Pages (ASP), PHP, or other scripting languages. This means that the behaviour of the web server can be scripted in separate files, while the actual server software remains unchanged. Usually, this function is used to generate HTML documents dynamically (“on-the-fly”) as opposed to returning static documents. The former is primarily used for retrieving and/or modifying information from databases. The latter is typically much faster and more easily cached but cannot deliver dynamic content.</p>
+</blockquote>
+<p>许多范用型网站服务器同样支持服务器端的脚本，这可以通过使用 ASP, PHP, 或其它脚本语言实现。这意味着，网站服务器的行为编写到不同的脚本文件中，与此同时，实际的服务器软件保持不变。通常，这项功能用于动态地生成 HTML 文档，这与返回静态文档相反。前者主要用于接收和/或修改从数据库获取的信息。后者虽然更快且比较容易缓存，但是无法传输动态内容。</p>
+<blockquote>
+<p>Web servers are not only used for serving the World Wide Web. They can also be found embedded in devices such as printers, routers, webcams and serving only a local network. The web server may then be used as a part of a system for monitoring or administering the device in question. This usually means that no additional software has to be installed on the client computer, since only a web browser is required (which now is included with most operating systems).</p>
+</blockquote>
+<p>网站服务器不仅仅服务于万维网（World Wide Web）。我们同样可以在其他设备例如打印机、路由器、摄像头中发现嵌入的网站服务器，以及仅仅用于局域网的网站服务器。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Barr, D. J., Levy, R., Scheepers, C., &amp; Tily, H. J. (2013). Random effects structure for confirmatory hypothesis testing: Keep it maximal. Journal of memory and language, 68(3), 255-278. <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>维基百科 <a href="https://en.wikipedia.org/wiki/Web_server" target="_blank" rel="external">https://en.wikipedia.org/wiki/Web_server</a> <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    
+    <summary type="html">
+    
+      线性混合模型的一篇高引用量的摘要翻译。&lt;br&gt;了解 web 服务器。
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-12-08</title>
     <link href="http://lix90.github.io/2016/12/08/2016-12-08-daily/"/>
     <id>http://lix90.github.io/2016/12/08/2016-12-08-daily/</id>
     <published>2016-12-07T16:00:00.000Z</published>
-    <updated>2016-12-08T09:41:37.000Z</updated>
+    <updated>2016-12-10T16:13:04.000Z</updated>
     
     <content type="html"><![CDATA[<h1>Make contrasts in R<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
 <p>两种应用 contrasts 的方式：</p>
@@ -122,7 +284,7 @@ Which of the possible comparisons should we conduct? Well, this very much depend
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p><a href="http://rstudio-pubs-static.s3.amazonaws.com/65059_586f394d8eb84f84b1baaf56ffb6b47f.html" target="_blank" rel="external">A (sort of) Complete Guide to Contrasts in R</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>Szucs, D., &amp; Ioannidis, J. P. (2016). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. bioRxiv, 071530. <a href="#fnref2" class="footnote-backref">↩</a></p>
+<li id="fn2" class="footnote-item"><p><a href="http://biorxiv.org/content/early/2016/08/25/071530" target="_blank" rel="external">Szucs, D., &amp; Ioannidis, J. P. (2016). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. bioRxiv, 071530.</a> <a href="#fnref2" class="footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>
@@ -130,10 +292,7 @@ Which of the possible comparisons should we conduct? Well, this very much depend
     
     <summary type="html">
     
-      &lt;h1&gt;Make contrasts in R&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/h1&gt;
-&lt;p&gt;两种应用 contrasts 的方式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;添加 contra
+      - 如何在 R 语言中构建 contrasts&lt;br&gt;- 一篇论文摘要的翻译：心理学和认知神经科学中效应量和统计检验力使用问题
     
     </summary>
     
@@ -141,6 +300,12 @@ Which of the possible comparisons should we conduct? Well, this very much depend
     
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+      <category term="Effect-size" scheme="http://lix90.github.io/tags/Effect-size/"/>
+    
+      <category term="Power" scheme="http://lix90.github.io/tags/Power/"/>
     
   </entry>
   
@@ -2427,7 +2592,7 @@ g v |   evil-visual-restore</p>
     <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
     <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
     <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-02T11:28:15.000Z</updated>
+    <updated>2016-12-13T03:16:35.000Z</updated>
     
     <content type="html"><![CDATA[<h1>Python</h1>
 <p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
@@ -2485,7 +2650,7 @@ Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
 virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
 <p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
 <p>配置流程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div><div class="line">deactivate</div></pre></td></tr></table></figure>
 <h1>Homebrew</h1>
 <h2 id="镜像源-v2">镜像源</h2>
 <p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br>
@@ -3910,11 +4075,11 @@ $t$ 统计量为 $t_i = \frac{\hat{\beta_i}}{\hat{\sigma_i}}$</p>
     
       <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
       <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
@@ -4644,61 +4809,6 @@ IaaS 和 PaaS 的区别：</p>
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Git</h1>
-<h2 id="git-branch-分支操作">Git branch 分支操作</h2>
-<p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="git-checkout-切换分支">Git checkout 切换分支</h2>
-<p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="head">HEAD</h2>
-<blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;Git&lt;/h1&gt;
-&lt;h2 id=&quot;git-branch-分支操作&quot;&gt;Git branch 分支操作&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt; 列出，新建，或者删除分支&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;git branch --list&lt;/cod
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：使用 tidyr 进行数据操作</title>
     <link href="http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/"/>
     <id>http://lix90.github.io/2016/11/17/2016-11-17-r-tidyr/</id>
@@ -4807,6 +4917,117 @@ IaaS 和 PaaS 的区别：</p>
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Git</h1>
+<h2 id="git-branch-分支操作">Git branch 分支操作</h2>
+<p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="git-checkout-切换分支">Git checkout 切换分支</h2>
+<p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="head">HEAD</h2>
+<blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;Git&lt;/h1&gt;
+&lt;h2 id=&quot;git-branch-分支操作&quot;&gt;Git branch 分支操作&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt; 列出，新建，或者删除分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git branch --list&lt;/cod
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-16</title>
+    <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
+    <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
+    <published>2016-11-15T16:00:00.000Z</published>
+    <updated>2016-12-01T06:55:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>杂项</h1>
+<h2 id="shell">Shell</h2>
+<p><code>ps</code> 返回正在运行的进程的信息<br>
+<code>ps aux</code> 列出所有运行进程<br>
+<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
+使用 <code>type -p</code> 替代 <code>which</code></p>
+<h2 id="统计学">统计学</h2>
+<h3 id="标准差">标准差</h3>
+<p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>
+当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
+<blockquote>
+<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
+</blockquote>
+<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
+<h3 id="循环变量">循环变量</h3>
+<p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
+<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
+<h2 id="css：利用偏移垂直居中">CSS：利用偏移垂直居中</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
+<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
+<h2 id="todo">TODO</h2>
+<p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;杂项&lt;/h1&gt;
+&lt;h2 id=&quot;shell&quot;&gt;Shell&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 返回正在运行的进程的信息&lt;br&gt;
+&lt;code&gt;ps aux&lt;/code&gt; 列出所有运行进程&lt;br&gt;
+&lt;code&gt;ps aux | grep string&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：使用基本包进行多图布局</title>
     <link href="http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
     <id>http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
@@ -4893,62 +5114,6 @@ IaaS 和 PaaS 的区别：</p>
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-16</title>
-    <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
-    <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
-    <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-12-01T06:55:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>杂项</h1>
-<h2 id="shell">Shell</h2>
-<p><code>ps</code> 返回正在运行的进程的信息<br>
-<code>ps aux</code> 列出所有运行进程<br>
-<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
-使用 <code>type -p</code> 替代 <code>which</code></p>
-<h2 id="统计学">统计学</h2>
-<h3 id="标准差">标准差</h3>
-<p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>
-当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
-<blockquote>
-<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
-</blockquote>
-<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
-<h3 id="循环变量">循环变量</h3>
-<p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
-<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
-<h2 id="css：利用偏移垂直居中">CSS：利用偏移垂直居中</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
-<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
-<h2 id="todo">TODO</h2>
-<p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;杂项&lt;/h1&gt;
-&lt;h2 id=&quot;shell&quot;&gt;Shell&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 返回正在运行的进程的信息&lt;br&gt;
-&lt;code&gt;ps aux&lt;/code&gt; 列出所有运行进程&lt;br&gt;
-&lt;code&gt;ps aux | grep string&lt;/code&gt;
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
-    
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
   </entry>
   
@@ -5434,7 +5599,7 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
     <link href="http://lix90.github.io/2016/11/13/wiki/"/>
     <id>http://lix90.github.io/2016/11/13/wiki/</id>
     <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2016-12-08T07:42:15.000Z</updated>
+    <updated>2016-12-10T16:13:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
 <h1>社区</h1>
@@ -5469,8 +5634,8 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
 <h2 id="clojure">Clojure</h2>
 <p><a href="http://clojure-china.org/" target="_blank" rel="external">clojure-china</a></p>
 <h1>学习</h1>
-<p>R<br>
-<a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a> | <a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880: Data Visualization with R</a> | <a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a> | <a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></p>
+<h2 id="r">R</h2>
+<p><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a> | <a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880: Data Visualization with R</a> | <a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a> | <a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></p>
 <p><a href="http://rcompanion.org/handbook/" target="_blank" rel="external">Summary and Analysis of Extension Program Evaluation in R</a><br>
 <a href="http://rcompanion.org/rcompanion/" target="_blank" rel="external">An R Companion for the Handbook of Biological Statistics</a><br>
 <a href="http://www.biostathandbook.com/" target="_blank" rel="external">Handbook of Biological Statistics</a><br>
@@ -5478,14 +5643,19 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
 <a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a><br>
 <a href="http://www.unc.edu/courses/2006spring/ecol/145/001/index.html" target="_blank" rel="external">Ecology 145—Statistical Analysis</a><br>
 <a href="http://genomicsclass.github.io/book/" target="_blank" rel="external">PH525x series - Biomedical Data Science</a><br>
-<a href="http://www.unh.edu/halelab/BIOL933/schedule.htm" target="_blank" rel="external">BIOL 933: Design, Analysis, and Interpretation of Experiments</a></p>
+<a href="http://www.unh.edu/halelab/BIOL933/schedule.htm" target="_blank" rel="external">BIOL 933: Design, Analysis, and Interpretation of Experiments</a><br>
+<a href="http://socserv.socsci.mcmaster.ca/jfox/Courses/soc6z3/index.html" target="_blank" rel="external">Sociology 6Z03 Introduction to Social Statistics</a></p>
 <p><a href="http://user2016.org/" target="_blank" rel="external">The R User Conference 2016</a><br>
 <a href="http://user2015.math.aau.dk/" target="_blank" rel="external">The R User Conference 2015</a><br>
 <a href="http://user2014.stat.ucla.edu/" target="_blank" rel="external">The R User Conference 2014</a><br>
 <a href="http://www.edii.uclm.es/~useR-2013/" target="_blank" rel="external">The R User Conference 2013</a></p>
 <p><a href="https://onlinecourses.science.psu.edu/stat505/" target="_blank" rel="external">STAT 505 - Applied Multivariate Statistical Analysis</a></p>
+<h2 id="c">C</h2>
+<p><a href="http://www.crasseux.com/books/ctutorial/" target="_blank" rel="external">The GNU C Programming Tutorial</a><br>
+<a href="http://masters-of-the-void.com/" target="_blank" rel="external">Learn C Programming on the Mac</a><br>
+<a href="http://www.gribblelab.org/CBootcamp/index.html" target="_blank" rel="external">C Programming Boot Camp</a></p>
 <hr>
-<p>lisp/elisp</p>
+<h2 id="lisp-elisp">lisp/elisp</h2>
 <ul>
 <li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
 <li><a href="http://www.newthinktank.com/2015/07/learn-lisp-one-video/" target="_blank" rel="external">一个简短的 lisp 教学视频</a></li>
@@ -5494,6 +5664,7 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
 <li><a href="https://www.youtube.com/channel/UClT2UAbC6j7TqOWurVhkuHQ" target="_blank" rel="external">Sacha Chua</a> Emacs, Tutorial, Talks, Conversations</li>
 <li><a href="https://www.youtube.com/channel/UCkRmQ_G_NbdbCQMpALg6UPg" target="_blank" rel="external">emacsrocks</a></li>
 </ul>
+<hr>
 <p>YoutubeChannel<br>
 <a href="https://www.youtube.com/channel/UCOjD18EJYcsBog4IozkF_7w" target="_blank" rel="external">PyData</a><br>
 <a href="https://www.youtube.com/channel/UC98CzaYuFNAA_gOINFB0e4Q" target="_blank" rel="external">EuroPython Conference</a><br>
@@ -7149,11 +7320,11 @@ JavaScript 的静态缓存<br>
     
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+      <category term="Coding style" scheme="http://lix90.github.io/tags/Coding-style/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
-      <category term="Coding style" scheme="http://lix90.github.io/tags/Coding-style/"/>
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
     
   </entry>
   
@@ -7379,17 +7550,17 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
     
+      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
+    
+      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
       <category term="jQuery" scheme="http://lix90.github.io/tags/jQuery/"/>
     
       <category term="Vue.js" scheme="http://lix90.github.io/tags/Vue-js/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
-      <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
-    
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
-    
-      <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
   </entry>
   
