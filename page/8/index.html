@@ -282,6 +282,693 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/15/2016-11-15-daily/" itemprop="url">
+                  每日总结 2016-11-15
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T00:00:00+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/2016-11-15-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/15/2016-11-15-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>CSS 和 JS 加载顺序和位置问题</h1>
+<h2 id="为什么要把-css-样式表放在头部-head">为什么要把 CSS 样式表放在头部（Head）</h2>
+<p>如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。</p>
+<p>如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页面元素进行重绘。这样会出现一段时间的白屏。影响用户体验。</p>
+<h2 id="为什么要把-js-脚本放在底端-the-bottom-of-body">为什么要把 JS 脚本放在底端（the Bottom of Body）</h2>
+<p>脚本文件的加载会阻塞并行下载。HTTP/1.1 规定浏览器对于同一个主机的并行下载请求不能超过两个。如果网站图片资源放在多个主机上，那么可以同时超过两个下载请求。但是脚本文件会使浏览器停止其他数据的下载，不同主机的下载都会停止。</p>
+<p>但是在某些情况下，并不能将 JS 脚本放在底端。例如，脚本中包含有使用 <code>document.write</code> 插入部分页面内容，这就不能放在后面加载。</p>
+<p>替代的做法是，使用 <code>defer</code> 加载脚本，这样就可以放在头部了。<code>defer</code> 属性表明了脚本并不包含 <code>document.write</code>，在加载脚本的同时，页面也一同渲染。Firefox 并不支持 <code>defer</code> 属性。</p>
+<h2 id="如果-script-和-link-都在头部-谁在前-谁在后？">如果 script 和 link 都在头部，谁在前，谁在后？</h2>
+<p>对于现代<strong>桌面</strong>浏览器来说，CSS 在 JS 前声明对性能并没有显著提高。甚至，CSS 在 JS 之后，不但不影响性能，反而在特定情况下还能提升性能。不过，这仅限于现代桌面浏览器。对于老式浏览器，仍然需要在 JS 之前声明 CSS 的外部链接。这归功于现代桌面浏览器使用了“推测渲染技术”（speculative parsing），这种技术能够让浏览器往前一步看，总是在脚本下载和执行之前下载其他资源。老式浏览器并不支持该技术，所以把脚本放在前面会影响性能。</p>
+<p>目前，85% 的桌面浏览器均支持推测渲染技术。把脚本放在样式表之前仍然可能会影响 15% 的用户。对于移动端的浏览器，无法获得一个明确的支持该技术的比例。WebKit 内核的移动浏览器已支持该技术。但是即便是最新的 WebKit 内核浏览器，<a href="http://stackoverflow.com/users/201952/josh3736" target="_blank" rel="external">josh3736</a>仍然发现 JS 在 CSS 之前会影响性能，这可能与移动设备在 CPU，内存以及网络上的限制而关闭了限制了该功能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/6625773/where-should-i-put-the-css-and-javascript-code-in-an-html-webpage" target="_blank" rel="external">stackoverflow: Where should I put the CSS and Javascript code in an HTML webpage?</a></li>
+<li><a href="http://stackoverflow.com/questions/9271276/is-the-recommendation-to-include-css-before-javascript-invalid" target="_blank" rel="external">stackoverflow: Is the recommendation to include CSS before JavaScript invalid?</a></li>
+<li><a href="http://stackoverflow.com/questions/7120801/group-of-css-and-js-files-import-at-html" target="_blank" rel="external">stackoverflow: Group of CSS and JS files import at HTML?</a></li>
+<li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo! Best Practices for Speeding Up Your Web Site</a></li>
+</ul>
+<hr>
+<h1>CSS：@import vs Link</h1>
+<blockquote>
+<p>The bottomline is: use LINK instead of @import if you want stylesheets to download in parallel resulting in a faster page.</p>
+<ul>
+<li>Using @import within a stylesheet adds one more roundtrip to the overall download time of the page.</li>
+<li>Using @import in IE causes the download order to be altered. This may cause stylesheets to take longer to download, which hinders progress rendering making the page feel slower.</li>
+</ul>
+</blockquote>
+<p>避免使用 <code>@import</code> 能够提升性能。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">SteveSounders: don’t use @import</a></li>
+</ul>
+<hr>
+<h1>杂项</h1>
+<blockquote>
+<p><a href="https://github.com/rushter/MLAlgorithms" target="_blank" rel="external">rushter/MLAlgorithms</a><br>
+A collection of minimal and clean implementations of machine learning algorithms.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/2016-11-14-daily/" itemprop="url">
+                  每日总结 2016-11-14
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/2016-11-14-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>R</h1>
+<p>Mode &amp; Type</p>
+<p>Mode 由 <code>mode</code> 获得<br>
+Type 由 <code>typeof</code> 获得</p>
+<p>在 R 中，模式（Mode）与类型（Type）具有相同的名称集，除了以下例外：</p>
+<ul>
+<li>类型 <code>integer</code> 和 <code>double</code> 的模式均为 <code>numeric</code></li>
+<li>类型 <code>special</code> <code>builtin</code> 的模式均为 <code>function</code></li>
+<li>类型 <code>symbol</code> 返回模式 <code>name</code></li>
+<li>类型 <code>language</code> 返回为 <code>(</code> 或 <code>call</code></li>
+</ul>
+<hr>
+<h1>鸟哥 Linux 私房菜学习记录</h1>
+<h2 id="计算机概论">计算机概论</h2>
+<p>三大部分：输入单元、主机、输出单元。<br>
+五大部分：输入、输出、CPU 控制单元、CPU 算数逻辑单元与内存。</p>
+<p>中央处理器（Central Processing Unit, CPU），含有微指令集。主机的功能与 CPU 是否具有相关内置的微指令集。<br>
+CPU 内分为两个主要单元：</p>
+<ul>
+<li>算数逻辑单元：负责程序运算与逻辑判断</li>
+<li>控制单元：协调各周边元件与各单元间的工作</li>
+</ul>
+<p>CPU 从内存中读取数据，内存中的数据从输入单元传入。CPU 处理完毕的数据必须先写回内存，然后才从内存传输到输出单元。</p>
+<p>五大单元：输入单元+{系统单元：[CPU：(控制单元+算数逻辑单元)]+内存}+输出单元+外部储存装置</p>
+<p>以上所有单元均由 CPU 内部的控制单元负责协调。</p>
+<p>两种 CPU 架构：</p>
+<ul>
+<li>精简指令集（Reduced Instruction Set Computer, RISC）</li>
+<li>复杂指令集（Complex Instruction Set Computer, CISC）</li>
+</ul>
+<p>RISC：较为精简，每个指令的执行时间都很短，完成动作很单纯，执行性能较佳。若要做复杂的事情，则需多个指令来完成。<br>
+CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目多且复杂，每条指令的长度不相同。由于指令执行较为复杂，所以每条指令花费时间较长，但每条指令可以处理的工作较为丰富。大量使用于个人电脑中。</p>
+<p>位：CPU 一次数据读取的最大量。64位 CPU 表示一次读写 64bits 的数据，32位则读取 32bits。一般32位 CPU 能读写的最大数据量为 4GB 左右。</p>
+<hr>
+<h1>Git 学习记录</h1>
+<h2 id="sha">SHA</h2>
+<p>表示项目历史信息的文件由40个字符的“对象名（SHA）”来索引。不同内容的两个对象不可能有相同的对象名。</p>
+<ul>
+<li>快速判断两个对象是否相同；</li>
+<li>不同仓库的同样内容存在相同的对象名下；</li>
+<li>通过检查对象内容的哈希值和对象名来判断对象内容是否正确。</li>
+</ul>
+<h2 id="四种类型的对象">四种类型的对象</h2>
+<ul>
+<li>blob：存储文件数据</li>
+<li>tree：类似文件目录，管理 tree 或 blob</li>
+<li>commit：标记项目某一个特定时间点的状态，包括一些关于时间点的元数据</li>
+<li>tag：标记某一次提交的方法</li>
+</ul>
+<h2 id="git-与-svn-的区别">Git 与 SVN 的区别</h2>
+<p>SVN 使用增量文件系统（Delta storage systems），它们存储每次提交的差异。Git 把每次提交的文件的全部内容（snapshot）都会记录下来。</p>
+<hr>
+<h1>Emacs</h1>
+<h2 id="快捷键设置">快捷键设置</h2>
+<p>四种类型的快捷键设置：</p>
+<ul>
+<li>全局快捷键：<code>(global-set-key (kbd &quot;A&quot;) 'your-command')</code></li>
+<li>全局映射键：<code>(define-key key-translation-map (kbd &quot;A&quot;) (kbd &quot;B&quot;))</code></li>
+<li>基于 Major-Mode 的局部快捷键：<code>(local-set-key (kbd &quot;A&quot;) 'your-command)</code></li>
+<li>基于 Minor-Mode 的局部快捷键：<code>(define-key your-minor-mode-map (kbd &quot;A&quot;) 'your-command)</code></li>
+</ul>
+<p>删除或禁用键：<code>(global/local-unset-key (kbd &quot;A&quot;))</code> <code>(global/local-set-key (kbd &quot;A&quot;) 'ignore/nil)</code></p>
+<p>解决键冲突</p>
+<ul>
+<li>暴力映射：<code>define-key key-translation-map</code></li>
+<li>映射到新的 prefix 键上，再全局或者局部设置键。</li>
+</ul>
+<p>宏与函数的区别：函数的参数是在传入时 eval，而宏则是传入并展开后再 eval。<br>
+快捷键的优先级：<code>key-translation-map &gt; minor-mode-map &gt; local-set-key &gt; global-set-key</code><br>
+在设置局部键时，需写出相应的代理映射键（prefix）。</p>
+<p>说明：整理自Emacs（微信公众号）文章《那就从妖艳酷炫的快捷键开始吧！（一）》</p>
+<h2 id="符号">: &amp; 符号</h2>
+<ul>
+<li><code>:foo</code> 在 Emacs Lisp 中是 <code>keyword symbol</code></li>
+<li>在 <code>use-package</code> 中被用作 <code>keyword arguments</code></li>
+<li><code>&amp;optional</code> 指定的形参是可选的，如果没有指定，则当作 <code>nil</code></li>
+<li><code>&amp;rest</code> 指定的形参是可变</li>
+</ul>
+<blockquote>
+<p>宏的实参不会在宏被求值的时候立刻求值，而是会被当做数据直接传递给宏。因此宏可以自己决定那些代码在什么时候被求值。</p>
+</blockquote>
+<p>参考 emacs-china 社区<a href="https://emacs-china.org/t/emacslisp/1566" target="_blank" rel="external">问答</a></p>
+<hr>
+<h1>数据挖掘</h1>
+<p>在数据挖掘中，理解数据、检查数据，对数据进行预处理至关重要。</p>
+<h2 id="数据理解">数据理解</h2>
+<ul>
+<li>明确数据记录的详细程度</li>
+<li>确定研究群体：用户群，受众；“群体”可以是事物，如电影。</li>
+<li>理解每个变量的含义：与业务目标无关的变量可直接剔除（冗余变量）。</li>
+</ul>
+<h2 id="变量类型">变量类型</h2>
+<ul>
+<li>分类变量：名义变量和定序变量。</li>
+<li>数值变量：只有在代数运算下有意义的变量才是数值型变量。</li>
+</ul>
+<p>许多数据挖掘模型不能直接处理分类自变量，此时需要将分类变量转换成数值变量。对于名义自变量，常用的转换方法是构造0-1型哑变量。当名义变量有 K 个类别取值时，需要构造 K-1 个哑变量。<strong>名义变量取值过多会生成太多的哑变量，此时可能造成模型的过度拟合。</strong></p>
+<p>在有些情况下，数值变量需要转换成分类变量，此时需要用到“数据分箱”的方法。</p>
+<p><strong>数据分箱</strong></p>
+<ul>
+<li>通过取值范围转换成不同类别可以有效平滑数据，降低误差；</li>
+<li>对于某些算法（如决策树），数据分箱可以提高算法效率；</li>
+<li>有些模型算法（如关联规则）只能处理分类型自变量。</li>
+</ul>
+<p>数据分箱可以使用每个分箱内的均值、中位数、临界值等作为这个类别的代表值，也可以直接将不同取值范围定义成不同的类别。</p>
+<p><strong>常见的数据分箱方法</strong></p>
+<ul>
+<li>等宽分箱：将变量取值范围划分成等宽的几个区间。</li>
+<li>等频分箱：按变量取值的分位数进行划分。</li>
+<li>基于k均值聚类的分箱：将所有数据进行k均值聚类，所得类别即为不同的分箱。</li>
+<li>其他分箱：如使分箱后的结果达到最小熵或最小描述长度等。</li>
+</ul>
+<h2 id="质量检查">质量检查</h2>
+<p>一般来说，质量检查包括检查每个变量的缺失程度和取值范围的合理性。</p>
+<h3 id="缺失检查">缺失检查</h3>
+<ul>
+<li><strong>有些缺失是合理的</strong>，但是对于这种缺失值，很难判断缺失的原因。</li>
+<li>**对于不允许缺失的变量，必须进行相应处理。**如果缺失率过高，例如达到70%，可以考虑剔除。如果比例可以接受，可以尝试插补。</li>
+<li><strong>插补的目的是使插补值最大可能接近真实的取值</strong>，如果能从其他途径得到真实值，那么优先选择这种方法。</li>
+</ul>
+<p>插补方法</p>
+<ul>
+<li>数值变量可用已观测值的均值、中位数、众数等。</li>
+<li>分类变量可用已观测值中比例最高的类别取值进行插补。</li>
+<li>还可以选择更复杂的模型插补方法：对被插补变量和其他自变量之间的关系建立统计模型，将模型预测值作为插补值。</li>
+</ul>
+<h3 id="变量取值合理性检查">变量取值合理性检查</h3>
+<ul>
+<li>通过判断变量的取值是否超出它应有的取值范围，可以简单的对异常值进行甄别。</li>
+<li>根据变量之间的相互关系进行判断。</li>
+</ul>
+<p>说明：整理自狗熊会（微信公众号）文章《灰常数据挖掘|数据理解和预处理》</p>
+<hr>
+<h1>交互设计：按钮</h1>
+<h2 id="让按钮看起来像按钮">让按钮看起来像按钮</h2>
+<p>视觉线索让人确定部件的可点击特性。在可点击的元素上使用合适的视觉线索使得它们看起来想按钮。</p>
+<h3 id="形状">形状</h3>
+<ul>
+<li>比较保险的是使用方形，圆角方形。</li>
+<li>在使用其他特别的形状，例如圆形、三角形，或者其他图形时，得确保用户能将其当作按钮。</li>
+<li>无论使用什么形状，<strong>确保界面控件的一致性</strong>，这样用户才能识别处所有的元素为按钮。</li>
+</ul>
+<h3 id="阴影和高光">阴影和高光</h3>
+<p>阴影可以让元素从背景中凸显出来，更容易识别为可点击的元素，看起来像真实的可以被按下去的按钮。</p>
+<h2 id="清晰地标记按钮">清晰地标记按钮</h2>
+<p>用户容易忽视没有清晰的含义的界面元素。所以，界面中的按钮应该有合适的标签或者图标。但是，需遵循最小装饰原则。</p>
+<h3 id="清晰的标签">清晰的标签</h3>
+<p>按钮上的标签应该与用户将要执行的动作有关联，告知用户点击按钮所要执行的行为。<br>
+动作按钮应该向用户声明当前任务是什么，这样用户在点击按钮时知道会发生什么。</p>
+<h2 id="将按钮放置到用户容易找到的地方">将按钮放置到用户容易找到的地方</h2>
+<h3 id="位置和顺序">位置和顺序</h3>
+<ul>
+<li>如果开发原生 app，则需遵循开发平台的图形界面指南。</li>
+<li>如果是基于网页的 app，应该思考哪个位置对用户使用起来最有效。</li>
+<li>如果设计移动导航栏，有必要关注下按钮位置的最佳实践。&gt;&gt;&gt; <a href="https://www.smashingmagazine.com/2016/11/the-golden-rules-of-mobile-navigation-design/" target="_blank" rel="external">The Golden Rules Of Bottom Navigation Design</a></li>
+</ul>
+<h2 id="让用户轻而易举地点击按钮">让用户轻而易举地点击按钮</h2>
+<h3 id="尺寸和内边距">尺寸和内边距</h3>
+<p>需要考虑相对页面上其他元素来确定按钮的尺寸。</p>
+<blockquote>
+<p>When a tap is used as a primary input method for your app or site, you can rely on the <a href="http://touchlab.mit.edu/publications/2003_009.pdf" target="_blank" rel="external">MIT Touch Lab</a> study to choose a proper size for your buttons. This study found that the average size of finger pads are between 10–14mm and fingertips are 8–10mm, making 10mm x 10mm a good minimum touch target size. When a mouse and keyboard are the primary input methods, button measurements can be slightly reduced to accommodate dense UIs.</p>
+</blockquote>
+<h3 id="提供视觉反馈">提供视觉反馈</h3>
+<p>按钮具有多个状态，通过提供视觉反馈来提示用户按钮的当前状态。<a href="">Material Design</a> 清晰展示了不同的按钮状态：Normal, Focused, Pressed, Disabled。</p>
+<h2 id="在视觉上强调最重要的按钮">在视觉上强调最重要的按钮</h2>
+<p>确保在设计中，对主要的或者最重要的动作进行了强调。使用颜色和对比度可以让用户聚焦于动作之上，并且将按钮放置于最显眼的位置。</p>
+<h3 id="call-to-action-button">Call-to-Action Button</h3>
+<p>Call-to-Action Button：吸引用户注意力并且引诱用户去点击的按钮。创建一个有效的 call-to-action 按钮，需要使用与背景有高对比度的颜色，并且将按钮放置于用户使用路径上。</p>
+<h3 id="让首要的和次要的按钮具有视觉区分度">让首要的和次要的按钮具有视觉区分度</h3>
+<ul>
+<li>首要的与积极事件/动作关联的按钮应该有较强的视觉权重。</li>
+<li>次要的事件/动作，例如“取消”或“退回”，应该具有较弱的视觉权重。</li>
+</ul>
+<h2 id="按钮设计清单">按钮设计清单</h2>
+<ul>
+<li>用户将元素识别为按钮了吗？</li>
+<li>按钮的标签传递了清晰的含义了吗？</li>
+<li>用户能容易地找到按钮吗？</li>
+<li>如果在界面中有两个或多个按钮，最重要的是否具有最强的视觉权重？</li>
+</ul>
+<p>说明：笔记整理来自<a href="https://www.smashingmagazine.com/2016/11/a-quick-guide-for-designing-better-buttons/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=rss" target="_blank" rel="external">Smashing Magazine: A Quick Guide For Designing Better Buttons</a></p>
+<hr>
+<h1>杂项</h1>
+<ul>
+<li><a href="http://webpro.github.io/programming-principles/" target="_blank" rel="external">Programming Principles</a> 编程原则</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/2016-11-14-img-output/" itemprop="url">
+                  实验室内部分享一：绘制和编辑可发表的图形
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T00:00:00+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/2016-11-14-img-output/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/14/2016-11-14-img-output/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文为实验室内部分享内容提纲。<br>
+分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1>准备知识</h1>
+<h2 id="颜色模式">颜色模式</h2>
+<ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式">图形格式</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率">图形分辨率</h2>
+<p>分辨率：两侧或者显示系统对细节的分辨能力。<br>
+PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1>图形编辑软件使用</h1>
+<ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面">基本界面</h2>
+<ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键">快捷键</h2>
+<ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念">常用工具与概念</h2>
+<h3 id="对象">对象</h3>
+<ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择">选择</h3>
+<ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层">图层</h3>
+<ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作">其他重要操作</h3>
+<ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1>实例</h1>
+<ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1>绘制图表</h1>
+<ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：<a href="http://plot.ly" target="_blank" rel="external">plot.ly</a>, …</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/13/2016-11-13-daily/" itemprop="url">
                   R：加载包
                 </a>
@@ -525,511 +1212,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/12/2016-11-12-daily/" itemprop="url">
-                  每日总结 2016-11-12
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-12T00:00:00+08:00" content="2016-11-12">
-              2016-11-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/12/2016-11-12-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/12/2016-11-12-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>R</h1>
-<h2 id="detach-attach"><code>detach</code> &amp; <code>attach</code></h2>
-<p><code>attach</code></p>
-<p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
-<p><code>attach</code> 在使用过程中存在副作用，即改变搜索路径，人们总是容易忘记 <code>detach</code>。在交互式使用中，<code>with</code> 相比 <code>attach/detach</code> 更可取。除非需要加载存储文件，用作 <code>load</code> 的一个封装。在编程中，函数不应该随意改变搜索路径。所以 <code>with</code> 经常被用在函数中。</p>
-<p><code>detach</code></p>
-<ul>
-<li>将对象从 <code>search path</code> 中移除。对象包括 <code>attach</code> 过的 <code>data.frame</code> 和 package。</li>
-<li>当没有给 <code>detach()</code> 输入参数将会移除 <code>search path</code> 中的第一个项目。</li>
-<li>应该避免在函数中使用 <code>detach/attach</code>。</li>
-<li>在控制台和脚本中使用时，应该用对象名称来 <code>detach</code>（而不是 <code>pos</code>）。</li>
-</ul>
-<h2 id="整数型数值">整数型数值</h2>
-<p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
-<h1>杂项</h1>
-<p>JavaScript：DOM &amp; BOM</p>
-<blockquote>
-<p>The BOM consists of the objects navigator, history, screen, location and document which are children of window. In the document node is the DOM, the document object model, which represents the contents of the page. You can manipulate it using javascript. （“node is in the DOM tree” or “node is the smallest unit in the DOM tree” or “nodes compose the DOM tree”）</p>
-</blockquote>
-<ul>
-<li><a href="http://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript" target="_blank" rel="external">Stackoverflow: What is the DOM and BOM in JavaScript?</a></li>
-<li><a href="https://vkanakaraj.wordpress.com/2009/12/18/javascript-vs-dom-vs-bom-relationship-explained/" target="_blank" rel="external">JavaScript Vs DOM Vs BOM, relationship explained</a></li>
-</ul>
-<p>HTTP：HTTP 是 web 的核心，也是动态 web 应用的核心。理解 HTTP 是理解现代 web 应用如何工作和如何构建的核心。</p>
-<p>数据库的五个基本单位：数据库服务器，数据库，数据表，数据字段（数据列），数据行。</p>
-<p>三类 SQL 语句：</p>
-<ul>
-<li>数据定义语言：定义不同的数据段、数据库、表、列、索引等。常用关键字：<code>create</code> <code>drop</code> <code>alter</code>。</li>
-<li>数据操作语言：用于添加、删除、更新和查询数据库记录，并检查数据的完整性。常用关键字：<code>insert</code> <code>delete</code> <code>update</code> <code>select</code>。</li>
-<li>数据控制语言：用于控制不同数据段直接的许可和访问级别。常用关键字：<code>grant</code> <code>revoke</code>。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/11/2016-11-11-life-shirt/" itemprop="url">
-                  男士衬衫穿搭技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T00:00:00+08:00" content="2016-11-11">
-              2016-11-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/11/2016-11-11-life-shirt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/11/2016-11-11-life-shirt/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>临近求职，即将从学生狗迈入“社会”，需要关注下着装和生活品味。个人喜欢将看起来不严肃的事情也当做很“正经”的事情学习研究一番，这篇笔记便是最好的见证。</p>
-<h1>男士衬衫穿搭技巧</h1>
-<h2 id="正装衬衫">正装衬衫</h2>
-<h3 id="挑选技巧">挑选技巧</h3>
-<ol>
-<li>合身：首要条件务必合身。</li>
-<li>版型：</li>
-</ol>
-<ul>
-<li><strong>Slim</strong> 腰线挺拔</li>
-<li><strong>Regular</strong> 严肃商务风</li>
-<li><strong>Full</strong> 宽容，适合较胖的人</li>
-</ul>
-<ol start="3">
-<li>颜色：白色严肃，适合最正式及重要场合；次重要场合可以选蓝色和灰色。</li>
-</ol>
-<h3 id="搭配技巧">搭配技巧</h3>
-<ol>
-<li>白衬衫谨慎单穿：对身材要求高；故可做正装内搭；单穿宜选择蓝灰。</li>
-<li>搭配灰色或海军蓝的西装：黑色适合场合较少，比较沉闷和老气。</li>
-<li>正装衬衫也可以在非正式场合穿：例如，搭配不沉闷的领带。也可以把休闲商务内搭换成正装衬衫。</li>
-</ol>
-<h2 id="牛津纺衬衫">牛津纺衬衫</h2>
-<blockquote>
-<p>牛津纺一般由白色和其他颜色的纱线交织而成。白色的加入，会在视觉上弱化了另一颜色的色度，形成的特殊“点状肌理”，使整体的色调更加柔和，这也是牛津纺最吸引人之处。<br>
-牛津纺衬衫的适用性非常强，既可上班，亦可休闲，并往往能体现穿着者儒雅、斯文的一面。</p>
-</blockquote>
-<h3 id="搭配技巧-v2">搭配技巧</h3>
-<ol>
-<li>衬衫下摆处理：牛津纺适合单穿，在不同场合可以考虑是否将下摆包进裤子里。
-<ul>
-<li>日常工作场合，可以考虑穿着蓝色、灰色等明度低的牛津纺衬衫，下摆包进裤子。可搭配一条卡其裤/西裤，和一双与之搭配的鞋子。</li>
-<li>工作之余下摆可以不用包进裤子，但这种情况下，下摆不宜过长。合适的下摆有利于调整身材比例。</li>
-</ul>
-</li>
-<li>牛津纺色调较柔和，可以尝试多种颜色：白蓝为百搭；粉红色适合偏瘦的人；马卡龙绿、桃红适合沙滩、度假等休闲场合。</li>
-<li>无敌内搭单品：虽百搭，但与之绝配的是针织衫/毛衣。还可以搭配外套或夹克。</li>
-</ol>
-<h2 id="格子衬衫">格子衬衫</h2>
-<h3 id="挑选原则">挑选原则</h3>
-<ol>
-<li>小格子：大格子衬衫是屌丝感的罪魁祸首。</li>
-<li>颜色鲜而柔和</li>
-</ol>
-<blockquote>
-<p>小格子可以穿出文艺温柔的感觉，鲜亮而柔和的颜色避免了深色线条的粗硬感；另外小格子衬衫可把扣子全扣上穿出一种精致感。</p>
-</blockquote>
-<h3 id="搭配技巧-v3">搭配技巧</h3>
-<p>格子衬衫单穿对衬衫及个人气质要求相对高，但内搭比较容易穿出彩。</p>
-<p>格子衬衫搭配需要遵循2个原则：</p>
-<ol>
-<li>同色系：搭配的其他单品最好呼应其中的颜色，而不要给造型新增颜色。</li>
-<li>简约（Simple）：搭配单品尽量保持 simple（纯色、无花纹）</li>
-</ol>
-<p>技巧：</p>
-<ol>
-<li>内搭纯白 Tee：选择跟格子颜色相关的裤子。</li>
-<li>绑在腰上，作为造型装饰。</li>
-<li>内搭：西装、马甲、皮衣都非常合适。
-<ul>
-<li>西装：可不需要格子衬衫与西装色系呼应，可以大胆撞色。</li>
-<li>马甲：化解了单穿格子衬衫的难度。</li>
-</ul>
-</li>
-<li>如何化解深色大格子衬衫的屌丝既视感：搭配牛仔外套，将衬衫内搭，其他单品遵循同色系、simple两个原则。</li>
-</ol>
-<h2 id="牛仔衬衫">牛仔衬衫</h2>
-<p>牛仔衬衫包括两种风格：</p>
-<ol>
-<li>阳刚不羁：牛仔布厚实、织纹清晰，加上洗水工艺</li>
-<li>优雅清新：牛仔布细密柔软，水洗致颜色柔和</li>
-</ol>
-<h3 id="搭配技巧-v4">搭配技巧</h3>
-<ol>
-<li>单穿、外穿牛仔衬衫：让牛仔衬衫成为主角！
-<ul>
-<li>下身可搭配深色牛仔裤、卡其裤、中长靴；</li>
-<li>避免同牛仔衬衫颜色接近的牛仔裤；</li>
-</ul>
-</li>
-<li>内搭：可搭配棒球外套、皮衣和针织衫。</li>
-<li>搭配军绿色单品：军绿色风格与天然有着硬朗感的牛仔衬衫风格匹配。</li>
-</ol>
-<h2 id="个人总结">个人总结</h2>
-<ul>
-<li>正式场合颜色和面料宜淡雅</li>
-<li>分清主配角</li>
-<li>灵活运用加减法</li>
-<li>一定要考虑身材和场合</li>
-<li>正装衬衫可以和休闲单品搭配，但休闲款谨慎当正装穿</li>
-<li>你柔我柔，你刚我刚</li>
-<li>没有完美的单品，单穿还是内外搭，需具体分析</li>
-</ul>
-<hr>
-<p>该博文总结浓缩于<a href="https://www.douban.com/note/513750015/" target="_blank" rel="external">这篇文章</a>。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/10/2016-11-10-daily/" itemprop="url">
-                  每日总结 2016-11-10
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-10T00:00:00+08:00" content="2016-11-10">
-              2016-11-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/10/2016-11-10-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/10/2016-11-10-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>Ruby：修改 RubyGems 镜像</h1>
-<p>在此使用较新的 RubyGems 版本，建议 2.6.X 以上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gem update --system # 需要翻墙</div><div class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div><div class="line">$ gem sources -l</div><div class="line">https: //gems.ruby-china.org</div><div class="line"># 确保只有以上一项</div></pre></td></tr></table></figure>
-<p>如果使用 Gemfile 和 Bundle</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bundle config mirror.https://rubygems.org https://gems.ruby-china.org</div></pre></td></tr></table></figure>
-<p>参考网址：<a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a></p>
-<h1>杂项</h1>
-<ul>
-<li><a href="https://www.datacamp.com/community/blog/python-pandas-cheat-sheet" target="_blank" rel="external">Pandas Cheat Sheet for Data Science in Python</a></li>
-</ul>
-<p>几篇关于统计显著性和统计显著性水平 p 值的论文和讨论：</p>
-<ul>
-<li><a href="http://stats.stackexchange.com/questions/134890/is-p-value-essentially-useless-and-dangerous-to-use" target="_blank" rel="external">Cross Validated: Is p-value essentially useless and dangerous to use?</a></li>
-<li>Wasserstein, R. L., &amp; Lazar, N. A. (2016). The ASA’s statement on p-values: context, process, and purpose. The American Statistician.</li>
-<li>Nuzzo, R. (2014). Statistical errors. Nature, 506(7487), 150-152.</li>
-<li>Greenland, S., Senn, S. J., Rothman, K. J., et al. (2016). Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations. European journal of epidemiology, 1-14.</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1070,7 +1257,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">64</span>
+              <span class="site-state-item-count">67</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1087,7 +1274,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">105</span>
+                <span class="site-state-item-count">109</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

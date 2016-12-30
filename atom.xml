@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lix90.github.io/"/>
-  <updated>2016-12-14T10:04:23.000Z</updated>
+  <updated>2016-12-30T00:59:35.000Z</updated>
   <id>http://lix90.github.io/</id>
   
   <author>
@@ -14,6 +14,177 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 zotero 管理文献</title>
+    <link href="http://lix90.github.io/2016/12/29/2016-12-29-use-zotero/"/>
+    <id>http://lix90.github.io/2016/12/29/2016-12-29-use-zotero/</id>
+    <published>2016-12-28T16:00:00.000Z</published>
+    <updated>2016-12-30T00:59:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>什么是 <a href="https://www.zotero.org/" target="_blank" rel="external">zotero</a>？</h1>
+<p>zotero 是一个免费开源的文献管理软件。相似的软件有：jadref，endnote，mendeley，readcube，colwiz，easybib，paperpile 等。</p>
+<h1>为什么使用 zotero？</h1>
+<ul>
+<li>免费＋开源。</li>
+<li>多平台支持：MacOS/Windows/Linux/Firefox (Extension)。</li>
+<li>支持云端同步：100M 的容量，比较小，但是可以通过其他同步盘同步数据。</li>
+<li>众多插件，高度自定义。</li>
+<li>支持多种办公套件：Microsoft Office/LibreOffice/OpenOffice/NeoOffice。</li>
+<li>纯文本解决方案：ODF/RTF 格式可以使用<a href="https://zotero-odf-scan.github.io/zotero-odf-scan/" target="_blank" rel="external">标记语法</a>插入，然后通过 <a href="https://zotero-odf-scan.github.io/zotero-odf-scan/" target="_blank" rel="external">ODF/RTF Scan</a> 插件扫描转换为指定引文格式的文档。</li>
+<li>支持浏览器插件导入引文信息：支持 Chrome/Firefox/Safari 浏览器。</li>
+<li>支持众多引文格式。</li>
+<li>支持笔记功能。</li>
+<li>如果你爱折腾，还可以写插件拓展你想要的功能。</li>
+</ul>
+<h1>为什么不使用 zotero？</h1>
+<ul>
+<li>已经习惯了其他文献管理软件</li>
+<li>嫌弃它的云端存储容量太小（100MB）：但可以通过其他同步盘同步数据</li>
+<li>我已找不到其他不使用 zotero 的理由了，所以放心使用 zotero 吧</li>
+</ul>
+<h1>使用流程</h1>
+<p><strong>注册账号</strong></p>
+<p><strong>安装桌面版</strong><br>
+从 <a href="https://www.zotero.org/" target="_blank" rel="external">zotero官网</a> 获取，三大操作系统均支持。</p>
+<p><strong>安装浏览器插件</strong><br>
+仍然从官网获取浏览器插件。如果使用的是 Chrome 浏览器，暂时无法翻墙，可以将插件包下载下来，然后拖入插件管理页面。如果可以翻墙，那么直接从应用商店获取安装。</p>
+<p><strong>了解首选项/参数设置</strong><br>
+使用一个软件或者应用，应该习惯性地看看首选项或者参数设置。<br>
+zotero 的首选项有几个地方需要更改：</p>
+<ul>
+<li>同步 &gt; 同步服务器：登陆账号同步</li>
+<li>同步 &gt; 文件同步：取消附件同步</li>
+<li>导出 &gt; 便捷复制：更改为你需要的格式</li>
+<li>导出 &gt; 字符编码：为了更大的兼容性，更改字符编码为 Unicode (UTF-8)</li>
+<li>引用：安装对应的办公软件插件</li>
+<li>高级 &gt; 文件和文件夹：更改数据存储位置为自定义，这是为了方便使用第三方同步盘同步数据</li>
+</ul>
+<p><strong>添加引文数据</strong><br>
+引文添加有以下几种手段：</p>
+<ul>
+<li>通过浏览器插件自动从网页上抓取（推荐）</li>
+<li>导入带有元数据的 pdf 文件，自动抓取其中的数据</li>
+<li>手动添加：支持众多的文献类型</li>
+<li>导入引文数据包，支持多种格式</li>
+</ul>
+<p><strong>使用浏览器插件抓取引文数据</strong><br>
+zotero 浏览器插件支持大多数的携带有元数据的网页，包括期刊，图书，视频，普通网页等等，具体包括哪些试试就知道了。这里有一点需要注意：在你抓取的同时，zotero 桌面软件是正在运行的。请选中对应的文献库分类（左侧我的文献库中的分类），通过浏览器插件抓取的数据会导入至 zotero 中你当前选中的分类中。</p>
+<p><strong>建立引文附件副本</strong><br>
+zotero 支持将引文条目对应的 pdf 文档拷贝到统一路径下方便同步管理。zotero 支持将 pdf 文件按照元数据自动重命名。</p>
+<p><strong>做笔记</strong><br>
+zotero 支持单独的或者与引文条目关联的富文本笔记。</p>
+<p><strong>导出pdf中的注释</strong><br>
+当你对某条目关联的 pdf 文档进行了高亮或者其他方式注释，可以一键导出为对应的引文条目下的笔记，并且还保留了 pdf 中文档位置信息。点击对应的位置链接，即可跳转到 pdf 中该注释的位置。这是 zotero 非常强大的一个地方，但是该功能是通过一个插件（ZotFile）提供支持的。</p>
+<p><strong>交叉引用／关联文献</strong><br>
+可以通过关联文献来更高校的管理文献，当你查阅一个条目时，即可快速跳转到相关的文献。当然，关联文献需要你事先手动进行关联。</p>
+<p><strong>快速导入引文</strong><br>
+有以下方式快速导入引文：</p>
+<ul>
+<li>快捷键复制到剪贴板然后粘贴：请查看“首选项 &gt; 高级 &gt; 快捷键”。</li>
+<li>通过菜单中的编辑中的选项“复制引文”和“复制引文目录”复制到剪贴板然后粘贴。</li>
+<li>通过弹出条目对应的右键菜单，选择“由所选条目创建引文目录”。</li>
+<li>直接选中条目拖拽到相应的文本编辑窗口。</li>
+</ul>
+<p><strong>在办公软件中插入引文</strong><br>
+首选确保对应办公软件的 zotero 插件已经安装成功。安装成功后，便可在软件中查看到 zotero 插件的工具图标。不同版本的办公软件可能现实的位置不一样。例如，Mac 下的 Microsoft Word 2015，zotero 在“加载项”中。<br>
+该插件提供了以下功能：</p>
+<ul>
+<li>插入引文：支持单篇或多篇引文。</li>
+<li>插入引文时添加前缀或后缀：以 (see Author, 2014 for review) 为例，see 为前缀，for review 为后缀。</li>
+<li>插入引文时可选择省略作者，因为此时作者已在文中出现，只需插入年份。</li>
+<li>插入引文时添加页码。</li>
+<li>编辑插入后的引文和引文目录：edit citation/bibliography</li>
+<li>对引文进行了修改，可以点击刷新 bibliography</li>
+</ul>
+<h1>结束语</h1>
+<p>至此，zotero 几乎解决了你在写论文文献管理过程中所有问题。如果需要一些个性化的功能支持，还可以去 zotero 论坛求助或者自己写一个插件。zotero 的开源性质决定了它的功能也会越来越强，社区也会不断发展壮大。</p>
+<h1>TO-DOs</h1>
+<p><strong>如何使用纯文本写论文插入引文？</strong></p>
+<ul>
+<li>LaTeX + zotero</li>
+<li>markdown + zotero</li>
+<li>org-mode (emacs) + zotero</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      zotero 使用经验整理。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="zotero" scheme="http://lix90.github.io/tags/zotero/"/>
+    
+      <category term="bibiography" scheme="http://lix90.github.io/tags/bibiography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-28</title>
+    <link href="http://lix90.github.io/2016/12/28/2016-12-28-daily/"/>
+    <id>http://lix90.github.io/2016/12/28/2016-12-28-daily/</id>
+    <published>2016-12-27T16:00:00.000Z</published>
+    <updated>2016-12-28T16:17:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>One-way ANOVA</h1>
+<p>Summary statistics for each group: <code>psych::describeBy()</code><br>
+Check outliers using boxplot: <code>boxplot()</code><br>
+Check normality: <code>shapiro.test()</code><br>
+Check homogeneity: <code>bartlett.test()</code> <code>car::leveneTest()</code> <code>DescTools::leveneTest()</code><br>
+Transform data if necessary: <code>log()</code><br>
+Run ANOVA: <code>aov()</code> <code>ez::ezANOVA()</code> <code>car::Anova()</code> or other packages such as <code>afex</code> ``<br>
+run Kruskal-Wallis rank sum test: <code>kruskal.test()</code></p>
+<h1></h1>
+]]></content>
+    
+    <summary type="html">
+    
+      一点基本统计检验流程
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+      <category term="Anova" scheme="http://lix90.github.io/tags/Anova/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-12-27</title>
+    <link href="http://lix90.github.io/2016/12/27/2016-12-27-daily/"/>
+    <id>http://lix90.github.io/2016/12/27/2016-12-27-daily/</id>
+    <published>2016-12-26T16:00:00.000Z</published>
+    <updated>2016-12-27T08:41:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近一段时间，自学安排被搁置，时间都投入到论文审稿意见的回复和毕业论文文献检索整理的工作上了。JavaScript 和数据分析都没有继续学习，实在是烦恼呀。前面给自己挖了许多坑，后面要慢慢填了。修改完审稿意见，看了下 Feedly 里堆积的更新，又涨了点儿见识。</p>
+<h1>在 ESS 中快捷输入 pipe (%&gt;%)</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(defun then_R_operator ()</div><div class="line">  &quot;R - %&gt;% operator or &apos;then&apos; pipe operator&quot;</div><div class="line">  (interactive)</div><div class="line">  (just-one-space 1)</div><div class="line">  (insert &quot;%&gt;%&quot;)</div><div class="line">  (reindent-then-newline-and-indent))</div><div class="line">(define-key ess-mode-map (kbd &quot;C-%&quot;) &apos;then_R_operator)</div><div class="line">(define-key inferior-ess-mode-map (kbd &quot;C-%&quot;) &apos;then_R_operator)</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://emacs.stackexchange.com/questions/8041/how-to-implement-the-piping-operator-in-ess-mode" target="_blank" rel="external">How to implement the piping operator %&gt;% in ESS mode?</a></li>
+</ul>
+<p>在<a href="https://github.com/emacs-ess/ESS/issues/96" target="_blank" rel="external">这个ISSUE</a>看到一个更据拓展性的解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">(use-package key-combo</div><div class="line">  :ensure t</div><div class="line">  :init</div><div class="line">  (key-combo-mode 1))</div><div class="line"></div><div class="line">(add-hook &apos;ess-mode-hook</div><div class="line">          &apos;(lambda()</div><div class="line">             (key-combo-mode t)))</div><div class="line"></div><div class="line">(add-hook &apos;inferior-ess-mode-hook</div><div class="line">          &apos;(lambda()</div><div class="line">             (key-combo-mode t)))</div><div class="line"></div><div class="line">(defvar key-combo-ess-default</div><div class="line">  &apos;((&quot;&gt;&quot;  . (&quot; &gt; &quot; &quot; %&gt;% &quot;))</div><div class="line">    (&quot;$&quot;  . (&quot;$&quot; &quot; %$% &quot;))</div><div class="line">    (&quot;&lt;&gt;&quot; . &quot; %&lt;&gt;% &quot;)</div><div class="line">    (&quot;*&quot;  . (&quot;*&quot; &quot; * &quot;))</div><div class="line">    (&quot;%&quot; . (&quot;%&quot; &quot;%in%&quot; &quot;%*%&quot; &quot;%%&quot;))</div><div class="line">    (&quot;^&quot;  . (&quot;^&quot; &quot; ^ &quot;))</div><div class="line">    (&quot;/&quot;  . (&quot;/&quot; &quot; / &quot;))</div><div class="line">    (&quot;~&quot; . &quot; ~ &quot;)</div><div class="line">    (&quot;:&quot; . (&quot;:&quot; &quot;::&quot; &quot;:::&quot;))</div><div class="line">    (&quot;:=&quot;  . &quot; := &quot;) ; data.table</div><div class="line">    (&quot;-&gt;&quot;  . &quot; -&gt; &quot;)))</div><div class="line"></div><div class="line">(key-combo-define-hook &apos;(ess-mode-hook inferior-ess-mode-hook)</div><div class="line">                       &apos;ess-key-combo-load-default</div><div class="line">                       key-combo-ess-default)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+       - 在 ESS 中快捷输入 pipe (%&gt;%) 
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="自说自话" scheme="http://lix90.github.io/tags/%E8%87%AA%E8%AF%B4%E8%87%AA%E8%AF%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>谷歌学术文献检索技巧</title>
@@ -1403,6 +1574,397 @@ pairs: 相当于 contrast 函数中传入 <code>method = &quot;pairwise&quot;</c
   </entry>
   
   <entry>
+    <title>shell 命令整理</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T11:43:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>@2016-11-16</p>
+<p><code>ps</code> 返回正在运行的进程的信息<br>
+<code>ps aux</code> 列出所有运行进程<br>
+<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
+使用 <code>type -p</code> 替代 <code>which</code></p>
+<p>@2016-12-01</p>
+<p>修改 MacOS 计算机名<br>
+<code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
+<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br>
+<code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>
+其他格式:</p>
+<ul>
+<li>FAT32: MS-DOS fat32</li>
+<li>HFS+: Mac OS Extended (HFS+)</li>
+<li>ExFAT</li>
+</ul>
+<p>lsof 列出已打开的文件以及对应的进程</p>
+]]></content>
+    
+    <summary type="html">
+    
+      使用 shell 过程中的笔记。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：graphics 包</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T12:59:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:left">中文描述</th>
+<th style="text-align:left">用法</th>
+<th style="text-align:left">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Axis (axis)</td>
+<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
+<td style="text-align:left">``</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">axis.POSIXct</td>
+<td style="text-align:left">Date and Date-time Plotting Functions</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">abline</td>
+<td style="text-align:left">添加垂直线至图形</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">arrows</td>
+<td style="text-align:left">添加箭头</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">box</td>
+<td style="text-align:left">绘制线框</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">grid</td>
+<td style="text-align:left">添加网格线</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">legend</td>
+<td style="text-align:left">添加图例</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">lines</td>
+<td style="text-align:left">Add Connected Line Segments to a Plot</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">segments</td>
+<td style="text-align:left">Add Line Segments to a Plot</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">mtext</td>
+<td style="text-align:left">Write Text into the Margins of a Plot</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">points</td>
+<td style="text-align:left">Add Points to a Plot</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">rect</td>
+<td style="text-align:left">Draw One or More Rectangles</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">rug</td>
+<td style="text-align:left">Add a Rug to a Plot</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">Add Text to a Plot</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">绘制标题</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">polygon</td>
+<td style="text-align:left">绘制多边形</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">polypath</td>
+<td style="text-align:left">绘制路径</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">symbols</td>
+<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">xspline</td>
+<td style="text-align:left">Draw an X-spline</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p>contour                 Display Contours<br>
+image                   Display a Color Image<br>
+rasterImage             Draw One or More Raster Images<br>
+strwidth                Plotting Dimensions of Character Strings and Math Expressions</p>
+<p>par                     Set or Query Graphical Parameters<br>
+axTicks                 Compute Axis Tickmark Locations<br>
+clip                    Set Clipping Region<br>
+filled.contour          Level (Contour) Plots<br>
+frame                   Create / Start a New Plot Frame<br>
+grconvertX              Convert between Graphics Coordinate Systems<br>
+identify                Identify Points in a Scatter Plot<br>
+layout                  Specifying Complex Plot Arrangements<br>
+locator                 Graphical Input<br>
+screen                  Creating and Controlling Multiple Screens on a Single Device<br>
+xinch                   Graphical Units</p>
+<p>assocplot               Association Plots<br>
+barplot                 Bar Plots<br>
+boxplot                 Box Plots<br>
+boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>
+bxp                     Draw Box Plots from Summaries<br>
+cdplot                  Conditional Density Plots<br>
+coplot                  Conditioning Plots<br>
+curve                   Draw Function Plots<br>
+dotchart                Cleveland’s Dot Plots<br>
+fourfoldplot            Fourfold Plots<br>
+hist                    Histograms<br>
+hist.POSIXt             Histogram of a Date or Date-Time Object<br>
+matplot                 Plot Columns of Matrices<br>
+mosaicplot              Mosaic Plots<br>
+pairs                   Scatterplot Matrices<br>
+panel.smooth            Simple Panel Plot<br>
+persp                   Perspective Plots<br>
+pie                     Pie Charts<br>
+plot                    Generic X-Y Plotting<br>
+plot.data.frame         Plot Method for Data Frames<br>
+plot.default            The Default Scatterplot Function<br>
+plot.design             Plot Univariate Effects of a Design or Model<br>
+plot.factor             Plotting Factor Variables<br>
+plot.formula            Formula Notation for Scatterplots<br>
+plot.histogram          Plot Histograms<br>
+plot.raster             Plotting Raster Images<br>
+plot.table              Plot Methods for ‘table’ Objects<br>
+plot.window             Set up World Coordinates for Graphics Window<br>
+plot.xy                 Basic Internal Plot Function<br>
+smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>
+spineplot               Spine Plots and Spinograms<br>
+stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>
+stem                    Stem-and-Leaf Plots<br>
+stripchart              1-D Scatter Plots<br>
+sunflowerplot           Produce a Sunflower Scatter Plot</p>
+]]></content>
+    
+    <summary type="html">
+    
+      R 语言 graphics 包中文参考。
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+      <category term="R" scheme="http://lix90.github.io/categories/Original/R/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>报错问题解决记录</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-01T03:38:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>R</h1>
+<h2 id="macos-下-xml包依赖-libxml2-冲突">MacOS 下 XML包依赖 libxml2 冲突</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。本身通过 homebrew 安装过 libxml2，发现 anaconda 也安装了 libxml2，出现冲突。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
+<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。报错信息提示可以定义环境变量到非默认的路径。</p>
+<blockquote>
+<p>If you have specified LIBXML_INCDIR, make certain to also specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the defaultdirectories.</p>
+</blockquote>
+<p>设置环境变量：</p>
+<ul>
+<li><code>export LIBXML_INCDIR=/usr/local/Cellar/libxml2/2.9.4</code></li>
+<li><code>export LIBXML_LIBDIR=/usr/local/Cellar/libxml2/2.9.4/lib</code></li>
+</ul>
+<p>继续安装仍然报错：提示无法找到 parser.h 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">You specified LIBXML_INCDIR, but we couldn&apos;t find parser.h</div><div class="line">Please specify it correctly and re-run the INSTALL&apos;ation.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
+<p><strong>Anaconda 与 Homebrew 冲突问题</strong></p>
+<p>运行 <code>brew doctor</code> 发现一个警告：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
+<p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
+<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
+<h1>Homebrew</h1>
+<h2 id="terminating-active-homebrew-process">Terminating active homebrew process</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># try</div><div class="line">/usr/bin/pkill ruby</div><div class="line"># try</div><div class="line">/usr/bin/pgrep ruby</div><div class="line"># do</div><div class="line">chown -R $(whoami) /usr/local/var/homebrew</div><div class="line"># do</div><div class="line">sudo rm -rf /usr/local/var/homebrew/locks</div></pre></td></tr></table></figure>
+<p>来源：<a href="https://github.com/Homebrew/homebrew-core/issues/5159" target="_blank" rel="external">Terminating active homebrew process #5159</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      记录遇到的所有报错的解决方法。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Error" scheme="http://lix90.github.io/tags/Error/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>环境和工具配置</title>
+    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
+    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
+    <published>2016-11-30T16:00:00.000Z</published>
+    <updated>2016-12-13T03:16:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Python</h1>
+<p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
+<h2 id="pypi">PyPi</h2>
+<h3 id="macos-配置-pip">MacOS 配置 pip</h3>
+<ol>
+<li>安装 easy_install<br>
+<code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
+<li>安装 pip<br>
+<code>sudo easy_install pip</code><br>
+或通过 Homebrew 安装 python，会一同安装 pip<br>
+或直接使用 Anaconda 等发行版，自带 pip</li>
+</ol>
+<h3 id="镜像源">镜像源</h3>
+<p>pipy国内镜像目前有：</p>
+<p><a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a>  豆瓣<br>
+<a href="http://pypi.hustunique.com/simple" target="_blank" rel="external">http://pypi.hustunique.com/simple</a>  华中理工大学<br>
+<a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="external">http://pypi.sdutlinux.org/simple</a>  山东理工大学<br>
+<a href="http://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/simple</a>  中国科学技术大学<br>
+<a href="http://mirrors.aliyun.com/pypi/simple" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple</a> 阿里云<br>
+清华大学<br>
+公网：<a href="http://e.pypi.python.org/simple" target="_blank" rel="external">http://e.pypi.python.org/simple</a><br>
+教育网：<a href="http://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">http://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>Linux 和 MacOS 系统下配置文件位置: <code>$HOME/.pip/pip.conf</code><br>
+Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
+<p>设置环境变量 <code>PIP_CONFIG_FILE</code> 可以指定默认配置文件路径。</p>
+<p>修改配置文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">trusted-host = mirrors.aliyun.com</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple</div></pre></td></tr></table></figure>
+<h3 id="其他配置">其他配置</h3>
+<p>另外还可以添加其他参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line"></div><div class="line">[freeze]</div><div class="line">timeout = 10</div><div class="line"></div><div class="line">[install]</div><div class="line">ignore-installed = true</div><div class="line">no-dependencies = no # or yes</div></pre></td></tr></table></figure>
+<p>对于 easy_install 可以修改 <code>$HOME/.pydistutils.cfg</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[easy_install]</div><div class="line">index_url = &lt;mirror&gt;</div></pre></td></tr></table></figure>
+<p>另外还可以创建别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pip=&quot;pip -i &lt;mirror&gt;&quot;</div></pre></td></tr></table></figure>
+<h3 id="pip-常用命令">pip 常用命令</h3>
+<p>搜索模块<br>
+<code>pip search &lt;pkg_name&gt;</code></p>
+<p>安装模块<br>
+<code>pip install &lt;pkg_name&gt;</code><br>
+<code>pip install &lt;pkg_name&gt;==&lt;version&gt;</code></p>
+<p>升级模块（如果不提供版本号，升级到最新版本）<br>
+<code>pip install --upgrade &lt;pkg_name&gt;&gt;=&lt;version&gt;</code></p>
+<p>卸载模块<br>
+<code>pip uninstall &lt;pkg_name&gt;</code></p>
+<p>显示当前环境中模块的清单<br>
+<code>pip freeze</code><br>
+重定向到文本文件<br>
+<code>pip freeze &gt; req.txt</code><br>
+使用清单<br>
+<code>pip install -r req.txt</code></p>
+<h2 id="环境管理">环境管理</h2>
+<p>使用虚拟环境管理工具</p>
+<p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>
+virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
+<p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
+<p>配置流程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div><div class="line">deactivate</div></pre></td></tr></table></figure>
+<h1>Homebrew</h1>
+<h2 id="镜像源-v2">镜像源</h2>
+<p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br>
+<a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br>
+<a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
+<p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
+<h1>MacOS 配置</h1>
+<h2 id="time-machine">Time machine</h2>
+<ul>
+<li>准备移动硬盘，做好备份</li>
+<li>移动硬盘分出一个300GB左右的分区，格式化为 Mac OS Extened Journaled 格式。</li>
+<li>然后选择该分区作为备份空间，开始备份并且加密</li>
+</ul>
+<p>参考</p>
+<ul>
+<li><a href="http://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="external">Mac下移动硬盘的分区以及TimeMachine的备份</a></li>
+<li><a href="http://sspai.com/tag/Time%20Machine" target="_blank" rel="external">少数派 Time Machine 使用教程</a></li>
+</ul>
+<h2 id="卸载-rime-输入法">卸载 Rime 输入法</h2>
+<p>这个所谓的“程序员”用的输入法，实在是没用习惯。@2016-12-02 喜欢能简则简的我，改用苹果系统自带中文输入法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ killall Squirrel</div><div class="line">$ sudo rm -Rf &quot;/Library/Input Methods/Squirrel.app&quot;</div><div class="line">$ rm -Rf ~/Library/Rime</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      记录各种开发环境和工具的配置过程。
+    
+    </summary>
+    
+      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
+    
+    
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Emacs 个人参考</title>
     <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/"/>
     <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-emacs/</id>
@@ -2541,397 +3103,6 @@ g v |   evil-visual-restore</p>
   </entry>
   
   <entry>
-    <title>报错问题解决记录</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-error/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T03:38:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>R</h1>
-<h2 id="macos-下-xml包依赖-libxml2-冲突">MacOS 下 XML包依赖 libxml2 冲突</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">checking for xml2-config... /Users/lix/anaconda2/bin/xml2-config</div><div class="line">USE_XML2 = yes</div><div class="line">SED_EXTENDED_ARG: -E</div><div class="line">Minor 9, Patch 2 for 2.9.2</div><div class="line">Located parser file -I/Users/lix/anaconda2/include/libxml2/parser.h</div><div class="line">Checking for 1.8:  -I/Users/lix/anaconda2/include/libxml2</div><div class="line">...</div><div class="line">You are trying to use a version 2.* edition of libxml</div><div class="line">but an incompatible library. The header files and library seem to be</div><div class="line">mismatched. If you have specified LIBXML_INCDIR, make certain to also</div><div class="line">specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the default</div><div class="line">directories.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
-<p>在安装 REmap 包时，安装依赖 XML 包，出现依赖错误。XML 包是解析和生成 XML 文件的 R 语言包，系统依赖 libxml2 (&gt;= 2.6.3)。本身通过 homebrew 安装过 libxml2，发现 anaconda 也安装了 libxml2，出现冲突。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; brew list libxml2</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xml2-config</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmlcatalog</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/bin/xmllint</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/include/libxml2/ (47 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/libxml2.2.dylib</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/cmake/libxml2/libxml2-config.cmake</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/pkgconfig/libxml-2.0.pc</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/lib/ (3 other files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/aclocal/libxml.m4</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/doc/ (153 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/gtk-doc/ (55 files)</div><div class="line">/usr/local/Cellar/libxml2/2.9.4/share/man/ (4 files)</div></pre></td></tr></table></figure>
-<p>检查 homebrew 安装的 libxml2，发现版本满足 XML 包要求。报错信息提示可以定义环境变量到非默认的路径。</p>
-<blockquote>
-<p>If you have specified LIBXML_INCDIR, make certain to also specify an appropriate LIBXML_LIBDIR if the libxml2 library is not in the defaultdirectories.</p>
-</blockquote>
-<p>设置环境变量：</p>
-<ul>
-<li><code>export LIBXML_INCDIR=/usr/local/Cellar/libxml2/2.9.4</code></li>
-<li><code>export LIBXML_LIBDIR=/usr/local/Cellar/libxml2/2.9.4/lib</code></li>
-</ul>
-<p>继续安装仍然报错：提示无法找到 parser.h 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">You specified LIBXML_INCDIR, but we couldn&apos;t find parser.h</div><div class="line">Please specify it correctly and re-run the INSTALL&apos;ation.</div><div class="line">ERROR: configuration failed for package ‘XML’</div></pre></td></tr></table></figure>
-<p><strong>Anaconda 与 Homebrew 冲突问题</strong></p>
-<p>运行 <code>brew doctor</code> 发现一个警告：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Warning: Anaconda is known to frequently break Homebrew builds, including Vim and</div><div class="line">MacVim, due to bundling many duplicates of system and Homebrew-available</div><div class="line">tools.</div><div class="line"></div><div class="line">If you encounter a build failure please temporarily remove Anaconda</div><div class="line">from your $PATH and attempt the build again prior to reporting the</div><div class="line">failure to us. Thanks!</div><div class="line"></div><div class="line">Warning: &quot;config&quot; scripts exist outside your system or Homebrew directories.</div><div class="line">`./configure` scripts often look for *-config scripts to determine if</div><div class="line">software packages are installed, and what additional flags to use when</div><div class="line">compiling and linking.</div><div class="line"></div><div class="line">Having additional scripts in your path can confuse software installed via</div><div class="line">Homebrew if the config script overrides a system or Homebrew provided</div><div class="line">script of the same name. We found the following &quot;config&quot; scripts:</div><div class="line">  /Users/lix/anaconda2/bin/curl-config</div><div class="line">  /Users/lix/anaconda2/bin/freetype-config</div><div class="line">  /Users/lix/anaconda2/bin/libdynd-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng-config</div><div class="line">  /Users/lix/anaconda2/bin/libpng16-config</div><div class="line">  /Users/lix/anaconda2/bin/python-config</div><div class="line">  /Users/lix/anaconda2/bin/python2-config</div><div class="line">  /Users/lix/anaconda2/bin/python2.7-config</div><div class="line">  /Users/lix/anaconda2/bin/xml2-config</div><div class="line">  /Users/lix/anaconda2/bin/xslt-config</div></pre></td></tr></table></figure>
-<p>可以看到 xml2-config 与 homebrew 下的 xml2-config 出现了冲突。</p>
-<p><strong>解决：不添加 anaconda 至 PATH 中，然后重新安装 libxml2，最后成功安装 XML 包。</strong></p>
-<h1>Homebrew</h1>
-<h2 id="terminating-active-homebrew-process">Terminating active homebrew process</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># try</div><div class="line">/usr/bin/pkill ruby</div><div class="line"># try</div><div class="line">/usr/bin/pgrep ruby</div><div class="line"># do</div><div class="line">chown -R $(whoami) /usr/local/var/homebrew</div><div class="line"># do</div><div class="line">sudo rm -rf /usr/local/var/homebrew/locks</div></pre></td></tr></table></figure>
-<p>来源：<a href="https://github.com/Homebrew/homebrew-core/issues/5159" target="_blank" rel="external">Terminating active homebrew process #5159</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      记录遇到的所有报错的解决方法。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Error" scheme="http://lix90.github.io/tags/Error/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>环境和工具配置</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-config/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-13T03:16:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Python</h1>
-<p>放弃使用 Anaconda 发行版，改为直接手动配置环境。</p>
-<h2 id="pypi">PyPi</h2>
-<h3 id="macos-配置-pip">MacOS 配置 pip</h3>
-<ol>
-<li>安装 easy_install<br>
-<code>curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python</code></li>
-<li>安装 pip<br>
-<code>sudo easy_install pip</code><br>
-或通过 Homebrew 安装 python，会一同安装 pip<br>
-或直接使用 Anaconda 等发行版，自带 pip</li>
-</ol>
-<h3 id="镜像源">镜像源</h3>
-<p>pipy国内镜像目前有：</p>
-<p><a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a>  豆瓣<br>
-<a href="http://pypi.hustunique.com/simple" target="_blank" rel="external">http://pypi.hustunique.com/simple</a>  华中理工大学<br>
-<a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="external">http://pypi.sdutlinux.org/simple</a>  山东理工大学<br>
-<a href="http://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/simple</a>  中国科学技术大学<br>
-<a href="http://mirrors.aliyun.com/pypi/simple" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple</a> 阿里云<br>
-清华大学<br>
-公网：<a href="http://e.pypi.python.org/simple" target="_blank" rel="external">http://e.pypi.python.org/simple</a><br>
-教育网：<a href="http://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">http://pypi.tuna.tsinghua.edu.cn/simple</a></p>
-<p>Linux 和 MacOS 系统下配置文件位置: <code>$HOME/.pip/pip.conf</code><br>
-Windows 系统下配置文件位置: <code>%HOME%\pip\pip.ini</code></p>
-<p>设置环境变量 <code>PIP_CONFIG_FILE</code> 可以指定默认配置文件路径。</p>
-<p>修改配置文件内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">trusted-host = mirrors.aliyun.com</div><div class="line">index-url = http://mirrors.aliyun.com/pypi/simple</div></pre></td></tr></table></figure>
-<h3 id="其他配置">其他配置</h3>
-<p>另外还可以添加其他参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line"></div><div class="line">[freeze]</div><div class="line">timeout = 10</div><div class="line"></div><div class="line">[install]</div><div class="line">ignore-installed = true</div><div class="line">no-dependencies = no # or yes</div></pre></td></tr></table></figure>
-<p>对于 easy_install 可以修改 <code>$HOME/.pydistutils.cfg</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[easy_install]</div><div class="line">index_url = &lt;mirror&gt;</div></pre></td></tr></table></figure>
-<p>另外还可以创建别名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pip=&quot;pip -i &lt;mirror&gt;&quot;</div></pre></td></tr></table></figure>
-<h3 id="pip-常用命令">pip 常用命令</h3>
-<p>搜索模块<br>
-<code>pip search &lt;pkg_name&gt;</code></p>
-<p>安装模块<br>
-<code>pip install &lt;pkg_name&gt;</code><br>
-<code>pip install &lt;pkg_name&gt;==&lt;version&gt;</code></p>
-<p>升级模块（如果不提供版本号，升级到最新版本）<br>
-<code>pip install --upgrade &lt;pkg_name&gt;&gt;=&lt;version&gt;</code></p>
-<p>卸载模块<br>
-<code>pip uninstall &lt;pkg_name&gt;</code></p>
-<p>显示当前环境中模块的清单<br>
-<code>pip freeze</code><br>
-重定向到文本文件<br>
-<code>pip freeze &gt; req.txt</code><br>
-使用清单<br>
-<code>pip install -r req.txt</code></p>
-<h2 id="环境管理">环境管理</h2>
-<p>使用虚拟环境管理工具</p>
-<p>virtualenv <a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">doc</a><br>
-virtualenvwrapper <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">doc</a></p>
-<p>virtualenvwrapper 是对 virtualenv 的一系列扩展，包括创建和删除虚拟环境的包装工具，用于管理开发环境。</p>
-<p>配置流程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pip install virtualenvwrapper</div><div class="line">export WORKON_HOME=~/pyEnvs</div><div class="line">mkdir -p $WORKON_HOME</div><div class="line">source /usr/local/bin/virtualenvwrapper.sh</div><div class="line">mkvirtualenv env1</div><div class="line">lssitepackages</div><div class="line">mkvirtualenv env2</div><div class="line">workon env1</div><div class="line">echo $VIRTUAL_ENV</div><div class="line">mkvirtualenv -p /usr/bin/python2 env27</div><div class="line">mkvirtualenv -p /usr/bin/python3 env3</div><div class="line">deactivate</div></pre></td></tr></table></figure>
-<h1>Homebrew</h1>
-<h2 id="镜像源-v2">镜像源</h2>
-<p><a href="http://heepo.github.io/%E5%B7%A5%E5%85%B7/2015/08/05/Homebrew-Mirror-Links.html" target="_blank" rel="external">Homebrew 镜像源</a><br>
-<a href="http://blog.haohtml.com/archives/16915" target="_blank" rel="external">HomeBrew中国镜像源</a><br>
-<a href="https://maomihz.com/2016/06/tutorial-6/" target="_blank" rel="external">换源让Homebrew速度飞起！一起brew吧！</a></p>
-<p>最后修改镜像不成功，太麻烦，放弃折腾，改回了官方 github 源。</p>
-<h1>MacOS 配置</h1>
-<h2 id="time-machine">Time machine</h2>
-<ul>
-<li>准备移动硬盘，做好备份</li>
-<li>移动硬盘分出一个300GB左右的分区，格式化为 Mac OS Extened Journaled 格式。</li>
-<li>然后选择该分区作为备份空间，开始备份并且加密</li>
-</ul>
-<p>参考</p>
-<ul>
-<li><a href="http://www.jianshu.com/p/5f8b4d9a8922" target="_blank" rel="external">Mac下移动硬盘的分区以及TimeMachine的备份</a></li>
-<li><a href="http://sspai.com/tag/Time%20Machine" target="_blank" rel="external">少数派 Time Machine 使用教程</a></li>
-</ul>
-<h2 id="卸载-rime-输入法">卸载 Rime 输入法</h2>
-<p>这个所谓的“程序员”用的输入法，实在是没用习惯。@2016-12-02 喜欢能简则简的我，改用苹果系统自带中文输入法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ killall Squirrel</div><div class="line">$ sudo rm -Rf &quot;/Library/Input Methods/Squirrel.app&quot;</div><div class="line">$ rm -Rf ~/Library/Rime</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      记录各种开发环境和工具的配置过程。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：graphics 包</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-r-graphics/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T12:59:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<table>
-<thead>
-<tr>
-<th style="text-align:left">函数名</th>
-<th style="text-align:left">中文描述</th>
-<th style="text-align:left">用法</th>
-<th style="text-align:left">实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Axis (axis)</td>
-<td style="text-align:left">添加坐标轴，调用函数 <code>axis</code></td>
-<td style="text-align:left">``</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">axis.POSIXct</td>
-<td style="text-align:left">Date and Date-time Plotting Functions</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">abline</td>
-<td style="text-align:left">添加垂直线至图形</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">arrows</td>
-<td style="text-align:left">添加箭头</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">box</td>
-<td style="text-align:left">绘制线框</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">grid</td>
-<td style="text-align:left">添加网格线</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">legend</td>
-<td style="text-align:left">添加图例</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">lines</td>
-<td style="text-align:left">Add Connected Line Segments to a Plot</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">segments</td>
-<td style="text-align:left">Add Line Segments to a Plot</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">mtext</td>
-<td style="text-align:left">Write Text into the Margins of a Plot</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">points</td>
-<td style="text-align:left">Add Points to a Plot</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">rect</td>
-<td style="text-align:left">Draw One or More Rectangles</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">rug</td>
-<td style="text-align:left">Add a Rug to a Plot</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">text</td>
-<td style="text-align:left">Add Text to a Plot</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">title</td>
-<td style="text-align:left">绘制标题</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">polygon</td>
-<td style="text-align:left">绘制多边形</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">polypath</td>
-<td style="text-align:left">绘制路径</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">symbols</td>
-<td style="text-align:left">绘制符号 (Circles, Squares, Stars, Thermometers, Boxplots)</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">xspline</td>
-<td style="text-align:left">Draw an X-spline</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
-<p>contour                 Display Contours<br>
-image                   Display a Color Image<br>
-rasterImage             Draw One or More Raster Images<br>
-strwidth                Plotting Dimensions of Character Strings and Math Expressions</p>
-<p>par                     Set or Query Graphical Parameters<br>
-axTicks                 Compute Axis Tickmark Locations<br>
-clip                    Set Clipping Region<br>
-filled.contour          Level (Contour) Plots<br>
-frame                   Create / Start a New Plot Frame<br>
-grconvertX              Convert between Graphics Coordinate Systems<br>
-identify                Identify Points in a Scatter Plot<br>
-layout                  Specifying Complex Plot Arrangements<br>
-locator                 Graphical Input<br>
-screen                  Creating and Controlling Multiple Screens on a Single Device<br>
-xinch                   Graphical Units</p>
-<p>assocplot               Association Plots<br>
-barplot                 Bar Plots<br>
-boxplot                 Box Plots<br>
-boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix<br>
-bxp                     Draw Box Plots from Summaries<br>
-cdplot                  Conditional Density Plots<br>
-coplot                  Conditioning Plots<br>
-curve                   Draw Function Plots<br>
-dotchart                Cleveland’s Dot Plots<br>
-fourfoldplot            Fourfold Plots<br>
-hist                    Histograms<br>
-hist.POSIXt             Histogram of a Date or Date-Time Object<br>
-matplot                 Plot Columns of Matrices<br>
-mosaicplot              Mosaic Plots<br>
-pairs                   Scatterplot Matrices<br>
-panel.smooth            Simple Panel Plot<br>
-persp                   Perspective Plots<br>
-pie                     Pie Charts<br>
-plot                    Generic X-Y Plotting<br>
-plot.data.frame         Plot Method for Data Frames<br>
-plot.default            The Default Scatterplot Function<br>
-plot.design             Plot Univariate Effects of a Design or Model<br>
-plot.factor             Plotting Factor Variables<br>
-plot.formula            Formula Notation for Scatterplots<br>
-plot.histogram          Plot Histograms<br>
-plot.raster             Plotting Raster Images<br>
-plot.table              Plot Methods for ‘table’ Objects<br>
-plot.window             Set up World Coordinates for Graphics Window<br>
-plot.xy                 Basic Internal Plot Function<br>
-smoothScatter           Scatterplots with Smoothed Densities Color Representation<br>
-spineplot               Spine Plots and Spinograms<br>
-stars                   Star (Spider/Radar) Plots and Segment Diagrams<br>
-stem                    Stem-and-Leaf Plots<br>
-stripchart              1-D Scatter Plots<br>
-sunflowerplot           Produce a Sunflower Scatter Plot</p>
-]]></content>
-    
-    <summary type="html">
-    
-      R 语言 graphics 包中文参考。
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-      <category term="R" scheme="http://lix90.github.io/categories/Original/R/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell 命令整理</title>
-    <link href="http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/"/>
-    <id>http://lix90.github.io/2016/12/01/2016-12-01-wiki-shell/</id>
-    <published>2016-11-30T16:00:00.000Z</published>
-    <updated>2016-12-01T11:43:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>@2016-11-16</p>
-<p><code>ps</code> 返回正在运行的进程的信息<br>
-<code>ps aux</code> 列出所有运行进程<br>
-<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
-使用 <code>type -p</code> 替代 <code>which</code></p>
-<p>@2016-12-01</p>
-<p>修改 MacOS 计算机名<br>
-<code>scutil --set ComputerName &lt;computer_name&gt;</code></p>
-<p>格式化磁盘为 Mac OS Extended Journaled (JHFS+)<br>
-<code>diskutil erasedisk JHFS+ &lt;disk_name&gt; &lt;disk_directory&gt;</code><br>
-其他格式:</p>
-<ul>
-<li>FAT32: MS-DOS fat32</li>
-<li>HFS+: Mac OS Extended (HFS+)</li>
-<li>ExFAT</li>
-</ul>
-<p>lsof 列出已打开的文件以及对应的进程</p>
-]]></content>
-    
-    <summary type="html">
-    
-      使用 shell 过程中的笔记。
-    
-    </summary>
-    
-      <category term="Wiki" scheme="http://lix90.github.io/categories/Wiki/"/>
-    
-    
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-29</title>
     <link href="http://lix90.github.io/2016/11/29/2016-11-29-daily/"/>
     <id>http://lix90.github.io/2016/11/29/2016-11-29-daily/</id>
@@ -3063,11 +3234,11 @@ ECMAScript 5定义了另一个访问个别字符的方法，在支持此方法�
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="Data science" scheme="http://lix90.github.io/tags/Data-science/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -3405,9 +3576,9 @@ Date 类型继承了 <code>toLocaleString()</code> <code>toString()</code> <code
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Conf" scheme="http://lix90.github.io/tags/Conf/"/>
     
@@ -4073,13 +4244,13 @@ $t$ 统计量为 $t_i = \frac{\hat{\beta_i}}{\hat{\sigma_i}}$</p>
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
       <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
     
@@ -4446,6 +4617,132 @@ Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-19</title>
+    <link href="http://lix90.github.io/2016/11/19/2016-11-19-daily/"/>
+    <id>http://lix90.github.io/2016/11/19/2016-11-19-daily/</id>
+    <published>2016-11-18T16:00:00.000Z</published>
+    <updated>2016-11-22T07:40:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Python</h1>
+<h2 id="日期时间处理">日期时间处理</h2>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
+<p>时间日期处理的三个库：time, datetime, Calender<br>
+datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>
+时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
+<p>三种时间表现形式：</p>
+<ul>
+<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
+<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
+<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+</ul>
+<h1>JavaScript</h1>
+<h2 id="2016-javascript-发展现状">2016 JavaScript 发展现状</h2>
+<ul>
+<li>代码风格
+<ul>
+<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
+<li>CoffeeScript 正过时</li>
+</ul>
+</li>
+<li>前端框架
+<ul>
+<li>React 强势</li>
+<li>Vue 崛起</li>
+<li>Angular 2 &gt; Angular 1</li>
+</ul>
+</li>
+<li>状态管理
+<ul>
+<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
+</ul>
+</li>
+<li>API 层
+<ul>
+<li>GraphQL 有前途？</li>
+<li>REST APIs 广泛适用</li>
+</ul>
+</li>
+<li>全栈框架
+<ul>
+<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
+<li>“一体化”框架并没有期待的那么受欢迎</li>
+</ul>
+</li>
+<li>测试框架
+<ul>
+<li>Mocha 和 Jasmine 较主流</li>
+<li>开发者总体对 JS 的测试不太满意</li>
+</ul>
+</li>
+<li>CSS 构建工具/预处理器
+<ul>
+<li>SASS/SCSS 主导</li>
+<li>CSS Modules</li>
+</ul>
+</li>
+<li>构建工具
+<ul>
+<li>Webpack 和 Gulp 最受欢迎</li>
+<li>Grunt 已过气</li>
+</ul>
+</li>
+<li>移动端框架
+<ul>
+<li>原生应用最主流</li>
+<li>React Native 较为受欢迎</li>
+</ul>
+</li>
+<li>新特性
+<ul>
+<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
+<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
+<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
+<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
+<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
+<li>Real-time operations 实时交互</li>
+<li>Dead code elimination 冗余代码消除</li>
+<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
+<h2 id="前端自学内容">前端自学内容</h2>
+<ul>
+<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
+<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
+<li>熟练掌握盒模型、常用布局</li>
+<li>能够处理好浏览器和移动设备兼容性问题</li>
+<li>熟悉 Angular/React 等框架，并开发成型项目</li>
+<li>熟悉调试、抓包工具</li>
+<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
+<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
+<li>熟悉常用设计模式和常用 MV* 框架</li>
+</ul>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;Python&lt;/h1&gt;
+&lt;h2 id=&quot;日期时间处理&quot;&gt;日期时间处理&lt;/h2&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/23679915&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎专栏-撸代码，学知
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库面试题解答</title>
     <link href="http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/"/>
     <id>http://lix90.github.io/2016/11/19/2016-11-19-sql-interview/</id>
@@ -4567,132 +4864,6 @@ MySQL中几个基本的索引：普通索引、唯一索引、主键索引、全
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-19</title>
-    <link href="http://lix90.github.io/2016/11/19/2016-11-19-daily/"/>
-    <id>http://lix90.github.io/2016/11/19/2016-11-19-daily/</id>
-    <published>2016-11-18T16:00:00.000Z</published>
-    <updated>2016-11-22T07:40:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Python</h1>
-<h2 id="日期时间处理">日期时间处理</h2>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>
-datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>
-时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
-<p>三种时间表现形式：</p>
-<ul>
-<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
-<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
-<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
-</ul>
-<h1>JavaScript</h1>
-<h2 id="2016-javascript-发展现状">2016 JavaScript 发展现状</h2>
-<ul>
-<li>代码风格
-<ul>
-<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
-<li>CoffeeScript 正过时</li>
-</ul>
-</li>
-<li>前端框架
-<ul>
-<li>React 强势</li>
-<li>Vue 崛起</li>
-<li>Angular 2 &gt; Angular 1</li>
-</ul>
-</li>
-<li>状态管理
-<ul>
-<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
-</ul>
-</li>
-<li>API 层
-<ul>
-<li>GraphQL 有前途？</li>
-<li>REST APIs 广泛适用</li>
-</ul>
-</li>
-<li>全栈框架
-<ul>
-<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
-<li>“一体化”框架并没有期待的那么受欢迎</li>
-</ul>
-</li>
-<li>测试框架
-<ul>
-<li>Mocha 和 Jasmine 较主流</li>
-<li>开发者总体对 JS 的测试不太满意</li>
-</ul>
-</li>
-<li>CSS 构建工具/预处理器
-<ul>
-<li>SASS/SCSS 主导</li>
-<li>CSS Modules</li>
-</ul>
-</li>
-<li>构建工具
-<ul>
-<li>Webpack 和 Gulp 最受欢迎</li>
-<li>Grunt 已过气</li>
-</ul>
-</li>
-<li>移动端框架
-<ul>
-<li>原生应用最主流</li>
-<li>React Native 较为受欢迎</li>
-</ul>
-</li>
-<li>新特性
-<ul>
-<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
-<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
-<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
-<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
-<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
-<li>Real-time operations 实时交互</li>
-<li>Dead code elimination 冗余代码消除</li>
-<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容">前端自学内容</h2>
-<ul>
-<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
-<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
-<li>熟练掌握盒模型、常用布局</li>
-<li>能够处理好浏览器和移动设备兼容性问题</li>
-<li>熟悉 Angular/React 等框架，并开发成型项目</li>
-<li>熟悉调试、抓包工具</li>
-<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
-<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
-<li>熟悉常用设计模式和常用 MV* 框架</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;Python&lt;/h1&gt;
-&lt;h2 id=&quot;日期时间处理&quot;&gt;日期时间处理&lt;/h2&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/23679915&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;知乎专栏-撸代码，学知
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
-      <category term="前端开发" scheme="http://lix90.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="How-to-learn" scheme="http://lix90.github.io/tags/How-to-learn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日总结 2016-11-18</title>
     <link href="http://lix90.github.io/2016/11/18/2016-11-18-daily/"/>
     <id>http://lix90.github.io/2016/11/18/2016-11-18-daily/</id>
@@ -4798,13 +4969,68 @@ IaaS 和 PaaS 的区别：</p>
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
       <category term="交互设计" scheme="http://lix90.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Cloud" scheme="http://lix90.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日总结 2016-11-17</title>
+    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
+    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
+    <published>2016-11-16T16:00:00.000Z</published>
+    <updated>2016-11-19T03:33:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Git</h1>
+<h2 id="git-branch-分支操作">Git branch 分支操作</h2>
+<p><code>git branch</code> 列出，新建，或者删除分支</p>
+<ul>
+<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
+<li><code>git branch -r</code> 列出远程跟踪的分支</li>
+<li><code>git branch -a</code> 列出本地和远程分支</li>
+<li><code>git branch -d|-D</code> 删除分支</li>
+<li><code>git branch -rd</code> 删除远程分析</li>
+<li><code>git branch -m|-M</code> 重命名分支</li>
+</ul>
+<h2 id="git-checkout-切换分支">Git checkout 切换分支</h2>
+<p><code>git checkout</code> 切换分支或者修复工作树文件</p>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
+</ul>
+<h2 id="head">HEAD</h2>
+<blockquote>
+<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
+</blockquote>
+<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
+<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
+<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
+<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;Git&lt;/h1&gt;
+&lt;h2 id=&quot;git-branch-分支操作&quot;&gt;Git branch 分支操作&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt; 列出，新建，或者删除分支&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git branch --list&lt;/cod
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
   </entry>
   
@@ -4917,117 +5143,6 @@ IaaS 和 PaaS 的区别：</p>
   </entry>
   
   <entry>
-    <title>每日总结 2016-11-17</title>
-    <link href="http://lix90.github.io/2016/11/17/2016-11-17-daily/"/>
-    <id>http://lix90.github.io/2016/11/17/2016-11-17-daily/</id>
-    <published>2016-11-16T16:00:00.000Z</published>
-    <updated>2016-11-19T03:33:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Git</h1>
-<h2 id="git-branch-分支操作">Git branch 分支操作</h2>
-<p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="git-checkout-切换分支">Git checkout 切换分支</h2>
-<p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="head">HEAD</h2>
-<blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;Git&lt;/h1&gt;
-&lt;h2 id=&quot;git-branch-分支操作&quot;&gt;Git branch 分支操作&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt; 列出，新建，或者删除分支&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;git branch --list&lt;/cod
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每日总结 2016-11-16</title>
-    <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
-    <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
-    <published>2016-11-15T16:00:00.000Z</published>
-    <updated>2016-12-01T06:55:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>杂项</h1>
-<h2 id="shell">Shell</h2>
-<p><code>ps</code> 返回正在运行的进程的信息<br>
-<code>ps aux</code> 列出所有运行进程<br>
-<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
-<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
-使用 <code>type -p</code> 替代 <code>which</code></p>
-<h2 id="统计学">统计学</h2>
-<h3 id="标准差">标准差</h3>
-<p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>
-当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
-<blockquote>
-<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
-</blockquote>
-<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
-<h3 id="循环变量">循环变量</h3>
-<p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
-<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
-<h2 id="css：利用偏移垂直居中">CSS：利用偏移垂直居中</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
-<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
-<h2 id="todo">TODO</h2>
-<p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;杂项&lt;/h1&gt;
-&lt;h2 id=&quot;shell&quot;&gt;Shell&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 返回正在运行的进程的信息&lt;br&gt;
-&lt;code&gt;ps aux&lt;/code&gt; 列出所有运行进程&lt;br&gt;
-&lt;code&gt;ps aux | grep string&lt;/code&gt;
-    
-    </summary>
-    
-      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
-    
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
-    
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
     <title>R：使用基本包进行多图布局</title>
     <link href="http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/"/>
     <id>http://lix90.github.io/2016/11/16/2016-11-16-r-vis-layout/</id>
@@ -5118,6 +5233,62 @@ IaaS 和 PaaS 的区别：</p>
   </entry>
   
   <entry>
+    <title>每日总结 2016-11-16</title>
+    <link href="http://lix90.github.io/2016/11/16/2016-11-16-daily/"/>
+    <id>http://lix90.github.io/2016/11/16/2016-11-16-daily/</id>
+    <published>2016-11-15T16:00:00.000Z</published>
+    <updated>2016-12-01T06:55:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>杂项</h1>
+<h2 id="shell">Shell</h2>
+<p><code>ps</code> 返回正在运行的进程的信息<br>
+<code>ps aux</code> 列出所有运行进程<br>
+<code>ps aux | grep string</code> 列出匹配字符串的进程</p>
+<p>使用 <code>$HOME</code> 替代 <code>~</code><br>
+使用 <code>type -p</code> 替代 <code>which</code></p>
+<h2 id="统计学">统计学</h2>
+<h3 id="标准差">标准差</h3>
+<p>从一组数中新添加一个数，数多大能够让<strong>标准差</strong>增加或不变或降低？<br>
+当新添加的数和原来的均值的差值的绝对值小于、等于、或大于 $s\sqrt{1+1/n}$ 时，数组的标准差会降低，不变或增加。</p>
+<blockquote>
+<p>If the old sample size is $n$, the old mean is $m$, the old standard deviation is $s$, and a new point $x$ is added to the data, then the new standard deviation will be less than, equal to, or greater than $s$ according as $|x−m|$ is less than, equal to, or greater than $s\sqrt{1+1/n}$.</p>
+</blockquote>
+<p>来源: <a href="http://stats.stackexchange.com/questions/73498/value-that-increases-the-standard-deviation?rq=1" target="_blank" rel="external">Cross Validated: Value that increases the Standard Deviation</a></p>
+<h3 id="循环变量">循环变量</h3>
+<p>小时和风向均为循环变量，在模型中作为预测变量时，需要将其映射到正弦和余弦函数上，将角度使用弧度测量。</p>
+<p>来源：<a href="http://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank" rel="external">Cross Validated: Use of circular predictors in linear regression</a></p>
+<h2 id="css：利用偏移垂直居中">CSS：利用偏移垂直居中</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.element</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认情况下，元素顶端会沿着父容器的顶端内边缘绘制，这时 <code>top = 0;</code>。当设置 <code>top = 50%;</code>，元素顶端会沿着父容器的垂直方向的水平中线绘制，这时元素并未相对父容器垂直居中对齐。利用 <code>transform: translateY(-50%);</code>，将元素沿着 Y 轴，向上（负方向）平移元素自身高度的50%。最后，元素便垂直居中于父容器。</p>
+<p>来源：<a href="http://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50" target="_blank" rel="external">stackoverflow: Why is translateY(-50%) needed to center an element which is at top: 50%?</a></p>
+<h2 id="todo">TODO</h2>
+<p>翻译答案 <a href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues" target="_blank" rel="external">Making sense of principal component analysis, eigenvectors &amp; eigenvalues</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;杂项&lt;/h1&gt;
+&lt;h2 id=&quot;shell&quot;&gt;Shell&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 返回正在运行的进程的信息&lt;br&gt;
+&lt;code&gt;ps aux&lt;/code&gt; 列出所有运行进程&lt;br&gt;
+&lt;code&gt;ps aux | grep string&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
+    
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+      <category term="Shell" scheme="http://lix90.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日总结 2016-11-15</title>
     <link href="http://lix90.github.io/2016/11/15/2016-11-15-daily/"/>
     <id>http://lix90.github.io/2016/11/15/2016-11-15-daily/</id>
@@ -5175,158 +5346,11 @@ A collection of minimal and clean implementations of machine learning algorithms
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
+    
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
-    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
-    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
-    <published>2016-11-13T16:00:00.000Z</published>
-    <updated>2016-11-19T03:32:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>
-分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1>准备知识</h1>
-<h2 id="颜色模式">颜色模式</h2>
-<ul>
-<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
-<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
-<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
-</ul>
-<h2 id="图形格式">图形格式</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">特点</th>
-<th style="text-align:left">常见格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">矢量图</td>
-<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
-<td style="text-align:left">放大缩小图形质量不变</td>
-<td style="text-align:left">eps, svg, pdf, …</td>
-</tr>
-<tr>
-<td style="text-align:left">位图</td>
-<td style="text-align:left">使用像素阵列表示的图像</td>
-<td style="text-align:left">尺寸放大会影响质量</td>
-<td style="text-align:left">jpg, png, tiff, …</td>
-</tr>
-</tbody>
-</table>
-<h2 id="图形分辨率">图形分辨率</h2>
-<p>分辨率：两侧或者显示系统对细节的分辨能力。<br>
-PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
-<p>PPI</p>
-<ul>
-<li>每英寸像素数</li>
-<li>用于电脑显示领域</li>
-<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
-</ul>
-<p>DPI</p>
-<ul>
-<li>每英寸点数</li>
-<li>用于打印或印刷领域</li>
-</ul>
-<h1>图形编辑软件使用</h1>
-<ul>
-<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
-<li>Adobe Photoshop 商业位图编辑软件</li>
-<li>Inkscape 免费开源矢量图编辑软件</li>
-</ul>
-<h2 id="基本界面">基本界面</h2>
-<ul>
-<li>菜单栏</li>
-<li>工具栏</li>
-<li>控制面板</li>
-<li>图形窗口</li>
-</ul>
-<h2 id="快捷键">快捷键</h2>
-<ul>
-<li>工具选择快捷键：快速切换当前工具</li>
-<li>组合快捷键：快速操作对象，选择功能等</li>
-</ul>
-<h2 id="常用工具与概念">常用工具与概念</h2>
-<h3 id="对象">对象</h3>
-<ul>
-<li>对象：具有一定属性的点，线，面（填充）等</li>
-<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
-<li>建立组与取消组：建立组方便对整体进行操作。</li>
-</ul>
-<h3 id="选择">选择</h3>
-<ul>
-<li>一般选择与直接选择（组选择）</li>
-<li>相似对象选择：选择文本对象，选择单独的点，…</li>
-<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
-</ul>
-<h3 id="图层">图层</h3>
-<ul>
-<li>操作图层：删除，新建，隐藏，锁定</li>
-<li>管理图层：移动，合并，重命名</li>
-</ul>
-<h3 id="其他重要操作">其他重要操作</h3>
-<ul>
-<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
-<li>排列对齐：Window &gt;&gt;&gt; Align</li>
-<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
-<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
-<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
-</ul>
-<h1>实例</h1>
-<ol>
-<li>实验流程图</li>
-<li>单图编辑</li>
-<li>多图合并</li>
-<li>ERP 线图编辑</li>
-<li>…</li>
-</ol>
-<h1>绘制图表</h1>
-<ul>
-<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
-<li>界面操作：Excel, SPSS, JASP, …</li>
-<li>在线绘制：<a href="http://plot.ly" target="_blank" rel="external">plot.ly</a>, …</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;
-分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
-&lt;h1&gt;准备知识&lt;/h1&gt;
-&lt;h2 id=&quot;颜色模式&quot;&gt;颜色模式&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&amp;gt; 打
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
-    
-      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
-    
-      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
-    
-      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
-    
-      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
-    
-      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
-    
-      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
-    
-      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
     
   </entry>
   
@@ -5559,6 +5583,153 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
   </entry>
   
   <entry>
+    <title>实验室内部分享一：绘制和编辑可发表的图形</title>
+    <link href="http://lix90.github.io/2016/11/14/2016-11-14-img-output/"/>
+    <id>http://lix90.github.io/2016/11/14/2016-11-14-img-output/</id>
+    <published>2016-11-13T16:00:00.000Z</published>
+    <updated>2016-11-19T03:32:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文为实验室内部分享内容提纲。<br>
+分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
+<h1>准备知识</h1>
+<h2 id="颜色模式">颜色模式</h2>
+<ul>
+<li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
+<li>显示：RGB，光影三原色（黄绿蓝），叠加变亮 —&gt; 在线出版</li>
+<li>其他：HSB, Lab, 位图模式，灰度模式，索引颜色模式，双色模式，多通道模式等</li>
+</ul>
+<h2 id="图形格式">图形格式</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">定义</th>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">常见格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">矢量图</td>
+<td style="text-align:left">使用点、线、面（多边形）等基于数学方程的几何图元表示的图像</td>
+<td style="text-align:left">放大缩小图形质量不变</td>
+<td style="text-align:left">eps, svg, pdf, …</td>
+</tr>
+<tr>
+<td style="text-align:left">位图</td>
+<td style="text-align:left">使用像素阵列表示的图像</td>
+<td style="text-align:left">尺寸放大会影响质量</td>
+<td style="text-align:left">jpg, png, tiff, …</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图形分辨率">图形分辨率</h2>
+<p>分辨率：两侧或者显示系统对细节的分辨能力。<br>
+PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量的指数。</p>
+<p>PPI</p>
+<ul>
+<li>每英寸像素数</li>
+<li>用于电脑显示领域</li>
+<li>人类肉眼能够分辨的最高像素点密度为 300ppi</li>
+</ul>
+<p>DPI</p>
+<ul>
+<li>每英寸点数</li>
+<li>用于打印或印刷领域</li>
+</ul>
+<h1>图形编辑软件使用</h1>
+<ul>
+<li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
+<li>Adobe Photoshop 商业位图编辑软件</li>
+<li>Inkscape 免费开源矢量图编辑软件</li>
+</ul>
+<h2 id="基本界面">基本界面</h2>
+<ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>控制面板</li>
+<li>图形窗口</li>
+</ul>
+<h2 id="快捷键">快捷键</h2>
+<ul>
+<li>工具选择快捷键：快速切换当前工具</li>
+<li>组合快捷键：快速操作对象，选择功能等</li>
+</ul>
+<h2 id="常用工具与概念">常用工具与概念</h2>
+<h3 id="对象">对象</h3>
+<ul>
+<li>对象：具有一定属性的点，线，面（填充）等</li>
+<li>对象的基本操作：移动，旋转，镜像，拷贝 …</li>
+<li>建立组与取消组：建立组方便对整体进行操作。</li>
+</ul>
+<h3 id="选择">选择</h3>
+<ul>
+<li>一般选择与直接选择（组选择）</li>
+<li>相似对象选择：选择文本对象，选择单独的点，…</li>
+<li>相似属性选择：选择具有相同描边的对象，选择具有相同填充的对象，…</li>
+</ul>
+<h3 id="图层">图层</h3>
+<ul>
+<li>操作图层：删除，新建，隐藏，锁定</li>
+<li>管理图层：移动，合并，重命名</li>
+</ul>
+<h3 id="其他重要操作">其他重要操作</h3>
+<ul>
+<li>路径查找：Window &gt;&gt;&gt; Pathfinder</li>
+<li>排列对齐：Window &gt;&gt;&gt; Align</li>
+<li>字体描边：Type &gt;&gt;&gt; Create Outline</li>
+<li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
+<li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
+</ul>
+<h1>实例</h1>
+<ol>
+<li>实验流程图</li>
+<li>单图编辑</li>
+<li>多图合并</li>
+<li>ERP 线图编辑</li>
+<li>…</li>
+</ol>
+<h1>绘制图表</h1>
+<ul>
+<li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
+<li>界面操作：Excel, SPSS, JASP, …</li>
+<li>在线绘制：<a href="http://plot.ly" target="_blank" rel="external">plot.ly</a>, …</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为实验室内部分享内容提纲。&lt;br&gt;
+分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。&lt;/p&gt;
+&lt;h1&gt;准备知识&lt;/h1&gt;
+&lt;h2 id=&quot;颜色模式&quot;&gt;颜色模式&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&amp;gt; 打
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="学术出版" scheme="http://lix90.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%87%BA%E7%89%88/"/>
+    
+      <category term="统计图表" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE%E8%A1%A8/"/>
+    
+      <category term="Illustrator" scheme="http://lix90.github.io/tags/Illustrator/"/>
+    
+      <category term="Photoshop" scheme="http://lix90.github.io/tags/Photoshop/"/>
+    
+      <category term="Inkscape" scheme="http://lix90.github.io/tags/Inkscape/"/>
+    
+      <category term="矢量图" scheme="http://lix90.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/"/>
+    
+      <category term="位图" scheme="http://lix90.github.io/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+      <category term="Lab" scheme="http://lix90.github.io/tags/Lab/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R：加载包</title>
     <link href="http://lix90.github.io/2016/11/13/2016-11-13-daily/"/>
     <id>http://lix90.github.io/2016/11/13/2016-11-13-daily/</id>
@@ -5779,11 +5950,11 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
     
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="SQL" scheme="http://lix90.github.io/tags/SQL/"/>
     
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
@@ -5952,17 +6123,17 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
+      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
-      <category term="Configuration" scheme="http://lix90.github.io/tags/Configuration/"/>
     
       <category term="Ruby" scheme="http://lix90.github.io/tags/Ruby/"/>
     
       <category term="Pandas" scheme="http://lix90.github.io/tags/Pandas/"/>
     
       <category term="统计显著性" scheme="http://lix90.github.io/tags/%E7%BB%9F%E8%AE%A1%E6%98%BE%E8%91%97%E6%80%A7/"/>
+    
+      <category term="P-value" scheme="http://lix90.github.io/tags/P-value/"/>
     
   </entry>
   
@@ -6025,110 +6196,6 @@ Type 由 &lt;code&gt;typeof&lt;/code&gt; 获得&lt;/p&gt;
       <category term="数据分析" scheme="http://lix90.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="缺失值" scheme="http://lix90.github.io/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：数据导入</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1>导入 CSV 数据</h1>
-<p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1>导入 EXCEL 数据</h1>
-<h1>导入 SPSS 数据</h1>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1&gt;导入 CSV 数据&lt;/h1&gt;
-&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;使用 &lt;code&gt;readr&lt;/code&gt; 包&lt;/p&gt;
-&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
-    
-    </summary>
-    
-      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：描述性统计</title>
-    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
-    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>
-如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
-    
-      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
-    
-      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
     
   </entry>
   
@@ -6365,6 +6432,110 @@ Correlogram 相关图，展示相关矩阵</p>
       <category term="R" scheme="http://lix90.github.io/tags/R/"/>
     
       <category term="Data viz" scheme="http://lix90.github.io/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-desc-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>
+如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://lix90.github.io/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="http://lix90.github.io/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：数据导入</title>
+    <link href="http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/"/>
+    <id>http://lix90.github.io/2016/11/08/2016-11-08-r-import-data/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>导入 CSV 数据</h1>
+<p>使用基本包函数</p>
+<p><code>read.csv()</code></p>
+<p>使用 <code>readr</code> 包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
+<h1>导入 EXCEL 数据</h1>
+<h1>导入 SPSS 数据</h1>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1&gt;导入 CSV 数据&lt;/h1&gt;
+&lt;p&gt;使用基本包函数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;readr&lt;/code&gt; 包&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+    
+    </summary>
+    
+      <category term="Original" scheme="http://lix90.github.io/categories/Original/"/>
+    
+    
+      <category term="R" scheme="http://lix90.github.io/tags/R/"/>
+    
+      <category term="R-basics" scheme="http://lix90.github.io/tags/R-basics/"/>
     
   </entry>
   
@@ -6851,9 +7022,9 @@ wrapper 封装</p>
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
       <category term="Emacs" scheme="http://lix90.github.io/tags/Emacs/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
       <category term="Flexbox" scheme="http://lix90.github.io/tags/Flexbox/"/>
     
@@ -7316,9 +7487,9 @@ JavaScript 的静态缓存<br>
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="Coding style" scheme="http://lix90.github.io/tags/Coding-style/"/>
     
@@ -7542,13 +7713,11 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
-    
       <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
-      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
-    
       <category term="HTTP" scheme="http://lix90.github.io/tags/HTTP/"/>
+    
+      <category term="JavaScript" scheme="http://lix90.github.io/tags/JavaScript/"/>
     
       <category term="HTML" scheme="http://lix90.github.io/tags/HTML/"/>
     
@@ -7561,6 +7730,8 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
       <category term="DOM" scheme="http://lix90.github.io/tags/DOM/"/>
     
       <category term="elisp" scheme="http://lix90.github.io/tags/elisp/"/>
+    
+      <category term="Python" scheme="http://lix90.github.io/tags/Python/"/>
     
   </entry>
   
@@ -7713,11 +7884,11 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
       <category term="Daily" scheme="http://lix90.github.io/categories/Daily/"/>
     
     
-      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
-    
       <category term="Git" scheme="http://lix90.github.io/tags/Git/"/>
     
       <category term="Machine Learning" scheme="http://lix90.github.io/tags/Machine-Learning/"/>
+    
+      <category term="CSS" scheme="http://lix90.github.io/tags/CSS/"/>
     
   </entry>
   
