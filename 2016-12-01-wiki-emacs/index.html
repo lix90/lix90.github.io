@@ -1,0 +1,1885 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Emacs," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="使用 Emacs 过程中的记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emacs 个人参考">
+<meta property="og:url" content="http://lix90.github.io/2016-12-01-wiki-emacs/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="使用 Emacs 过程中的记录。">
+<meta property="og:updated_time" content="2016-12-03T08:08:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emacs 个人参考">
+<meta name="twitter:description" content="使用 Emacs 过程中的记录。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://lix90.github.io/2016-12-01-wiki-emacs/"/>
+
+
+  <title> Emacs 个人参考 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Emacs 个人参考
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-01T00:00:00+08:00" content="2016-12-01">
+              2016-12-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Wiki/" itemprop="url" rel="index">
+                    <span itemprop="name">Wiki</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-12-01-wiki-emacs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-12-01-wiki-emacs/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>markdown-mode</h1>
+<p>总是容易忘记 markdown mode 的快捷键，这回刻意记下常用的快捷键。</p>
+<p>在 markdown-mode 下，打开帮助文档 <kbd>C-h m</kbd>（我自己将 <kbd>C-h</kbd> 改为了 <kbd>f1</kbd>）。markdown-mode 的 key-map 的前缀命令为 <kbd>C-c</kbd>，也就是按这个键能调出与 markdown-mode 有关的一些命令的快捷键。</p>
+<h2 id="对标题的操作">对标题的操作</h2>
+<ul>
+<li><code>&lt;M-S-down/up&gt;</code> <code>markdown-move-subtree-down/up</code> 向下或向上移动标题。</li>
+<li><code>&lt;M-S-left/right&gt;</code> <code>markdown-promote/demote-subtree</code> 标题升级或降级。
+<ul>
+<li>当标题为 <code># title #</code> 通过 <code>&lt;M-S-left&gt;</code> 得到 <code>title</code>；<code>&lt;M-S-right&gt;</code> 得到 <code>## title ##</code>。</li>
+<li>最低级数为第六级 <code>###### title ######</code>。</li>
+</ul>
+</li>
+<li><code>&lt;M-left/right&gt;</code> <code>markdown-promote/demote</code> 循环改变标题级数（升或降）。</li>
+<li><code>&lt;S-tab&gt;</code> <code>markdown-shifttab</code> 折叠标题内容</li>
+<li><code>C-c C-t 1/2/3/4/5/6</code> <code>markdown-insert-header-atx-1/2/3/4/5/6</code></li>
+</ul>
+<h2 id="跳转与移动">跳转与移动</h2>
+<p>跳转标题</p>
+<ul>
+<li><code>C-c C-b/f</code> <code>markdown-backward/forward-same-level</code> 同级跳转（后或前）。</li>
+<li><code>C-c C-n/p</code> <code>markdown-next/previous-visible-heading</code> 标题跳转（后或前）。</li>
+</ul>
+<p>跳转链接</p>
+<ul>
+<li><code>M-n/p</code> <code>markdown-next/previous-link</code></li>
+<li><code>M-{/}</code> <code>markdown-backward/forward-paragraph</code></li>
+</ul>
+<h2 id="添加内容">添加内容</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">列表</td>
+<td style="text-align:left"><code>&lt;M-RET&gt;</code> <code>C-c C-j</code></td>
+</tr>
+<tr>
+<td style="text-align:left">添分隔符</td>
+<td style="text-align:left"><code>C-c -</code></td>
+</tr>
+<tr>
+<td style="text-align:left">添加行引用</td>
+<td style="text-align:left"><code>C-c C-s b</code></td>
+</tr>
+<tr>
+<td style="text-align:left">块引用</td>
+<td style="text-align:left"><code>C-c C-s C-b</code></td>
+</tr>
+<tr>
+<td style="text-align:left">行代码</td>
+<td style="text-align:left"><code>C-c C-s c</code></td>
+</tr>
+<tr>
+<td style="text-align:left">代码块</td>
+<td style="text-align:left"><code>C-c C-s P</code></td>
+</tr>
+<tr>
+<td style="text-align:left">斜体</td>
+<td style="text-align:left"><code>C-c C-s e</code></td>
+</tr>
+<tr>
+<td style="text-align:left">加粗</td>
+<td style="text-align:left"><code>C-c C-s s</code></td>
+</tr>
+<tr>
+<td style="text-align:left">键盘</td>
+<td style="text-align:left"><code>C-c C-s k</code></td>
+</tr>
+<tr>
+<td style="text-align:left">行预排格式文本</td>
+<td style="text-align:left"><code>C-c C-s p</code></td>
+</tr>
+<tr>
+<td style="text-align:left">块预排格式文本</td>
+<td style="text-align:left"><code>C-c C-s C-p</code></td>
+</tr>
+<tr>
+<td style="text-align:left">引用图片</td>
+<td style="text-align:left"><code>C-c TAB I</code></td>
+</tr>
+<tr>
+<td style="text-align:left">图片</td>
+<td style="text-align:left"><code>C-c TAB i</code></td>
+</tr>
+<tr>
+<td style="text-align:left">脚注</td>
+<td style="text-align:left"><code>C-c C-a f</code></td>
+</tr>
+<tr>
+<td style="text-align:left">链接</td>
+<td style="text-align:left"><code>C-c C-a l</code></td>
+</tr>
+<tr>
+<td style="text-align:left">网址</td>
+<td style="text-align:left"><code>C-c C-a u</code></td>
+</tr>
+<tr>
+<td style="text-align:left">wiki链接</td>
+<td style="text-align:left"><code>C-c C-a w</code></td>
+</tr>
+</tbody>
+</table>
+<h1>help-mode</h1>
+<p>用于阅读帮助文档和跳转文档内引用的主要编辑模式（Major mode）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>TAB</code></td>
+<td style="text-align:left">forward-button 下一个按钮/链接</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S-TAB</code></td>
+<td style="text-align:left">backward-button 上一个按钮/链接</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SPC</code></td>
+<td style="text-align:left">scroll-up-command 向下滚动内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DEL</code>/<code>S-SPC</code></td>
+<td style="text-align:left">scroll-down-command 向上滚动内容</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">beginning-of-buffer 缓冲区开始</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">end-of-buffer 缓冲区末尾</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?</code>/<code>h</code></td>
+<td style="text-align:left">describe-mode 描述模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>g</code></td>
+<td style="text-align:left">revert-buffer 更新</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>l</code>/<code>C-c C-b</code></td>
+<td style="text-align:left">help-go-back 回退</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>r</code>/<code>C-c C-f</code></td>
+<td style="text-align:left">help-go-forward 前进</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>q</code></td>
+<td style="text-align:left">quit-window 推出帮助窗口</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RET</code>/<code>C-c C-c</code></td>
+<td style="text-align:left">help-follow-symbol 跳转到光标处的符号</td>
+</tr>
+</tbody>
+</table>
+<h1>ess-help-mode</h1>
+<h2 id="导航">导航</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">移动到 buffer 顶端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">移动到 buffer 末端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RET</code></td>
+<td style="text-align:left">移动到下一行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SPC</code></td>
+<td style="text-align:left">向下滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S-SPC</code></td>
+<td style="text-align:left">向上滚动</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>n</code></td>
+<td style="text-align:left">跳转到下一小节</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>p</code></td>
+<td style="text-align:left">跳转到上一小节</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-c C-y</code></td>
+<td style="text-align:left">跳转到 ess</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-c C-z</code></td>
+<td style="text-align:left">跳转到 ess 的命令行末端</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>s</code></td>
+<td style="text-align:left">prefix command, 跳转</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>0 … 9          digit-argument<br>
+C-c             Prefix Command<br>
+ESC             Prefix Command</p>
+<ul>
+<li>
+<pre><code>          negative-argument
+</code></pre>
+</li>
+</ul>
+<p>/               isearch-forward<br>
+0 … 9          digit-argument</p>
+<p>a | ess-display-help-apropos<br>
+h | ess-display-help-on-object<br>
+i | ess-display-package-index<br>
+v | ess-display-vignettes<br>
+w | ess-display-help-in-browser</p>
+<p>f               ess-eval-function-or-paragraph-and-step<br>
+l               ess-eval-line-and-step<br>
+r               ess-eval-region-and-go<br>
+<c-return>      ess-eval-region-or-line-and-step</c-return></p>
+<p>g               revert-buffer<br>
+q               quit-window<br>
+k               kill-this-buffer<br>
+?               ess-describe-help-mode<br>
+x               ess-kill-buffer-and-go</p>
+<p>s               Prefix Command<br>
+<remap>         Prefix Command</remap></p>
+<p>C-c C-c         ess-eval-region-or-function-or-paragraph-and-step<br>
+C-c C-d         ess-doc-map<br>
+C-c C-e         ess-extra-map</p>
+<p>C-c C-f         ess-eval-function<br>
+C-c C-j         ess-eval-line<br>
+C-c C-n         ess-eval-line-and-step<br>
+C-c C-r         ess-eval-region</p>
+<p>C-c C-k         ess-request-a-process<br>
+C-c C-l         ess-load-file</p>
+<p>C-c C-s         ess-switch-process<br>
+C-c C-t         ess-dev-map<br>
+C-c C-v         ess-display-help-on-object</p>
+<p>C-c ESC         Prefix Command<br>
+C-c h           ess-handy-commands</p>
+<p>C-M-a           ess-goto-beginning-of-function-or-para<br>
+C-M-e           ess-goto-end-of-function-or-para<br>
+C-M-x           ess-eval-function</p>
+<p>s &lt;             beginning-of-buffer<br>
+s &gt;             end-of-buffer<br>
+s ?             ess-describe-sec-map<br>
+s D             ess-skip-to-help-section<br>
+s a             ess-skip-to-help-section<br>
+s d … s e      ess-skip-to-help-section<br>
+s n             ess-skip-to-help-section<br>
+s r … s v      ess-skip-to-help-section</p>
+<p>C-c C-t C-b     ess-bp-set<br>
+C-c C-t C-d     ess-debug-flag-for-debugging<br>
+C-c C-t C-e     ess-debug-toggle-error-action<br>
+C-c C-t C-k     ess-bp-kill-all<br>
+C-c C-t C-l     ess-bp-set-logger<br>
+C-c C-t C-n     ess-bp-next<br>
+C-c C-t C-o     ess-bp-toggle-state<br>
+C-c C-t C-p     ess-bp-previous<br>
+C-c C-t C-s     ess-r-set-evaluation-env<br>
+C-c C-t C-u     ess-debug-unflag-for-debugging<br>
+C-c C-t C-w     ess-watch<br>
+C-c C-t 0 … C-c C-t 9          ess-electric-selection<br>
+C-c C-t ?       ess-tracebug-show-help<br>
+C-c C-t B       ess-bp-set-conditional<br>
+C-c C-t I       ess-debug-goto-input-event-marker<br>
+C-c C-t K       ess-bp-kill-all<br>
+C-c C-t L       ess-bp-set-logger<br>
+C-c C-t T       ess-toggle-tracebug<br>
+C-c C-t `       ess-show-traceback<br>
+C-c C-t b       ess-bp-set<br>
+C-c C-t d       ess-debug-flag-for-debugging<br>
+C-c C-t e       ess-debug-toggle-error-action<br>
+C-c C-t i       ess-debug-goto-input-event-marker<br>
+C-c C-t k       ess-bp-kill<br>
+C-c C-t l       ess-r-devtools-load-package<br>
+C-c C-t n       ess-bp-next<br>
+C-c C-t o       ess-bp-toggle-state<br>
+C-c C-t p       ess-bp-previous<br>
+C-c C-t s       ess-r-set-evaluation-env<br>
+C-c C-t u       ess-debug-unflag-for-debugging<br>
+C-c C-t w       ess-watch<br>
+C-c C-t ~       ess-show-call-stack<br>
+C-c C-t C-S-b   ess-bp-set-conditional<br>
+C-c C-t C-S-d   ess-debug-unflag-for-debugging</p>
+<p>C-c C-e C-d     ess-dump-object-into-edit-buffer<br>
+C-c C-e C-e     ess-execute<br>
+C-c C-e TAB     ess-install-library<br>
+C-c C-e C-l     ess-load-library<br>
+C-c C-e C-s     ess-set-style<br>
+C-c C-e C-t     ess-build-tags-for-directory<br>
+C-c C-e C-w     ess-execute-screen-options<br>
+C-c C-e /       ess-set-working-directory<br>
+C-c C-e d       ess-dump-object-into-edit-buffer<br>
+C-c C-e e       ess-execute<br>
+C-c C-e i       ess-install-library<br>
+C-c C-e l       ess-load-library<br>
+C-c C-e s       ess-set-style<br>
+C-c C-e t       ess-build-tags-for-directory<br>
+C-c C-e w       ess-execute-screen-options</p>
+<p>C-c C-d C-a     ess-display-help-apropos<br>
+C-c C-d C-d     ess-display-help-on-object<br>
+C-c C-d C-e     ess-describe-object-at-point<br>
+C-c C-d TAB     ess-display-package-index<br>
+C-c C-d RET     ess-manual-lookup<br>
+C-c C-d C-o     ess-display-demos<br>
+C-c C-d C-r     ess-reference-lookup<br>
+C-c C-d C-v     ess-display-vignettes<br>
+C-c C-d C-w     ess-help-web-search<br>
+C-c C-d a       ess-display-help-apropos<br>
+C-c C-d d       ess-display-help-on-object<br>
+C-c C-d e       ess-describe-object-at-point<br>
+C-c C-d i       ess-display-package-index<br>
+C-c C-d m       ess-manual-lookup<br>
+C-c C-d o       ess-display-demos<br>
+C-c C-d r       ess-reference-lookup<br>
+C-c C-d v       ess-display-vignettes<br>
+C-c C-d w       ess-help-web-search</p>
+<p>C-c M-f         ess-eval-function-and-go<br>
+C-c M-j         ess-eval-line-and-go<br>
+C-c M-l         ess-load-file<br>
+C-c M-r         ess-eval-region-and-g</p>
+<h1>dired-mode</h1>
+<p>用于编辑文件和路径列表的主要编辑模式（Major mode）。</p>
+<p>键前缀</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">bindings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>%</code></td>
+<td style="text-align:left">高级正则表达式操作</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>*</code></td>
+<td style="text-align:left">高级选中操作</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>:</code></td>
+<td style="text-align:left">加密验证操作</td>
+</tr>
+</tbody>
+</table>
+<p>shell命令</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>!</code>/<code>X</code></td>
+<td style="text-align:left">dired-do-shell-command 执行shell命令</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&amp;</code></td>
+<td style="text-align:left">dired-do-async-shell-command 异步执行shell命令</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A</code></td>
+<td style="text-align:left">dired-do-find-regexp 正则表达式查找</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Q</code></td>
+<td style="text-align:left">dired-do-find-regexp-and-replace</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>B</code></td>
+<td style="text-align:left">dired-do-byte-compile 字节编译</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C</code></td>
+<td style="text-align:left">dired-do-copy 复制</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>D</code></td>
+<td style="text-align:left">dired-do-delete 删除</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>H</code></td>
+<td style="text-align:left">dired-do-hardlink 硬链接</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S</code></td>
+<td style="text-align:left">dired-do-symlink</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>L</code></td>
+<td style="text-align:left">dired-do-load 加载</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>M</code></td>
+<td style="text-align:left">dired-do-chmod</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>O</code></td>
+<td style="text-align:left">dired-do-chown</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>G</code></td>
+<td style="text-align:left">dired-do-chgrp</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P</code></td>
+<td style="text-align:left">dired-do-print</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>R</code></td>
+<td style="text-align:left">dired-do-rename</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>T</code></td>
+<td style="text-align:left">dired-do-touch</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Z</code></td>
+<td style="text-align:left">dired-do-compress 压缩</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>c</code></td>
+<td style="text-align:left">dired-do-compress-to 压缩至…</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>k</code></td>
+<td style="text-align:left">dired-do-kill-lines 删除行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>l</code></td>
+<td style="text-align:left">dired-do-redisplay 重新显示</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>x</code></td>
+<td style="text-align:left">dired-do-flagged-delete 删除标记的项目</td>
+</tr>
+</tbody>
+</table>
+<p>对文件的操作</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>W</code></td>
+<td style="text-align:left">browse-url-of-dired-file 使用外部应用打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>a</code></td>
+<td style="text-align:left">dired-find-alternate-file 打开替代文件（默认关闭）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>j</code></td>
+<td style="text-align:left">dired-goto-file 去往文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>o</code></td>
+<td style="text-align:left">dired-find-file-other-window 从另一窗口打开</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>v</code></td>
+<td style="text-align:left">dired-view-file 阅读文件（只读）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-o</code></td>
+<td style="text-align:left">dired-display-file 显示文件内容（只读）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RET</code>/<code>e</code>/<code>f</code></td>
+<td style="text-align:left">dired-find-file 打开文件（可写）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>y</code></td>
+<td style="text-align:left">dired-show-file-type 显示文件类型</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>w</code></td>
+<td style="text-align:left">dired-copy-filename-as-kill 复制文件名</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>s</code></td>
+<td style="text-align:left">dired-sort-toggle-or-edit 排序</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>=</code></td>
+<td style="text-align:left">dired-diff 比较差异</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>#</code></td>
+<td style="text-align:left">dired-flag-auto-save-files 标记自动保存文件</td>
+</tr>
+</tbody>
+</table>
+<p>对路径的操作</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>$</code></td>
+<td style="text-align:left">dired-hide-subdir 隐藏子路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>M-$</code></td>
+<td style="text-align:left">dired-hide-all 隐藏所有子路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>+</code></td>
+<td style="text-align:left">dired-create-directory 新创建路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>i</code></td>
+<td style="text-align:left">dired-maybe-insert-subdir 在当前窗口打开子路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.</code></td>
+<td style="text-align:left">dired-clean-directory 清理路径</td>
+</tr>
+</tbody>
+</table>
+<p>标记与取消标记</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>d</code></td>
+<td style="text-align:left">dired-flag-file-deletion 标记要删除的对象</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>m</code></td>
+<td style="text-align:left">dired-mark 选中</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>u</code></td>
+<td style="text-align:left">dired-unmark 取消选中</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>M-{</code></td>
+<td style="text-align:left">dired-prev-marked-file 上一个选中</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>M-}</code></td>
+<td style="text-align:left">dired-next-marked-file 下一个选中</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>U</code>/<code>M-DEL</code></td>
+<td style="text-align:left">dired-unmark-all-marks 全部取消选中</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DEL</code></td>
+<td style="text-align:left">dired-unmark-backward 退回取消选中</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>t</code></td>
+<td style="text-align:left">dired-toggle-marks 选中取反</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>~</code></td>
+<td style="text-align:left">dired-flag-backup-files 标记备份文件</td>
+</tr>
+</tbody>
+</table>
+<p>导航快捷键</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>SPC</code>/<code>n</code></td>
+<td style="text-align:left">dired-next-line 下一行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S-SPC</code>/<code>p</code></td>
+<td style="text-align:left">dired-previous-line 上一行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;</code></td>
+<td style="text-align:left">dired-prev-dirline 上一行文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&gt;</code></td>
+<td style="text-align:left">dired-next-dirline 下一行文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>^</code></td>
+<td style="text-align:left">dired-up-directory 上一页路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?</code></td>
+<td style="text-align:left">dired-summary 文件路径总结</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-M-d</code></td>
+<td style="text-align:left">dired-tree-down 下一级文件树</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-M-u</code></td>
+<td style="text-align:left">dired-tree-up 上一级文件树</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-M-n</code></td>
+<td style="text-align:left">dired-next-subdir 下一个子路径</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C-M-p</code></td>
+<td style="text-align:left">dired-prev-subdir 上一个子路径</td>
+</tr>
+</tbody>
+</table>
+<p>其他</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>g</code></td>
+<td style="text-align:left">revert-buffer 重载/更新</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>h</code></td>
+<td style="text-align:left">describe-mode 打开模式文档</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>q</code></td>
+<td style="text-align:left">quit-window 推出窗口</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>(</code></td>
+<td style="text-align:left">dired-hide-details-mode 细节隐藏模式切换</td>
+</tr>
+</tbody>
+</table>
+<h1>evil-mode</h1>
+<h2 id="evil-window-map">evil-window-map</h2>
+<p>Keymap for window-related commands.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C-b</td>
+<td style="text-align:left">evil-window-bottom-right</td>
+</tr>
+<tr>
+<td style="text-align:left">C-c</td>
+<td style="text-align:left">evil-window-delete</td>
+</tr>
+<tr>
+<td style="text-align:left">C-f</td>
+<td style="text-align:left">ffap-other-window</td>
+</tr>
+<tr>
+<td style="text-align:left">C-n</td>
+<td style="text-align:left">evil-window-new</td>
+</tr>
+<tr>
+<td style="text-align:left">C-o</td>
+<td style="text-align:left">delete-other-windows</td>
+</tr>
+<tr>
+<td style="text-align:left">C-p</td>
+<td style="text-align:left">evil-window-mru</td>
+</tr>
+<tr>
+<td style="text-align:left">C-r</td>
+<td style="text-align:left">evil-window-rotate-downwards</td>
+</tr>
+</tbody>
+</table>
+<p>C-s    | evil-window-split<br>
+C-v    | evil-window-vsplit</p>
+<p>C-t    | evil-window-top-left</p>
+<p>C-w    | evil-window-next<br>
+C-_    | evil-window-set-height</p>
+<ul>
+<li>
+<pre><code> | evil-window-increase-height
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>
+<pre><code> | evil-window-decrease-height
+</code></pre>
+</li>
+</ul>
+<p>&lt;      | evil-window-decrease-width<br>
+=      | balance-windows</p>
+<blockquote>
+<pre><code> | evil-window-increase-width
+</code></pre>
+</blockquote>
+<p>H      | evil-window-move-far-left<br>
+J      | evil-window-move-very-bottom<br>
+K      | evil-window-move-very-top<br>
+L      | evil-window-move-far-right<br>
+R      | evil-window-rotate-upwards<br>
+S      | evil-window-split<br>
+W      | evil-window-prev<br>
+_      | evil-window-set-height<br>
+b      | evil-window-bottom-right<br>
+c      | evil-window-delete<br>
+h      | evil-window-left<br>
+j      | evil-window-down<br>
+k      | evil-window-up<br>
+l      | evil-window-right<br>
+n      | evil-window-new<br>
+o      | delete-other-windows<br>
+p      | evil-window-mru<br>
+r      | evil-window-rotate-downwards<br>
+s      | evil-window-split<br>
+t      | evil-window-top-left<br>
+v      | evil-window-vsplit<br>
+w      | evil-window-next<br>
+| | evil-window-set-width<br>
+C-S-h  | evil-window-move-far-left<br>
+C-S-j  | evil-window-move-very-bottom<br>
+C-S-k  | evil-window-move-very-top<br>
+C-S-l  | evil-window-move-far-right<br>
+C-S-r  | evil-window-rotate-upwards<br>
+C-S-s  | evil-window-split<br>
+C-S-w  | evil-window-prev</p>
+<h2 id="evil-insert-state-map">evil-insert-state-map</h2>
+<p>Keymap for Insert state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C-a</td>
+<td style="text-align:left">evil-paste-last-insertion</td>
+</tr>
+<tr>
+<td style="text-align:left">C-d</td>
+<td style="text-align:left">evil-shift-left-line</td>
+</tr>
+<tr>
+<td style="text-align:left">C-e</td>
+<td style="text-align:left">evil-copy-from-below</td>
+</tr>
+<tr>
+<td style="text-align:left">C-k</td>
+<td style="text-align:left">evil-insert-digraph</td>
+</tr>
+<tr>
+<td style="text-align:left">C-n</td>
+<td style="text-align:left">evil-complete-next</td>
+</tr>
+<tr>
+<td style="text-align:left">C-o</td>
+<td style="text-align:left">evil-execute-in-normal-state</td>
+</tr>
+<tr>
+<td style="text-align:left">C-p</td>
+<td style="text-align:left">evil-complete-previous</td>
+</tr>
+<tr>
+<td style="text-align:left">C-r</td>
+<td style="text-align:left">evil-paste-from-register</td>
+</tr>
+<tr>
+<td style="text-align:left">C-t</td>
+<td style="text-align:left">evil-shift-right-line</td>
+</tr>
+<tr>
+<td style="text-align:left">C-v</td>
+<td style="text-align:left">quoted-insert</td>
+</tr>
+<tr>
+<td style="text-align:left">C-w</td>
+<td style="text-align:left">evil-delete-backward-word</td>
+</tr>
+<tr>
+<td style="text-align:left">C-y</td>
+<td style="text-align:left">evil-copy-from-above</td>
+</tr>
+<tr>
+<td style="text-align:left">C-z</td>
+<td style="text-align:left">evil-emacs-state</td>
+</tr>
+<tr>
+<td style="text-align:left"><delete></delete></td>
+<td style="text-align:left">delete-char</td>
+</tr>
+<tr>
+<td style="text-align:left"><escape></escape></td>
+<td style="text-align:left">evil-normal-state</td>
+</tr>
+<tr>
+<td style="text-align:left"><mouse-2></mouse-2></td>
+<td style="text-align:left">mouse-yank-primary</td>
+</tr>
+</tbody>
+</table>
+<h2 id="evil-motion-state-map">evil-motion-state-map</h2>
+<p>Keymap for Motion state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">key</th>
+<th style="text-align:left">binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">h/l</td>
+<td style="text-align:left">evil-backward/forward-char 向后/前移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">j/k</td>
+<td style="text-align:left">evil-next/previous-line 想下/上移动一行</td>
+</tr>
+<tr>
+<td style="text-align:left">B/W</td>
+<td style="text-align:left">evil-backward/forward-WORD-begin 向后/前移动到 WORD 前</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">evil-forward-WORD-end 向前移动到 WORD 后</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">evil-forward-word-begin 向前移动到 word 前</td>
+</tr>
+<tr>
+<td style="text-align:left">C-b/C-f</td>
+<td style="text-align:left">evil-scroll-page-up/down 向上/下滚动页面</td>
+</tr>
+<tr>
+<td style="text-align:left">C-d</td>
+<td style="text-align:left">evil-scroll-down 向下滚动</td>
+</tr>
+<tr>
+<td style="text-align:left">C-y/C-e</td>
+<td style="text-align:left">evil-scroll-line-up/down 向上/下滚动一行</td>
+</tr>
+<tr>
+<td style="text-align:left">TAB/C-o</td>
+<td style="text-align:left">evil-jump-forward/backward 前/后跳</td>
+</tr>
+<tr>
+<td style="text-align:left">RET</td>
+<td style="text-align:left">evil-ret</td>
+</tr>
+<tr>
+<td style="text-align:left">C-z</td>
+<td style="text-align:left">evil-emacs-state 切换 emacs 和 vim 模式</td>
+</tr>
+<tr>
+<td style="text-align:left">C-v</td>
+<td style="text-align:left">evil-visual-block</td>
+</tr>
+<tr>
+<td style="text-align:left">C-w</td>
+<td style="text-align:left">evil-window-map</td>
+</tr>
+<tr>
+<td style="text-align:left">C-]</td>
+<td style="text-align:left">evil-jump-to-tag</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>%</code></td>
+<td style="text-align:left">evil-jump-item</td>
+</tr>
+<tr>
+<td style="text-align:left">C-^</td>
+<td style="text-align:left">evil-buffer</td>
+</tr>
+<tr>
+<td style="text-align:left">SPC</td>
+<td style="text-align:left">evil-forward-char</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>!</code></td>
+<td style="text-align:left">evil-shell-command</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>#</code></td>
+<td style="text-align:left">evil-search-word-backward</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>$</code></td>
+<td style="text-align:left">evil-end-of-line</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>'</code></td>
+<td style="text-align:left">evil-goto-mark-line</td>
+</tr>
+<tr>
+<td style="text-align:left">```</td>
+<td style="text-align:left">evil-goto-mark</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>G</code></td>
+<td style="text-align:left">evil-goto-line</td>
+</tr>
+</tbody>
+</table>
+<p>( |    evil-backward-sentence-begin<br>
+) |    evil-forward-sentence-begin</p>
+<p>K |    evil-lookup</p>
+<ul>
+<li>|    evil-search-word-forward<br>
+<code>/</code>/<code>?</code> |    evil-search-forward/backward<br>
+N/n |    evil-search-previous/next<br>
+, |    evil-repeat-find-char-reverse<br>
+; |    evil-repeat-find-char<br>
+F |    evil-find-char-backward<br>
+T |    evil-find-char-to-backward</li>
+</ul>
+<ul>
+<li>|    evil-next-line-first-non-blank</li>
+</ul>
+<ul>
+<li>|    evil-previous-line-first-non-blank</li>
+</ul>
+<p>0 |    evil-digit-argument-or-evil-beginning-of-line<br>
+1 … 9  | digit-argument<br>
+: |    evil-ex</p>
+<p>H |    evil-window-top<br>
+L |    evil-window-bottom<br>
+M |    evil-window-middle</p>
+<p>V |    evil-visual-line</p>
+<p>Y |    evil-yank-line<br>
+y |    evil-yank</p>
+<p>[ |    Prefix Command<br>
+\ |    evil-execute-in-emacs-state<br>
+] |    Prefix Command<br>
+^ |    evil-first-non-blank<br>
+_ |    evil-next-line-1-first-non-blank</p>
+<p><code>|</code> |    evil-goto-column<br>
+b |    evil-backward-word-begin<br>
+e |    evil-forward-word-end<br>
+f |    evil-find-char<br>
+g |    Prefix Command</p>
+<p>t |    evil-find-char-to<br>
+v |    evil-visual-char</p>
+<p>z |    Prefix Command<br>
+<code>{</code> |    evil-backward-paragraph</p>
+<p><code>}</code> |    evil-forward-paragraph<br>
+C-6 |  evil-switch-to-windows-last-buffer<br>
+<down> | evil-next-line<br>
+<down-mouse-1>  | evil-mouse-drag-region<br>
+<left> | evil-backward-char<br>
+<remap> | Prefix Command<br>
+<right> | evil-forward-char<br>
+<up> | evil-previous-line</up></right></remap></left></down-mouse-1></down></p>
+<p><remap> <ace-jump-char-mode>    evil-ace-jump-char-mode<br>
+<remap> <ace-jump-line-mode>    evil-ace-jump-line-mode<br>
+<remap> <ace-jump-word-mode>    evil-ace-jump-word-mode<br>
+<remap> <avy-goto-char>         evil-avy-goto-char<br>
+<remap> <avy-goto-char-2>       evil-avy-goto-char-2<br>
+<remap> <avy-goto-char-2-above> evil-avy-goto-char-2-above<br>
+<remap> <avy-goto-char-2-below> evil-avy-goto-char-2-below<br>
+<remap> <avy-goto-char-in-line> evil-avy-goto-char-in-line<br>
+<remap> <avy-goto-line>         evil-avy-goto-line<br>
+<remap> <avy-goto-subword-0>    evil-avy-goto-subword-0<br>
+<remap> <avy-goto-subword-1>    evil-avy-goto-subword-1<br>
+<remap> <avy-goto-word-0>       evil-avy-goto-word-0<br>
+<remap> <avy-goto-word-1>       evil-avy-goto-word-1<br>
+<remap> <avy-goto-word-1-above> evil-avy-goto-word-1-above<br>
+<remap> <avy-goto-word-1-below> evil-avy-goto-word-1-below<br>
+<remap> <avy-goto-word-or-subword-1> evil-avy-goto-word-or-subword-1</avy-goto-word-or-subword-1></remap></avy-goto-word-1-below></remap></avy-goto-word-1-above></remap></avy-goto-word-1></remap></avy-goto-word-0></remap></avy-goto-subword-1></remap></avy-goto-subword-0></remap></avy-goto-line></remap></avy-goto-char-in-line></remap></avy-goto-char-2-below></remap></avy-goto-char-2-above></remap></avy-goto-char-2></remap></avy-goto-char></remap></ace-jump-word-mode></remap></ace-jump-line-mode></remap></ace-jump-char-mode></remap></p>
+<p>z RET | Keyboard Macro<br>
+z + |  evil-scroll-bottom-line-to-top<br>
+z - |  Keyboard Macro<br>
+z . |  Keyboard Macro<br>
+z H |  evil-scroll-left<br>
+z L |  evil-scroll-right<br>
+z ^ |  evil-scroll-top-line-to-bottom<br>
+z b |  evil-scroll-line-to-bottom<br>
+z h |  evil-scroll-column-left<br>
+z l |  evil-scroll-column-right<br>
+z t |  evil-scroll-line-to-top<br>
+z z |  evil-scroll-line-to-center<br>
+z <left>  | Keyboard Macro<br>
+z <return> | Keyboard Macro<br>
+z <right> | Keyboard Macro</right></return></left></p>
+<p>C-w C-b |  evil-window-bottom-right<br>
+C-w C-c |  evil-window-delete<br>
+C-w C-f |  ffap-other-window<br>
+C-w C-n |  evil-window-new<br>
+C-w C-o |  delete-other-windows<br>
+C-w C-p |  evil-window-mru<br>
+C-w C-r |  evil-window-rotate-downwards<br>
+C-w C-s |  evil-window-split<br>
+C-w C-t |  evil-window-top-left<br>
+C-w C-v |  evil-window-vsplit<br>
+C-w C-w |  evil-window-next<br>
+C-w C-_ |  evil-window-set-height<br>
+C-w + | evil-window-increase-height<br>
+C-w - | evil-window-decrease-height<br>
+C-w &lt; | evil-window-decrease-width<br>
+C-w = | balance-windows<br>
+C-w &gt; | evil-window-increase-width<br>
+C-w H | evil-window-move-far-left<br>
+C-w J | evil-window-move-very-bottom<br>
+C-w K | evil-window-move-very-top<br>
+C-w L | evil-window-move-far-right<br>
+C-w R | evil-window-rotate-upwards<br>
+C-w S | evil-window-split<br>
+C-w W | evil-window-prev<br>
+C-w _ | evil-window-set-height<br>
+C-w b | evil-window-bottom-right<br>
+C-w c | evil-window-delete<br>
+C-w h | evil-window-left<br>
+C-w j | evil-window-down<br>
+C-w k | evil-window-up<br>
+C-w l | evil-window-right<br>
+C-w n | evil-window-new<br>
+C-w o | delete-other-windows<br>
+C-w p | evil-window-mru<br>
+C-w r | evil-window-rotate-downwards<br>
+C-w s | evil-window-split<br>
+C-w t | evil-window-top-left<br>
+C-w v | evil-window-vsplit<br>
+C-w w | evil-window-next<br>
+C-w | | evil-window-set-width<br>
+C-w C-S-h | evil-window-move-far-left<br>
+C-w C-S-j |  evil-window-move-very-bottom<br>
+C-w C-S-k |  evil-window-move-very-top<br>
+C-w C-S-l |  evil-window-move-far-right<br>
+C-w C-S-r |  evil-window-rotate-upwards<br>
+C-w C-S-s |  evil-window-split<br>
+C-w C-S-w |  evil-window-prev</p>
+<p>[ ( |   evil-previous-open-paren<br>
+[ [ |   evil-backward-section-begin<br>
+[ ] |   evil-backward-section-end<br>
+[ { |   evil-previous-open-brace</p>
+<p>] ) |   evil-next-close-paren<br>
+] [ |   evil-forward-section-end<br>
+] ] |   evil-forward-section-begin<br>
+] } |   evil-next-close-brace</p>
+<p>g C-] | find-tag<br>
+g # |   evil-search-unbounded-word-backward<br>
+g $ |   evil-end-of-visual-line<br>
+g * |   evil-search-unbounded-word-forward<br>
+g 0 |   evil-beginning-of-visual-line<br>
+g E |   evil-backward-WORD-end<br>
+g N |   evil-previous-match<br>
+g ^ |   evil-first-non-blank-of-visual-line<br>
+g _ |   evil-last-non-blank<br>
+g d |   evil-goto-definition<br>
+g e |   evil-backward-word-end<br>
+g g |   evil-goto-first-line<br>
+g j |   evil-next-visual-line<br>
+g k |   evil-previous-visual-line<br>
+g m |   evil-middle-of-visual-line<br>
+g n |   evil-next-match<br>
+g v |   evil-visual-restore</p>
+<h1>学习</h1>
+<p><a href="https://github.com/emacs-china/emacs-lisp-style-guide/blob/master/README-zhCN.md" target="_blank" rel="external">emacs lisp 风格指南</a></p>
+<h1>常用包</h1>
+<h2 id="外观">外观</h2>
+<p>正在使用<br>
+<a href="https://github.com/bbatsov/solarized-emacs" target="_blank" rel="external">solarized-theme</a><br>
+<a href="https://github.com/Malabarba/smart-mode-line/" target="_blank" rel="external">smart-mode-line</a><br>
+<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio</a> 自动调整 window 的大小比例，将当前活动 buffer 所在的 window 调大，非活动窗口调小。</p>
+<p>以前用过<br>
+<a href="https://github.com/oneKelvinSmith/monokai-emacs" target="_blank" rel="external">monokai-theme</a> 对比度有些高不太适应，后来改为了 solarized-theme。<br>
+<a href="https://github.com/kuanyui/moe-theme.el" target="_blank" rel="external">moe-theme</a><br>
+[powerline]<br>
+[spaceline]</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Emacs/" rel="tag">#Emacs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-12-01-wiki-r/" rel="next" title="R 语言个人参考">
+                <i class="fa fa-chevron-left"></i> R 语言个人参考
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-12-02-daily/" rel="prev" title="每日总结 2016-12-02">
+                每日总结 2016-12-02 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">67</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">markdown-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对标题的操作"><span class="nav-number">1.1.</span> <span class="nav-text">对标题的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转与移动"><span class="nav-number">1.2.</span> <span class="nav-text">跳转与移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加内容"><span class="nav-number">1.3.</span> <span class="nav-text">添加内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">help-mode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">ess-help-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导航"><span class="nav-number">3.1.</span> <span class="nav-text">导航</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">dired-mode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">evil-mode</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#evil-window-map"><span class="nav-number">5.1.</span> <span class="nav-text">evil-window-map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evil-insert-state-map"><span class="nav-number">5.2.</span> <span class="nav-text">evil-insert-state-map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evil-motion-state-map"><span class="nav-number">5.3.</span> <span class="nav-text">evil-motion-state-map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#外观"><span class="nav-number">7.1.</span> <span class="nav-text">外观</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016-12-01-wiki-emacs/';
+      var disqus_title = "Emacs 个人参考";
+      var disqus_url = 'http://lix90.github.io/2016-12-01-wiki-emacs/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

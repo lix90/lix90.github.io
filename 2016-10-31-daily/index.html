@@ -1,0 +1,899 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,Emacs,Flexbox,Browsersync," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="Python
+with 语句
+with expression as target:
+open 函数
+open(name[, mode[, buffering]])
+打开文件，并返回 file 类型的对象。如果无法打开，将抛出 IOError 错误。
+
+name 参数为文件名；
+mode 为字符串，指定文件如何打开
+
+r 读取（默认）
+w 写入，如果文件存在，则删掉文件
+a 添加到文件末尾
+b 二进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日总结 2016-10-31">
+<meta property="og:url" content="http://lix90.github.io/2016-10-31-daily/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="Python
+with 语句
+with expression as target:
+open 函数
+open(name[, mode[, buffering]])
+打开文件，并返回 file 类型的对象。如果无法打开，将抛出 IOError 错误。
+
+name 参数为文件名；
+mode 为字符串，指定文件如何打开
+
+r 读取（默认）
+w 写入，如果文件存在，则删掉文件
+a 添加到文件末尾
+b 二进">
+<meta property="og:updated_time" content="2016-11-19T03:30:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日总结 2016-10-31">
+<meta name="twitter:description" content="Python
+with 语句
+with expression as target:
+open 函数
+open(name[, mode[, buffering]])
+打开文件，并返回 file 类型的对象。如果无法打开，将抛出 IOError 错误。
+
+name 参数为文件名；
+mode 为字符串，指定文件如何打开
+
+r 读取（默认）
+w 写入，如果文件存在，则删掉文件
+a 添加到文件末尾
+b 二进">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://lix90.github.io/2016-10-31-daily/"/>
+
+
+  <title> 每日总结 2016-10-31 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                每日总结 2016-10-31
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-31T23:36:55+08:00" content="2016-10-31">
+              2016-10-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-10-31-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-10-31-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>Python</h1>
+<h2 id="with-语句">with 语句</h2>
+<p><code>with expression as target:</code></p>
+<h2 id="open-函数">open 函数</h2>
+<p><code>open(name[, mode[, buffering]])</code></p>
+<p>打开文件，并返回 <code>file</code> 类型的对象。如果无法打开，将抛出 <code>IOError</code> 错误。</p>
+<ul>
+<li><code>name</code> 参数为文件名；</li>
+<li><code>mode</code> 为字符串，指定文件如何打开
+<ul>
+<li><code>r</code> 读取（默认）</li>
+<li><code>w</code> 写入，如果文件存在，则删掉文件</li>
+<li><code>a</code> 添加到文件末尾</li>
+<li><code>b</code> 二进制</li>
+<li><code>r+</code> <code>w+</code> <code>a+</code> 更新打开的文件</li>
+</ul>
+</li>
+<li><code>buffering</code> 缓存大小
+<ul>
+<li>0，不进行缓存</li>
+<li>1，按行缓存</li>
+<li>其他正值表示按相应的大小（bytes）进行缓存</li>
+<li>负值意味着使用系统默认的缓存方式</li>
+</ul>
+</li>
+</ul>
+<p>具有相似功能的模块：</p>
+<ul>
+<li><code>fileinput</code> 提供辅助类和函数来快速对标准输入或文件列表进行迭代。</li>
+<li><code>os</code> 提供一些与操作系统有关功能：进程参数、创建文件对象、文件描述符操作、文件和路径操作、进程管理等</li>
+<li><code>os.path</code> 对路径名进行操作</li>
+<li><code>tempfile</code> 创建临时文件和路径</li>
+<li><code>shutil</code> high-level 文件和路径的操作</li>
+</ul>
+<h2 id="csv-模块">csv 模块</h2>
+<p>csv 文件的读写（2.3版不支持 Unicode 的输入）。</p>
+<ul>
+<li><code>csv.reader(csvfile, dialect='excel', **fmtparams)</code> 返回 reader 对象，按行迭代</li>
+<li><code>csv.writer(csvfile, dialect='excel', **fmtparams)</code> 返回 writer 对象</li>
+<li><code>csv.DictReader(csvfile, fieldnames=None, restkey=None, restval=None, dialect='excel', *args, **kwds)</code> 返回与 reader 类似的对象，但是将信息读取为词典形式</li>
+<li><code>csv.DictWriter(csvfile, fieldnames, restval='', extrasaction='raise', dialect='excel', *args, **kwds)</code> 返回与 writer 类似的对象，但是将词典数据写入到行</li>
+</ul>
+<h2 id="datetime-模块">datetime 模块</h2>
+<p>提供基本的用于操作日期和时间的类和函数。</p>
+<p>在此有两类日期和时间对象：</p>
+<ul>
+<li>
+<p>aware object: 包含丰富的信息，如时区，夏时令，可以用于和其他 aware 对象进行定位。</p>
+</li>
+<li>
+<p>naive object: naive object 缺少 aware object 所包含的那些信息，仅仅包含时间。</p>
+</li>
+<li>
+<p><code>date</code> 对象</p>
+</li>
+<li>
+<p><code>datetime</code> 对象</p>
+</li>
+<li>
+<p><code>time</code> 对象</p>
+</li>
+<li>
+<p><code>tzinfo</code> 对象</p>
+</li>
+</ul>
+<p>其他与时间和日期有关的模块</p>
+<ul>
+<li><code>time</code> 模块：提供了许多时间相关的函数，可以访问和转换时间对象。
+<ul>
+<li><code>time.strftime</code> 将元组或 <code>struct_time</code> 按照时间格式转换为字符串。</li>
+</ul>
+</li>
+<li><code>calendar</code> 模块</li>
+<li><code>locale</code> 模块</li>
+</ul>
+<h1>Emacs</h1>
+<h2 id="谷歌翻译插件-google-translate">谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2>
+<p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
+<h1>杂项</h1>
+<p><a href="https://github.com/hallvors/postcss-flexboxfixer" target="_blank" rel="external">flexboxfixer</a>: flexbox 兼容处理</p>
+<p><a href="http://www.browsersync.cn/" target="_blank" rel="external">Browsersync</a></p>
+<blockquote>
+<p>Browsersync 能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。更重要的是 Browsersync 可以同时在 PC、平板、手机等设备下进项调试。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/Emacs/" rel="tag">#Emacs</a>
+          
+            <a href="/tags/Flexbox/" rel="tag">#Flexbox</a>
+          
+            <a href="/tags/Browsersync/" rel="tag">#Browsersync</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-10-30-daily/" rel="next" title="每日总结 2016-10-30">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-10-30
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-11-01-daily/" rel="prev" title="每日总结 2016-11-01">
+                每日总结 2016-11-01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">67</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#with-语句"><span class="nav-number">1.1.</span> <span class="nav-text">with 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open-函数"><span class="nav-number">1.2.</span> <span class="nav-text">open 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csv-模块"><span class="nav-number">1.3.</span> <span class="nav-text">csv 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime-模块"><span class="nav-number">1.4.</span> <span class="nav-text">datetime 模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌翻译插件-google-translate"><span class="nav-number">2.1.</span> <span class="nav-text">谷歌翻译插件 google-translate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016-10-31-daily/';
+      var disqus_title = "每日总结 2016-10-31";
+      var disqus_url = 'http://lix90.github.io/2016-10-31-daily/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

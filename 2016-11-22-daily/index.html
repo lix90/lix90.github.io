@@ -1,0 +1,976 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Chrome,项目管理,单元测试,Conf," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="JS 包括函数的学习笔记；阅读了一篇关于“编写可维护的 JS 代码”的文章。最后看了篇 chrome 开发者大会的文章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日总结 2016-11-22">
+<meta property="og:url" content="http://lix90.github.io/2016-11-22-daily/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="JS 包括函数的学习笔记；阅读了一篇关于“编写可维护的 JS 代码”的文章。最后看了篇 chrome 开发者大会的文章。">
+<meta property="og:updated_time" content="2016-11-29T02:26:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日总结 2016-11-22">
+<meta name="twitter:description" content="JS 包括函数的学习笔记；阅读了一篇关于“编写可维护的 JS 代码”的文章。最后看了篇 chrome 开发者大会的文章。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://lix90.github.io/2016-11-22-daily/"/>
+
+
+  <title> 每日总结 2016-11-22 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                每日总结 2016-11-22
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-22T00:00:00+08:00" content="2016-11-22">
+              2016-11-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-11-22-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-22-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>JavaScript：函数</h1>
+<h2 id="函数声明与函数表达式">函数声明与函数表达式</h2>
+<p><strong>函数是对象，函数名是指针。</strong><br>
+使用不带圆括号的函数名是访问函数指针，而非调用函数。<br>
+函数表达式最后有分号 <code>;</code>。<br>
+Firefox, Opera, Chrome, Safari 通过 <code>name</code> 属性，访问函数名 <code>function.name</code>。</p>
+<p><strong>函数声明提升</strong>：在执行代码前会先读取函数声明。也就是说，可以把函数声明放在调用它的语句之后。<br>
+而对于<strong>函数表达式</strong>，必须等到解析器执行到它所在的代码行，才会真正被解释执行。</p>
+<p>每个函数继承的 <code>toLocaleString()</code> 和 <code>toString()</code> 方法始终都返回函数的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">5</span>)&#125;</div><div class="line">func.toString()</div><div class="line"><span class="string">'function () &#123;console.log(5)&#125;'</span></div><div class="line">func.toLocaleString()</div><div class="line"><span class="string">'function () &#123;console.log(5)&#125;'</span></div></pre></td></tr></table></figure>
+<p><strong>匿名函数</strong>：<code>function</code> 关键字后面没有标识符。匿名函数的 <code>name</code> 属性为空字符串。<br>
+<strong>函数名本身就是变量</strong>，所以函数也可以作为值来使用。函数既可作为参数传递给另一个函数，又可以将一个函数作为结果返回。<br>
+<strong>两个特殊对象</strong>：arguments 和 this。</p>
+<h2 id="apply-call">apply &amp; call</h2>
+<p>可在特定的作用域中调用函数，等同于设置函数体内 this 对象的值。</p>
+<ul>
+<li><code>apply()</code> 方法接受两个参数：一个是在其中运行函数的作用域，另一个是<strong>参数数组</strong>。第二个参数可以为 Array 实例，也可以为 arguments 对象。</li>
+<li><code>call()</code> 与 apply 方法的作用相同，区别在于<strong>接受参数的方式不同</strong>。使用 call 时，传递给函数的参数必须<strong>逐个列举</strong>出来。</li>
+</ul>
+<blockquote>
+<p>传递函数并非 apply 和 call 真正的用武之地；他们真正强大的地方是能够<strong>扩充函数赖以运行的作用域</strong>。使用 call 和 apply 来扩充作用域的最大好处，就是<strong>对象不需要与方法有任何耦合关系</strong>。</p>
+</blockquote>
+<p>ECMAScript 5 定义了一个新方法：<code>bind()</code>。该方法会创建一个函数的实例，其 this 值会被绑定到传给 bind 函数的值。</p>
+<h2 id="递归">递归</h2>
+<p><strong>递归函数</strong>：一个函数通过名字调用自身。<code>arguments.callee</code> 是一个指向正在执行的函数的指针，可以用它来实现对函数的递归调用。在编写递归函数时，使用 <code>arguments.callee</code> 总比使用函数名更保险。但在严格模式下，不能通过脚本访问 <code>arguments.callee</code>，访问这个属性会导致错误。此时可以通过命名函数表达式来实现对当前执行的函数的引用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> factorial = (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>&#123; <span class="comment">// 命名函数表达式</span></div><div class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> num * f(num<span class="number">-1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="闭包">闭包</h2>
+<p>匿名函数 vs 闭包</p>
+<p><strong>闭包</strong>：有权访问<strong>另一个函数作用域</strong>中的<strong>变量</strong>的函数。在一个函数内部创建另一个函数，即可创建闭包。<br>
+理解闭包需要先理解作用域链。作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</p>
+<p>一般来讲，当函数执行完毕后，局部活动对象就会被销毁，内存中仅保存全局作用域。但是<strong>闭包函数在执行完毕后仍然携带包含它的函数的作用域</strong>，因此会比其他函数占用更多的内存。过度使用闭包可能会导致内存占用过多，所以<strong>只在绝对必要时考虑使用闭包</strong>。</p>
+<p>作用域链的这种配置机制引出了一个值得注意的副作用，即<strong>闭包只能取得包含函数中任何变量的最后一个值</strong>。</p>
+<h3 id="this-对象">this 对象</h3>
+<p><code>this</code> 对象是在运行时基于函数的执行环境绑定的：在全局函数中，<code>this</code> 等于 window，而当函数被作为某个对象的方法调用时，<code>this</code> 等于那个对象。匿名函数的执行环境具有全局性，因此其 <code>this</code> 对象通常指向 <code>window</code>。</p>
+<p>每个函数在被调用时都会自动取得两个特殊变量：<code>this</code> 和 <code>arguments</code>。内部函数在搜索这两个变量时，只会搜索到其活动对象为止。因此永远不可能直接访问外部函数中的这两个变量。不过，把外部作用域中的 <code>this</code> 对象保存在一个闭包能够访问到的变量里，就可以让闭包访问该对象了。如果想访问作用域中的 <code>arguments</code> 对象，必须将对该对象的引用保存到另一个闭包能够访问的变量中。</p>
+<p><strong>即使是细微的变化，都有可能意外改变 <code>this</code> 的值。</strong></p>
+<h3 id="内存泄漏">内存泄漏</h3>
+<p>闭包在 IE9 之前的版本中会导致一些特殊的问题。如果闭包的作用域链中保存着一个 HTML 元素，那么意味着该元素将无法被销毁。 &gt;&gt;&gt; 内存泄漏</p>
+<h2 id="模仿块级作用域">模仿块级作用域</h2>
+<p>JS 没有块级作用域的概念。JS 从不会告诉你是否多次声明了同一个变量，它只会读后续的声明视而不见（但是它会执行后续声明中的变量初始化）。<strong>匿名函数</strong>可以用来模仿块级作用域并避免这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 这里是块级作用域</span></div><div class="line">&#125;)();</div><div class="line"><span class="comment">// 这种做法可以减少闭包占用的内存问题，因为没有指向匿名函数的引用。只要函数执行完毕，就可以立即销毁其作用域链了。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 这里是块级作用域</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>一般来说，我们都应该尽量少向全局作用域中添加变量和函数。在一个由很多开发人员共同参与的大型应用程序中，过多的全局变量和函数很容易导致命名冲突。</p>
+<h2 id="私有变量">私有变量</h2>
+<p>严格来讲，JS 中没有私有成员的概念；所有对象属性都是公有的。</p>
+<p>私有变量</p>
+<ul>
+<li>函数中定义的变量，可以认为是私有变量，因为在函数外部无法访问这些变量。</li>
+<li>私有变量包括
+<ul>
+<li>函数的参数</li>
+<li>局部变量</li>
+<li>在函数内部定义的其他函数</li>
+</ul>
+</li>
+</ul>
+<p>可以通过闭包来创建用于访问私有变量的公有方法。</p>
+<p><strong>特权方法（previleged method）</strong>：有权访问私有变量和私有函数的公有方法。</p>
+<ol>
+<li>在构造函数中定义特权方法。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyObject</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 私有变量和私有函数</span></div><div class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//特权方法</span></div><div class="line">    <span class="keyword">this</span>.publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">        privateVariable++;</div><div class="line">        <span class="keyword">return</span> privateFunction();</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol start="2">
+<li>在私有作用域中定义私有变量或函数创建特权方法。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 私有变量和私有函数</span></div><div class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 构造函数</span></div><div class="line">    MyObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 公有/特权方法</span></div><div class="line">    MyObject.prototype.publicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        privateVariable++;</div><div class="line">        <span class="keyword">return</span> privateFunction();</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>注意：在初始化未经声明的变量，总是会创建一个全局变量。但是，在严格模式下给未经声明的变量赋值会导致错误。</p>
+<p>这个模式与在构造函数中定义特权方法的主要区别，在于**私有变量和函数是由实例共享的。**由于特权方法是在原型上定义的，因此所有实例都使用同一个函数。而这个特权方法，作为一个闭包，总是保存着对包含作用域的引用。</p>
+<p>以这种方式创建静态私有变量会因为使用原型而增进代码复用，但<strong>每个实例都没有自己的私有变量</strong>。</p>
+<ol start="3">
+<li>模块模式</li>
+</ol>
+<p>单例指只有一个实例的对象。模块模式是为单例创建私有变量和特权方法。模块模式通过为单例添加私有变量和特权方法能够使其得到增强。这种模式在需要对单例进行某些初始化，同时又需要维护其私有变量时是非常有用的。如果必须创建一个对象并以某些数据对其进行初始化，同时还要公开一些能够访问这些私有数据的方法，那么就可以使用模块模式。</p>
+<ol start="4">
+<li>增强的模块模式</li>
+</ol>
+<p><strong>增强的模块模式</strong>：在返回对象之前加入对其增强的代码，这种模式适合那些单例必须是某些类型的实例，同时还必须添加某些属性和（或）方法对其加以增强的情况。</p>
+<p>来源：《JavaScript 高级程序设计 第三版》</p>
+<hr>
+<h1>JavaScript: 编写可维护的 JS 代码</h1>
+<p>如何把一个意大利面式的代码仓库整理成一个整洁、有组织并易扩展的项目代码？</p>
+<ol>
+<li>分析项目：把自己当成用户去审视项目</li>
+</ol>
+<ul>
+<li>使用网站所有功能，打开开发者工具，看是否有报错或输出日志。</li>
+<li>Node.js 项目：打开名两行接口检查 api。最好的情况是项目有一个入口，通过入口能将所有模块初始化；最坏的情况也得找到每个业务逻辑的位置。</li>
+<li>找出使用的工具，阅读工具的文档，寻找最佳实践。</li>
+</ul>
+<ol start="2">
+<li>深入了解项目</li>
+</ol>
+<ul>
+<li>单元测试：测试代码的功能和方法是否按预期调用的一种方法。通过单元测试深入了解代码。</li>
+</ul>
+<ol start="3">
+<li>创建一个规范</li>
+</ol>
+<ul>
+<li>建议添加一个 .editorconfig 文件来保证代码在不同的编辑器、IDE 或不同开发者之间的编写风格一致。</li>
+</ul>
+<ol start="4">
+<li>代码缩进</li>
+<li>命名规则</li>
+<li>尽可能使用 lint：ESlint, JSlint, JSHint。</li>
+<li>更新依赖：更新依赖需谨慎，升级依赖没有通用的处理规则。
+<ul>
+<li><code>npm outdated</code> 可以检查哪些依赖版本比较旧</li>
+</ul>
+</li>
+</ol>
+<p><strong>常见单元测试框架</strong>：karma，jasmine，macha，ava。<br>
+如果测试用户界面，可以使用 Nightwatch.js 和 Dalekjs 这类<strong>浏览器自动测试工具</strong>。</p>
+<p><strong>单元测试与浏览器自动化测试的区别</strong>：前者测试 JS 本身代码，保证所有的模块和通用逻辑能预期运行；后者测试项目的用户界面，保证页面上的元素在预期正确的位置。</p>
+<p><strong>在重构之前先建立好单元测试。</strong></p>
+<p><strong>架构</strong></p>
+<ul>
+<li>知道项目中使用到了何种设计模式。了解该模式，并保证它在整个项目中是一致的。在项目中可以使用不同的设计模式达到不同的目的，但是<strong>绝对不要在一个模块中使用几种不同的设计模式</strong>。</li>
+<li>如果项目中没有用到什么架构，尽早作出改变。最基本的架构层级结构分为：
+<ul>
+<li>第三方内容</li>
+<li>模块内容</li>
+<li>数据</li>
+<li>初始化所有模块</li>
+<li>逻辑入口</li>
+</ul>
+</li>
+</ul>
+<p><strong>模块化</strong></p>
+<ul>
+<li>把功能划分成小的模块。</li>
+<li>每个模块对应一个明确的目标功能。</li>
+<li>应该无法通过一个模块知道外面代码逻辑。</li>
+<li>模块能在不同的场景下复用。</li>
+</ul>
+<p><strong>写注释</strong></p>
+<ul>
+<li>可用 <a href="http://usejsdoc.org/" target="_blank" rel="external">JSDoc</a> 来管理文档。</li>
+</ul>
+<p><strong>构建有组织的提交工作流程</strong></p>
+<ul>
+<li>在新分支上重构，不要在主干上直接修改</li>
+</ul>
+<p>来源：</p>
+<ul>
+<li><a href="http://web.jobbole.com/88909/" target="_blank" rel="external">伯乐在线：编写可维护的 JS 代码</a></li>
+</ul>
+<h2 id="个人总结">个人总结</h2>
+<ul>
+<li>了解和分析项目</li>
+<li>建立代码规范</li>
+<li>注释和管理文档</li>
+<li>管理依赖</li>
+<li>重构前进行单元测试</li>
+<li>了解设计模式</li>
+<li>模块化</li>
+<li>良好的版本控制流程习惯</li>
+</ul>
+<h1>阅读</h1>
+<h2 id="chrome-dev-summit-2016">Chrome Dev Summit 2016</h2>
+<p>Progressive Web Apps (PWA)，能够提供类似 Native app 一样体验的 Web app。主要有几个特点：</p>
+<ul>
+<li>可添加至桌面（可安装）</li>
+<li>离线能力</li>
+<li>消息推送</li>
+<li>安全</li>
+<li>响应式</li>
+</ul>
+<p>Darin Fisher（选择我感兴趣的点）</p>
+<ul>
+<li>移动端的挑战：分辨率，cpu，内存，电池，网络</li>
+<li>印度 2.3 亿，美国 4.6 亿，中国 7.6 亿的网民</li>
+<li><strong>超过 3 秒的网页，53% 的用户选择离开</strong></li>
+<li>在 3G 环境下，要确保页面 5 秒内加载完成</li>
+<li>“添加到主屏幕”这个功能提高了用户 4 倍的浏览频率</li>
+<li>Lighthouse 是个测试 PWA 的工具</li>
+<li><a href="https://browser-issue-tracker-search.appspot.com/" target="_blank" rel="external">browser-issue-tracker-search</a> 为开发者提供的网站，包括bug，w3c 标准，API 建议等</li>
+</ul>
+<p>Alex</p>
+<ul>
+<li>手机网页打开的平均时间在 19s</li>
+<li>Motion Mark 测试，PC 要比手机端快 25 倍</li>
+<li><strong>使用真机 Debug</strong></li>
+<li><strong>重视低端设备</strong></li>
+<li>硬件限制以至于手机不能比 PC 块</li>
+<li><a href="https://hpbn.co/" target="_blank" rel="external">High Performance Browser Networking</a></li>
+<li>少加载 code，在合适的时间执行合适的代码</li>
+<li>Service Worker 不仅仅是离线，更重要的是提升效率</li>
+</ul>
+<p>Paul - 关于 Web 未来发展方向</p>
+<ul>
+<li><strong>Web 一定会赶超 Native APIs</strong></li>
+<li>手机游戏会与 Native 平起平坐，并带来更高的利润</li>
+<li>现有 API：定位（Geolocation），相机（Camera），麦克风（Microphone），电池（Battery），权限（Permissions），网络状况（Network），自动填充（Autofill），用户授权（Credential Management API），支付（PaymentRequest API），消息推送（Push notifications），离线（Offline），可安装（Installability）</li>
+<li>SLICE（Secure，Linkable，Indexable，Composable，Ephemeral）</li>
+<li><a href="https://infrequently.org/2015/08/doing-science-on-the-web/" target="_blank" rel="external">Doing Science On The Web</a></li>
+<li><strong>新的交互方式</strong>：Physical Web. Web Bluetooth. WebUSB. WebVR.</li>
+</ul>
+<p>来源：<a href="http://www.75team.com/post/cds.html" target="_blank" rel="external">奇舞团博客</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
+          
+            <a href="/tags/项目管理/" rel="tag">#项目管理</a>
+          
+            <a href="/tags/单元测试/" rel="tag">#单元测试</a>
+          
+            <a href="/tags/Conf/" rel="tag">#Conf</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-11-21-eeg-egi/" rel="next" title="关于 EEGLAB 分析 EGI 数据">
+                <i class="fa fa-chevron-left"></i> 关于 EEGLAB 分析 EGI 数据
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-11-23-daily/" rel="prev" title="每日总结 2016-11-23">
+                每日总结 2016-11-23 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">67</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript：函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">1.1.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-call"><span class="nav-number">1.2.</span> <span class="nav-text">apply & call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">1.3.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.4.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">this 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.4.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模仿块级作用域"><span class="nav-number">1.5.</span> <span class="nav-text">模仿块级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有变量"><span class="nav-number">1.6.</span> <span class="nav-text">私有变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">JavaScript: 编写可维护的 JS 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人总结"><span class="nav-number">2.1.</span> <span class="nav-text">个人总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome-dev-summit-2016"><span class="nav-number">3.1.</span> <span class="nav-text">Chrome Dev Summit 2016</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016-11-22-daily/';
+      var disqus_title = "每日总结 2016-11-22";
+      var disqus_url = 'http://lix90.github.io/2016-11-22-daily/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,925 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,Git,Machine Learning," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="机器学习
+Basic premise of learning
+
+using a set of observations (samples) to uncover an underlying process (distributions)
+
+几种学习类型：
+
+Supervised learning: we get (input, correct output)
+Unsupervised learni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日总结 2016-10-26">
+<meta property="og:url" content="http://lix90.github.io/2016-10-26-daily/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="机器学习
+Basic premise of learning
+
+using a set of observations (samples) to uncover an underlying process (distributions)
+
+几种学习类型：
+
+Supervised learning: we get (input, correct output)
+Unsupervised learni">
+<meta property="og:updated_time" content="2016-11-19T03:29:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每日总结 2016-10-26">
+<meta name="twitter:description" content="机器学习
+Basic premise of learning
+
+using a set of observations (samples) to uncover an underlying process (distributions)
+
+几种学习类型：
+
+Supervised learning: we get (input, correct output)
+Unsupervised learni">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://lix90.github.io/2016-10-26-daily/"/>
+
+
+  <title> 每日总结 2016-10-26 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                每日总结 2016-10-26
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-26T09:30:34+08:00" content="2016-10-26">
+              2016-10-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-10-26-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-10-26-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>机器学习</h1>
+<p>Basic premise of learning</p>
+<blockquote>
+<p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
+</blockquote>
+<p>几种学习类型：</p>
+<ul>
+<li>Supervised learning: we get (input, correct output)</li>
+<li>Unsupervised learning: instead of (input, correct output), we get (input, ?)</li>
+<li>Reinforcement learning: instead of (input, correct output), we get (input, <em>some</em> output, <strong>grade for this output</strong>)</li>
+</ul>
+<p>什么是机器学习？</p>
+<blockquote>
+<p>Algorithms for inferring unknowns from knowns.<br>
+算法，推论，未知，已知</p>
+</blockquote>
+<h2 id="机器学习应用">机器学习应用</h2>
+<ul>
+<li>识别垃圾邮件</li>
+<li>识别手写字</li>
+<li>谷歌街道</li>
+<li>语音识别</li>
+<li>Netflix 推荐系统</li>
+<li>Navigation 导航</li>
+<li>气候模型：解释和预测</li>
+</ul>
+<h2 id="什么时候使用机器学习？">什么时候使用机器学习？</h2>
+<ul>
+<li>人类能力不可及：火星探测</li>
+<li>人类无法解释的问题：语音识别</li>
+<li>解决方案随着时间而变化：温度控制</li>
+<li>解决方案需要对个案进行调整</li>
+<li>问题大小超出了人类的合理能力范围</li>
+</ul>
+<h2 id="监督学习">监督学习</h2>
+<ul>
+<li>分类问题</li>
+<li>回归问题</li>
+</ul>
+<p>有训练集（包含数据及其分类）及测试集（有数据没分类）<br>
+从二元分类到多元分类</p>
+<h2 id="非监督学习">非监督学习</h2>
+<ul>
+<li>聚类（Clustering）：K-均值、混合高斯、层次聚类、最大期望算法</li>
+<li>密度估计（Density estimation）</li>
+<li>降维（Dimensionality reduction）：因子分析、主成分分析、独立成分分析、隐马尔科夫模型</li>
+</ul>
+<p>没有训练集也没有奖励与惩罚</p>
+<h2 id="监督学习与非监督学习的变式">监督学习与非监督学习的变式</h2>
+<p>Semi-supervised learning<br>
+Active learning<br>
+Decision theory<br>
+Reinforcement learning 增强学习</p>
+<ul>
+<li>结果会有相应的奖励与惩罚（Rewards or losses）</li>
+<li>目标：奖励最大化</li>
+</ul>
+<hr>
+<h2 id="学习的成分">学习的成分</h2>
+<ul>
+<li>未知的目标函数 f: x —&gt; y；</li>
+<li>X 的分布 P；</li>
+<li>训练集 D；</li>
+<li>学习算法 A；</li>
+<li>假设集 H。</li>
+</ul>
+<h2 id="机器学习的本质">机器学习的本质</h2>
+<ul>
+<li>A pattern exists; 有规律存在（学习的对象）</li>
+<li>We cannot pin it down mathematically; 无法在数学上进行确定（否则没有学习的必要）</li>
+<li>We have data on it. 有足够的数据（学习的基础）</li>
+</ul>
+<hr>
+<p>Hoeffding’s inequality<br>
+PAC: probability approximately correct</p>
+<p>通过概率论的方法来表示对未知的学习。<br>
+什么为学习？当前数据集所告知我们数据集之外信息（推广度问题）。<br>
+<strong>样本复杂度</strong>：随着问题规模的增长所带来的所需训练样本的增长。<br>
+在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。<br>
+<strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。<br>
+如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
+<h1>CSS</h1>
+<h2 id="margin">Margin</h2>
+<p>关于 Margin：</p>
+<blockquote>
+<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
+</blockquote>
+<p>垂直 margin 合并的好处：</p>
+<ul>
+<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
+<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
+<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
+</ul>
+<h2 id="css-浮动">CSS 浮动</h2>
+<ul>
+<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
+<li>不出现外边距合并</li>
+<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
+<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
+<li>一般来说浮动元素会成为块级盒</li>
+</ul>
+<blockquote>
+<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
+</blockquote>
+<h2 id="常见清除浮动的办法">常见清除浮动的办法</h2>
+<ol>
+<li>clear 属性</li>
+<li>空 DIV 法：不如何“结构与表现分离原则”</li>
+<li>Overflow 法：可能有副作用</li>
+<li>Clearfix 法</li>
+</ol>
+<blockquote>
+<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
+</blockquote>
+<h2 id="css3-提供了几种新的处理布局的方法">CSS3 提供了几种新的处理布局的方法</h2>
+<ol>
+<li>Flexbox 弹性盒子</li>
+<li>Multi-column layout 多栏布局</li>
+<li>Grid layout 格子布局</li>
+</ol>
+<h1>杂项</h1>
+<p>解决 Git push 冲突</p>
+<ul>
+<li>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log --graph命令可以看到分支合并图。</li>
+</ul>
+<p>Helvetica 纪录片：字体设计<br>
+Code Rush 纪录片：代码奔腾 Firefox 的诞生<br>
+Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag">#Machine Learning</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-10-22-http/" rel="next" title="HTTP 学习记录">
+                <i class="fa fa-chevron-left"></i> HTTP 学习记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-10-27-daily/" rel="prev" title="每日总结 2016-10-27">
+                每日总结 2016-10-27 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">67</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习应用"><span class="nav-number">1.1.</span> <span class="nav-text">机器学习应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候使用机器学习？"><span class="nav-number">1.2.</span> <span class="nav-text">什么时候使用机器学习？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监督学习"><span class="nav-number">1.3.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非监督学习"><span class="nav-number">1.4.</span> <span class="nav-text">非监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监督学习与非监督学习的变式"><span class="nav-number">1.5.</span> <span class="nav-text">监督学习与非监督学习的变式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习的成分"><span class="nav-number">1.6.</span> <span class="nav-text">学习的成分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的本质"><span class="nav-number">1.7.</span> <span class="nav-text">机器学习的本质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#margin"><span class="nav-number">2.1.</span> <span class="nav-text">Margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-浮动"><span class="nav-number">2.2.</span> <span class="nav-text">CSS 浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见清除浮动的办法"><span class="nav-number">2.3.</span> <span class="nav-text">常见清除浮动的办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css3-提供了几种新的处理布局的方法"><span class="nav-number">2.4.</span> <span class="nav-text">CSS3 提供了几种新的处理布局的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = '2016-10-26-daily/';
+      var disqus_title = "每日总结 2016-10-26";
+      var disqus_url = 'http://lix90.github.io/2016-10-26-daily/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
