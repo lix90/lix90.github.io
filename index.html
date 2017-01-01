@@ -282,6 +282,274 @@
             
               
                 
+                <a class="post-title-link" href="/2017-01-01-learn_limo_eeg/" itemprop="url">
+                  学习 LIMO EEG
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T00:00:00+08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017-01-01-learn_limo_eeg/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017-01-01-learn_limo_eeg/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>数据准备</h1>
+<ol>
+<li>save a matrix of single trials 保存单试次矩阵。</li>
+<li>update the EEG.etc field 更新 EEG.etc 域。</li>
+</ol>
+<p><strong>如何创建单试次矩阵数据？</strong></p>
+<p><strong>创建单个数据集的单试次数据矩阵</strong><br>
+使用 <code>limo_create_single_trials</code> 函数</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">options = &#123;<span class="string">'format'</span>,<span class="string">'matrix'</span>, ...</div><div class="line">           <span class="string">'datatype'</span>, <span class="string">'channels'</span>, ...</div><div class="line">           <span class="string">'erp'</span>,<span class="string">'off'</span>,...</div><div class="line">           <span class="string">'spec'</span>,<span class="string">'on'</span>,...</div><div class="line">           <span class="string">'ersp'</span>,<span class="string">'off'</span>,...</div><div class="line">           <span class="string">'itc'</span>,<span class="string">'on'</span>,...</div><div class="line">           <span class="string">'rmicacomps'</span>,<span class="string">'on'</span>, ...</div><div class="line">           <span class="string">'erpparams'</span>,[],...</div><div class="line">           <span class="string">'specparams'</span>,[],...</div><div class="line">           <span class="string">'erspparams'</span>,[],...</div><div class="line">           <span class="string">'interp'</span>,<span class="string">'off'</span>, ...</div><div class="line">           <span class="string">'scalp'</span>,<span class="string">'off'</span>,...</div><div class="line">           <span class="string">'recompute'</span>,<span class="string">'on'</span>,...</div><div class="line">           <span class="string">'savetrials'</span>,<span class="string">'on'</span> &#125;;</div><div class="line">           <span class="comment">% erpparams, specparams, erspparams 对应为 str_precomp 中对应的参数，分别对应 std_erp, std_spec, std_ersp 中的参数。默认的参数并没有自动内插缺失的通道。</span></div><div class="line">limo_create_single_trials(<span class="string">'my_subject.set'</span>, options&#123;:&#125;);</div></pre></td></tr></table></figure>
+<p>使用图形界面：<code>LIMO GUI &gt; LIMO Tools &gt; create single trials</code></p>
+<p><strong>创建多个数据集的单试次数据矩阵</strong></p>
+<ul>
+<li>创建保存数据集文件名列表的文本文件，然后导入即可批量创建多个数据集的单试次数据矩阵；</li>
+<li>通过 EEGLAB STUDY 界面</li>
+</ul>
+<h1>1st level analysis 一阶分析</h1>
+<p>一阶分析至少需要两种文件 (categorical variable 和 continuous variables) 的其中一种。</p>
+<blockquote>
+<p>LIMO EEG expect (at least for now) that your have your conditions coded separately for each trial - this should be a single vector with all your conditions (basically you can export this from your EEG structure). A continuous might some measures from your stimuli, the response (like coding incorrect responses to remove some variance), or RTs.</p>
+<p>Your <strong>categorical variable</strong> is basically your condition code for each epoch. I assume you have an epoched dataset? If so, for each file you need to generate a list with an integer per row corresponding to the order of trials in your epoched file. The <strong>continuous variable</strong> would be the same but it would not bin your data into condition. So for example it would be the degree of brightness for each picture (hence, continuous).</p>
+<p>As Bastien point out, any integer works – also if there are some conditions you want to remove you could just put a NaN. Files can be .mat or .txt</p>
+<p>Extracted from: <a href="https://sccn.ucsd.edu/pipermail/eeglablist/2014/007978.html" target="_blank" rel="external">https://sccn.ucsd.edu/pipermail/eeglablist/2014/007978.html</a></p>
+</blockquote>
+<p>其中，categorical variable 可以由 <code>limo_read_events.m</code> 函数生成:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">markders = &#123;<span class="string">'marker1'</span>, <span class="string">'marker2'</span>&#125;;</div><div class="line"><span class="built_in">cat</span> = limo_read_events(data.set, markers);</div></pre></td></tr></table></figure>
+<h1>2nd level analysis 二阶分析</h1>
+<p>创建 expected channels 和 neighbouring channels</p>
+<p><code>channeighbstructmat = limo_expected_chanlocs(data_set_name, path, neighbour_distance);</code><br>
+<code>[neighbours, channeighbstructmat] = limo_get_channeighbstructmat(EEG, neighbdist);</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017-01-01-learn_mne/" itemprop="url">
+                  学习 MNE
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T00:00:00+08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017-01-01-learn_mne/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017-01-01-learn_mne/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>预处理</h1>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016-12-29-use-zotero/" itemprop="url">
                   使用 zotero 管理文献
                 </a>
@@ -627,250 +895,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-12-14-google-scholar/" itemprop="url">
-                  谷歌学术文献检索技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-14T00:00:00+08:00" content="2016-12-14">
-              2016-12-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-12-14-google-scholar/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-12-14-google-scholar/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          个人总结的谷歌学术文献检索技巧。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-12-14-google-scholar/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-12-09-daily/" itemprop="url">
-                  每日总结 2016-12-09
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-09T00:00:00+08:00" content="2016-12-09">
-              2016-12-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-12-09-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-12-09-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          线性混合模型的一篇高引用量的摘要翻译。<br>了解 web 服务器。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-12-09-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -916,7 +940,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">67</span>
+              <span class="site-state-item-count">69</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -933,7 +957,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-count">112</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1011,8 +1035,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

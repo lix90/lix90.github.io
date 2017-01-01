@@ -282,6 +282,572 @@
             
               
                 
+                <a class="post-title-link" href="/2016-10-28-daily/" itemprop="url">
+                  每日总结 2016-10-28
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T14:10:36+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-10-28-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-10-28-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>JavaScript</h1>
+<p>常见的 JS 的鼠标事件：</p>
+<ul>
+<li>mousedown：鼠标的键钮被按下。</li>
+<li>mouseup：鼠标的键钮被释放弹起。</li>
+<li>click：单击鼠标的键钮。</li>
+<li>dblclick：鼠标的键钮被按下。</li>
+<li>contextmenu ：弹出右键菜单。</li>
+<li>mouseover：鼠标移到目标的上方。</li>
+<li>mouseout：鼠标移出目标的上方。</li>
+<li>mousemove：鼠标在目标的上方移动。</li>
+<li>mouseleave：鼠标离开目标。</li>
+</ul>
+<p>jQuery 有与此对应的鼠标事件的方法</p>
+<p><code>map</code> 方法</p>
+<p><code>arr.map(callback[, thisArg])</code>: <code>callback(currentValue, index, array)</code></p>
+<p>就是遍历 <code>arr</code> 里元素，将每个元素传入给 <code>callback</code>，然后生成新的 <code>arr</code>。</p>
+<p><code>setInterval</code> 在固定的时间间隔，重复调用一个函数或代码块，返回 <code>timeoutID</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> intervalID = <span class="built_in">window</span>.setInterval(myCallback, <span class="number">500</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myCallback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>===&gt; WindowTimers</p>
+<p><code>clearInterval()</code> <code>clearTimeout()</code> <code>setInterval()</code> <code>setTimeout()</code><br>
+<code>start</code></p>
+<hr>
+<h1>前端代码规范</h1>
+<p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
+<blockquote>
+<p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
+</blockquote>
+<h2 id="html">HTML</h2>
+<ul>
+<li>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言；</li>
+<li>在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性；</li>
+<li>尽量最少使用标签，并保持最小的复杂度；</li>
+<li>HTML 属性顺序：<code>class</code> (<code>id</code> <code>name</code>) <code>data-*</code> (<code>src</code> <code>for</code> <code>type</code> <code>href</code>) (<code>title</code> <code>alt</code>) (<code>aria-*</code>, <code>role</code>)；</li>
+<li>布尔型属性不用赋值；</li>
+<li>尽量避免多余的父元素；</li>
+<li>尽量避免 JS 生成的标签。</li>
+</ul>
+<h2 id="css">CSS</h2>
+<ul>
+<li>用两个空格来代替制表符；</li>
+<li>为选择器分组时，将单独的选择器单独放在一行；</li>
+<li>在每个声明块的左花括号前添加一个空格；</li>
+<li>声明块的右花括号应当单独成行；</li>
+<li>每条声明语句的 <code>:</code> 后应该插入一个空格；</li>
+<li>为了获得更准确的错误报告，每条声明都应该独占一行；</li>
+<li>所有声明语句都应当以分号结尾；</li>
+<li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格；</li>
+<li>不要在 <code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code> 或 <code>rect()</code> 值的内部的逗号后面插入空格；</li>
+<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0；</li>
+<li>十六进制值应该全部小写；</li>
+<li>尽量使用简写形式的十六进制值；</li>
+<li>为选择器中的属性添加双引号；</li>
+<li>避免为 0 值指定单位。</li>
+</ul>
+<h3 id="声明顺序">声明顺序</h3>
+<p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
+<ul>
+<li>Positioning</li>
+<li>Box model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ul>
+<blockquote>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
+</blockquote>
+<h3 id="不要使用-import">不要使用 @import</h3>
+<blockquote>
+<p>与 <code>&lt;link&gt;</code> 标签相比，<code>@import</code> 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用多个 <code>&lt;link&gt;</code> 元素</li>
+<li>通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件</li>
+<li>通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能</li>
+</ul>
+</blockquote>
+<h3 id="媒体查询的位置">媒体查询的位置</h3>
+<blockquote>
+<p>将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。</p>
+</blockquote>
+<h3 id="单行规则声明">单行规则声明</h3>
+<blockquote>
+<p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
+</blockquote>
+<h3 id="简写形式的属性声明">简写形式的属性声明</h3>
+<blockquote>
+<p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
+</blockquote>
+<h3 id="less-和-sass-中的嵌套">Less 和 Sass 中的嵌套</h3>
+<p>避免非必要的嵌套。</p>
+<h3 id="注释">注释</h3>
+<blockquote>
+<p>请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
+</blockquote>
+<h3 id="class-命名">class 命名</h3>
+<ul>
+<li>class 名称中只能出现小写字符和破折号（dashe）；</li>
+<li>破折号应当用于相关 class 的命名（类似于命名空间）；</li>
+<li>避免过度任意的简写；</li>
+<li>class 名称应当尽可能短，并且意义明确；</li>
+<li>使用有意义的名称；</li>
+<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
+<li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
+</ul>
+<h3 id="选择器">选择器</h3>
+<ul>
+<li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
+<li>对于经常出现的组件，避免使用属性选择器（例如，[class^=&quot;…&quot;]）。浏览器的性能会受到这些因素的影响。</li>
+<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3；</li>
+<li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）。</li>
+</ul>
+<p><code>合理使用标签</code> <code>降低选择器复杂度</code></p>
+<h3 id="代码组织">代码组织</h3>
+<ul>
+<li>以组件为单位组织代码段。</li>
+<li>制定一致的<strong>注释规范</strong>。</li>
+<li><strong>使用一致的空白符将代码分隔成块</strong>，这样利于扫描较大的文档。</li>
+<li>如果使用了多个 CSS 文件，将其<strong>按照组件而非页面的形式分拆</strong>，因为页面会被重组，而组件只会被移动。</li>
+</ul>
+<p><code>组件化</code> <code>块状</code></p>
+<h3 id="编辑器配置">编辑器配置</h3>
+<p>将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：</p>
+<ul>
+<li>用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。</li>
+<li>保存文件时，删除尾部的空白符。</li>
+<li>设置文件编码为 UTF-8。</li>
+<li>在文件结尾添加一个空白行。</li>
+</ul>
+<p>在 Emacs 中配置两个空格缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
+<hr>
+<h1>Emacs</h1>
+<h2 id="golden-ratio-mode">golden-ratio-mode</h2>
+<p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016-10-27-daily/" itemprop="url">
+                  每日总结 2016-10-27
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-27T23:11:30+08:00" content="2016-10-27">
+              2016-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-10-27-daily/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-10-27-daily/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>Javascript</h1>
+<h2 id="数组-array">数组 Array</h2>
+<p>可包含任意数据类型，并通过索引来访问每个元素。<br>
+Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>
+在写代码时，不建议直接修改 Array 的大小，访问索引时要确保索引不会越界。</p>
+<p><code>length</code> 获取长度<br>
+<code>indexOf()</code> 搜索指定元素的位置<br>
+<code>slice</code> 截取 Array 的部分元素，返回新的 Array；注意 slice 的起始参数包括开始索引，不包括结束索引。<br>
+<code>push</code> 向 Array 的末尾添加若干元素<br>
+<code>pop</code> 删除 Array 的最后一个元素<br>
+<code>unshift</code> 往 Array 头部添加若干元素<br>
+<code>shift</code> 删除 Array 的第一个元素<br>
+<code>sort</code> 对 Array 进行排序，并且修改 Array 的元素位置，默认排序标准为 <code>string Unicode code points</code>。<br>
+<code>reverse</code> 反转 Array<br>
+<code>splice</code> 从指定的索引开始删除若干元素，再从该位置添加若干元素。<br>
+<code>concat</code> 连接 Array，并返回新的 Array；concat 方法可以接收任一个元素和 Array。<br>
+<code>join</code> 将 Array 的每个元素都用指定的字符串连接起来，然后返回连接后的字符串。</p>
+<h2 id="jquery">jQuery</h2>
+<p>jQuery 可以做许多事情：</p>
+<ul>
+<li>selectors 选择器 <code>$('*').css('property', 'values');</code></li>
+<li>animations 创建动画 <code>$('selector').animate(...);</code></li>
+<li>filters 过滤机制:
+<ul>
+<li>index filters; <code>$('selector:eq(2)'.css(...));</code></li>
+<li>relationship filters; <code>$('selector:parent'.css(...));</code></li>
+<li>attribute filters; <code>$('tag[name^=&quot;foo&quot;]').css(...);</code></li>
+</ul>
+</li>
+<li>image swap 图片的操作 <code>$('img').attr('src', '...');</code></li>
+<li>methods 方法
+<ul>
+<li>attr methods; <code>.attr('attribute', '...');</code></li>
+<li>class methods; <code>.hasClass()</code> <code>.addClass()</code></li>
+<li>content methods; <code>.text()</code></li>
+</ul>
+</li>
+<li>DOM traversal DOM 遍历</li>
+<li>event binding 事件绑定 <code>.bind('event', ...)</code></li>
+</ul>
+<p>@ 2016-10-20 15:36:55</p>
+<h2 id="optimizing-the-dom">Optimizing the DOM</h2>
+<ol>
+<li>minify 最小化</li>
+<li>compress 压缩</li>
+<li>cache 缓存</li>
+</ol>
+<h3 id="onblocking-css">onblocking css</h3>
+<p>将不同媒体的样式分离为单独的样式表，然后根据媒体类型进行加载。</p>
+<h3 id="optimization-js">Optimization JS</h3>
+<p>JS 阻碍网页的解析</p>
+<h3 id="async-js">Async JS</h3>
+<ol>
+<li>Does not block DOM construction</li>
+<li>Does not block on CSSOM</li>
+</ol>
+<p>@ 2016-10-19 10:57:59</p>
+<p>Q: What is <strong>callback</strong>?</p>
+<hr>
+<h1>Vuejs</h1>
+<p>Vuejs 有哪些优点？</p>
+<ul>
+<li>Reactive</li>
+<li>Component based</li>
+<li>Modular</li>
+<li>Simple to use animations right out of the box</li>
+<li>Easy to learn</li>
+</ul>
+<hr>
+<h1>CSS</h1>
+<h2 id="zoom-属性">zoom 属性</h2>
+<p><code>zoom: auto | &lt;number&gt; | &lt;percentage&gt;;</code></p>
+<blockquote>
+<p>The zoom property in CSS allows you to scale your content. It is non-standard, and was originally implemented only in Internet Explorer. Although several other browsers now support zoom, it isn’t recommended for production sites.</p>
+</blockquote>
+<p>用于内容的缩放。zoom 是一个老版 IE 属性，在实际的使用中，不建议使用。如果要缩放内容，可以使用 <code>CSS transforms</code>，也可以使用 filters，如果需要老版的 IE 支持。</p>
+<p>兼容 IE6、IE7、IE8 浏览器，经常会遇到一些问题，可以使用 <code>zoom:1</code> 来解决，有如下作用：</p>
+<ul>
+<li>触发 IE 浏览器的 haslayout</li>
+<li>解决 IE 下的浮动，margin 重叠等问题。</li>
+</ul>
+<p>zoom 的作用：</p>
+<ul>
+<li>检查页面的标签是否闭合</li>
+<li>样式排除法</li>
+<li>模块确认法</li>
+<li>检查是否清除浮动</li>
+<li>检查 IE 下是否触发 haslayout</li>
+<li>边框背景调试法</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.jb51.net/css/40285.html" target="_blank" rel="external">CSS中不为人知Zoom属性的使用介绍(IE私有属性)</a></li>
+<li><a href="https://css-tricks.com/almanac/properties/z/zoom/" target="_blank" rel="external">CSS-tricks: zoom</a></li>
+<li><a href="http://www.useragentman.com/IETransformsTranslator/" target="_blank" rel="external">IE’s CSS3 Transforms Translator</a></li>
+</ul>
+<h2 id="bfc-块级格式化上下文">BFC 块级格式化上下文</h2>
+<p>BFC 决定盒子的布局及浮动元素相互影响的一个因素。</p>
+<p>下列情况可以创建一个块格式化上下文：</p>
+<ul>
+<li>根元素或其它包含它的元素（超级块级元素）</li>
+<li>浮动（元素 float 不为 none）</li>
+<li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
+<li>行内块 inline-blocks（元素的 display: ineline-block;）</li>
+<li>表格单元格（元素的 display: table-cell, HTML 表格单元格默认属性）</li>
+<li>表格标题（元素的 display: table-caption, HTML表格标题默认属性）</li>
+<li>overflow 的值不为 visible 的元素</li>
+<li>弹性盒子 flexboxes（元素的 display: flex 或 inline-block）</li>
+</ul>
+<p>块格式化上下文包括了创建该上下文的元素的所有子元素，但不包括创建了新的块格式化上下文的子元素。<br>
+块格式化上下文对定位与清除浮动很重要。定位和清除浮动的样式规则只适用于处于同一块格式化上下文内的元素。浮动不会影响其它块格式化上下文中元素的布局，并且清除浮动只能清除 同一块格式化上下文中 在它前面的元素的浮动。</p>
+<p>参考资料：</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">块级格式化上下文</a></p>
+<h2 id="如何通过-css-动画提升用户体验？">如何通过 CSS 动画提升用户体验？</h2>
+<p>什么时候使用动画？</p>
+<ul>
+<li>指明方向 orientation: where am i now</li>
+<li>提示功能的变化 functional change: what does this element to now</li>
+<li>提示新的元素 new element: what should i look at</li>
+<li>强调 highlight: what is important here</li>
+<li>视觉反馈 visual feedback: is the layout understanding what I am asking it to do</li>
+<li>提示系统状态 system status: is this working? how long will it take</li>
+</ul>
+<hr>
+<h1>HTML</h1>
+<h2 id="html-语义化">HTML 语义化</h2>
+<p>语义化：让机器读懂内容。</p>
+<p>Web 规模扩大 —&gt; 机器处理内容 —&gt; 机器读懂内容？—&gt; 语义化</p>
+<blockquote>
+<p>内容的语义表达能力和 AI 的智能程度决定了机器分析处理 Web 内容能力的高低。</p>
+<p><strong>内容与样式分离</strong>：将内容本身的语义合理地表述出来，再为不同的用户代理设计不同的样式描述。这样我们在提供内容的时候，首先要做的就是将内容本身进行合理的描述，暂时不用考虑它的最终呈现会是什么样子。</p>
+<p>所谓语义本身就是对符号的一种共识，被认可的程度越高、范围越广，人们就越可以依赖它实现各种各样的功能。</p>
+<p>大部分的语义网的表示规范都基于XML，因为它是一种完备的通用描述语言。</p>
+<p>所谓 web 语义化，从广义上来说，不仅要使机器（搜索引擎等）易于理解，也要使人易于理解。</p>
+<p>语义网的目标就是为了使得网络上的信息更加容易被机器理解和查找，从而提升人类使用网络获取信息的体验。</p>
+<p>语义化是指根据内容的结构化（内容语义化），选择合适的标签（代码语义化），便于开发者阅读和写出更优雅的代码的同时，让浏览器的爬虫和机器很好的解析。</p>
+</blockquote>
+<p>Why?</p>
+<blockquote>
+<ul>
+<li>有利于 SEO，有助于爬虫抓取更多的有效信息，爬虫是依赖于标签来确定上下文和各个关键字的权重。</li>
+<li>语义化的 HTML 在没有 CSS 的情况下也能呈现较好的内容结构与代码结构</li>
+<li>方便其他设备的解析</li>
+<li>便于团队开发和维护</li>
+</ul>
+</blockquote>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000005626375" target="_blank" rel="external">HTML语义化</a></li>
+<li><a href="https://www.zhihu.com/question/20455165" target="_blank" rel="external">如何理解 Web 语义化？</a></li>
+<li><a href="http://chenhaizhou.github.io/2015/12/09/html-sense.html" target="_blank" rel="external">谈谈对HTML语义化的理解</a></li>
+</ul>
+<h1>HTTP</h1>
+<h2 id="get-与-post">GET 与 POST</h2>
+<p>HTTP 协议中的两种发送请求的方法。</p>
+<p>HTTP 是基于 TCP/IP 的关于数据如何在万维网中如何通信的协议。</p>
+<blockquote>
+<p>HTTP 的底层是 TCP/IP。所以 GET 和 POST 的底层也是 TCP/IP，也就是说，GET/POST 都是TCP链接。GET 和 POST 能做的事情是一样一样的。你要给 GET 加上 request body，给 POST 带上 url 参数，技术上是完全行的通的。<br>
+HTTP 只是个行为准则，而 TCP 才是 GET 和 POST 怎么实现的基本。<br>
+GET 和 POST 本质上就是 TCP 链接，并无差别。但是由于 HTTP 的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。<br>
+GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数据包；POST 产生两个 TCP 数据包。<br>
+对于 GET 方式的请求，浏览器会把 http header 和 data 一并发送出去，服务器响应 200（返回数据）；而对于 POST，浏览器先发送 header，服务器响应 100 continue，浏览器再发送 data，服务器响应 200 ok（返回数据）。</p>
+</blockquote>
+<hr>
+<h1>Emacs</h1>
+<p>将启动 Emacs 后默认的 <code>*scratch* buffer</code> 的 major mode 改为 markdown-mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(setq initial-major-mode &apos;markdown-mode)</div><div class="line">(setq initial-scratch-message &quot;\</div><div class="line"># This buffer is for notes you don&apos;t want to save, and for Markdown.)</div></pre></td></tr></table></figure>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/" target="_blank" rel="external">Configure the Scratch Buffer’s Mode</a></li>
+</ul>
+<h2 id="lisp-and-elisp-小记">lisp and elisp 小记</h2>
+<p><code>when</code>: <code>(when COND BODY ...)</code> 当 COND 为真，eval BODY；按顺序 eval BODY 中的项，返回最后一项的值。<br>
+<code>and</code>: <code>(and CONDITIONS ...)</code> 当 CONDITIONS 全部为 non-nil 时返回最后一个 arg 的值；如果一个为 nil，后面的都不用 eval，直接返回 nil。<br>
+<code>listp</code>: <code>(listp OBJECT)</code> 当 OBJECT 为 list 返回 t，否则返回 nil。<br>
+<code>cons</code>: <code>(cons CAR CDR)</code> 创建新的 cons。<br>
+<code>not</code>: <code>(not OBJECT)</code> 如果 OBJECT 为 nil 范围 t，否则返回 nil。<br>
+<code>car</code>: <code>(car LIST)</code> 返回 LIST 中的第一个值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br>
+<code>cdr</code>: <code>(cdr LIST)</code> 返回 LIST 中除第一个值之外剩余的值；如果 arg 为 nil，返回 nil；如果 arg non-nil 且不是 cons cell，那么报错。<br>
+<code>cadr</code>: <code>(cadr X)</code> 返回 X 的 cdr 的 car，即范围 X 的第二个元素。<br>
+<code>nth</code>: <code>(nth N LIST)</code> 范围 LIST 中第 N 个元素。<br>
+<code>progn</code>: <code>(progn BODY ...)</code> 按顺序 eval BODY，返回最后一项的值。<br>
+<code>if</code>: <code>(if COND THEN ELSE)</code> 如果 COND 为 non-nil，执行 THEN，否则执行 ELSE；返回 THEN 的值，或者 ELSE 的最后一项的值；THEN 只能有一个表达式，但是 ELSE 可以有零到多个表达式；如果 COND 为 nil，且没有 ELSE，整个 IF 语句返回的值为 nil。<br>
+<code>cond</code>: <code>(cond CLAUSES...)</code> 当一个 clause 执行完再执行下一个 clause. clause 的表达式为 <code>(CONDITION BODY...)</code>. CONDITION eval 的值为 non-nil，那么 eval BODY 表达式中的项目，并且返回最后一个项目的值。如果 clause 表达式仅仅只有一个元素，如 <code>(CONDITION)</code>，如果 CONDITION 为 non-nil，那么返回 CONDITION 的值。如果没有 clause 执行成功，那么 cond 返回 nil。<br>
+<code>eq</code>: <code>(eq OBJ1 OBJ2)</code> 如果两个 args 为相同的 Lisp 对象，那么返回 t。<br>
+<code>defvar</code>: <code>(defvar SYMBOL &amp;optional INITVALUE DOCSTRING)</code> 定义 SYMBOL 为一个变量，然后返回 SYMBOL 的值。</p>
+<p><strong>Q: The differences between Macros and Functions?</strong><br>
+在后面的每日总结有提到两者的差异（更新 @2016-11-19）</p>
+<hr>
+<h1>Python</h1>
+<p><code>/</code> 与 <code>//</code> 的差别</p>
+<p>在 python2 中，当除数和被除数有一个为浮点型，/ 为一般的除法，如果除数和被除数均为整数型，/ 为整除。而 // 在任何情况下都是整除。而在 python3 中，/ 为浮点除法，// 为整除除法。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016-10-26-daily/" itemprop="url">
                   每日总结 2016-10-26
                 </a>
@@ -924,334 +1490,6 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-10-08-r-source-code/" itemprop="url">
-                  R：查看源代码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T22:23:57+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-10-08-r-source-code/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-10-08-r-source-code/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote></blockquote>
-<p>Updated in 2016-11-11</p>
-<p>为了深入了解 R 语言，谷歌检索了阅读源代码的方法，在此整理和记录以便往后查阅。要直接从 R 命令行获取源代码，需要了解一些 R 语言编程知识。R 语言中函数或者方法有许多种，例如：</p>
-<ul>
-<li>in-built 函数</li>
-<li>S3 范型函数</li>
-<li>S4 范型函数</li>
-<li>non-visible functions 隐藏函数</li>
-<li>unexported functions</li>
-<li>compiled code</li>
-<li>infix operators</li>
-</ul>
-<p>不同类型函数获取源代码的方式不同。要获取源代码，首先直接执行函数（不带括号），观察返回结果。一般来说，普通函数会直接返回源代码。</p>
-<p>如果返回的结果包含 <code>UseMethod(&quot;function&quot;)</code>，则表示该函数为 S3 范型函数，它根据对象类型的不同调用不同的方法。然后使用 <code>methods()</code> 列出特定的范型函数和与类有关的函数 <code>methods(function)</code> <code>methods(class=&quot;classname&quot;)</code>。我们可以看到返回一些带 <code>*</code> 的函数，这类函数为 <code>Non-visible functions</code>，即隐藏的函数，表示这类函数没有从语言包的命名空间导出。但是我们仍然可以查看隐藏函数的源代码，可通过 <code>:::</code> 函数查看，即 <code>pkgname:::function</code>。另外，还可以使用 <code>getAnywhere()</code> 获取。<code>getAnywhere()</code> 并不需要知道函数来自于哪个语言包。对于没有 <code>*</code> 的方法，直接运行即可获得源代码。另外，S3 范型函数还可以通过 <code>getS3method(function, class)</code> 获取源代码。</p>
-<p>如果返回的结果包含 <code>standardGeneric(&quot;function&quot;)</code>，意味着该函数为 S4 范型函数。对于这类函数，先通过 <code>showMethods(function)</code> 获得方法对应的 <code>signature</code>（不知道是神马东西）。例如：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; showMethods(chol2inv)</div><div class="line">Function: chol2inv (package base)</div><div class="line">x=<span class="string">"ANY"</span></div><div class="line">x=<span class="string">"CHMfactor"</span></div><div class="line">x=<span class="string">"denseMatrix"</span></div><div class="line">x=<span class="string">"diagonalMatrix"</span></div><div class="line">x=<span class="string">"dtrMatrix"</span></div><div class="line">x=<span class="string">"sparseMatrix"</span></div></pre></td></tr></table></figure>
-<p>其中 <code>x=&quot;ANY&quot;</code> 就是 signature。那么，可以通过 <code>getMethod(&quot;function&quot;, &quot;signature&quot;)</code> 获取源代码。<br>
-有一些方法具有更复杂的 <code>signature</code>，例如：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(raster)</div><div class="line">showMethods(extract)</div><div class="line">Function: extract (package raster)</div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"data.frame"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"Extent"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"matrix"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialLines"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPoints"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"SpatialPolygons"</span></div><div class="line">x=<span class="string">"Raster"</span>, y=<span class="string">"vector"</span></div></pre></td></tr></table></figure>
-<p>那么，可以通过 <code>getMethod(&quot;function&quot;, signature = c(x = &quot;Raster&quot;, y = &quot;SpatialPolygons&quot;))</code> 获取源代码。</p>
-<p>对于 <code>unexported functions</code>，可以使用和隐藏函数一样的方法获取源代码，即 <code>:::</code> 或 <code>getAnywhere()</code>。对于 <code>compiled code</code>，即返回内容中有 <code>&lt;bytecode:0x294e410&gt;</code> 的函数，仍然可以从 R 命令行查阅源代码。但是对于函数中调用的 <code>.C</code> <code>.Call</code> <code>.Fortran</code> <code>.External</code> <code>.Internal</code> <code>.Primitive</code>，无法从命令行获取源代码，需要直接查看编译前的源代码。函数 <code>pryr::show_c_source</code> 可以直接在 Github 中找到 <code>.Internal</code> 和 <code>.Primitive</code> 调用的内容。</p>
-<p>对于无法直接从命令行获取源代码的函数，可以直接下载原始语言包。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## from CRAN</span></div><div class="line">download.packages(pkgs = <span class="string">"Matrix"</span>,</div><div class="line">                  destdir = <span class="string">"."</span>,</div><div class="line">                  type = <span class="string">"source"</span>)</div><div class="line"><span class="comment">## uncompressing and untaring</span></div><div class="line">untar(download.packages(pkgs = <span class="string">"Matrix"</span>,</div><div class="line">                        destdir = <span class="string">"."</span>,</div><div class="line">                        type = <span class="string">"source"</span>)[,<span class="number">2</span>])</div></pre></td></tr></table></figure>
-<p>基本包的源代码，可以通过查阅 R 语言源代码： <a href="http://svn.r-project.org/R/trunk/" target="_blank" rel="external">Subversion repository</a> 或者 <a href="https://github.com/wch/r-source/tree/trunk" target="_blank" rel="external">Winston Chang’s github mirror</a>。对于其他来源的包，直接从相应网站获取。</p>
-<p>最后，可以通过 <code>edit(getAnywhere(&quot;function&quot;), file = &quot;source_function.r&quot;)</code> 或者 <code>capture.output(getAnywhere(&quot;function&quot;), file = &quot;source_function.r&quot;)</code> 获得源代码的文本内容。</p>
-<p>另外，还可以通过代码调试方法获得源代码 <code>debugonce(function)</code>，使用 <code>debug(function)</code> 需要使用 <code>undebug()</code> 结束调试。</p>
-<p>对于 infix operators，即 <code>%%</code> <code>%*%</code> <code>%in%</code>，可以通过 <code>getAnywhere</code> 或者 使用 backticks ‘`’ 包裹然后执行即可返回源代码。</p>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function" target="_blank" rel="external">How can I view the source code for a function?</a> 主要参考资料</li>
-<li><a href="http://stackoverflow.com/questions/6583265/what-does-s3-methods-mean-in-r/6583639#6583639" target="_blank" rel="external">What does “S3 methods” mean in R?</a></li>
-<li><a href="http://yusung.blogspot.jp/2007/08/get-invisible-functions-or-internal.html" target="_blank" rel="external">Get source codes for invisible functions or internal functions in R</a></li>
-<li><a href="http://stackoverflow.com/questions/5937832/how-do-i-show-the-source-code-of-an-s4-function-in-a-package" target="_blank" rel="external">How do I show the source code of an S4 function in a package?</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-10-03-r-regex/" itemprop="url">
-                  R：正则表达式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-03T00:46:15+08:00" content="2016-10-03">
-              2016-10-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-10-03-r-regex/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-10-03-r-regex/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>A ‘regular expression’ is a pattern that describes a set of strings.</p>
-</blockquote>
-<p>按照文档中的定义，正则表达式是用来描述一个字符串集合的模式（pattern）。<br>
-在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>
-支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>
-正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
-<h1>Extended Regular Expressions</h1>
-<ul>
-<li>字母和数字本身就是正则表达式，可用来匹配自身。</li>
-<li>具有特殊含义的元字符需要通过反斜杠（backslash，<code>\</code>）逃逸其所代表的特殊含义。</li>
-</ul>
-<p>元字符包括：<code>. \ | ( ) [ { ^ $ * + ?</code></p>
-<blockquote>
-<p>Escaping non-metacharacters with a backslash is implementation-dependent. The current implementation interprets \a as BEL, \e as ESC, \f as FF, \n as LF, \r as CR and \t as TAB.<br>
-A character class is a list of characters enclosed between [ and ] which matches any single character in that list; unless the first character of the list is the caret ^, when it matches any character not in the list.<br>
-A range of characters may be specified by giving the first and last characters, separated by a hyphen.<br>
-Certain named classes of characters are predefined. Their interpretation depends on the locale (see locales); the interpretation below is that of the POSIX locale.</p>
-</blockquote>
-<p><code>[:alnum:]</code> = <code>[:alpha:]</code> + <code>[:digit:]</code><br>
-<code>[:alpha:]</code> = <code>[:lower:]</code> + <code>[:upper:]</code><br>
-<code>[:blank:]</code> 空白符，如空格、tab<br>
-<code>[:cntrl:]</code> Control characters<br>
-<code>[:digit:]</code> 数字<br>
-<code>[:graph:]</code> = <code>[:alnum:]</code> + <code>[:punct:]</code><br>
-<code>[:lower:]</code> 小写字母<br>
-<code>[:print:]</code> 可打印的字符 <code>[:alnum:]</code> <code>[:punct:]</code> 空格<br>
-<code>[:punct:]</code> 标点符号<br>
-<code>[:space:]</code> 空格符：tab, newline, vertical tab, form feed, carriage return, space, and possibly other locale-dependent characters<br>
-<code>[:upper:]</code> 大写字母<br>
-<code>[:xdigit:]</code> 十六进制数字</p>
-<p>元字符</p>
-<p><code>.</code> 匹配其他任何单字符<br>
-<code>\w</code> 匹配单词 = <code>[[:alnum:]_]</code> <code>\W</code> = <code>[^[:alnum:]_]</code><br>
-<code>\s</code> 空白符 <code>\S</code> 非空白符<br>
-<code>\d</code> 数字 <code>\D</code> 非数字<br>
-<code>^</code> 匹配首空字符（line）<br>
-<code>$</code> 匹配尾空字符（line）<br>
-<code>\&lt;</code> 匹配首空字符（word）<br>
-<code>\&gt;</code> 匹配尾空字符（word）<br>
-<code>\b</code> 匹配位于边缘的空字符（word）<br>
-<code>\B</code> 匹配非边缘字符（word）</p>
-<p>匹配频率有关的元字符</p>
-<p><code>?</code> 匹配 1 次<br>
-<code>*</code> 匹配 0 或多次<br>
-<code>+</code> 匹配 1 或多次<br>
-<code>{n}</code> 匹配 n 次<br>
-<code>{n,}</code> 匹配 n 或更多次<br>
-<code>{n,m}</code> 匹配 n 至 m 次</p>
-<p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>
-正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
-<h1>正则表达式函数实例</h1>
-<h2 id="grep">grep</h2>
-<hr>
-<p>未完待续</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1297,7 +1535,7 @@ Certain named classes of characters are predefined. Their interpretation depends
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">67</span>
+              <span class="site-state-item-count">69</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1314,7 +1552,7 @@ Certain named classes of characters are predefined. Their interpretation depends
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-count">112</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1392,8 +1630,8 @@ Certain named classes of characters are predefined. Their interpretation depends
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
