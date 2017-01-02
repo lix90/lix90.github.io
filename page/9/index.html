@@ -486,7 +486,7 @@
       
         
           
-            <h1>R: library &amp; require</h1>
+            <h1 id="r-library-require">R: library &amp; require</h1>
 <p>谢一辉有<a href="http://yihui.name/en/2014/07/library-vs-require/" target="_blank" rel="external">一篇博文</a>讨论了 <code>library</code> 和 <code>require</code> 两个函数的区别和误用。其实在文档中已经说明了两者的差别。虽然都可以载入 R 包，但是 <code>require</code> 等于是<strong>尝试</strong>加载包，并返回一个逻辑值，以反映是否加载成功。也就是说，无论是否以安装需要加载的包，<code>require</code> 都能正常执行。只不过 <code>require</code> 会出现警告“不存某个包”。而 <code>library</code> 是直接加载包，如果包不存在，那么就报错，停止执行后面的代码。所以，如果需要加载包，直接使用 <code>library</code> 即可，不需要 <code>require</code> 来画蛇添足。不过 <code>require</code> 有个好处，可以用来检测是否存在某个包，如果不存在，那么就安装。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pkg &lt;- <span class="string">"lix"</span></div><div class="line"><span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">  print(paste0(<span class="string">"Cool! You load "</span>, pkg, <span class="string">"."</span>))</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  print(paste0(<span class="string">"Trying to install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  install.packages(pkg)</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">require</span>(pkg)) &#123;</div><div class="line">    print(paste0(pkg, <span class="string">" installed and loaded."</span>))</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">stop</span>(paste0(<span class="string">"Could not install "</span>, pkg, <span class="string">"."</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>不过，同样地，<code>library</code> 也可以返回逻辑值，通过参数 <code>logical.return = TRUE</code> 实现。但是仍然会给出警告 <code>Warning message</code>。嫌烦可以使用 <code>suppressWarnings</code> 来阻止警告的出现。事实上，看 <code>require</code> 的源码发现 <code>require</code> 本身就是调用的 <code>library</code>。所以说在加载包时，选择 <code>library</code> 肯定是更恰当的。<code>require</code> 只不过加了一层检测机制。</p>
@@ -616,7 +616,7 @@
       
         
           
-            <h1>R</h1>
+            <h1 id="r">R</h1>
 <h2 id="detach-attach"><code>detach</code> &amp; <code>attach</code></h2>
 <p><code>attach</code></p>
 <p>将数据或对象加载到 <code>search path</code> 中。这意味着数据库中可以查找到某对象，从而可以通过名称访问。当计算一个变量或者函数名时，R 需要从 <code>search</code> 列出的数据库名单中搜索。第一个匹配的对象将被使用。当 <code>attach</code> 一个 data frame 或者 list 到 search path，可以仅仅通过名称来访问 data frame 或 list 中的变量，而不需要被当作 data frame 或者 list 的成分。默认情况下，数据库会被 attach 到 search path 中的第二个位置，即 <code>pos = 2</code>，位于用户的 workspace（工作空间）之后，在所有前面 attach 过的包和数据库之前。但是 attach 的位置可以通过参数 <code>pos</code> 指定，但是无法指定到 <code>pos = 1</code>，因为被工作空间占用。事实上，数据库并没有被加载，而是在搜索路径创建了新的环境。list 中的元素或者 data frame 中的列，或者保存文件和环境中的对象被拷贝至新环境中。</p>
@@ -630,7 +630,7 @@
 </ul>
 <h2 id="整数型数值">整数型数值</h2>
 <p><code>1L</code> 为 <code>integer</code>；<code>1</code> 为 <code>numeric</code>。即 <code>L</code> 用于声明这个数值为整数型。因为在 R 中整数为 32-bit 的长整型，所以使用 <code>L</code> 指代这样的数据类型。</p>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <p>JavaScript：DOM &amp; BOM</p>
 <blockquote>
 <p>The BOM consists of the objects navigator, history, screen, location and document which are children of window. In the document node is the DOM, the document object model, which represents the contents of the page. You can manipulate it using javascript. （“node is in the DOM tree” or “node is the smallest unit in the DOM tree” or “nodes compose the DOM tree”）</p>
@@ -767,7 +767,7 @@
         
           
             <p>临近求职，即将从学生狗迈入“社会”，需要关注下着装和生活品味。个人喜欢将看起来不严肃的事情也当做很“正经”的事情学习研究一番，这篇笔记便是最好的见证。</p>
-<h1>男士衬衫穿搭技巧</h1>
+<h1 id="男士衬衫穿搭技巧">男士衬衫穿搭技巧</h1>
 <h2 id="正装衬衫">正装衬衫</h2>
 <h3 id="挑选技巧">挑选技巧</h3>
 <ol>
@@ -980,13 +980,13 @@
       
         
           
-            <h1>Ruby：修改 RubyGems 镜像</h1>
+            <h1 id="ruby：修改-rubygems-镜像">Ruby：修改 RubyGems 镜像</h1>
 <p>在此使用较新的 RubyGems 版本，建议 2.6.X 以上。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gem update --system # 需要翻墙</div><div class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</div><div class="line">$ gem sources -l</div><div class="line">https: //gems.ruby-china.org</div><div class="line"># 确保只有以上一项</div></pre></td></tr></table></figure>
 <p>如果使用 Gemfile 和 Bundle</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bundle config mirror.https://rubygems.org https://gems.ruby-china.org</div></pre></td></tr></table></figure>
 <p>参考网址：<a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a></p>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <ul>
 <li><a href="https://www.datacamp.com/community/blog/python-pandas-cheat-sheet" target="_blank" rel="external">Pandas Cheat Sheet for Data Science in Python</a></li>
 </ul>

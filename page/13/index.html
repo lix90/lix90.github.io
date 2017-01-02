@@ -513,7 +513,7 @@
 在 R 语言中，有两类正则表达式：一是默认使用的拓展的正则表达式（extended regular expressions）；二是类 Perl 语言的正则表达式，通过 <code>perl = TRUE</code> 生效。另外还有可以通过设置参数 <code>fixed = TRUE</code> 使用 literal 正则表达式。<br>
 支持正则表达式的函数包括：<code>grep</code> <code>grepl</code> <code>regexpr</code> <code>gregexpr</code> <code>sub</code> <code>gsub</code> <code>strsplit</code>。其他函数 <code>apropos</code> <code>browseEnv</code> <code>help.search</code> <code>list.files</code> <code>ls</code> 等往往通过 <code>grep</code> 函数来支持正则表达式。<br>
 正则表达式过长可能不被接受，因为 POSIX 标准仅支持最高256字节。</p>
-<h1>Extended Regular Expressions</h1>
+<h1 id="extended-regular-expressions">Extended Regular Expressions</h1>
 <ul>
 <li>字母和数字本身就是正则表达式，可用来匹配自身。</li>
 <li>具有特殊含义的元字符需要通过反斜杠（backslash，<code>\</code>）逃逸其所代表的特殊含义。</li>
@@ -557,7 +557,7 @@ Certain named classes of characters are predefined. Their interpretation depends
 <code>{n,m}</code> 匹配 n 至 m 次</p>
 <p>默认来说，默认匹配次数是有多少次就多少次。但是可以通过 <code>?</code> 来改变低频率匹配。<br>
 正则表达式可以被连接起来，其作用等同于把待匹配的字符串用连接的正则表达式匹配的效果。两个正则表达式也可以通过 <code>|</code> 求并集。</p>
-<h1>正则表达式函数实例</h1>
+<h1 id="正则表达式函数实例">正则表达式函数实例</h1>
 <h2 id="grep">grep</h2>
 <hr>
 <p>未完待续</p>
@@ -994,7 +994,7 @@ Certain named classes of characters are predefined. Their interpretation depends
             <p>在正式读研之前，我几乎没有编程基础。本科在一所不知名的民办二本院校的第一届人力资源班。只在省二级计算机考试中接触了丁点儿编程（好像是VFOX）。也没有考国家计算机二级证书。从刚读研开始，需要在 MATLAB 环境下工作，才正式学起了一门程序语言。所以学习一门编程语言并没有想象中的困难。</p>
 <p>借这个地儿，分享<strong>如何从零基础菜鸟开始入门到熟悉并且掌握一门程序语言</strong>的一些经验，希望能够给同样零基础，或者畏惧编程的朋友（特别是从事科学研究的人）一些启发。</p>
 <p>P.S. 内容较为简洁，后续再补充。</p>
-<h1>为什么科研人员要至少学一门编程语言？</h1>
+<h1 id="为什么科研人员要至少学一门编程语言？">为什么科研人员要至少学一门编程语言？</h1>
 <ul>
 <li>提高生产效率（productivity）</li>
 <li>培养抽象逻辑思维（abstract thinking）</li>
@@ -1002,14 +1002,14 @@ Certain named classes of characters are predefined. Their interpretation depends
 <li>促进同行交流（communication）</li>
 <li>…</li>
 </ul>
-<h1>对于科研工作者有哪些编程语言和工具值得一学？</h1>
+<h1 id="对于科研工作者有哪些编程语言和工具值得一学？">对于科研工作者有哪些编程语言和工具值得一学？</h1>
 <ul>
 <li><code>R</code> <code>Python</code> <code>Matlab</code></li>
 <li><code>Linux</code> <code>Shell</code> <code>Git</code></li>
 </ul>
 <p>为什么要学习这些东西，搜索引擎检索：<code>why learn x as y</code> 或者 <code>Y 为什么学 X</code>，X 为对应的语言和工具，Y 为职业或者领域。</p>
 <hr>
-<h1>准备工作</h1>
+<h1 id="准备工作">准备工作</h1>
 <h2 id="1-科学上网">1. 科学上网</h2>
 <p><a href="https://zh.wikipedia.org/zh/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E" target="_blank" rel="external">GFW</a> 阻断了国人许多获取信息和知识的渠道。所以，要想借助互联网进行学习，首要解决的问题就是突破 GFW 的限制。</p>
 <ul>
@@ -1043,7 +1043,7 @@ Certain named classes of characters are predefined. Their interpretation depends
 </li>
 </ul>
 <hr>
-<h1>学习资料</h1>
+<h1 id="学习资料">学习资料</h1>
 <h2 id="1-官方文档-documentations">1. 官方文档 Documentations</h2>
 <ul>
 <li><a href="https://www.r-project.org/" target="_blank" rel="external">R</a>, <a href="https://support.rstudio.com/hc/en-us/categories/200035113-Documentation" target="_blank" rel="external">Rstudio</a>, <a href="http://www.rdocumentation.org/" target="_blank" rel="external">Rdocumentation</a>, <a href="http://rseek.org/" target="_blank" rel="external">Rseek</a>,</li>
@@ -1081,7 +1081,7 @@ Certain named classes of characters are predefined. Their interpretation depends
 <li>MATLAB：<a href="http://mirlab.org/jang/books/matlabProgramming4beginner/" target="_blank" rel="external">MATLAB程式設計：入門篇</a>，<a href="http://mirlab.org/jang/books/matlabProgramming4guru/" target="_blank" rel="external">MATLAB程式設計：進階篇</a>，<a href="http://www.matlab-cookbook.com/" target="_blank" rel="external">MATLAB Cookbook</a></li>
 </ul>
 <hr>
-<h1>如何学习</h1>
+<h1 id="如何学习">如何学习</h1>
 <h2 id="第一步：从整体上了解某种语言功能-特点以及优缺点">第一步：从整体上了解某种语言功能、特点以及优缺点</h2>
 <p>这一步可以通过慕课或者书籍来对一门编程语言有一个大概的了解，知道它适合做什么，不适合做什么。</p>
 <p>相关慕课请通过搜索引擎进行检索。个人不太喜欢看视频学一门编程语言，相对来说比较喜欢看书。习惯看电子书的可以访问前面提到的免费电子书。习惯看纸质书的借一本翻翻就行了。也许其他人比较喜欢看视频教学。</p>
@@ -1121,7 +1121,7 @@ Certain named classes of characters are predefined. Their interpretation depends
 <h2 id="第五步：阅读书籍和源码-books-source-code">第五步：阅读书籍和源码 Books &amp; Source code</h2>
 <p>一般来说，不做程序员，就没必要学得太深入。但是如果感兴趣，要进一步提高，那就要多阅读经典技术书籍和源代码咯。</p>
 <hr>
-<h1>Linux, Shell, &amp; Git 学习资源</h1>
+<h1 id="linux-shell-git-学习资源">Linux, Shell, &amp; Git 学习资源</h1>
 <p>Linux</p>
 <ul>
 <li><a href="http://linux.vbird.org/linux_basic/" target="_blank" rel="external">鸟哥的 Linux 私房菜</a></li>
@@ -1139,7 +1139,7 @@ Certain named classes of characters are predefined. Their interpretation depends
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a></li>
 </ul>
 <hr>
-<h1>总结</h1>
+<h1 id="总结">总结</h1>
 <ul>
 <li>在科学上网的前提下，善用<strong>搜索引擎</strong>；</li>
 <li>学会查询和阅读<strong>文档</strong>；</li>

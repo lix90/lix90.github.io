@@ -352,7 +352,7 @@
       
         
           
-            <h1>Layout 布局</h1>
+            <h1 id="layout-布局">Layout 布局</h1>
 <p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
 <p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br>
@@ -366,7 +366,7 @@
 <li><code>n</code>：绘制的图形个数。</li>
 </ul>
 <p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h1>Par 的 mfrow 和 mfcol 参数布局</h1>
+<h1 id="par-的-mfrow-和-mfcol-参数布局">Par 的 mfrow 和 mfcol 参数布局</h1>
 <p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>
 在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
 <h2 id="par-关于布局的参数">par 关于布局的参数</h2>
@@ -400,7 +400,7 @@
 <li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
 <li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
 </ul>
-<h1>Split.screen 布局</h1>
+<h1 id="split-screen-布局">Split.screen 布局</h1>
 <p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br>
 <code>screen</code> 用于选择哪一个 screen 绘制图形。<br>
 <code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br>
@@ -535,7 +535,7 @@
       
         
           
-            <h1>杂项</h1>
+            <h1 id="杂项">杂项</h1>
 <h2 id="shell">Shell</h2>
 <p><code>ps</code> 返回正在运行的进程的信息<br>
 <code>ps aux</code> 列出所有运行进程<br>
@@ -678,7 +678,7 @@
       
         
           
-            <h1>CSS 和 JS 加载顺序和位置问题</h1>
+            <h1 id="css-和-js-加载顺序和位置问题">CSS 和 JS 加载顺序和位置问题</h1>
 <h2 id="为什么要把-css-样式表放在头部-head">为什么要把 CSS 样式表放在头部（Head）</h2>
 <p>如果 CSS 放置在头部，页面会渐进渲染。前端工程师需要让页面和样式渐进的显示出来。对于具有大量内容的页面和网络连接效率较低的用户，这是非常重要的。这样可以给用户视觉反馈，来提示页面的渲染进度。这能够整体上提升用户体验。</p>
 <p>如果 CSS 防止在页面文档的底端，这会阻止浏览器渐进的渲染页面。浏览器会阻止渲染，为了避免对页面元素进行重绘。这样会出现一段时间的白屏。影响用户体验。</p>
@@ -697,7 +697,7 @@
 <li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo! Best Practices for Speeding Up Your Web Site</a></li>
 </ul>
 <hr>
-<h1>CSS：@import vs Link</h1>
+<h1 id="css：-import-vs-link">CSS：@import vs Link</h1>
 <blockquote>
 <p>The bottomline is: use LINK instead of @import if you want stylesheets to download in parallel resulting in a faster page.</p>
 <ul>
@@ -711,7 +711,7 @@
 <li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/" target="_blank" rel="external">SteveSounders: don’t use @import</a></li>
 </ul>
 <hr>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <blockquote>
 <p><a href="https://github.com/rushter/MLAlgorithms" target="_blank" rel="external">rushter/MLAlgorithms</a><br>
 A collection of minimal and clean implementations of machine learning algorithms.</p>
@@ -835,7 +835,7 @@ A collection of minimal and clean implementations of machine learning algorithms
       
         
           
-            <h1>R</h1>
+            <h1 id="r">R</h1>
 <p>Mode &amp; Type</p>
 <p>Mode 由 <code>mode</code> 获得<br>
 Type 由 <code>typeof</code> 获得</p>
@@ -847,7 +847,7 @@ Type 由 <code>typeof</code> 获得</p>
 <li>类型 <code>language</code> 返回为 <code>(</code> 或 <code>call</code></li>
 </ul>
 <hr>
-<h1>鸟哥 Linux 私房菜学习记录</h1>
+<h1 id="鸟哥-linux-私房菜学习记录">鸟哥 Linux 私房菜学习记录</h1>
 <h2 id="计算机概论">计算机概论</h2>
 <p>三大部分：输入单元、主机、输出单元。<br>
 五大部分：输入、输出、CPU 控制单元、CPU 算数逻辑单元与内存。</p>
@@ -869,7 +869,7 @@ CPU 内分为两个主要单元：</p>
 CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目多且复杂，每条指令的长度不相同。由于指令执行较为复杂，所以每条指令花费时间较长，但每条指令可以处理的工作较为丰富。大量使用于个人电脑中。</p>
 <p>位：CPU 一次数据读取的最大量。64位 CPU 表示一次读写 64bits 的数据，32位则读取 32bits。一般32位 CPU 能读写的最大数据量为 4GB 左右。</p>
 <hr>
-<h1>Git 学习记录</h1>
+<h1 id="git-学习记录">Git 学习记录</h1>
 <h2 id="sha">SHA</h2>
 <p>表示项目历史信息的文件由40个字符的“对象名（SHA）”来索引。不同内容的两个对象不可能有相同的对象名。</p>
 <ul>
@@ -887,7 +887,7 @@ CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目�
 <h2 id="git-与-svn-的区别">Git 与 SVN 的区别</h2>
 <p>SVN 使用增量文件系统（Delta storage systems），它们存储每次提交的差异。Git 把每次提交的文件的全部内容（snapshot）都会记录下来。</p>
 <hr>
-<h1>Emacs</h1>
+<h1 id="emacs">Emacs</h1>
 <h2 id="快捷键设置">快捷键设置</h2>
 <p>四种类型的快捷键设置：</p>
 <ul>
@@ -918,7 +918,7 @@ CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目�
 </blockquote>
 <p>参考 emacs-china 社区<a href="https://emacs-china.org/t/emacslisp/1566" target="_blank" rel="external">问答</a></p>
 <hr>
-<h1>数据挖掘</h1>
+<h1 id="数据挖掘">数据挖掘</h1>
 <p>在数据挖掘中，理解数据、检查数据，对数据进行预处理至关重要。</p>
 <h2 id="数据理解">数据理解</h2>
 <ul>
@@ -968,7 +968,7 @@ CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目�
 </ul>
 <p>说明：整理自狗熊会（微信公众号）文章《灰常数据挖掘|数据理解和预处理》</p>
 <hr>
-<h1>交互设计：按钮</h1>
+<h1 id="交互设计：按钮">交互设计：按钮</h1>
 <h2 id="让按钮看起来像按钮">让按钮看起来像按钮</h2>
 <p>视觉线索让人确定部件的可点击特性。在可点击的元素上使用合适的视觉线索使得它们看起来想按钮。</p>
 <h3 id="形状">形状</h3>
@@ -1017,7 +1017,7 @@ CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目�
 </ul>
 <p>说明：笔记整理来自<a href="https://www.smashingmagazine.com/2016/11/a-quick-guide-for-designing-better-buttons/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=rss" target="_blank" rel="external">Smashing Magazine: A Quick Guide For Designing Better Buttons</a></p>
 <hr>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <ul>
 <li><a href="http://webpro.github.io/programming-principles/" target="_blank" rel="external">Programming Principles</a> 编程原则</li>
 </ul>
@@ -1142,7 +1142,7 @@ CISC：每个小指令可以执行一些较低阶的硬件操作，指令数目�
           
             <p>本文为实验室内部分享内容提纲。<br>
 分享目的：做到在不求人的情况下无痛高效地输出符合论文投稿要求的图形。</p>
-<h1>准备知识</h1>
+<h1 id="准备知识">准备知识</h1>
 <h2 id="颜色模式">颜色模式</h2>
 <ul>
 <li>印刷：CMYK，印刷三原色（青品黄），叠加变暗 —&gt; 打印出版</li>
@@ -1188,7 +1188,7 @@ PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量�
 <li>每英寸点数</li>
 <li>用于打印或印刷领域</li>
 </ul>
-<h1>图形编辑软件使用</h1>
+<h1 id="图形编辑软件使用">图形编辑软件使用</h1>
 <ul>
 <li>Adobe Illustrator 商业矢量图编辑软件：<strong>主要内容</strong></li>
 <li>Adobe Photoshop 商业位图编辑软件</li>
@@ -1232,7 +1232,7 @@ PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量�
 <li>取色：工具栏 &gt;&gt;&gt; Eye droper tool</li>
 <li>属性修改（线）：Window &gt;&gt;&gt; Appearance</li>
 </ul>
-<h1>实例</h1>
+<h1 id="实例">实例</h1>
 <ol>
 <li>实验流程图</li>
 <li>单图编辑</li>
@@ -1240,7 +1240,7 @@ PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量�
 <li>ERP 线图编辑</li>
 <li>…</li>
 </ol>
-<h1>绘制图表</h1>
+<h1 id="绘制图表">绘制图表</h1>
 <ul>
 <li>编程语言：R, Python, Matlab, … &gt;&gt;&gt; 推荐学习</li>
 <li>界面操作：Excel, SPSS, JASP, …</li>

@@ -351,7 +351,7 @@
       
 
       
-        <h1>如何在 ESS 中调出 R 包对应的 Vignettes？</h1>
+        <h1 id="如何在-ess-中调出-r-包对应的-vignettes？">如何在 ESS 中调出 R 包对应的 Vignettes？</h1>
 <ul>
 <li>首先得加载包 <code>library(pkg)</code></li>
 <li><code>C-c C-d C-v</code> 查找已载入包的 Vignettes，含有 Vignettes 的包则会列出来</li>
@@ -362,12 +362,12 @@
 <li>先搜索包的 vignette：<code>vignette(package = &quot;pkg_name&quot;)</code>，获得 vignette 主题名称</li>
 <li>然后再通过 <code>vignette(topic = &quot;topic_name&quot;, package = &quot;pkg_name&quot;)</code> 调出 vignette</li>
 </ul>
-<h1>如何阻止 R 打印启动信息（startup message）</h1>
+<h1 id="如何阻止-r-打印启动信息-startup-message">如何阻止 R 打印启动信息（startup message）</h1>
 <ul>
 <li>命令行中，传给 R 参数即可 <code>R -q/--quiet/--silent</code></li>
 <li>ESS 中，设定变量 <code>inferior-R-args</code> 的值 <code>(setq inferior-R-args &quot;-q&quot;)</code></li>
 </ul>
-<h1>如何将 R 中的统计结果导出为发表格式（APA）？</h1>
+<h1 id="如何将-r-中的统计结果导出为发表格式-apa-？">如何将 R 中的统计结果导出为发表格式（APA）？</h1>
 <p>一般来说，用 R 统计之后导出的信息过于详细，直接复制并不能满足发表的格式要求。但是结果报告时只需要特定的指标，所以需要精简信息。两个包可以实现该需求，<code>schoRsch</code> 和 <code>apa</code>。</p>
 <blockquote>
 <p>apa generalizes this idea by providing formatters for different output formats (text, Markdown, RMarkdown, HTML, LaTeX, docx and R’s plotmath syntax).</p>
@@ -395,7 +395,7 @@
 <li>es: 字符串，指定效应量类型，包括 “cohens_d”(默认), “hedges_g”, 或 “glass_delta”（如何 x 为独立样本 t 检验的结果）。如果 x 为配对样本或者单样本 t 检验结果，报告 cohen’s d 值。</li>
 <li>format: 字符串，导出格式。</li>
 </ul>
-<h1>统计检验力分析</h1>
+<h1 id="统计检验力分析">统计检验力分析</h1>
 <h2 id="统计检验力">统计检验力</h2>
 <p>power 统计检验力：如果真实差异存在，统计检验能够检测到真实差异的能力。<br>
 $\beta$ 第二类错误概率：当虚无假设（null hypothesis）为假，没有能够拒绝虚无假设的概率。<br>
@@ -420,7 +420,7 @@ $$power = 1 - \beta$$<br>
 <li>计算更复杂的实验设计的 power 是非常复杂的</li>
 </ul>
 <p><strong>omnibus test</strong> 综合检验只提供给我们进一步分析差异的权限。</p>
-<h1>多重比较</h1>
+<h1 id="多重比较">多重比较</h1>
 <p>两种多重比较方法</p>
 <h2 id="planned-comparisons">Planned comparisons</h2>
 <ul>
@@ -723,7 +723,7 @@ $$power = 1 - \beta$$<br>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">如何在 ESS 中调出 R 包对应的 Vignettes？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">如何阻止 R 打印启动信息（startup message）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">如何将 R 中的统计结果导出为发表格式（APA）？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">统计检验力分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计检验力"><span class="nav-number">4.1.</span> <span class="nav-text">统计检验力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计检验力的几个问题"><span class="nav-number">4.2.</span> <span class="nav-text">统计检验力的几个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效应量"><span class="nav-number">4.3.</span> <span class="nav-text">效应量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-r-进行统计检验力分析"><span class="nav-number">4.4.</span> <span class="nav-text">使用 R 进行统计检验力分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#power-分析的挑战"><span class="nav-number">4.5.</span> <span class="nav-text">power 分析的挑战</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">多重比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#planned-comparisons"><span class="nav-number">5.1.</span> <span class="nav-text">Planned comparisons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post-hoc-comparisons"><span class="nav-number">5.2.</span> <span class="nav-text">post-hoc comparisons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较次数"><span class="nav-number">5.3.</span> <span class="nav-text">比较次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非冗余比较-non-redundant-contrasts"><span class="nav-number">5.4.</span> <span class="nav-text">非冗余比较 Non-redundant contrasts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要关注正交性？"><span class="nav-number">5.5.</span> <span class="nav-text">为什么要关注正交性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重比较检验"><span class="nav-number">5.6.</span> <span class="nav-text">多重比较检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个概念"><span class="nav-number">5.7.</span> <span class="nav-text">几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较方法"><span class="nav-number">5.8.</span> <span class="nav-text">比较方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bonferroni"><span class="nav-number">5.8.1.</span> <span class="nav-text">Bonferroni</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#holm-bonferroni"><span class="nav-number">5.8.2.</span> <span class="nav-text">Holm-Bonferroni</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keppel-等人的观点"><span class="nav-number">5.8.3.</span> <span class="nav-text">Keppel 等人的观点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事后成对比较"><span class="nav-number">5.9.</span> <span class="nav-text">事后成对比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何应对多重比较问题？"><span class="nav-number">5.10.</span> <span class="nav-text">如何应对多重比较问题？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何在-ess-中调出-r-包对应的-vignettes？"><span class="nav-number">1.</span> <span class="nav-text">如何在 ESS 中调出 R 包对应的 Vignettes？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何阻止-r-打印启动信息-startup-message"><span class="nav-number">2.</span> <span class="nav-text">如何阻止 R 打印启动信息（startup message）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何将-r-中的统计结果导出为发表格式-apa-？"><span class="nav-number">3.</span> <span class="nav-text">如何将 R 中的统计结果导出为发表格式（APA）？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计检验力分析"><span class="nav-number">4.</span> <span class="nav-text">统计检验力分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计检验力"><span class="nav-number">4.1.</span> <span class="nav-text">统计检验力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计检验力的几个问题"><span class="nav-number">4.2.</span> <span class="nav-text">统计检验力的几个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效应量"><span class="nav-number">4.3.</span> <span class="nav-text">效应量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-r-进行统计检验力分析"><span class="nav-number">4.4.</span> <span class="nav-text">使用 R 进行统计检验力分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#power-分析的挑战"><span class="nav-number">4.5.</span> <span class="nav-text">power 分析的挑战</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多重比较"><span class="nav-number">5.</span> <span class="nav-text">多重比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#planned-comparisons"><span class="nav-number">5.1.</span> <span class="nav-text">Planned comparisons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post-hoc-comparisons"><span class="nav-number">5.2.</span> <span class="nav-text">post-hoc comparisons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较次数"><span class="nav-number">5.3.</span> <span class="nav-text">比较次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非冗余比较-non-redundant-contrasts"><span class="nav-number">5.4.</span> <span class="nav-text">非冗余比较 Non-redundant contrasts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要关注正交性？"><span class="nav-number">5.5.</span> <span class="nav-text">为什么要关注正交性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重比较检验"><span class="nav-number">5.6.</span> <span class="nav-text">多重比较检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几个概念"><span class="nav-number">5.7.</span> <span class="nav-text">几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较方法"><span class="nav-number">5.8.</span> <span class="nav-text">比较方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bonferroni"><span class="nav-number">5.8.1.</span> <span class="nav-text">Bonferroni</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#holm-bonferroni"><span class="nav-number">5.8.2.</span> <span class="nav-text">Holm-Bonferroni</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keppel-等人的观点"><span class="nav-number">5.8.3.</span> <span class="nav-text">Keppel 等人的观点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事后成对比较"><span class="nav-number">5.9.</span> <span class="nav-text">事后成对比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何应对多重比较问题？"><span class="nav-number">5.10.</span> <span class="nav-text">如何应对多重比较问题？</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

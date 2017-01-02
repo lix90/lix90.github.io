@@ -365,7 +365,7 @@
         
           
             <p>《数据库系统概论》第三章笔记。</p>
-<h1>基础</h1>
+<h1 id="基础">基础</h1>
 <h2 id="sql-历史">SQL 历史</h2>
 <ul>
 <li>1974 年，Boyce 和 Chamberlin 提出，Sequel</li>
@@ -405,7 +405,7 @@
 <li>内模式：若干存储文件</li>
 </ul>
 <hr>
-<h1>数据定义</h1>
+<h1 id="数据定义">数据定义</h1>
 <h2 id="模式的定义与删除">模式的定义与删除</h2>
 <h3 id="1-定义模式">1. 定义模式</h3>
 <p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code></p>
@@ -535,7 +535,7 @@
 <p>数据字典时关系数据库管理系统内部的一组系统表，它记录了数据库中所有的定义信息，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典表中的相应信息。在进行查询优化和查询处理时，数据字典中的信息是其重要依据。</p>
 </blockquote>
 <hr>
-<h1>数据查询</h1>
+<h1 id="数据查询">数据查询</h1>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> [ALL|<span class="keyword">DISTINCT</span>] &lt;目标列表达式&gt; [,&lt;目标列表达式&gt;]...</div><div class="line"><span class="keyword">FROM</span> &lt;表名或视图名&gt; [,&lt;表名或视图名&gt;]|(&lt;<span class="keyword">SELECT</span> 语句&gt;)[<span class="keyword">AS</span>]&lt;别名&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">HAVING</span> &lt;条件表达式&gt;]]</div><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;列名<span class="number">2</span>&gt; [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>]];</div></pre></td></tr></table></figure>
 <h2 id="单表查询">单表查询</h2>
 <ol>
@@ -609,7 +609,7 @@
 <p>子查询不仅可以出现在 <code>WHERE</code> 子句中，还可以出现再 <code>FROM</code> 子句中，这时子查询生成的临时派生表称为主查询的查询对象。</p>
 </blockquote>
 <hr>
-<h1>数据更新</h1>
+<h1 id="数据更新">数据更新</h1>
 <h2 id="插入数据">插入数据</h2>
 <ol>
 <li>插入元组</li>
@@ -624,7 +624,7 @@
 <h2 id="删除数据">删除数据</h2>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span></div><div class="line"><span class="keyword">FROM</span> &lt;<span class="keyword">table</span>&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
 <hr>
-<h1>空值的处理</h1>
+<h1 id="空值的处理">空值的处理</h1>
 <p>空值：不知道或者不存在或者无意义的值。</p>
 <p>以下条件取空值：</p>
 <ul>
@@ -634,7 +634,7 @@
 </ul>
 <p>空值的判断：<code>IS NULL</code> <code>IS NOT NULL</code>。</p>
 <hr>
-<h1>视图</h1>
+<h1 id="视图">视图</h1>
 <p><code>CREATE VIEW</code><br>
 <code>ALTER VIEW</code><br>
 <code>DROP VIEW</code><br>
@@ -782,7 +782,7 @@
 <p>Updated in 2016-11-12</p>
 </blockquote>
 <p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
-<h1><code>apply</code></h1>
+<h1 id="apply"><code>apply</code></h1>
 <p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
 <p><code>apply(X, MARGIN, FUN, ...)</code></p>
 <ul>
@@ -791,29 +791,29 @@
 <li><code>FUN</code> 使用的函数</li>
 </ul>
 <p>如果需要在行或者列上求均值和求和，则建议使用 <code>colMeans</code> <code>rowMeans</code> <code>colSums</code> <code>rowSums</code>。</p>
-<h1><code>tapply</code></h1>
+<h1 id="tapply"><code>tapply</code></h1>
 <p>需要对向量按组或者因素水平计算，类似于 <code>split-apply-combine</code>。</p>
-<h1><code>by</code></h1>
+<h1 id="by"><code>by</code></h1>
 <p>可替代 <code>tapply</code>，在无法使用 <code>tapply</code> 的情况下仍然可用。</p>
 <p><a href="http://stackoverflow.com/a/32262439/6469987" target="_blank" rel="external">参考</a></p>
-<h1><code>aggregate</code></h1>
+<h1 id="aggregate"><code>aggregate</code></h1>
 <p>跟 <code>tapply</code> 类似，不同的是，<code>aggregate</code> 的第二个参数必须为 list，输出为 data.frame。<code>aggregate</code> 的参数还可以为 formula。需要主要的是 <code>aggregate</code> 的 formula 方法默认 <code>na.action = na.omit</code>，所以需要手动设置参数 <code>na.rm = TRUE</code>。</p>
-<h1><code>lapply</code></h1>
+<h1 id="lapply"><code>lapply</code></h1>
 <p>输入和输出都为 list。其他 <code>*apply</code> 函数底层都是调用 <code>lapply</code> 函数。</p>
 <p><code>lapply(X, FUN, ...)</code></p>
 <p>返回与 <code>X</code> 等长度的 list，每个元素是由 <code>X</code> 中的元素经过 <code>FUN</code> 计算得到。</p>
-<h1><code>sapply</code></h1>
+<h1 id="sapply"><code>sapply</code></h1>
 <p>输入为 list，但输出为 vector。</p>
 <p><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></p>
 <p>比 <code>lapply</code> 更友好，虽然默认返回 vector，matrix，但是如果增加 <code>simplify = &quot;array&quot;</code> 的参数，将返回 array。<code>sapply(x, f, simplify=FALSE, USE.NAMES = FALSE)</code> 等同于 <code>lapply(x, f)</code>。</p>
-<h1><code>vapply</code></h1>
+<h1 id="vapply"><code>vapply</code></h1>
 <p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
 <p>类似与 <code>sapply</code>，但是返回值的类型是事先确定。</p>
-<h1><code>replicate</code></h1>
+<h1 id="replicate"><code>replicate</code></h1>
 <p>重复地执行表达式。</p>
-<h1>其他相关函数</h1>
+<h1 id="其他相关函数">其他相关函数</h1>
 <p><code>outer</code> <code>ave</code> <code>eapply</code></p>
-<h1>比较好的总结</h1>
+<h1 id="比较好的总结">比较好的总结</h1>
 <blockquote>
 <ul>
 <li><strong>lapply</strong> is a list apply which acts on a list or vector and returns a list.</li>
@@ -961,9 +961,9 @@
       
         
           
-            <h1>下载 MySQL</h1>
+            <h1 id="下载-mysql">下载 MySQL</h1>
 <p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
-<h1>安装 MySQL</h1>
+<h1 id="安装-mysql">安装 MySQL</h1>
 <p>在网上教程发现提到这三个文件</p>
 <ol>
 <li>mysql-*.pkg：MySql的主要程序包</li>
@@ -971,18 +971,18 @@
 <li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
 </ol>
 <p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<h1>安装 MySQL Workbench（GUI Tool）</h1>
+<h1 id="安装-mysql-workbench-gui-tool">安装 MySQL Workbench（GUI Tool）</h1>
 <p>仍然从官网下载。下载后安装然后进行配置。</p>
 <p>数据库访问密码的设置</p>
 <blockquote>
 <p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
 </blockquote>
-<h1>添加到 <strong>PATH</strong></h1>
+<h1 id="添加到-path">添加到 <strong>PATH</strong></h1>
 <p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>
 编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
 <p>或者</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<h1>报错</h1>
+<h1 id="报错">报错</h1>
 <p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br>
 <code>Can't connect to local MySQL server through socket '/tmp/mysql.sock'</code></p>
 <p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
@@ -1144,7 +1144,7 @@
       
         
           
-            <h1>数据冗余</h1>
+            <h1 id="数据冗余">数据冗余</h1>
 <h2 id="什么是数据冗余？">什么是数据冗余？</h2>
 <p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
 <p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>

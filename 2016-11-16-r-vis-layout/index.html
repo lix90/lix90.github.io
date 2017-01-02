@@ -360,7 +360,7 @@ layout.show(n) 显">
       
 
       
-        <h1>Layout 布局</h1>
+        <h1 id="layout-布局">Layout 布局</h1>
 <p><code>layout</code> 函数可以指定复杂的绘图布局。该函数可以将设备的面板根据第一个参数 <code>mat</code> 矩阵分割为多个行和列，列宽和行高在对应的参数中指定。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout(mat, widths = rep.int(<span class="number">1</span>, ncol(mat)),</div><div class="line">    heights = rep.int(<span class="number">1</span>, nrow(mat)),</div><div class="line">    respect = <span class="literal">FALSE</span>)</div></pre></td></tr></table></figure>
 <p><code>layout.show(n)</code> 显示当前布局。<code>n</code> 为显示的图形的个数。<code>n=1</code> 则显示第一个图形的布局，<code>n=2</code> 则显示前两个图形的布局。<br>
@@ -374,7 +374,7 @@ layout.show(n) 显">
 <li><code>n</code>：绘制的图形个数。</li>
 </ul>
 <p>需要注意的是，<code>layout</code> 布局与 <code>par(mfrow)</code> <code>par(mfcol)</code> <code>split.screen</code> 完全不兼容。</p>
-<h1>Par 的 mfrow 和 mfcol 参数布局</h1>
+<h1 id="par-的-mfrow-和-mfcol-参数布局">Par 的 mfrow 和 mfcol 参数布局</h1>
 <p><code>par</code> 用于设置或查询绘图参数。<code>par</code> 的合法参数都能在高阶绘图函数中使用。<br>
 在 <code>par</code> 的众多参数中，有两个参数可以用于多图的布局，即 <code>mfrow</code> 和 <code>mfcol</code>。</p>
 <h2 id="par-关于布局的参数">par 关于布局的参数</h2>
@@ -408,7 +408,7 @@ layout.show(n) 显">
 <li><code>mfcol, mfrow</code> 向量 <code>c(nr, nc)</code>，绘制 nr*nc 子图矩阵。</li>
 <li><code>mfg</code> 向量 <code>c(i,j)</code> 表示接下来图形绘制的位置。必须实现定义好 <code>mfcol</code> 或者 <code>mfow</code>。另外，为了兼容 <code>S</code> 语言，还可以以 <code>c(i,j,nr,nc)</code> 的形式指定位置。</li>
 </ul>
-<h1>Split.screen 布局</h1>
+<h1 id="split-screen-布局">Split.screen 布局</h1>
 <p><code>split.screen</code> 定义在当前设备上一定数量的区域，可以在一定程度上当作独立/分离的图形设备。<br>
 <code>screen</code> 用于选择哪一个 screen 绘制图形。<br>
 <code>erase.screen</code> 用于清除一个 screen，通过填充背景颜色。<br>
@@ -465,8 +465,8 @@ layout.show(n) 显">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016-11-17-r-tidyr/" rel="prev" title="R：使用 tidyr 进行数据操作">
-                R：使用 tidyr 进行数据操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2016-11-17-daily/" rel="prev" title="每日总结 2016-11-17">
+                每日总结 2016-11-17 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +630,7 @@ layout.show(n) 显">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Layout 布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Par 的 mfrow 和 mfcol 参数布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#par-关于布局的参数"><span class="nav-number">2.1.</span> <span class="nav-text">par 关于布局的参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Split.screen 布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#layout-布局"><span class="nav-number">1.</span> <span class="nav-text">Layout 布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#par-的-mfrow-和-mfcol-参数布局"><span class="nav-number">2.</span> <span class="nav-text">Par 的 mfrow 和 mfcol 参数布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#par-关于布局的参数"><span class="nav-number">2.1.</span> <span class="nav-text">par 关于布局的参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#split-screen-布局"><span class="nav-number">3.</span> <span class="nav-text">Split.screen 布局</span></a></li></ol></div>
             
           </div>
         </section>

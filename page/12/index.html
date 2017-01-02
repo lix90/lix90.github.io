@@ -352,7 +352,7 @@
       
         
           
-            <h1>JavaScript</h1>
+            <h1 id="javascript">JavaScript</h1>
 <p>常见的 JS 的鼠标事件：</p>
 <ul>
 <li>mousedown：鼠标的键钮被按下。</li>
@@ -375,7 +375,7 @@
 <p><code>clearInterval()</code> <code>clearTimeout()</code> <code>setInterval()</code> <code>setTimeout()</code><br>
 <code>start</code></p>
 <hr>
-<h1>前端代码规范</h1>
+<h1 id="前端代码规范">前端代码规范</h1>
 <p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
 <blockquote>
 <p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
@@ -484,7 +484,7 @@
 <p>在 Emacs 中配置两个空格缩进：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
 <hr>
-<h1>Emacs</h1>
+<h1 id="emacs">Emacs</h1>
 <h2 id="golden-ratio-mode">golden-ratio-mode</h2>
 <p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
@@ -607,7 +607,7 @@
       
         
           
-            <h1>Javascript</h1>
+            <h1 id="javascript">Javascript</h1>
 <h2 id="数组-array">数组 Array</h2>
 <p>可包含任意数据类型，并通过索引来访问每个元素。<br>
 Array 是可变的，很灵活，可通过索引或者赋新的值和长度值改变 Array 的大小和值。<br>
@@ -666,7 +666,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <p>@ 2016-10-19 10:57:59</p>
 <p>Q: What is <strong>callback</strong>?</p>
 <hr>
-<h1>Vuejs</h1>
+<h1 id="vuejs">Vuejs</h1>
 <p>Vuejs 有哪些优点？</p>
 <ul>
 <li>Reactive</li>
@@ -676,7 +676,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li>Easy to learn</li>
 </ul>
 <hr>
-<h1>CSS</h1>
+<h1 id="css">CSS</h1>
 <h2 id="zoom-属性">zoom 属性</h2>
 <p><code>zoom: auto | &lt;number&gt; | &lt;percentage&gt;;</code></p>
 <blockquote>
@@ -731,7 +731,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li>提示系统状态 system status: is this working? how long will it take</li>
 </ul>
 <hr>
-<h1>HTML</h1>
+<h1 id="html">HTML</h1>
 <h2 id="html-语义化">HTML 语义化</h2>
 <p>语义化：让机器读懂内容。</p>
 <p>Web 规模扩大 —&gt; 机器处理内容 —&gt; 机器读懂内容？—&gt; 语义化</p>
@@ -759,7 +759,7 @@ Array 是可变的，很灵活，可通过索引或者赋新的值和长度值�
 <li><a href="https://www.zhihu.com/question/20455165" target="_blank" rel="external">如何理解 Web 语义化？</a></li>
 <li><a href="http://chenhaizhou.github.io/2015/12/09/html-sense.html" target="_blank" rel="external">谈谈对HTML语义化的理解</a></li>
 </ul>
-<h1>HTTP</h1>
+<h1 id="http">HTTP</h1>
 <h2 id="get-与-post">GET 与 POST</h2>
 <p>HTTP 协议中的两种发送请求的方法。</p>
 <p>HTTP 是基于 TCP/IP 的关于数据如何在万维网中如何通信的协议。</p>
@@ -771,7 +771,7 @@ GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数�
 对于 GET 方式的请求，浏览器会把 http header 和 data 一并发送出去，服务器响应 200（返回数据）；而对于 POST，浏览器先发送 header，服务器响应 100 continue，浏览器再发送 data，服务器响应 200 ok（返回数据）。</p>
 </blockquote>
 <hr>
-<h1>Emacs</h1>
+<h1 id="emacs">Emacs</h1>
 <p>将启动 Emacs 后默认的 <code>*scratch* buffer</code> 的 major mode 改为 markdown-mode</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(setq initial-major-mode &apos;markdown-mode)</div><div class="line">(setq initial-scratch-message &quot;\</div><div class="line"># This buffer is for notes you don&apos;t want to save, and for Markdown.)</div></pre></td></tr></table></figure>
 <p>参考资料：</p>
@@ -796,7 +796,7 @@ GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数�
 <p><strong>Q: The differences between Macros and Functions?</strong><br>
 在后面的每日总结有提到两者的差异（更新 @2016-11-19）</p>
 <hr>
-<h1>Python</h1>
+<h1 id="python">Python</h1>
 <p><code>/</code> 与 <code>//</code> 的差别</p>
 <p>在 python2 中，当除数和被除数有一个为浮点型，/ 为一般的除法，如果除数和被除数均为整数型，/ 为整除。而 // 在任何情况下都是整除。而在 python3 中，/ 为浮点除法，// 为整除除法。</p>
 
@@ -918,7 +918,7 @@ GET 和 POST 还有一个重大区别，简单的说：GET 产生一个 TCP 数�
       
         
           
-            <h1>机器学习</h1>
+            <h1 id="机器学习">机器学习</h1>
 <p>Basic premise of learning</p>
 <blockquote>
 <p>using a set of observations (samples) to uncover an underlying process (distributions)</p>
@@ -999,7 +999,7 @@ PAC: probability approximately correct</p>
 在实际问题中，限制学习器成功的最大因素是有限的可用的训练数据。<br>
 <strong>学习的可行性</strong>：可以通过训练错误率估计真实错误率；存在数据集 D，使得可以在假设集 H 中自由的选择子假设 h。<br>
 如果现有有限个假设且训练数据量够多的情况下，那么不管我们如何选择训练数据，训练错误率和真实错误率都会很接近；我们设计算法来找一个 Ein 最小的假设，PAC 理论就保证了 Eout 很小。这样机器学习算法是有可能学到有用的知识的。</p>
-<h1>CSS</h1>
+<h1 id="css">CSS</h1>
 <h2 id="margin">Margin</h2>
 <p>关于 Margin：</p>
 <blockquote>
@@ -1038,7 +1038,7 @@ PAC: probability approximately correct</p>
 <li>Multi-column layout 多栏布局</li>
 <li>Grid layout 格子布局</li>
 </ol>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <p>解决 Git push 冲突</p>
 <ul>
 <li>当Git无法自动合并分支时，就必须首先解决冲突。Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt; 标记出不同分支的内容。解决冲突后，再提交，合并完成。用git log --graph命令可以看到分支合并图。</li>
@@ -1178,13 +1178,13 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
         
           
             <p>HTTP/0.9 —&gt; HTTP/1.0 —&gt; HTTP/1.1 —&gt; SPDY 协议 —&gt; HTTP/2</p>
-<h1>HTTP/1.0</h1>
+<h1 id="http-1-0">HTTP/1.0</h1>
 <p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
-<h1>HTTP/1.1</h1>
+<h1 id="http-1-1">HTTP/1.1</h1>
 <p>目前是最流行的版本。该版本最大的变化是，引入了<strong>持久连接（persistent connection）</strong>，即 TCP 连接默认不关闭，可被多个请求复用，无须申明 <code>Connection: keep-alive</code>。当客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。更规范的做法是，在客户端最后一次请求时，发送 <code>Connection: close</code>，明确要求服务器关闭 TCP 连接。</p>
 <p>引入管道机制：在同一个 TCP 连接里面，客户端可以同时发送多个请求。</p>
 <p>缺点：虽然1.1版允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着。这就会出现&quot;队头堵塞&quot;（Head-of-line blocking）。</p>
-<h1>HTTP/2</h1>
+<h1 id="http-2">HTTP/2</h1>
 <ul>
 <li>二进制协议：头信息和数据体都是二进制，并且统称为&quot;帧&quot;（frame）：头信息帧和数据帧。<br>
 多工：双向的、实时的通信。</li>
@@ -1323,7 +1323,7 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
         
           
             <p><a href="http://Dashingd3js.com" target="_blank" rel="external">Dashingd3js.com</a> 上的 D3.js 教程学习笔记。</p>
-<h1>基础</h1>
+<h1 id="基础">基础</h1>
 <p>使用 D3.js 进行数据可视化需要了解以下内容：</p>
 <ul>
 <li>现代浏览器</li>
@@ -1334,15 +1334,15 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 <li>SVG</li>
 <li>网页元素审查器（Web Inspecter）</li>
 </ul>
-<h1>添加 DOM 元素</h1>
+<h1 id="添加-dom-元素">添加 DOM 元素</h1>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
 <p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
 <p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
-<h1>添加 SVG 元素</h1>
+<h1 id="添加-svg-元素">添加 SVG 元素</h1>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
 <p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
 <p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
-<h1>捆绑数据到 DOM 元素中</h1>
+<h1 id="捆绑数据到-dom-元素中">捆绑数据到 DOM 元素中</h1>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
 <p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
 <p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
@@ -1351,16 +1351,16 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 <p>其中，数据被保存在 <code>__data__</code> 属性中。</p>
 <p>如何将捆绑的数据提取出来呢？</p>
 <p><code>.text( function(d) { return d; } )</code> 其中，匿名函数会对遍历所有元素的数据，分别返回对于的值。<code>d</code> 变量在 D3.js 被用来指代当前元素的 <code>__data__</code> 属性。另外，D3.js 还提供了两个变量 <code>this</code> 和 <code>i</code>。<code>this</code> 指代当前 DOM 元素。<code>i</code> 指代当前选中的元素的下标，<code>i</code> 从0开始计数。所有数据是按顺序分别处理。</p>
-<h1>根据数据创建 SVG 元素</h1>
+<h1 id="根据数据创建-svg-元素">根据数据创建 SVG 元素</h1>
 <p>建立数组：<code>var newArray = [10, 20, 30];</code><br>
 将数据指派给 SVG 元素的属性值 <code>.attr('r', function (d) { return d; }</code></p>
-<h1>使用 SVG 坐标空间</h1>
+<h1 id="使用-svg-坐标空间">使用 SVG 坐标空间</h1>
 <p>SVG 的坐标空间与数学中的坐标空间有两点差异：</p>
 <ul>
 <li>SVG 的坐标空间的零点位于左上角；</li>
 <li>SVG 的坐标空间的 Y 轴由上至下延伸。</li>
 </ul>
-<h1>D3.js 支持的数据结构</h1>
+<h1 id="d3-js-支持的数据结构">D3.js 支持的数据结构</h1>
 <p>数组（Array）：<code>var newArray = [30, 70, 110];</code> 数组可以包含任何对象，包括数字，对象，字符串，数组，HTML元素，DOM元素等。</p>
 <p><code>d3.select()</code> 所得到的也是数组。</p>
 <p>D3.js 可以支持以下数据来源：</p>
@@ -1374,15 +1374,15 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 <li>TSV 文件</li>
 </ul>
 <p>数组甚至可以包含 JSON 数据结构。</p>
-<h1>使用 JSON 对象</h1>
+<h1 id="使用-json-对象">使用 JSON 对象</h1>
 <p>使用 JSON 数据结构可以简化代码，使用起来更方便。</p>
-<h1>使用 D3.js 绘制 SVG 基本形状的图形</h1>
+<h1 id="使用-d3-js-绘制-svg-基本形状的图形">使用 D3.js 绘制 SVG 基本形状的图形</h1>
 <p>只要知道相关图形元素的属性，那么就可以通过 D3.js 的算子进行操作了。</p>
 <p>绘制一个圆</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"50"</span> <span class="attr">height</span>=<span class="string">"50"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"25"</span> <span class="attr">cy</span>=<span class="string">"25"</span> <span class="attr">r</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"purple"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonCircle = [ &#123; <span class="string">"x_axis"</span>: <span class="number">30</span>, <span class="string">"y_axis"</span>: <span class="number">30</span>, <span class="string">"radius"</span>: <span class="number">20</span>, <span class="string">"color"</span>: <span class="string">"green"</span>&#125; ];</div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">    .attr(<span class="string">"height"</span>, <span class="number">200</span>)</div><div class="line"><span class="keyword">var</span> circles = svgContainer.selectAll(<span class="string">"circle"</span>)</div><div class="line">    .data(jsonCircles)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"circle"</span>)</div><div class="line"><span class="keyword">var</span> circleAttributes = circles</div><div class="line">    .attr(<span class="string">"cx"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x_axis &#125;)</div><div class="line">    .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y_axis &#125;)</div><div class="line">    .attr(<span class="string">"r"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.radius&#125;)</div><div class="line">    .style(<span class="string">"fill"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.color &#125;);</div></pre></td></tr></table></figure>
 <p>其他简单图形都差不多，只是属性不一样。以此类推。</p>
-<h1>SVG 路径</h1>
+<h1 id="svg-路径">SVG 路径</h1>
 <p>SVG 路径为一个图形的轮廓。可以使用 SVG 的路径绘制任意形状。路径可以比作钢笔落笔绘制轮廓的过程。路径由属性 <code>d</code> 表示，其语法包括一下几个部分：</p>
 <ul>
 <li>moveto：设置一个新的点</li>
@@ -1425,9 +1425,9 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 <li>d3.svg.diagonal</li>
 <li>d3.svg.diagonal.radial</li>
 </ul>
-<h1>SVG 动态坐标空间</h1>
+<h1 id="svg-动态坐标空间">SVG 动态坐标空间</h1>
 <p>如果使坐标根据数据进行调整？当 SVG 容器空间的大小比其中的图形元素坐标要小，那会出现容器空间上无法显式出图形的问题。这个时候需要动态的 SVG 坐标空间。这个时候需要做的是，让容器空间的宽高随着数据而进行伸缩。</p>
-<h1>D3.js 标尺（scales）</h1>
+<h1 id="d3-js-标尺-scales">D3.js 标尺（scales）</h1>
 <p>与其让 SVG 容器大小适应数据，不如让数据适应容器。因为有的时候，数据的大小尺寸远远大于浏览器显示尺度。这个时候需要对数据进行伸缩变换以便适应空间。</p>
 <p>D3.js 提供了一些方法进行数据的变换。</p>
 <p>例如 <code>d3.scale.linear()</code> 线性变换</p>
@@ -1443,7 +1443,7 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 <li>Quantize 和 Quantile 针对离散数据</li>
 <li>Ordinal 针对非量化的数据，如名称，类别</li>
 </ul>
-<h1>SVG 组元素</h1>
+<h1 id="svg-组元素">SVG 组元素</h1>
 <p>SVG 组元素是一个包裹其他子元素的的容器，通过 <code>&lt;g&gt;...&lt;/g&gt;</code> 定义。组元素内可以包含任意组元素。任何对组元素的变换，都将影响其所包含的子元素。</p>
 <p>组元素的作用：</p>
 <ul>
@@ -1452,9 +1452,9 @@ Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
 </ul>
 <p>在 D3.js 中构建组元素并增加变换属性：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"><span class="keyword">var</span> circleGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                              .attr(<span class="string">"transform"</span>, <span class="string">"translate(80, 0)"</span>);</div></pre></td></tr></table></figure>
-<h1>SVG 文本元素</h1>
+<h1 id="svg-文本元素">SVG 文本元素</h1>
 <p>添加 SVG 文本元素跟添加图形类型，只是该元素有一些特殊的属性。同样，使用 D3.js 添加文本和添加图形一样，操纵文本元素的属性和值就可以了。</p>
-<h1>SVG 坐标轴（Axes）</h1>
+<h1 id="svg-坐标轴-axes">SVG 坐标轴（Axes）</h1>
 <p>使用 D3.js 绘制坐标轴和坐标刻度。</p>
 <p>创建坐标轴对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis();</div></pre></td></tr></table></figure>

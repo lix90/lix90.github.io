@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,JavaScript,Emacs,HTML,Coding style," />
+  <meta name="keywords" content="JavaScript,CSS,Emacs,HTML,Coding style," />
 
 
 
@@ -384,7 +384,7 @@ mouseleave：鼠标离开目">
       
 
       
-        <h1>JavaScript</h1>
+        <h1 id="javascript">JavaScript</h1>
 <p>常见的 JS 的鼠标事件：</p>
 <ul>
 <li>mousedown：鼠标的键钮被按下。</li>
@@ -407,7 +407,7 @@ mouseleave：鼠标离开目">
 <p><code>clearInterval()</code> <code>clearTimeout()</code> <code>setInterval()</code> <code>setTimeout()</code><br>
 <code>start</code></p>
 <hr>
-<h1>前端代码规范</h1>
+<h1 id="前端代码规范">前端代码规范</h1>
 <p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
 <blockquote>
 <p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
@@ -516,7 +516,7 @@ mouseleave：鼠标离开目">
 <p>在 Emacs 中配置两个空格缩进：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
 <hr>
-<h1>Emacs</h1>
+<h1 id="emacs">Emacs</h1>
 <h2 id="golden-ratio-mode">golden-ratio-mode</h2>
 <p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
@@ -542,9 +542,9 @@ mouseleave：鼠标离开目">
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag">#CSS</a>
-          
             <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
           
             <a href="/tags/Emacs/" rel="tag">#Emacs</a>
           
@@ -732,7 +732,7 @@ mouseleave：鼠标离开目">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">前端代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html"><span class="nav-number">2.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css"><span class="nav-number">2.2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明顺序"><span class="nav-number">2.2.1.</span> <span class="nav-text">声明顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要使用-import"><span class="nav-number">2.2.2.</span> <span class="nav-text">不要使用 @import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#媒体查询的位置"><span class="nav-number">2.2.3.</span> <span class="nav-text">媒体查询的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单行规则声明"><span class="nav-number">2.2.4.</span> <span class="nav-text">单行规则声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简写形式的属性声明"><span class="nav-number">2.2.5.</span> <span class="nav-text">简写形式的属性声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less-和-sass-中的嵌套"><span class="nav-number">2.2.6.</span> <span class="nav-text">Less 和 Sass 中的嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">2.2.7.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-命名"><span class="nav-number">2.2.8.</span> <span class="nav-text">class 命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.2.9.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码组织"><span class="nav-number">2.2.10.</span> <span class="nav-text">代码组织</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器配置"><span class="nav-number">2.2.11.</span> <span class="nav-text">编辑器配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#golden-ratio-mode"><span class="nav-number">3.1.</span> <span class="nav-text">golden-ratio-mode</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端代码规范"><span class="nav-number">2.</span> <span class="nav-text">前端代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html"><span class="nav-number">2.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css"><span class="nav-number">2.2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明顺序"><span class="nav-number">2.2.1.</span> <span class="nav-text">声明顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要使用-import"><span class="nav-number">2.2.2.</span> <span class="nav-text">不要使用 @import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#媒体查询的位置"><span class="nav-number">2.2.3.</span> <span class="nav-text">媒体查询的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单行规则声明"><span class="nav-number">2.2.4.</span> <span class="nav-text">单行规则声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简写形式的属性声明"><span class="nav-number">2.2.5.</span> <span class="nav-text">简写形式的属性声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less-和-sass-中的嵌套"><span class="nav-number">2.2.6.</span> <span class="nav-text">Less 和 Sass 中的嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">2.2.7.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-命名"><span class="nav-number">2.2.8.</span> <span class="nav-text">class 命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.2.9.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码组织"><span class="nav-number">2.2.10.</span> <span class="nav-text">代码组织</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器配置"><span class="nav-number">2.2.11.</span> <span class="nav-text">编辑器配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emacs"><span class="nav-number">3.</span> <span class="nav-text">Emacs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#golden-ratio-mode"><span class="nav-number">3.1.</span> <span class="nav-text">golden-ratio-mode</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

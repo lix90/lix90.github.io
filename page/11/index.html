@@ -353,7 +353,7 @@
         
           
             <p>最近几天忙一些事情，没有积累多少东西，比较零碎。</p>
-<h1>CSS</h1>
+<h1 id="css">CSS</h1>
 <p><code>:focus</code> 伪类</p>
 <p>当元素获得“关注”，例如被用户通过键盘选中或者用鼠标激活（表单输入），该伪类就被触发。</p>
 <p><code>:link</code> 未访问的链接<br>
@@ -366,11 +366,11 @@
 <li><code>outline</code> 不影响布局，不影响盒大小，它是纯表现上的，对页面空间没有影响；<code>border</code> 会增加盒的尺寸，影响布局。</li>
 <li><code>outline</code> 不一定是规则的矩形框；<code>border</code> 是规则的矩形框或者圆形，且可以根据四个边和角设置样式。</li>
 </ul>
-<h1>Emacs 中使用 Rmarkdown</h1>
+<h1 id="emacs-中使用-rmarkdown">Emacs 中使用 Rmarkdown</h1>
 <p>需要用到 ESS 和 polymode。先默认已经在 Emacs 中安装好了 ESS。然后进行如下配置（使用 <code>use-package</code>）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(use-package polymode</div><div class="line">  :ensure t</div><div class="line">  :mode ((&quot;\\.[SR]nw\\&apos;&quot; . poly-noweb+r-mode)</div><div class="line">         (&quot;\\.Rmd\\&apos;&quot; . Rmd-mode))</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">    (defun Rmd-mode ()</div><div class="line">      &quot;ESS Markdown mode for Rmd files.&quot;</div><div class="line">      (interactive)</div><div class="line">      (require &apos;poly-R)</div><div class="line">      (require &apos;poly-markdown)</div><div class="line">      (R-mode)</div><div class="line">      (poly-markdown+r-mode))))</div><div class="line"></div><div class="line">(defun ess-rmarkdown-to-html ()</div><div class="line">  (interactive)</div><div class="line">  &quot;Run kintr::knit2html on the current file.&quot;</div><div class="line">  &quot;https://gist.github.com/kohske/9128031&quot;</div><div class="line">  (shell-command</div><div class="line">   (format &quot;Rscript -e \&quot;kintr::knit2html (&apos;%s&apos;)\&quot;&quot;</div><div class="line">           (shell-quote-argument (buffer-file-name)))))</div></pre></td></tr></table></figure>
 <p>参考：<a href="http://futurismo.biz/archives/2982" target="_blank" rel="external">http://futurismo.biz/archives/2982</a></p>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <h2 id="在-terminal-中使用-socks5-代理">在 Terminal 中使用 socks5 代理</h2>
 <p>前提当然是需要有 socks5 代理了。个人使用 <code>shodowsocks</code>。</p>
 <p>在终端使用代理，可以通过 proxychains，MacOS 下叫 proxychains-ng。</p>
@@ -522,7 +522,7 @@
       
         
           
-            <h1>JavaScript</h1>
+            <h1 id="javascript">JavaScript</h1>
 <h2 id="js-对象">JS 对象</h2>
 <p>JS 的对象是一种<strong>无序的集合数据类型</strong>，由若干个键值组成。实际上JavaScript对象的所有属性都是字符串，不过属性对应的值可以是任意数据类型。</p>
 <p>对象属性的访问：</p>
@@ -644,7 +644,7 @@ ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> �
 <ul>
 <li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="external">廖雪峰的官方网站</a></li>
 </ul>
-<h1>Python</h1>
+<h1 id="python">Python</h1>
 <p>生成器</p>
 <p>在 Python 中，这种一边循环一边计算的机制，称为生成器：<code>generator</code>。</p>
 <ul>
@@ -699,8 +699,8 @@ ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> �
 <p>循环语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for ((i=1; i&lt;=10; i++))</div><div class="line">do</div><div class="line">    echo &quot;$i&quot;</div><div class="line">done</div><div class="line"></div><div class="line"># 或者</div><div class="line"></div><div class="line">for var in &#123;1..10&#125;</div><div class="line">do</div><div class="line">    echo &quot;$var&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
 <hr>
-<h1>杂项</h1>
-<h1>Hackerrank 笔记</h1>
+<h1 id="杂项">杂项</h1>
+<h1 id="hackerrank-笔记">Hackerrank 笔记</h1>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in &#123;1..100..2&#125;</div><div class="line">do</div><div class="line">    echo $i</div><div class="line">done</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 1 2 99</div></pre></td></tr></table></figure>
 <h2 id="来自于纪录片-helvetica">来自于纪录片《Helvetica》</h2>
@@ -712,7 +712,7 @@ ECMA 决定，在 <code>strict</code> 模式下让函数的 <code>this</code> �
 <li>你越是接近它，对它看得越多，就越能够欣赏它的优秀。</li>
 </ul>
 </blockquote>
-<h1>词汇</h1>
+<h1 id="词汇">词汇</h1>
 <p>recursive invocation 递归调用<br>
 unqualified reference 没有资格的引用 or 无授权的引用？<br>
 wrapper 封装</p>
@@ -835,7 +835,7 @@ wrapper 封装</p>
       
         
           
-            <h1>Python</h1>
+            <h1 id="python">Python</h1>
 <h2 id="with-语句">with 语句</h2>
 <p><code>with expression as target:</code></p>
 <h2 id="open-函数">open 函数</h2>
@@ -910,11 +910,11 @@ wrapper 封装</p>
 <li><code>calendar</code> 模块</li>
 <li><code>locale</code> 模块</li>
 </ul>
-<h1>Emacs</h1>
+<h1 id="emacs">Emacs</h1>
 <h2 id="谷歌翻译插件-google-translate">谷歌翻译插件 <a href="https://github.com/atykhonov/google-translate" target="_blank" rel="external">google-translate</a></h2>
 <p>感谢强大的 emacers，在 emacs 里头实现了<a href="https://github.com/xuchunyang/youdao-dictionary.el" target="_blank" rel="external">有道词典</a>、<a href="https://github.com/cute-jumper/bing-dict.el" target="_blank" rel="external">Bing词典</a>等功能，也想直接在 emacs 里使用谷歌翻译。以下是配置信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(use-package google-translate</div><div class="line">  :ensure t</div><div class="line">  :defer t</div><div class="line">  :bind ((&quot;C-c C-d g&quot; . google-translate-at-point)</div><div class="line">         (&quot;C-c C-d G&quot; . google-translate-smooth-translate)</div><div class="line">         (&quot;C-c C-d r&quot; . google-translate-at-point-reverse)</div><div class="line">         (&quot;C-c C-d R&quot; . google-translate-query-translate-reverse))</div><div class="line">  :config</div><div class="line">  (progn</div><div class="line">  (require &apos;google-translate-smooth-ui)</div><div class="line">  (setq google-translate-default-source-language &quot;en&quot;</div><div class="line">        google-translate-default-target-language &quot;zh&quot;</div><div class="line">        max-mini-window-height 0.5)</div><div class="line">  (setq google-translate-translation-directions-alist</div><div class="line">        &apos;((&quot;en&quot; . &quot;zh&quot;) (&quot;zh&quot; . &quot;zh&quot;))))</div><div class="line">  )</div></pre></td></tr></table></figure>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <p><a href="https://github.com/hallvors/postcss-flexboxfixer" target="_blank" rel="external">flexboxfixer</a>: flexbox 兼容处理</p>
 <p><a href="http://www.browsersync.cn/" target="_blank" rel="external">Browsersync</a></p>
 <blockquote>
@@ -1039,7 +1039,7 @@ wrapper 封装</p>
       
         
           
-            <h1>搞不懂的 callback</h1>
+            <h1 id="搞不懂的-callback">搞不懂的 callback</h1>
 <p>JS 单线程 :—&gt; 性能 :—&gt; 异步思维（不仅限于针对用户输入时）</p>
 <p>JS 三个异步支持阶段：callback —&gt; promise —&gt; generator</p>
 <blockquote>
@@ -1078,14 +1078,14 @@ wrapper 封装</p>
 <li><a href="https://codefalling.com/2016/08/14/get-out-of-callback-hell-with-generator/" target="_blank" rel="external">Codefalling：利用 generator 解决回调地狱</a></li>
 </ul>
 <hr>
-<h1><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1>
+<h1 id="scss-sass"><a href="http://sass.bootcss.com/" target="_blank" rel="external">SCSS &amp; SASS</a></h1>
 <p>SCSS 源自 SASS。</p>
 <ul>
 <li>SASS 具有严格的缩进，而没有花括号和分号，变量的标志用 <code>!</code>，分配符为 <code>=</code>。缩进语法更短并且更易于书写。使用 SASS 甚至不需要 <code>@mixin</code> 或者 <code>@include</code>, 一个字符就足够了：<code>=</code> 和 <code>+</code>。但是严格缩进有时会带来麻烦，一处错，处处错。</li>
 <li>SCSS 与原生 CSS 很相似，使用花括号和分号，变量标志用 <code>$</code>，分配符用 <code>:</code>。SCSS 相当于是只是加了一些功能的 CSS。虽然 SCSS 没有 SASS 简洁，但是保证了良好的易读性，易于理解。</li>
 </ul>
 <hr>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <h2 id="语义化版本控制规范-semver"><a href="http://semver.org/lang/zh-CN/#spec-item-1" target="_blank" rel="external">语义化版本控制规范（SemVer）</a></h2>
 <p>为了避免软件开发陷入“依赖地狱”的困境，可以使用语义化版本的命令方式。在这套命名方式的约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
 <blockquote>
@@ -1242,7 +1242,7 @@ wrapper 封装</p>
         
           
             <p>今天修改了下博客模板，顺便了解了下相关的工具和模块。</p>
-<h1>HEXO</h1>
+<h1 id="hexo">HEXO</h1>
 <p>辅助函数</p>
 <p><code>url_for()</code> 在路径前加根目录 <code>&lt;% url_for(path) %&gt;</code><br>
 <code>relative_url(from, to)</code> 获得一个从 <code>from</code> 到 <code>to</code> 的路径<br>
@@ -1261,7 +1261,7 @@ wrapper 封装</p>
 <blockquote>
 <p>在模板中，透过 __ 或 _p 辅助函数，即可取得翻译后的字符串，前者用于一般使用；而后者用于复数字符串。</p>
 </blockquote>
-<h1><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1>
+<h1 id="grunt"><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1>
 <h2 id="构建自动化">构建自动化</h2>
 <p>谈 Grunt，就要谈到“构建自动化”。</p>
 <blockquote>
@@ -1322,10 +1322,10 @@ wrapper 封装</p>
 <code>grunt-contrib-concat</code> 连接文件<br>
 <code>grunt-contrib-jshint</code> js 代码检测<br>
 <code>grunt-contrib-watch</code> 代码监视</p>
-<h1><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a></h1>
+<h1 id="gulp"><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a></h1>
 <p>Gulp 和 Grunt 干差不多的活，目前还不知道优劣。Gulp 显得简单一些。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1>EJS</h1>
+<h1 id="ejs">EJS</h1>
 <blockquote>
 <p>EJS 是一个简单的模板语言，可以让你使用原生 JavaScript 生成 HTML 标记。没有关于如何组织内容的语法规则，也没有循环和控制流的重载，只是使用原生的 JavaScript。</p>
 </blockquote>
@@ -1354,7 +1354,7 @@ JavaScript 的静态缓存<br>
 <li><code>-%&gt;</code> Trim-mode (‘newline slurp’) 标签, 移除随后的换行符</li>
 </ul>
 <p>使用 <code>include</code> 调用的模板时路径需要 filename 选项。</p>
-<h1>JADE</h1>
+<h1 id="jade">JADE</h1>
 <p>JADE（现在改名为 Pugjs） 是一个极度注重代码简洁性的模板语言。相比 EJS 来说，渲染性能较低一些。但因为其简单的语法（对其他人来说也许算是“复杂”了）受到欢迎。</p>
 <p>下面记录一些容易忘记的特殊语法：</p>
 <p><code>= '\n'</code> 换行<br>

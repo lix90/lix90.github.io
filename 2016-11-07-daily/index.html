@@ -376,7 +376,7 @@ CSS
 
       
         <p>最近几天忙一些事情，没有积累多少东西，比较零碎。</p>
-<h1>CSS</h1>
+<h1 id="css">CSS</h1>
 <p><code>:focus</code> 伪类</p>
 <p>当元素获得“关注”，例如被用户通过键盘选中或者用鼠标激活（表单输入），该伪类就被触发。</p>
 <p><code>:link</code> 未访问的链接<br>
@@ -389,11 +389,11 @@ CSS
 <li><code>outline</code> 不影响布局，不影响盒大小，它是纯表现上的，对页面空间没有影响；<code>border</code> 会增加盒的尺寸，影响布局。</li>
 <li><code>outline</code> 不一定是规则的矩形框；<code>border</code> 是规则的矩形框或者圆形，且可以根据四个边和角设置样式。</li>
 </ul>
-<h1>Emacs 中使用 Rmarkdown</h1>
+<h1 id="emacs-中使用-rmarkdown">Emacs 中使用 Rmarkdown</h1>
 <p>需要用到 ESS 和 polymode。先默认已经在 Emacs 中安装好了 ESS。然后进行如下配置（使用 <code>use-package</code>）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(use-package polymode</div><div class="line">  :ensure t</div><div class="line">  :mode ((&quot;\\.[SR]nw\\&apos;&quot; . poly-noweb+r-mode)</div><div class="line">         (&quot;\\.Rmd\\&apos;&quot; . Rmd-mode))</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">    (defun Rmd-mode ()</div><div class="line">      &quot;ESS Markdown mode for Rmd files.&quot;</div><div class="line">      (interactive)</div><div class="line">      (require &apos;poly-R)</div><div class="line">      (require &apos;poly-markdown)</div><div class="line">      (R-mode)</div><div class="line">      (poly-markdown+r-mode))))</div><div class="line"></div><div class="line">(defun ess-rmarkdown-to-html ()</div><div class="line">  (interactive)</div><div class="line">  &quot;Run kintr::knit2html on the current file.&quot;</div><div class="line">  &quot;https://gist.github.com/kohske/9128031&quot;</div><div class="line">  (shell-command</div><div class="line">   (format &quot;Rscript -e \&quot;kintr::knit2html (&apos;%s&apos;)\&quot;&quot;</div><div class="line">           (shell-quote-argument (buffer-file-name)))))</div></pre></td></tr></table></figure>
 <p>参考：<a href="http://futurismo.biz/archives/2982" target="_blank" rel="external">http://futurismo.biz/archives/2982</a></p>
-<h1>杂项</h1>
+<h1 id="杂项">杂项</h1>
 <h2 id="在-terminal-中使用-socks5-代理">在 Terminal 中使用 socks5 代理</h2>
 <p>前提当然是需要有 socks5 代理了。个人使用 <code>shodowsocks</code>。</p>
 <p>在终端使用代理，可以通过 proxychains，MacOS 下叫 proxychains-ng。</p>
@@ -477,8 +477,8 @@ CSS
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016-11-08-r-desc-stats/" rel="prev" title="R：描述性统计">
-                R：描述性统计 <i class="fa fa-chevron-right"></i>
+              <a href="/2016-11-08-daily/" rel="prev" title="每日总结 2016-11-08">
+                每日总结 2016-11-08 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -642,7 +642,7 @@ CSS
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Emacs 中使用 Rmarkdown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在-terminal-中使用-socks5-代理"><span class="nav-number">3.1.</span> <span class="nav-text">在 Terminal 中使用 socks5 代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#png-图片压缩"><span class="nav-number">3.2.</span> <span class="nav-text">PNG 图片压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行直接调用-chrome-进行谷歌检索"><span class="nav-number">3.3.</span> <span class="nav-text">命令行直接调用 Chrome 进行谷歌检索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-下包管理器神器：chocolatey"><span class="nav-number">3.4.</span> <span class="nav-text">Windows 下包管理器神器：Chocolatey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macos-访问-windows-中的共享文件夹"><span class="nav-number">3.5.</span> <span class="nav-text">MacOS 访问 Windows 中的共享文件夹</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emacs-中使用-rmarkdown"><span class="nav-number">2.</span> <span class="nav-text">Emacs 中使用 Rmarkdown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在-terminal-中使用-socks5-代理"><span class="nav-number">3.1.</span> <span class="nav-text">在 Terminal 中使用 socks5 代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#png-图片压缩"><span class="nav-number">3.2.</span> <span class="nav-text">PNG 图片压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行直接调用-chrome-进行谷歌检索"><span class="nav-number">3.3.</span> <span class="nav-text">命令行直接调用 Chrome 进行谷歌检索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-下包管理器神器：chocolatey"><span class="nav-number">3.4.</span> <span class="nav-text">Windows 下包管理器神器：Chocolatey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macos-访问-windows-中的共享文件夹"><span class="nav-number">3.5.</span> <span class="nav-text">MacOS 访问 Windows 中的共享文件夹</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

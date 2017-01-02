@@ -352,7 +352,7 @@
 
       
         <p>最近一段时间，自学安排被搁置，时间都投入到论文审稿意见的回复和毕业论文文献检索整理的工作上了。JavaScript 和数据分析都没有继续学习，实在是烦恼呀。前面给自己挖了许多坑，后面要慢慢填了。修改完审稿意见，看了下 Feedly 里堆积的更新，又涨了点儿见识。</p>
-<h1>在 ESS 中快捷输入 pipe (%&gt;%)</h1>
+<h1 id="在-ess-中快捷输入-pipe">在 ESS 中快捷输入 pipe (%&gt;%)</h1>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(defun then_R_operator ()</div><div class="line">  &quot;R - %&gt;% operator or &apos;then&apos; pipe operator&quot;</div><div class="line">  (interactive)</div><div class="line">  (just-one-space 1)</div><div class="line">  (insert &quot;%&gt;%&quot;)</div><div class="line">  (reindent-then-newline-and-indent))</div><div class="line">(define-key ess-mode-map (kbd &quot;C-%&quot;) &apos;then_R_operator)</div><div class="line">(define-key inferior-ess-mode-map (kbd &quot;C-%&quot;) &apos;then_R_operator)</div></pre></td></tr></table></figure>
 <ul>
 <li><a href="http://emacs.stackexchange.com/questions/8041/how-to-implement-the-piping-operator-in-ess-mode" target="_blank" rel="external">How to implement the piping operator %&gt;% in ESS mode?</a></li>
@@ -563,7 +563,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">在 ESS 中快捷输入 pipe (%>%)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在-ess-中快捷输入-pipe"><span class="nav-number">1.</span> <span class="nav-text">在 ESS 中快捷输入 pipe (%>%)</span></a></li></ol></div>
             
           </div>
         </section>

@@ -372,7 +372,7 @@ value 值，新生成的数值列名（不需要加引号）
       
 
       
-        <h1>宽转长 Wide2Long</h1>
+        <h1 id="宽转长-wide2long">宽转长 Wide2Long</h1>
 <p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
 <p>参数：</p>
 <ul>
@@ -391,7 +391,7 @@ value 值，新生成的数值列名（不需要加引号）
 <li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
 <li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
 </ul>
-<h1>长转宽 Long2Wide</h1>
+<h1 id="长转宽-long2wide">长转宽 Long2Wide</h1>
 <p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
 <p>参数：</p>
 <ul>
@@ -402,7 +402,7 @@ value 值，新生成的数值列名（不需要加引号）
 <li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
 <li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
 </ul>
-<h1>分割单列为多列</h1>
+<h1 id="分割单列为多列">分割单列为多列</h1>
 <p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
 <p>参数：</p>
 <ul>
@@ -432,7 +432,7 @@ value 值，新生成的数值列名（不需要加引号）
 </li>
 </ul>
 <p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
-<h1>合并多列为单列</h1>
+<h1 id="合并多列为单列">合并多列为单列</h1>
 <p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
 <p>参数：</p>
 <ul>
@@ -441,7 +441,7 @@ value 值，新生成的数值列名（不需要加引号）
 <li><code>sep</code> 分隔符</li>
 <li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
 </ul>
-<h1>实例</h1>
+<h1 id="实例">实例</h1>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
 <p>长转宽</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
@@ -487,16 +487,16 @@ value 值，新生成的数值列名（不需要加引号）
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016-11-16-r-vis-layout/" rel="next" title="R：使用基本包进行多图布局">
-                <i class="fa fa-chevron-left"></i> R：使用基本包进行多图布局
+              <a href="/2016-11-17-daily/" rel="next" title="每日总结 2016-11-17">
+                <i class="fa fa-chevron-left"></i> 每日总结 2016-11-17
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016-11-17-daily/" rel="prev" title="每日总结 2016-11-17">
-                每日总结 2016-11-17 <i class="fa fa-chevron-right"></i>
+              <a href="/2016-11-18-daily/" rel="prev" title="每日总结 2016-11-18">
+                每日总结 2016-11-18 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,7 +660,7 @@ value 值，新生成的数值列名（不需要加引号）
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">宽转长 Wide2Long</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">长转宽 Long2Wide</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">分割单列为多列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">合并多列为单列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#宽转长-wide2long"><span class="nav-number">1.</span> <span class="nav-text">宽转长 Wide2Long</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长转宽-long2wide"><span class="nav-number">2.</span> <span class="nav-text">长转宽 Long2Wide</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割单列为多列"><span class="nav-number">3.</span> <span class="nav-text">分割单列为多列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并多列为单列"><span class="nav-number">4.</span> <span class="nav-text">合并多列为单列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
             
           </div>
         </section>

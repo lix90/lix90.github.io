@@ -364,7 +364,7 @@
 
       
         <p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1>数据导入</h1>
+<h1 id="数据导入">数据导入</h1>
 <p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
 <ul>
 <li>第一种为使用 EEGLAB 插件；</li>
@@ -376,7 +376,7 @@
 <p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
 <p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
 <p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1>电极位置文件</h1>
+<h1 id="电极位置文件">电极位置文件</h1>
 <p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
 <p>参考资料：</p>
 <ul>
@@ -591,7 +591,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">数据导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">电极位置文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据导入"><span class="nav-number">1.</span> <span class="nav-text">数据导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#电极位置文件"><span class="nav-number">2.</span> <span class="nav-text">电极位置文件</span></a></li></ol></div>
             
           </div>
         </section>

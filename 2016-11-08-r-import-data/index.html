@@ -363,13 +363,13 @@ read.csv()
       
 
       
-        <h1>导入 CSV 数据</h1>
+        <h1 id="导入-csv-数据">导入 CSV 数据</h1>
 <p>使用基本包函数</p>
 <p><code>read.csv()</code></p>
 <p>使用 <code>readr</code> 包</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1>导入 EXCEL 数据</h1>
-<h1>导入 SPSS 数据</h1>
+<h1 id="导入-excel-数据">导入 EXCEL 数据</h1>
+<h1 id="导入-spss-数据">导入 SPSS 数据</h1>
 
       
     </div>
@@ -403,8 +403,8 @@ read.csv()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016-11-08-r-basic-vis/" rel="next" title="R：基本数据可视化">
-                <i class="fa fa-chevron-left"></i> R：基本数据可视化
+              <a href="/2016-11-08-r-desc-stats/" rel="next" title="R：描述性统计">
+                <i class="fa fa-chevron-left"></i> R：描述性统计
               </a>
             
           </div>
@@ -576,7 +576,7 @@ read.csv()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">导入 CSV 数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">导入 EXCEL 数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">导入 SPSS 数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导入-csv-数据"><span class="nav-number">1.</span> <span class="nav-text">导入 CSV 数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入-excel-数据"><span class="nav-number">2.</span> <span class="nav-text">导入 EXCEL 数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入-spss-数据"><span class="nav-number">3.</span> <span class="nav-text">导入 SPSS 数据</span></a></li></ol></div>
             
           </div>
         </section>

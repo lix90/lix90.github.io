@@ -375,7 +375,7 @@ update the EEG.etc field 更新 EEG.etc 域。
       
 
       
-        <h1>数据准备</h1>
+        <h1 id="数据准备">数据准备</h1>
 <ol>
 <li>save a matrix of single trials 保存单试次矩阵。</li>
 <li>update the EEG.etc field 更新 EEG.etc 域。</li>
@@ -390,7 +390,7 @@ update the EEG.etc field 更新 EEG.etc 域。
 <li>创建保存数据集文件名列表的文本文件，然后导入即可批量创建多个数据集的单试次数据矩阵；</li>
 <li>通过 EEGLAB STUDY 界面</li>
 </ul>
-<h1>1st level analysis 一阶分析</h1>
+<h1 id="1st-level-analysis-一阶分析">1st level analysis 一阶分析</h1>
 <p>一阶分析至少需要两种文件 (categorical variable 和 continuous variables) 的其中一种。</p>
 <blockquote>
 <p>LIMO EEG expect (at least for now) that your have your conditions coded separately for each trial - this should be a single vector with all your conditions (basically you can export this from your EEG structure). A continuous might some measures from your stimuli, the response (like coding incorrect responses to remove some variance), or RTs.</p>
@@ -400,7 +400,7 @@ update the EEG.etc field 更新 EEG.etc 域。
 </blockquote>
 <p>其中，categorical variable 可以由 <code>limo_read_events.m</code> 函数生成:</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">markders = &#123;<span class="string">'marker1'</span>, <span class="string">'marker2'</span>&#125;;</div><div class="line"><span class="built_in">cat</span> = limo_read_events(data.set, markers);</div></pre></td></tr></table></figure>
-<h1>2nd level analysis 二阶分析</h1>
+<h1 id="2nd-level-analysis-二阶分析">2nd level analysis 二阶分析</h1>
 <p>创建 expected channels 和 neighbouring channels</p>
 <p><code>channeighbstructmat = limo_expected_chanlocs(data_set_name, path, neighbour_distance);</code><br>
 <code>[neighbours, channeighbstructmat] = limo_get_channeighbstructmat(EEG, neighbdist);</code></p>
@@ -439,13 +439,17 @@ update the EEG.etc field 更新 EEG.etc 域。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017-01-01-learn_mne/" rel="next" title="学习 MNE">
-                <i class="fa fa-chevron-left"></i> 学习 MNE
+              <a href="/2016-12-29-use-zotero/" rel="next" title="使用 zotero 管理文献">
+                <i class="fa fa-chevron-left"></i> 使用 zotero 管理文献
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017-01-01-learn_mne/" rel="prev" title="学习 MNE">
+                学习 MNE <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -608,7 +612,7 @@ update the EEG.etc field 更新 EEG.etc 域。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">数据准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">1st level analysis 一阶分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">2nd level analysis 二阶分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据准备"><span class="nav-number">1.</span> <span class="nav-text">数据准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1st-level-analysis-一阶分析"><span class="nav-number">2.</span> <span class="nav-text">1st level analysis 一阶分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2nd-level-analysis-二阶分析"><span class="nav-number">3.</span> <span class="nav-text">2nd level analysis 二阶分析</span></a></li></ol></div>
             
           </div>
         </section>

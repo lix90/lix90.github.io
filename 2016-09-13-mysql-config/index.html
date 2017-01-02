@@ -393,9 +393,9 @@ MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
       
 
       
-        <h1>下载 MySQL</h1>
+        <h1 id="下载-mysql">下载 MySQL</h1>
 <p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
-<h1>安装 MySQL</h1>
+<h1 id="安装-mysql">安装 MySQL</h1>
 <p>在网上教程发现提到这三个文件</p>
 <ol>
 <li>mysql-*.pkg：MySql的主要程序包</li>
@@ -403,18 +403,18 @@ MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
 <li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
 </ol>
 <p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
-<h1>安装 MySQL Workbench（GUI Tool）</h1>
+<h1 id="安装-mysql-workbench-gui-tool">安装 MySQL Workbench（GUI Tool）</h1>
 <p>仍然从官网下载。下载后安装然后进行配置。</p>
 <p>数据库访问密码的设置</p>
 <blockquote>
 <p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
 </blockquote>
-<h1>添加到 <strong>PATH</strong></h1>
+<h1 id="添加到-path">添加到 <strong>PATH</strong></h1>
 <p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>
 编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
 <p>或者</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
-<h1>报错</h1>
+<h1 id="报错">报错</h1>
 <p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br>
 <code>Can't connect to local MySQL server through socket '/tmp/mysql.sock'</code></p>
 <p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
@@ -665,7 +665,7 @@ MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">下载 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装 MySQL Workbench（GUI Tool）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">添加到 PATH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">报错</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载-mysql"><span class="nav-number">1.</span> <span class="nav-text">下载 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-mysql"><span class="nav-number">2.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-mysql-workbench-gui-tool"><span class="nav-number">3.</span> <span class="nav-text">安装 MySQL Workbench（GUI Tool）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加到-path"><span class="nav-number">4.</span> <span class="nav-text">添加到 PATH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错"><span class="nav-number">5.</span> <span class="nav-text">报错</span></a></li></ol></div>
             
           </div>
         </section>

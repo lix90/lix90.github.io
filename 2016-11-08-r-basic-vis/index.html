@@ -375,7 +375,7 @@
 
       
         <p>最近需要分析毕业论文数据，借机温习一下常见的统计图形，并且熟悉下如何在 R 下进行数据可视化。</p>
-<h1>箱图 Boxplot</h1>
+<h1 id="箱图-boxplot">箱图 Boxplot</h1>
 <h2 id="什么是箱图？">什么是箱图？</h2>
 <p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
 <h2 id="箱形图的用处">箱形图的用处</h2>
@@ -464,7 +464,7 @@
 </li>
 <li>Tufte boxplot</li>
 </ul>
-<h1>散点图 Scatterplot</h1>
+<h1 id="散点图-scatterplot">散点图 Scatterplot</h1>
 <h2 id="什么是散点图？">什么是散点图？</h2>
 <blockquote>
 <p>散点图对于绘制多变量数据非常有用。它们可帮助您确定各刻度变量之间的潜在关系。简单散点图使用二维坐标系绘制两个变量。三维散点图使用三维坐标系绘制三个变量。如果需要绘制更多的变量，则可以尝试重叠散点图和散点图矩阵 (SPLOM)。重叠散点图显示 x-y 变量的重叠对，其中每一对都以颜色或形状加以区分。SPLOM 创建一个二维散点图的矩阵，在 SPLOM 中每个变量都参照另外一个变量进行绘制。</p>
@@ -523,7 +523,7 @@
 </li>
 </ul>
 <p>参考: <a href="http://stackoverflow.com/questions/7714677/r-scatterplot-with-too-many-points" target="_blank" rel="external">StackOverflow: Scatterplot with too many points</a></p>
-<h1>直方图 Histogram</h1>
+<h1 id="直方图-histogram">直方图 Histogram</h1>
 <p>直方图用来展示数值型数据的分布，可以用来估计连续性数据的概率分布。直方图的纵轴为频率或者相对频率。</p>
 <p>使用 R 绘制直方图：</p>
 <p><code>graphics::hist()</code><br>
@@ -541,7 +541,7 @@
 <code>psych::pairs.panels()</code><br>
 <code>psych::scatter.hist()</code></p>
 <p>等等</p>
-<h1>其他统计图</h1>
+<h1 id="其他统计图">其他统计图</h1>
 <p>Mosaic Plot 类别数据，面积大小相对比例<br>
 Heat Map 多变量关系，通过色彩深浅区分频率、密度和大小<br>
 Pareto chart 条形图+累加线图，质量控制<br>
@@ -551,7 +551,7 @@ Line Chart 连续数据，趋势，时间序列数据<br>
 Bar Chart 类别数据，大小比较<br>
 Correlogram 相关图，展示相关矩阵</p>
 <p>参考：<a href="https://en.wikipedia.org/wiki/List_of_graphical_methods" target="_blank" rel="external">Wikipedia: List of graphical methods</a></p>
-<h1>数据可视化的几点原则</h1>
+<h1 id="数据可视化的几点原则">数据可视化的几点原则</h1>
 <blockquote>
 <p>Graphical displays should:</p>
 <ul>
@@ -567,7 +567,7 @@ Correlogram 相关图，展示相关矩阵</p>
 </ul>
 <p>— The Visual Display of Quantitative Information, Edward Tufte</p>
 </blockquote>
-<h1>统计图表所要展示的一些定量信息</h1>
+<h1 id="统计图表所要展示的一些定量信息">统计图表所要展示的一些定量信息</h1>
 <p>参考：<a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" rel="external">Wikipedia: Data Visualization</a></p>
 <blockquote>
 <p>Quantitative messages</p>
@@ -624,8 +624,8 @@ Correlogram 相关图，展示相关矩阵</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016-11-08-r-import-data/" rel="prev" title="R：数据导入">
-                R：数据导入 <i class="fa fa-chevron-right"></i>
+              <a href="/2016-11-08-r-desc-stats/" rel="prev" title="R：描述性统计">
+                R：描述性统计 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +789,7 @@ Correlogram 相关图，展示相关矩阵</p>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">箱图 Boxplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是箱图？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是箱图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的用处"><span class="nav-number">1.2.</span> <span class="nav-text">箱形图的用处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的不足"><span class="nav-number">1.3.</span> <span class="nav-text">箱形图的不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制过程"><span class="nav-number">1.4.</span> <span class="nav-text">绘制过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-r-绘制箱图"><span class="nav-number">1.5.</span> <span class="nav-text">使用 R 绘制箱图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本包函数-boxplot"><span class="nav-number">1.5.1.</span> <span class="nav-text">基本包函数 boxplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot2"><span class="nav-number">1.5.2.</span> <span class="nav-text">ggplot2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice"><span class="nav-number">1.5.3.</span> <span class="nav-text">lattice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与箱图类似的图"><span class="nav-number">1.6.</span> <span class="nav-text">与箱图类似的图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">散点图 Scatterplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是散点图？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是散点图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-r-中绘制基本的散点图"><span class="nav-number">2.2.</span> <span class="nav-text">在 R 中绘制基本的散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图矩阵"><span class="nav-number">2.3.</span> <span class="nav-text">散点图矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图变式或类似的图形"><span class="nav-number">2.4.</span> <span class="nav-text">散点图变式或类似的图形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">直方图 Histogram</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">其他统计图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">数据可视化的几点原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">统计图表所要展示的一些定量信息</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#箱图-boxplot"><span class="nav-number">1.</span> <span class="nav-text">箱图 Boxplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是箱图？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是箱图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的用处"><span class="nav-number">1.2.</span> <span class="nav-text">箱形图的用处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箱形图的不足"><span class="nav-number">1.3.</span> <span class="nav-text">箱形图的不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制过程"><span class="nav-number">1.4.</span> <span class="nav-text">绘制过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-r-绘制箱图"><span class="nav-number">1.5.</span> <span class="nav-text">使用 R 绘制箱图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本包函数-boxplot"><span class="nav-number">1.5.1.</span> <span class="nav-text">基本包函数 boxplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ggplot2"><span class="nav-number">1.5.2.</span> <span class="nav-text">ggplot2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice"><span class="nav-number">1.5.3.</span> <span class="nav-text">lattice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与箱图类似的图"><span class="nav-number">1.6.</span> <span class="nav-text">与箱图类似的图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#散点图-scatterplot"><span class="nav-number">2.</span> <span class="nav-text">散点图 Scatterplot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是散点图？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是散点图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-r-中绘制基本的散点图"><span class="nav-number">2.2.</span> <span class="nav-text">在 R 中绘制基本的散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图矩阵"><span class="nav-number">2.3.</span> <span class="nav-text">散点图矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图变式或类似的图形"><span class="nav-number">2.4.</span> <span class="nav-text">散点图变式或类似的图形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直方图-histogram"><span class="nav-number">3.</span> <span class="nav-text">直方图 Histogram</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他统计图"><span class="nav-number">4.</span> <span class="nav-text">其他统计图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据可视化的几点原则"><span class="nav-number">5.</span> <span class="nav-text">数据可视化的几点原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计图表所要展示的一些定量信息"><span class="nav-number">6.</span> <span class="nav-text">统计图表所要展示的一些定量信息</span></a></li></ol></div>
             
           </div>
         </section>

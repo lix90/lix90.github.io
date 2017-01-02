@@ -373,7 +373,7 @@ link_to(path, [text], [opti">
 
       
         <p>今天修改了下博客模板，顺便了解了下相关的工具和模块。</p>
-<h1>HEXO</h1>
+<h1 id="hexo">HEXO</h1>
 <p>辅助函数</p>
 <p><code>url_for()</code> 在路径前加根目录 <code>&lt;% url_for(path) %&gt;</code><br>
 <code>relative_url(from, to)</code> 获得一个从 <code>from</code> 到 <code>to</code> 的路径<br>
@@ -392,7 +392,7 @@ link_to(path, [text], [opti">
 <blockquote>
 <p>在模板中，透过 __ 或 _p 辅助函数，即可取得翻译后的字符串，前者用于一般使用；而后者用于复数字符串。</p>
 </blockquote>
-<h1><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1>
+<h1 id="grunt"><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1>
 <h2 id="构建自动化">构建自动化</h2>
 <p>谈 Grunt，就要谈到“构建自动化”。</p>
 <blockquote>
@@ -453,10 +453,10 @@ link_to(path, [text], [opti">
 <code>grunt-contrib-concat</code> 连接文件<br>
 <code>grunt-contrib-jshint</code> js 代码检测<br>
 <code>grunt-contrib-watch</code> 代码监视</p>
-<h1><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a></h1>
+<h1 id="gulp"><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a></h1>
 <p>Gulp 和 Grunt 干差不多的活，目前还不知道优劣。Gulp 显得简单一些。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1>EJS</h1>
+<h1 id="ejs">EJS</h1>
 <blockquote>
 <p>EJS 是一个简单的模板语言，可以让你使用原生 JavaScript 生成 HTML 标记。没有关于如何组织内容的语法规则，也没有循环和控制流的重载，只是使用原生的 JavaScript。</p>
 </blockquote>
@@ -485,7 +485,7 @@ JavaScript 的静态缓存<br>
 <li><code>-%&gt;</code> Trim-mode (‘newline slurp’) 标签, 移除随后的换行符</li>
 </ul>
 <p>使用 <code>include</code> 调用的模板时路径需要 filename 选项。</p>
-<h1>JADE</h1>
+<h1 id="jade">JADE</h1>
 <p>JADE（现在改名为 Pugjs） 是一个极度注重代码简洁性的模板语言。相比 EJS 来说，渲染性能较低一些。但因为其简单的语法（对其他人来说也许算是“复杂”了）受到欢迎。</p>
 <p>下面记录一些容易忘记的特殊语法：</p>
 <p><code>= '\n'</code> 换行<br>
@@ -731,7 +731,7 @@ JavaScript 的静态缓存<br>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">HEXO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Grunt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自动化"><span class="nav-number">2.1.</span> <span class="nav-text">构建自动化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-grunt"><span class="nav-number">2.2.</span> <span class="nav-text">使用 Grunt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gruntfile-js-配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">Gruntfile.js 配置文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Gulp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">EJS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">JADE</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo"><span class="nav-number">1.</span> <span class="nav-text">HEXO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grunt"><span class="nav-number">2.</span> <span class="nav-text">Grunt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自动化"><span class="nav-number">2.1.</span> <span class="nav-text">构建自动化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-grunt"><span class="nav-number">2.2.</span> <span class="nav-text">使用 Grunt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gruntfile-js-配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">Gruntfile.js 配置文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp"><span class="nav-number">3.</span> <span class="nav-text">Gulp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ejs"><span class="nav-number">4.</span> <span class="nav-text">EJS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jade"><span class="nav-number">5.</span> <span class="nav-text">JADE</span></a></li></ol></div>
             
           </div>
         </section>
