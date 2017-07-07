@@ -703,6 +703,54 @@ Which of the possible comparisons should we conduct? Well, this very much depend
   </entry>
   
   <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="blog.alexiangli.com/eeg-eeglab-egi/"/>
+    <id>blog.alexiangli.com/eeg-eeglab-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2017-07-07T07:12:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入">数据导入</h1>
+<p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件">电极位置文件</h1>
+<p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
+    
+    </summary>
+    
+      <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
+    
+      <category term="EEG" scheme="blog.alexiangli.com/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="blog.alexiangli.com/tags/EEG/"/>
+    
+      <category term="EGI" scheme="blog.alexiangli.com/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="blog.alexiangli.com/tags/EEGLAB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>西服保养建议</title>
     <link href="blog.alexiangli.com/life-clean-suit/"/>
     <id>blog.alexiangli.com/life-clean-suit/</id>
@@ -776,54 +824,6 @@ Which of the possible comparisons should we conduct? Well, this very much depend
       <category term="西服保养" scheme="blog.alexiangli.com/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
     
       <category term="Life style" scheme="blog.alexiangli.com/tags/Life-style/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="blog.alexiangli.com/eeg-eeglab-egi/"/>
-    <id>blog.alexiangli.com/eeg-eeglab-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2017-07-07T07:12:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入">数据导入</h1>
-<p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件">电极位置文件</h1>
-<p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
-    
-    </summary>
-    
-      <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
-    
-      <category term="EEG" scheme="blog.alexiangli.com/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="blog.alexiangli.com/tags/EEG/"/>
-    
-      <category term="EGI" scheme="blog.alexiangli.com/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="blog.alexiangli.com/tags/EEGLAB/"/>
     
   </entry>
   
@@ -2097,11 +2097,11 @@ JavaScript 的静态缓存<br>
     
       <category term="JavaScript" scheme="blog.alexiangli.com/tags/JavaScript/"/>
     
-      <category term="CSS" scheme="blog.alexiangli.com/tags/CSS/"/>
-    
       <category term="Coding style" scheme="blog.alexiangli.com/tags/Coding-style/"/>
     
       <category term="HTML" scheme="blog.alexiangli.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="blog.alexiangli.com/tags/CSS/"/>
     
       <category term="Emacs" scheme="blog.alexiangli.com/tags/Emacs/"/>
     
@@ -2503,9 +2503,9 @@ Certain named classes of characters are predefined. Their interpretation depends
       <category term="Config" scheme="blog.alexiangli.com/categories/Original/Config/"/>
     
     
-      <category term="Configuration" scheme="blog.alexiangli.com/tags/Configuration/"/>
-    
       <category term="PHP" scheme="blog.alexiangli.com/tags/PHP/"/>
+    
+      <category term="Configuration" scheme="blog.alexiangli.com/tags/Configuration/"/>
     
   </entry>
   
@@ -3216,9 +3216,9 @@ Certain named classes of characters are predefined. Their interpretation depends
     
       <category term="Database" scheme="blog.alexiangli.com/tags/Database/"/>
     
-      <category term="MySQL" scheme="blog.alexiangli.com/tags/MySQL/"/>
-    
       <category term="Configuration" scheme="blog.alexiangli.com/tags/Configuration/"/>
+    
+      <category term="MySQL" scheme="blog.alexiangli.com/tags/MySQL/"/>
     
   </entry>
   
