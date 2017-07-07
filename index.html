@@ -88,15 +88,15 @@
 
 
 
-<meta name="description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta name="description" content="志在成为一名优秀的数据分析师">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lix is Blogging">
-<meta property="og:url" content="http://lix90.github.io/index.html">
+<meta property="og:url" content="blog.alexiangli.com/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta property="og:description" content="志在成为一名优秀的数据分析师">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lix is Blogging">
-<meta name="twitter:description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta name="twitter:description" content="志在成为一名优秀的数据分析师">
 
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://lix90.github.io/"/>
+  <link rel="canonical" href="blog.alexiangli.com/"/>
 
 
   <title> Lix is Blogging </title>
@@ -282,7 +282,359 @@
             
               
                 
-                <a class="post-title-link" href="/2017-01-01-learn_limo_eeg/" itemprop="url">
+                <a class="post-title-link" href="/css/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T15:20:54+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="css/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="css">CSS</h1>
+<h2 id="margin">Margin</h2>
+<p>关于 Margin：</p>
+<blockquote>
+<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
+</blockquote>
+<p>垂直 margin 合并的好处：</p>
+<ul>
+<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
+<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
+<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
+</ul>
+<h2 id="css-浮动">CSS 浮动</h2>
+<ul>
+<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
+<li>不出现外边距合并</li>
+<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
+<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
+<li>一般来说浮动元素会成为块级盒</li>
+</ul>
+<blockquote>
+<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
+</blockquote>
+<h2 id="常见清除浮动的办法">常见清除浮动的办法</h2>
+<ol>
+<li>clear 属性</li>
+<li>空 DIV 法：不如何“结构与表现分离原则”</li>
+<li>Overflow 法：可能有副作用</li>
+<li>Clearfix 法</li>
+</ol>
+<blockquote>
+<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
+</blockquote>
+<h2 id="css3-提供了几种新的处理布局的方法">CSS3 提供了几种新的处理布局的方法</h2>
+<ol>
+<li>Flexbox 弹性盒子</li>
+<li>Multi-column layout 多栏布局</li>
+<li>Grid layout 格子布局</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/javascript/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-27T17:09:32+08:00" content="2017-01-27">
+              2017-01-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/javascript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="javascript/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="vuejs">Vuejs</h1>
+<p>Vuejs 有哪些优点？</p>
+<ul>
+<li>Reactive 响应式</li>
+<li>Component based 组块化</li>
+<li>Modular 模块化</li>
+<li>Simple to use animations right out of the box 易于使用的动画</li>
+<li>Easy to learn 易于学习</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/misc/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-27T17:07:00+08:00" content="2017-01-27">
+              2017-01-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/misc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="misc/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="电影与纪录片">电影与纪录片</h1>
+<p>Helvetica 纪录片：字体设计<br>
+Code Rush 纪录片：代码奔腾 Firefox 的诞生<br>
+Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/learn_limo_eeg/" itemprop="url">
                   学习 LIMO EEG
                 </a>
               
@@ -326,8 +678,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017-01-01-learn_limo_eeg/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017-01-01-learn_limo_eeg/" itemprop="commentsCount"></span>
+                <a href="/learn_limo_eeg/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="learn_limo_eeg/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -430,7 +782,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017-01-01-learn_mne/" itemprop="url">
+                <a class="post-title-link" href="/learn_mne/" itemprop="url">
                   学习 MNE
                 </a>
               
@@ -474,8 +826,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017-01-01-learn_mne/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017-01-01-learn_mne/" itemprop="commentsCount"></span>
+                <a href="/learn_mne/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="learn_mne/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -501,373 +853,7 @@
         
           将 EEGLAB 中使用的分析流程用 MNE 实现一遍。
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017-01-01-learn_mne/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-12-29-use-zotero/" itemprop="url">
-                  使用 zotero 管理文献
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T00:00:00+08:00" content="2016-12-29">
-              2016-12-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-12-29-use-zotero/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-12-29-use-zotero/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          zotero 使用经验整理。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-12-29-use-zotero/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-12-28-daily/" itemprop="url">
-                  每日总结 2016-12-28
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-28T00:00:00+08:00" content="2016-12-28">
-              2016-12-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-12-28-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-12-28-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          一点基本统计检验流程
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-12-28-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-12-27-daily/" itemprop="url">
-                  每日总结 2016-12-27
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-27T00:00:00+08:00" content="2016-12-27">
-              2016-12-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-12-27-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-12-27-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-           - 在 ESS 中快捷输入 pipe (%>%) 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-12-27-daily/">
+            <a class="btn" href="/learn_mne/">
               阅读全文 &raquo;
             </a>
           </div>
@@ -901,7 +887,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -937,12 +923,12 @@
                src="/images/lix.jpg"
                alt="Lix" />
           <p class="site-author-name" itemprop="name">Lix</p>
-          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+          <p class="site-description motion-element" itemprop="description">志在成为一名优秀的数据分析师</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -950,7 +936,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -959,7 +945,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">112</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

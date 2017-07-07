@@ -1,0 +1,874 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleddc1a8db9158652d.html" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R,tidyr," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lix is Blogging" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="宽转长 Wide2Long
+tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
+参数：
+
+data 数据框
+key 键，新生成的因子列名（不需要加引号）
+value 值，新生成的数值列名（不需要加引号）
+... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R：使用 tidyr 进行数据操作">
+<meta property="og:url" content="blog.alexiangli.com/r-tidyr/index.html">
+<meta property="og:site_name" content="Lix is Blogging">
+<meta property="og:description" content="宽转长 Wide2Long
+tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
+参数：
+
+data 数据框
+key 键，新生成的因子列名（不需要加引号）
+value 值，新生成的数值列名（不需要加引号）
+... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将">
+<meta property="og:updated_time" content="2016-11-19T03:33:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R：使用 tidyr 进行数据操作">
+<meta name="twitter:description" content="宽转长 Wide2Long
+tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)
+参数：
+
+data 数据框
+key 键，新生成的因子列名（不需要加引号）
+value 值，新生成的数值列名（不需要加引号）
+... 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="blog.alexiangli.com/r-tidyr/"/>
+
+
+  <title> R：使用 tidyr 进行数据操作 | Lix is Blogging </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-83416766-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?443647978390b69709082ecaafe0ca1b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lix is Blogging</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟笔记，原创不多</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R：使用 tidyr 进行数据操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/r-tidyr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="r-tidyr/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="宽转长-wide2long">宽转长 Wide2Long</h1>
+<p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>data</code> 数据框</li>
+<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
+<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
+<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：
+<ul>
+<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
+<li><code>-z</code> 排除 z 变量</li>
+<li><code>x,y,z</code> 选择 x y z 三个变量</li>
+<li><code>2:4</code> 选择第2到4列</li>
+</ul>
+</li>
+<li><code>na.rm</code> 是否去除缺失值</li>
+<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
+<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
+</ul>
+<h1 id="长转宽-long2wide">长转宽 Long2Wide</h1>
+<p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>key</code> 该列的因子转换为多个列的列名</li>
+<li><code>value</code> 该列的内容将分配到多个列中</li>
+<li><code>fill</code> 指定填充缺失值的值</li>
+<li><code>convert</code> 数据类型转换</li>
+<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
+<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
+</ul>
+<h1 id="分割单列为多列">分割单列为多列</h1>
+<p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 列名（不需要引号）</li>
+<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
+<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。
+<ul>
+<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
+<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
+</ul>
+</li>
+<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
+<li><code>convert</code> 数据类型转换。</li>
+<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果
+<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
+<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
+<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
+</ul>
+</li>
+<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果
+<ul>
+<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
+<li><code>&quot;right&quot;</code> 在右侧填充</li>
+<li><code>&quot;left&quot;</code> 在左侧填充</li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
+<h1 id="合并多列为单列">合并多列为单列</h1>
+<p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
+<p>参数：</p>
+<ul>
+<li><code>col</code> 将要合并得到的列名</li>
+<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
+<li><code>sep</code> 分隔符</li>
+<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
+</ul>
+<h1 id="实例">实例</h1>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>长转宽</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>宽转长</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
+<p>合并列与分割列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>拓展阅读：</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
+<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag">#R</a>
+          
+            <a href="/tags/tidyr/" rel="tag">#tidyr</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/r-vis-layout/" rel="next" title="R：使用基本包进行多图布局">
+                <i class="fa fa-chevron-left"></i> R：使用基本包进行多图布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/sql-interview/" rel="prev" title="数据库面试题解答">
+                数据库面试题解答 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/lix.jpg"
+               alt="Lix" />
+          <p class="site-author-name" itemprop="name">Lix</p>
+          <p class="site-description motion-element" itemprop="description">志在成为一名优秀的数据分析师</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lix90" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/alexiangli" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:xiangli90@outlook.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#宽转长-wide2long"><span class="nav-number">1.</span> <span class="nav-text">宽转长 Wide2Long</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长转宽-long2wide"><span class="nav-number">2.</span> <span class="nav-text">长转宽 Long2Wide</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割单列为多列"><span class="nav-number">3.</span> <span class="nav-text">分割单列为多列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并多列为单列"><span class="nav-number">4.</span> <span class="nav-text">合并多列为单列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">5.</span> <span class="nav-text">实例</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lix</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lix90';
+      var disqus_identifier = 'r-tidyr/';
+      var disqus_title = "R：使用 tidyr 进行数据操作";
+      var disqus_url = 'blog.alexiangli.com/r-tidyr/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

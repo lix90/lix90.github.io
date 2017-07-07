@@ -88,15 +88,15 @@
 
 
 
-<meta name="description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta name="description" content="志在成为一名优秀的数据分析师">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lix is Blogging">
-<meta property="og:url" content="http://lix90.github.io/page/7/index.html">
+<meta property="og:url" content="blog.alexiangli.com/page/7/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta property="og:description" content="志在成为一名优秀的数据分析师">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lix is Blogging">
-<meta name="twitter:description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta name="twitter:description" content="志在成为一名优秀的数据分析师">
 
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://lix90.github.io/page/7/"/>
+  <link rel="canonical" href="blog.alexiangli.com/page/7/"/>
 
 
   <title> Lix is Blogging </title>
@@ -282,8 +282,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016-11-19-sql-interview/" itemprop="url">
-                  数据库面试题解答
+                <a class="post-title-link" href="/sql-intro/" itemprop="url">
+                  SQL 语言入门笔记
                 </a>
               
             
@@ -296,8 +296,800 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-19T00:00:00+08:00" content="2016-11-19">
-              2016-11-19
+            <time itemprop="dateCreated" datetime="2016-09-17T09:46:39+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/sql-intro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="sql-intro/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>《数据库系统概论》第三章笔记。</p>
+<h1 id="基础">基础</h1>
+<h2 id="sql-历史">SQL 历史</h2>
+<ul>
+<li>1974 年，Boyce 和 Chamberlin 提出，Sequel</li>
+<li>1986 年 10 月，美国国家标准局（ANSI）的数据库委员会 X3H2 批准，同年公布 SQL 标准文本</li>
+<li>1987 年，国际化标准组织（ISO）通过这一标准</li>
+</ul>
+<p>没有一个数据库系统能够支持 SQL 标准的所有概念和特性。许多软件厂商对 SQL 的基本命令集进行了不同程度的扩充和修改，又可以支持标准以外的一些功能特性。</p>
+<h2 id="sql-特点">SQL 特点</h2>
+<ul>
+<li>综合统一
+<ul>
+<li>SQL 集 <code>数据定义语言</code>、<code>数据操纵语言</code>、<code>数据控制语言</code> 的功能于一体，可以独立完成数据库生命周期中的全部活动。
+<ul>
+<li>定义和修改、删除关系模式，定义和删除视图，插入数据，建立数据库；</li>
+<li>对数据库中的数据进行查询和更新；</li>
+<li>数据库重构和维护；</li>
+<li>数据库安全性、完整性控制，以及事务控制；</li>
+<li>嵌入式 SQL 和动态 SQL 定义。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高度非过程化</li>
+<li>面向集合的操作方式</li>
+<li>以同一种语法结构提供多种使用方式
+<ul>
+<li>既是独立语言，又是嵌入式语言</li>
+</ul>
+</li>
+<li>语言简洁，易学易用</li>
+</ul>
+<h2 id="sql-基本概念">SQL 基本概念</h2>
+<p>三级模式结构</p>
+<ul>
+<li>外模式：若干视图、部分基本表</li>
+<li>模式：若干基本表</li>
+<li>内模式：若干存储文件</li>
+</ul>
+<hr>
+<h1 id="数据定义">数据定义</h1>
+<h2 id="模式的定义与删除">模式的定义与删除</h2>
+<h3 id="1-定义模式">1. 定义模式</h3>
+<p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code></p>
+<p>进行该操作需具备数据库管理员权限，或者获得了数据库管理员授予的 CREATE SCHEMA 的权限。</p>
+<p>定义模式实际上定义了一个命名空间，在此可以进一步定义该模式包含的数据库对象。</p>
+<p><code>CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt; [&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]</code></p>
+<h3 id="2-删除模式">2. 删除模式</h3>
+<p><code>DROP SCHEMA &lt;模式名&gt;&lt;CASCADE|RESTRICT&gt;</code></p>
+<ul>
+<li><code>CASCADE</code> 级联，表示在删除模式时把该模式中所有的数据库对象全部删除；</li>
+<li><code>RESTRICT</code> 限制，表示如果该模式中定义了下属的数据库对象（如表或视图），则拒绝该删除语句的执行。</li>
+</ul>
+<h2 id="基本表的定义-删除与修改">基本表的定义、删除与修改</h2>
+<h3 id="1-定义基本表">1. 定义基本表</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;表名&gt;</div><div class="line">    (&lt;列名&gt;&lt;数据类型&gt; [列级完整性约束条件]</div><div class="line">    [,&lt;列名&gt;&lt;数据类型&gt; [列级完整性约束条件]]</div><div class="line">    ...</div><div class="line">    [,&lt;表级完整性约束条件&gt;]);</div></pre></td></tr></table></figure>
+<h3 id="2-数据类型">2. 数据类型</h3>
+<p>在 SQL 中域的概念用数据类型来实现。定义表的各个属性时需要指明其数据类型及长度。选择数据类型从两方面考虑，一是取值范围，二是要做哪些运算。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>CHAR(n)</code>,<code>CHARACTER(n)</code></td>
+<td style="text-align:left">长度为 n 的定长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>VARCHAR(n)</code>,<code>CHARACTERVARYING(n)</code></td>
+<td style="text-align:left">最大长度为 n 的变长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CLOB</code></td>
+<td style="text-align:left">字符串大对象</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BLOB</code></td>
+<td style="text-align:left">二进制大对象</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>INT</code>,<code>INTEGER</code></td>
+<td style="text-align:left">长整数（4字节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMALLINT</code></td>
+<td style="text-align:left">短整数（2字节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BIGINT</code></td>
+<td style="text-align:left">大整数（8字节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMERIC(p,d)</code></td>
+<td style="text-align:left">定点数，由 p 位数字（不包括符号、小数点）组成，小数点后面有 d 位数字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DECIMAL(p,d)</code>,<code>DEC(p,d)</code></td>
+<td style="text-align:left">同 NUMERIC</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>REAL</code></td>
+<td style="text-align:left">取决于机器精度的单精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DOUBLE PRECISION</code></td>
+<td style="text-align:left">取决于机器精度的双精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>FLOAT(n)</code></td>
+<td style="text-align:left">可选精度的浮点数，精度至少位 n 位数字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BOOLEAN</code></td>
+<td style="text-align:left">逻辑布尔量</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DATE</code></td>
+<td style="text-align:left">日期，包含年、月、日，格式为 YYYY-MM-DD</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TIME</code></td>
+<td style="text-align:left">时间，包含一日的时、分、秒，格式为 HH:MM:SS</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TIMESTAMP</code></td>
+<td style="text-align:left">时间戳类型</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>INTERVAL</code></td>
+<td style="text-align:left">时间间隔类型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-模式与表">3. 模式与表</h3>
+<p>三种方法定义基本表所属的模式：</p>
+<ol>
+<li>在表名中明显地给出模式名；</li>
+<li>在创建模式语句中同时创建表；</li>
+<li>设置所属的模式，这样在创建表时表名中不必给出模式名。</li>
+</ol>
+<p>显示当前搜索路径：<code>SHOW search_path</code>;<br>
+设置搜索路径：<code>SET search_path &lt;模式名&gt;,PUBLIC</code>;</p>
+<h3 id="4-修改基本表">4. 修改基本表</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt;</div><div class="line">[<span class="keyword">ADD</span> [<span class="keyword">COLUMN</span>] &lt;新列名&gt;&lt;数据类型&gt; [完整性约束]]</div><div class="line">[<span class="keyword">ADD</span> &lt;表级完整性约束&gt;]</div><div class="line">[<span class="keyword">DROP</span> [<span class="keyword">COLUMN</span>] &lt;列名&gt; [<span class="keyword">CASCADE</span>|RESTRICT]]</div><div class="line">[<span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> &lt;完整性约束&gt; [RESTRICT|<span class="keyword">CASCADE</span>]]</div><div class="line">[<span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> &lt;列名&gt;&lt;数据类型&gt;];</div></pre></td></tr></table></figure>
+<h3 id="5-删除基本表">5. 删除基本表</h3>
+<p><code>DROP TABLE &lt;表名&gt; [RESTRICT|CASCADE]</code></p>
+<p>不同的数据库产品在遵循 SQL 标准的基础上具体实现细节和处理策略会与标准有差别。</p>
+<h2 id="索引的建立与删除">索引的建立与删除</h2>
+<p>建立索引时加快查询速度的有效手段。索引是关系数据库管理系统的内部实现技术，属于内模式范畴。用户不必也不能显式地选择索引。</p>
+<p>常见的数据库索引：</p>
+<ul>
+<li>顺序文件上的索引；</li>
+<li>B+树索引</li>
+<li>散列索引</li>
+<li>位图索引</li>
+</ul>
+<h3 id="1-建立索引">1. 建立索引</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> [<span class="keyword">UNIQUE</span>] [CLUSTER] <span class="keyword">INDEX</span> &lt;索引名&gt;</div><div class="line"><span class="keyword">ON</span> &lt;表名&gt;(&lt;列名&gt; [&lt;次序&gt;][,&lt;列名&gt; [&lt;次序&gt;]] ...);</div></pre></td></tr></table></figure>
+<h3 id="2-修改索引">2. 修改索引</h3>
+<p><code>ALTER INDEX &lt;旧索引名&gt;RENAME TO&lt;新索引名&gt;</code></p>
+<h3 id="3-删除索引">3. 删除索引</h3>
+<p><code>DROP INDEX &lt;索引名&gt;</code></p>
+<h2 id="数据字典">数据字典</h2>
+<blockquote>
+<p>数据字典时关系数据库管理系统内部的一组系统表，它记录了数据库中所有的定义信息，包括关系模式定义、视图定义、索引定义、完整性约束定义、各类用户对数据库的操作权限、统计信息等。关系数据库管理系统在执行 SQL 的数据定义语句时，实际上就是在更新数据字典表中的相应信息。在进行查询优化和查询处理时，数据字典中的信息是其重要依据。</p>
+</blockquote>
+<hr>
+<h1 id="数据查询">数据查询</h1>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> [ALL|<span class="keyword">DISTINCT</span>] &lt;目标列表达式&gt; [,&lt;目标列表达式&gt;]...</div><div class="line"><span class="keyword">FROM</span> &lt;表名或视图名&gt; [,&lt;表名或视图名&gt;]|(&lt;<span class="keyword">SELECT</span> 语句&gt;)[<span class="keyword">AS</span>]&lt;别名&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">HAVING</span> &lt;条件表达式&gt;]]</div><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;列名<span class="number">2</span>&gt; [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>]];</div></pre></td></tr></table></figure>
+<h2 id="单表查询">单表查询</h2>
+<ol>
+<li>选择表中若干列</li>
+<li>选择表中若干元组</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">查询条件</th>
+<th style="text-align:left">谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>!&gt;</code>, <code>!&lt;</code>; <code>NOT+上述比较运算符</code></td>
+</tr>
+<tr>
+<td style="text-align:left">确定范围</td>
+<td style="text-align:left"><code>BETWEEN AND</code>, <code>NOT BETWEEN AND</code></td>
+</tr>
+<tr>
+<td style="text-align:left">确定集合</td>
+<td style="text-align:left"><code>IN</code>, <code>NOT IN</code></td>
+</tr>
+<tr>
+<td style="text-align:left">字符匹配</td>
+<td style="text-align:left"><code>LIKE</code>, <code>NOT LIKE</code></td>
+</tr>
+<tr>
+<td style="text-align:left">空值</td>
+<td style="text-align:left"><code>IS NULL</code>, <code>IS NOT NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">多重条件（逻辑运算）</td>
+<td style="text-align:left"><code>AND</code>, <code>OR</code>, <code>NOT</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li><code>OBDER BY</code> 子句</li>
+<li>聚集函数</li>
+<li><code>GROUP BY</code> 子句</li>
+</ol>
+<h2 id="连接查询">连接查询</h2>
+<p>连接查询：查询同时涉及两个以上的表。</p>
+<ol>
+<li>等值与非等值连接的查询</li>
+<li>自身连接</li>
+<li>外连接</li>
+<li>多表连接</li>
+</ol>
+<h2 id="嵌套查询">嵌套查询</h2>
+<blockquote>
+<p>在 SQL 语言中，一个 <code>SELECT-FROM-WHERE</code> 语句称为一个查询块。将一个查询块嵌套再另一个查询块的 <code>WHERE</code> 子句或 <code>HAVING</code> 短语的条件中的查询称为嵌套查询。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> Sname <span class="comment">/*外层查询或父查询*/</span></div><div class="line"><span class="keyword">FROM</span> Student</div><div class="line"><span class="keyword">WHERE</span> Sno <span class="keyword">IN</span></div><div class="line">    (<span class="keyword">SELECT</span> Sno <span class="comment">/*内层查询或子查询*/</span></div><div class="line">    <span class="keyword">FROM</span> SC</div><div class="line">    <span class="keyword">WHERE</span> Cno=<span class="string">'2'</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>带有 <code>IN</code> 谓词的子查询</li>
+<li>带有比较运算符的子查询</li>
+<li>带有 <code>ANY (SOME)</code> 或 <code>ALL</code> 谓词的子查询</li>
+<li>带有 <code>EXISTS</code> 谓词的子查询</li>
+</ol>
+<h2 id="集合查询">集合查询</h2>
+<blockquote>
+<p>集合操作主要包括并操作 <code>UNION</code>、交操作 <code>INTERSECT</code> 和差操作 <code>EXCEPT</code>。参加集合操作的各查询结果的<strong>列数</strong>必须相同；对应项的<strong>数据类型</strong>也必须相同。</p>
+</blockquote>
+<h2 id="基于派生表的查询">基于派生表的查询</h2>
+<blockquote>
+<p>子查询不仅可以出现在 <code>WHERE</code> 子句中，还可以出现再 <code>FROM</code> 子句中，这时子查询生成的临时派生表称为主查询的查询对象。</p>
+</blockquote>
+<hr>
+<h1 id="数据更新">数据更新</h1>
+<h2 id="插入数据">插入数据</h2>
+<ol>
+<li>插入元组</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line"><span class="keyword">VALUES</span> (&lt;常量 <span class="number">1</span>&gt; [,&lt;常量 <span class="number">2</span>&gt;]); <span class="comment">-- 字符串常量使用单引号括起来</span></div></pre></td></tr></table></figure>
+<ol start="2">
+<li>插入子查询结果</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span></div><div class="line"><span class="keyword">INTO</span> &lt;表名&gt; [(&lt;属性列 <span class="number">1</span>&gt; [, &lt;属性列 <span class="number">2</span>&gt;] ...)]</div><div class="line">子查询;</div></pre></td></tr></table></figure>
+<h2 id="修改数据">修改数据</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> &lt;<span class="keyword">TABLE</span>&gt;</div><div class="line"><span class="keyword">SET</span> &lt;<span class="keyword">column</span>&gt;=&lt;expression&gt; [,&lt;<span class="keyword">column</span>&gt;=&lt;expression&gt;]</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
+<h2 id="删除数据">删除数据</h2>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span></div><div class="line"><span class="keyword">FROM</span> &lt;<span class="keyword">table</span>&gt;</div><div class="line">[<span class="keyword">WHERE</span> &lt;condition&gt;];</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="空值的处理">空值的处理</h1>
+<p>空值：不知道或者不存在或者无意义的值。</p>
+<p>以下条件取空值：</p>
+<ul>
+<li>该属性应该有一个值，但目前不知道；</li>
+<li>该属性不应该有值；</li>
+<li>由于某种原因不便于填写。</li>
+</ul>
+<p>空值的判断：<code>IS NULL</code> <code>IS NOT NULL</code>。</p>
+<hr>
+<h1 id="视图">视图</h1>
+<p><code>CREATE VIEW</code><br>
+<code>ALTER VIEW</code><br>
+<code>DROP VIEW</code><br>
+<code>SHOW VIEW</code></p>
+<h2 id="视图的作用">视图的作用</h2>
+<ul>
+<li>简化用户操作</li>
+<li>使用户以多种角度看待同一数据</li>
+<li>对重构数据库提供了一定程度的逻辑独立性</li>
+<li>对机密数据提供安全保护</li>
+<li>适当利用视图可以更清晰地表达查询</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/r-apply-family/" itemprop="url">
+                  R：向量化运算
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-13T22:50:21+08:00" content="2016-09-13">
+              2016-09-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/r-apply-family/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="r-apply-family/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Updated in 2016-11-12</p>
+</blockquote>
+<p>学习 <code>sapply</code> <code>lapply</code> <code>apply</code> <code>tapply</code> <code>by</code> <code>aggregate</code> 等向量化运算函数的笔记。</p>
+<h1 id="apply"><code>apply</code></h1>
+<p>当输入数据为矩阵或数组时使用，如果输入数据为 <code>data.frame</code>，则不建议使用。</p>
+<p><code>apply(X, MARGIN, FUN, ...)</code></p>
+<ul>
+<li><code>X</code> 数组或矩阵</li>
+<li><code>MARGIN</code> 指定 <code>FUN</code> 作用的由下标组成的向量。若 <code>X</code> 为矩阵，1 表示行，2 表示列。<code>c(1,2)</code> 表示行和列。如果 <code>X</code> 包含 <code>dimnames</code>，那么也可以为字符向量。</li>
+<li><code>FUN</code> 使用的函数</li>
+</ul>
+<p>如果需要在行或者列上求均值和求和，则建议使用 <code>colMeans</code> <code>rowMeans</code> <code>colSums</code> <code>rowSums</code>。</p>
+<h1 id="tapply"><code>tapply</code></h1>
+<p>需要对向量按组或者因素水平计算，类似于 <code>split-apply-combine</code>。</p>
+<h1 id="by"><code>by</code></h1>
+<p>可替代 <code>tapply</code>，在无法使用 <code>tapply</code> 的情况下仍然可用。</p>
+<p><a href="http://stackoverflow.com/a/32262439/6469987" target="_blank" rel="external">参考</a></p>
+<h1 id="aggregate"><code>aggregate</code></h1>
+<p>跟 <code>tapply</code> 类似，不同的是，<code>aggregate</code> 的第二个参数必须为 list，输出为 data.frame。<code>aggregate</code> 的参数还可以为 formula。需要主要的是 <code>aggregate</code> 的 formula 方法默认 <code>na.action = na.omit</code>，所以需要手动设置参数 <code>na.rm = TRUE</code>。</p>
+<h1 id="lapply"><code>lapply</code></h1>
+<p>输入和输出都为 list。其他 <code>*apply</code> 函数底层都是调用 <code>lapply</code> 函数。</p>
+<p><code>lapply(X, FUN, ...)</code></p>
+<p>返回与 <code>X</code> 等长度的 list，每个元素是由 <code>X</code> 中的元素经过 <code>FUN</code> 计算得到。</p>
+<h1 id="sapply"><code>sapply</code></h1>
+<p>输入为 list，但输出为 vector。</p>
+<p><code>sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</code></p>
+<p>比 <code>lapply</code> 更友好，虽然默认返回 vector，matrix，但是如果增加 <code>simplify = &quot;array&quot;</code> 的参数，将返回 array。<code>sapply(x, f, simplify=FALSE, USE.NAMES = FALSE)</code> 等同于 <code>lapply(x, f)</code>。</p>
+<h1 id="vapply"><code>vapply</code></h1>
+<p><code>vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)</code></p>
+<p>类似与 <code>sapply</code>，但是返回值的类型是事先确定。</p>
+<h1 id="replicate"><code>replicate</code></h1>
+<p>重复地执行表达式。</p>
+<h1 id="其他相关函数">其他相关函数</h1>
+<p><code>outer</code> <code>ave</code> <code>eapply</code></p>
+<h1 id="比较好的总结">比较好的总结</h1>
+<blockquote>
+<ul>
+<li><strong>lapply</strong> is a list apply which acts on a list or vector and returns a list.</li>
+<li><strong>sapply</strong> is a simple lapply (function defaults to returning a vector or matrix when possible)</li>
+<li><strong>vapply</strong> is a verified apply (allows the return object type to be prespecified)</li>
+<li><strong>rapply</strong> is a recursive apply for nested lists, i.e. lists within lists</li>
+<li><strong>tapply</strong> is a tagged apply where the tags identify the subsets</li>
+<li><strong>apply</strong> is generic: applies a function to a matrix’s rows or columns (or, more generally, to dimensions of an array)</li>
+</ul>
+</blockquote>
+<p><a href="http://stackoverflow.com/a/23282110/6469987" target="_blank" rel="external">参考</a></p>
+<hr>
+<p>参考资料</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega" target="_blank" rel="external">R Grouping functions: sapply vs. lapply vs. apply. vs. tapply vs. by vs. aggregate</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/mysql-config/" itemprop="url">
+                  MySQL安装与配置（MacOS）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-13T20:59:16+08:00" content="2016-09-13">
+              2016-09-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/" itemprop="url" rel="index">
+                    <span itemprop="name">Original</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Original/Config/" itemprop="url" rel="index">
+                    <span itemprop="name">Config</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/mysql-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="mysql-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="下载-mysql">下载 MySQL</h1>
+<p>从<a href="http://www.mysql.com/downloads/" target="_blank" rel="external">官方网站</a>下载 <code>MySQL Community Server</code>。</p>
+<h1 id="安装-mysql">安装 MySQL</h1>
+<p>在网上教程发现提到这三个文件</p>
+<ol>
+<li>mysql-*.pkg：MySql的主要程序包</li>
+<li>MySQL_StartupItem.pkg：MySql的启动项</li>
+<li>MySQL.prefPane：MySQL的偏好设置，主要用来启动MySQL服务</li>
+</ol>
+<p>但是打开 dmg 文件，仅仅发现一个 mysql-<version>.pkg 文件</version></p>
+<h1 id="安装-mysql-workbench-gui-tool">安装 MySQL Workbench（GUI Tool）</h1>
+<p>仍然从官网下载。下载后安装然后进行配置。</p>
+<p>数据库访问密码的设置</p>
+<blockquote>
+<p>MySQL的默认账号密码是root/root，正常情况下我们如果单纯的只是使用MySQL Workbench来管理数据库的这个账号是可以的，但是当我们在编程代码中通过jdbc来访问MySQL时我们就会发现使用这个账号是不行，无法访问，因为MySQL需要我们更改密码，也就是说root这个是个默认的密码也就是弱密码，需要我们修改之后才能在代码中使用。</p>
+</blockquote>
+<h1 id="添加到-path">添加到 <strong>PATH</strong></h1>
+<p>将 <code>/usr/local/mysql/bin</code> 添加到 <code>PATH</code> 中<br>
+编辑 <code>.bash_profile</code> 加入 <code>export PATH=$PATH:/usr/local/mysql/bin</code></p>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;export PATH=$PATH:/usr/local/mysql/bin&quot; &gt;&gt; ~/.bash_profile</div></pre></td></tr></table></figure>
+<h1 id="报错">报错</h1>
+<p>查询 MySQL 版本是 <code>mysql -v</code> 报错：<br>
+<code>Can't connect to local MySQL server through socket '/tmp/mysql.sock'</code></p>
+<p>网上寻找教程，发现有解决办法是对 <code>mysql.sock</code> 建立符号链接。但是在 Mac 上并未找到这个文件。</p>
+<p><s>寻找 <code>mysql.sock</code> 文件：<code>find / -name &quot;mysql.sock&quot;</code> 得到 <code>/var/lib/mysql/mysql.sock</code><br>
+那么建立 <code>symbolic link</code>：<code>ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock</code></s></p>
+<p>后来发现，这个报错是因为 <code>MySQL Server</code> 没有运行。于是打开 <code>MySQL.prefPane</code>，打开 <code>MySQL Server</code>。</p>
+<p>又出现另外的报错 <code>ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)</code>。</p>
+<p>检索相关问题发现导致这个报错的原因有以下三种：</p>
+<ol>
+<li>客户端远程访问的用户帐号并未创建；</li>
+<li>用户帐号存在，但未对其所在的客户端的 IP 进行远程访问授权允许；</li>
+<li>用户帐号授权访问的密码不正确。</li>
+</ol>
+<p>看到前面安装 GUI 工具的部分说到，必须重新设置账户密码，root 的密码为弱密码。</p>
+<p>MySQL 还有个配置文件 <code>my.cnf</code>，里面可以设置帐号密码。</p>
+<p><strong>最后发现</strong>，原来在安装 MySQL 时，弹出来一个临时密码的提醒，这个密码用于第一次登录 MySQL，并修改密码。现在终于想起来那个临时密码，但是已经忘了有没有保存。因为自己挖的坑，折腾了很久。</p>
+<p>于是为了图方便，先把 MySQL 完全卸载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># first stop the database server</div><div class="line">sudo rm /usr/local/mysql</div><div class="line">sudo rm -rf /usr/local/mysql*</div><div class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</div><div class="line">sudo rm -rf /Library/PreferencePanes/My*</div><div class="line"># edit /etc/hostconfig and remove the line MYSQLCOM=-YES-</div><div class="line">rm -rf ~/Library/PreferencePanes/My*</div><div class="line">sudo rm -rf /Library/Receipts/mysql*</div><div class="line">sudo rm -rf /Library/Receipts/MySQL*</div><div class="line">sudo rm -rf /private/var/db/receipts/*mysql*</div><div class="line">sudo rm -rf /var/db/receipts/com.mysql.*</div></pre></td></tr></table></figure>
+<p>然后再重新安装 MySQL。</p>
+<p>这次长记性保存了临时密码。</p>
+<p>接下来重新配置 MySQL。</p>
+<p>修改根用户密码：<code>mysqldmin -u root -p password</code><br>
+提示输入旧密码，然后输入新密码，最后确认新密码。然后会得到以下提示：</p>
+<blockquote>
+<p>Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</p>
+</blockquote>
+<p>通过新修改的密码登录 MySQL：<code>mysql -u root -p</code>，提示输入密码，终于成功登录。</p>
+<p>吸取教训，<strong>一定不要完全按照网上的教程来安装配置应用程序，尽量根据官网文档</strong>。</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/macro-cheng/archive/2011/10/25/mysql-001.html" target="_blank" rel="external">MAC下安装与配置MySQL</a></li>
+<li><a href="http://blog.csdn.net/zzq900503/article/details/14163341" target="_blank" rel="external">Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’</a></li>
+<li><a href="https://segmentfault.com/q/1010000000094608" target="_blank" rel="external">Mac上MySQL报错</a></li>
+<li><a href="http://obscuredclarity.blogspot.in/2009/08/install-mysql-on-mac-os-x.html" target="_blank" rel="external">Install MySQL on Mac OS X</a></li>
+<li><a href="http://blog.csdn.net/lioncode/article/details/7917310" target="_blank" rel="external">连接MySQL数据库时常见故障问题的分析与解决</a></li>
+<li><a href="http://stackoverflow.com/questions/1436425/how-do-you-uninstall-mysql-from-mac-os-x" target="_blank" rel="external">How do you uninstall MySQL from Mac OS X?</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html" target="_blank" rel="external">Installing MySQL on OS X Using Native Packages</a></li>
+<li><a href="http://community.jaspersoft.com/wiki/uninstall-mysql-mac-os-x" target="_blank" rel="external">Uninstall MySql on a Mac OS X</a></li>
+<li><a href="https://www.howtoforge.com/setting-changing-resetting-mysql-root-passwords" target="_blank" rel="external">Setting, Changing And Resetting MySQL Root Passwords</a></li>
+<li><a href="http://stackoverflow.com/questions/33387879/mysql-password-expired-cant-connect" target="_blank" rel="external">Mysql password expired. Can’t connect</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/data-redundency/" itemprop="url">
+                  数据冗余
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-11T00:00:00+08:00" content="2016-09-11">
+              2016-09-11
             </time>
           </span>
 
@@ -326,130 +1118,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016-11-19-sql-interview/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-19-sql-interview/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          看到一篇不错的关于数据库面试问题的解答的知乎专栏文章，拿过来咀嚼一番，记录在此，以便后面查阅和扩充相关内容。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-19-sql-interview/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-11-19-daily/" itemprop="url">
-                  每日总结 2016-11-19
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-19T00:00:00+08:00" content="2016-11-19">
-              2016-11-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-11-19-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-19-daily/" itemprop="commentsCount"></span>
+                <a href="/data-redundency/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="data-redundency/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -474,654 +1144,33 @@
       
         
           
-            <h1 id="python">Python</h1>
-<h2 id="日期时间处理">日期时间处理</h2>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23679915" target="_blank" rel="external">知乎专栏-撸代码，学知识：你真的了解Python中的日期时间处理吗？</a></p>
-<p>时间日期处理的三个库：time, datetime, Calender<br>
-datetime 的三个类：datetime.date, datatime.time, datetime.datetime<br>
-时间模式：时间戳、本地时间、UTC 时间（世界标准时间）</p>
-<p>三种时间表现形式：</p>
+            <h1 id="数据冗余">数据冗余</h1>
+<h2 id="什么是数据冗余？">什么是数据冗余？</h2>
+<p><code>数据冗余</code> 是指<strong>同一个数据</strong>在系统中<strong>多次重复</strong>出现。</p>
+<p>数据库系统仅仅降低了数据冗余，仍然存在数据冗余问题。消除数据冗余的目的是为了避免更新时可能出现的问题，以便<strong>保持数据的一致性</strong>。</p>
+<p>Q: 数据冗余会造成什么影响和后果？</p>
+<h2 id="数据冗余的类型">数据冗余的类型</h2>
 <ul>
-<li>时间戳，一般指 Unix 时间戳，从1970年开始到现在的秒数。<code>time.time()</code></li>
-<li>本地时间的 struct_time 形式：长度为11的命名元组，第一位为年，第二位为月 … <code>time.localtime()</code></li>
-<li>UTC 时间的 struct_time 形式：与本地时间类似，只不过为 UTC 时间。<code>time.gmtime()</code></li>
+<li>空间冗余</li>
+<li>时间冗余</li>
+<li>结构冗余</li>
+<li>知识冗余</li>
+<li>视觉冗余</li>
+<li>信息熵冗余</li>
 </ul>
-<h1 id="javascript">JavaScript</h1>
-<h2 id="2016-javascript-发展现状">2016 JavaScript 发展现状</h2>
+<p>Q：数据冗余与文件压缩有什么样的关系？</p>
+<h2 id="什么时候增加数据冗余？">什么时候增加数据冗余？</h2>
+<p>虽然一般情况下，应尽量减少数据冗余，保证数据的一致性，但在某些情况下，也需要适当增加数据冗余度。数据冗余或者信息冗余是生产、生活所必然存在的行为，没有好与坏的总体倾向。</p>
 <ul>
-<li>代码风格
-<ul>
-<li>ES6 成为了新标准：虽然 ES6 还未正式被路栏其兼容，但是大多数开发者都已经尝试过它的语法了。</li>
-<li>CoffeeScript 正过时</li>
+<li>重复存储或传输数据以<strong>防止数据丢失</strong>；</li>
+<li>对数据进行冗余性的编码来防止数据的丢失、错误，并提供<strong>对错误数据进行反变换</strong>得到原始数据的功能；</li>
+<li>为方便处理和使同一信息在不同地点有<strong>不同的表现形式</strong>；</li>
+<li>为了提高数据的<strong>检索速度</strong>。</li>
 </ul>
-</li>
-<li>前端框架
-<ul>
-<li>React 强势</li>
-<li>Vue 崛起</li>
-<li>Angular 2 &gt; Angular 1</li>
-</ul>
-</li>
-<li>状态管理
-<ul>
-<li>Redux 最火，但不是所有应用都需要使用 Redux。</li>
-</ul>
-</li>
-<li>API 层
-<ul>
-<li>GraphQL 有前途？</li>
-<li>REST APIs 广泛适用</li>
-</ul>
-</li>
-<li>全栈框架
-<ul>
-<li><a href="http://meteor.com/" target="_blank" rel="external">Meteor</a> 和 MEAN 为主流</li>
-<li>“一体化”框架并没有期待的那么受欢迎</li>
-</ul>
-</li>
-<li>测试框架
-<ul>
-<li>Mocha 和 Jasmine 较主流</li>
-<li>开发者总体对 JS 的测试不太满意</li>
-</ul>
-</li>
-<li>CSS 构建工具/预处理器
-<ul>
-<li>SASS/SCSS 主导</li>
-<li>CSS Modules</li>
-</ul>
-</li>
-<li>构建工具
-<ul>
-<li>Webpack 和 Gulp 最受欢迎</li>
-<li>Grunt 已过气</li>
-</ul>
-</li>
-<li>移动端框架
-<ul>
-<li>原生应用最主流</li>
-<li>React Native 较为受欢迎</li>
-</ul>
-</li>
-<li>新特性
-<ul>
-<li>服务器端渲染：通过服务器端渲染可以直接把生成好的页面内容发送给客户端，由此提高应用性能，改善交互，并且还解决了 SEO 和可访问性的问题。大多数开发者只觉得服务器端渲染只能算一个 Nice-to-have 的特性。</li>
-<li>Code splitting 代码拆分/按需加载：通过代码拆分，只在客户端加载真正需要使用的代码，由此提高性能。</li>
-<li>Optimistic updates 即时更新：客户端可以无需等待服务器的相应，直接显示出交互的结果，之后再处理服务器与客户端直接不同步的数据。</li>
-<li>Hot module relading 模块热重载：在开发过程中，开发者修改代码之后无需刷新浏览器页面，就能看到修改之后的效果。</li>
-<li>Time-travel debugging：在调试使用 Redux 一类状态管理的应用时，模拟应用在各个不同状态的改变。</li>
-<li>Real-time operations 实时交互</li>
-<li>Dead code elimination 冗余代码消除</li>
-<li>Progressive enhancement 渐进式增强：先加载应用最基本最主要的功能，然后再逐步加载完毕。</li>
-</ul>
-</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23773662" target="_blank" rel="external">知乎专栏-从零学习前端开发：2016 JavaScript 发展现状大调查</a></p>
-<h2 id="前端自学内容">前端自学内容</h2>
-<ul>
-<li>扎实的 HTML5/CSS3/JavaScript 基础</li>
-<li>了解 Web 相关标准：W3C 标准，ES 规范，Web 语义化</li>
-<li>熟练掌握盒模型、常用布局</li>
-<li>能够处理好浏览器和移动设备兼容性问题</li>
-<li>熟悉 Angular/React 等框架，并开发成型项目</li>
-<li>熟悉调试、抓包工具</li>
-<li>熟悉 Python/PHP/Node.js 服务器语言之一，并能独立搭建起 Web 应用的运行环境</li>
-<li>具有性能优化经验：了解客户端/服务器端缓存，CSS/JS 代码优化一类的性能方面的知识</li>
-<li>熟悉常用设计模式和常用 MV* 框架</li>
-</ul>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/23629993" target="_blank" rel="external">知乎专栏-从零学习前端开发：自学前端开发，代码之外需要关注的问题</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-11-18-daily/" itemprop="url">
-                  每日总结 2016-11-18
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T00:00:00+08:00" content="2016-11-18">
-              2016-11-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-11-18-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-18-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="云计算">云计算</h1>
-<p>中国开源云联盟发布国内首个容器白皮书《容器技术及其应用白皮书1.0》</p>
-<blockquote>
-<p>容器的技术生态主要分为<strong>核心容器技术</strong>、<strong>分布式容器技术</strong>、<strong>容器平台技术</strong>，以及<strong>容器原生辅助支持技术</strong>四部分。</p>
-</blockquote>
-<p>容器技术应用面临多个问题：</p>
-<ul>
-<li>技术多样化多平台，缺乏统一标准；</li>
-<li>传统服务较难与容器平台整合；</li>
-<li>容器技术快速传播，但尚未形成较好的盈利模式；</li>
-<li>容器技术本身在稳定性、安全性、监控成熟度、管理平台、网络和存储方面的成熟度还需提高。</li>
-</ul>
-<p>来源：<a href="http://blog.dataman-inc.com/shurenyun-news-1110/" target="_blank" rel="external">数人云博客</a></p>
 <hr>
-<p>云计算目前分为：IaaS、SaaS、PaaS<br>
-IaaS 和 PaaS 的区别：</p>
+<p>参考资料：</p>
 <ul>
-<li>IaaS 层指用户无需购置存储、网络设备等，例如云主机，使用者为运维/研发等。</li>
-<li>PaaS 层主要提供 SDK、API，用户不必自己购买专用的开发软件、测试软件、服务器等，实现软件的轻松快速发布，多为软件开发商。</li>
-</ul>
-<p>来源：<a href="http://blog.qiniu.com/archives/7442" target="_blank" rel="external">七牛云博客</a></p>
-<hr>
-<p>云能解决哪些问题？</p>
-<ul>
-<li>降低采购周期，提高资源利用率</li>
-<li>降低研发、运维难度
-<blockquote>
-<ul>
-<li>购买技术和对应的一些服务来降低开发难度，提高开发效率，让你的产品能够更快的出来，能让你在互联网时代更敏捷一些。</li>
-<li>引入这个层面的服务，最大的好处是什么呢？是能够把你的最好的研发人员从底层系统挪到你的业务层系统，让你最有价值的业务层能够比较快速的发展。</li>
-<li>将控制流和数据流分开，使用不同的云服务来解决不同的问题</li>
-</ul>
-</blockquote>
-</li>
-<li>改善服务治理</li>
-</ul>
-<p>来源：<a href="http://blog.qiniu.com/archives/7403" target="_blank" rel="external">七牛云博客</a></p>
-<h1 id="css">CSS</h1>
-<h2 id="静态-ui-组件重构">静态 UI 组件重构</h2>
-<p>CSS color 属性驱动的静态 UI 组件实现策略</p>
-<ul>
-<li>提取专门的颜色类名 <code>.dark { color: #33373d; }</code></li>
-<li>静态 UI 组件所有动态颜色全部走原生变量（即颜色值直接缺省）</li>
-<li>颜色类名既扮演状态类名角色又扮演颜色控制角色</li>
-<li>构建基础类名和基础样式
-<ul>
-<li>currentColor 变量</li>
-<li><code>.btn-normal::first-line { color: #fff}</code></li>
-</ul>
-</li>
-</ul>
-<p>兼容性限制：currentColor 只在IE9+浏览器下支持，目前适用于移动端开发，以及一些不需考虑低版本 IE 的项目。<br>
-不适用于开源项目</p>
-<p>代码结构：基本按钮 &gt;&gt;&gt; 特殊按钮 &gt;&gt;&gt; 基础颜色</p>
-<p>来源：<a href="http://www.zhangxinxu.com/wordpress/2016/11/development-ui-component-based-on-css-color/" target="_blank" rel="external">张鑫旭博客</a></p>
-<h2 id="css-原生变量">CSS 原生变量</h2>
-<p>CSS 变量即 CSS 自定义属性。以前原生 CSS 没有变量，只能借助 SASS 或者 LESS 预编译器。新草案发布，包含了在 CSS 中定义和使用变量。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables" target="_blank" rel="external">MDN–使用CSS变量</a></li>
-<li><a href="https://philipwalton.com/articles/why-im-excited-about-native-css-variables/" target="_blank" rel="external">Why I’m Excited About Native CSS Variables</a></li>
-</ul>
-<h1 id="git">Git</h1>
-<h2 id="git-commit">git-commit</h2>
-<p><code>git commit -a | --all</code> 把所有被修改的文件（不包括新创建的文件）都添加到索引中，并且同时提交。<br>
-<code>git commit -m &lt;msg&gt; | --message=&lt;msg&gt;</code> 使用给定的注释提交。</p>
-<p><strong>git 跟踪的是内容不是文件</strong></p>
-<h1 id="交互设计">交互设计</h1>
-<p><strong>应该使用 Yes/No 或者 Ok/Cancel 在消息框中吗？</strong><br>
-一定不要使用 Yes 或者 OK，一定要用动词。使用与上下文相关联的动词，能够给用户以提示，即当前操作会发生什么，并且与用户的期待相一致。苹果公司的用户界面指南甚至建议使用多个词来清晰定义当前对话框的行为。</p>
-<p>参考：<a href="http://ux.stackexchange.com/questions/9946/should-i-use-yes-no-or-ok-cancel-on-my-message-box?newsletter=1&amp;nlcode=678926%7caee7" target="_blank" rel="external">stackexchange: user experience</a></p>
-<h1 id="杂项">杂项</h1>
-<h2 id="问题解决">问题解决</h2>
-<ol>
-<li>在使用 <code>zsh</code> 时，ruby 环境配置会出现问题，必须切换到 <code>bash</code> 下才能正常使用 <code>rvm</code>。切换到 <code>bash</code> 时，使用 <code>bash --login</code>。</li>
-<li>新创刊期刊影响因子多久出来？3-5年，第4年出第三年的影响因子。所以第一年和第二年没有影响因子。</li>
-</ol>
-<h2 id="概念">概念</h2>
-<ul>
-<li>IaaS - Infrastructure as a Service <a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E5%8D%B3%E6%9C%8D%E5%8B%99" target="_blank" rel="external">基础设施即服务</a>，是消费者使用处理、储存、网络以及各种基础运算资源，部署与执行操作系统或应用程序等各种软件。</li>
-<li>PaaS - Platform as a Service <a href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">平台即服务</a>，提供运算平台与解决方案堆栈，介于软件即服务与基础设施即服务之间。</li>
-<li>SaaS - Software as a Service <a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1" target="_blank" rel="external">软件即服务</a>，通俗可以称为“即需即用软件”，是一种软件交互模式。在这种交互模式中云端集中式托管软件及相关的数据，软件仅需透过互联网，而不须透过安装即可使用。用户通常使用精简客户端经由一个网页浏览器来访问软件即服务。</li>
-<li>IoT - Internet of Things <a href="https://zh.wikipedia.org/wiki/%E7%89%A9%E8%81%94%E7%BD%91" target="_blank" rel="external">物联网</a>，让所有能行使独立功能的普通物体实现互联互通的网络。</li>
-<li>SOA - Service-oriented architecture <a href="https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%9E%B6%E6%9E%84" target="_blank" rel="external">面向服务的体系结构</a>，是构造分布式计算的应用程序的方法，它将应用程序功能作为服务发送给最终用户或者其他服务。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-11-17-r-tidyr/" itemprop="url">
-                  R：使用 tidyr 进行数据操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
-              2016-11-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Original/" itemprop="url" rel="index">
-                    <span itemprop="name">Original</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-11-17-r-tidyr/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-17-r-tidyr/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="宽转长-wide2long">宽转长 Wide2Long</h1>
-<p><code>tidyr::gather(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>data</code> 数据框</li>
-<li><code>key</code> 键，新生成的因子列名（不需要加引号）</li>
-<li><code>value</code> 值，新生成的数值列名（不需要加引号）</li>
-<li><code>...</code> 所指定的需要转换的列，使用变量名，即原来数据框的列名。变量名将构成合并的键的因子。有以下几种表示方式：
-<ul>
-<li><code>x:z</code> 选择所有的 x 与 z 之间的变量（包括 x 和 z）</li>
-<li><code>-z</code> 排除 z 变量</li>
-<li><code>x,y,z</code> 选择 x y z 三个变量</li>
-<li><code>2:4</code> 选择第2到4列</li>
-</ul>
-</li>
-<li><code>na.rm</code> 是否去除缺失值</li>
-<li><code>convert</code> 自动转换键列的值的数据类型，当需合并的列名为数值，整数，或逻辑值时非常有用</li>
-<li><code>factor_key</code> 是否将键的内容转换为因子，默认为 <code>FALSE</code> 即存储为字符向量</li>
-</ul>
-<h1 id="长转宽-long2wide">长转宽 Long2Wide</h1>
-<p><code>tidyr::spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>key</code> 该列的因子转换为多个列的列名</li>
-<li><code>value</code> 该列的内容将分配到多个列中</li>
-<li><code>fill</code> 指定填充缺失值的值</li>
-<li><code>convert</code> 数据类型转换</li>
-<li><code>drop</code> 是否丢弃数据中不存在的因子水平，如果为 <code>FALSE</code>，那么将把没有数据的因子的值使用 <code>fill</code> 的参数值填充。</li>
-<li><code>sep</code> 如果为 <code>NULL</code>，新列名为键所在的列的值；如果不为 <code>NULL</code>，列名将为 <code>&lt;key_name&gt;&lt;sep&gt;&lt;key_value&gt;</code>，即键所在的列名加上分隔字符加键所在的列的值。例如：如果 <code>key</code> 为 <code>A</code>，A 有两个因子水平，<code>A1,A2</code>，<code>sep=&quot;-&quot;</code>，那么列名将为 <code>A-A1,A-A2</code>。</li>
-</ul>
-<h1 id="分割单列为多列">分割单列为多列</h1>
-<p><code>tidyr::separate(data, col, into, sep = &quot;[^[:alnum:]]+&quot;, remove = TRUE, convert = FALSE, extra = &quot;warn&quot;, fill = &quot;warn&quot;, ...)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>col</code> 列名（不需要引号）</li>
-<li><code>into</code> 字符串向量，例如 <code>c(&quot;x&quot;, &quot;y&quot;)</code>，分隔的列的列名就是 x 和 y。</li>
-<li><code>sep</code> 分隔符，取值可以为正则表达式，也可以为数值。分隔符的长度必须比 <code>into</code> 少1。
-<ul>
-<li>如果为字符串，那么被当作正则表达式处理。默认值为匹配任意非字母和数字的符号。</li>
-<li>如果为数值，被当作分隔的位置。正数表示从第1个字符开始数，负数表示从右边第1个字符开始数。</li>
-</ul>
-</li>
-<li><code>remove</code> 是否剔除输入列，默认为 <code>TRUE</code>，表示将 <code>col</code> 和 <code>into</code> 剔除。</li>
-<li><code>convert</code> 数据类型转换。</li>
-<li><code>extra</code> 如果 <code>sep</code> 为字符向量，且值太多，使用该参数控制结果
-<ul>
-<li><code>&quot;warn&quot;</code> 默认值，发出警告，并丢弃多余的值</li>
-<li><code>&quot;drop&quot;</code> 丢弃多余的值，不发出警告</li>
-<li><code>&quot;merge&quot;</code> 分割的次数为 <code>into</code> 长度数目</li>
-</ul>
-</li>
-<li><code>fill</code> 如果 <code>sep</code> 为字符向量，且值不足，使用该参数控制结果
-<ul>
-<li><code>&quot;warn&quot;</code> 默认值，发出警告，从右往左填充</li>
-<li><code>&quot;right&quot;</code> 在右侧填充</li>
-<li><code>&quot;left&quot;</code> 在左侧填充</li>
-</ul>
-</li>
-</ul>
-<p>对于 <code>extra</code> 和 <code>fill</code> 参数不熟悉。</p>
-<h1 id="合并多列为单列">合并多列为单列</h1>
-<p><code>tidyr::unite(data, col, ..., sep = &quot;_&quot;, remove = TRUE)</code></p>
-<p>参数：</p>
-<ul>
-<li><code>col</code> 将要合并得到的列名</li>
-<li><code>...</code> 指定要被合并的列名，表示方式和 <code>tidyr::gather</code> 一样</li>
-<li><code>sep</code> 分隔符</li>
-<li><code>remove</code> 默认为 <code>TRUE</code>，删除输入列，即 <code>...</code> 中的列</li>
-</ul>
-<h1 id="实例">实例</h1>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(tidyr)</div><div class="line">data.long &lt;- data.frame(</div><div class="line">  id = rep.int(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), <span class="number">2</span>),</div><div class="line">  key = rep(c(<span class="string">"f1"</span>,<span class="string">"f2"</span>), each = <span class="number">3</span>),</div><div class="line">  value = sample(<span class="number">6</span>, <span class="number">6</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>长转宽</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">data.wide &lt;- spread(data.long, key = key, value = value)</div><div class="line">&gt;&gt;&gt; data.wide</div><div class="line">id f1 f2</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">3</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  <span class="number">6</span>  <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>宽转长</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data.long &lt;- gather(data.wide, key = key, value = value, f1, f2)</div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, f1:f2)</span></div><div class="line"><span class="comment">## data.long &lt;- gather(data.wide, key = key, value = value, 2:3)</span></div></pre></td></tr></table></figure>
-<p>合并列与分割列</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#### 新加一列</span></div><div class="line">data.long$g &lt;- rep(c(<span class="string">"g1"</span>,<span class="string">"g2"</span>), each = <span class="number">3</span>)</div><div class="line">&gt;&gt;&gt; data.long</div><div class="line">id key value  g</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1     <span class="number">4</span> g1</div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1     <span class="number">6</span> g1</div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1     <span class="number">5</span> g1</div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2     <span class="number">3</span> g2</div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2     <span class="number">6</span> g2</div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2     <span class="number">5</span> g2</div><div class="line"></div><div class="line"><span class="comment">#### 合并 key 和 g</span></div><div class="line">data.long.unite &lt;- unite(data.long, col = grp_key, key, g, sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.unite</div><div class="line">id grp_key value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>   f1-g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>   f1-g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>   f1-g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>   f2-g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>   f2-g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>   f2-g2     <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment">#### 分割列为多列</span></div><div class="line">data.long.sep &lt;- separate(data.long.unite, col = grp_key, into = c(<span class="string">"key"</span>, <span class="string">"grp"</span>), sep = <span class="string">"-"</span>)</div><div class="line">&gt;&gt;&gt; data.long.sep</div><div class="line">id key grp value</div><div class="line"><span class="number">1</span>  <span class="number">1</span>  f1  g1     <span class="number">4</span></div><div class="line"><span class="number">2</span>  <span class="number">2</span>  f1  g1     <span class="number">6</span></div><div class="line"><span class="number">3</span>  <span class="number">3</span>  f1  g1     <span class="number">5</span></div><div class="line"><span class="number">4</span>  <span class="number">1</span>  f2  g2     <span class="number">3</span></div><div class="line"><span class="number">5</span>  <span class="number">2</span>  f2  g2     <span class="number">6</span></div><div class="line"><span class="number">6</span>  <span class="number">3</span>  f2  g2     <span class="number">5</span></div></pre></td></tr></table></figure>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html" target="_blank" rel="external">Hadley Wickham: Tidy data</a></li>
-<li><a href="https://rpubs.com/bradleyboehmke/data_wrangling" target="_blank" rel="external">Brad Boehmke: Data Processing with dplyr &amp; tidyr</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-11-17-daily/" itemprop="url">
-                  每日总结 2016-11-17
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-17T00:00:00+08:00" content="2016-11-17">
-              2016-11-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016-11-17-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-17-daily/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="git">Git</h1>
-<h2 id="git-branch-分支操作">Git branch 分支操作</h2>
-<p><code>git branch</code> 列出，新建，或者删除分支</p>
-<ul>
-<li><code>git branch --list</code> 列出存在的分支，带 <code>*</code> 号的为当前分支</li>
-<li><code>git branch -r</code> 列出远程跟踪的分支</li>
-<li><code>git branch -a</code> 列出本地和远程分支</li>
-<li><code>git branch -d|-D</code> 删除分支</li>
-<li><code>git branch -rd</code> 删除远程分析</li>
-<li><code>git branch -m|-M</code> 重命名分支</li>
-</ul>
-<h2 id="git-checkout-切换分支">Git checkout 切换分支</h2>
-<p><code>git checkout</code> 切换分支或者修复工作树文件</p>
-<ul>
-<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
-<li><code>git checkout -b|-B &lt;new_branch&gt;</code> 新建并切换到分支</li>
-</ul>
-<h2 id="head">HEAD</h2>
-<blockquote>
-<p>The HEAD in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do. It’s generally simplest to think of it as HEAD is the snapshot of your last commit.</p>
-</blockquote>
-<p><strong>HEAD</strong> 可以被看作是“当前分支”，HEAD 像指针一样指向当前分支（本地分支）。当切换分支时，HEAD 修改指向新的分支的顶端。HEAD 可以指向任意提交，它并不需要指向最后一次提交。当 HEAD 指向的提交并不是一个分支的最后一次的提交，此时 HEAD 出于分离状态。</p>
-<p><strong>detached HEAD</strong> HEAD 处于分离状态，即不依附任一分支，此时提交操作可以正常进行，但是不会更新任何已命名的分支。此时，可以认为这是在更新一个匿名分支。在这种情况下，如果切换到别的分支，那么这个提交节点可能再也不会被引用到，然后就被丢弃了。如果想保存这个状态，可以新建分支（<code>git checkout -b &lt;new_branch&gt;</code>）。</p>
-<p><code>HEAD</code> 指代最近一次提交，<code>HEAD~</code> 指代前一次提交，<code>HEAD~~</code> 或 <code>HEAD~2</code> 指代更前一次提交。</p>
-<p>拓展阅读：</p>
-<ul>
-<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a></li>
-<li><a href="https://git-scm.com/blog" target="_blank" rel="external">Reset Demystified</a></li>
+<li><a href="http://wiki.mbalib.com/wiki/%E6%95%B0%E6%8D%AE%E5%86%97%E4%BD%99" target="_blank" rel="external">wiki.mbalib.com/wiki/数据冗余</a></li>
 </ul>
 
           
@@ -1155,7 +1204,7 @@ IaaS 和 PaaS 的区别：</p>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
   </nav>
 
 
@@ -1191,12 +1240,12 @@ IaaS 和 PaaS 的区别：</p>
                src="/images/lix.jpg"
                alt="Lix" />
           <p class="site-author-name" itemprop="name">Lix</p>
-          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+          <p class="site-description motion-element" itemprop="description">志在成为一名优秀的数据分析师</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1204,7 +1253,7 @@ IaaS 和 PaaS 的区别：</p>
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1213,7 +1262,7 @@ IaaS 和 PaaS 的区别：</p>
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">112</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

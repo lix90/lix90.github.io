@@ -88,15 +88,15 @@
 
 
 
-<meta name="description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta name="description" content="志在成为一名优秀的数据分析师">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lix is Blogging">
-<meta property="og:url" content="http://lix90.github.io/page/5/index.html">
+<meta property="og:url" content="blog.alexiangli.com/page/5/index.html">
 <meta property="og:site_name" content="Lix is Blogging">
-<meta property="og:description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta property="og:description" content="志在成为一名优秀的数据分析师">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lix is Blogging">
-<meta name="twitter:description" content="二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。">
+<meta name="twitter:description" content="志在成为一名优秀的数据分析师">
 
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://lix90.github.io/page/5/"/>
+  <link rel="canonical" href="blog.alexiangli.com/page/5/"/>
 
 
   <title> Lix is Blogging </title>
@@ -282,8 +282,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016-11-29-daily/" itemprop="url">
-                  每日总结 2016-11-29
+                <a class="post-title-link" href="/r-basic-vis/" itemprop="url">
+                  R：基本数据可视化
                 </a>
               
             
@@ -296,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T00:00:00+08:00" content="2016-11-29">
-              2016-11-29
+            <time itemprop="dateCreated" datetime="2016-11-08T00:00:00+08:00" content="2016-11-08">
+              2016-11-08
             </time>
           </span>
 
@@ -310,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
                   </a>
                 </span>
 
@@ -326,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016-11-29-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-29-daily/" itemprop="commentsCount"></span>
+                <a href="/r-basic-vis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="r-basic-vis/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -351,12 +351,218 @@
 
       
         
-          JS 包括引用类型中的包装类型和内置对象。你不知道的JS之作用域。看了学晴数据网上的通过R进行地理信息数据可视化的教学视频。报了个免费基础数据挖掘教程“全栈数据工程师养成”。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-29-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>最近需要分析毕业论文数据，借机温习一下常见的统计图形，并且熟悉下如何在 R 下进行数据可视化。</p>
+<h1 id="箱图-boxplot">箱图 Boxplot</h1>
+<h2 id="什么是箱图？">什么是箱图？</h2>
+<p>箱形图，又叫箱须图（Box-Whisker Plot），是利用数据的五个特征值来描述数据的图形。这五个特征值为：最小值、第一四分位数、中位数、第三四分位数、最大值。</p>
+<h2 id="箱形图的用处">箱形图的用处</h2>
+<ul>
+<li>粗略估计数据的<strong>对称性</strong>：由上下箱须和箱高度的长短差异表现出来</li>
+<li>粗略观察数据的<strong>离散程度</strong>和<strong>集中程度</strong>：由上下箱须距离和箱的高度表现出来</li>
+<li>粗略比较样本之间的特征</li>
+</ul>
+<h2 id="箱形图的不足">箱形图的不足</h2>
+<ul>
+<li>无法精确度量数据分布的偏态和尾重程度：可通过偏态值</li>
+<li>对于较大的数据集，反映的信息较为模糊</li>
+<li>中位数代表总体集中程度存在局限性</li>
+</ul>
+<h2 id="绘制过程">绘制过程</h2>
+<p><img src="/img/boxplot.jpg" alt="箱形图"></p>
+<ul>
+<li>计算上四分位数，中位数，下四分位数。</li>
+<li>计算上四分位数和下四分位数之间的差值，即四分位数差（IQR，interquantile range）。</li>
+<li>绘制箱线图的上下范围，上限为上四分位数，下限为下四分位数。在箱子内部中位数的位置绘制横线。</li>
+<li>大于上四分位数1.5倍四分位数差的值，或者小于下四分位数1.5倍四分位数差的值，划为异常值（outliers）。</li>
+<li>异常值之外，最靠近上边缘和下边缘的两个值处，画横线，作为箱线图的触须。</li>
+<li>极端异常值，即超出四分位数差3倍距离的异常值，用实心点表示；较为温和的异常值，即处于1.5倍-3倍四分位数差之间的异常值，用空心点表示。</li>
+<li>为箱线图添加名称，数轴等。</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="http://blog.sciencenet.cn/blog-255662-239993.html" target="_blank" rel="external">科学网：什么是箱线图</a></li>
+<li><a href="http://web.pdx.edu/~stipakb/download/PA551/boxplot.html" target="_blank" rel="external">http://web.pdx.edu/~stipakb/download/PA551/boxplot.html</a></li>
+</ul>
+<h2 id="使用-r-绘制箱图">使用 R 绘制箱图</h2>
+<h3 id="基本包函数-boxplot">基本包函数 <code>boxplot</code></h3>
+<p>基本用法：<code>boxplot(x)</code> 或者 <code>boxplot(x~y, data)</code></p>
+<p>常用参数：</p>
+<ul>
+<li><code>formula</code> <code>y ~ grp</code> <code>y</code> 为数值型向量，<code>grp</code> 为组或者因素水平。</li>
+<li><code>range</code> 设定箱须的长度，默认为 1.5 个箱高，即 1.5 倍四分位数差。</li>
+<li><code>width</code></li>
+<li><code>varwidth</code></li>
+<li><code>notch</code></li>
+<li><code>outline</code> 是否绘制异常值</li>
+<li><code>names</code> 组标签</li>
+<li><code>boxwex</code> 缩放参数</li>
+<li><code>staplewex</code> 须顶端的横线的宽度（按盒宽比例）</li>
+<li><code>outwex</code></li>
+<li><code>border</code> 边框颜色</li>
+<li><code>col</code> 箱体的颜色</li>
+<li><code>log</code> 对数坐标</li>
+<li><code>pars</code> 更多绘图参数列表</li>
+<li><code>add</code> 添加到当前图中</li>
+<li><code>at</code> 绘制的位置</li>
+</ul>
+<h3 id="ggplot2">ggplot2</h3>
+<p><code>ggplot</code> 的绘图语法是以添加图层的形式绘制图形。虽然语法上与 <code>boxplot()</code> 存在差异，但是参数都几乎一样。</p>
+<p>首先通过 <code>ggplot()</code> 创建图形（初始化一个 ggplot 的对象），声明输入数据和一般的图形视觉参数（aesthetic mapping，例如线形，颜色等）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- ggplot(data, aes(x, y, <span class="keyword">...</span>))</div></pre></td></tr></table></figure>
+<p>然后添加 <code>geom_boxplot</code> 图层（layers）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box_plot &lt;- box_plot + geom_boxplot(<span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+<p><code>geom_boxplot()</code> 函数有以下一些参数：</p>
+<ul>
+<li><code>mapping</code> 和 <code>data</code> 跟 <code>ggplot()</code> 的一样，当没有声明时，直接继承 <code>ggplot</code>。</li>
+<li>位置：<code>position</code></li>
+<li>设置异常值的样式：<code>outlier.colour</code> <code>outlier.shape</code> <code>outlier.size</code> <code>outlier.stroke</code></li>
+<li>槽的样式：<code>notch</code> <code>notchwidth</code></li>
+<li><code>show.legend</code> 显示图例</li>
+<li><code>coef</code> 等同于 <code>boxplot</code> 中的 <code>range</code></li>
+</ul>
+<h3 id="lattice">lattice</h3>
+<blockquote>
+<p>The lattice package, written by Deepayan Sarkar, attempts to improve on base R graphics by providing better defaults and the ability to easily display multivariate relationships. In particular, the package supports the creation of trellis graphs - graphs that display a variable or the relationship between variables, conditioned on one or more other variables.</p>
+</blockquote>
+<p><code>lattice</code> 的特长在于展示多变量关系。</p>
+<p>变量的关系通过 <code>formula</code> 表示，例如：</p>
+<ul>
+<li><code>~x|A</code> 表示在因素 <code>A</code> 的所有水平下绘制相应的数值变量 <code>x</code> 的图形</li>
+<li><code>y~x | A*B</code> <code>A</code> 和 <code>B</code> 两个因素混合条件下的 <code>y</code> 和 <code>x</code> 的关系</li>
+</ul>
+<p>参考 <a href="http://www.statmethods.net/advgraphs/trellis.html" target="_blank" rel="external">Quick-R: Lattice Graphs</a></p>
+<p><code>lattice</code> 中绘制箱图的函数为 <code>bwplot()</code></p>
+<h2 id="与箱图类似的图">与箱图类似的图</h2>
+<ul>
+<li>Violin Plots <code>vioplot</code> 包
+<ul>
+<li>呈现出了分布特征</li>
+</ul>
+</li>
+<li>Tufte boxplot</li>
+</ul>
+<h1 id="散点图-scatterplot">散点图 Scatterplot</h1>
+<h2 id="什么是散点图？">什么是散点图？</h2>
+<blockquote>
+<p>散点图对于绘制多变量数据非常有用。它们可帮助您确定各刻度变量之间的潜在关系。简单散点图使用二维坐标系绘制两个变量。三维散点图使用三维坐标系绘制三个变量。如果需要绘制更多的变量，则可以尝试重叠散点图和散点图矩阵 (SPLOM)。重叠散点图显示 x-y 变量的重叠对，其中每一对都以颜色或形状加以区分。SPLOM 创建一个二维散点图的矩阵，在 SPLOM 中每个变量都参照另外一个变量进行绘制。</p>
+</blockquote>
+<ul>
+<li>保留了原始数据信息</li>
+<li>展示多变量关系</li>
+</ul>
+<h2 id="在-r-中绘制基本的散点图">在 R 中绘制基本的散点图</h2>
+<ul>
+<li>基本包 <code>plot</code> 顶层绘图函数：<code>plot(x, type=&quot;p&quot;, pch=1)</code></li>
+<li><code>ggplot2::geom_point()</code></li>
+</ul>
+<h2 id="散点图矩阵">散点图矩阵</h2>
+<blockquote>
+<p>散点图矩阵是散点图的高维扩展，它从一定程度上克服了在平面上展示高维数据的困难，在展示多维数据的两两关系时有着不可替代的作用。— <a href="http://cos.name/2009/03/scatterplot-matrix-visualization/" target="_blank" rel="external">统计之都</a></p>
+</blockquote>
+<ul>
+<li><code>graphics::pairs()</code> 是 R 中绘制散点图矩阵的经典函数</li>
+<li><code>car::scatterplot.matrix()</code> 或者简写 <code>car::spm()</code>：可以直接指定散点图中主对角线上的绘图元素（密度图、箱线图、直方图、QQ图等）。</li>
+<li><code>YaleToolkit::gpairs()</code></li>
+<li><code>lattice::splom()</code> 可以按类别绘制散点图矩阵。</li>
+<li><code>GGally::ggpairs()</code> Hadley 推荐的绘制散点图矩阵的函数，用于替代 <code>ggplot2::plotmatrix()</code></li>
+</ul>
+<h2 id="散点图变式或类似的图形">散点图变式或类似的图形</h2>
+<p>热图</p>
+<ul>
+<li><code>gplots::heatmap.2()</code></li>
+<li><code>ggplot2::geom_raster()</code> <code>ggplot2::geom_tile()</code></li>
+</ul>
+<p>hexbin plot</p>
+<blockquote>
+<p>We can use the hexbin package in case we have multiple points in the same place (overplotting). Hexagon binning is a form of bivariate histogram useful for visualizing the structure in datasets with large n.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>Hexbin::hexbinplot()</code></p>
+</li>
+<li>
+<p><code>ggplot2</code>: <code>stat_binhex()</code> <code>geom_bin2d()</code></p>
+</li>
+<li>
+<p>在散点图上添加等高线：<code>ggplot2::geom_density2d()</code></p>
+</li>
+<li>
+<p>对散点图进行平滑 <code>graphics::smoothScatter()</code></p>
+</li>
+<li>
+<p>在散点图上加上分布图或者直方图</p>
+<ul>
+<li>使用 <code>ggplot2</code> 分别绘制散点图和直方图，然后用 <code>gridExtra</code> 把图拼接在一起。</li>
+<li>使用 <code>ggplot2</code> 中的 <code>geom_rug()</code> 图层（rug plots）</li>
+<li>使用 <code>ggExtra::ggMarginal()</code> 添加直方图到 <code>ggplot</code> 图层上。</li>
+<li>在这里可能需要对齐图，可以用到 <code>gtable</code> 包，可以将不同的 <code>ggplot</code> 图拼接时对齐。</li>
+</ul>
+</li>
+</ul>
+<p>参考: <a href="http://stackoverflow.com/questions/7714677/r-scatterplot-with-too-many-points" target="_blank" rel="external">StackOverflow: Scatterplot with too many points</a></p>
+<h1 id="直方图-histogram">直方图 Histogram</h1>
+<p>直方图用来展示数值型数据的分布，可以用来估计连续性数据的概率分布。直方图的纵轴为频率或者相对频率。</p>
+<p>使用 R 绘制直方图：</p>
+<p><code>graphics::hist()</code><br>
+<code>graphics::plot.histogram()</code><br>
+<code>lattice::histogram()</code><br>
+<code>MASS::hist.scott()</code> 可以自动指派 bin 宽度。<br>
+<code>MASS::truehist()</code><br>
+<code>ggplot2::geom_histogram()</code><br>
+<code>ggplot2::geom_freqpoly()</code><br>
+<code>plotrix::histStack()</code><br>
+<code>plotrix::multhist()</code><br>
+<code>plotrix::plotH()</code><br>
+<code>plotrix::weighted.hist()</code><br>
+<code>psych::multi.hist()</code><br>
+<code>psych::pairs.panels()</code><br>
+<code>psych::scatter.hist()</code></p>
+<p>等等</p>
+<h1 id="其他统计图">其他统计图</h1>
+<p>Mosaic Plot 类别数据，面积大小相对比例<br>
+Heat Map 多变量关系，通过色彩深浅区分频率、密度和大小<br>
+Pareto chart 条形图+累加线图，质量控制<br>
+Sparkline 时间序列，气候，金融<br>
+Radar chart 雷达图<br>
+Line Chart 连续数据，趋势，时间序列数据<br>
+Bar Chart 类别数据，大小比较<br>
+Correlogram 相关图，展示相关矩阵</p>
+<p>参考：<a href="https://en.wikipedia.org/wiki/List_of_graphical_methods" target="_blank" rel="external">Wikipedia: List of graphical methods</a></p>
+<h1 id="数据可视化的几点原则">数据可视化的几点原则</h1>
+<blockquote>
+<p>Graphical displays should:</p>
+<ul>
+<li>show the data 显示原始数据</li>
+<li>induce the viewer to think about the substance rather than about methodology, graphic design, the technology of graphic production or something else 引导观察者思考内容而非其他</li>
+<li>avoid distorting what the data has to say 避免扭曲真实数据要展现的东西</li>
+<li>present many numbers in a small space 在较小的空间展现大量的数据</li>
+<li>make large data sets coherent 让大数据集具有一致性（清晰明了）？</li>
+<li>encourage the eye to compare different pieces of data 鼓励用眼睛去比较数据之间的差异</li>
+<li>reveal the data at several levels of detail, from a broad overview to the fine structure 从宏观到微观揭示数据表达的信息</li>
+<li>serve a reasonably clear purpose: description, exploration, tabulation or decoration 服务于合理清晰的目标：描述，探索，制表或者装饰？</li>
+<li>be closely integrated with the statistical and verbal descriptions of a data set. 紧密整合统计和言语上对数据集的描述</li>
+</ul>
+<p>— The Visual Display of Quantitative Information, Edward Tufte</p>
+</blockquote>
+<h1 id="统计图表所要展示的一些定量信息">统计图表所要展示的一些定量信息</h1>
+<p>参考：<a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" rel="external">Wikipedia: Data Visualization</a></p>
+<blockquote>
+<p>Quantitative messages</p>
+<p>Author Stephen Few described eight types of quantitative messages that users may attempt to understand or communicate from a set of data and the associated graphs used to help communicate the message:</p>
+<ul>
+<li><strong>Time-series</strong>: A single variable is captured over a period of time. A line chart may be used to demonstrate the trend. 时序，随着时间发展而变化</li>
+<li><strong>Ranking</strong>: Categorical subdivisions are ranked in ascending or descending order. A bar chart may be used to show the comparison across the sales persons. 顺序，类别之间的大小顺序</li>
+<li><strong>Part-to-whole</strong>: Categorical subdivisions are measured as a ratio to the whole. A bar chart can show the comparison of ratios. 部分相对于整体的比例</li>
+<li><strong>Deviation</strong>: Categorical subdivisions are compared against a reference. A bar chart can show comparison of the actual versus the reference amount. 变异，与参考对象进行比较</li>
+<li><strong>Frequency distribution</strong>: Shows the number of observations of a particular variable for given interval. A histogram, a type of bar chart, may be used for this analysis. A boxplot helps visualize key statistics about the distribution, such as median, quartiles, outliers, etc. 频率分布</li>
+<li><strong>Correlation</strong>: Comparison between observations represented by two variables (X,Y) to determine if they tend to move in the same or opposite directions. A scatter plot is typically used for this message. 相关性</li>
+<li><strong>Nominal comparison</strong>: Comparing categorical subdivisions in no particular order. A bar chart may be used for this comparison. 类别比较，无特定顺序</li>
+<li><strong>Geographic or geospatial</strong>: Comparison of a variable across a map or layout. A cartogram is a typical graphic used. 地理和空间信息</li>
+</ul>
+</blockquote>
+
+          
         
       
     </div>
@@ -404,8 +610,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016-11-28-daily/" itemprop="url">
-                  每日总结 2016-11-28
+                <a class="post-title-link" href="/front-end-automation/" itemprop="url">
+                  构建自动化
                 </a>
               
             
@@ -418,8 +624,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-28T00:00:00+08:00" content="2016-11-28">
-              2016-11-28
+            <time itemprop="dateCreated" datetime="2016-10-29T14:03:30+08:00" content="2016-10-29">
+              2016-10-29
             </time>
           </span>
 
@@ -448,8 +654,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016-11-28-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-28-daily/" itemprop="commentsCount"></span>
+                <a href="/front-end-automation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="front-end-automation/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -473,12 +679,156 @@
 
       
         
-          JS 看了 Date 和 RegExp 类型的内容。翻看了jQuery的一本书，记录了书中阐述的jQuery的众多优点。最后阅读了一篇关于前端工程化的文章。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-28-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>今天修改了下博客模板，顺便了解了下相关的工具和模块。</p>
+<h1 id="hexo">HEXO</h1>
+<p>辅助函数</p>
+<p><code>url_for()</code> 在路径前加根目录 <code>&lt;% url_for(path) %&gt;</code><br>
+<code>relative_url(from, to)</code> 获得一个从 <code>from</code> 到 <code>to</code> 的路径<br>
+<code>css(path, ...)</code> 载入 css 文件<br>
+<code>js(path, ...)</code> 载入 js 文件<br>
+<code>link_to(path, [text], [options])</code> 插入链接<br>
+<code>mail_to(path, [text], [options])</code> 插入电子邮件<br>
+<code>image_tag(path, [options])</code> 插入图片<br>
+<code>favicon_tag(path)</code> 插入 favicon<br>
+<code>feed_tag(path, [options])</code> 插入 feed 链接<br>
+<code>is_*()</code> 系列条件函数，<code>current</code> <code>home</code> <code>post</code> <code>archive</code> <code>year</code> <code>month</code> <code>category</code> <code>tag</code></p>
+<p><code>partial(layout, [locals], [options])</code> 载入其他模板文件，您可在 locals 设定区域变量。<br>
+<code>paginator(options)</code> 插入分页链接<br>
+<code>toc(str, [options])</code></p>
+<p><code>__('next')</code> 多语言支持时，<code>__()</code> 用于转换语言。</p>
+<blockquote>
+<p>在模板中，透过 __ 或 _p 辅助函数，即可取得翻译后的字符串，前者用于一般使用；而后者用于复数字符串。</p>
+</blockquote>
+<h1 id="grunt"><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a></h1>
+<h2 id="构建自动化">构建自动化</h2>
+<p>谈 Grunt，就要谈到“构建自动化”。</p>
+<blockquote>
+<p><strong>Build automation</strong> is the process of automating the creation of a software build and the associated processes including: compiling computer source code into binary code, packaging binary code, and running automated tests.</p>
+</blockquote>
+<p>构建自动化有以下一些好处：</p>
+<blockquote>
+<ul>
+<li>A necessary pre-condition for continuous integration and continuous testing 在连续集成和测试中的必要的前置条件</li>
+<li>Improve product quality 改善产品质量</li>
+<li>Accelerate the compile and link processing 加速编译和链接处理</li>
+<li>Eliminate redundant tasks 去除冗余的任务</li>
+<li>Minimize “bad builds” 减少低质量的构建</li>
+<li>Eliminate dependencies on key personnel 去除关键的人员依赖</li>
+<li>Have history of builds and releases in order to investigate issues 具有可供查询的构建和发布历史</li>
+<li>Save time and money - because of the reasons listed above 节省时间和财力</li>
+</ul>
+</blockquote>
+<h2 id="使用-grunt">使用 Grunt</h2>
+<p>使用 Grunt 可以加快开发和自动构建。可以帮助开发者将压缩、编译、单元测试、代码检查等工作自动化。</p>
+<p>三步使用 grunt：</p>
+<blockquote>
+<ul>
+<li>Change to the project’s root directory.</li>
+<li>Install project dependencies with npm install.</li>
+<li>Run Grunt with grunt.</li>
+</ul>
+</blockquote>
+<p><code>package.json</code> 保存项目元数据；<br>
+<code>Gruntfile.js</code> 配置或定义任务、加载 Grunt 插件。<br>
+<code>npm install &lt;module&gt; --save-dev</code> 本地安装并将依赖写入 <code>package.json</code> 中 <code>devDependencies</code>。</p>
+<h2 id="gruntfile-js-配置文件"><code>Gruntfile.js</code> 配置文件</h2>
+<p>Gruntfile.js 包括下面四个部分：</p>
+<blockquote>
+<ul>
+<li>The “wrapper” function</li>
+<li>Project and task configuration</li>
+<li>Loading Grunt plugins and tasks</li>
+<li>Custom tasks</li>
+</ul>
+</blockquote>
+<p>包装函数（wrapper function）：概括 grunt 的配置信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在包装函数内，初始化配置对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grunt.initConfig(&#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>将 <code>package.json</code> 的项目设置保存到 <code>pkg</code> 属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pkg: grunt.file.readJSON(<span class="string">'package.json'</span>)</div></pre></td></tr></table></figure>
+<p>插件配置（grunt-contrib-concat 为例）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">concat: &#123;</div><div class="line">    options: &#123;</div><div class="line">        seperator: <span class="string">';'</span></div><div class="line">    &#125;,</div><div class="line">    dist: &#123;</div><div class="line">    src: [],</div><div class="line">    dest: <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>加载用到的插件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grunt.loadNpmTasks(<span class="string">'grunt-contrib-concat'</span>);</div></pre></td></tr></table></figure>
+<p>创建任务：</p>
+<p>直接输入 <code>grunt</code> 执行默认任务（default）；<br>
+输入 <code>grunt test</code> 可以执行自定义的任务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'concat'</span>]);</div><div class="line">grunt.registerTask(<span class="string">'test'</span>, [<span class="string">'jshint'</span>]);</div></pre></td></tr></table></figure>
+<p>Grunt 常见插件：</p>
+<p><code>grunt-contrib-uglify</code> 压缩 js, css 文件<br>
+<code>grunt-contrib-concat</code> 连接文件<br>
+<code>grunt-contrib-jshint</code> js 代码检测<br>
+<code>grunt-contrib-watch</code> 代码监视</p>
+<h1 id="gulp"><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a></h1>
+<p>Gulp 和 Grunt 干差不多的活，目前还不知道优劣。Gulp 显得简单一些。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="ejs">EJS</h1>
+<blockquote>
+<p>EJS 是一个简单的模板语言，可以让你使用原生 JavaScript 生成 HTML 标记。没有关于如何组织内容的语法规则，也没有循环和控制流的重载，只是使用原生的 JavaScript。</p>
+</blockquote>
+<p>EJS 一个在 HTML 中嵌入原生 JS 语言的模板语言。</p>
+<p>有以下特点：</p>
+<blockquote>
+<p>快速的编写和解析<br>
+简单的模板标签: &lt;% %&gt;<br>
+自定义分隔符（例如使用 <? ?>替换&lt;% %&gt;）<br>
+使用 include 引入其他模板<br>
+同时支持服务器端和客户端使用<br>
+JavaScript 的静态缓存<br>
+模板的静态缓存<br>
+与 Express 视图系统兼容</p>
+</blockquote>
+<p>一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>), <span class="comment">// 加载 ejs 模块</span></div><div class="line">    people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>], <span class="comment">// 数据</span></div><div class="line">    html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, &#123;people: people&#125;); <span class="comment">// ejs 渲染</span></div></pre></td></tr></table></figure>
+<p>熟悉这几个标签：</p>
+<ul>
+<li><code>&lt;%</code> ‘Scriptlet’ 标签, 用于控制流，没有输出</li>
+<li><code>&lt;%=</code> 向模板输出值（带有转义）</li>
+<li><code>&lt;%-</code> 向模板输出没有转义的值</li>
+<li><code>&lt;%#</code> 注释标签，不执行，也没有输出</li>
+<li><code>&lt;%%</code> 输出字面的 ‘&lt;%’</li>
+<li><code>%&gt;</code> 普通的结束标签</li>
+<li><code>-%&gt;</code> Trim-mode (‘newline slurp’) 标签, 移除随后的换行符</li>
+</ul>
+<p>使用 <code>include</code> 调用的模板时路径需要 filename 选项。</p>
+<h1 id="jade">JADE</h1>
+<p>JADE（现在改名为 Pugjs） 是一个极度注重代码简洁性的模板语言。相比 EJS 来说，渲染性能较低一些。但因为其简单的语法（对其他人来说也许算是“复杂”了）受到欢迎。</p>
+<p>下面记录一些容易忘记的特殊语法：</p>
+<p><code>= '\n'</code> 换行<br>
+<code>!=</code> 不转义的属性</p>
+<blockquote>
+<p>未经转义的缓存代码十分危险。您必须正确处理和过滤用户的输入来避免跨站脚本攻击。</p>
+</blockquote>
+<p><code>'${}'</code> 字符串中嵌入变量</p>
+<p><code>&amp;attributes({'data-foo': 'bar'})</code> 语法可以将一个对象转化为一个元素的属性列表</p>
+<p>分支条件（Case）：case 是 JavaScript 的 switch 指令的缩写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- var foo = 10</div><div class="line">case foo</div><div class="line">    when 0</div><div class="line">        p eee</div><div class="line">    when 1</div><div class="line">        p fff</div><div class="line">    default</div><div class="line">        p ggg #&#123;foo&#125;</div></pre></td></tr></table></figure>
+<p>分支传递 (Case Fall Through) :在 Pug 中，传递会在遇到非空的语法块前一直进行下去。如果不想输出任何东西的话，可以明确地加上一个原生的 break 语句。也可以使用块展开的语法</p>
+<p>由 <code>-</code> 开始的一段为不输出的代码。另起一行并缩进可以写成块的形式。<br>
+用 <code>=</code> 开始一段带有输出的代码，它应该是可以被求值的一个 JavaScript 表达式。<br>
+用 <code>!=</code> 开始一段不转义的，带有输出的代码。</p>
+<p>用 <code>//-</code> 进行单行注释，使用 <code>//</code> 并另起一行缩进，可进行块注释。pug 的条件注释跟 html 一样，并没有特殊的写法。</p>
+<p>条件判断形式可以省略开头的 <code>-</code>, <code>if !x</code> === <code>unless x</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if x</div><div class="line">else if y</div><div class="line">else</div><div class="line">    z</div></pre></td></tr></table></figure>
+<p>模板继承：<code>extends</code> 关键字允许模板去扩展一个布局或父模板，这样它就可以覆盖某些预定义的内容。</p>
+<p>包含 <code>include</code> 功能允许您把另外的文件内容插入进来。</p>
+<p>Pug 支持使用 <code>block</code> 和 <code>extends</code> 关键字进行模板的继承。一个称之为“块”（block）的代码块，可以被子模板覆盖、替换。这个过程是递归的。</p>
+<p>Pug 允许您去替换（默认的行为）、<code>prepend</code>（向头部添加内容），或者 <code>append</code>（向尾部添加内容）一个块。当使用 <code>block append</code> 或者 <code>block prepend</code> 时，<code>block</code> 关键字是可省略的</p>
+<p>嵌入 Interpolation：Pug 提供了好几种方式满足不同的嵌入需求。</p>
+<p>迭代 Iteration</p>
+<p><code>each</code> <code>each ... in ...</code> <code>each val, index in arr</code></p>
+<p><code>for</code> <code>while</code> 也可以创建迭代</p>
+<p>混入 Mixin：混入是一种允许您在 Pug 中重复使用一整个代码块的方法。<code>mixin</code> 可以写成函数形式，传入参数。在使用 <code>mixin</code> 的函数形式时，在前面加上 <code>+</code> 号，即 <code>+foo(faz)</code>。还可以使用剩余参数（rest arguments）<code>...</code> 语法来表示参数列表传入若干长度不定的参数。</p>
+<p>放置纯文本</p>
+<ul>
+<li>管道文本：在每行加一个 <code>|</code> 字符。</li>
+<li>标签的行内：文本只需要和标签名隔开一个空格。</li>
+<li>标签中的块：在标签后街上一个 <code>.</code> 点号（没有空格）。</li>
+</ul>
+
+          
         
       
     </div>
@@ -526,8 +876,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016-11-27-daily/" itemprop="url">
-                  每日总结 2016-11-27
+                <a class="post-title-link" href="/front-end-coding-style/" itemprop="url">
+                  前端代码规范
                 </a>
               
             
@@ -540,8 +890,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-27T00:00:00+08:00" content="2016-11-27">
-              2016-11-27
+            <time itemprop="dateCreated" datetime="2016-10-28T14:10:36+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
@@ -570,8 +920,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016-11-27-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-27-daily/" itemprop="commentsCount"></span>
+                <a href="/front-end-coding-style/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="front-end-coding-style/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -595,12 +945,122 @@
 
       
         
-          阅读了几篇关于 CSS 的文章，主题涉及原生变量、字重、2016年CSS开发者大会。如何处理用户体验设计中的“愉悦性”问题？前端开发三个核心开发问题：响应式、可访问性、性能优化。JS 中的“解构赋值”句法。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-27-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h1 id="前端代码规范">前端代码规范</h1>
+<p><a href="http://codeguide.bootcss.com/" target="_blank" rel="external">代码规范 by @mdo</a></p>
+<blockquote>
+<p>不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。</p>
+</blockquote>
+<h2 id="html">HTML</h2>
+<ul>
+<li>强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言；</li>
+<li>在引入 CSS 和 JavaScript 文件时一般不需要指定 type 属性；</li>
+<li>尽量最少使用标签，并保持最小的复杂度；</li>
+<li>HTML 属性顺序：<code>class</code> (<code>id</code> <code>name</code>) <code>data-*</code> (<code>src</code> <code>for</code> <code>type</code> <code>href</code>) (<code>title</code> <code>alt</code>) (<code>aria-*</code>, <code>role</code>)；</li>
+<li>布尔型属性不用赋值；</li>
+<li>尽量避免多余的父元素；</li>
+<li>尽量避免 JS 生成的标签。</li>
+</ul>
+<h2 id="css">CSS</h2>
+<ul>
+<li>用两个空格来代替制表符；</li>
+<li>为选择器分组时，将单独的选择器单独放在一行；</li>
+<li>在每个声明块的左花括号前添加一个空格；</li>
+<li>声明块的右花括号应当单独成行；</li>
+<li>每条声明语句的 <code>:</code> 后应该插入一个空格；</li>
+<li>为了获得更准确的错误报告，每条声明都应该独占一行；</li>
+<li>所有声明语句都应当以分号结尾；</li>
+<li>对于以逗号分隔的属性值，每个逗号后面都应该插入一个空格；</li>
+<li>不要在 <code>rgb()</code>、<code>rgba()</code>、<code>hsl()</code>、<code>hsla()</code> 或 <code>rect()</code> 值的内部的逗号后面插入空格；</li>
+<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0；</li>
+<li>十六进制值应该全部小写；</li>
+<li>尽量使用简写形式的十六进制值；</li>
+<li>为选择器中的属性添加双引号；</li>
+<li>避免为 0 值指定单位。</li>
+</ul>
+<h3 id="声明顺序">声明顺序</h3>
+<p>相关的属性声明应当归为一组，并按照下面的顺序排列：</p>
+<ul>
+<li>Positioning</li>
+<li>Box model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ul>
+<blockquote>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。</p>
+</blockquote>
+<h3 id="不要使用-import">不要使用 @import</h3>
+<blockquote>
+<p>与 <code>&lt;link&gt;</code> 标签相比，<code>@import</code> 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用多个 <code>&lt;link&gt;</code> 元素</li>
+<li>通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件</li>
+<li>通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能</li>
+</ul>
+</blockquote>
+<h3 id="媒体查询的位置">媒体查询的位置</h3>
+<blockquote>
+<p>将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。</p>
+</blockquote>
+<h3 id="单行规则声明">单行规则声明</h3>
+<blockquote>
+<p>对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。</p>
+</blockquote>
+<h3 id="简写形式的属性声明">简写形式的属性声明</h3>
+<blockquote>
+<p>在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。过度使用简写形式的属性声明会导致代码混乱，并且会对属性值带来不必要的覆盖从而引起意外的副作用。</p>
+</blockquote>
+<h3 id="less-和-sass-中的嵌套">Less 和 Sass 中的嵌套</h3>
+<p>避免非必要的嵌套。</p>
+<h3 id="注释">注释</h3>
+<blockquote>
+<p>请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。</p>
+</blockquote>
+<h3 id="class-命名">class 命名</h3>
+<ul>
+<li>class 名称中只能出现小写字符和破折号（dashe）；</li>
+<li>破折号应当用于相关 class 的命名（类似于命名空间）；</li>
+<li>避免过度任意的简写；</li>
+<li>class 名称应当尽可能短，并且意义明确；</li>
+<li>使用有意义的名称；</li>
+<li>基于最近的父 class 或基本（base） class 作为新 class 的前缀。</li>
+<li>使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。</li>
+</ul>
+<h3 id="选择器">选择器</h3>
+<ul>
+<li>对于通用元素使用 class ，这样利于渲染性能的优化。</li>
+<li>对于经常出现的组件，避免使用属性选择器（例如，[class^=&quot;…&quot;]）。浏览器的性能会受到这些因素的影响。</li>
+<li>选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3；</li>
+<li>只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）。</li>
+</ul>
+<p><code>合理使用标签</code> <code>降低选择器复杂度</code></p>
+<h3 id="代码组织">代码组织</h3>
+<ul>
+<li>以组件为单位组织代码段。</li>
+<li>制定一致的<strong>注释规范</strong>。</li>
+<li><strong>使用一致的空白符将代码分隔成块</strong>，这样利于扫描较大的文档。</li>
+<li>如果使用了多个 CSS 文件，将其<strong>按照组件而非页面的形式分拆</strong>，因为页面会被重组，而组件只会被移动。</li>
+</ul>
+<p><code>组件化</code> <code>块状</code></p>
+<h3 id="编辑器配置">编辑器配置</h3>
+<p>将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：</p>
+<ul>
+<li>用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。</li>
+<li>保存文件时，删除尾部的空白符。</li>
+<li>设置文件编码为 UTF-8。</li>
+<li>在文件结尾添加一个空白行。</li>
+</ul>
+<p>在 Emacs 中配置两个空格缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(defun my/web-mode-indent-style ()</div><div class="line">    &quot;Personal web mode indent style.&quot;</div><div class="line">    ;; 设置默认的缩进方式</div><div class="line">    (setq-default indent-tabs-mode nil)</div><div class="line"></div><div class="line">    ;; 设置 web-mode 的缩进</div><div class="line">    (setq web-mode-markup-indent-offset 2</div><div class="line">        web-mode-css-indent-offset 2</div><div class="line">        web-mode-code-indent-offset 2</div><div class="line">        web-mode-indent-style 2)</div><div class="line">)</div><div class="line">(add-hook &apos;web-mode-book &apos;my/web-mode-indent-style)</div><div class="line"></div><div class="line">;; 设置 CSS 缩进</div><div class="line">(setq css-indent-offset 2)</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="emacs">Emacs</h1>
+<h2 id="golden-ratio-mode">golden-ratio-mode</h2>
+<p>当开启多个缓冲区（buffers）时，希望对不同的 buffer 高度和宽度进行调整。<a href="https://github.com/roman/golden-ratio.el" target="_blank" rel="external">golden-ratio-mode</a> 满足此要求，可用于自动调整 buffer 宽高。当切换到某个 buffer，会自动增加活动 buffer 的高度或宽度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(use-package golden-ratio</div><div class="line">  :ensure t</div><div class="line">  :diminish golden-ratio-mode</div><div class="line">  :init</div><div class="line">  (progn</div><div class="line">  (golden-ratio-mode t) ;; 开启 golden-ratio</div><div class="line">  (setq golden-ratio-adjust-factor .8 ;; 调整垂直比例</div><div class="line">    golden-ratio-wide-adjust-factor .8 ;; 调整水平宽度比例</div><div class="line">    golden-ratio-exclude-modes &apos;(list &quot;projectile-mode&quot; &quot;project-explorer-mode&quot;) ;; 指定不使用 golden-ratio 的 major-mode</div><div class="line">    )</div><div class="line">    (golden-ratio-toggle-widescreen) ;; 开启宽屏模式</div><div class="line">    ))</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -648,8 +1108,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016-11-25-daily/" itemprop="url">
-                  每日总结 2016-11-25
+                <a class="post-title-link" href="/learn-http/" itemprop="url">
+                  HTTP 学习记录
                 </a>
               
             
@@ -662,8 +1122,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-25T00:00:00+08:00" content="2016-11-25">
-              2016-11-25
+            <time itemprop="dateCreated" datetime="2016-10-22T19:45:33+08:00" content="2016-10-22">
+              2016-10-22
             </time>
           </span>
 
@@ -676,8 +1136,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -692,8 +1164,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016-11-25-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-25-daily/" itemprop="commentsCount"></span>
+                <a href="/learn-http/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="learn-http/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -717,12 +1189,35 @@
 
       
         
-          因为感冒，缺席两天学习，仅仅阅读了关于 chrome 开发者工具的文章。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-25-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>HTTP/0.9 —&gt; HTTP/1.0 —&gt; HTTP/1.1 —&gt; SPDY 协议 —&gt; HTTP/2</p>
+<h1 id="http-1-0">HTTP/1.0</h1>
+<p>主要缺点：每个 TCP 连接只能发送一个请求。TCP 连接的新建成本高，所以 HTTP/1.0 性能较差。为了避免这个问题，在浏览器请求时，使用一个非标准的 <code>Connection</code> 字段：<code>Connection: keep-alive</code>，要求服务器不要关闭 TCP 连接，以便其他请求复用。然而，这不是标准字段，不同实现的行为可能不一致，因此不是根本的解决办法。</p>
+<h1 id="http-1-1">HTTP/1.1</h1>
+<p>目前是最流行的版本。该版本最大的变化是，引入了<strong>持久连接（persistent connection）</strong>，即 TCP 连接默认不关闭，可被多个请求复用，无须申明 <code>Connection: keep-alive</code>。当客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。更规范的做法是，在客户端最后一次请求时，发送 <code>Connection: close</code>，明确要求服务器关闭 TCP 连接。</p>
+<p>引入管道机制：在同一个 TCP 连接里面，客户端可以同时发送多个请求。</p>
+<p>缺点：虽然1.1版允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的。服务器只有处理完一个回应，才会进行下一个回应。要是前面的回应特别慢，后面就会有许多请求排队等着。这就会出现&quot;队头堵塞&quot;（Head-of-line blocking）。</p>
+<h1 id="http-2">HTTP/2</h1>
+<ul>
+<li>二进制协议：头信息和数据体都是二进制，并且统称为&quot;帧&quot;（frame）：头信息帧和数据帧。<br>
+多工：双向的、实时的通信。</li>
+<li>数据流：HTTP/2 将每个请求或回应的所有数据包，称为一个数据流（stream）。每个数据流都有一个独一无二的编号。数据包发送的时候，都必须标记数据流 ID，用来区分它属于哪个数据流。另外还规定，客户端发出的数据流，ID 一律为奇数，服务器发出的，ID 为偶数。</li>
+<li>头信息压缩机制（header compression）</li>
+<li>服务器推送</li>
+</ul>
+<p>问题：</p>
+<ol>
+<li>HTTP/1.0 相对于 HTTP/0.9 有哪些新标准？HTTP/1.0 有什么缺点？</li>
+<li>HTTP/1.1 相对于 HTTP/1.0 有哪些新标准？HTTP/1.1 有什么缺点？</li>
+<li>HTTP/2 相对于 HTTP/1.1 有哪些新标准？</li>
+<li>HTTPS 是什么？与 HTTP/2 有什么差别？</li>
+</ol>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2016/08/http.html" target="_blank" rel="external">阮一峰：HTTP 协议入门</a></li>
+</ul>
+
+          
         
       
     </div>
@@ -770,8 +1265,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016-11-24-daily/" itemprop="url">
-                  每日总结 2016-11-24
+                <a class="post-title-link" href="/d3-intro/" itemprop="url">
+                  D3.js 入门学习记录
                 </a>
               
             
@@ -784,8 +1279,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-24T00:00:00+08:00" content="2016-11-24">
-              2016-11-24
+            <time itemprop="dateCreated" datetime="2016-10-17T16:23:07+08:00" content="2016-10-17">
+              2016-10-17
             </time>
           </span>
 
@@ -798,8 +1293,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Daily/" itemprop="url" rel="index">
-                    <span itemprop="name">Daily</span>
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
                   </a>
                 </span>
 
@@ -814,8 +1309,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016-11-24-daily/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016-11-24-daily/" itemprop="commentsCount"></span>
+                <a href="/d3-intro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="d3-intro/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -839,12 +1334,138 @@
 
       
         
-          25个公开数据网站，以后可以拿来玩一玩。计划以后没事儿就读一读 emacs 官方的几个文档，学学基本的 emacs 和 emacs lisp 知识。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-24-daily/">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p><a href="http://Dashingd3js.com" target="_blank" rel="external">Dashingd3js.com</a> 上的 D3.js 教程学习笔记。</p>
+<h1 id="添加-dom-元素">添加 DOM 元素</h1>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>).append(<span class="string">"p"</span>);</div></pre></td></tr></table></figure>
+<p><code>D3.select()</code> 选择方法使用 CSS3 选择器来抓取 DOM 元素。当元素被选中，算子（operators）能够获取或设置属性、样式、文本内容等。</p>
+<p><code>D3.append()</code> 添加元素为当前选中的父级元素的最后一个子元素。</p>
+<h1 id="添加-svg-元素">添加 SVG 元素</h1>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.select(<span class="string">"body"</span>)</div><div class="line">  .append(<span class="string">"svg"</span>)</div><div class="line">  .attr(<span class="string">"width"</span>, <span class="number">50</span>)</div><div class="line">  .attr(<span class="string">"height"</span>, <span class="number">50</span>)</div><div class="line">  .append(<span class="string">"circle"</span>)</div><div class="line">  .attr(<span class="string">"cx"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"cy"</span>, <span class="number">25</span>)</div><div class="line">  .attr(<span class="string">"r"</span>, <span class="number">25</span>)</div><div class="line">  .style(<span class="string">"fill"</span>, <span class="string">"purple"</span>)</div></pre></td></tr></table></figure>
+<p><code>d3.style()</code> 样式算子对元素的样式进行操作。</p>
+<p>与 jQuery 类似，D3js 通过点号 <code>.</code> 构成链式语法。在链式语法中，结果与算子和方法顺序有关。</p>
+<h1 id="捆绑数据到-dom-元素中">捆绑数据到 DOM 元素中</h1>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> theData = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</div><div class="line"><span class="keyword">var</span> p = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"p"</span>)</div><div class="line">    .data(theData)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"p"</span>)</div><div class="line">    .text(<span class="string">"Hello "</span>);</div></pre></td></tr></table></figure>
+<p><code>d3.selectAll()</code> 全选方法选择所有与选择器字符串匹配的 DOM 元素。但是上面的代码里头，并并有实际选择元素，而是返回的空选择（虚拟选择）。后面通过 <code>.data()</code> 和 <code>.enter()</code> 将数据绑定到空选择中。</p>
+<p><code>.enter()</code> 方法从数据算子中返回虚拟键入选择，返回占位符元素。该方法只在 <code>.data()</code> 上操作生效。</p>
+<p><code>.append()</code> 在占位符上添加 DOM 元素。</p>
+<p><code>.text()</code> 文本方法添加文本到对于 DOM 元素上。</p>
+<p>其中，数据被保存在 <code>__data__</code> 属性中。</p>
+<p>如何将捆绑的数据提取出来呢？</p>
+<p><code>.text( function(d) { return d; } )</code> 其中，匿名函数会对遍历所有元素的数据，分别返回对于的值。<code>d</code> 变量在 D3.js 被用来指代当前元素的 <code>__data__</code> 属性。另外，D3.js 还提供了两个变量 <code>this</code> 和 <code>i</code>。<code>this</code> 指代当前 DOM 元素。<code>i</code> 指代当前选中的元素的下标，<code>i</code> 从0开始计数。所有数据是按顺序分别处理。</p>
+<h1 id="根据数据创建-svg-元素">根据数据创建 SVG 元素</h1>
+<p>建立数组：<code>var newArray = [10, 20, 30];</code><br>
+将数据指派给 SVG 元素的属性值 <code>.attr('r', function (d) { return d; }</code></p>
+<h1 id="使用-svg-坐标空间">使用 SVG 坐标空间</h1>
+<p>SVG 的坐标空间与数学中的坐标空间有两点差异：</p>
+<ul>
+<li>SVG 的坐标空间的零点位于左上角；</li>
+<li>SVG 的坐标空间的 Y 轴由上至下延伸。</li>
+</ul>
+<h1 id="d3-js-支持的数据结构">D3.js 支持的数据结构</h1>
+<p>数组（Array）：<code>var newArray = [30, 70, 110];</code> 数组可以包含任何对象，包括数字，对象，字符串，数组，HTML元素，DOM元素等。</p>
+<p><code>d3.select()</code> 所得到的也是数组。</p>
+<p>D3.js 可以支持以下数据来源：</p>
+<ul>
+<li>XMLHttpRequest</li>
+<li>文本文件</li>
+<li>JSON blob</li>
+<li>HTML 文档块</li>
+<li>XML 文档块</li>
+<li>CSV 文件</li>
+<li>TSV 文件</li>
+</ul>
+<p>数组甚至可以包含 JSON 数据结构。</p>
+<h1 id="使用-json-对象">使用 JSON 对象</h1>
+<p>使用 JSON 数据结构可以简化代码，使用起来更方便。</p>
+<h1 id="使用-d3-js-绘制-svg-基本形状的图形">使用 D3.js 绘制 SVG 基本形状的图形</h1>
+<p>只要知道相关图形元素的属性，那么就可以通过 D3.js 的算子进行操作了。</p>
+<p>绘制一个圆</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"50"</span> <span class="attr">height</span>=<span class="string">"50"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"25"</span> <span class="attr">cy</span>=<span class="string">"25"</span> <span class="attr">r</span>=<span class="string">"25"</span> <span class="attr">fill</span>=<span class="string">"purple"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonCircle = [ &#123; <span class="string">"x_axis"</span>: <span class="number">30</span>, <span class="string">"y_axis"</span>: <span class="number">30</span>, <span class="string">"radius"</span>: <span class="number">20</span>, <span class="string">"color"</span>: <span class="string">"green"</span>&#125; ];</div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">    .attr(<span class="string">"height"</span>, <span class="number">200</span>)</div><div class="line"><span class="keyword">var</span> circles = svgContainer.selectAll(<span class="string">"circle"</span>)</div><div class="line">    .data(jsonCircles)</div><div class="line">    .enter()</div><div class="line">    .append(<span class="string">"circle"</span>)</div><div class="line"><span class="keyword">var</span> circleAttributes = circles</div><div class="line">    .attr(<span class="string">"cx"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x_axis &#125;)</div><div class="line">    .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y_axis &#125;)</div><div class="line">    .attr(<span class="string">"r"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.radius&#125;)</div><div class="line">    .style(<span class="string">"fill"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.color &#125;);</div></pre></td></tr></table></figure>
+<p>其他简单图形都差不多，只是属性不一样。以此类推。</p>
+<h1 id="svg-路径">SVG 路径</h1>
+<p>SVG 路径为一个图形的轮廓。可以使用 SVG 的路径绘制任意形状。路径可以比作钢笔落笔绘制轮廓的过程。路径由属性 <code>d</code> 表示，其语法包括一下几个部分：</p>
+<ul>
+<li>moveto：设置一个新的点</li>
+<li>lineto：绘制一条直线</li>
+<li>curveto：绘制一条曲线（贝塞尔曲线）</li>
+<li>arc：椭圆或者圆弧</li>
+<li>closepath：通过绘制线条封闭当前的图形</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">height</span>=<span class="string">"100"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">" M 10 25</span></span></div><div class="line">              L 10 75</div><div class="line">              L 60 75</div><div class="line">              L 10 25"</div><div class="line">              <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"none"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中，路径中的字母是大小写有区分的，大写为绝对定位，小写为相对定位。<br>
+要绘制更复杂的图形，使用 SVG 是相当难的。所以 D3.js 可以拯救这部分需求的用户。</p>
+<p>使用 D3.js 提供的绘制 SVG 路径的方法要方便许多。</p>
+<p>绘制直线：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//The data for our line</span></div><div class="line"><span class="keyword">var</span> lineData = [ &#123; <span class="string">"x"</span>: <span class="number">1</span>,   <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">20</span>,  <span class="string">"y"</span>: <span class="number">20</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">40</span>,  <span class="string">"y"</span>: <span class="number">10</span>&#125;, &#123; <span class="string">"x"</span>: <span class="number">60</span>,  <span class="string">"y"</span>: <span class="number">40</span>&#125;,</div><div class="line">                 &#123; <span class="string">"x"</span>: <span class="number">80</span>,  <span class="string">"y"</span>: <span class="number">5</span>&#125;,  &#123; <span class="string">"x"</span>: <span class="number">100</span>, <span class="string">"y"</span>: <span class="number">60</span>&#125;];</div><div class="line"></div><div class="line"><span class="comment">//This is the accessor function we talked about above</span></div><div class="line"><span class="keyword">var</span> lineFunction = d3.svg.line()</div><div class="line">                         .x(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.x; &#125;)</div><div class="line">                         .y(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.y; &#125;)</div><div class="line">                         .interpolate(<span class="string">"linear"</span>);</div><div class="line"></div><div class="line"><span class="comment">//The SVG Container</span></div><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"></div><div class="line"><span class="comment">//The line SVG Path we draw</span></div><div class="line"><span class="keyword">var</span> lineGraph = svgContainer.append(<span class="string">"path"</span>)</div><div class="line">                            .attr(<span class="string">"d"</span>, lineFunction(lineData))</div><div class="line">                            .attr(<span class="string">"stroke"</span>, <span class="string">"blue"</span>)</div><div class="line">                            .attr(<span class="string">"stroke-width"</span>, <span class="number">2</span>)</div><div class="line">                            .attr(<span class="string">"fill"</span>, <span class="string">"none"</span>);</div></pre></td></tr></table></figure>
+<p><code>.attr(&quot;d&quot;, lineFunction(lineData))</code> 将数据传递给数据寄存器，然后把数据返回给 SVG 路径命令。</p>
+<p>D3.js 提供了 11 中不同的内插线形：</p>
+<ul>
+<li>linear</li>
+<li>step-before</li>
+<li>step-after</li>
+<li>basis</li>
+<li>basis-open</li>
+<li>basis-closed</li>
+<li>bundle</li>
+<li>cardinal</li>
+<li>cardinal-open</li>
+<li>cardinal-closed</li>
+<li>monotone</li>
+</ul>
+<p>D3.js 提供了多种路径数据产生器（Path data generators），它既是对象又是函数。</p>
+<ul>
+<li>d3.svg.line</li>
+<li>d3.svg.line.radial</li>
+<li>d3.svg.area</li>
+<li>d3.svg.area.radial</li>
+<li>d3.svg.arc</li>
+<li>d3.svg.symbol</li>
+<li>d3.svg.chord</li>
+<li>d3.svg.diagonal</li>
+<li>d3.svg.diagonal.radial</li>
+</ul>
+<h1 id="svg-动态坐标空间">SVG 动态坐标空间</h1>
+<p>如果使坐标根据数据进行调整？当 SVG 容器空间的大小比其中的图形元素坐标要小，那会出现容器空间上无法显式出图形的问题。这个时候需要动态的 SVG 坐标空间。这个时候需要做的是，让容器空间的宽高随着数据而进行伸缩。</p>
+<h1 id="d3-js-标尺-scales">D3.js 标尺（scales）</h1>
+<p>与其让 SVG 容器大小适应数据，不如让数据适应容器。因为有的时候，数据的大小尺寸远远大于浏览器显示尺度。这个时候需要对数据进行伸缩变换以便适应空间。</p>
+<p>D3.js 提供了一些方法进行数据的变换。</p>
+<p>例如 <code>d3.scale.linear()</code> 线性变换</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> linearScale = d3.scale.linear()</div><div class="line">                    .domain([<span class="number">0</span>, <span class="number">10000</span>])</div><div class="line">                    .range([<span class="number">0</span>, <span class="number">100</span>])</div></pre></td></tr></table></figure>
+<p><code>.domain()</code> 里输入的范围为原始数据的范围。<br>
+<code>.range()</code> 里输入的范围为变换后的范围。</p>
+<p>提供了计算最大值和最小值的方法：<code>d3.max()</code> <code>d3.min()</code></p>
+<p>D3.js 的标尺类型有以下几种：</p>
+<ul>
+<li>Identity 1:1 的变换，适用于像素值</li>
+<li>Linear 线性的变换</li>
+<li>Power 和 Logarithmic 指数和对数变换</li>
+<li>Quantize 和 Quantile 针对离散数据</li>
+<li>Ordinal 针对非量化的数据，如名称，类别</li>
+</ul>
+<h1 id="svg-组元素">SVG 组元素</h1>
+<p>SVG 组元素是一个包裹其他子元素的的容器，通过 <code>&lt;g&gt;...&lt;/g&gt;</code> 定义。组元素内可以包含任意组元素。任何对组元素的变换，都将影响其所包含的子元素。</p>
+<p>组元素的作用：</p>
+<ul>
+<li>创建分组，可以使一组元素共享相同的属性</li>
+<li>变换，对一组元素进行同样的变换</li>
+</ul>
+<p>在 D3.js 中构建组元素并增加变换属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> svgContainer = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)</div><div class="line">                                    .attr(<span class="string">"width"</span>, <span class="number">200</span>)</div><div class="line">                                    .attr(<span class="string">"height"</span>, <span class="number">200</span>);</div><div class="line"><span class="keyword">var</span> circleGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                              .attr(<span class="string">"transform"</span>, <span class="string">"translate(80, 0)"</span>);</div></pre></td></tr></table></figure>
+<h1 id="svg-文本元素">SVG 文本元素</h1>
+<p>添加 SVG 文本元素跟添加图形类型，只是该元素有一些特殊的属性。同样，使用 D3.js 添加文本和添加图形一样，操纵文本元素的属性和值就可以了。</p>
+<h1 id="svg-坐标轴-axes">SVG 坐标轴（Axes）</h1>
+<p>使用 D3.js 绘制坐标轴和坐标刻度。</p>
+<p>创建坐标轴对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis();</div></pre></td></tr></table></figure>
+<p>传递尺度信息给坐标轴对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> axisScale = d3.scale.linear()</div><div class="line">                        .domain([<span class="number">0</span>, <span class="number">100</span>])</div><div class="line">                        .range([<span class="number">0</span>, <span class="number">100</span>]);</div><div class="line"><span class="keyword">var</span> xAxis = d3.svg.axis()</div><div class="line">                  .scale(axisScale);</div></pre></td></tr></table></figure>
+<p>创建坐标轴组元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xAxisGroup = svgContainer.append(<span class="string">"g"</span>)</div><div class="line">                             .call(xAxis);</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -875,7 +1496,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -911,12 +1532,12 @@
                src="/images/lix.jpg"
                alt="Lix" />
           <p class="site-author-name" itemprop="name">Lix</p>
-          <p class="site-description motion-element" itemprop="description">二本学渣三战考研入坑基础心理学，曾梦想科学家现转行程序猿。喜欢设计和一些美好的东西。正学习前端开发和数据分析。</p>
+          <p class="site-description motion-element" itemprop="description">志在成为一名优秀的数据分析师</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -924,7 +1545,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -933,7 +1554,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">112</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
