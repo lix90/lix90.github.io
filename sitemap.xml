@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>blog.alexiangli.com/r-making-contrasts/</loc>
+    <loc>blog.alexiangli.com/sql-intro/</loc>
     
-    <lastmod>2017-03-22T08:23:46.000Z</lastmod>
+    <lastmod>2017-07-07T07:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>blog.alexiangli.com/css/</loc>
+    <loc>blog.alexiangli.com/eeg-eeglab-egi/</loc>
     
-    <lastmod>2017-03-22T07:20:54.000Z</lastmod>
+    <lastmod>2017-07-07T07:12:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>blog.alexiangli.com/r-making-contrasts/</loc>
+    
+    <lastmod>2017-03-22T08:23:46.000Z</lastmod>
     
   </url>
   
@@ -30,20 +37,6 @@
   </url>
   
   <url>
-    <loc>blog.alexiangli.com/javascript/</loc>
-    
-    <lastmod>2017-01-27T09:11:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>blog.alexiangli.com/misc/</loc>
-    
-    <lastmod>2017-01-27T09:07:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>blog.alexiangli.com/d3-intro/</loc>
     
     <lastmod>2017-01-27T08:27:43.000Z</lastmod>
@@ -54,13 +47,6 @@
     <loc>blog.alexiangli.com/data-redundency/</loc>
     
     <lastmod>2017-01-27T08:19:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>blog.alexiangli.com/wiki/</loc>
-    
-    <lastmod>2017-01-19T12:55:38.000Z</lastmod>
     
   </url>
   
@@ -142,13 +128,6 @@
   </url>
   
   <url>
-    <loc>blog.alexiangli.com/sql-intro/</loc>
-    
-    <lastmod>2016-11-28T12:42:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>blog.alexiangli.com/sql-interview/</loc>
     
     <lastmod>2016-11-28T12:42:11.000Z</lastmod>
@@ -159,13 +138,6 @@
     <loc>blog.alexiangli.com/life-clean-suit/</loc>
     
     <lastmod>2016-11-28T12:40:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>blog.alexiangli.com/eeg-eeglab-egi/</loc>
-    
-    <lastmod>2016-11-28T12:36:56.000Z</lastmod>
     
   </url>
   
@@ -208,13 +180,6 @@
     <loc>blog.alexiangli.com/r-mising-value-outlier/</loc>
     
     <lastmod>2016-11-19T03:31:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>blog.alexiangli.com/r-import-data/</loc>
-    
-    <lastmod>2016-11-19T03:31:08.000Z</lastmod>
     
   </url>
   

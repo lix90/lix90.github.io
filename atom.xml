@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="blog.alexiangli.com/"/>
-  <updated>2017-03-22T07:20:54.000Z</updated>
+  <updated>2017-01-01T03:19:51.000Z</updated>
   <id>blog.alexiangli.com/</id>
   
   <author>
@@ -14,126 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="blog.alexiangli.com/css/"/>
-    <id>blog.alexiangli.com/css/</id>
-    <published>2017-03-22T07:20:54.000Z</published>
-    <updated>2017-03-22T07:20:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="css">CSS</h1>
-<h2 id="margin">Margin</h2>
-<p>关于 Margin：</p>
-<blockquote>
-<p>The margin property defines <strong>the outermost portion of the box model</strong>, creating space around an element, outside of any defined borders. Margins are set using lengths, percentages, or the keyword auto and can have <strong>negative values</strong>.</p>
-</blockquote>
-<p>垂直 margin 合并的好处：</p>
-<ul>
-<li>First, they prevent empty elements from adding extra, usually undesirable, vertical margin space. 组织了空元素增加多余的垂直外边距空间。</li>
-<li>Second, they allow for a more consistent approach to declaring universal margins across page elements. 让整个页面元素具有更一致的方式来声明外边距。</li>
-<li>Third, margin collapse also applies to nested elements. 外边距合并对嵌入的元素也起作用。</li>
-</ul>
-<h2 id="css-浮动">CSS 浮动</h2>
-<ul>
-<li><strong>脱离</strong>文档的常规流（Normal flow）</li>
-<li>不出现外边距合并</li>
-<li>需要指明浮动元素宽度，否则元素的宽度为<strong>零</strong>（或者最小字符宽度）</li>
-<li>浮动元素的容器块为最近的<strong>块级</strong>祖先元素</li>
-<li>一般来说浮动元素会成为块级盒</li>
-</ul>
-<blockquote>
-<p>Collapsing almost always needs to be dealt with to prevent strange layout and cross-browser problems. We fix it <strong>by clearing the float after the floated elements in the container but before the close of the container.</strong></p>
-</blockquote>
-<h2 id="常见清除浮动的办法">常见清除浮动的办法</h2>
-<ol>
-<li>clear 属性</li>
-<li>空 DIV 法：不如何“结构与表现分离原则”</li>
-<li>Overflow 法：可能有副作用</li>
-<li>Clearfix 法</li>
-</ol>
-<blockquote>
-<p>bear in mind that the overflow property isn’t specifically for clearing floats. <strong>Be careful not to hide content or trigger unwanted scrollbars.</strong></p>
-</blockquote>
-<h2 id="css3-提供了几种新的处理布局的方法">CSS3 提供了几种新的处理布局的方法</h2>
-<ol>
-<li>Flexbox 弹性盒子</li>
-<li>Multi-column layout 多栏布局</li>
-<li>Grid layout 格子布局</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;css&quot;&gt;CSS&lt;/h1&gt;
-&lt;h2 id=&quot;margin&quot;&gt;Margin&lt;/h2&gt;
-&lt;p&gt;关于 Margin：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The margin property defines &lt;strong&gt;the outermost portio
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="blog.alexiangli.com/javascript/"/>
-    <id>blog.alexiangli.com/javascript/</id>
-    <published>2017-01-27T09:09:32.000Z</published>
-    <updated>2017-01-27T09:11:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="vuejs">Vuejs</h1>
-<p>Vuejs 有哪些优点？</p>
-<ul>
-<li>Reactive 响应式</li>
-<li>Component based 组块化</li>
-<li>Modular 模块化</li>
-<li>Simple to use animations right out of the box 易于使用的动画</li>
-<li>Easy to learn 易于学习</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;vuejs&quot;&gt;Vuejs&lt;/h1&gt;
-&lt;p&gt;Vuejs 有哪些优点？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Reactive 响应式&lt;/li&gt;
-&lt;li&gt;Component based 组块化&lt;/li&gt;
-&lt;li&gt;Modular 模块化&lt;/li&gt;
-&lt;li&gt;Simple to use
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="blog.alexiangli.com/misc/"/>
-    <id>blog.alexiangli.com/misc/</id>
-    <published>2017-01-27T09:07:00.000Z</published>
-    <updated>2017-01-27T09:07:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="电影与纪录片">电影与纪录片</h1>
-<p>Helvetica 纪录片：字体设计<br>
-Code Rush 纪录片：代码奔腾 Firefox 的诞生<br>
-Just for Fun 书籍：Linus 讲述 Linux 如何发明</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;电影与纪录片&quot;&gt;电影与纪录片&lt;/h1&gt;
-&lt;p&gt;Helvetica 纪录片：字体设计&lt;br&gt;
-Code Rush 纪录片：代码奔腾 Firefox 的诞生&lt;br&gt;
-Just for Fun 书籍：Linus 讲述 Linux 如何发明&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>学习 LIMO EEG</title>
@@ -352,9 +232,9 @@ allows you to do this AFAIK.</p>
       <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
     
     
-      <category term="Python" scheme="blog.alexiangli.com/tags/Python/"/>
-    
       <category term="EEG" scheme="blog.alexiangli.com/tags/EEG/"/>
+    
+      <category term="Python" scheme="blog.alexiangli.com/tags/Python/"/>
     
       <category term="MNE" scheme="blog.alexiangli.com/tags/MNE/"/>
     
@@ -823,54 +703,6 @@ Which of the possible comparisons should we conduct? Well, this very much depend
   </entry>
   
   <entry>
-    <title>关于 EEGLAB 分析 EGI 数据</title>
-    <link href="blog.alexiangli.com/eeg-eeglab-egi/"/>
-    <id>blog.alexiangli.com/eeg-eeglab-egi/</id>
-    <published>2016-11-20T16:00:00.000Z</published>
-    <updated>2016-11-28T12:36:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
-<h1 id="数据导入">数据导入</h1>
-<p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
-<ul>
-<li>第一种为使用 EEGLAB 插件；</li>
-<li>第二种为使用 File-IO。</li>
-</ul>
-<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
-<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
-<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
-<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
-<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
-<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
-<h1 id="电极位置文件">电极位置文件</h1>
-<p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
-<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
-    
-    </summary>
-    
-      <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
-    
-      <category term="EEG" scheme="blog.alexiangli.com/categories/Original/EEG/"/>
-    
-    
-      <category term="EEG" scheme="blog.alexiangli.com/tags/EEG/"/>
-    
-      <category term="EGI" scheme="blog.alexiangli.com/tags/EGI/"/>
-    
-      <category term="EEGLAB" scheme="blog.alexiangli.com/tags/EEGLAB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>西服保养建议</title>
     <link href="blog.alexiangli.com/life-clean-suit/"/>
     <id>blog.alexiangli.com/life-clean-suit/</id>
@@ -941,9 +773,57 @@ Which of the possible comparisons should we conduct? Well, this very much depend
       <category term="Notes" scheme="blog.alexiangli.com/categories/Notes/"/>
     
     
+      <category term="西服保养" scheme="blog.alexiangli.com/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
+    
       <category term="Life style" scheme="blog.alexiangli.com/tags/Life-style/"/>
     
-      <category term="西服保养" scheme="blog.alexiangli.com/tags/%E8%A5%BF%E6%9C%8D%E4%BF%9D%E5%85%BB/"/>
+  </entry>
+  
+  <entry>
+    <title>关于 EEGLAB 分析 EGI 数据</title>
+    <link href="blog.alexiangli.com/eeg-eeglab-egi/"/>
+    <id>blog.alexiangli.com/eeg-eeglab-egi/</id>
+    <published>2016-11-20T16:00:00.000Z</published>
+    <updated>2017-07-07T07:12:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>EEGLAB 作为通用型脑电数据分析的工具包，理论上适用于所有脑电设备记录的数据。问题在于，如果 EEGLAB 未提供原生的 EGI (Electrical Geodesics Incorporated) 数据格式的导入，那么如何转换格式导入数据。另外就是获取并导入匹配的电极位置文件。除了原始数据的导入和电极位置文件的加载，后续分析同其他格式数据一致。</p>
+<h1 id="数据导入">数据导入</h1>
+<p>原生的2009版的 EGI 文件与 EEGLAB 并不兼容，需要转换为 Netstation 二进制文件（Netstation binary simple）。对于新版本的 EGI 文件的读取，有两种解决方案。</p>
+<ul>
+<li>第一种为使用 EEGLAB 插件；</li>
+<li>第二种为使用 File-IO。</li>
+</ul>
+<p>EGI 文件也可以转换为 EDF 文件后导入 EEGLAB，但是这会导致“事件”（mark）的损坏或丢失。所以应该选择转换为 Netstation 二进制文件。</p>
+<p><code>pop_readegi</code> 函数可用于读取 EGI 版本2和版本3的数据文件。EGI 格式文件的事件存储在专门的 EGI 数据通道。该通道的信息将被自动地导入到 EEGLAB 的事件表中，然后被 EEGLAB 从数据中剔除。如果导入事件通道失败，可以手动提取事件信息（<code>File &gt; Import event info &gt; From data channel</code>）。</p>
+<p>当前新版原生的 Netstation 文件无法直接导入到 EEGLAB/Matlab 中。可以通过 Netstation software 将数据转换为 Netstation 二进制文件。虽然 Netstation 也可以导出为 EDF 文件，但是储存事件信息的通道丢失了。</p>
+<p>如果单个被试的文件没分为多个数据段，可以在 EEGLAB 中一同导入 <code>File &gt; Import data &gt; From multiple seg. Nestation files</code>。</p>
+<p>Nestation 也可以把数据导出为 Matlab 文件，然后再通过 EEGLAB 导入 Matlab 文件 <code>File &gt; Import data &gt; From Netstation epoch Matlab files</code>。这种方法仍然会丢失许多信息。</p>
+<p><strong>总结：先将数据从 Netstation 中导出为二进制文件，然后通过 EEGLAB 导入。</strong></p>
+<h1 id="电极位置文件">电极位置文件</h1>
+<p>电极位置文件可以从 <a href="ftp://ftp.egi.com/pub/support/3rdPartySoftwareSupport/BESA/" target="_blank" rel="external">EGI ftp site</a> 获取。另外，EEGLAB 自带了一些电极位置文件，位于 EEGLAB 根目录下的 <code>sample_locs</code> 文件夹下的 <code>GSM*.sfp</code> 文件。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://sccn.ucsd.edu/wiki/A01:_Importing_Continuous_and_Epoched_Data#Importing_Netstation.2FEGI_files" target="_blank" rel="external">Importing Continuous and Epoched Data: Importing Netstation/EGI files</a></li>
+<li><a href="https://sccn.ucsd.edu/wiki/Channel_Location_Files" target="_blank" rel="external">Channel Location Files</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      最近需要指导一位访问学习的博士师兄分析脑电数据，涉及到 EGI 设备的数据格式，记录下通过 EEGLAB 如何导入 EGI 记录的脑电数据。
+    
+    </summary>
+    
+      <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
+    
+      <category term="EEG" scheme="blog.alexiangli.com/categories/Original/EEG/"/>
+    
+    
+      <category term="EEG" scheme="blog.alexiangli.com/tags/EEG/"/>
+    
+      <category term="EGI" scheme="blog.alexiangli.com/tags/EGI/"/>
+    
+      <category term="EEGLAB" scheme="blog.alexiangli.com/tags/EEGLAB/"/>
     
   </entry>
   
@@ -1413,133 +1293,6 @@ PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量�
   </entry>
   
   <entry>
-    <title>个人资源长期整理</title>
-    <link href="blog.alexiangli.com/wiki/"/>
-    <id>blog.alexiangli.com/wiki/</id>
-    <published>2016-11-12T16:00:00.000Z</published>
-    <updated>2017-01-19T12:55:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>活在一个信息社会，信息越来越繁杂，必须不断整理和精简。这个页面仅用于整理个人在学习和娱乐过程中所遇到的非常好的在线资源的整理。方便自己重新回顾和反复查阅。</p>
-<h1 id="社区">社区</h1>
-<p>数据科学<br>
-<a href="https://ropensci.org/" target="_blank" rel="external">rOpenSci</a> | <a href="https://rweekly.org" target="_blank" rel="external">Rweekly</a> | <a href="http://cos.name/" target="_blank" rel="external">统计之都</a></p>
-<p>技术社区<br>
-<a href="https://ruby-china.org/" target="_blank" rel="external">Ruby China</a> | <a href="http://python-china.org/" target="_blank" rel="external">Python China</a> | <a href="https://cnodejs.org/" target="_blank" rel="external">Node.js中文社区</a> | <a href="https://emacs-china.org/" target="_blank" rel="external">Emacs China</a> | <a href="http://gold.xitu.io/welcome" target="_blank" rel="external">掘金：高质量的技术社区</a></p>
-<p>其他社区<br>
-<a href="http://liqi.io/" target="_blank" rel="external">利器：创造者和他们的工具</a> | <a href="http://yizaoyiwan.com/" target="_blank" rel="external">一早一晚 | 自由工作社区</a></p>
-<h1 id="播客">播客</h1>
-<p><a href="https://ipn.li/" target="_blank" rel="external">IPN</a> | <a href="https://codetimecn.com/" target="_blank" rel="external">代码时间</a> | <a href="http://teahour.fm/" target="_blank" rel="external">Teahour.fm</a><br>
-<a href="http://podcast.uxcoffee.co/" target="_blank" rel="external">UX Coffee 设计咖</a> | <a href="http://nyshalong.com/" target="_blank" rel="external">纽约文化沙龙</a></p>
-<h1 id="可视化">可视化</h1>
-<p><a href="http://djchina.org/" target="_blank" rel="external">数据新闻网</a> | <a href="http://flowingdata.com/" target="_blank" rel="external">FlowingData</a><br>
-<a href="http://www.visualisingdata.com/" target="_blank" rel="external">VisualisingData</a> | <a href="http://blogger.ghostweather.com/" target="_blank" rel="external">Ghostweather R&amp;D Blog</a><br>
-<a href="http://infosthetics.com/information_aesthetics_about.html" target="_blank" rel="external">Information Aesthetics</a> | <a href="http://junkcharts.typepad.com/junk_charts/" target="_blank" rel="external">Junk Charts</a><br>
-<a href="http://lisacharlotterost.github.io/" target="_blank" rel="external">Lisa Charlotte Rost</a> | <a href="http://vis4.net/blog/" target="_blank" rel="external">vis4.net</a><br>
-<a href="http://blog.plot.ly/" target="_blank" rel="external">Plotly Blog</a> | <a href="http://vallandingham.me/" target="_blank" rel="external">Jim Vallandingham</a></p>
-<h1 id="工具">工具</h1>
-<ul>
-<li><a href="https://slides.com" target="_blank" rel="external">slides</a> 在线创建演示文档</li>
-<li><a href="https://www.gitbook.com/" target="_blank" rel="external">Gitbook</a> &amp; <a href="https://readthedocs.org/" target="_blank" rel="external">Read the Docs</a> 创建在线电子书或文档</li>
-<li><a href="https://feedly.com" target="_blank" rel="external">Feedly</a> + <a href="http://reederapp.com/" target="_blank" rel="external">Reeder</a>：Feed 订阅和阅读黄金搭档</li>
-<li><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a>: an API Documentation Browser and Code Snippet Manager</li>
-<li><a href="https://github.com/1995eaton/chromium-vim" target="_blank" rel="external">cVim</a>：让 Chrome/Chromium 具有 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 的高效工作模式</li>
-</ul>
-<!-- ## 心理与行为科学 -->
-<!-- - [Babies Learning Language](http://babieslearninglanguage.blogspot.com/)：斯坦福大学发展心理学教授 [Michael Frank](http://langcog.stanford.edu/) 的个人博客。博客文章涵盖 `发展心理学`、`心理学研究方法`、`开放科学` 等主题。 -->
-<h1 id="编程">编程</h1>
-<h2 id="clojure">Clojure</h2>
-<p><a href="http://clojure-china.org/" target="_blank" rel="external">clojure-china</a></p>
-<h1 id="学习">学习</h1>
-<h2 id="r">R</h2>
-<p><a href="http://stat545.com/index.html" target="_blank" rel="external">STAT545</a> | <a href="http://socviz.github.io/soc880/" target="_blank" rel="external">Soc 880: Data Visualization with R</a> | <a href="http://grangermoch.com/text-mining-in-r/" target="_blank" rel="external">Text Mining in R</a> | <a href="http://www.ling.upenn.edu/~joseff/rstudy/" target="_blank" rel="external">R Study Group</a></p>
-<p><a href="http://rcompanion.org/handbook/" target="_blank" rel="external">Summary and Analysis of Extension Program Evaluation in R</a><br>
-<a href="http://rcompanion.org/rcompanion/" target="_blank" rel="external">An R Companion for the Handbook of Biological Statistics</a><br>
-<a href="http://www.biostathandbook.com/" target="_blank" rel="external">Handbook of Biological Statistics</a><br>
-<a href="https://egret.psychol.cam.ac.uk/statistics/R/index.html" target="_blank" rel="external">Local tips for R</a><br>
-<a href="http://gribblelab.org/stats/index.html" target="_blank" rel="external">Introduction to Statistics Using R</a><br>
-<a href="http://www.unc.edu/courses/2006spring/ecol/145/001/index.html" target="_blank" rel="external">Ecology 145—Statistical Analysis</a><br>
-<a href="http://genomicsclass.github.io/book/" target="_blank" rel="external">PH525x series - Biomedical Data Science</a><br>
-<a href="http://www.unh.edu/halelab/BIOL933/schedule.htm" target="_blank" rel="external">BIOL 933: Design, Analysis, and Interpretation of Experiments</a><br>
-<a href="http://socserv.socsci.mcmaster.ca/jfox/Courses/soc6z3/index.html" target="_blank" rel="external">Sociology 6Z03 Introduction to Social Statistics</a></p>
-<p><a href="http://user2016.org/" target="_blank" rel="external">The R User Conference 2016</a><br>
-<a href="http://user2015.math.aau.dk/" target="_blank" rel="external">The R User Conference 2015</a><br>
-<a href="http://user2014.stat.ucla.edu/" target="_blank" rel="external">The R User Conference 2014</a><br>
-<a href="http://www.edii.uclm.es/~useR-2013/" target="_blank" rel="external">The R User Conference 2013</a></p>
-<p><a href="https://onlinecourses.science.psu.edu/stat505/" target="_blank" rel="external">STAT 505 - Applied Multivariate Statistical Analysis</a></p>
-<h2 id="c">C</h2>
-<p><a href="http://www.crasseux.com/books/ctutorial/" target="_blank" rel="external">The GNU C Programming Tutorial</a><br>
-<a href="http://masters-of-the-void.com/" target="_blank" rel="external">Learn C Programming on the Mac</a><br>
-<a href="http://www.gribblelab.org/CBootcamp/index.html" target="_blank" rel="external">C Programming Boot Camp</a></p>
-<hr>
-<h2 id="lisp-elisp">lisp/elisp</h2>
-<ul>
-<li><a href="http://harryrschwartz.com/2014/04/08/an-introduction-to-emacs-lisp.html" target="_blank" rel="external">一个简短的 elisp (Emacs lisp) 入门教程</a></li>
-<li><a href="http://www.newthinktank.com/2015/07/learn-lisp-one-video/" target="_blank" rel="external">一个简短的 lisp 教学视频</a></li>
-<li><a href="http://book.emacs-china.org/" target="_blank" rel="external">子龙山人出品：Master Emacs in 21 Days</a></li>
-<li><a href="http://smacs.github.io/elisp/" target="_blank" rel="external">水木社区：Emacs Lisp 简明教程</a></li>
-<li><a href="https://www.youtube.com/channel/UClT2UAbC6j7TqOWurVhkuHQ" target="_blank" rel="external">Sacha Chua</a> Emacs, Tutorial, Talks, Conversations</li>
-<li><a href="https://www.youtube.com/channel/UCkRmQ_G_NbdbCQMpALg6UPg" target="_blank" rel="external">emacsrocks</a></li>
-</ul>
-<hr>
-<p>YoutubeChannel<br>
-<a href="https://www.youtube.com/channel/UCOjD18EJYcsBog4IozkF_7w" target="_blank" rel="external">PyData</a><br>
-<a href="https://www.youtube.com/channel/UC98CzaYuFNAA_gOINFB0e4Q" target="_blank" rel="external">EuroPython Conference</a><br>
-<a href="https://www.youtube.com/channel/UCkhm72fuzkS9fYGlGpEmj7A" target="_blank" rel="external">Enthought</a><br>
-<a href="https://www.youtube.com/channel/UCBBd3JxQl455JkWBeulc-9w" target="_blank" rel="external">Berkeley Institute for Data Science</a><br>
-<a href="https://www.youtube.com/channel/UCDUS80bdunpmvWVPyFRPqFQ" target="_blank" rel="external">UofU Data</a><br>
-<a href="https://www.youtube.com/channel/UCcAtD_VYwcYwVbTdvArsm7w" target="_blank" rel="external">mathematicalmonk’s channel</a><br>
-<a href="https://www.youtube.com/channel/UC3xfbCMLCw1Hh4dWop3XtHg" target="_blank" rel="external">RStudio</a><br>
-<a href="https://www.youtube.com/channel/UC8xNPQ-3a5t9uMU7Vah-jWA" target="_blank" rel="external">Jeff Leek</a><br>
-<a href="https://www.youtube.com/channel/UCdjFpvS8lvT2MJVthOUvlyg" target="_blank" rel="external">Brian Caffo</a><br>
-<a href="https://www.youtube.com/channel/UCZA0RbbSK1IXeeJysKYRWuQ" target="_blank" rel="external">Roger Peng</a><br>
-<a href="https://www.youtube.com/channel/UCGwuewhdHD2q0BvuB2oWMRw" target="_blank" rel="external">berkeley-scf</a><br>
-<a href="https://www.youtube.com/channel/UCpOIUW62tnJTtpWFABxWZ8g" target="_blank" rel="external">Codecourse</a><br>
-<a href="https://www.youtube.com/user/learncodeacademy" target="_blank" rel="external">LearnCode.academy</a><br>
-<a href="https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ" target="_blank" rel="external">sentdex</a><br>
-<a href="https://www.youtube.com/channel/UCyU5wkjgQYGRB0hIHMwm2Sg" target="_blank" rel="external">LevelUpTuts</a><br>
-<a href="https://www.youtube.com/channel/UCFrjdcImgcQVyFbK04MBEhA" target="_blank" rel="external">Brandon Foltz</a><br>
-<a href="https://www.youtube.com/user/noobtoprofessional" target="_blank" rel="external">Chris Hawkes</a><br>
-<a href="https://www.youtube.com/channel/UCUR1pFG_3XoZn3JNKjulqZg" target="_blank" rel="external">thoughtbot</a></p>
-<p>前端开发</p>
-<ul>
-<li><a href="https://www.youtube.com/channel/UCADyUOnhyEoQqrw_RrsGleA" target="_blank" rel="external">Chris Coyier: CSS-TRICKS</a></li>
-<li><a href="https://www.youtube.com/channel/UCyIe-61Y8C4_o-zZCtO4ETQ" target="_blank" rel="external">DevTips</a></li>
-<li><a href="https://www.youtube.com/user/QuentinWatt" target="_blank" rel="external">Quentin Watt Tutorials</a></li>
-</ul>
-<p><a href="https://www.youtube.com/channel/UCSk9gGdqmj-NdcYBQ4kt0jA" target="_blank" rel="external">Tristen Grant</a> Illustration<br>
-<a href="https://www.youtube.com/channel/UC3TabHJUsa2BkEkN_xSpMvQ" target="_blank" rel="external">ATypI</a> Topography, Font design<br>
-<a href="https://www.youtube.com/channel/UCRoLLb8MnLX-P_xg-Z-UxqQ" target="_blank" rel="external">Design Driven NYC</a> Talks<br>
-<a href="https://www.youtube.com/channel/UCfWZwsP8trUy5uHJg8gcGIQ" target="_blank" rel="external">Mackenzie Child</a> Graphic Design<br>
-<a href="https://www.youtube.com/channel/UCK_vX6MneWKCLtL0uJwYOxQ" target="_blank" rel="external">Carl Kwan</a> Presentation, Content</p>
-<p><a href="https://www.youtube.com/channel/UClh-kVGih16yME0-jp3pzVg" target="_blank" rel="external">Sydney Opera House Talks &amp; Ideas</a> Talks, Ideas, and Whatever!<br>
-<a href="https://www.youtube.com/channel/UCWE-aBusAC3UauYLQna7JNQ" target="_blank" rel="external">Shalong NY</a> Talks 纽约文化沙龙</p>
-<p>Playlist<br>
-<a href="https://www.youtube.com/user/dataschool/playlists?shelf_id=4&amp;view=50&amp;sort=dd" target="_blank" rel="external">Introduction to Statistical Learning</a></p>
-<h1 id="工作流">工作流</h1>
-<ul>
-<li>Create a static presentation: R + Rstudio + Rmarkdown + Revealjs</li>
-<li>Create a interactive presentation: R + Rstudio + Shiny</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      个人文档整理页面。
-    
-    </summary>
-    
-      <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
-    
-      <category term="Wiki" scheme="blog.alexiangli.com/categories/Original/Wiki/"/>
-    
-    
-      <category term="How-to-learn" scheme="blog.alexiangli.com/tags/How-to-learn/"/>
-    
-      <category term="Wiki" scheme="blog.alexiangli.com/tags/Wiki/"/>
-    
-  </entry>
-  
-  <entry>
     <title>男士衬衫穿搭技巧</title>
     <link href="blog.alexiangli.com/life-shirt/"/>
     <id>blog.alexiangli.com/life-shirt/</id>
@@ -1720,110 +1473,6 @@ PPI/DPI 单位：表示打印图像或显示器单位面积上像素/点数量�
       <category term="数据分析" scheme="blog.alexiangli.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="缺失值" scheme="blog.alexiangli.com/tags/%E7%BC%BA%E5%A4%B1%E5%80%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：数据导入</title>
-    <link href="blog.alexiangli.com/r-import-data/"/>
-    <id>blog.alexiangli.com/r-import-data/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导入-csv-数据">导入 CSV 数据</h1>
-<p>使用基本包函数</p>
-<p><code>read.csv()</code></p>
-<p>使用 <code>readr</code> 包</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wrapper function of data loading for reusing</span></div><div class="line">importdata &lt;- <span class="keyword">function</span>(d,f) &#123;</div><div class="line">  data &lt;- readr::read_csv(</div><div class="line">                   file = file.path(d, f),</div><div class="line">                   col_names = <span class="literal">TRUE</span>,</div><div class="line">                   na = <span class="string">"NULL"</span>,</div><div class="line">                   trim_ws = <span class="literal">TRUE</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">## load data</span></div><div class="line">data &lt;- importdata(input_dir, input_file)</div></pre></td></tr></table></figure>
-<h1 id="导入-excel-数据">导入 EXCEL 数据</h1>
-<h1 id="导入-spss-数据">导入 SPSS 数据</h1>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导入-csv-数据&quot;&gt;导入 CSV 数据&lt;/h1&gt;
-&lt;p&gt;使用基本包函数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;read.csv()&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;使用 &lt;code&gt;readr&lt;/code&gt; 包&lt;/p&gt;
-&lt;figure class=&quot;highlight r&quot;&gt;&lt;
-    
-    </summary>
-    
-      <category term="Original" scheme="blog.alexiangli.com/categories/Original/"/>
-    
-    
-      <category term="R" scheme="blog.alexiangli.com/tags/R/"/>
-    
-      <category term="R-basics" scheme="blog.alexiangli.com/tags/R-basics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R：描述性统计</title>
-    <link href="blog.alexiangli.com/r-descriptive-stats/"/>
-    <id>blog.alexiangli.com/r-descriptive-stats/</id>
-    <published>2016-11-07T16:00:00.000Z</published>
-    <updated>2016-11-19T03:31:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
-<ul>
-<li><code>str(data)</code> 数据构成</li>
-<li>列数：<code>ncol(data)</code></li>
-<li>行数：<code>nrow(data)</code></li>
-<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
-<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
-</ul>
-<p>描述性统计：</p>
-<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>
-如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
-<p>如果用特定的计算统计量的函数呢？</p>
-<ul>
-<li>最小值 <code>min(data$col_name)</code></li>
-<li>最大值 <code>max(data$col_name)</code></li>
-<li>标准差 <code>sd(data$col_name)</code></li>
-<li>方差 <code>var(data$col_name)</code></li>
-<li>均值 <code>mean(data$col_name)</code></li>
-<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
-<li>中位数 <code>median(data$col_name)</code></li>
-<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
-</ul>
-<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
-<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有有哪些包提供了描述性统计的函数呢？</p>
-<ul>
-<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
-<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
-<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
-</ul>
-<p>如果按照组或者变量水平来进行描述性统计呢？</p>
-<ul>
-<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
-<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
-<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
-</ul>
-<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
-&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;名称：&lt;c
-    
-    </summary>
-    
-      <category term="Notes" scheme="blog.alexiangli.com/categories/Notes/"/>
-    
-    
-      <category term="R" scheme="blog.alexiangli.com/tags/R/"/>
-    
-      <category term="R-basics" scheme="blog.alexiangli.com/tags/R-basics/"/>
-    
-      <category term="Statistics" scheme="blog.alexiangli.com/tags/Statistics/"/>
     
   </entry>
   
@@ -2060,6 +1709,75 @@ Correlogram 相关图，展示相关矩阵</p>
       <category term="R" scheme="blog.alexiangli.com/tags/R/"/>
     
       <category term="Data viz" scheme="blog.alexiangli.com/tags/Data-viz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R：描述性统计</title>
+    <link href="blog.alexiangli.com/r-descriptive-stats/"/>
+    <id>blog.alexiangli.com/r-descriptive-stats/</id>
+    <published>2016-11-07T16:00:00.000Z</published>
+    <updated>2016-11-19T03:31:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取数据表的属性：</p>
+<ul>
+<li><code>str(data)</code> 数据构成</li>
+<li>列数：<code>ncol(data)</code></li>
+<li>行数：<code>nrow(data)</code></li>
+<li>名称：<code>names(data)</code> 或者 <code>col.names(data)</code> <code>row.names(data)</code></li>
+<li>长度：<code>length(data)</code> 或者查看某一列的唯一值个数 <code>length(unique(data[,&quot;col_name&quot;]))</code> 或者 <code>length(unique(data$col_name))</code></li>
+</ul>
+<p>描述性统计：</p>
+<p>直接使用 <code>summary(data)</code> 就可以得到描述性统计值。<code>summary</code> 会根据输入对象的类型而返回不同的统计值。<br>
+如果对象为 <code>charactor</code> 那么得到的是字符串总长度和 <code>Class</code> 和 <code>Mode</code>。如果对象为 <code>factor</code>，得到的是每个 <code>factor</code> 的数目。如果是 <code>integer</code>，得到的是最小值、中位数、平均数、四分位数、最大值。</p>
+<p>如果用特定的计算统计量的函数呢？</p>
+<ul>
+<li>最小值 <code>min(data$col_name)</code></li>
+<li>最大值 <code>max(data$col_name)</code></li>
+<li>标准差 <code>sd(data$col_name)</code></li>
+<li>方差 <code>var(data$col_name)</code></li>
+<li>均值 <code>mean(data$col_name)</code></li>
+<li>四分位数 <code>quantile(data$col_name, c(0.25, 0.75))</code></li>
+<li>中位数 <code>median(data$col_name)</code></li>
+<li>中位数绝对偏差 <code>mad(data$col_name)</code></li>
+</ul>
+<p>还有偏度和峰度两个描述性统计指标，但是 R 基本包里头没有提供直接算的函数。要么自己写一个函数，要么使用第三方开发包中的函数计算。</p>
+<p>参考<a href="http://jackycode.github.io/blog/2014/03/12/rseries5/" target="_blank" rel="external">这篇博文</a>，作者给出了公式和代码：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">desc.stats &lt;- <span class="keyword">function</span>(x, na.omit=<span class="literal">FALSE</span> &#123;</div><div class="line">  <span class="keyword">if</span> (na.omit)</div><div class="line">    x &lt;- x[!is.na(x)]</div><div class="line">  n &lt;- length(x)</div><div class="line">  mean &lt;- mean(x)</div><div class="line">  var &lt;- var(x)</div><div class="line">  sd &lt;- sd(x)</div><div class="line">  skew &lt;- sum((x-mean)^<span class="number">3</span>/sd^<span class="number">3</span>)/n <span class="comment">#计算偏度</span></div><div class="line">  kurt &lt;- sum((x-mean)^<span class="number">4</span>/sd^<span class="number">4</span>)/n - <span class="number">3</span> <span class="comment">#计算峰度</span></div><div class="line">  <span class="keyword">return</span>(list(Mean=mean, Variance=var, skewness=skew, kurtosis=kurt))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有有哪些包提供了描述性统计的函数呢？</p>
+<ul>
+<li><code>Hmisc</code> 包中的 <code>Hmisc::describe()</code> 函数，可以返回变量数目、缺失值数目、均值、分位数等；</li>
+<li><code>fBasic</code> 包中有 <code>skewness()</code> 和 <code>kurtosis()</code> 函数分别计算偏度和峰度；该包还有一个 <code>fBasic::basicStats()</code> 可以得到大部分描述性统计量。</li>
+<li><code>psych</code> 专门用于心理统计学的包，里头也有关于描述性统计的函数，<code>psych::describe()</code> <code>psych::describeData()</code> <code>psych::describeBy()</code></li>
+</ul>
+<p>如果按照组或者变量水平来进行描述性统计呢？</p>
+<ul>
+<li>可以使用基本包里头的向量化运算的 <code>apply()</code> 族，<code>by()</code> <code>aggregate()</code> 等。</li>
+<li>Hackley 大神开发的 <code>plyr</code> 和加强版 <code>dplyr</code> 也是可以组的描述性统计的。</li>
+<li>还有如 <code>psych::describeBy()</code> <code>doBy::summaryBy()</code></li>
+</ul>
+<p>参考: <a href="http://www.statmethods.net/stats/descriptives.html" target="_blank" rel="external">Quick-R: Descriptive Statistics</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取数据表的属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;str(data)&lt;/code&gt; 数据构成&lt;/li&gt;
+&lt;li&gt;列数：&lt;code&gt;ncol(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;行数：&lt;code&gt;nrow(data)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;名称：&lt;c
+    
+    </summary>
+    
+      <category term="Notes" scheme="blog.alexiangli.com/categories/Notes/"/>
+    
+    
+      <category term="R" scheme="blog.alexiangli.com/tags/R/"/>
+    
+      <category term="R-basics" scheme="blog.alexiangli.com/tags/R-basics/"/>
+    
+      <category term="Statistics" scheme="blog.alexiangli.com/tags/Statistics/"/>
     
   </entry>
   
@@ -3021,7 +2739,7 @@ Certain named classes of characters are predefined. Their interpretation depends
     <link href="blog.alexiangli.com/sql-intro/"/>
     <id>blog.alexiangli.com/sql-intro/</id>
     <published>2016-09-17T01:46:39.000Z</published>
-    <updated>2016-11-28T12:42:38.000Z</updated>
+    <updated>2017-07-07T07:14:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>《数据库系统概论》第三章笔记。</p>
 <h1 id="基础">基础</h1>
